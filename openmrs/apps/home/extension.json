@@ -1,0 +1,51 @@
+[
+    {
+        "id": "bahmni.registration",
+        "extensionPointId": "org.bahmni.home.dashboard",
+        "type": "link",
+        "label": "Registration",
+        "url": "../registration/",
+        "icon": "fa-user",
+        "order": 1,
+        "requiredPrivilege": "app:registration"
+    },
+    {
+        "id": "bahmni.clinical",
+        "extensionPointId": "org.bahmni.home.dashboard",
+        "type": "link",
+        "label": "Clinical",
+        "url": "../clinical/",
+        "icon": "fa-stethoscope",
+        "order": 2,
+        "requiredPrivilege": "app:clinical"
+    },
+    {
+        "id": "bahmni.orders",
+        "extensionPointId": "org.bahmni.home.dashboard",
+        "type": "link",
+        "label": "Orders",
+        "url": "../orders/#/search",
+        "icon": "fa-book",
+        "order": 3,
+        "requiredPrivilege": "app:orders"
+    },
+    {
+        "id": "bahmni.admin",
+        "extensionPointId": "org.bahmni.home.dashboard",
+        "type": "link",
+        "label": "Admin",
+        "url": "../admin/#/dashboard/home",
+        "icon": "fa-user",
+        "order": 4,
+        "requiredPrivilege": "app:admin"
+    },
+    {
+        "id": "bahmni.reports",
+        "extensionPointId": "org.bahmni.home.dashboard",
+        "type": "link",
+        "label": "Reports",
+        "url": "../reports/#/dashboard",
+        "icon": "fa-user",
+        "order": 5
+    }
+]

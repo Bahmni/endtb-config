@@ -1,0 +1,40 @@
+[
+    {
+        "id": "bahmni.registration",
+        "instanceOf":"bahmni.template.registration",
+        "description": "Bahmni Patient Registration App",
+        "extensionPoints": [
+            {
+                "id": "org.bahmni.registration.patient.search.result.action",
+                "description": "Bahmni Patient Search Result Action"
+            },
+            {
+                "id": "org.bahmni.registration.patient.next",
+                "description": "After Bahmni Patient Registration, forward url configuration"
+            }
+        ],
+        "contextModel": [
+            "patientUuid",
+            "activeVisitUuid"
+        ],
+        "config" : {
+            "addressHierarchy": {
+                "showAddressFieldsTopDown": false,
+                "freeTextAddressFields": ["address2", "address1"]
+            },
+            "relationshipTypeMap": {
+                "Doctor":"provider",
+                "Parent":"patient"
+            },
+            "defaultIdentifierPrefix": "BAH",
+            "defaultVisitType": "OPD",
+            "searchByIdForwardUrl": "/patient/{{patientUuid}}",
+            "showMiddleName": false,
+            "fieldValidation" : {
+                "primaryContact" : {"pattern" : "[0-9]{8,10}", "errorMessage" : "Should be 12 characters starting with 91 (country code)"},
+                "familyName" : {"pattern" : "[a-zA-Z]{0,}", "errorMessage" : "Should contain characters"},
+                "address1" : {"pattern" : "[a-zA-Z0-9]{3}", "errorMessage" : "Should contain 3 characters"}
+            }
+        }
+    }
+]

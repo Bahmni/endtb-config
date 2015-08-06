@@ -1,0 +1,24 @@
+[
+    {
+        "title": "General",
+        "displayByDefault": true,
+        "printing": {
+            "title": "Bahmni",
+            "header": "Visit",
+            "logo": "../images/bahmniLogo.png"
+        },
+        "defaultSections": true,
+        "sections": [
+            {
+                "type": "pivotTable",
+                "title": "Pivot table",
+                "config": {
+                    "groupBy": "encounters",
+                    "obsConcepts": [],
+                    "drugConcepts": [],
+                    "labConcepts": ""
+                }
+            }
+        ]
+    }
+]
