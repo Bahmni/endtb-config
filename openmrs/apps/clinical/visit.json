@@ -1,5 +1,5 @@
-[
-    {
+{
+    "general": {
         "title": "General",
         "displayByDefault": true,
         "printing": {
@@ -8,8 +8,8 @@
             "logo": "../images/bahmniLogo.png"
         },
         "defaultSections": true,
-        "sections": [
-            {
+        "sections": {
+            "pivottable": {
                 "type": "pivotTable",
                 "title": "Pivot table",
                 "config": {
@@ -19,6 +19,6 @@
                     "labConcepts": ""
                 }
             }
-        ]
+        }
     }
-]
+}

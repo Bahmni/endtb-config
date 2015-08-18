@@ -1,52 +1,65 @@
-[
-    {
-        "id": "bahmni.clinical",
-        "extensionPoints": [
-            {
-                "id": "org.bahmni.clinical.consultation.board",
-                "description": "Bahmni Clinical Consultation Page"
-            },
-            {
-                "id": "org.bahmni.clinical.conceptSetGroup.*",
-                "description": "Define conceptsets part of a conceptset group"
-            },
-            {
-                "id": "org.bahmni.clinical.orders",
-                "description": "Bahmni Orders Page"
-            },
-            {
-                "id":"org.bahmni.patient.search",
-                "description": "Bahmni Patient search, lookups Page"
-            }
+{
+    "id": "bahmni.clinical",
+    "extensionPoints": [
+        {
+            "id": "org.bahmni.clinical.consultation.board",
+            "description": "Bahmni Clinical Consultation Page"
+        },
+        {
+            "id": "org.bahmni.clinical.conceptSetGroup.*",
+            "description": "Define conceptsets part of a conceptset group"
+        },
+        {
+            "id": "org.bahmni.clinical.orders",
+            "description": "Bahmni Orders Page"
+        },
+        {
+            "id": "org.bahmni.patient.search",
+            "description": "Bahmni Patient search, lookups Page"
+        }
+    ],
+    "contextModel": [
+        "patientUuid",
+        "visitUuid"
+    ],
+    "config": {
+        "obsIgnoreList": [
+            "Patient file"
         ],
-        "contextModel": [
-            "patientUuid",
-            "visitUuid"
-        ],
-        "config" : {
-            "obsIgnoreList" : ["Patient file"],
-            "otherInvestigationsMap": {
-            },
-            "maxConceptSetLevels": 3,
-            "conceptSetUI": {    
-            },
-            "visitPage": {
-                "observationDisplay" : {
+        "otherInvestigationsMap": {},
+        "maxConceptSetLevels": 3,
+        "conceptSetUI": {},
+        "visitPage": {
+            "observationDisplay": {
                 "conceptNames": []
-                }
-            },
-            "drugOrder": {
-                "defaultDurationUnit": "Day(s)",
-                "defaultInstructions": "As directed",
-                "frequencyDefaultDurationUnitsMap": [
-                    {"minFrequency":5, "maxFrequency": null, "defaultDurationUnit": "Hour(s)"},
-                    {"minFrequency":"1/7", "maxFrequency": 5, "defaultDurationUnit": "Day(s)"},
-                    {"minFrequency":"1/30", "maxFrequency": "1/7", "defaultDurationUnit": "Week(s)"},
-                    {"minFrequency":null, "maxFrequency": "1/30", "defaultDurationUnit": "Month(s)"}
-                ],
-                "drugFormDefaults": {
-                }
             }
+        },
+        "drugOrder": {
+            "defaultDurationUnit": "Day(s)",
+            "defaultInstructions": "As directed",
+            "frequencyDefaultDurationUnitsMap": [
+                {
+                    "minFrequency": 5,
+                    "maxFrequency": null,
+                    "defaultDurationUnit": "Hour(s)"
+                },
+                {
+                    "minFrequency": "1/7",
+                    "maxFrequency": 5,
+                    "defaultDurationUnit": "Day(s)"
+                },
+                {
+                    "minFrequency": "1/30",
+                    "maxFrequency": "1/7",
+                    "defaultDurationUnit": "Week(s)"
+                },
+                {
+                    "minFrequency": null,
+                    "maxFrequency": "1/30",
+                    "defaultDurationUnit": "Month(s)"
+                }
+            ],
+            "drugFormDefaults": {}
         }
     }
-]
+}

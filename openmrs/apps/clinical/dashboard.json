@@ -1,20 +1,20 @@
-[
-    {
+{
+    "general": {
         "dashboardName": "General",
         "displayByDefault": true,
         "maxRecentlyViewedPatients": 10,
-        "sections": [
-            {
+        "sections": {
+            "diagnosis": {
                 "title": "Diagnosis",
                 "name": "diagnosis",
                 "showCertainty": true,
                 "showOrder": true
             },
-            {
+            "programs": {
                 "title": "Programs",
                 "name": "programs"
             },
-            {
+            "navigation_links_control": {
                 "title": "Navigation Links Control",
                 "name": "navigationLinksControl",
                 "links": [
@@ -24,7 +24,7 @@
                     }
                 ]
             },
-            {
+            "visits": {
                 "title": "Visits",
                 "name": "visits",
                 "dashboardParams": {
@@ -32,10 +32,10 @@
                     "maximumNoOfVisits": 10
                 }
             },
-            {
+            "admission_details": {
                 "title": "Admission Details",
                 "name": "admissionDetails"
             }
-        ]
+        }
     }
-]
+}
