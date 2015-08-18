@@ -16,7 +16,7 @@
             INSERT INTO idgen_identifier_source (uuid, name, description, identifier_type, creator, date_created)
               VALUES (uuid(), 'BAM', 'ID sequence source for patients whose primary health center is Bahmini', @patient_identifier, 1, curdate());
             SET @source_id := LAST_INSERT_ID();
-            INSERT INTO idgen_seq_id_gen (id, next_sequence_value, base_character_set, first_identifier_base, prefix, suffix, min_length, max_length) VALUES (@source_id, 100000, '0123456789', '100000', 'BAH', '', 4, 9);
+            INSERT INTO idgen_seq_id_gen (id, next_sequence_value, base_character_set, first_identifier_base, prefix, suffix, min_length, max_length) VALUES (@source_id, 100000, '0123456789', '100000', 'ETB', '', 4, 9);
 
 
             -- Location details

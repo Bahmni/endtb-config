@@ -41,6 +41,6 @@
             "forwardUrl": "../clinical/#/patient/{{patientUuid}}/concept-set-group/observations"
         },
         "order": 1,
-        "requiredPrivilege": "RegisterAndConsult"
+        "requiredPrivilege": "Edit Patients"
     }
 ]

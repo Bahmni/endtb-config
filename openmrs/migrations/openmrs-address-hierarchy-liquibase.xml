@@ -22,4 +22,8 @@
 			INSERT INTO `address_hierarchy_level` (`address_hierarchy_level_id`,`name`,`parent_level_id`,`address_field`,`uuid`,`required`) VALUES (8,'Address Line 1',7,'ADDRESS_1','f934bbd7-e902-4ac5-a9ae-ef949f16beeb',0);
         </sql>
     </changeSet>
+    <changeSet id="BAHMNI-IMPL-ADDRESS-HIERARCHY-002" author="tw">
+        <comment>Address hierarchy entry data</comment>
+        <sqlFile path="address-hierarchy-entry-data.sql"/>
+    </changeSet>
 </databaseChangeLog>
