@@ -14,16 +14,6 @@
                 "title": "Programs",
                 "name": "programs"
             },
-            "navigation_links_control": {
-                "title": "Navigation Links Control",
-                "name": "navigationLinksControl",
-                "links": [
-                    {
-                        "title": "Home Dashboard",
-                        "url": "../home/#/dashboard"
-                    }
-                ]
-            },
             "visits": {
                 "title": "Visits",
                 "name": "visits",
@@ -31,10 +21,6 @@
                     "title": null,
                     "maximumNoOfVisits": 10
                 }
-            },
-            "admission_details": {
-                "title": "Admission Details",
-                "name": "admissionDetails"
             }
         }
     }

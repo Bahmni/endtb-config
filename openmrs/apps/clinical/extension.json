@@ -40,26 +40,6 @@
         "order": 4,
         "requiredPrivilege": "app:clinical:consultationTab"
     },
-    "bahmni_clinical_orders_pending_app_radiologyorders": {
-        "id": "bahmni.clinical.orders.pending",
-        "extensionPointId": "org.bahmni.clinical.orders",
-        "type": "link",
-        "label": "Pending Orders",
-        "url": "pendingOrders",
-        "icon": "fa-user-md",
-        "order": 5,
-        "requiredPrivilege": "app:radiologyOrders"
-    },
-    "bahmni_clinical_consultation_orders_app_clinical_diagnosistab": {
-        "id": "bahmni.clinical.consultation.orders",
-        "extensionPointId": "org.bahmni.clinical.consultation.board",
-        "type": "link",
-        "label": "Orders",
-        "url": "orders",
-        "icon": "icon-user-md",
-        "order": 6,
-        "requiredPrivilege": "app:clinical:diagnosisTab"
-    },
     "bahmni_clinical_billing_treatment_app_clinical_consultationtab": {
         "id": "bahmni.clinical.billing.treatment",
         "extensionPointId": "org.bahmni.clinical.consultation.board",

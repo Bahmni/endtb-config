@@ -19,16 +19,6 @@
         "order": 2,
         "requiredPrivilege": "app:clinical"
     },
-    "bahmni_orders": {
-        "id": "bahmni.orders",
-        "extensionPointId": "org.bahmni.home.dashboard",
-        "type": "link",
-        "label": "Orders",
-        "url": "../orders/#/search",
-        "icon": "fa-book",
-        "order": 3,
-        "requiredPrivilege": "app:orders"
-    },
     "bahmni_admin": {
         "id": "bahmni.admin",
         "extensionPointId": "org.bahmni.home.dashboard",
