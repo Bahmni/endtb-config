@@ -8,11 +8,13 @@
                 "title": "Diagnosis",
                 "name": "diagnosis",
                 "showCertainty": true,
-                "showOrder": true
+                "showOrder": true,
+                "displayOrder": 0
             },
             "programs": {
                 "title": "Programs",
-                "name": "programs"
+                "name": "programs",
+                "displayOrder": 1
             },
             "visits": {
                 "title": "Visits",
@@ -20,7 +22,8 @@
                 "dashboardParams": {
                     "title": null,
                     "maximumNoOfVisits": 10
-                }
+                },
+                "displayOrder": 2
             }
         }
     }

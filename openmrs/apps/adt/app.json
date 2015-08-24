@@ -42,18 +42,21 @@
                             "Vitals"
                         ],
                         "numberOfVisits": 2
-                    }
+                    },
+                    "displayOrder": 0
                 },
                 "disposition": {
                     "title": "Disposition",
                     "name": "disposition",
-                    "numberOfVisits": 1
+                    "numberOfVisits": 1,
+                    "displayOrder": 1
                 },
                 "diagnosis": {
                     "title": "Diagnosis",
                     "name": "diagnosis",
                     "numberOfVisits": 1,
-                    "showDetailsButton": true
+                    "showDetailsButton": true,
+                    "displayOrder": 2
                 },
                 "patient_information": {
                     "title": "Patient Information",
@@ -75,11 +78,13 @@
                         "address2",
                         "cityVillage",
                         "countryDistrict"
-                    ]
+                    ],
+                    "displayOrder": 3
                 },
                 "admission_details": {
                     "title": "Admission Details",
-                    "name": "admissionDetails"
+                    "name": "admissionDetails",
+                    "displayOrder": 4
                 },
                 "navigation_links_control": {
                     "title": "Navigation Links Control",
@@ -113,7 +118,8 @@
                             "title": "Consultation",
                             "url": "../clinical/#/patient/:patientUuid/concept-set-group/observations"
                         }
-                    ]
+                    ],
+                    "displayOrder": 5
                 }
             }
         }
