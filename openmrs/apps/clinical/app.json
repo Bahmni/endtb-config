@@ -30,6 +30,62 @@
                 "conceptNames": []
             }
         },
+	"conceptSetUI": {
+                "Followup, Pain Aching or Buring in Feet and Legs": {
+                "multiSelect": true
+                },
+                "Followup, Pins and Needles in Feet and Legs": {
+                "multiSelect": true
+                },
+                "Followup, Numbness in Feet and Legs": {
+                "multiSelect": true
+                },
+		"Baseline, List of drugs taken for more than a month": {
+                "multiSelect": true
+                },
+		"Baseline, Pain Aching or Buring in Feet and Legs": {
+                "multiSelect": true
+                },
+                "Baseline, Pins and Needles in Feet and Legs": {
+                "multiSelect": true
+                },
+                "Baseline, Numbness in Feet and Legs": {
+                "multiSelect": true
+                },
+		"Baseline, Disease site": {
+		"multiSelect": true
+		},
+		"Baseline, Other drug taken for more than a month": {
+		"conciseText": true
+		},
+		"Baseline, Most recent previous TB treatment registration number": {
+                "conciseText": true
+                },
+		"Baseline, Drugs used in ARV treatment": {
+                "conciseText": true
+                },
+		"Baseline, Cancer type": {
+                "conciseText": true
+                },
+		"Baseline, Psychiatric illness type": {
+                "conciseText": true
+                },
+		"Baseline, Smear result": {
+                "conciseText": true
+                },
+		"Baseline, Culture result": {
+                "conciseText": true
+                },
+		"Baseline, Xpert MTB RIF result": {
+                "conciseText": true
+                },
+		"Baseline, DST results": {
+                "conciseText": true
+                },
+		"Baseline, Exact extrapulmonary site": {
+		"conciseText": true
+		}
+        },
         "drugOrder": {
             "defaultDurationUnit": "Day(s)",
             "defaultInstructions": "As directed",
