@@ -55,13 +55,13 @@
 		"Baseline, Disease site": {
 		"multiSelect": true
 		},
-		"Baseline, Other drug taken for more than a month": {
-		"conciseText": true
-		},
-		"Baseline, Most recent previous TB treatment registration number": {
-                "conciseText": true
+		"Baseline, Patients for whom the construction of a regimen with four likely effective second-line drugs is not possible": {
+                "multiSelect": true
                 },
-		"Baseline, Drugs used in ARV treatment": {
+                "Baseline, Other patients who have high risk of unfavorable outcome but who do not fit the above categories": {
+                "multiSelect": true
+                },
+		"Baseline, Most recent previous TB treatment registration number": {
                 "conciseText": true
                 },
 		"Baseline, Cancer type": {

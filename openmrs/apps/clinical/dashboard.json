@@ -4,17 +4,26 @@
         "displayByDefault": true,
         "maxRecentlyViewedPatients": 10,
         "sections": {
-            "diagnosis": {
+            "patientInformation": {
+                "title": "Patient Information",
+                "name": "patientInformation",
+                "patientAttributes": [
+                    "DRTBNationalID"
+                ],
+                "addressFields": [],
+                "displayOrder": 0
+            },
+	    "diagnosis": {
                 "title": "Diagnosis",
                 "name": "diagnosis",
                 "showCertainty": true,
                 "showOrder": true,
-                "displayOrder": 0
+                "displayOrder": 1
             },
-            "programs": {
+	    "programs": {
                 "title": "Programs",
                 "name": "programs",
-                "displayOrder": 1
+                "displayOrder": 2
             },
             "visits": {
                 "title": "Visits",
@@ -23,7 +32,45 @@
                     "title": null,
                     "maximumNoOfVisits": 10
                 },
-                "displayOrder": 2
+                "displayOrder": 3
+            },
+            "followup": {
+                "title": "Followup Form Findings",
+                "templateName": "Followup Template",
+                "name": "diseaseTemplate",
+                "dashboardParams": {
+                    "showOnly": []
+                },
+                "allDiseaseDetails": {
+                    "showDetailsButton": true,
+                    "pivotTable": {
+                        "numberOfVisits": "15",
+                        "groupBy": "visits",
+                        "obsConcepts": [],
+                        "drugConcepts": [],
+                        "labConcepts": []
+                    }
+                },
+                "displayOrder": 5
+            },
+             "baseline": {
+                "title": "Baseline Form Findings",
+                "templateName": "Baseline Template",
+                "name": "diseaseTemplate",
+                "dashboardParams": {
+                    "showOnly": []
+                },
+                "allDiseaseDetails": {
+                    "showDetailsButton": true,
+                    "pivotTable": {
+                        "numberOfVisits": "15",
+                        "groupBy": "visits",
+                        "obsConcepts": [],
+                        "drugConcepts": [],
+                        "labConcepts": []
+                    }
+                },
+                "displayOrder": 4
             }
         }
     }
