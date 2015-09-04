@@ -1,0 +1,10 @@
+uuid,name,description,class,datatype,units,shortname,reference-term-source,reference-term-code,reference-term-relationship,answer.1,answer.2,answer.3,answer.4,answer.5,answer.6,answer.7,answer.8,answer.9,answer.10,answer.11,answer.12,answer.13,answer.14,answer.15,answer.16
+,The AE met the definition of an SAE and an SAE Form was submitted to the PV Unit,,Misc,N/A,,(A) The AE met the definition of an SAE and an SAE Form was submitted to the PV Unit,,,,,,,,,,,,,,,,,,,
+,The AE never met the definition of an SAE and an SAE Form was never submitted to the PV Unit,,Misc,N/A,,(B)The AE never met the definition of an SAE and an SAE Form was never submitted to the PV Unit,,,,,,,,,,,,,,,,,,,
+,"AE Log, Adverse Event Number",,Misc,Numeric,,AE #,,,,,,,,,,,,,,,,,,,
+,"AE Log, Adverse Event Description",,Misc,Text,,Description,,,,,,,,,,,,,,,,,,,
+,"AE Log, Adverse Event Date",,Misc,Date,,Date,,,,,,,,,,,,,,,,,,,
+,"AE Log, Adverse Event Severity",,Misc,Coded,,Severity,,,,Adverse reaction grade 1,Adverse reaction grade 2,Adverse reaction grade 3,Adverse reaction grade 4,Adverse reaction grade 5,,,,,,,,,,,
+,"AE Log, SAE form",,Misc,Coded,,SAE Form,,,,The AE met the definition of an SAE and an SAE Form was submitted to the PV Unit,The AE never met the definition of an SAE and an SAE Form was never submitted to the PV Unit,,,,,,,,,,,,,,
+,"AE Log, Outcome",,Misc,Coded,,Outcome,,,,Fatal,Not resolved,Resolved,Resolved with sequelae,Resolving,Unknown,,,,,,,,,,
+,"AE Log, Action",,Misc,Coded,,Action,,,,No changes made to the TB treatment regimen,One or more TB drugs were temporarily dose reduced,One or more TB drugs were permanently dose reduced,One or more TB drugs were temporarily interrupted,One or more TB drugs were permanently discontinued,,,,,,,,,,,

@@ -1,0 +1,10 @@
+uuid,name,description,class,datatype,units,shortname,reference-term-source,reference-term-code,reference-term-relationship,answer.01,answer.02,answer.03,answer.04,answer.05,answer.06,answer.07,answer.08,answer.09,answer.10,answer.11,answer.12,answer.13,answer.14,answer.15,answer.16,answer.17,answer.18,answer.19,answer.20,answer.21,answer.22,answer.23
+,"Medication log, Treatment start date",,Misc,Date,,Treatment start date,,,,,,,,,,,,,,,,,,,,,,,,,,
+,"Medication log, Drug abbreviation",,Misc,Text,,Drug abbreviation,,,,,,,,,,,,,,,,,,,,,,,,,,
+,"Medication log, Drug dose",,Misc,Numeric,mg,Dose,,,,,,,,,,,,,,,,,,,,,,,,,,
+,"Medication log, Drug route",,Misc,Coded,,Route,,,,Oral administration,Intravenous administration,Intramuscular administration,Subcutaneous administration,Inhaled administration,Nasal administration,Left ear administration,Right ear administration,Bilateral ear administration,Left eye administration,Right eye administration,Bilateral eye administration,Transdermal administration,Vaginal administration,Rectal administration,Nasogastric tube administration,Intraosseous administration,Other,,,,,
+,"Medication log, Drug frequency",,Misc,Coded,,Frequency,,,,Once a day,Twice a day,Thrice a day,Four times a day,Five times a day,Every hour,Every 2 hours,Every 3 hours,Every 4 hours,Every 6 hours,Every 8 hours,Every 12 hours,On alternate days,Once a week,Twice a week,Thrice a week,Four days a week,Five days a week,Six days a week,Every 2 weeks,Every 3 weeks,Once a month,Immediately
+,"Medication log, Drug start date",,Misc,Date,,Start date,,,,,,,,,,,,,,,,,,,,,,,,,,
+,"Medication log, Drug end date",,Misc,Date,,End date,,,,,,,,,,,,,,,,,,,,,,,,,,
+,"Medication log, Reason for medication",,Misc,Coded,,Reason for medication,,,,End of treatment,Resistance to medication,Adverse event,Contraindication,Stockout / Drug supply issue,Other,,,,,,,,,,,,,,,,,
+,"Medication log, Other reason for medication",,Misc,Text,,Other(specify),,,,,,,,,,,,,,,,,,,,,,,,,,

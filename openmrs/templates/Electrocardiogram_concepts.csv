@@ -1,0 +1,4 @@
+uuid,name,description,class,datatype,units,shortname,reference-term-source,reference-term-code,reference-term-relationship,answer.1,answer.2,answer.3,answer.4,answer.5,answer.6,answer.7,answer.8,answer.9,answer.10,answer.11,answer.12,answer.13,answer.14,answer.15,answer.16
+,"EKG, Date of EKG",,Misc,Date,,Date of Electrocardiogram,,,,,,,,,,,,,,,,,,,
+,"EKG, Rhythm",,Misc,Text,,Rhythm,,,,,,,,,,,,,,,,,,,
+,"EKG, Qtc Interval",QT(c)=QT/underroot(60/Pulse),Misc,Numeric,ms,QT(c) Interval,,,,,,,,,,,,,,,,,,,

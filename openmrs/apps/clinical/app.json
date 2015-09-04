@@ -84,7 +84,48 @@
                 },
 		"Baseline, Exact extrapulmonary site": {
 		"conciseText": true
-		}
+		},
+		"AE Log, Adverse Event Details" : {
+                    "allowAddMore" : true
+                },
+                "AE Log, Severity Details" : {
+                    "allowAddMore" : true
+                },
+                "AE Form, Other adverse event" : {
+                    "allowAddMore" : true,
+                    "conciseText" : true
+                },
+                "AE Form, Related test results" : {
+                    "allowAddMore" : true
+                },
+                "AE Form, List of potentially related TB drugs for AE" : {
+                    "allowAddMore" : true,
+                    "conciseText" : true
+                },
+                "Lab, Hepatitis B antigen test result" : {
+                    "conciseText" : true
+                },
+                "Lab, Hepatitis C antibody test result" : {
+                    "conciseText" : true
+                },
+                "Medication log, TB drugs" : {
+                    "allowAddMore" : true
+                },
+                "Medication log, Drug abbreviation" : {
+                    "conciseText" : true
+                },
+		"BACTERIOLOGY_SAMPLE_ID" : {
+                    "conciseText" : true
+                },
+                "BACTERIOLOGY_SAMPLE_TYPE" : {
+                    "conciseText" : true
+                },
+                "BACTERIOLOGY_SAMPLE_APPEARANCE" : {
+                    "conciseText" : true
+                },
+                "BACTERIOLOGY_SAMPLE_APPEARANCE" : {
+                    "conciseText" : true
+                }
         },
         "drugOrder": {
             "defaultDurationUnit": "Day(s)",
