@@ -14,7 +14,12 @@
                 "title": "Pivot table",
                 "config": {
                     "groupBy": "encounters",
-                    "obsConcepts": [],
+                    "obsConcepts": [
+			"CD4 COUNT",
+			"Lab, RBC count test result",
+			"Lab, Creatinine test result",
+			"Lab, Creatinine test result unit"
+		    ],
                     "drugConcepts": [],
                     "labConcepts": ""
                 },

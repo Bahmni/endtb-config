@@ -38,7 +38,13 @@
                 "title": "Followup Form Findings",
                 "templateName": "Followup Template",
                 "name": "diseaseTemplate",
-                "dashboardParams": {
+		"dashboardParams": {
+		    "conceptNames": [
+                        "Height (cm)",
+                        "Weight (kg)",
+                        "BMI Data",
+                        "BMI Status Data"
+                    ],
                     "showOnly": []
                 },
                 "allDiseaseDetails": {
@@ -57,6 +63,81 @@
                 "title": "Baseline Form Findings",
                 "templateName": "Baseline Template",
                 "name": "diseaseTemplate",
+                "allDiseaseDetails": {
+                    "showDetailsButton": true,
+                    "pivotTable": {
+                        "numberOfVisits": "15",
+                        "groupBy": "visits",
+                        "obsConcepts": [],
+                        "drugConcepts": [],
+                        "labConcepts": []
+                    }
+                },
+                "displayOrder": 4
+            }
+        }
+    },
+    "summary": {
+        "dashboardName": "Patient Summary",
+        "displayByDefault": true,
+        "maxRecentlyViewedPatients": 10,
+        "printing": {
+                "title": "EndTB Patient Dashboard",
+                "header": "Patient Summary",
+                "logo": "../images/jss-icon.png"
+        },
+	"sections": {
+	    "patientInformation": {
+               	"title": "Patient Information",
+               	"name": "patientInformation",
+               	"patientAttributes": [
+               	"DRTBNationalID"
+               	],
+               	"addressFields": [],
+               	"displayOrder": 0
+	    },
+	    "followup": {
+                "title": "Followup Form Findings",
+                "templateName": "Followup Template",
+                "name": "diseaseTemplate",
+                "dashboardParams": {
+                    "showOnly": []
+                },
+                "allDiseaseDetails": {
+                    "showDetailsButton": true,
+                    "pivotTable": {
+                        "numberOfVisits": "15",
+                        "groupBy": "visits",
+                        "obsConcepts": [],
+                        "drugConcepts": [],
+                        "labConcepts": []
+                    }
+                },
+                "displayOrder": 2
+            },
+	    "aeform": {
+                "title": "Adverse Event Form Findings",
+                "templateName": "AE Form",
+                "name": "diseaseTemplate",
+                "dashboardParams": {
+                    "showOnly": []
+                },
+                "allDiseaseDetails": {
+                    "showDetailsButton": true,
+                    "pivotTable": {
+                        "numberOfVisits": "15",
+                        "groupBy": "visits",
+                        "obsConcepts": [],
+                        "drugConcepts": [],
+                        "labConcepts": []
+                    }
+                },
+                "displayOrder": 3
+            },
+            "ekg": {
+                "title": " Electrocardiogram Form Findings",
+                "templateName": "Electrocardiogram Template",
+                "name": "diseaseTemplate",
                 "dashboardParams": {
                     "showOnly": []
                 },
@@ -71,7 +152,92 @@
                     }
                 },
                 "displayOrder": 4
+            },
+	    "medicationlog": {
+                "title": "Medication Log Findings",
+                "templateName": "Medication log Template",
+                "name": "diseaseTemplate",
+                "dashboardParams": {
+                    "showOnly": []
+                },
+                "allDiseaseDetails": {
+                    "showDetailsButton": true,
+                    "pivotTable": {
+                        "numberOfVisits": "15",
+                        "groupBy": "visits",
+                        "obsConcepts": [],
+                        "drugConcepts": [],
+                        "labConcepts": []
+                    }
+                },
+                "displayOrder": 5
+            },
+            "labresults": {
+                "title": "Lab Results Findings",
+                "templateName": "Lab Results Template",
+                "name": "diseaseTemplate",
+                "dashboardParams": {
+                    "showOnly": []
+                },
+                "allDiseaseDetails": {
+                    "showDetailsButton": true,
+                    "pivotTable": {
+                        "numberOfVisits": "15",
+                        "groupBy": "visits",
+                        "obsConcepts": [],
+                        "drugConcepts": [],
+                        "labConcepts": []
+                    }
+                },
+                "displayOrder": 6
+            },
+	    "aelog": {
+                "title": "Adverse Event Log Findings",
+                "templateName": "AE Log Template",
+                "name": "diseaseTemplate",
+                "dashboardParams": {
+                    "showOnly": []
+                },
+                "allDiseaseDetails": {
+                    "showDetailsButton": true,
+                    "pivotTable": {
+                        "numberOfVisits": "15",
+                        "groupBy": "visits",
+                        "obsConcepts": [],
+                        "drugConcepts": [],
+                        "labConcepts": []
+                    }
+                },
+                "displayOrder": 7 
             }
+	}
+    },
+    "trends": {
+        "dashboardName": "Trends",
+        "displayByDefault": true,
+        "maxRecentlyViewedPatients": 10,
+        "sections": {
+            "patientInformation": {
+                "title": "Patient Information",
+                "name": "patientInformation",
+                "patientAttributes": [],
+                "addressFields": [],
+                "displayOrder": 0
+             },
+             "weight/BMI": {
+                "type": "observationGraph",
+                "name": "observationGraph",
+                "title": "Weight/BMI",
+                "config": {
+                    "yAxisConcepts": [
+                        "Weight (kg)",
+			"Body mass index"
+                    ],
+                    "xAxisConcept": "observationDateTime",
+                    "numberOfVisits": 10
+                },
+                "displayOrder": 6
+             }
         }
     }
 }

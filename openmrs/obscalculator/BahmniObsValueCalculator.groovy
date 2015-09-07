@@ -55,9 +55,9 @@ public class BahmniObsValueCalculator implements ObsValueCalculator {
         Collection<BahmniObservation> observations = bahmniEncounterTransaction.getObservations()
         def nowAsOfEncounter = bahmniEncounterTransaction.getEncounterDateTime() != null ? bahmniEncounterTransaction.getEncounterDateTime() : new Date();
 
-        BahmniObservation heightObservation = find("Height", observations, null)
-        BahmniObservation weightObservation = find("Weight", observations, null)
-        BahmniObservation bmiObservation = find("BMI", observations, null)
+        BahmniObservation heightObservation = find("Height (cm)", observations, null)
+        BahmniObservation weightObservation = find("Weight (kg)", observations, null)
+        BahmniObservation bmiObservation = find("Body mass index", observations, null)
         BahmniObservation bmiStatusObservation = find("BMI Status", observations, null)
         BahmniObservation parent = null;
 
@@ -76,8 +76,8 @@ public class BahmniObsValueCalculator implements ObsValueCalculator {
                 return
             }
 
-            def previousHeightValue = fetchLatestValue("Height", bahmniEncounterTransaction.getPatientUuid(), heightObservation, nowAsOfEncounter)
-            def previousWeightValue = fetchLatestValue("Weight", bahmniEncounterTransaction.getPatientUuid(), weightObservation, nowAsOfEncounter)
+            def previousHeightValue = fetchLatestValue("Height (cm)", bahmniEncounterTransaction.getPatientUuid(), heightObservation, nowAsOfEncounter)
+            def previousWeightValue = fetchLatestValue("Weight (kg)", bahmniEncounterTransaction.getPatientUuid(), weightObservation, nowAsOfEncounter)
 
             Double height = hasValue(heightObservation) && !heightObservation.voided ? heightObservation.getValue() as Double : previousHeightValue
             Double weight = hasValue(weightObservation) && !weightObservation.voided ? weightObservation.getValue() as Double : previousWeightValue
@@ -89,7 +89,7 @@ public class BahmniObsValueCalculator implements ObsValueCalculator {
             }
 
             def bmi = bmi(height, weight)
-            bmiObservation = bmiObservation ?: createObs("BMI", null, bahmniEncounterTransaction, obsDatetime) as BahmniObservation;
+            bmiObservation = bmiObservation ?: createObs("Body mass index", null, bahmniEncounterTransaction, obsDatetime) as BahmniObservation;
             bmiObservation.setValue(bmi);
 
             def bmiStatus = bmiStatus(bmi, patientAgeInMonthsAsOfEncounter, patient.getGender());
