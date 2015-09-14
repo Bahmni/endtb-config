@@ -31,25 +31,7 @@
             }
         },
 	"conceptSetUI": {
-                "Followup, Pain Aching or Buring in Feet and Legs": {
-                "multiSelect": true
-                },
-                "Followup, Pins and Needles in Feet and Legs": {
-                "multiSelect": true
-                },
-                "Followup, Numbness in Feet and Legs": {
-                "multiSelect": true
-                },
 		"Baseline, List of drugs taken for more than a month": {
-                "multiSelect": true
-                },
-		"Baseline, Pain Aching or Buring in Feet and Legs": {
-                "multiSelect": true
-                },
-                "Baseline, Pins and Needles in Feet and Legs": {
-                "multiSelect": true
-                },
-                "Baseline, Numbness in Feet and Legs": {
                 "multiSelect": true
                 },
 		"Baseline, Disease site": {
@@ -61,6 +43,9 @@
                 "Baseline, Other patients who have high risk of unfavorable outcome but who do not fit the above categories": {
                 "multiSelect": true
                 },
+		"Baseline, Method of MDR-TB confirmation" : {
+			"multiSelect" : true
+		},
 		"Baseline, Most recent previous TB treatment registration number": {
                 "conciseText": true
                 },
@@ -107,6 +92,18 @@
                 },
                 "Lab, Hepatitis C antibody test result" : {
                     "conciseText" : true
+                },
+		"EKG, Date of EKG" : {
+		    "required" : true
+		},
+		"EKG, Rhythm" : {
+                    "required" : true
+                },
+		"EKG, Heart Rate" : {
+                    "required" : true
+                },
+		"EKG, QT Interval" : {
+                    "required" : true
                 },
                 "Medication log, TB drugs" : {
                     "allowAddMore" : true

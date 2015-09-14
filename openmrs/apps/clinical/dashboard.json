@@ -13,17 +13,27 @@
                 "addressFields": [],
                 "displayOrder": 0
             },
+	    "nutritionalValues": {
+                "title": "Nutritional Values",
+                "name": "nutritionalValues",
+                "isObservation": true,
+                "dashboardParams": {
+                    "conceptNames": ["Height (cm)","Weight (kg)","BMI Data"],
+                    "numberOfVisits": 1
+                },
+                "displayOrder": 1
+            },
 	    "diagnosis": {
                 "title": "Diagnosis",
                 "name": "diagnosis",
                 "showCertainty": true,
                 "showOrder": true,
-                "displayOrder": 1
+                "displayOrder": 2
             },
 	    "programs": {
                 "title": "Programs",
                 "name": "programs",
-                "displayOrder": 2
+                "displayOrder": 3
             },
             "visits": {
                 "title": "Visits",
@@ -32,7 +42,7 @@
                     "title": null,
                     "maximumNoOfVisits": 10
                 },
-                "displayOrder": 3
+                "displayOrder": 4
             },
             "followup": {
                 "title": "Followup Form Findings",
@@ -57,12 +67,21 @@
                         "labConcepts": []
                     }
                 },
-                "displayOrder": 5
+                "displayOrder": 6
             },
              "baseline": {
                 "title": "Baseline Form Findings",
                 "templateName": "Baseline Template",
                 "name": "diseaseTemplate",
+		"dashboardParams": {
+                    "conceptNames": [
+                        "Height (cm)",
+                        "Weight (kg)",
+                        "Body mass index",
+                        "BMI Status"
+                    ],
+                    "showOnly": []
+                },
                 "allDiseaseDetails": {
                     "showDetailsButton": true,
                     "pivotTable": {
@@ -73,7 +92,7 @@
                         "labConcepts": []
                     }
                 },
-                "displayOrder": 4
+                "displayOrder": 5
             }
         }
     },
@@ -114,25 +133,6 @@
                     }
                 },
                 "displayOrder": 2
-            },
-	    "aeform": {
-                "title": "Adverse Event Form Findings",
-                "templateName": "AE Form",
-                "name": "diseaseTemplate",
-                "dashboardParams": {
-                    "showOnly": []
-                },
-                "allDiseaseDetails": {
-                    "showDetailsButton": true,
-                    "pivotTable": {
-                        "numberOfVisits": "15",
-                        "groupBy": "visits",
-                        "obsConcepts": [],
-                        "drugConcepts": [],
-                        "labConcepts": []
-                    }
-                },
-                "displayOrder": 3
             },
             "ekg": {
                 "title": " Electrocardiogram Form Findings",
