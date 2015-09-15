@@ -13,6 +13,45 @@
                 "addressFields": [],
                 "displayOrder": 0
             },
+             "labResults": {
+                "title": "LAB RESULTS",
+                "name": "labResults",
+                "isObservation": true,
+                "dashboardParams": {
+                "conceptNames": ["CD4 COUNT",
+                                                 "Lab, RBC count test result",
+                                                  "Lab, Creatinine test result",
+                                                 "Lab, Creatinine test result unit"],
+                "scope": "latest"
+                },
+
+                "allObservationDetails" : {
+                         "conceptNames": ["CD4 COUNT",
+                                                 "Lab, RBC count test result",
+                                                  "Lab, Creatinine test result",
+                                                 "Lab, Creatinine test result unit"],
+                        "pivotTable": {
+                                "type": "pivotTable",
+                                "title": "Pivot table",
+                                "numberOfVisits":10,
+
+                                        "groupBy": "visits",
+                                          "obsConcepts": [
+                                                "CD4 COUNT",
+                                                "Lab, RBC count test result",
+                                                "Lab, Creatinine test result",
+                                                "Lab, Creatinine test result unit",
+                                                "Lab, Hemoglobin test result",
+                                                "Lab, Platelet count test result",
+                                                "Lab, Absolute neutrophil count test result",
+                                                "Lab, Total bilirubin test result"
+                                                ],
+                                        "drugConcepts": [],
+                                        "labConcepts": ""
+
+                                }
+                }
+             },
 	    "nutritionalValues": {
                 "title": "Nutritional Values",
                 "name": "nutritionalValues",
@@ -237,7 +276,20 @@
                     "numberOfVisits": 10
                 },
                 "displayOrder": 6
-             }
+             },
+            "Lab, Hemoglobin test result": {
+                "type": "observationGraph",
+                "name": "observationGraph",
+                "title": "Lab, Hemoglobin test result",
+                "config": {
+                    "yAxisConcepts": [
+                       "Lab, Hemoglobin test result"
+                    ],
+                    "xAxisConcept": "observationDateTime",
+                    "numberOfVisits": 10
+                },
+                "displayOrder": 6
+            }
         }
     }
 }
