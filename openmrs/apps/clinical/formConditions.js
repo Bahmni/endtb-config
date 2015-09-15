@@ -82,7 +82,7 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
   'Baseline, Did the patient start treatment': function(formName, formFieldValues) {
         var conditions = {enable: [], disable: []};
         var conditionConcept = formFieldValues['Baseline, Did the patient start treatment'];
-	if(!conditionConcept) {
+	if(conditionConcept == false) {
             conditions.enable.push("Baseline, Reason for not starting treatment")
         } else {
             conditions.disable.push("Baseline, Reason for not starting treatment")
@@ -109,13 +109,23 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         }
         return conditions;
   },
-  '': function(formName, formFieldValues) {
+  'Medication log, Drug end date': function(formName, formFieldValues) {
         var conditions = {enable: [], disable: []};
-        var conditionConcept = formFieldValues[''];
-        if(conditionConcept=="") {
-            conditions.enable.push("")
+        var conditionConcept = formFieldValues['Medication log, Drug end date'];
+        if(conditionConcept) {
+            conditions.enable.push("Medication log, Reason for medication change")
         } else {
-            conditions.disable.push("")
+            conditions.disable.push("Medication log, Reason for medication change")
+        }
+        return conditions;
+  },
+  'Medication log, Reason for medication change': function(formName, formFieldValues) {
+        var conditions = {enable: [], disable: []};
+        var conditionConcept = formFieldValues['Medication log, Reason for medication change'];
+        if(conditionConcept=="Other") {
+            conditions.enable.push("Medication log, Other reason for medication change")
+        } else {
+            conditions.disable.push("Medication log, Other reason for medication change")
         }
         return conditions;
   }   

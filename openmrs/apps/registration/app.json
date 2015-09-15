@@ -24,19 +24,22 @@
                 "address1"
             ]
         },
+	"mandatoryPersonAttributes": [
+            "endtbOutputID","DRTBNationalID"
+        ],
         "relationshipTypeMap": {
             "Doctor": "provider",
             "Parent": "patient"
         },
-        "autoCompleteFields": [
-            "familyName",
-            "caste"
-        ],
         "defaultIdentifierPrefix": "ETB",
         "defaultVisitType": "General",
         "searchByIdForwardUrl": "/patient/{{patientUuid}}",
         "showMiddleName": false,
         "fieldValidation": {
+	    "telephoneNumber": {
+		"pattern": "[0-9]{8,10}",
+		"errorMessage": "Should be numberic value"
+	    },
             "primaryContact": {
                 "pattern": "[0-9]{8,10}",
                 "errorMessage": "Should be 12 characters starting with 91 (country code)"
@@ -44,10 +47,6 @@
             "familyName": {
                 "pattern": "[a-zA-Z]{0,}",
                 "errorMessage": "Should contain characters"
-            },
-            "address1": {
-                "pattern": "[a-zA-Z0-9]{3}",
-                "errorMessage": "Should contain 3 characters"
             }
         }
     }

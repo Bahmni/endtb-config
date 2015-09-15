@@ -30,6 +30,7 @@
                 "conceptNames": []
             }
         },
+ 	"visitTypeForRetrospectiveEntries": "GENERAL",
 	"conceptSetUI": {
 		"Baseline, List of drugs taken for more than a month": {
                 "multiSelect": true
