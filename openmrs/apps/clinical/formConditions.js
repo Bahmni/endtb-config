@@ -13,9 +13,9 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         var conditions = {enable: [], disable: []};
         var conditionConcept = formFieldValues['Baseline, Treatment for drug-susceptible TB'];
         if(conditionConcept=="True") {
-            conditions.enable.push("Baseline, How many drug-susceptible TB treatments")
+            conditions.enable.push("Baseline, How many drug-susceptible TB treatments","Baseline, Last DSTB Registration ID" )
         } else {
-            conditions.disable.push("Baseline, How many drug-susceptible TB treatments")
+            conditions.disable.push("Baseline, How many drug-susceptible TB treatments","Baseline, Last DSTB Registration ID" )
         }
         return conditions; 
   },
@@ -23,9 +23,9 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         var conditions = {enable: [], disable: []};
         var conditionConcept = formFieldValues['Baseline, Treatment for drug-resistant TB'];
         if(conditionConcept=="True") {
-            conditions.enable.push("Baseline, How many drug-resistant TB treatments")
+            conditions.enable.push("Baseline, How many drug-resistant TB treatments","Baseline, Last DRTB Registration ID")
         } else {
-            conditions.disable.push("Baseline, How many drug-resistant TB treatments")
+            conditions.disable.push("Baseline, How many drug-resistant TB treatments","Baseline, Last DRTB Registration ID")
         }
         return conditions; 
   },
@@ -33,9 +33,9 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         var conditions = {enable: [], disable: []};
         var conditionConcept = formFieldValues['HIV INFECTED'];
         if(conditionConcept=="Positive") {
-            conditions.enable.push("Date of HIV diagnosis","CD4 COUNT","Last CD4 count date","Baseline, Last RNA viral load","Baseline, Last RNA viral load date","Baseline, On ARV treatment","Antiretroviral treatment start date","Baseline, Drugs used in ARV treatment")
+            conditions.enable.push("Date of HIV diagnosis","CD4 COUNT","Last CD4 count date","Baseline, Last RNA viral load","Baseline, Last RNA viral load date","Baseline, On ARV treatment","Antiretroviral treatment start date","Baseline, Drugs used in ARV treatment","Baseline, HIV program registration number")
         } else {
-            conditions.disable.push("Date of HIV diagnosis","CD4 COUNT","Last CD4 count date","Baseline, Last RNA viral load","Baseline, Last RNA viral load date","Baseline, On ARV treatment","Antiretroviral treatment start date","Baseline, Drugs used in ARV treatment")
+            conditions.disable.push("Date of HIV diagnosis","CD4 COUNT","Last CD4 count date","Baseline, Last RNA viral load","Baseline, Last RNA viral load date","Baseline, On ARV treatment","Antiretroviral treatment start date","Baseline, Drugs used in ARV treatment","Baseline, HIV program registration number")
         }
         return conditions;
   },
@@ -126,6 +126,46 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
             conditions.enable.push("Medication log, Other reason for medication change")
         } else {
             conditions.disable.push("Medication log, Other reason for medication change")
+        }
+        return conditions;
+  },
+  'Baseline, WHO registration group': function(formName, formFieldValues) {
+        var conditions = {enable: [], disable: []};
+        var conditionConcept = formFieldValues['Baseline, WHO registration group'];
+        if(conditionConcept=="Relapse"||conditionConcept=="Treatment after loss to followup"||conditionConcept=="After failure of first treatment with first-line drugs"||conditionConcept=="After failure of retreatment regimen with first-line drugs") {
+            conditions.enable.push("Baseline, History of past drug use")
+        } else {
+            conditions.disable.push("Baseline, History of past drug use")
+        }
+        return conditions;
+  },
+  'Baseline, MRD-TB diagnosis method': function(formName, formFieldValues) {
+        var conditions = {enable: [], disable: []};
+        var conditionConcept = formFieldValues['Baseline, MRD-TB diagnosis method'];
+        if(conditionConcept=="Bacteriologically Confirmed") {
+            conditions.enable.push("Baseline, Method of MDR-TB confirmation")
+        } else {
+            conditions.disable.push("Baseline, Method of MDR-TB confirmation")
+        }
+        return conditions;
+  },
+  'Baseline, Drug resistance': function(formName, formFieldValues) {
+        var conditions = {enable: [], disable: []};
+        var conditionConcept = formFieldValues['Baseline, Drug resistance'];
+        if(conditionConcept=="Confirmed drug resistant TB") {
+            conditions.enable.push("Baseline, Subclassification for confimed drug resistant cases")
+        } else {
+            conditions.disable.push("Baseline, Subclassification for confimed drug resistant cases")
+        }
+        return conditions;
+  },
+  '': function(formName, formFieldValues) {
+        var conditions = {enable: [], disable: []};
+        var conditionConcept = formFieldValues[''];
+        if(conditionConcept=="") {
+            conditions.enable.push("")
+        } else {
+            conditions.disable.push("")
         }
         return conditions;
   }   

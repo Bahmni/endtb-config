@@ -47,6 +47,9 @@
 		"Baseline, Method of MDR-TB confirmation" : {
 			"multiSelect" : true
 		},
+		"Baseline, Past TB treatment drug regimen" : {
+		"multiSelect" : true
+		},
 		"Baseline, Most recent previous TB treatment registration number": {
                 "conciseText": true
                 },
@@ -74,6 +77,9 @@
 		"AE Log, Adverse Event Details" : {
                     "allowAddMore" : true
                 },
+		"Consent scan copy" : {
+		    "allowAddMore" : true
+		},
                 "AE Log, Severity Details" : {
                     "allowAddMore" : true
                 },
@@ -94,6 +100,18 @@
                 "Lab, Hepatitis C antibody test result" : {
                     "conciseText" : true
                 },
+		"Baseline, Last DRTB Registration ID" : {
+                    "conciseText" : true
+                },
+		"Baseline, Last DSTB Registration ID" : {
+		"conciseText" : true
+		},
+		"Baseline, Other drug taken for more than a month" : {
+		    "conciseText" : true
+		},
+		"Baseline, HIV program registration number" : {
+		"conciseText" : true
+		},
 		"EKG, Date of EKG" : {
 		    "required" : true
 		},

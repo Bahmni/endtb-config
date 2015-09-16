@@ -37,16 +37,12 @@
         "showMiddleName": false,
         "fieldValidation": {
 	    "telephoneNumber": {
-		"pattern": "[0-9]{8,10}",
+		"pattern": "[0-9]{0,20}",
 		"errorMessage": "Should be numberic value"
 	    },
-            "primaryContact": {
-                "pattern": "[0-9]{8,10}",
-                "errorMessage": "Should be 12 characters starting with 91 (country code)"
-            },
-            "familyName": {
-                "pattern": "[a-zA-Z]{0,}",
-                "errorMessage": "Should contain characters"
+            "endtbOutputID": {
+                "pattern": "[a-zA-Z0-9]{9}",
+                "errorMessage": "Should be 9 characters"
             }
         }
     }

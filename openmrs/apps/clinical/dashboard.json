@@ -13,45 +13,33 @@
                 "addressFields": [],
                 "displayOrder": 0
             },
-             "labResults": {
-                "title": "LAB RESULTS",
-                "name": "labResults",
-                "isObservation": true,
+	    "labResults1": {
+                "title": "Lab Results",
+                "templateName": "Lab Results Template",
+                "name": "diseaseTemplate",
                 "dashboardParams": {
-                "conceptNames": ["CD4 COUNT",
-                                                 "Lab, RBC count test result",
-                                                  "Lab, Creatinine test result",
-                                                 "Lab, Creatinine test result unit"],
-                "scope": "latest"
+                    "conceptNames": [
+                    ],
+                    "showOnly": []
                 },
-
-                "allObservationDetails" : {
-                         "conceptNames": ["CD4 COUNT",
-                                                 "Lab, RBC count test result",
-                                                  "Lab, Creatinine test result",
-                                                 "Lab, Creatinine test result unit"],
-                        "pivotTable": {
-                                "type": "pivotTable",
-                                "title": "Pivot table",
-                                "numberOfVisits":10,
-
-                                        "groupBy": "visits",
-                                          "obsConcepts": [
-                                                "CD4 COUNT",
-                                                "Lab, RBC count test result",
-                                                "Lab, Creatinine test result",
-                                                "Lab, Creatinine test result unit",
-                                                "Lab, Hemoglobin test result",
-                                                "Lab, Platelet count test result",
-                                                "Lab, Absolute neutrophil count test result",
-                                                "Lab, Total bilirubin test result"
-                                                ],
-                                        "drugConcepts": [],
-                                        "labConcepts": ""
-
-                                }
-                }
-             },
+                "allDiseaseDetails": {
+                    "showDetailsButton": true,
+                    "pivotTable": {
+                        "numberOfVisits": "15",
+                        "groupBy": "visits",
+                        "obsConcepts": ["Lab, RBC count test result",
+                                        "Lab, Creatinine test result",
+                                        "Lab, Creatinine test result unit",
+                                        "Lab, Hemoglobin test result",
+                                        "Lab, Platelet count test result",
+                                        "Lab, Absolute neutrophil count test result",
+                                        "Lab, Total bilirubin test result"],
+                        "drugConcepts": [],
+                        "labConcepts": []
+                    }
+                },
+                "displayOrder": 10
+            },
 	    "nutritionalValues": {
                 "title": "Nutritional Values",
                 "name": "nutritionalValues",
@@ -266,10 +254,10 @@
              "weight/BMI": {
                 "type": "observationGraph",
                 "name": "observationGraph",
-                "title": "Weight/BMI",
+                "title": "BMI",
                 "config": {
                     "yAxisConcepts": [
-                        "Weight (kg)",
+                    
 			"Body mass index"
                     ],
                     "xAxisConcept": "observationDateTime",
@@ -280,16 +268,31 @@
             "Lab, Hemoglobin test result": {
                 "type": "observationGraph",
                 "name": "observationGraph",
-                "title": "Lab, Hemoglobin test result",
+                "title": "Hemoglobin",
                 "config": {
                     "yAxisConcepts": [
-                       "Lab, Hemoglobin test result"
+                       "lab, Hemoglobin test result"
                     ],
                     "xAxisConcept": "observationDateTime",
                     "numberOfVisits": 10
                 },
                 "displayOrder": 6
-            }
+            },
+            "AST": {
+                "type": "observationGraph",
+                "name": "observationGraph",
+                "title": "AST",
+                "config": {
+                    "yAxisConcepts": [
+                    
+			"Lab, AST"
+                    ],
+                    "xAxisConcept": "observationDateTime",
+                    "numberOfVisits": 10
+                },
+                "displayOrder": 8
+             }
         }
+        
     }
 }
