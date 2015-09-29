@@ -1,25 +1,22 @@
 {
     "general": {
-        "dashboardName": "General",
         "displayByDefault": true,
         "maxRecentlyViewedPatients": 10,
         "sections": {
             "patientInformation": {
-                "title": "Patient Information",
                 "name": "patientInformation",
                 "patientAttributes": [
                     "DRTBNationalID"
                 ],
                 "addressFields": [],
-                "displayOrder": 0
+                "displayOrder": 0,
+                "translationKey": "Patient Information"
             },
-	    "labResults1": {
-                "title": "Lab Results",
+            "labResults1": {
                 "templateName": "Lab Results Template",
                 "name": "diseaseTemplate",
                 "dashboardParams": {
-                    "conceptNames": [
-                    ],
+                    "conceptNames": [],
                     "showOnly": []
                 },
                 "allDiseaseDetails": {
@@ -27,56 +24,62 @@
                     "pivotTable": {
                         "numberOfVisits": "15",
                         "groupBy": "visits",
-                        "obsConcepts": ["Lab, RBC count test result",
-                                        "Lab, Creatinine test result",
-                                        "Lab, Creatinine test result unit",
-                                        "Lab, Hemoglobin test result",
-                                        "Lab, Platelet count test result",
-                                        "Lab, Absolute neutrophil count test result",
-                                        "Lab, Total bilirubin test result"],
+                        "obsConcepts": [
+                            "Lab, RBC count test result",
+                            "Lab, Creatinine test result",
+                            "Lab, Creatinine test result unit",
+                            "Lab, Hemoglobin test result",
+                            "Lab, Platelet count test result",
+                            "Lab, Absolute neutrophil count test result",
+                            "Lab, Total bilirubin test result"
+                        ],
                         "drugConcepts": [],
                         "labConcepts": []
                     }
                 },
-                "displayOrder": 10
+                "displayOrder": 10,
+                "translationKey": "Lab Results"
             },
-	    "nutritionalValues": {
-                "title": "Nutritional Values",
+            "nutritionalValues": {
                 "name": "nutritionalValues",
                 "isObservation": true,
                 "dashboardParams": {
-                    "conceptNames": ["Height (cm)","Weight (kg)","BMI Data"],
+                    "conceptNames": [
+                        "Height (cm)",
+                        "Weight (kg)",
+                        "BMI Data"
+                    ],
                     "numberOfVisits": 1
                 },
-                "displayOrder": 1
+                "displayOrder": 1,
+                "translationKey": "Nutritional Values"
             },
-	    "diagnosis": {
-                "title": "Diagnosis",
+            "diagnosis": {
                 "name": "diagnosis",
                 "showCertainty": true,
                 "showOrder": true,
-                "displayOrder": 2
+                "displayOrder": 2,
+                "translationKey": "Diagnosis"
             },
-	    "programs": {
-                "title": "Programs",
+            "programs": {
                 "name": "programs",
-                "displayOrder": 3
+                "displayOrder": 3,
+                "translationKey": "Programs"
             },
             "visits": {
-                "title": "Visits",
                 "name": "visits",
                 "dashboardParams": {
                     "title": null,
                     "maximumNoOfVisits": 10
                 },
-                "displayOrder": 4
+                "displayOrder": 4,
+                "translationKey": "Visits"
             },
             "followup": {
-                "title": "Followup Form Findings",
                 "templateName": "Followup Template",
                 "name": "diseaseTemplate",
-		"dashboardParams": {
-		    "conceptNames": [
+                "dashboardParams": {
+                    "conceptNames": [
                         "Height (cm)",
                         "Weight (kg)",
                         "BMI Data",
@@ -94,13 +97,13 @@
                         "labConcepts": []
                     }
                 },
-                "displayOrder": 6
+                "displayOrder": 6,
+                "translationKey": "Followup Form Findings"
             },
-             "baseline": {
-                "title": "Baseline Form Findings",
+            "baseline": {
                 "templateName": "Baseline Template",
                 "name": "diseaseTemplate",
-		"dashboardParams": {
+                "dashboardParams": {
                     "conceptNames": [
                         "Height (cm)",
                         "Weight (kg)",
@@ -119,31 +122,31 @@
                         "labConcepts": []
                     }
                 },
-                "displayOrder": 5
+                "displayOrder": 5,
+                "translationKey": "Baseline Form Findings"
             }
-        }
+        },
+        "translationKey": "General"
     },
     "summary": {
-        "dashboardName": "Patient Summary",
         "displayByDefault": true,
         "maxRecentlyViewedPatients": 10,
         "printing": {
-                "title": "EndTB Patient Dashboard",
-                "header": "Patient Summary",
-                "logo": "../images/jss-icon.png"
+            "title": "EndTB Patient Dashboard",
+            "header": "Patient Summary",
+            "logo": "../images/jss-icon.png"
         },
-	"sections": {
-	    "patientInformation": {
-               	"title": "Patient Information",
-               	"name": "patientInformation",
-               	"patientAttributes": [
-               	"DRTBNationalID"
-               	],
-               	"addressFields": [],
-               	"displayOrder": 0
-	    },
-	    "followup": {
-                "title": "Followup Form Findings",
+        "sections": {
+            "patientInformation": {
+                "name": "patientInformation",
+                "patientAttributes": [
+                    "DRTBNationalID"
+                ],
+                "addressFields": [],
+                "displayOrder": 0,
+                "translationKey": "Patient Information"
+            },
+            "followup": {
                 "templateName": "Followup Template",
                 "name": "diseaseTemplate",
                 "dashboardParams": {
@@ -159,10 +162,10 @@
                         "labConcepts": []
                     }
                 },
-                "displayOrder": 2
+                "displayOrder": 2,
+                "translationKey": "Followup Form Findings"
             },
             "ekg": {
-                "title": " Electrocardiogram Form Findings",
                 "templateName": "Electrocardiogram Template",
                 "name": "diseaseTemplate",
                 "dashboardParams": {
@@ -178,10 +181,10 @@
                         "labConcepts": []
                     }
                 },
-                "displayOrder": 4
+                "displayOrder": 4,
+                "translationKey": " Electrocardiogram Form Findings"
             },
-	    "medicationlog": {
-                "title": "Medication Log Findings",
+            "medicationlog": {
                 "templateName": "Medication log Template",
                 "name": "diseaseTemplate",
                 "dashboardParams": {
@@ -197,10 +200,10 @@
                         "labConcepts": []
                     }
                 },
-                "displayOrder": 5
+                "displayOrder": 5,
+                "translationKey": "Medication Log Findings"
             },
             "labresults": {
-                "title": "Lab Results Findings",
                 "templateName": "Lab Results Template",
                 "name": "diseaseTemplate",
                 "dashboardParams": {
@@ -216,10 +219,10 @@
                         "labConcepts": []
                     }
                 },
-                "displayOrder": 6
+                "displayOrder": 6,
+                "translationKey": "Lab Results Findings"
             },
-	    "aelog": {
-                "title": "Adverse Event Log Findings",
+            "aelog": {
                 "templateName": "AE Log Template",
                 "name": "diseaseTemplate",
                 "dashboardParams": {
@@ -235,64 +238,63 @@
                         "labConcepts": []
                     }
                 },
-                "displayOrder": 7 
+                "displayOrder": 7,
+                "translationKey": "Adverse Event Log Findings"
             }
-	}
+        },
+        "translationKey": "Patient Summary"
     },
     "trends": {
-        "dashboardName": "Trends",
         "displayByDefault": true,
         "maxRecentlyViewedPatients": 10,
         "sections": {
             "patientInformation": {
-                "title": "Patient Information",
                 "name": "patientInformation",
                 "patientAttributes": [],
                 "addressFields": [],
-                "displayOrder": 0
-             },
-             "weight/BMI": {
+                "displayOrder": 0,
+                "translationKey": "Patient Information"
+            },
+            "weight/BMI": {
                 "type": "observationGraph",
                 "name": "observationGraph",
-                "title": "BMI",
                 "config": {
                     "yAxisConcepts": [
-                    
-			"Body mass index"
+                        "Body mass index"
                     ],
                     "xAxisConcept": "observationDateTime",
                     "numberOfVisits": 10
                 },
-                "displayOrder": 6
-             },
+                "displayOrder": 6,
+                "translationKey": "BMI"
+            },
             "Lab, Hemoglobin test result": {
                 "type": "observationGraph",
                 "name": "observationGraph",
-                "title": "Hemoglobin",
                 "config": {
                     "yAxisConcepts": [
-                       "lab, Hemoglobin test result"
+                        "lab, Hemoglobin test result"
                     ],
                     "xAxisConcept": "observationDateTime",
                     "numberOfVisits": 10
                 },
-                "displayOrder": 6
+                "displayOrder": 6,
+                "translationKey": "Hemoglobin"
             },
             "AST": {
                 "type": "observationGraph",
                 "name": "observationGraph",
-                "title": "AST",
                 "config": {
                     "yAxisConcepts": [
-                    
-			"Lab, AST"
+                        "Lab, AST"
                     ],
                     "xAxisConcept": "observationDateTime",
                     "numberOfVisits": 10
                 },
-                "displayOrder": 8
-             }
-        }
-        
+                "displayOrder": 8,
+                "translationKey": "AST"
+            }
+        },
+        "translationKey": "Trends"
     }
 }
