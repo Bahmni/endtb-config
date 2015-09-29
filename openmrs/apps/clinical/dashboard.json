@@ -38,7 +38,7 @@
                     }
                 },
                 "displayOrder": 10,
-                "translationKey": "Lab Results"
+                "title": "Lab Results"
             },
             "nutritionalValues": {
                 "name": "nutritionalValues",
@@ -53,13 +53,6 @@
                 },
                 "displayOrder": 1,
                 "translationKey": "Nutritional Values"
-            },
-            "diagnosis": {
-                "name": "diagnosis",
-                "showCertainty": true,
-                "showOrder": true,
-                "displayOrder": 2,
-                "translationKey": "Diagnosis"
             },
             "programs": {
                 "name": "programs",
@@ -98,7 +91,7 @@
                     }
                 },
                 "displayOrder": 6,
-                "translationKey": "Followup Form Findings"
+                "title": "Followup Form Findings"
             },
             "baseline": {
                 "templateName": "Baseline Template",
@@ -123,7 +116,7 @@
                     }
                 },
                 "displayOrder": 5,
-                "translationKey": "Baseline Form Findings"
+                "title": "Baseline Form Findings"
             }
         },
         "translationKey": "General"
@@ -163,7 +156,7 @@
                     }
                 },
                 "displayOrder": 2,
-                "translationKey": "Followup Form Findings"
+                "title": "Followup Form Findings"
             },
             "ekg": {
                 "templateName": "Electrocardiogram Template",
@@ -182,7 +175,7 @@
                     }
                 },
                 "displayOrder": 4,
-                "translationKey": " Electrocardiogram Form Findings"
+                "title": " Electrocardiogram Form Findings"
             },
             "medicationlog": {
                 "templateName": "Medication log Template",
@@ -201,7 +194,7 @@
                     }
                 },
                 "displayOrder": 5,
-                "translationKey": "Medication Log Findings"
+                "title": "Medication Log Findings"
             },
             "labresults": {
                 "templateName": "Lab Results Template",
@@ -220,26 +213,7 @@
                     }
                 },
                 "displayOrder": 6,
-                "translationKey": "Lab Results Findings"
-            },
-            "aelog": {
-                "templateName": "AE Log Template",
-                "name": "diseaseTemplate",
-                "dashboardParams": {
-                    "showOnly": []
-                },
-                "allDiseaseDetails": {
-                    "showDetailsButton": true,
-                    "pivotTable": {
-                        "numberOfVisits": "15",
-                        "groupBy": "visits",
-                        "obsConcepts": [],
-                        "drugConcepts": [],
-                        "labConcepts": []
-                    }
-                },
-                "displayOrder": 7,
-                "translationKey": "Adverse Event Log Findings"
+                "title": "Lab Results Findings"
             }
         },
         "translationKey": "Patient Summary"
@@ -266,7 +240,7 @@
                     "numberOfVisits": 10
                 },
                 "displayOrder": 6,
-                "translationKey": "BMI"
+                "title": "BMI"
             },
             "Lab, Hemoglobin test result": {
                 "type": "observationGraph",
@@ -279,7 +253,7 @@
                     "numberOfVisits": 10
                 },
                 "displayOrder": 6,
-                "translationKey": "Hemoglobin"
+                "title": "Hemoglobin"
             },
             "AST": {
                 "type": "observationGraph",
@@ -292,7 +266,7 @@
                     "numberOfVisits": 10
                 },
                 "displayOrder": 8,
-                "translationKey": "AST"
+                "title": "AST"
             }
         },
         "translationKey": "Trends"

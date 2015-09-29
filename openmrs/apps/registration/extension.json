@@ -36,9 +36,9 @@
         "extensionPointId": "org.bahmni.registration.patient.next",
         "type": "config",
         "extensionParams": {
-            "display": "Program <u>M</u>anagement",
-            "shortcutKey": "m",
-            "forwardUrl": "../clinical/#/patient/{{patientUuid}}/consultationContext"
+            "display": "Clinical <u>D</u>ashboard",
+            "shortcutKey": "d",
+            "forwardUrl": "../clinical/#/default/patient/{{patientUuid}}/dashboard"
         },
         "order": 1,
         "requiredPrivilege": "Edit Patients"

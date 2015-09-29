@@ -1,2 +1,24 @@
 {
+	"patientInformation": {
+                "name": "Patient Information",
+                "type": "PatientReport"
+        },
+        "followupTemplateReport":{
+                "name": "Followup Template Report",
+                "type": "obsTemplate",
+                "config": {
+                        "templateName": "Followup Template",
+                        "patientAttributes": ["facilityPatientID", "telephoneNumber"],
+                        "applyDateRangeFor": "encounterCreateDate"
+                }
+        },
+        "labresultsTemplateReport":{
+                "name": "Lab Results Template Report",
+                "type": "obsTemplate",
+                "config": {
+                        "templateName": "Lab Results Template",
+                        "patientAttributes": ["facilityPatientID", "telephoneNumber"],
+                        "applyDateRangeFor": "encounterCreateDate"
+                }
+        }
 }

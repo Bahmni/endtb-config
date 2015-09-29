@@ -10,16 +10,6 @@
         "requiredPrivilege": "app:clinical:observationTab",
         "translationKey": "Observations"
     },
-    "bahmni_clinical_consultation_observations_app_clinical_diagnosistab": {
-        "id": "bahmni.clinical.consultation.diagnosis",
-        "extensionPointId": "org.bahmni.clinical.consultation.board",
-        "type": "link",
-        "url": "diagnosis",
-        "icon": "fa-user-md",
-        "order": 2,
-        "requiredPrivilege": "app:clinical:diagnosisTab",
-        "translationKey": "Diagnosis"
-    },
     "bahmni_clinical_patients_search_allpatients_active_app_clinical": {
         "id": "bahmni.clinical.patients.search.allPatients",
         "extensionPointId": "org.bahmni.patient.search",
@@ -29,7 +19,6 @@
             "forwardUrl": "#/default/patient/{{patientUuid}}/dashboard",
             "translationKey": "Active"
         },
-        "label": "Active",
         "order": 1,
         "requiredPrivilege": "app:clinical"
     },
@@ -42,7 +31,6 @@
             "forwardUrl": "#/default/patient/{{patientUuid}}/consultationContext",
             "translationKey": "Programs"
         },
-        "label": "Active",
         "order": 2,
         "requiredPrivilege": "app:clinical"
     },
@@ -55,7 +43,6 @@
             "forwardUrl": "#/default/patient/{{patientUuid}}/dashboard",
             "translationKey": "My Patients"
         },
-        "label": "Active",
         "order": 3,
         "requiredPrivilege": "app:clinical"
     },
@@ -67,8 +54,161 @@
             "forwardUrl": "#/default/patient/{{patientUuid}}/dashboard",
             "translationKey": "All"
         },
-        "label": "All",
         "order": 4,
+        "requiredPrivilege": "app:clinical"
+    },
+    "bahmniClinicalConceptSetGroupObservationsBaseline": {
+    	"id": "bahmni.clinical.conceptSetGroup.observations.baseline",
+    	"extensionPointId": "org.bahmni.clinical.conceptSetGroup.observations",
+    	"type": "config",
+    	"extensionParams": {
+      		"conceptName": "Baseline Template",
+      		"default": true
+    	},
+    	"order": 1,
+    	"requiredPrivilege": "app:clinical"
+    },
+    "bahmniClinicalConceptSetGroupObservationsFollowup": {
+        "id": "bahmni.clinical.conceptSetGroup.observations.followup",
+        "extensionPointId": "org.bahmni.clinical.conceptSetGroup.observations",
+        "type": "config",
+        "extensionParams": {
+                "conceptName": "Followup Template",
+                "default": true
+        },
+        "order": 3,
+        "requiredPrivilege": "app:clinical"
+    },
+    "bahmniClinicalConceptSetGroupObservationsMedicationLog": {
+        "id": "bahmni.clinical.conceptSetGroup.observations.medicationlog",
+        "extensionPointId": "org.bahmni.clinical.conceptSetGroup.observations",
+        "type": "config",
+        "extensionParams": {
+                "conceptName": "Medication log Template",
+                "default": true
+        },
+        "order": 2,
+        "requiredPrivilege": "app:clinical"
+    },
+    "bahmniClinicalConceptSetGroupObservationsEndOutcome": {
+        "id": "bahmni.clinical.conceptSetGroup.observations.endoutcome",
+        "extensionPointId": "org.bahmni.clinical.conceptSetGroup.observations",
+        "type": "config",
+        "extensionParams": {
+                "conceptName": "Outcome End of Treatment Template",
+                "default": true
+        },
+        "order": 4,
+        "requiredPrivilege": "app:clinical"
+    },
+    "bahmniClinicalConceptSetGroupObservations6mOutcome": {
+        "id": "bahmni.clinical.conceptSetGroup.observations.6moutcome",
+        "extensionPointId": "org.bahmni.clinical.conceptSetGroup.observations",
+        "type": "config",
+        "extensionParams": {
+                "conceptName": "6 month Post Treatment Outcome Template",
+                "default": true
+        },
+        "order": 5,
+        "requiredPrivilege": "app:clinical"
+    },
+    "bahmniClinicalConceptSetGroupObservationsPregnancy": {
+        "id": "bahmni.clinical.conceptSetGroup.observations.pregnancy",
+        "extensionPointId": "org.bahmni.clinical.conceptSetGroup.observations",
+        "type": "config",
+        "extensionParams": {
+                "conceptName": "Pregnancy Report Form Template",
+                "default": true
+        },
+        "order": 6,
+        "requiredPrivilege": "app:clinical"
+    },
+    "bahmniClinicalConceptSetGroupObservationsHAN": {
+        "id": "bahmni.clinical.conceptSetGroup.observations.han",
+        "extensionPointId": "org.bahmni.clinical.conceptSetGroup.observations",
+        "type": "config",
+        "extensionParams": {
+                "conceptName": "Hospital Admission Notification Template",
+                "default": true
+        },
+        "order": 7,
+        "requiredPrivilege": "app:clinical"
+    },
+    "bahmniClinicalConceptSetGroupObservationsHDS": {
+        "id": "bahmni.clinical.conceptSetGroup.observations.hds",
+        "extensionPointId": "org.bahmni.clinical.conceptSetGroup.observations",
+        "type": "config",
+        "extensionParams": {
+                "conceptName": "Hospital Discharge Summary Template",
+                "default": true
+        },
+        "order": 8,
+        "requiredPrivilege": "app:clinical"
+    },
+    "bahmniClinicalConceptSetGroupObservationsLabResults": {
+        "id": "bahmni.clinical.conceptSetGroup.observations.labresults",
+        "extensionPointId": "org.bahmni.clinical.conceptSetGroup.observations",
+        "type": "config",
+        "extensionParams": {
+                "conceptName": "Lab Results Template",
+                "default": true
+        },
+        "order": 9,
+        "requiredPrivilege": "app:clinical"
+    },
+    "bahmniClinicalConceptSetGroupObservationsXray": {
+        "id": "bahmni.clinical.conceptSetGroup.observations.xray",
+        "extensionPointId": "org.bahmni.clinical.conceptSetGroup.observations",
+        "type": "config",
+        "extensionParams": {
+                "conceptName": "Xray Template",
+                "default": true
+        },
+        "order": 10,
+        "requiredPrivilege": "app:clinical"
+    },
+    "bahmniClinicalConceptSetGroupObservationsAudiometry": {
+        "id": "bahmni.clinical.conceptSetGroup.observations.audiometry",
+        "extensionPointId": "org.bahmni.clinical.conceptSetGroup.observations",
+        "type": "config",
+        "extensionParams": {
+                "conceptName": "Audiometry Template",
+                "default": true
+        },
+        "order": 11,
+        "requiredPrivilege": "app:clinical"
+    },
+    "bahmniClinicalConceptSetGroupObservationsEkg": {
+        "id": "bahmni.clinical.conceptSetGroup.observations.ekg",
+        "extensionPointId": "org.bahmni.clinical.conceptSetGroup.observations",
+        "type": "config",
+        "extensionParams": {
+                "conceptName": "Electrocardiogram Template",
+                "default": true
+        },
+        "order": 12,
+        "requiredPrivilege": "app:clinical"
+    },
+    "bahmniClinicalConceptSetGroupObservationsMonthlyTx": {
+        "id": "bahmni.clinical.conceptSetGroup.observations.monthlytx",
+        "extensionPointId": "org.bahmni.clinical.conceptSetGroup.observations",
+        "type": "config",
+        "extensionParams": {
+                "conceptName": "Monthly Treatment Completeness Template",
+                "default": true
+        },
+        "order": 13,
+        "requiredPrivilege": "app:clinical"
+    },
+    "bahmniClinicalConceptSetGroupObservationsPerformance": {
+        "id": "bahmni.clinical.conceptSetGroup.observations.performance",
+        "extensionPointId": "org.bahmni.clinical.conceptSetGroup.observations",
+        "type": "config",
+        "extensionParams": {
+                "conceptName": "Performance Status Template",
+                "default": true
+        },
+        "order": 14,
         "requiredPrivilege": "app:clinical"
     }
 }
