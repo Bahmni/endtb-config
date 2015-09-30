@@ -8,7 +8,7 @@
         "icon": "fa-user-md",
         "order": 1,
         "requiredPrivilege": "app:clinical:observationTab",
-        "translationKey": "Observations"
+        "translationKey": "OBSERVATIONS_BOARD_LABEL_KEY"
     },
     "bahmni_clinical_patients_search_allpatients_active_app_clinical": {
         "id": "bahmni.clinical.patients.search.allPatients",
@@ -17,7 +17,7 @@
         "extensionParams": {
             "searchHandler": "emrapi.sqlSearch.activePatients",
             "forwardUrl": "#/default/patient/{{patientUuid}}/dashboard",
-            "translationKey": "Active"
+            "translationKey": "MODULE_LABEL_ACTIVE_KEY"
         },
         "order": 1,
         "requiredPrivilege": "app:clinical"
@@ -29,7 +29,7 @@
         "extensionParams": {
             "searchHandler": "emrapi.sqlSearch.activePatients",
             "forwardUrl": "#/default/patient/{{patientUuid}}/consultationContext",
-            "translationKey": "Programs"
+            "translationKey": "MODULE_LABEL_PROGRAMS_KEY"
         },
         "order": 2,
         "requiredPrivilege": "app:clinical"
@@ -41,7 +41,7 @@
         "extensionParams": {
             "searchHandler": "emrapi.sqlSearch.activePatientsByProvider",
             "forwardUrl": "#/default/patient/{{patientUuid}}/dashboard",
-            "translationKey": "My Patients"
+            "translationKey": "MODULE_LABEL_MY_PATIENTS_KEY"
         },
         "order": 3,
         "requiredPrivilege": "app:clinical"
@@ -52,7 +52,7 @@
         "type": "config",
         "extensionParams": {
             "forwardUrl": "#/default/patient/{{patientUuid}}/dashboard",
-            "translationKey": "All"
+            "translationKey": "MODULE_LABEL_ALL_KEY"
         },
         "order": 4,
         "requiredPrivilege": "app:clinical"

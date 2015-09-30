@@ -1,0 +1,72 @@
+{
+  "CONSULTATION_TAB_KEY": "Consultation",
+  "NO_ACTIVE_PASSIVE_PROGRAMS_MESSAGE": "Pas de programmes actifs / passées pour ce patient .",
+  "NO_TREATMENTS_MESSAGE": "Aucun traitement pour ce patient.",
+  "NO_ADMISSION_DETAILS_MESSAGE": "Pas de détails d'admission pour ce patient.",
+  "NO_DOCUMENTS_MESSAGE": "Pas de documents pour ce patient.",
+  "NO_DISPOSTIONS_AVAILABLE_MESSAGE_KEY": "Pas de dispositions disponibles",
+  "NO_LAB_ORDERS_FOR_PATIENT_MESSAGE_KEY": "Aucun laborders pour ce patient",
+  "DISPLAY_CONTROL_ERROR_MESSAGE_KEY": "Non {{ displayControl }}  pour ce patient",
+  "NO_DIAGNOSIS_MESSAGE": "Aucun diagnostic pour ce patient",
+
+  "PROGRAM_MANAGEMENT_SELECT_PROGRAM_KEY": "Sélectionner le programme",
+  "PROGRAM_MANAGEMENT_ACTIVE_PROGRAM_KEY": "Les programmes actifs",
+  "PROGRAM_MANAGEMENT_PAST_PROGRAM_KEY": "Les anciens programmes",
+  "PROGRAM_MANAGEMENT_CHOOSE_PROGRAM_KEY": "Choisissez programme",
+  "PROGRAM_MANAGEMENT_CHOOSE_STATE_KEY": "Choisissez état",
+  "PROGRAM_MANAGEMENT_START_DATE_KEY": "Date de début:",
+  "PATIENT_NOT_ENROLLED_TO_PROGRAMS_MESSAGE_KEY": "Le patient n'a pas inscrit à tous les programmes",
+  "PATIENT_DOESNT_HAVE_PREVIOUS_PROGRAMS_MESSAGE_KEY": "Le patient n'a pas de précédents programmes",
+  "PROGRAM_MANAGEMENT_ENROLL_KEY": "s'inscrire",
+  "PROGRAM_MANAGEMENT_GENERAL_CONSULTATION_KEY": "consultation générale",
+
+  "MODULE_LABEL_ACTIVE_KEY": "actif",
+  "MODULE_LABEL_PROGRAMS_KEY": "programmes",
+  "MODULE_LABEL_MY_PATIENTS_KEY": "Mes patients",
+  "MODULE_LABEL_ALL_KEY": "Tous",
+
+  "DASHBOARD_TITLE_VISITS_KEY": "visites",
+  "DASHBOARD_TITLE_PROGRAMS_KEY": "programmes",
+  "DASHBOARD_TITLE_NUTRITIONAL_VALUES_KEY": "Valeurs nutritionnelles",
+  "DASHBOARD_TITLE_PATIENT_INFORMATION_KEY": "L'information des patients",
+
+  "CLINICAL_YEARS_TRANSLATION_KEY": "Années",
+  "CLINICAL_MONTHS_TRANSLATION_KEY": "mois",
+  "CLINICAL_DAYS_TRANSLATION_KEY": "journées",
+
+  "DASHBOARD_TAB_GENERAL_KEY": "général",
+  "DASHBOARD_TAB_TRENDS_KEY": "tendances",
+  "DASHBOARD_TAB_PATIENT_SUMMARY_KEY" : "Patient Summary",
+
+  "OBSERVATIONS_BOARD_LABEL_KEY":"observations",
+
+  "CONSULTATION_PAGE_KEY" :"Consultation",
+
+  "INVESTIGATION_CHART_KEY": "tableau enquête",
+
+  "VISIT_TITLE_DIAGNOSIS_KEY": "diagnostics",
+  "VISIT_TITLE_DISPOSITIONS_KEY": "Dispositions",
+  "VISIT_TITLE_DISPOSITION_KEY": "Disposition",
+  "VISIT_TITLE_ADMISSION_DETAILS_KEY": "Les détails d'admission",
+  "VISIT_TITLE_LAB_INVESTIGATIONS_KEY": "Les enquêtes de laboratoire",
+  "VISIT_TITLE_TREATMENTS_KEY": "traitements",
+  "VISIT_TITLE_PATIENT_FILES_KEY": "Les dossiers des malades",
+  "VISIT_TITLE_RADIOLOGY_KEY": "Radiologie",
+  "VISIT_TITLE_OBSERVATIONS_KEY": "Observations",
+  "CONCEPT_SET_GROUP_EXPAND_ALL_KEY": "Développer tout",
+  "CONCEPT_SET_GROUP_COLLAPSE_ALL_KEY": "Tout replier",
+  "ADD_MORE_KEY": "Ajouter plus",
+  "CLINICAL_SAVE_TRANSLATION_KEY":"enregi<u>s</u>trer",
+  "SAVE_ACCESS_KEY": "s",
+  "CLINICAL_PRINT_TRANSLATION_KEY": "Imp<u>r</u>ession",
+  "CLINICAL_PRINT_ACCESS_KEY": "r",
+  "VISIT_ON_TRANSLATION_KEY": "Visite sur",
+  "ENTERING_DATA_FOR_TRANSLATION_KEY": "Saisie de données pour",
+  "EDITITNG_DATA_FOR_ENCOUNTER_TRANSLATION_KEY": "Saisie des données de rencontre",
+  "ON_BEHALF_OF_TRANSLATION_KEY": "Au nom de",
+  "PATIENT_DOCUMENT_TRANSLATION_KEY": "Documents patients",
+  "BAHMNI_HOME_TRANSLATION_KEY": "Accueil Bahmni",
+  "LOGOUT_TRANSLATION_KEY": "Se déconnecter",
+
+  "DASHBOARD_TITLE_RADIOLOGY_KEY":"Documents de radiologie"
+}

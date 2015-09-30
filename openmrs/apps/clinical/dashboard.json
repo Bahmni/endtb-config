@@ -10,7 +10,7 @@
                 ],
                 "addressFields": [],
                 "displayOrder": 0,
-                "translationKey": "Patient Information"
+                "translationKey": "DASHBOARD_TITLE_PATIENT_INFORMATION_KEY"
             },
             "labResults1": {
                 "templateName": "Lab Results Template",
@@ -52,12 +52,12 @@
                     "numberOfVisits": 1
                 },
                 "displayOrder": 1,
-                "translationKey": "Nutritional Values"
+                "translationKey": "DASHBOARD_TITLE_NUTRITIONAL_VALUES_KEY"
             },
             "programs": {
                 "name": "programs",
                 "displayOrder": 3,
-                "translationKey": "Programs"
+                "translationKey": "DASHBOARD_TITLE_PROGRAMS_KEY"
             },
             "visits": {
                 "name": "visits",
@@ -66,7 +66,7 @@
                     "maximumNoOfVisits": 10
                 },
                 "displayOrder": 4,
-                "translationKey": "Visits"
+                "translationKey": "DASHBOARD_TITLE_VISITS_KEY"
             },
             "followup": {
                 "templateName": "Followup Template",
@@ -119,7 +119,7 @@
                 "title": "Baseline Form Findings"
             }
         },
-        "translationKey": "General"
+        "translationKey": "DASHBOARD_TAB_GENERAL_KEY"
     },
     "summary": {
         "displayByDefault": true,
@@ -137,7 +137,7 @@
                 ],
                 "addressFields": [],
                 "displayOrder": 0,
-                "translationKey": "Patient Information"
+                "translationKey": "DASHBOARD_TITLE_PATIENT_INFORMATION_KEY"
             },
             "followup": {
                 "templateName": "Followup Template",
@@ -216,7 +216,7 @@
                 "title": "Lab Results Findings"
             }
         },
-        "translationKey": "Patient Summary"
+        "translationKey": "DASHBOARD_TAB_PATIENT_SUMMARY_KEY"
     },
     "trends": {
         "displayByDefault": true,
@@ -227,7 +227,7 @@
                 "patientAttributes": [],
                 "addressFields": [],
                 "displayOrder": 0,
-                "translationKey": "Patient Information"
+                "translationKey": "DASHBOARD_TITLE_PATIENT_INFORMATION_KEY"
             },
             "weight/BMI": {
                 "type": "observationGraph",
@@ -269,6 +269,6 @@
                 "title": "AST"
             }
         },
-        "translationKey": "Trends"
+        "translationKey": "DASHBOARD_TAB_TRENDS_KEY"
     }
 }
