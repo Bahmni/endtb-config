@@ -68,5 +68,8 @@
   "BAHMNI_HOME_TRANSLATION_KEY": "Accueil Bahmni",
   "LOGOUT_TRANSLATION_KEY": "Se déconnecter",
 
-  "DASHBOARD_TITLE_RADIOLOGY_KEY":"Documents de radiologie"
+  "DASHBOARD_TITLE_RADIOLOGY_KEY":"Documents de radiologie",
+
+  "BACTERIOLOGY_TAB_TITLE_KEY" : "détails de l'échantillon",
+  "BACTERIOLOGY_BOARD_LABEL_KEY" : "bactériologie"
 }

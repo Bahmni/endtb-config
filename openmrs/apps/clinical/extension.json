@@ -10,6 +10,17 @@
         "requiredPrivilege": "app:clinical:observationTab",
         "translationKey": "OBSERVATIONS_BOARD_LABEL_KEY"
     },
+    "bahmniClinicalConsultationBacteriology": {
+        "id": "bahmni.clinical.consultation.bacteriology",
+        "extensionPointId": "org.bahmni.clinical.consultation.board",
+        "type": "link",
+        "label": "Bacteriology",
+        "translationKey":"BACTERIOLOGY_BOARD_LABEL_KEY",
+        "url": "bacteriology",
+        "icon": "icon-user-md",
+        "order": 7,
+        "requiredPrivilege": "app:clinical:diagnosisTab"
+    },
     "bahmni_clinical_patients_search_allpatients_active_app_clinical": {
         "id": "bahmni.clinical.patients.search.allPatients",
         "extensionPointId": "org.bahmni.patient.search",

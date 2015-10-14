@@ -141,6 +141,33 @@
                 },
                 "BACTERIOLOGY_SAMPLE_APPEARANCE" : {
                     "conciseText" : true
+                },
+		"Bacteriology, Other drug details" : {
+                    "allowAddMore" : true
+                },
+                "Bacteriology, Which monthly scheduled visit" : {
+                    "conciseText" : true
+                },
+                "Bacteriology, DST with MIC" : {
+                    "allowAddMore" : true
+                },
+                "Bacteriology, Sequencing" : {
+                    "allowAddMore" : true
+                },
+                "Bacteriology, Other drug name" : {
+                    "conciseText" : true
+                },
+                "Bacteriology, Other culture medium" : {
+                    "conciseText" : true
+                },
+                "Bacteriology, DST with MIC drug name" : {
+                    "conciseText" : true
+                },
+                "Bacteriology, MIC technique/medium" : {
+                    "conciseText" : true
+                },
+                "Bacteriology, Minimum inhibitory concentration" : {
+                    "conciseText" : true
                 }
         },
         "drugOrder": {
