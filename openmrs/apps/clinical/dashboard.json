@@ -68,6 +68,19 @@
                 "displayOrder": 4,
                 "translationKey": "DASHBOARD_TITLE_VISITS_KEY"
             },
+            "bacteriologyResults":{
+                "translationKey": "DASHBOARD_TITLE_BACTERIOLOGY_RESULTS_KEY",
+                "name": "bacteriologyResultsControl",
+                "scope": "All",
+                "orderType": "",
+                "displayOrder": 4,
+                "dashboardParams": {
+                    "conceptNames": [
+                        "BACTERIOLOGY CONCEPT SET"
+                    ]
+
+                }
+            },
             "followup": {
                 "templateName": "Followup Template",
                 "name": "diseaseTemplate",

@@ -69,7 +69,8 @@
   "LOGOUT_TRANSLATION_KEY": "Logout",
 
   "DASHBOARD_TITLE_RADIOLOGY_KEY":"Radiology Documents",
-  
+
   "BACTERIOLOGY_TAB_TITLE_KEY" : "Sample Details",
-  "BACTERIOLOGY_BOARD_LABEL_KEY" : "Bacteriology"
+  "BACTERIOLOGY_BOARD_LABEL_KEY" : "Bacteriology",
+  "DASHBOARD_TITLE_BACTERIOLOGY_RESULTS_KEY":"Bacteriology Results"
 }
