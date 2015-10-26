@@ -128,10 +128,32 @@
         "extensionPointId": "org.bahmni.clinical.conceptSetGroup.observations",
         "type": "config",
         "extensionParams": {
-                "conceptName": "Pregnancy Report Form Template",
+                "conceptName": "Adverse Events Template",
                 "default": true
         },
         "order": 6,
+        "requiredPrivilege": "app:clinical"
+    },
+    "bahmniClinicalConceptSetGroupObservationsPregnancy": {
+        "id": "bahmni.clinical.conceptSetGroup.observations.pregnancy",
+        "extensionPointId": "org.bahmni.clinical.conceptSetGroup.observations",
+        "type": "config",
+        "extensionParams": {
+                "conceptName": "Serious Adverse Events Template",
+                "default": true
+        },
+        "order": 7,
+        "requiredPrivilege": "app:clinical"
+    },
+    "bahmniClinicalConceptSetGroupObservationsPregnancy": {
+        "id": "bahmni.clinical.conceptSetGroup.observations.pregnancy",
+        "extensionPointId": "org.bahmni.clinical.conceptSetGroup.observations",
+        "type": "config",
+        "extensionParams": {
+                "conceptName": "Pregnancy Report Form Template",
+                "default": true
+        },
+        "order": 8,
         "requiredPrivilege": "app:clinical"
     },
     "bahmniClinicalConceptSetGroupObservationsHAN": {
@@ -142,7 +164,7 @@
                 "conceptName": "Hospital Admission Notification Template",
                 "default": true
         },
-        "order": 7,
+        "order": 9,
         "requiredPrivilege": "app:clinical"
     },
     "bahmniClinicalConceptSetGroupObservationsHDS": {
@@ -153,7 +175,7 @@
                 "conceptName": "Hospital Discharge Summary Template",
                 "default": true
         },
-        "order": 8,
+        "order": 10,
         "requiredPrivilege": "app:clinical"
     },
     "bahmniClinicalConceptSetGroupObservationsLabResults": {
@@ -164,7 +186,7 @@
                 "conceptName": "Lab Results Template",
                 "default": true
         },
-        "order": 9,
+        "order": 11,
         "requiredPrivilege": "app:clinical"
     },
     "bahmniClinicalConceptSetGroupObservationsXray": {
@@ -175,7 +197,7 @@
                 "conceptName": "Xray Template",
                 "default": true
         },
-        "order": 10,
+        "order": 12,
         "requiredPrivilege": "app:clinical"
     },
     "bahmniClinicalConceptSetGroupObservationsAudiometry": {
@@ -186,7 +208,7 @@
                 "conceptName": "Audiometry Template",
                 "default": true
         },
-        "order": 11,
+        "order": 13,
         "requiredPrivilege": "app:clinical"
     },
     "bahmniClinicalConceptSetGroupObservationsEkg": {
@@ -197,7 +219,7 @@
                 "conceptName": "Electrocardiogram Template",
                 "default": true
         },
-        "order": 12,
+        "order": 14,
         "requiredPrivilege": "app:clinical"
     },
     "bahmniClinicalConceptSetGroupObservationsMonthlyTx": {
@@ -208,7 +230,7 @@
                 "conceptName": "Monthly Treatment Completeness Template",
                 "default": true
         },
-        "order": 13,
+        "order": 15,
         "requiredPrivilege": "app:clinical"
     },
     "bahmniClinicalConceptSetGroupObservationsPerformance": {
@@ -219,7 +241,7 @@
                 "conceptName": "Performance Status Template",
                 "default": true
         },
-        "order": 14,
+        "order": 16,
         "requiredPrivilege": "app:clinical"
     }
 }
