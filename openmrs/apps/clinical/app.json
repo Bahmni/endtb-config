@@ -74,26 +74,9 @@
 		"Baseline, Exact extrapulmonary site": {
 		"conciseText": true
 		},
-		"AE Log, Adverse Event Details" : {
-                    "allowAddMore" : true
-                },
 		"Consent scan copy" : {
 		    "allowAddMore" : true
 		},
-                "AE Log, Severity Details" : {
-                    "allowAddMore" : true
-                },
-                "AE Form, Other adverse event" : {
-                    "allowAddMore" : true,
-                    "conciseText" : true
-                },
-                "AE Form, Related test results" : {
-                    "allowAddMore" : true
-                },
-                "AE Form, List of potentially related TB drugs for AE" : {
-                    "allowAddMore" : true,
-                    "conciseText" : true
-                },
                 "Lab, Hepatitis B antigen test result" : {
                     "conciseText" : true
                 },

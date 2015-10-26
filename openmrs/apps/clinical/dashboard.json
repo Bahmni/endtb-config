@@ -143,90 +143,152 @@
             "logo": "../images/jss-icon.png"
         },
         "sections": {
-            "patientInformation": {
+	    "patientInformation": {
                 "name": "patientInformation",
                 "patientAttributes": [
-                    "DRTBNationalID"
+                    "DRTBNationalID","telephoneNumber"
                 ],
-                "addressFields": [],
+                "addressFields": ["latitude","address1","address2","cityVillage","None","stateProvince","country"],
                 "displayOrder": 0,
                 "translationKey": "DASHBOARD_TITLE_PATIENT_INFORMATION_KEY"
             },
-            "followup": {
-                "templateName": "Followup Template",
-                "name": "diseaseTemplate",
+	    "casedefinition": {
+                "name": "casedefinition",
+                "isObservation": true,
                 "dashboardParams": {
-                    "showOnly": []
+                    "conceptNames": [
+			"Baseline, WHO registration group",
+                        "Baseline, Disease site",
+			"Baseline, Drug resistance",
+			"Baseline, Subclassification for confimed drug resistant cases"
+                    ],
+                    "numberOfVisits": 1
                 },
-                "allDiseaseDetails": {
-                    "showDetailsButton": true,
-                    "pivotTable": {
-                        "numberOfVisits": "15",
-                        "groupBy": "visits",
-                        "obsConcepts": [],
-                        "drugConcepts": [],
-                        "labConcepts": []
-                    }
+                "displayOrder": 1,
+                "translationKey": "Case Defintion"
+            },
+	    "comorbidities": {
+                "name": "comorbidities",
+                "isObservation": true,
+                "dashboardParams": {
+                    "conceptNames": [
+			"Baseline, HIV serostatus result",
+                        "Date of HIV diagnosis",
+			"Diabetes Mellitus",
+			"Baseline, Chronic renal insufficiency",
+			"History of liver cirrhosis",
+			"Baseline, Chronic obstructive pulmonary disease",
+			"Baseline, Cancer",
+			"Baseline, Heart or atherosclerotic disease",
+			"Baseline, Hepatitis B",
+			"Baseline, Hepatitis C",
+			"Baseline, Depression",
+			"Baseline, Other psychiatric illness",
+			"Baseline, Seizure disorder",
+			"Baseline, Pre-existing neuropathy",
+			"Baseline, Neuropathy grade",
+			"Baseline, Other pre-existing disease"
+                    ],
+                    "numberOfVisits": 1
                 },
                 "displayOrder": 2,
-                "title": "Followup Form Findings"
+                "translationKey": "Co-morbidities"
             },
-            "ekg": {
-                "templateName": "Electrocardiogram Template",
-                "name": "diseaseTemplate",
+	    "importantdates": {
+                "name": "importantdates",
+                "isObservation": true,
                 "dashboardParams": {
-                    "showOnly": []
+                    "conceptNames": [
+                        "Medication log, Treatment start date",
+                        "EOT, End of Treatment date"
+                    ],
+                    "numberOfVisits": 1
                 },
-                "allDiseaseDetails": {
-                    "showDetailsButton": true,
-                    "pivotTable": {
-                        "numberOfVisits": "15",
-                        "groupBy": "visits",
-                        "obsConcepts": [],
-                        "drugConcepts": [],
-                        "labConcepts": []
-                    }
+                "displayOrder": 3,
+                "translationKey": "Important Dates"
+            },
+	    "pasttbhistory": {
+                "name": "pasttbhistory",
+                "isObservation": true,
+                "dashboardParams": {
+                    "conceptNames": [
+                        "Baseline, Year of First TB Treatment",
+                        "Baseline, Treatment for drug-susceptible TB",
+			"Baseline, How many drug-susceptible TB treatments",
+			"Baseline, Treatment for drug-resistant TB",
+			"Baseline, How many drug-resistant TB treatments"
+                    ],
+                    "numberOfVisits": 1
                 },
                 "displayOrder": 4,
-                "title": " Electrocardiogram Form Findings"
+                "translationKey": "Past TB Treatment Information"
             },
-            "medicationlog": {
-                "templateName": "Medication log Template",
-                "name": "diseaseTemplate",
+	    "pasttbtreatment": {
+                "name": "pasttbtreatment",
+                "isObservation": true,
                 "dashboardParams": {
-                    "showOnly": []
-                },
-                "allDiseaseDetails": {
-                    "showDetailsButton": true,
-                    "pivotTable": {
-                        "numberOfVisits": "15",
-                        "groupBy": "visits",
-                        "obsConcepts": [],
-                        "drugConcepts": [],
-                        "labConcepts": []
-                    }
+                    "conceptNames": [
+			"Baseline, Start date of past TB treatment",
+			"Baseline, End date of past TB treatment",
+			"Baseline, Type of past TB treatment",
+			"Baseline, Past TB treatment regimen type",
+			"Baseline, Past TB treatment outcome"
+                    ],
+                    "numberOfVisits": 1
                 },
                 "displayOrder": 5,
-                "title": "Medication Log Findings"
+                "translationKey": "Past TB Treatment Regimen"
             },
-            "labresults": {
-                "templateName": "Lab Results Template",
-                "name": "diseaseTemplate",
+	    "previoustbdrug": {
+                "name": "previoustbdrug",
+                "isObservation": true,
                 "dashboardParams": {
-                    "showOnly": []
-                },
-                "allDiseaseDetails": {
-                    "showDetailsButton": true,
-                    "pivotTable": {
-                        "numberOfVisits": "15",
-                        "groupBy": "visits",
-                        "obsConcepts": [],
-                        "drugConcepts": [],
-                        "labConcepts": []
-                    }
+                    "conceptNames": [
+			"Baseline, List of drugs taken for more than a month",
+			"Baseline, Other drug taken for more than a month"
+                    ],
+                    "numberOfVisits": 1
                 },
                 "displayOrder": 6,
-                "title": "Lab Results Findings"
+                "translationKey": "Previous TB-drug Exposure Prior to Start of"
+            },
+	    "treatmentoutcome": {
+                "name": "treatmentoutcome",
+                "isObservation": true,
+                "dashboardParams": {
+                    "conceptNames": [
+			"EOT, Outcome",
+			"6m PTO, 6 month post treatment outcome"
+                    ],
+                    "numberOfVisits": 1
+                },
+                "displayOrder": 7,
+                "translationKey": "Treatment Outcome"
+            },
+	    "flowsheet": {
+                "name": "flowSheet",
+                "title": "Laboratory Monitoring",
+                "dashboardParams": {
+                        "numberOfVisits": "5",
+                        "groupBy": "visits",
+                        "obsConcepts": [
+                            "Lab, RBC count test result",
+                            "Lab, Creatinine test result",
+                            "Lab, Creatinine test result unit",
+                            "Lab, Hemoglobin test result",
+                            "Lab, Platelet count test result",
+                            "Lab, Absolute neutrophil count test result",
+                            "Lab, Total bilirubin test result"
+                        ],
+                        "labConcepts": []
+                },
+                "allFlowSheetDetails": {
+                        "numberOfVisits": "10",
+                        "groupBy": "visits",
+                        "obsConcepts": [],
+                        "labConcepts": [],
+                        "drugConcepts": []
+                }
             }
         },
         "translationKey": "DASHBOARD_TAB_PATIENT_SUMMARY_KEY"

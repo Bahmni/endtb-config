@@ -133,9 +133,9 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         var conditions = {enable: [], disable: []};
         var conditionConcept = formFieldValues['Baseline, WHO registration group'];
         if(conditionConcept=="Relapse"||conditionConcept=="Treatment after loss to followup"||conditionConcept=="After failure of first treatment with first-line drugs"||conditionConcept=="After failure of retreatment regimen with first-line drugs") {
-            conditions.enable.push("Baseline, History of past drug use")
+            conditions.enable.push("Category IV tuberculosis classification")
         } else {
-            conditions.disable.push("Baseline, History of past drug use")
+            conditions.disable.push("Category IV tuberculosis classification")
         }
         return conditions;
   },
