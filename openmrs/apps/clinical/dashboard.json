@@ -162,18 +162,29 @@
 			"Baseline, Drug resistance",
 			"Baseline, Subclassification for confimed drug resistant cases"
                     ],
-                    "numberOfVisits": 1
+                    "scope": "latest"
                 },
                 "displayOrder": 1,
                 "translationKey": "Case Defintion"
+            },
+	    "hivstatus": {
+                "name": "hivstatus",
+                "isObservation": true,
+                "dashboardParams": {
+                    "conceptNames": [
+                        "Baseline, HIV serostatus result",
+                        "Date of HIV diagnosis"
+                    ],
+                    "scope": "latest"
+                },
+                "displayOrder": 2,
+                "translationKey": "HIV Status"
             },
 	    "comorbidities": {
                 "name": "comorbidities",
                 "isObservation": true,
                 "dashboardParams": {
                     "conceptNames": [
-			"Baseline, HIV serostatus result",
-                        "Date of HIV diagnosis",
 			"Diabetes Mellitus",
 			"Baseline, Chronic renal insufficiency",
 			"History of liver cirrhosis",
@@ -189,9 +200,9 @@
 			"Baseline, Neuropathy grade",
 			"Baseline, Other pre-existing disease"
                     ],
-                    "numberOfVisits": 1
+                    "scope": "latest"
                 },
-                "displayOrder": 2,
+                "displayOrder": 3,
                 "translationKey": "Co-morbidities"
             },
 	    "importantdates": {
@@ -199,12 +210,13 @@
                 "isObservation": true,
                 "dashboardParams": {
                     "conceptNames": [
-                        "Medication log, Treatment start date",
-                        "EOT, End of Treatment date"
+                        "TUBERCULOSIS DRUG TREATMENT START DATE",
+                        "Tuberculosis treatment end date"
                     ],
-                    "numberOfVisits": 1
+		    "scope" : "latest"
+                
                 },
-                "displayOrder": 3,
+                "displayOrder": 4,
                 "translationKey": "Important Dates"
             },
 	    "pasttbhistory": {
@@ -218,26 +230,26 @@
 			"Baseline, Treatment for drug-resistant TB",
 			"Baseline, How many drug-resistant TB treatments"
                     ],
-                    "numberOfVisits": 1
-                },
-                "displayOrder": 4,
-                "translationKey": "Past TB Treatment Information"
-            },
-	    "pasttbtreatment": {
-                "name": "pasttbtreatment",
-                "isObservation": true,
-                "dashboardParams": {
-                    "conceptNames": [
-			"Baseline, Start date of past TB treatment",
-			"Baseline, End date of past TB treatment",
-			"Baseline, Type of past TB treatment",
-			"Baseline, Past TB treatment regimen type",
-			"Baseline, Past TB treatment outcome"
-                    ],
-                    "numberOfVisits": 1
+                    "scope": "latest"
                 },
                 "displayOrder": 5,
-                "translationKey": "Past TB Treatment Regimen"
+                "translationKey": "Past TB Treatment Information"
+            },
+	    "previousTBTreatmentRegimen": {
+                "translationKey": "Previous TB treatment Regimen",
+                "name": "obsToObsFlowSheet",
+                "displayOrder": 6,
+                "dashboardParams": {
+                        "scope": "latest",
+                        "groupByConcept": "Baseline, Start date of past TB treatment",
+                        "templateName" : "Baseline, Past TB treatment table",
+                        "conceptNames": [
+                                "Baseline, End date of past TB treatment",
+                                "Baseline, Type of past TB treatment",
+                                "Baseline, Past TB treatment regimen type",
+                                "Baseline, Past TB treatment outcome"
+                        ]
+                }
             },
 	    "previoustbdrug": {
                 "name": "previoustbdrug",
@@ -247,9 +259,9 @@
 			"Baseline, List of drugs taken for more than a month",
 			"Baseline, Other drug taken for more than a month"
                     ],
-                    "numberOfVisits": 1
+                    "scope": "latest"
                 },
-                "displayOrder": 6,
+                "displayOrder": 7,
                 "translationKey": "Previous TB-drug Exposure Prior to Start of"
             },
 	    "treatmentoutcome": {
@@ -260,34 +272,92 @@
 			"EOT, Outcome",
 			"6m PTO, 6 month post treatment outcome"
                     ],
-                    "numberOfVisits": 1
+                    "scope": "latest"
                 },
-                "displayOrder": 7,
+                "displayOrder": 8,
                 "translationKey": "Treatment Outcome"
             },
 	    "flowsheet": {
-                "name": "flowSheet",
+                "name": "flowsheet",
                 "title": "Laboratory Monitoring",
-                "dashboardParams": {
+		"displayType": "Full-Page",
+                "displayOrder": 9,
+		"dashboardParams": {
                         "numberOfVisits": "5",
-                        "groupBy": "visits",
+                        "groupBy": "encounters",
                         "obsConcepts": [
-                            "Lab, RBC count test result",
-                            "Lab, Creatinine test result",
-                            "Lab, Creatinine test result unit",
-                            "Lab, Hemoglobin test result",
-                            "Lab, Platelet count test result",
-                            "Lab, Absolute neutrophil count test result",
-                            "Lab, Total bilirubin test result"
+                            "RED BLOOD CELLS",
+                            "Serum creatinine (umol/L)",
+                            "Hemoglobin",
+                            "Platelets",
+                            "ABSOLUTE NEUTROPHIL COUNT",
+                            "TOTAL BILIRUBIN"
                         ],
                         "labConcepts": []
                 },
                 "allFlowSheetDetails": {
-                        "numberOfVisits": "10",
                         "groupBy": "visits",
-                        "obsConcepts": [],
+                        "obsConcepts": [
+			    "RED BLOOD CELLS",
+                            "Serum creatinine (umol/L)",
+                            "Hemoglobin",
+                            "Platelets",
+                            "ABSOLUTE NEUTROPHIL COUNT",
+                            "TOTAL BILIRUBIN"
+			],
                         "labConcepts": [],
                         "drugConcepts": []
+                }
+            },
+	    "adverseEvents": {
+                "translationKey": "Adverse Events",
+                "name": "obsToObsFlowSheet",
+                "displayOrder": 10,
+                "dashboardParams": {
+                        "scope": "latest",
+                        "groupByConcept": "AE Form, Adverse Event term",
+                        "templateName" : "AE Form, Adverse Event details",
+                        "conceptNames": [
+                                "AE Form, Date of AE onset",
+                                "AE Form, AE Grade",
+				"AE Form, Maximum severity of AE",
+                                "AE Form, AE review date",
+				"AE Form, AE severity at review",
+				"AE Form, Date of AE Outcome",
+				"AE Form, AE outcome"
+                        ]
+                }
+            },
+	    "ecgReadings": {
+                "translationKey": "ECG Readings",
+                "name": "obsToObsFlowSheet",
+                "displayOrder": 11,
+                "dashboardParams": {
+                        "scope": "latest",
+                        "groupByConcept": "EKG, Date of EKG",
+                        "templateName" : "Electrocardiogram Template",
+                        "conceptNames": [
+				"EKG, Month of scheduled visit",
+                                "EKG, Rythm",
+                                "EKG, Heart Rate",
+                                "EKG, QT Interval",
+                                "EKG, QTcF Interval"
+                        ]
+                }
+            },
+	    "chestXray": {
+                "translationKey": "Chest X-Ray",
+                "name": "obsToObsFlowSheet",
+                "displayOrder": 12,
+                "dashboardParams": {
+                        "scope": "latest",
+                        "groupByConcept": "Xray, Chest Xray Date",
+                        "templateName" : "Xray Template",
+                        "conceptNames": [
+                                "Xray, Extent of disease",
+                                "Xray, Maximum cavity size",
+                                "Xray, Fibrosis"
+                        ]
                 }
             }
         },
