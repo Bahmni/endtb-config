@@ -145,6 +145,7 @@
         "sections": {
 	    "patientInformation": {
                 "name": "patientInformation",
+		"displayType": "Full-Page",
                 "patientAttributes": [
                     "DRTBNationalID","telephoneNumber"
                 ],
@@ -155,6 +156,7 @@
 	    "casedefinition": {
                 "name": "casedefinition",
                 "isObservation": true,
+		"displayType": "Full-Page",
                 "dashboardParams": {
                     "conceptNames": [
 			"Baseline, WHO registration group",
@@ -170,6 +172,7 @@
 	    "hivstatus": {
                 "name": "hivstatus",
                 "isObservation": true,
+		"displayType": "Full-Page",
                 "dashboardParams": {
                     "conceptNames": [
                         "Baseline, HIV serostatus result",
@@ -183,6 +186,7 @@
 	    "comorbidities": {
                 "name": "comorbidities",
                 "isObservation": true,
+		"displayType": "Full-Page",
                 "dashboardParams": {
                     "conceptNames": [
 			"Diabetes Mellitus",
@@ -208,6 +212,7 @@
 	    "importantdates": {
                 "name": "importantdates",
                 "isObservation": true,
+		"displayType": "Full-Page",
                 "dashboardParams": {
                     "conceptNames": [
                         "TUBERCULOSIS DRUG TREATMENT START DATE",
@@ -222,6 +227,7 @@
 	    "pasttbhistory": {
                 "name": "pasttbhistory",
                 "isObservation": true,
+		"displayType": "Full-Page",
                 "dashboardParams": {
                     "conceptNames": [
                         "Baseline, Year of First TB Treatment",
@@ -238,9 +244,10 @@
 	    "previousTBTreatmentRegimen": {
                 "translationKey": "Previous TB treatment Regimen",
                 "name": "obsToObsFlowSheet",
+		"displayType": "Full-Page",
                 "displayOrder": 6,
                 "dashboardParams": {
-                        "scope": "latest",
+                        "scope": "All",
                         "groupByConcept": "Baseline, Start date of past TB treatment",
                         "templateName" : "Baseline, Past TB treatment table",
                         "conceptNames": [
@@ -254,6 +261,7 @@
 	    "previoustbdrug": {
                 "name": "previoustbdrug",
                 "isObservation": true,
+		"displayType": "Full-Page",
                 "dashboardParams": {
                     "conceptNames": [
 			"Baseline, List of drugs taken for more than a month",
@@ -267,6 +275,7 @@
 	    "treatmentoutcome": {
                 "name": "treatmentoutcome",
                 "isObservation": true,
+		"displayType": "Full-Page",
                 "dashboardParams": {
                     "conceptNames": [
 			"EOT, Outcome",
@@ -277,11 +286,65 @@
                 "displayOrder": 8,
                 "translationKey": "Treatment Outcome"
             },
-	    "flowsheet": {
-                "name": "flowsheet",
+	    "dstResults": {
+                "translationKey": "DST Results",
+                "name": "obsToObsFlowSheet",
+                "displayType": "Full-Page",
+                "displayOrder": 9,
+                "dashboardParams": {
+                        "scope": "All",
+                        "groupByConcept": "Specimen Collection Date",
+                        "templateName" : "BACTERIOLOGY CONCEPT SET",
+                        "conceptNames": [
+                                "Bacteriology, Isoniazid 0.2 µg/ml result",
+				"Bacteriology, Isoniazid 1 µg/ml result",
+				"Bacteriology, Rifampicin result",
+				"Bacteriology, Ethambutol result",
+				"Bacteriology, Pyrazinamide result",
+				"Bacteriology, Ofloxacin result",
+				"Bacteriology, Levofloxacin result",
+				"Bacteriology, Moxifloxacin 0.5 µg/ml results",
+				"Bacteriology, Moxifloxacin 2 µg/ml results",
+				"Bacteriology, Amikacin result",
+				"Bacteriology, Kanamycin result",
+				"Bacteriology, Capreomycin result",
+				"Bacteriology, Ethionamide result",
+				"Bacteriology, Cycloserine result",
+				"Bacteriology, PAS result"
+                        ]
+                }
+            },
+	    "Drug-O-Gram": {
+    		"displayType": "Full-Page",
+    		"title": "Drug Regimen",
+    		"translationKey": "Drug Regimen",
+    		"name": "drugOGram",
+    		"dashboardParams": {
+        		"Drugs": ["AMIKACIN","RIFAMPICIN","ISONIAZID","ETHAMBUTOL","PYRAZINAMIDE"]
+    		},
+		"displayOrder": 10
+	    },
+	    "completenessFlowsheet": {
+                "name": "flowSheet",
+                "title": "Treatment Completeness vs Weight and BMI",
+                "displayType": "Full-Page",
+                "displayOrder": 11,
+                "dashboardParams": {
+                        "scope": "All",
+                        "groupBy": "encounters",
+                        "obsConcepts": [
+                            "Weight (kg)",
+                            "BMI Data",
+                            "MTC, Completeness rate"
+                        ],
+                        "labConcepts": []
+                }
+            },
+	    "labFlowsheet": {
+                "name": "flowSheet",
                 "title": "Laboratory Monitoring",
 		"displayType": "Full-Page",
-                "displayOrder": 9,
+                "displayOrder": 12,
 		"dashboardParams": {
                         "numberOfVisits": "5",
                         "groupBy": "encounters",
@@ -312,9 +375,10 @@
 	    "adverseEvents": {
                 "translationKey": "Adverse Events",
                 "name": "obsToObsFlowSheet",
-                "displayOrder": 10,
+		"displayType": "Full-Page",
+                "displayOrder": 13,
                 "dashboardParams": {
-                        "scope": "latest",
+                        "scope": "All",
                         "groupByConcept": "AE Form, Adverse Event term",
                         "templateName" : "AE Form, Adverse Event details",
                         "conceptNames": [
@@ -331,9 +395,10 @@
 	    "ecgReadings": {
                 "translationKey": "ECG Readings",
                 "name": "obsToObsFlowSheet",
-                "displayOrder": 11,
+		"displayType": "Full-Page",
+                "displayOrder": 14,
                 "dashboardParams": {
-                        "scope": "latest",
+                        "scope": "All",
                         "groupByConcept": "EKG, Date of EKG",
                         "templateName" : "Electrocardiogram Template",
                         "conceptNames": [
@@ -348,9 +413,10 @@
 	    "chestXray": {
                 "translationKey": "Chest X-Ray",
                 "name": "obsToObsFlowSheet",
-                "displayOrder": 12,
+		"displayType": "Full-Page",
+                "displayOrder": 15,
                 "dashboardParams": {
-                        "scope": "latest",
+                        "scope": "All",
                         "groupByConcept": "Xray, Chest Xray Date",
                         "templateName" : "Xray Template",
                         "conceptNames": [
