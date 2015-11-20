@@ -318,7 +318,7 @@
     		"displayType": "Full-Page",
     		"title": "Drug Regimen",
     		"translationKey": "Drug Regimen",
-    		"name": "drugOGram",
+    		"name": "chronicTreatmentChart",
     		"dashboardParams": {
         		"Drugs": ["AMIKACIN","RIFAMPICIN","ISONIAZID","ETHAMBUTOL","PYRAZINAMIDE"]
     		},
