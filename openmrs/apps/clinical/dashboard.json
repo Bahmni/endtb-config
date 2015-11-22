@@ -6,7 +6,7 @@
             "patientInformation": {
                 "name": "patientInformation",
                 "patientAttributes": [
-                    "DRTBNationalID"
+                    "DRTBNationalID","dateOfDRTB", "facilityPatientID", "nationalIdentificationNumber", "previousDRTBNumber", "telephoneNumber"
                 ],
                 "addressFields": [],
                 "displayOrder": 0,
@@ -147,9 +147,9 @@
                 "name": "patientInformation",
 		"displayType": "Full-Page",
                 "patientAttributes": [
-                    "DRTBNationalID","telephoneNumber"
+                    "DRTBNationalID","dateOfDRTB", "facilityPatientID", "nationalIdentificationNumber", "previousDRTBNumber", "telephoneNumber"
                 ],
-                "addressFields": ["latitude","address1","address2","cityVillage","None","stateProvince","country"],
+                "addressFields": ["cityVillage","address2","stateProvince","country"],
                 "displayOrder": 0,
                 "translationKey": "DASHBOARD_TITLE_PATIENT_INFORMATION_KEY"
             },
@@ -158,6 +158,7 @@
                 "isObservation": true,
 		"displayType": "Full-Page",
                 "dashboardParams": {
+		    "showGroupDateTime": false,
                     "conceptNames": [
 			"Baseline, WHO registration group",
                         "Baseline, Disease site",
@@ -174,6 +175,7 @@
                 "isObservation": true,
 		"displayType": "Full-Page",
                 "dashboardParams": {
+                    "showGroupDateTime": false,
                     "conceptNames": [
                         "Baseline, HIV serostatus result",
                         "Date of HIV diagnosis"
@@ -186,8 +188,10 @@
 	    "comorbidities": {
                 "name": "comorbidities",
                 "isObservation": true,
+                "showGroupDateTime":false,
 		"displayType": "Full-Page",
                 "dashboardParams": {
+                    "showGroupDateTime": false,
                     "conceptNames": [
 			"Diabetes Mellitus",
 			"Baseline, Chronic renal insufficiency",
@@ -214,6 +218,7 @@
                 "isObservation": true,
 		"displayType": "Full-Page",
                 "dashboardParams": {
+                    "showGroupDateTime": false,
                     "conceptNames": [
                         "TUBERCULOSIS DRUG TREATMENT START DATE",
                         "Tuberculosis treatment end date"
@@ -229,6 +234,7 @@
                 "isObservation": true,
 		"displayType": "Full-Page",
                 "dashboardParams": {
+                    "showGroupDateTime": false,
                     "conceptNames": [
                         "Baseline, Year of First TB Treatment",
                         "Baseline, Treatment for drug-susceptible TB",
@@ -263,11 +269,12 @@
                 "isObservation": true,
 		"displayType": "Full-Page",
                 "dashboardParams": {
+                    "showGroupDateTime": false,
                     "conceptNames": [
 			"Baseline, List of drugs taken for more than a month",
 			"Baseline, Other drug taken for more than a month"
                     ],
-                    "scope": "latest"
+                    "scope": "all"
                 },
                 "displayOrder": 7,
                 "translationKey": "Previous TB-drug Exposure Prior to Start of"
@@ -277,6 +284,7 @@
                 "isObservation": true,
 		"displayType": "Full-Page",
                 "dashboardParams": {
+                    "showGroupDateTime": false,
                     "conceptNames": [
 			"EOT, Outcome",
 			"6m PTO, 6 month post treatment outcome"
@@ -320,7 +328,7 @@
     		"translationKey": "Drug Regimen",
     		"name": "chronicTreatmentChart",
     		"dashboardParams": {
-        		"Drugs": ["AMIKACIN","RIFAMPICIN","ISONIAZID","ETHAMBUTOL","PYRAZINAMIDE"]
+        		"Drugs": ["AMIKACIN","RIFAMPICIN","ISONIAZID"]
     		},
 		"displayOrder": 10
 	    },

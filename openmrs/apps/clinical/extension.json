@@ -21,6 +21,17 @@
         "order": 7,
         "requiredPrivilege": "app:clinical:diagnosisTab"
     },
+    "bahmniClinicalBillingTreatment": {
+    "id": "bahmni.clinical.billing.treatment",
+    "extensionPointId": "org.bahmni.clinical.consultation.board",
+    "type": "link",
+    "label": "Medications",
+    "translationKey":"Medications",
+    "url": "treatment",
+    "icon": "fa-user-md",
+    "order": 6,
+    "requiredPrivilege": "app:clinical:consultationTab"
+    },
     "bahmni_clinical_patients_search_allpatients_active_app_clinical": {
         "id": "bahmni.clinical.patients.search.allPatients",
         "extensionPointId": "org.bahmni.patient.search",
