@@ -302,6 +302,7 @@
                 "dashboardParams": {
                         "scope": "All",
                         "groupByConcept": "Specimen Collection Date",
+                        "name": "DstExtension",
                         "templateName" : "BACTERIOLOGY CONCEPT SET",
                         "conceptNames": [
                                 "Bacteriology, Isoniazid 0.2 µg/ml result",
@@ -408,6 +409,7 @@
                 "dashboardParams": {
                         "scope": "All",
                         "groupByConcept": "EKG, Date of EKG",
+                        "name": "EcgReadingsExtension",
                         "templateName" : "Electrocardiogram Template",
                         "conceptNames": [
 				"EKG, Month of scheduled visit",
@@ -426,6 +428,7 @@
                 "dashboardParams": {
                         "scope": "All",
                         "groupByConcept": "Xray, Chest Xray Date",
+                        "name": "ChestXRayExtension",
                         "templateName" : "Xray Template",
                         "conceptNames": [
                                 "Xray, Extent of disease",
