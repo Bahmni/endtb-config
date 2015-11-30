@@ -3,21 +3,156 @@
                 "name": "Patient Information",
                 "type": "PatientReport"
         },
-        "followupTemplateReport":{
-                "name": "Followup Template Report",
+	"bacteriologyReport":{
+                "name": "Bacteriology Data Export",
+                "type": "obsTemplate",
+                "config": {
+                        "templateName": "BACTERIOLOGY CONCEPT SET",
+                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "applyDateRangeFor": "encounterCreateDate"
+                }
+        },
+        "baselineTemplateReport":{
+                "name": "Baseline Data Export",
+                "type": "obsTemplate",
+                "config": {
+                        "templateName": "Baseline Template",
+                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "applyDateRangeFor": "encounterCreateDate"
+                }
+        },
+	"medicationLogTemplateReport":{
+                "name": "Medication Log Data Export",
+                "type": "obsTemplate",
+                "config": {
+                        "templateName": "Medication log Template",
+                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "applyDateRangeFor": "encounterCreateDate"
+                }
+        },
+	"followupTemplateReport":{
+                "name": "Followup Data Export",
                 "type": "obsTemplate",
                 "config": {
                         "templateName": "Followup Template",
-                        "patientAttributes": ["facilityPatientID", "telephoneNumber"],
+                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "applyDateRangeFor": "encounterCreateDate"
+                }
+        },
+	"outcomeEndofTreatmentTemplateReport":{
+                "name": "Outcome End of Treatment Data Export",
+                "type": "obsTemplate",
+                "config": {
+                        "templateName": "Outcome End of Treatment Template",
+                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "applyDateRangeFor": "encounterCreateDate"
+                }
+        },
+	"6monthPostTreatmentOutcomeTemplateReport":{
+                "name": "6 month Post Treatment Outcome Data Export",
+                "type": "obsTemplate",
+                "config": {
+                        "templateName": "6 month Post Treatment Outcome Template",
+                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "applyDateRangeFor": "encounterCreateDate"
+                }
+        },
+	"adverseEventsTemplateReport":{
+                "name": "Adverse Events Data Export",
+                "type": "obsTemplate",
+                "config": {
+                        "templateName": "Adverse Events Template",
+                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "applyDateRangeFor": "encounterCreateDate"
+                }
+        },
+	"seriousAdverseEventsTemplateReport":{
+                "name": "Serious Adverse Events Data Export",
+                "type": "obsTemplate",
+                "config": {
+                        "templateName": "Serious Adverse Events Template",
+                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "applyDateRangeFor": "encounterCreateDate"
+                }
+        },
+        "pregnancyReportFormTemplateReport":{
+                "name": "Pregnancy Report Form Data Export",
+                "type": "obsTemplate",
+                "config": {
+                        "templateName": "Pregnancy Report Form Template",
+                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "applyDateRangeFor": "encounterCreateDate"
+                }
+        },
+	"hospitalAdmissionNotificationTemplateReport":{
+                "name": "Hospital Admission Notification Data Export",
+                "type": "obsTemplate",
+                "config": {
+                        "templateName": "Hospital Admission Notification Template",
+                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "applyDateRangeFor": "encounterCreateDate"
+                }
+        },
+	"hospitalDischargeSummaryTemplateReport":{
+                "name": "Hospital Discharge Summary Export",
+                "type": "obsTemplate",
+                "config": {
+                        "templateName": "Hospital Discharge Summary Template",
+                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
                         "applyDateRangeFor": "encounterCreateDate"
                 }
         },
         "labresultsTemplateReport":{
-                "name": "Lab Results Template Report",
+                "name": "Lab Results Data Export",
                 "type": "obsTemplate",
                 "config": {
                         "templateName": "Lab Results Template",
-                        "patientAttributes": ["facilityPatientID", "telephoneNumber"],
+                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "applyDateRangeFor": "encounterCreateDate"
+                }
+        },
+	"xrayTemplateReport":{
+                "name": "Xray Data Export",
+                "type": "obsTemplate",
+                "config": {
+                        "templateName": "Xray Template",
+                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "applyDateRangeFor": "encounterCreateDate"
+                }
+        },
+	"audiometryTemplateReport":{
+                "name": "Audiometry Data Export",
+                "type": "obsTemplate",
+                "config": {
+                        "templateName": "Audiometry Template",
+                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "applyDateRangeFor": "encounterCreateDate"
+                }
+        },
+	"electrocardiogramTemplateReport":{
+                "name": "Electrocardiogram Data Export",
+                "type": "obsTemplate",
+                "config": {
+                        "templateName": "Electrocardiogram Template",
+                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "applyDateRangeFor": "encounterCreateDate"
+                }
+        },
+	"monthlyTreatmentCompletenessTemplateReport":{
+                "name": "Monthly Treatment Completeness Data Export",
+                "type": "obsTemplate",
+                "config": {
+                        "templateName": "Monthly Treatment Completeness Template",
+                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "applyDateRangeFor": "encounterCreateDate"
+                }
+        },
+	"performanceStatusTemplateReport":{
+                "name": "Performance Status Data Export",
+                "type": "obsTemplate",
+                "config": {
+                        "templateName": "Performance Status Template",
+                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
                         "applyDateRangeFor": "encounterCreateDate"
                 }
         }
