@@ -17,6 +17,28 @@
         "activeVisitUuid"
     ],
     "config": {
+	"patientInformation": {
+                "additionalPatientInformation": {
+                    "title": "Additional Patient Information",
+                    "attributes": [
+                    ]
+                },
+                "patientContactDetails" : {
+                        "title" : "Patient Contact Details",
+                        "attributes" : [
+                                "patientAddress",
+                                "patientDistrict",
+                                "patientCountry",
+                                "telephoneNumber"
+                        ]
+                },
+                "hidden": {
+                    "attributes": [
+                    ]
+                },
+                "defaults":  {
+                }
+        },
         "addressHierarchy": {
             "showAddressFieldsTopDown": false,
             "freeTextAddressFields": [
@@ -31,7 +53,7 @@
             "Doctor": "provider",
             "Parent": "patient"
         },
-        "defaultIdentifierPrefix": "ETB",
+        "defaultIdentifierPrefix": "ARA",
         "defaultVisitType": "General",
         "searchByIdForwardUrl": "/patient/{{patientUuid}}",
         "showMiddleName": false,
@@ -40,6 +62,10 @@
 		"pattern": "[0-9]{0,20}",
 		"errorMessage": "Should be numberic value"
 	    },
+            "facilityPatientID": {
+                "pattern": "[0-9]{0,20}",
+                "errorMessage": "Should be numberic value"
+            },
             "endtbOutputID": {
                 "pattern": "[a-zA-Z0-9]{9}",
                 "errorMessage": "Should be 9 characters"

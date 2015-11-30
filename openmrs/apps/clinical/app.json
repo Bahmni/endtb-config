@@ -384,14 +384,8 @@
                 "BACTERIOLOGY_SAMPLE_APPEARANCE" : {
                     "conciseText" : true
                 },
-		"Bacteriology, Other drug details" : {
-                    "allowAddMore" : true
-                },
                 "Bacteriology, Which monthly scheduled visit" : {
                     "conciseText" : true
-                },
-                "Bacteriology, DST with MIC" : {
-                    "allowAddMore" : true
                 },
                 "Bacteriology, Sequencing" : {
                     "allowAddMore" : true
@@ -410,7 +404,45 @@
                 },
                 "Bacteriology, Minimum inhibitory concentration" : {
                     "conciseText" : true
-                }
+                },
+		"Bacteriology, Rifampicin result details" : {
+		    "isTabular" : true
+		},
+		"Bacteriology, Other drug details" : {
+		    "isTabular" : true,
+		    "allowAddMore" : false
+		},
+		"Baseline, Visual Acuity" : {
+			"isTabular" : true
+		},
+		"Bacteriology, DST with MIC" : {
+		    "isTabular" : false,
+			"allowAddMore" : true
+		},
+		"Bacteriology, MIC interpretation" : {
+		    "autocomplete" : true
+		},
+		"Baseline, Brief Peripheral Neuropathy Screen" : {
+		    "isTabular" : true
+		},
+		"Baseline, Vibration Perception in Left" : {
+			"autocomplete" : true
+		},
+		"Baseline, Ankle reflexes in left" : {
+			"autocomplete" : true
+		},
+		"Baseline, Vibration Perception in Right" : {
+			"autocomplete" : true
+		},
+		"Baseline, Ankle reflexes in right" : {
+			"autocomplete" : true
+		},
+		"Lab, Hemoglobin":{
+		  "isTabular" : true
+		},
+		"RETURN VISIT DATE" : {
+			"allowFutureDates" : true
+		}
         },
         "drugOrder": {
             "defaultDurationUnit": "Day(s)",
