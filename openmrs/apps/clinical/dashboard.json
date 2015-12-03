@@ -68,6 +68,15 @@
                 "displayOrder": 4,
                 "translationKey": "DASHBOARD_TITLE_VISITS_KEY"
             },
+            "Forms": {
+                "name": "forms",
+                "dashboardParams": {
+                    "title": null,
+                    "maximumNoOfVisits": 0
+                },
+                "displayOrder": 9,
+                "translationKey": "DASHBOARD_TITLE_FORMS_KEY"
+            },
             "bacteriologyResults":{
                 "translationKey": "DASHBOARD_TITLE_BACTERIOLOGY_RESULTS_KEY",
                 "name": "bacteriologyResultsControl",
