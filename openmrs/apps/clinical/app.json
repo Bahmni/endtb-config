@@ -442,9 +442,72 @@
 		},
 		"RETURN VISIT DATE" : {
 			"allowFutureDates" : true
-		}
+		},
+		"Lab, Hematocrit" : {
+                        "isTabular" : true
+                },
+                "Lab, Platelet count" : {
+                        "isTabular" : true
+                },
+                "Lab, RBC count" : {
+                        "isTabular" : true
+                },
+                "Lab, WBC" : {
+                        "isTabular" : true
+                },
+                "Lab, Absolute neutrophil count" : {
+                        "isTabular" : true
+                },
+                "Lab, Neutrophils" : {
+                        "isTabular" : true
+                },
+                "Lab, Potassium" : {
+                        "isTabular" : true
+                },
+                "Lab, Magnesium" : {
+                        "isTabular" : true
+                },
+                "Lab, Ionized Calcium" : {
+                        "isTabular" : true
+                },
+                "Lab, Urea" : {
+                        "isTabular" : true
+                },
+                "Lab, Creatinine" : {
+                        "isTabular" : true
+                },
+		"Lab, Glucose" : {
+                        "isTabular" : true
+                },
+                "Lab, Glucose (Fasting)" : {
+                        "isTabular" : true
+                },
+                "Lab, HbA1c" : {
+                        "isTabular" : true
+                },
+                "Lab, TSH" : {
+                        "isTabular" : true
+                },
+                "Lab, Lipase" : {
+                        "isTabular" : true
+                },
+                "Lab, AST (SGOT)" : {
+                        "isTabular" : true
+                },
+                "Lab, ALT (SGPT)" : {
+                        "isTabular" : true
+                },
+                "Lab, Total Bilirubin" : {
+                        "isTabular" : true
+                },
+		"Lab, Serum Albumin" : {
+                        "isTabular" : true
+                }
         },
         "drugOrder": {
+        "duration": {
+                  "required" : false
+              },
             "defaultDurationUnit": "Day(s)",
             "defaultInstructions": "As directed",
             "frequencyDefaultDurationUnitsMap": [

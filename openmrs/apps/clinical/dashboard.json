@@ -54,6 +54,16 @@
                 "displayOrder": 1,
                 "translationKey": "DASHBOARD_TITLE_NUTRITIONAL_VALUES_KEY"
             },
+            "treatmentsDetails": {
+		"title":"Treatments Details",
+		"translationKey" : "treatmentsDetails",
+		"name": "drugOrderDetails",
+		"displayOrder": 3,
+		"dashboardParams": {
+			"drugNames":["Isoniazid"],
+			"showDetailsButton":true
+   		}
+	    },
             "programs": {
                 "name": "programs",
                 "displayOrder": 3,
