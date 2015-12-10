@@ -27,7 +27,7 @@ public class MonthCalculationExtension extends BaseTableExtension<PivotTable> {
 		try {
 			startDate = bahmniBridge.getStartDateOfTreatment();
 		} catch (Exception e) {
-			System.out.println("Exception: "+ e.getMessage())
+			e.printStackTrace();
 			return;
 		}
 		EncounterTransaction.Concept concept = new EncounterTransaction.Concept();
@@ -40,7 +40,7 @@ public class MonthCalculationExtension extends BaseTableExtension<PivotTable> {
 			try {
 				rowDate = df.parse(obs.get(0).getValueAsString());
 			} catch (Exception e) {
-				System.out.println("Exception: "+ e.getMessage())
+				e.printStackTrace();
 				return;
 			}
 			Days days = Days.daysBetween(new DateTime(startDate), new DateTime(rowDate));

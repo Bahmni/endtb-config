@@ -13,7 +13,7 @@ public class MonthCalculationExtension extends BaseTableExtension<TreatmentRegim
 		try {
 			treatmentStartDate = treatmentRegimen.getRows().first().getDate()
 		} catch (Exception e) {
-			System.out.println("Exception: "+ e.getMessage())
+			e.printStackTrace();
 			return;
 		}
 		for (RegimenRow regimenRow : treatmentRegimen.getRows()) {
