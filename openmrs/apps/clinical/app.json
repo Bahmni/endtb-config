@@ -24,7 +24,6 @@
     ],
     "otherInvestigationsMap": {},
     "maxConceptSetLevels": 3,
-    "conceptSetUI": {},
     "visitPage": {
       "observationDisplay": {
         "conceptNames": []
@@ -376,9 +375,6 @@
         "conciseText": true
       },
       "BACTERIOLOGY_SAMPLE_TYPE": {
-        "conciseText": true
-      },
-      "BACTERIOLOGY_SAMPLE_APPEARANCE": {
         "conciseText": true
       },
       "BACTERIOLOGY_SAMPLE_APPEARANCE": {
