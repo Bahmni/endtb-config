@@ -1,538 +1,538 @@
 {
-    "id": "bahmni.clinical",
-    "extensionPoints": [
-        {
-            "id": "org.bahmni.clinical.consultation.board",
-            "description": "Bahmni Clinical Consultation Page"
-        },
-        {
-            "id": "org.bahmni.clinical.conceptSetGroup.*",
-            "description": "Define conceptsets part of a conceptset group"
-        },
-        {
-            "id": "org.bahmni.patient.search",
-            "description": "Bahmni Patient search, lookups Page"
-        }
-    ],
-    "contextModel": [
-        "patientUuid",
-        "visitUuid"
-    ],
-    "config": {
-        "obsIgnoreList": [
-            "Patient file"
-        ],
-        "otherInvestigationsMap": {},
-        "maxConceptSetLevels": 3,
-        "conceptSetUI": {},
-        "visitPage": {
-            "observationDisplay": {
-                "conceptNames": []
-            }
-        },
- 	"visitTypeForRetrospectiveEntries": "GENERAL",
-	"conceptSetUI": {
-		"Consent scan copy" : {
-                        "allowAddMore" : true
-                },
-		"Baseline, List of drugs taken for more than a month": {
-                	"multiSelect": true
-                },
-		"Baseline, Disease site": {
-			"multiSelect": true
-		},
-		"Baseline, Patients for whom the construction of a regimen with four likely effective second-line drugs is not possible": {
-                	"multiSelect": true
-                },
-                "Baseline, Other patients who have high risk of unfavorable outcome but who do not fit the above categories": {
-                	"multiSelect": true
-                },
-		"Baseline, Method of MDR-TB confirmation" : {
-			"multiSelect" : true
-		},
-		"Baseline, Past TB treatment drug regimen" : {
-			"multiSelect" : true
-		},
-		"Baseline, Most recent previous TB treatment registration number": {
-                	"conciseText": true
-                },
-		"Baseline, Cancer type": {
-                	"conciseText": true
-                },
-		"Baseline, Psychiatric illness type": {
-                	"conciseText": true
-                },
-		"Baseline, Smear result": {
-                	"conciseText": true
-                },
-		"Baseline, Culture result": {
-                	"conciseText": true
-                },
-		"Baseline, Xpert MTB RIF result": {
-                	"conciseText": true
-                },
-		"Baseline, DST results": {
-                	"conciseText": true
-                },
-		"Baseline, Exact extrapulmonary site": {
-			"conciseText": true
-		},
-		"Baseline, Last DRTB Registration ID" : {
-                        "conciseText" : true
-                },
-                "Baseline, Last DSTB Registration ID" : {
-                        "conciseText" : true
-                },
-                "Baseline, Other drug taken for more than a month" : {
-                        "conciseText" : true
-                },
-                "Baseline, HIV program registration number" : {
-                        "conciseText" : true
-                },
-		"Baseline, Drugs used in ARV treatment" :{
-                    	"multiSelect" :true
-                },
-		"Baseline, Other employment" : {
-			"conciseText" : true
-		},
-		"Baseline, Registration number of past TB treatment" : {
-			"conciseText" : true
-		},
-		"Baseline, Place treatment started" : {
-			"conciseText" : true
-		},
-		"Baseline, Type of heart disease" : {
-			"conciseText" : true
-		},
-		"Baseline, Other pre-existing disease" : {
-			"conciseText" : true
-		},
-		"Baseline, Other method of MDR-TB confirmation" : {
-			"conciseText" : true
-		},
-		"Medication log, TB treatment start" : {
-			"allowAddMore" : true
-		},
-		"Medication log, TB treatment changes" : {
-                        "allowAddMore" : true
-                },
-		"Medication log, Non-TB drugs" : {
-                        "allowAddMore" : true
-                },
-		"Medication log, Other treatment delivery method" : {
-			"conciseText" : true
-		},
-		"Medication log, Other reason for medication change" : {
-			"conciseText" : true
-		},
-		"Medication log, Concomitant Drug name" : {
-			"conciseText" : true
-		},
-		"Medication log, Reason for drug administration" : {
-                        "conciseText" : true
-                },
-		"Followup, Month of scheduled visit" : {
-			"conciseText" : true
-		},
-		"Followup, New serious AE reference number" : {
-			"conciseText" : true
-		},
-		"Followup, New AE reference number" : {
-			"conciseText" : true
-		},
-		"EOT, Reasons for treatment interrruption" : {
-                	"multiSelect" : true
-                },
-		"EOT, Reasons for failure definition" : {
-                	"multiSelect" : true
-                },
-		"EOT, Type of surgery related to death" : {
-			"conciseText" : true
-		},
-		"EOT, Non TB cause of death" : {
-                        "conciseText" : true
-                },
-		"EOT, Transferred to where" : {
-                        "conciseText" : true
-                },
-		"6m PTO, Reasons for no post treatment followup": {
-			"multiSelect" : true
-                },
-		"6m PTO, Type of surgery related to post treatment death" : {
-			"conciseText" : true
-		},
-		"6m PTO, Non TB cause of post treatment death" : {
-                        "conciseText" : true
-                },
-		"6m PTO, Other reasons for no post treatment followup" : {
-                        "conciseText" : true
-                },
-		"6m PTO, Transferred to where post treatment" : {
-                        "conciseText" : true
-                },
-		"6m PTO, Other reasons for no post treatment outcome" : {
-                        "conciseText" : true
-                },
-		"AE Form, Date of AE report" : {
-			"required" : true
-		},
-		"AE Form, Adverse Event details" :{
-                	"allowAddMore" :true
-                },
-		"AE Form, Adverse Event term" :{
-                	"autocomplete" :true
-                },
-		"AE Form, AE term comprehensive list" :{
-                	"autocomplete" :true
-		},
-		"AE Form, Other AE term" : {
-			"conciseText" : true
-		},
-		"AE Form, Related Test Result" :{
-                	"allowAddMore" :true
-                },
-		"AE Form, AE related test" :{
-			"conciseText" :true
-		},
-		"AE Form, AE related test ID" :{
-			"conciseText" :true
-		},
-		"AE Form, AE severity review" :{
-			"allowAddMore" :true
-		},
-		"AE Form, TB drug treatment" :{
-			"allowAddMore" :true
-		},
-		"AE Form, Other causal factors related to AE" :{
-			"multiSelect" :true
-		},
-		"AE Form, Non TB drug of other causal factor" :{
-			"allowAddMore" :true,
-			"conciseText" :true
-		},
-		"AE Form, Comorbidity of other causal facrtor" :{
-			"allowAddMore" :true,
-			"conciseText" :true
-		},
-		"AE Form, Other causal factor" :{
-			"allowAddMore" :true,
-			"conciseText" : true
-		},
-		"SAE Form, Date of SAE report" : {
-			"required" : true
-		},
-		"SAE Form, SAE ID number" : {
-			"conciseText" : true
-		},
-		"SAE Form, SAE term" :{
-			"autocomplete" :true
-		},
-		"SAE Form, SAE term comprehensive AE list" :{
-			"autocomplete" :true
-		},
-		"SAE Form, Other SAE term" : {
-			"conciseText" : true
-		},
-		"SAE Form, Related tests (data from PV unit summary)" :{
-                        "allowAddMore" :true
-                },
-                "SAE Form, Related test" :{
-                        "conciseText" :true
-                },
-                "SAE Form, Related test lab ID" :{
-                        "conciseText" :true
-                },
-		"SAE Form, TB drug treatment (data from PV unit summary)" :{
-			"allowAddMore" :true
-		},
-		"SAE Form, Other causal factors related to SAE" :{
-			"multiSelect" :true
-		},
-		"SAE Form, Non TB drug of ther causal factors" :{
-			"allowAddMore" :true,
-			"conciseText" :true
-		},
-		"SAE Form, Comorbidity of other causal factors" :{
-			"allowAddMore" :true,
-			"conciseText" :true
-		},
-		"SAE Form, Other causal factor" :{
-                        "allowAddMore" :true,
-                        "conciseText" :true
-                },
-		"PRF, Partners initials" : {
-			"conciseText" : true
-		},
-		"PRF, Pregnancy report case ID" : {
-                        "conciseText" : true
-                },
-		"PRF, Non-TB drug name" : {
-                        "conciseText" : true
-                },
-		"PRF, TB drug exposure" : {
-                        "allowAddMore" : true
-                },
-		"PRF, Non-TB drug exposure" : {
-			"allowAddMore" : true
-		},
-		"PRF, Infant details" : {
-			"allowAddMore" : true
-		},
-		"HDS, Principal AE/SAE ID number" : {
-			"conciseText" : true
-		},
-		"HDS, New AE/SAE ID number" : {
-                        "conciseText" : true
-                },
-		"HDS, Existing AE/SAE ID number" : {
-                        "conciseText" : true
-                },
-		"HDS, Other type of TB related surgery" : {
-                        "conciseText" : true
-                },
-		"HDS, Type of TB related surgery" : {
-                        "multiSelect" : true
-                },
-		"Lab, Month of scheduled visit" : {
-			"conciseText" : true
-		},
-                "Lab, Lab ID" : {
-                        "conciseText" : true
-                },
-                "Lab, Sample ID" : {
-                        "conciseText" : true
-                },
-                "Lab, Other test name" : {
-                        "conciseText" : true
-                },
-                "Lab, Other test result" : {
-                        "conciseText" : true
-                },
-		"Lab, Other test unit" : {
-                        "conciseText" : true
-                },
-		"Specimen Collection Date" : {
-			"required" : true
-		},
-		"Xray, Month of scheduled visit" : {
-			"conciseText" : true
-		},
-		"Xray, Chest Xray Date" : {
-			"required" : true
-		},
-		"Xray, Extent of disease" : {
-                        "required" : true
-                },
-		"Audiometry, Month of scheduled visit" : {
-			"conciseText" : true
-		},
-		"Audiometry, Audiometry date" : {
-			"required" : true
-		},
-		"EKG, Date of EKG" : {
-		    	"required" : true
-		},
-		"EKG, Rhythm" : {
-                    	"required" : true
-                },
-		"EKG, Heart Rate" : {
-                    	"required" : true
-                },
-		"EKG, QT Interval" : {
-                    	"required" : true
-                },
-		"EKG, Month of scheduled visit" : {
-			"conciseText" : true
-		},
-		"EKG, Other Rythm" : {
-                        "conciseText" : true
-                },
-		"MTC, Month of treatment period" : {
-			"required" : true
-		},
-		"MTC, Year of treatment period" : {
-			"required" : true
-		},
-		"MTC, Other treatment delivery method" : {
-			"conciseText" : true
-		},
-		"MTC, Contributing reason for treatment incomplete" : {
-			"multiSelect" : true
-		},
-		"MTC, Drug name" : {
-			"multiSelect" : true,
-			"required" : true
-		},
-		"Performance Status, Month of scheduled visit" : {
-			"conciseText" : true
-		},
-		"Performance Status, Assessment date" : {
-			"required" : true
-		},
-		"ECOG Performance Status" : {
-			"required" : true
-		},
-		"BACTERIOLOGY_SAMPLE_ID" : {
-                    "conciseText" : true
-                },
-                "BACTERIOLOGY_SAMPLE_TYPE" : {
-                    "conciseText" : true
-                },
-                "BACTERIOLOGY_SAMPLE_APPEARANCE" : {
-                    "conciseText" : true
-                },
-                "BACTERIOLOGY_SAMPLE_APPEARANCE" : {
-                    "conciseText" : true
-                },
-                "Bacteriology, Which monthly scheduled visit" : {
-                    "conciseText" : true
-                },
-                "Bacteriology, Sequencing" : {
-                    "allowAddMore" : true
-                },
-                "Bacteriology, Other drug name" : {
-                    "conciseText" : true
-                },
-                "Bacteriology, Other culture medium" : {
-                    "conciseText" : true
-                },
-                "Bacteriology, DST with MIC drug name" : {
-                    "conciseText" : true
-                },
-                "Bacteriology, MIC technique/medium" : {
-                    "conciseText" : true
-                },
-                "Bacteriology, Minimum inhibitory concentration" : {
-                    "conciseText" : true
-                },
-		"Bacteriology, Rifampicin result details" : {
-		    "isTabular" : true
-		},
-		"Bacteriology, Other drug details" : {
-		    "isTabular" : true,
-		    "allowAddMore" : false
-		},
-		"Baseline, Visual Acuity" : {
-			"isTabular" : true
-		},
-		"Bacteriology, DST with MIC" : {
-		    "isTabular" : false,
-			"allowAddMore" : true
-		},
-		"Bacteriology, MIC interpretation" : {
-		    "autocomplete" : true
-		},
-		"Baseline, Brief Peripheral Neuropathy Screen" : {
-		    "isTabular" : true
-		},
-		"Baseline, Vibration Perception in Left" : {
-			"autocomplete" : true
-		},
-		"Baseline, Ankle reflexes in left" : {
-			"autocomplete" : true
-		},
-		"Baseline, Vibration Perception in Right" : {
-			"autocomplete" : true
-		},
-		"Baseline, Ankle reflexes in right" : {
-			"autocomplete" : true
-		},
-		"Lab, Hemoglobin":{
-		  "isTabular" : true
-		},
-		"RETURN VISIT DATE" : {
-			"allowFutureDates" : true
-		},
-		"Lab, Hematocrit" : {
-                        "isTabular" : true
-                },
-                "Lab, Platelet count" : {
-                        "isTabular" : true
-                },
-                "Lab, RBC count" : {
-                        "isTabular" : true
-                },
-                "Lab, WBC" : {
-                        "isTabular" : true
-                },
-                "Lab, Absolute neutrophil count" : {
-                        "isTabular" : true
-                },
-                "Lab, Neutrophils" : {
-                        "isTabular" : true
-                },
-                "Lab, Potassium" : {
-                        "isTabular" : true
-                },
-                "Lab, Magnesium" : {
-                        "isTabular" : true
-                },
-                "Lab, Ionized Calcium" : {
-                        "isTabular" : true
-                },
-                "Lab, Urea" : {
-                        "isTabular" : true
-                },
-                "Lab, Creatinine" : {
-                        "isTabular" : true
-                },
-		"Lab, Glucose" : {
-                        "isTabular" : true
-                },
-                "Lab, Glucose (Fasting)" : {
-                        "isTabular" : true
-                },
-                "Lab, HbA1c" : {
-                        "isTabular" : true
-                },
-                "Lab, TSH" : {
-                        "isTabular" : true
-                },
-                "Lab, Lipase" : {
-                        "isTabular" : true
-                },
-                "Lab, AST (SGOT)" : {
-                        "isTabular" : true
-                },
-                "Lab, ALT (SGPT)" : {
-                        "isTabular" : true
-                },
-                "Lab, Total Bilirubin" : {
-                        "isTabular" : true
-                },
-		"Lab, Serum Albumin" : {
-                        "isTabular" : true
-                }
-        },
-        "drugOrder": {
-        "duration": {
-                  "required" : false
-              },
-            "defaultDurationUnit": "Day(s)",
-            "defaultInstructions": "As directed",
-            "frequencyDefaultDurationUnitsMap": [
-                {
-                    "minFrequency": 5,
-                    "maxFrequency": null,
-                    "defaultDurationUnit": "Hour(s)"
-                },
-                {
-                    "minFrequency": "1/7",
-                    "maxFrequency": 5,
-                    "defaultDurationUnit": "Day(s)"
-                },
-                {
-                    "minFrequency": "1/30",
-                    "maxFrequency": "1/7",
-                    "defaultDurationUnit": "Week(s)"
-                },
-                {
-                    "minFrequency": null,
-                    "maxFrequency": "1/30",
-                    "defaultDurationUnit": "Month(s)"
-                }
-            ],
-            "drugFormDefaults": {}
-        }
+  "id": "bahmni.clinical",
+  "extensionPoints": [
+    {
+      "id": "org.bahmni.clinical.consultation.board",
+      "description": "Bahmni Clinical Consultation Page"
+    },
+    {
+      "id": "org.bahmni.clinical.conceptSetGroup.*",
+      "description": "Define conceptsets part of a conceptset group"
+    },
+    {
+      "id": "org.bahmni.patient.search",
+      "description": "Bahmni Patient search, lookups Page"
     }
+  ],
+  "contextModel": [
+    "patientUuid",
+    "visitUuid"
+  ],
+  "config": {
+    "obsIgnoreList": [
+      "Patient file"
+    ],
+    "otherInvestigationsMap": {},
+    "maxConceptSetLevels": 3,
+    "conceptSetUI": {},
+    "visitPage": {
+      "observationDisplay": {
+        "conceptNames": []
+      }
+    },
+    "visitTypeForRetrospectiveEntries": "GENERAL",
+    "conceptSetUI": {
+      "Consent scan copy": {
+        "allowAddMore": true
+      },
+      "Baseline, List of drugs taken for more than a month": {
+        "multiSelect": true
+      },
+      "Baseline, Disease site": {
+        "multiSelect": true
+      },
+      "Baseline, Patients for whom the construction of a regimen with four likely effective second-line drugs is not possible": {
+        "multiSelect": true
+      },
+      "Baseline, Other patients who have high risk of unfavorable outcome but who do not fit the above categories": {
+        "multiSelect": true
+      },
+      "Baseline, Method of MDR-TB confirmation": {
+        "multiSelect": true
+      },
+      "Baseline, Past TB treatment drug regimen": {
+        "multiSelect": true
+      },
+      "Baseline, Most recent previous TB treatment registration number": {
+        "conciseText": true
+      },
+      "Baseline, Cancer type": {
+        "conciseText": true
+      },
+      "Baseline, Psychiatric illness type": {
+        "conciseText": true
+      },
+      "Baseline, Smear result": {
+        "conciseText": true
+      },
+      "Baseline, Culture result": {
+        "conciseText": true
+      },
+      "Baseline, Xpert MTB RIF result": {
+        "conciseText": true
+      },
+      "Baseline, DST results": {
+        "conciseText": true
+      },
+      "Baseline, Exact extrapulmonary site": {
+        "conciseText": true
+      },
+      "Baseline, Last DRTB Registration ID": {
+        "conciseText": true
+      },
+      "Baseline, Last DSTB Registration ID": {
+        "conciseText": true
+      },
+      "Baseline, Other drug taken for more than a month": {
+        "conciseText": true
+      },
+      "Baseline, HIV program registration number": {
+        "conciseText": true
+      },
+      "Baseline, Drugs used in ARV treatment": {
+        "multiSelect": true
+      },
+      "Baseline, Other employment": {
+        "conciseText": true
+      },
+      "Baseline, Registration number of past TB treatment": {
+        "conciseText": true
+      },
+      "Baseline, Place treatment started": {
+        "conciseText": true
+      },
+      "Baseline, Type of heart disease": {
+        "conciseText": true
+      },
+      "Baseline, Other pre-existing disease": {
+        "conciseText": true
+      },
+      "Baseline, Other method of MDR-TB confirmation": {
+        "conciseText": true
+      },
+      "Medication log, TB treatment start": {
+        "allowAddMore": true
+      },
+      "Medication log, TB treatment changes": {
+        "allowAddMore": true
+      },
+      "Medication log, Non-TB drugs": {
+        "allowAddMore": true
+      },
+      "Medication log, Other treatment delivery method": {
+        "conciseText": true
+      },
+      "Medication log, Other reason for medication change": {
+        "conciseText": true
+      },
+      "Medication log, Concomitant Drug name": {
+        "conciseText": true
+      },
+      "Medication log, Reason for drug administration": {
+        "conciseText": true
+      },
+      "Followup, Month of scheduled visit": {
+        "conciseText": true
+      },
+      "Followup, New serious AE reference number": {
+        "conciseText": true
+      },
+      "Followup, New AE reference number": {
+        "conciseText": true
+      },
+      "EOT, Reasons for treatment interrruption": {
+        "multiSelect": true
+      },
+      "EOT, Reasons for failure definition": {
+        "multiSelect": true
+      },
+      "EOT, Type of surgery related to death": {
+        "conciseText": true
+      },
+      "EOT, Non TB cause of death": {
+        "conciseText": true
+      },
+      "EOT, Transferred to where": {
+        "conciseText": true
+      },
+      "6m PTO, Reasons for no post treatment followup": {
+        "multiSelect": true
+      },
+      "6m PTO, Type of surgery related to post treatment death": {
+        "conciseText": true
+      },
+      "6m PTO, Non TB cause of post treatment death": {
+        "conciseText": true
+      },
+      "6m PTO, Other reasons for no post treatment followup": {
+        "conciseText": true
+      },
+      "6m PTO, Transferred to where post treatment": {
+        "conciseText": true
+      },
+      "6m PTO, Other reasons for no post treatment outcome": {
+        "conciseText": true
+      },
+      "AE Form, Date of AE report": {
+        "required": true
+      },
+      "AE Form, Adverse Event details": {
+        "allowAddMore": true
+      },
+      "AE Form, Adverse Event term": {
+        "autocomplete": true
+      },
+      "AE Form, AE term comprehensive list": {
+        "autocomplete": true
+      },
+      "AE Form, Other AE term": {
+        "conciseText": true
+      },
+      "AE Form, Related Test Result": {
+        "allowAddMore": true
+      },
+      "AE Form, AE related test": {
+        "conciseText": true
+      },
+      "AE Form, AE related test ID": {
+        "conciseText": true
+      },
+      "AE Form, AE severity review": {
+        "allowAddMore": true
+      },
+      "AE Form, TB drug treatment": {
+        "allowAddMore": true
+      },
+      "AE Form, Other causal factors related to AE": {
+        "multiSelect": true
+      },
+      "AE Form, Non TB drug of other causal factor": {
+        "allowAddMore": true,
+        "conciseText": true
+      },
+      "AE Form, Comorbidity of other causal facrtor": {
+        "allowAddMore": true,
+        "conciseText": true
+      },
+      "AE Form, Other causal factor": {
+        "allowAddMore": true,
+        "conciseText": true
+      },
+      "SAE Form, Date of SAE report": {
+        "required": true
+      },
+      "SAE Form, SAE ID number": {
+        "conciseText": true
+      },
+      "SAE Form, SAE term": {
+        "autocomplete": true
+      },
+      "SAE Form, SAE term comprehensive AE list": {
+        "autocomplete": true
+      },
+      "SAE Form, Other SAE term": {
+        "conciseText": true
+      },
+      "SAE Form, Related tests (data from PV unit summary)": {
+        "allowAddMore": true
+      },
+      "SAE Form, Related test": {
+        "conciseText": true
+      },
+      "SAE Form, Related test lab ID": {
+        "conciseText": true
+      },
+      "SAE Form, TB drug treatment (data from PV unit summary)": {
+        "allowAddMore": true
+      },
+      "SAE Form, Other causal factors related to SAE": {
+        "multiSelect": true
+      },
+      "SAE Form, Non TB drug of ther causal factors": {
+        "allowAddMore": true,
+        "conciseText": true
+      },
+      "SAE Form, Comorbidity of other causal factors": {
+        "allowAddMore": true,
+        "conciseText": true
+      },
+      "SAE Form, Other causal factor": {
+        "allowAddMore": true,
+        "conciseText": true
+      },
+      "PRF, Partners initials": {
+        "conciseText": true
+      },
+      "PRF, Pregnancy report case ID": {
+        "conciseText": true
+      },
+      "PRF, Non-TB drug name": {
+        "conciseText": true
+      },
+      "PRF, TB drug exposure": {
+        "allowAddMore": true
+      },
+      "PRF, Non-TB drug exposure": {
+        "allowAddMore": true
+      },
+      "PRF, Infant details": {
+        "allowAddMore": true
+      },
+      "HDS, Principal AE/SAE ID number": {
+        "conciseText": true
+      },
+      "HDS, New AE/SAE ID number": {
+        "conciseText": true
+      },
+      "HDS, Existing AE/SAE ID number": {
+        "conciseText": true
+      },
+      "HDS, Other type of TB related surgery": {
+        "conciseText": true
+      },
+      "HDS, Type of TB related surgery": {
+        "multiSelect": true
+      },
+      "Lab, Month of scheduled visit": {
+        "conciseText": true
+      },
+      "Lab, Lab ID": {
+        "conciseText": true
+      },
+      "Lab, Sample ID": {
+        "conciseText": true
+      },
+      "Lab, Other test name": {
+        "conciseText": true
+      },
+      "Lab, Other test result": {
+        "conciseText": true
+      },
+      "Lab, Other test unit": {
+        "conciseText": true
+      },
+      "Specimen Collection Date": {
+        "required": true
+      },
+      "Xray, Month of scheduled visit": {
+        "conciseText": true
+      },
+      "Xray, Chest Xray Date": {
+        "required": true
+      },
+      "Xray, Extent of disease": {
+        "required": true
+      },
+      "Audiometry, Month of scheduled visit": {
+        "conciseText": true
+      },
+      "Audiometry, Audiometry date": {
+        "required": true
+      },
+      "EKG, Date of EKG": {
+        "required": true
+      },
+      "EKG, Rhythm": {
+        "required": true
+      },
+      "EKG, Heart Rate": {
+        "required": true
+      },
+      "EKG, QT Interval": {
+        "required": true
+      },
+      "EKG, Month of scheduled visit": {
+        "conciseText": true
+      },
+      "EKG, Other Rythm": {
+        "conciseText": true
+      },
+      "MTC, Month of treatment period": {
+        "required": true
+      },
+      "MTC, Year of treatment period": {
+        "required": true
+      },
+      "MTC, Other treatment delivery method": {
+        "conciseText": true
+      },
+      "MTC, Contributing reason for treatment incomplete": {
+        "multiSelect": true
+      },
+      "MTC, Drug name": {
+        "multiSelect": true,
+        "required": true
+      },
+      "Performance Status, Month of scheduled visit": {
+        "conciseText": true
+      },
+      "Performance Status, Assessment date": {
+        "required": true
+      },
+      "ECOG Performance Status": {
+        "required": true
+      },
+      "BACTERIOLOGY_SAMPLE_ID": {
+        "conciseText": true
+      },
+      "BACTERIOLOGY_SAMPLE_TYPE": {
+        "conciseText": true
+      },
+      "BACTERIOLOGY_SAMPLE_APPEARANCE": {
+        "conciseText": true
+      },
+      "BACTERIOLOGY_SAMPLE_APPEARANCE": {
+        "conciseText": true
+      },
+      "Bacteriology, Which monthly scheduled visit": {
+        "conciseText": true
+      },
+      "Bacteriology, Sequencing": {
+        "allowAddMore": true
+      },
+      "Bacteriology, Other drug name": {
+        "conciseText": true
+      },
+      "Bacteriology, Other culture medium": {
+        "conciseText": true
+      },
+      "Bacteriology, DST with MIC drug name": {
+        "conciseText": true
+      },
+      "Bacteriology, MIC technique/medium": {
+        "conciseText": true
+      },
+      "Bacteriology, Minimum inhibitory concentration": {
+        "conciseText": true
+      },
+      "Bacteriology, Rifampicin result details": {
+        "isTabular": true
+      },
+      "Bacteriology, Other drug details": {
+        "isTabular": true,
+        "allowAddMore": false
+      },
+      "Baseline, Visual Acuity": {
+        "isTabular": true
+      },
+      "Bacteriology, DST with MIC": {
+        "isTabular": false,
+        "allowAddMore": true
+      },
+      "Bacteriology, MIC interpretation": {
+        "autocomplete": true
+      },
+      "Baseline, Brief Peripheral Neuropathy Screen": {
+        "isTabular": true
+      },
+      "Baseline, Vibration Perception in Left": {
+        "autocomplete": true
+      },
+      "Baseline, Ankle reflexes in left": {
+        "autocomplete": true
+      },
+      "Baseline, Vibration Perception in Right": {
+        "autocomplete": true
+      },
+      "Baseline, Ankle reflexes in right": {
+        "autocomplete": true
+      },
+      "Lab, Hemoglobin": {
+        "isTabular": true
+      },
+      "RETURN VISIT DATE": {
+        "allowFutureDates": true
+      },
+      "Lab, Hematocrit": {
+        "isTabular": true
+      },
+      "Lab, Platelet count": {
+        "isTabular": true
+      },
+      "Lab, RBC count": {
+        "isTabular": true
+      },
+      "Lab, WBC": {
+        "isTabular": true
+      },
+      "Lab, Absolute neutrophil count": {
+        "isTabular": true
+      },
+      "Lab, Neutrophils": {
+        "isTabular": true
+      },
+      "Lab, Potassium": {
+        "isTabular": true
+      },
+      "Lab, Magnesium": {
+        "isTabular": true
+      },
+      "Lab, Ionized Calcium": {
+        "isTabular": true
+      },
+      "Lab, Urea": {
+        "isTabular": true
+      },
+      "Lab, Creatinine": {
+        "isTabular": true
+      },
+      "Lab, Glucose": {
+        "isTabular": true
+      },
+      "Lab, Glucose (Fasting)": {
+        "isTabular": true
+      },
+      "Lab, HbA1c": {
+        "isTabular": true
+      },
+      "Lab, TSH": {
+        "isTabular": true
+      },
+      "Lab, Lipase": {
+        "isTabular": true
+      },
+      "Lab, AST (SGOT)": {
+        "isTabular": true
+      },
+      "Lab, ALT (SGPT)": {
+        "isTabular": true
+      },
+      "Lab, Total Bilirubin": {
+        "isTabular": true
+      },
+      "Lab, Serum Albumin": {
+        "isTabular": true
+      }
+    },
+    "drugOrder": {
+      "duration": {
+        "required": false
+      },
+      "defaultDurationUnit": "Day(s)",
+      "defaultInstructions": "As directed",
+      "frequencyDefaultDurationUnitsMap": [
+        {
+          "minFrequency": 5,
+          "maxFrequency": null,
+          "defaultDurationUnit": "Hour(s)"
+        },
+        {
+          "minFrequency": "1/7",
+          "maxFrequency": 5,
+          "defaultDurationUnit": "Day(s)"
+        },
+        {
+          "minFrequency": "1/30",
+          "maxFrequency": "1/7",
+          "defaultDurationUnit": "Week(s)"
+        },
+        {
+          "minFrequency": null,
+          "maxFrequency": "1/30",
+          "defaultDurationUnit": "Month(s)"
+        }
+      ],
+      "drugFormDefaults": {}
+    }
+  }
 }

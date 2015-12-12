@@ -1,517 +1,536 @@
 {
-    "general": {
-        "displayByDefault": true,
-        "maxRecentlyViewedPatients": 10,
-        "sections": {
-            "patientInformation": {
-                "name": "patientInformation",
-                "patientAttributes": [
-                    "DRTBNationalID", "dateOfDRTB", "facilityPatientID", "nationalIdentificationNumber", "previousDRTBNumber", "telephoneNumber"
-                ],
-                "addressFields": [],
-                "displayOrder": 0,
-                "translationKey": "DASHBOARD_TITLE_PATIENT_INFORMATION_KEY"
-            },
-            "labResults1": {
-                "templateName": "Lab Results Template",
-                "name": "diseaseTemplate",
-                "dashboardParams": {
-                    "conceptNames": [],
-                    "showOnly": []
-                },
-                "allDiseaseDetails": {
-                    "showDetailsButton": true,
-                    "pivotTable": {
-                        "numberOfVisits": "15",
-                        "groupBy": "visits",
-                        "obsConcepts": [
-                            "Lab, RBC count test result",
-                            "Lab, Creatinine test result",
-                            "Lab, Creatinine test result unit",
-                            "Lab, Hemoglobin test result",
-                            "Lab, Platelet count test result",
-                            "Lab, Absolute neutrophil count test result",
-                            "Lab, Total bilirubin test result"
-                        ],
-                        "drugConcepts": [],
-                        "labConcepts": []
-                    }
-                },
-                "displayOrder": 10,
-                "title": "Lab Results"
-            },
-            "nutritionalValues": {
-                "name": "nutritionalValues",
-                "isObservation": true,
-                "dashboardParams": {
-                    "conceptNames": [
-                        "Height (cm)",
-                        "Weight (kg)",
-                        "BMI Data"
-                    ],
-                    "numberOfVisits": 1
-                },
-                "displayOrder": 1,
-                "translationKey": "DASHBOARD_TITLE_NUTRITIONAL_VALUES_KEY"
-            },
-            "treatmentsDetails": {
-		"title":"Treatments Details",
-		"translationKey" : "treatmentsDetails",
-		"name": "drugOrderDetails",
-		"displayOrder": 3,
-		"dashboardParams": {
-			"drugNames":["Isoniazid"],
-			"showDetailsButton":true
-   		}
-	    },
-            "programs": {
-                "name": "programs",
-                "displayOrder": 3,
-                "translationKey": "DASHBOARD_TITLE_PROGRAMS_KEY"
-            },
-            "visits": {
-                "name": "visits",
-                "dashboardParams": {
-                    "title": null,
-                    "maximumNoOfVisits": 10
-                },
-                "displayOrder": 4,
-                "translationKey": "DASHBOARD_TITLE_VISITS_KEY"
-            },
-            "Forms": {
-                "name": "forms",
-                "dashboardParams": {
-                    "title": null,
-                    "maximumNoOfVisits": 0
-                },
-                "displayOrder": 9,
-                "translationKey": "DASHBOARD_TITLE_FORMS_KEY"
-            },
-            "bacteriologyResults":{
-                "translationKey": "DASHBOARD_TITLE_BACTERIOLOGY_RESULTS_KEY",
-                "name": "bacteriologyResultsControl",
-                "scope": "All",
-                "orderType": "",
-                "displayOrder": 4,
-                "dashboardParams": {
-                    "conceptNames": [
-                        "BACTERIOLOGY CONCEPT SET"
-                    ]
-
-                }
-            },
-            "followup": {
-                "templateName": "Followup Template",
-                "name": "diseaseTemplate",
-                "dashboardParams": {
-                    "conceptNames": [
-                        "Height (cm)",
-                        "Weight (kg)",
-                        "BMI Data",
-                        "BMI Status Data"
-                    ],
-                    "showOnly": []
-                },
-                "allDiseaseDetails": {
-                    "showDetailsButton": true,
-                    "pivotTable": {
-                        "numberOfVisits": "15",
-                        "groupBy": "visits",
-                        "obsConcepts": [],
-                        "drugConcepts": [],
-                        "labConcepts": []
-                    }
-                },
-                "displayOrder": 6,
-                "title": "Followup Form Findings"
-            },
-            "baseline": {
-                "templateName": "Baseline Template",
-                "name": "diseaseTemplate",
-                "dashboardParams": {
-                    "conceptNames": [
-                        "Height (cm)",
-                        "Weight (kg)",
-                        "Body mass index",
-                        "BMI Status"
-                    ],
-                    "showOnly": []
-                },
-                "allDiseaseDetails": {
-                    "showDetailsButton": true,
-                    "pivotTable": {
-                        "numberOfVisits": "15",
-                        "groupBy": "visits",
-                        "obsConcepts": [],
-                        "drugConcepts": [],
-                        "labConcepts": []
-                    }
-                },
-                "displayOrder": 5,
-                "title": "Baseline Form Findings"
-            }
+  "general": {
+    "displayByDefault": true,
+    "maxRecentlyViewedPatients": 10,
+    "sections": {
+      "patientInformation": {
+        "name": "patientInformation",
+        "patientAttributes": [
+          "DRTBNationalID",
+          "dateOfDRTB",
+          "facilityPatientID",
+          "nationalIdentificationNumber",
+          "previousDRTBNumber",
+          "telephoneNumber"
+        ],
+        "addressFields": [],
+        "displayOrder": 0,
+        "translationKey": "DASHBOARD_TITLE_PATIENT_INFORMATION_KEY"
+      },
+      "labResults1": {
+        "templateName": "Lab Results Template",
+        "name": "diseaseTemplate",
+        "dashboardParams": {
+          "conceptNames": [],
+          "showOnly": []
         },
-        "translationKey": "DASHBOARD_TAB_GENERAL_KEY"
+        "allDiseaseDetails": {
+          "showDetailsButton": true,
+          "pivotTable": {
+            "numberOfVisits": "15",
+            "groupBy": "visits",
+            "obsConcepts": [
+              "Lab, RBC count test result",
+              "Lab, Creatinine test result",
+              "Lab, Creatinine test result unit",
+              "Lab, Hemoglobin test result",
+              "Lab, Platelet count test result",
+              "Lab, Absolute neutrophil count test result",
+              "Lab, Total bilirubin test result"
+            ],
+            "drugConcepts": [],
+            "labConcepts": []
+          }
+        },
+        "displayOrder": 10,
+        "title": "Lab Results"
+      },
+      "nutritionalValues": {
+        "name": "nutritionalValues",
+        "isObservation": true,
+        "dashboardParams": {
+          "conceptNames": [
+            "Height (cm)",
+            "Weight (kg)",
+            "BMI Data"
+          ],
+          "numberOfVisits": 1
+        },
+        "displayOrder": 1,
+        "translationKey": "DASHBOARD_TITLE_NUTRITIONAL_VALUES_KEY"
+      },
+      "treatmentsDetails": {
+        "title": "Treatments Details",
+        "translationKey": "treatmentsDetails",
+        "name": "drugOrderDetails",
+        "displayOrder": 3,
+        "dashboardParams": {
+          "drugNames": [
+            "Isoniazid"
+          ],
+          "showDetailsButton": true
+        }
+      },
+      "programs": {
+        "name": "programs",
+        "displayOrder": 3,
+        "translationKey": "DASHBOARD_TITLE_PROGRAMS_KEY"
+      },
+      "visits": {
+        "name": "visits",
+        "dashboardParams": {
+          "title": null,
+          "maximumNoOfVisits": 10
+        },
+        "displayOrder": 4,
+        "translationKey": "DASHBOARD_TITLE_VISITS_KEY"
+      },
+      "Forms": {
+        "name": "forms",
+        "dashboardParams": {
+          "title": null,
+          "maximumNoOfVisits": 0
+        },
+        "displayOrder": 9,
+        "translationKey": "DASHBOARD_TITLE_FORMS_KEY"
+      },
+      "bacteriologyResults": {
+        "translationKey": "DASHBOARD_TITLE_BACTERIOLOGY_RESULTS_KEY",
+        "name": "bacteriologyResultsControl",
+        "scope": "All",
+        "orderType": "",
+        "displayOrder": 4,
+        "dashboardParams": {
+          "conceptNames": [
+            "BACTERIOLOGY CONCEPT SET"
+          ]
+        }
+      },
+      "followup": {
+        "templateName": "Followup Template",
+        "name": "diseaseTemplate",
+        "dashboardParams": {
+          "conceptNames": [
+            "Height (cm)",
+            "Weight (kg)",
+            "BMI Data",
+            "BMI Status Data"
+          ],
+          "showOnly": []
+        },
+        "allDiseaseDetails": {
+          "showDetailsButton": true,
+          "pivotTable": {
+            "numberOfVisits": "15",
+            "groupBy": "visits",
+            "obsConcepts": [],
+            "drugConcepts": [],
+            "labConcepts": []
+          }
+        },
+        "displayOrder": 6,
+        "title": "Followup Form Findings"
+      },
+      "baseline": {
+        "templateName": "Baseline Template",
+        "name": "diseaseTemplate",
+        "dashboardParams": {
+          "conceptNames": [
+            "Height (cm)",
+            "Weight (kg)",
+            "Body mass index",
+            "BMI Status"
+          ],
+          "showOnly": []
+        },
+        "allDiseaseDetails": {
+          "showDetailsButton": true,
+          "pivotTable": {
+            "numberOfVisits": "15",
+            "groupBy": "visits",
+            "obsConcepts": [],
+            "drugConcepts": [],
+            "labConcepts": []
+          }
+        },
+        "displayOrder": 5,
+        "title": "Baseline Form Findings"
+      }
     },
-    "summary": {
-        "displayByDefault": true,
-        "maxRecentlyViewedPatients": 10,
-        "printing": {
-            "title": "EndTB Patient Dashboard",
-            "header": "Patient Summary",
-            "logo": "../images/jss-icon.png"
-        },
-        "sections": {
-            "patientInformation": {
-                "name": "patientInformation",
-                "displayType": "Full-Page",
-                "patientAttributes": [
-                    "DRTBNationalID", "dateOfDRTB", "facilityPatientID", "nationalIdentificationNumber", "previousDRTBNumber", "telephoneNumber"
-                ],
-                "addressFields": ["cityVillage", "address2", "stateProvince", "country"],
-                "displayOrder": 0,
-                "translationKey": "DASHBOARD_TITLE_PATIENT_INFORMATION_KEY"
-            },
-            "casedefinition": {
-                "name": "casedefinition",
-                "isObservation": true,
-                "displayType": "Full-Page",
-                "dashboardParams": {
-                    "showGroupDateTime": false,
-                    "conceptNames": [
-                        "Baseline, WHO registration group",
-                        "Baseline, Disease site",
-                        "Baseline, Drug resistance",
-                        "Baseline, Subclassification for confimed drug resistant cases"
-                    ],
-                    "scope": "latest"
-                },
-                "displayOrder": 1,
-                "translationKey": "Case Defintion"
-            },
-            "hivstatus": {
-                "name": "hivstatus",
-                "isObservation": true,
-                "displayType": "Full-Page",
-                "dashboardParams": {
-                    "showGroupDateTime": false,
-                    "conceptNames": [
-                        "Baseline, HIV serostatus result",
-                        "Date of HIV diagnosis"
-                    ],
-                    "scope": "latest"
-                },
-                "displayOrder": 2,
-                "translationKey": "HIV Status"
-            },
-            "comorbidities": {
-                "name": "comorbidities",
-                "isObservation": true,
-                "showGroupDateTime": false,
-                "displayType": "Full-Page",
-                "dashboardParams": {
-                    "showGroupDateTime": false,
-                    "conceptNames": [
-                        "Diabetes Mellitus",
-                        "Baseline, Chronic renal insufficiency",
-                        "History of liver cirrhosis",
-                        "Baseline, Chronic obstructive pulmonary disease",
-                        "Baseline, Cancer",
-                        "Baseline, Heart or atherosclerotic disease",
-                        "Baseline, Hepatitis B",
-                        "Baseline, Hepatitis C",
-                        "Baseline, Depression",
-                        "Baseline, Other psychiatric illness",
-                        "Baseline, Seizure disorder",
-                        "Baseline, Pre-existing neuropathy",
-                        "Baseline, Neuropathy grade",
-                        "Baseline, Other pre-existing disease"
-                    ],
-                    "scope": "latest"
-                },
-                "displayOrder": 3,
-                "translationKey": "Co-morbidities"
-            },
-            "importantdates": {
-                "name": "importantdates",
-                "isObservation": true,
-                "displayType": "Full-Page",
-                "dashboardParams": {
-                    "showGroupDateTime": false,
-                    "conceptNames": [
-                        "TUBERCULOSIS DRUG TREATMENT START DATE",
-                        "Tuberculosis treatment end date"
-                    ],
-                    "scope": "latest"
-
-                },
-                "displayOrder": 4,
-                "translationKey": "Important Dates"
-            },
-            "pasttbhistory": {
-                "name": "pasttbhistory",
-                "isObservation": true,
-                "displayType": "Full-Page",
-                "dashboardParams": {
-                    "showGroupDateTime": false,
-                    "conceptNames": [
-                        "Baseline, Year of First TB Treatment",
-                        "Baseline, Treatment for drug-susceptible TB",
-                        "Baseline, How many drug-susceptible TB treatments",
-                        "Baseline, Treatment for drug-resistant TB",
-                        "Baseline, How many drug-resistant TB treatments"
-                    ],
-                    "scope": "latest"
-                },
-                "displayOrder": 5,
-                "translationKey": "Past TB Treatment Information"
-            },
-            "previousTBTreatmentRegimen": {
-                "translationKey": "Previous TB treatment Regimen",
-                "name": "obsToObsFlowSheet",
-                "displayType": "Full-Page",
-                "displayOrder": 6,
-                "dashboardParams": {
-                    "scope": "All",
-                    "groupByConcept": "Baseline, Start date of past TB treatment",
-                    "templateName": "Baseline, Past TB treatment table",
-                    "conceptNames": [
-                        "Baseline, End date of past TB treatment",
-                        "Baseline, Type of past TB treatment",
-                        "Baseline, Past TB treatment regimen type",
-                        "Baseline, Past TB treatment outcome"
-                    ]
-                }
-            },
-            "previoustbdrug": {
-                "name": "previoustbdrug",
-                "isObservation": true,
-                "displayType": "Full-Page",
-                "dashboardParams": {
-                    "showGroupDateTime": false,
-                    "conceptNames": [
-                        "Baseline, List of drugs taken for more than a month",
-                        "Baseline, Other drug taken for more than a month"
-                    ],
-                    "scope": "all"
-                },
-                "displayOrder": 7,
-                "translationKey": "Previous TB-drug Exposure Prior to Start of"
-            },
-            "treatmentoutcome": {
-                "name": "treatmentoutcome",
-                "isObservation": true,
-                "displayType": "Full-Page",
-                "dashboardParams": {
-                    "showGroupDateTime": false,
-                    "conceptNames": [
-                        "EOT, Outcome",
-                        "6m PTO, 6 month post treatment outcome"
-                    ],
-                    "scope": "latest"
-                },
-                "displayOrder": 8,
-                "translationKey": "Treatment Outcome"
-            },
-            "dstResults": {
-                "translationKey": "DST Results",
-                "name": "obsToObsFlowSheet",
-                "displayType": "Full-Page",
-                "displayOrder": 9,
-                "rotateInPrint" : true,
-                "dashboardParams": {
-                    "scope": "All",
-                    "groupByConcept": "Specimen Collection Date",
-                    "name": "DstExtension",
-                    "templateName": "BACTERIOLOGY CONCEPT SET",
-                    "conceptNames": [
-                        "Bacteriology, Isoniazid 0.2 µg/ml result",
-                        "Bacteriology, Isoniazid 1 µg/ml result",
-                        "Bacteriology, Rifampicin result",
-                        "Bacteriology, Ethambutol result",
-                        "Bacteriology, Pyrazinamide result",
-                        "Bacteriology, Ofloxacin result",
-                        "Bacteriology, Levofloxacin result",
-                        "Bacteriology, Moxifloxacin 0.5 µg/ml results",
-                        "Bacteriology, Moxifloxacin 2 µg/ml results",
-                        "Bacteriology, Amikacin result",
-                        "Bacteriology, Kanamycin result",
-                        "Bacteriology, Capreomycin result",
-                        "Bacteriology, Ethionamide result",
-                        "Bacteriology, Cycloserine result",
-                        "Bacteriology, PAS result"
-                    ]
-                }
-            },
-            "Drug-O-Gram": {
-                "displayType": "Full-Page",
-                "title": "Drug Regimen",
-                "translationKey": "Drug Regimen",
-                "name": "chronicTreatmentChart",
-                "dashboardParams": {
-                    "Drugs": ["AMIKACIN", "RIFAMPICIN", "ISONIAZID"]
-                },
-                "displayOrder": 10
-            },
-            "completenessFlowsheet": {
-                "name": "flowSheet",
-                "title": "Treatment Completeness vs Weight and BMI",
-                "displayType": "Full-Page",
-                "displayOrder": 11,
-                "rotateInPrint" : true,
-                "dashboardParams": {
-                    "scope": "All",
-                    "groupBy": "encounters",
-                    "obsConcepts": [
-                        "Weight (kg)",
-                        "BMI Data",
-                        "MTC, Completeness rate"
-                    ],
-                    "labConcepts": []
-                }
-            },
-            "labFlowsheet": {
-                "name": "flowSheet",
-                "title": "Laboratory Monitoring",
-                "displayType": "Full-Page",
-                "displayOrder": 12,
-                "dashboardParams": {
-                    "numberOfVisits": "5",
-                    "groupBy": "encounters",
-                    "obsConcepts": [
-                        "RED BLOOD CELLS",
-                        "Serum creatinine (umol/L)",
-                        "Hemoglobin",
-                        "Platelets",
-                        "ABSOLUTE NEUTROPHIL COUNT",
-                        "TOTAL BILIRUBIN"
-                    ],
-                    "labConcepts": []
-                },
-                "allFlowSheetDetails": {
-                    "groupBy": "visits",
-                    "obsConcepts": [
-                        "RED BLOOD CELLS",
-                        "Serum creatinine (umol/L)",
-                        "Hemoglobin",
-                        "Platelets",
-                        "ABSOLUTE NEUTROPHIL COUNT",
-                        "TOTAL BILIRUBIN"
-                    ],
-                    "labConcepts": [],
-                    "drugConcepts": []
-                }
-            },
-            "adverseEvents": {
-                "translationKey": "Adverse Events",
-                "name": "obsToObsFlowSheet",
-                "displayType": "Full-Page",
-                "displayOrder": 13,
-                "dashboardParams": {
-                    "scope": "All",
-                    "groupByConcept": "AE Form, Adverse Event term",
-                    "templateName": "AE Form, Adverse Event details",
-                    "conceptNames": [
-                        "AE Form, Date of AE onset",
-                        "AE Form, AE Grade",
-                        "AE Form, Maximum severity of AE",
-                        "AE Form, AE review date",
-                        "AE Form, AE severity at review",
-                        "AE Form, Date of AE Outcome",
-                        "AE Form, AE outcome"
-                    ]
-                }
-            },
-            "ecgReadings": {
-                "translationKey": "ECG Readings",
-                "name": "obsToObsFlowSheet",
-                "displayType": "Full-Page",
-                "displayOrder": 14,
-                "dashboardParams": {
-                    "scope": "All",
-                    "groupByConcept": "EKG, Date of EKG",
-                    "name": "EcgReadingsExtension",
-                    "templateName": "Electrocardiogram Template",
-                    "conceptNames": [
-                        "EKG, Month of scheduled visit",
-                        "EKG, Rythm",
-                        "EKG, Heart Rate",
-                        "EKG, QT Interval",
-                        "EKG, QTcF Interval"
-                    ]
-                }
-            },
-            "chestXray": {
-                "translationKey": "Chest X-Ray",
-                "name": "obsToObsFlowSheet",
-                "displayType": "Full-Page",
-                "displayOrder": 15,
-                "dashboardParams": {
-                    "scope": "All",
-                    "groupByConcept": "Xray, Chest Xray Date",
-                    "name": "ChestXRayExtension",
-                    "templateName": "Xray Template",
-                    "conceptNames": [
-                        "Xray, Extent of disease",
-                        "Xray, Maximum cavity size",
-                        "Xray, Fibrosis"
-                    ]
-                }
-            }
-        },
-        "translationKey": "DASHBOARD_TAB_PATIENT_SUMMARY_KEY"
+    "translationKey": "DASHBOARD_TAB_GENERAL_KEY"
+  },
+  "summary": {
+    "displayByDefault": true,
+    "maxRecentlyViewedPatients": 10,
+    "printing": {
+      "title": "EndTB Patient Dashboard",
+      "header": "Patient Summary",
+      "logo": "../images/jss-icon.png"
     },
-    "trends": {
-        "displayByDefault": true,
-        "maxRecentlyViewedPatients": 10,
-        "sections": {
-            "patientInformation": {
-                "name": "patientInformation",
-                "patientAttributes": [],
-                "addressFields": [],
-                "displayOrder": 0,
-                "translationKey": "DASHBOARD_TITLE_PATIENT_INFORMATION_KEY"
-            },
-            "weight/BMI": {
-                "type": "observationGraph",
-                "name": "observationGraph",
-                "config": {
-                    "yAxisConcepts": [
-                        "Body mass index"
-                    ],
-                    "xAxisConcept": "observationDateTime",
-                    "numberOfVisits": 10
-                },
-                "displayOrder": 6,
-                "title": "BMI"
-            },
-            "Lab, Hemoglobin test result": {
-                "type": "observationGraph",
-                "name": "observationGraph",
-                "config": {
-                    "yAxisConcepts": [
-                        "lab, Hemoglobin test result"
-                    ],
-                    "xAxisConcept": "observationDateTime",
-                    "numberOfVisits": 10
-                },
-                "displayOrder": 6,
-                "title": "Hemoglobin"
-            },
-            "AST": {
-                "type": "observationGraph",
-                "name": "observationGraph",
-                "config": {
-                    "yAxisConcepts": [
-                        "Lab, AST"
-                    ],
-                    "xAxisConcept": "observationDateTime",
-                    "numberOfVisits": 10
-                },
-                "displayOrder": 8,
-                "title": "AST"
-            }
+    "sections": {
+      "patientInformation": {
+        "name": "patientInformation",
+        "displayType": "Full-Page",
+        "patientAttributes": [
+          "DRTBNationalID",
+          "dateOfDRTB",
+          "facilityPatientID",
+          "nationalIdentificationNumber",
+          "previousDRTBNumber",
+          "telephoneNumber"
+        ],
+        "addressFields": [
+          "cityVillage",
+          "address2",
+          "stateProvince",
+          "country"
+        ],
+        "displayOrder": 0,
+        "translationKey": "DASHBOARD_TITLE_PATIENT_INFORMATION_KEY"
+      },
+      "casedefinition": {
+        "name": "casedefinition",
+        "isObservation": true,
+        "displayType": "Full-Page",
+        "dashboardParams": {
+          "showGroupDateTime": false,
+          "conceptNames": [
+            "Baseline, WHO registration group",
+            "Baseline, Disease site",
+            "Baseline, Drug resistance",
+            "Baseline, Subclassification for confimed drug resistant cases"
+          ],
+          "scope": "latest"
         },
-        "translationKey": "DASHBOARD_TAB_TRENDS_KEY"
-    }
+        "displayOrder": 1,
+        "translationKey": "Case Defintion"
+      },
+      "hivstatus": {
+        "name": "hivstatus",
+        "isObservation": true,
+        "displayType": "Full-Page",
+        "dashboardParams": {
+          "showGroupDateTime": false,
+          "conceptNames": [
+            "Baseline, HIV serostatus result",
+            "Date of HIV diagnosis"
+          ],
+          "scope": "latest"
+        },
+        "displayOrder": 2,
+        "translationKey": "HIV Status"
+      },
+      "comorbidities": {
+        "name": "comorbidities",
+        "isObservation": true,
+        "showGroupDateTime": false,
+        "displayType": "Full-Page",
+        "dashboardParams": {
+          "showGroupDateTime": false,
+          "conceptNames": [
+            "Diabetes Mellitus",
+            "Baseline, Chronic renal insufficiency",
+            "History of liver cirrhosis",
+            "Baseline, Chronic obstructive pulmonary disease",
+            "Baseline, Cancer",
+            "Baseline, Heart or atherosclerotic disease",
+            "Baseline, Hepatitis B",
+            "Baseline, Hepatitis C",
+            "Baseline, Depression",
+            "Baseline, Other psychiatric illness",
+            "Baseline, Seizure disorder",
+            "Baseline, Pre-existing neuropathy",
+            "Baseline, Neuropathy grade",
+            "Baseline, Other pre-existing disease"
+          ],
+          "scope": "latest"
+        },
+        "displayOrder": 3,
+        "translationKey": "Co-morbidities"
+      },
+      "importantdates": {
+        "name": "importantdates",
+        "isObservation": true,
+        "displayType": "Full-Page",
+        "dashboardParams": {
+          "showGroupDateTime": false,
+          "conceptNames": [
+            "TUBERCULOSIS DRUG TREATMENT START DATE",
+            "Tuberculosis treatment end date"
+          ],
+          "scope": "latest"
+        },
+        "displayOrder": 4,
+        "translationKey": "Important Dates"
+      },
+      "pasttbhistory": {
+        "name": "pasttbhistory",
+        "isObservation": true,
+        "displayType": "Full-Page",
+        "dashboardParams": {
+          "showGroupDateTime": false,
+          "conceptNames": [
+            "Baseline, Year of First TB Treatment",
+            "Baseline, Treatment for drug-susceptible TB",
+            "Baseline, How many drug-susceptible TB treatments",
+            "Baseline, Treatment for drug-resistant TB",
+            "Baseline, How many drug-resistant TB treatments"
+          ],
+          "scope": "latest"
+        },
+        "displayOrder": 5,
+        "translationKey": "Past TB Treatment Information"
+      },
+      "previousTBTreatmentRegimen": {
+        "translationKey": "Previous TB treatment Regimen",
+        "name": "obsToObsFlowSheet",
+        "displayType": "Full-Page",
+        "displayOrder": 6,
+        "dashboardParams": {
+          "scope": "All",
+          "groupByConcept": "Baseline, Start date of past TB treatment",
+          "templateName": "Baseline, Past TB treatment table",
+          "conceptNames": [
+            "Baseline, End date of past TB treatment",
+            "Baseline, Type of past TB treatment",
+            "Baseline, Past TB treatment regimen type",
+            "Baseline, Past TB treatment outcome"
+          ]
+        }
+      },
+      "previoustbdrug": {
+        "name": "previoustbdrug",
+        "isObservation": true,
+        "displayType": "Full-Page",
+        "dashboardParams": {
+          "showGroupDateTime": false,
+          "conceptNames": [
+            "Baseline, List of drugs taken for more than a month",
+            "Baseline, Other drug taken for more than a month"
+          ],
+          "scope": "all"
+        },
+        "displayOrder": 7,
+        "translationKey": "Previous TB-drug Exposure Prior to Start of"
+      },
+      "treatmentoutcome": {
+        "name": "treatmentoutcome",
+        "isObservation": true,
+        "displayType": "Full-Page",
+        "dashboardParams": {
+          "showGroupDateTime": false,
+          "conceptNames": [
+            "EOT, Outcome",
+            "6m PTO, 6 month post treatment outcome"
+          ],
+          "scope": "latest"
+        },
+        "displayOrder": 8,
+        "translationKey": "Treatment Outcome"
+      },
+      "dstResults": {
+        "translationKey": "DST Results",
+        "name": "obsToObsFlowSheet",
+        "displayType": "Full-Page",
+        "displayOrder": 9,
+        "rotateInPrint": true,
+        "dashboardParams": {
+          "scope": "All",
+          "groupByConcept": "Specimen Collection Date",
+          "name": "DstExtension",
+          "templateName": "BACTERIOLOGY CONCEPT SET",
+          "conceptNames": [
+            "Bacteriology, Isoniazid 0.2 µg/ml result",
+            "Bacteriology, Isoniazid 1 µg/ml result",
+            "Bacteriology, Rifampicin result",
+            "Bacteriology, Ethambutol result",
+            "Bacteriology, Pyrazinamide result",
+            "Bacteriology, Ofloxacin result",
+            "Bacteriology, Levofloxacin result",
+            "Bacteriology, Moxifloxacin 0.5 µg/ml results",
+            "Bacteriology, Moxifloxacin 2 µg/ml results",
+            "Bacteriology, Amikacin result",
+            "Bacteriology, Kanamycin result",
+            "Bacteriology, Capreomycin result",
+            "Bacteriology, Ethionamide result",
+            "Bacteriology, Cycloserine result",
+            "Bacteriology, PAS result"
+          ]
+        }
+      },
+      "Drug-O-Gram": {
+        "displayType": "Full-Page",
+        "title": "Drug Regimen",
+        "translationKey": "Drug Regimen",
+        "name": "chronicTreatmentChart",
+        "dashboardParams": {
+          "Drugs": [
+            "AMIKACIN",
+            "RIFAMPICIN",
+            "ISONIAZID"
+          ]
+        },
+        "displayOrder": 10
+      },
+      "completenessFlowsheet": {
+        "name": "flowSheet",
+        "title": "Treatment Completeness vs Weight and BMI",
+        "displayType": "Full-Page",
+        "displayOrder": 11,
+        "rotateInPrint": true,
+        "dashboardParams": {
+          "scope": "All",
+          "groupBy": "encounters",
+          "obsConcepts": [
+            "Weight (kg)",
+            "BMI Data",
+            "MTC, Completeness rate"
+          ],
+          "labConcepts": []
+        }
+      },
+      "labFlowsheet": {
+        "name": "flowSheet",
+        "title": "Laboratory Monitoring",
+        "displayType": "Full-Page",
+        "displayOrder": 12,
+        "dashboardParams": {
+          "numberOfVisits": "5",
+          "groupBy": "encounters",
+          "obsConcepts": [
+            "RED BLOOD CELLS",
+            "Serum creatinine (umol/L)",
+            "Hemoglobin",
+            "Platelets",
+            "ABSOLUTE NEUTROPHIL COUNT",
+            "TOTAL BILIRUBIN"
+          ],
+          "labConcepts": []
+        },
+        "allFlowSheetDetails": {
+          "groupBy": "visits",
+          "obsConcepts": [
+            "RED BLOOD CELLS",
+            "Serum creatinine (umol/L)",
+            "Hemoglobin",
+            "Platelets",
+            "ABSOLUTE NEUTROPHIL COUNT",
+            "TOTAL BILIRUBIN"
+          ],
+          "labConcepts": [],
+          "drugConcepts": []
+        }
+      },
+      "adverseEvents": {
+        "translationKey": "Adverse Events",
+        "name": "obsToObsFlowSheet",
+        "displayType": "Full-Page",
+        "displayOrder": 13,
+        "dashboardParams": {
+          "scope": "All",
+          "groupByConcept": "AE Form, Adverse Event term",
+          "templateName": "AE Form, Adverse Event details",
+          "conceptNames": [
+            "AE Form, Date of AE onset",
+            "AE Form, AE Grade",
+            "AE Form, Maximum severity of AE",
+            "AE Form, AE review date",
+            "AE Form, AE severity at review",
+            "AE Form, Date of AE Outcome",
+            "AE Form, AE outcome"
+          ]
+        }
+      },
+      "ecgReadings": {
+        "translationKey": "ECG Readings",
+        "name": "obsToObsFlowSheet",
+        "displayType": "Full-Page",
+        "displayOrder": 14,
+        "dashboardParams": {
+          "scope": "All",
+          "groupByConcept": "EKG, Date of EKG",
+          "name": "EcgReadingsExtension",
+          "templateName": "Electrocardiogram Template",
+          "conceptNames": [
+            "EKG, Month of scheduled visit",
+            "EKG, Rythm",
+            "EKG, Heart Rate",
+            "EKG, QT Interval",
+            "EKG, QTcF Interval"
+          ]
+        }
+      },
+      "chestXray": {
+        "translationKey": "Chest X-Ray",
+        "name": "obsToObsFlowSheet",
+        "displayType": "Full-Page",
+        "displayOrder": 15,
+        "dashboardParams": {
+          "scope": "All",
+          "groupByConcept": "Xray, Chest Xray Date",
+          "name": "ChestXRayExtension",
+          "templateName": "Xray Template",
+          "conceptNames": [
+            "Xray, Extent of disease",
+            "Xray, Maximum cavity size",
+            "Xray, Fibrosis"
+          ]
+        }
+      }
+    },
+    "translationKey": "DASHBOARD_TAB_PATIENT_SUMMARY_KEY"
+  },
+  "trends": {
+    "displayByDefault": true,
+    "maxRecentlyViewedPatients": 10,
+    "sections": {
+      "patientInformation": {
+        "name": "patientInformation",
+        "patientAttributes": [],
+        "addressFields": [],
+        "displayOrder": 0,
+        "translationKey": "DASHBOARD_TITLE_PATIENT_INFORMATION_KEY"
+      },
+      "weight/BMI": {
+        "type": "observationGraph",
+        "name": "observationGraph",
+        "config": {
+          "yAxisConcepts": [
+            "Body mass index"
+          ],
+          "xAxisConcept": "observationDateTime",
+          "numberOfVisits": 10
+        },
+        "displayOrder": 6,
+        "title": "BMI"
+      },
+      "Lab, Hemoglobin test result": {
+        "type": "observationGraph",
+        "name": "observationGraph",
+        "config": {
+          "yAxisConcepts": [
+            "lab, Hemoglobin test result"
+          ],
+          "xAxisConcept": "observationDateTime",
+          "numberOfVisits": 10
+        },
+        "displayOrder": 6,
+        "title": "Hemoglobin"
+      },
+      "AST": {
+        "type": "observationGraph",
+        "name": "observationGraph",
+        "config": {
+          "yAxisConcepts": [
+            "Lab, AST"
+          ],
+          "xAxisConcept": "observationDateTime",
+          "numberOfVisits": 10
+        },
+        "displayOrder": 8,
+        "title": "AST"
+      }
+    },
+    "translationKey": "DASHBOARD_TAB_TRENDS_KEY"
+  }
 }

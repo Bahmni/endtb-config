@@ -1,30 +1,30 @@
 {
-    "general": {
-        "title": "General",
-        "displayByDefault": true,
-        "printing": {
-            "title": "Bahmni",
-            "header": "Visit",
-            "logo": "../images/bahmniLogo.png"
+  "general": {
+    "title": "General",
+    "displayByDefault": true,
+    "printing": {
+      "title": "Bahmni",
+      "header": "Visit",
+      "logo": "../images/bahmniLogo.png"
+    },
+    "defaultSections": true,
+    "sections": {
+      "pivottable": {
+        "type": "pivotTable",
+        "title": "Pivot table",
+        "config": {
+          "groupBy": "encounters",
+          "obsConcepts": [
+            "CD4 COUNT",
+            "Lab, RBC count test result",
+            "Lab, Creatinine test result",
+            "Lab, Creatinine test result unit"
+          ],
+          "drugConcepts": [],
+          "labConcepts": ""
         },
-        "defaultSections": true,
-        "sections": {
-            "pivottable": {
-                "type": "pivotTable",
-                "title": "Pivot table",
-                "config": {
-                    "groupBy": "encounters",
-                    "obsConcepts": [
-			"CD4 COUNT",
-			"Lab, RBC count test result",
-			"Lab, Creatinine test result",
-			"Lab, Creatinine test result unit"
-		    ],
-                    "drugConcepts": [],
-                    "labConcepts": ""
-                },
-                "displayOrder": 0
-            }
-        }
+        "displayOrder": 0
+      }
     }
+  }
 }
