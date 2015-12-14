@@ -69,15 +69,6 @@
                 "displayOrder": 3,
                 "translationKey": "DASHBOARD_TITLE_PROGRAMS_KEY"
             },
-            "visits": {
-                "name": "visits",
-                "dashboardParams": {
-                    "title": null,
-                    "maximumNoOfVisits": 10
-                },
-                "displayOrder": 4,
-                "translationKey": "DASHBOARD_TITLE_VISITS_KEY"
-            },
             "Forms": {
                 "name": "forms",
                 "dashboardParams": {
