@@ -19,7 +19,7 @@
     "visitUuid"
   ],
   "config": {
-    "defaultVisitType":"General",2
+    "defaultVisitType":"General",
     "obsIgnoreList": [
       "Patient file"
     ],
