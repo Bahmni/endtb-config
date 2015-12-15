@@ -499,7 +499,214 @@
       },
       "Lab, Serum Albumin": {
         "isTabular": true
-      }
+      },
+      "Lab, Hemoglobin test done":{
+ "disableAddNotes": true
+ },
+ "Lab, Hemoglobin Abnormal":{
+ "disableAddNotes": true
+ },
+ "Lab, Hematocrit test done":{
+ "disableAddNotes": true
+ },
+ "HEMATOCRIT":{
+ "disableAddNotes": true
+ },
+ "Lab, Hematocrit Abnormal":{
+ "disableAddNotes": true
+ },
+ "Lab, Platelet count test done":{
+ "disableAddNotes": true
+ },
+ "Platelets":{
+ "disableAddNotes": true
+ },
+ "Lab, Platelets Abnormal":{
+ "disableAddNotes": true
+ },
+ "Lab, RBC test done":{
+ "disableAddNotes": true
+ },
+ "RED BLOOD CELLS":{
+ "disableAddNotes": true
+ },
+ "Lab, RBC Abnormal":{
+ "disableAddNotes": true
+ },
+ "Lab, WBC test done":{
+ "disableAddNotes": true
+ },
+ "WHITE BLOOD CELLS":{
+ "disableAddNotes": true
+ },
+ "Lab, WBC Abnormal":{
+ "disableAddNotes": true
+ },
+ "Lab, Absolute neutrophil count test done":{
+ "disableAddNotes": true
+ },
+ "ABSOLUTE NEUTROPHIL COUNT":{
+ "disableAddNotes": true
+ },
+ "Lab, Absolute neutrophil count Abnormal":{
+ "disableAddNotes": true
+ },
+ "Lab, Neutrophils test done":{
+ "disableAddNotes": true
+ },
+ "Lab, Neutrophils test result":{
+ "disableAddNotes": true
+ },
+ "Lab, Neutrophils Abnormal":{
+ "disableAddNotes": true
+ },
+ "Lab, Potassium test done":{
+ "disableAddNotes": true
+ },
+ "SERUM POTASSIUM":{
+ "disableAddNotes": true
+ },
+ "Lab, Potassium Abnormal":{
+ "disableAddNotes": true
+ },
+ "Lab, Magnesium test done":{
+ "disableAddNotes": true
+ },
+ "Lab, Magnesium test result":{
+ "disableAddNotes": true
+ },
+ "Lab, Magnesium Abnormal":{
+ "disableAddNotes": true
+ },
+ "Lab, Ionized Calcium test done":{
+ "disableAddNotes": true
+ },
+ "Lab, Ionized Calcium test result":{
+ "disableAddNotes": true
+ },
+ "Lab, Ionized Calcium Abnormal":{
+ "disableAddNotes": true
+ },
+ "Lab, Urea test done":{
+ "disableAddNotes": true
+ },
+ "BLOOD UREA NITROGEN":{
+ "disableAddNotes": true
+ },
+ "Lab, Urea Abnormal":{
+ "disableAddNotes": true
+ },
+ "Lab, Creatinine test done":{
+ "disableAddNotes": true
+ },
+ "Serum creatinine (umol/L)":{
+ "disableAddNotes": true
+ },
+ "Lab, Creatinine Abnormal":{
+ "disableAddNotes": true
+ },
+ "Lab, Glucose test done":{
+ "disableAddNotes": true
+ },
+ "SERUM GLUCOSE":{
+ "disableAddNotes": true
+ },
+ "Lab, Glucose Abnormal":{
+ "disableAddNotes": true
+ },
+ "Fasting blood glucose measurement (mg/dL)":{
+ "disableAddNotes": true
+ },
+ "Lab, Glucose (fasting) Abnormal":{
+ "disableAddNotes": true
+ },
+ "Lab, HbA1c test done":{
+ "disableAddNotes": true
+ },
+ "glycosylated hemoglobin A measurement":{
+ "disableAddNotes": true
+ },
+ "Lab, HbA1c Abnormal":{
+ "disableAddNotes": true
+ },
+ "Lab, TSH test done":{
+ "disableAddNotes": true
+ },
+ "Thyroid stimulating hormone test":{
+ "disableAddNotes": true
+ },
+ "Lab, TSH Abnormal":{
+ "disableAddNotes": true
+ },
+ "Lab, Lipase test done":{
+ "disableAddNotes": true
+ },
+ "Lab, Lipase test result":{
+ "disableAddNotes": true
+ },
+ "Lab, Lipase Abnormal":{
+ "disableAddNotes": true
+ },
+ "Lab, AST(SGOT) test done":{
+ "disableAddNotes": true
+ },
+ "SERUM GLUTAMIC-OXALOACETIC TRANSAMINASE":{
+ "disableAddNotes": true
+ },
+ "Lab, AST (SGOT) Abnormal":{
+ "disableAddNotes": true
+ },
+ "Lab, AST (SGOT) upper limit of normal":{
+ "disableAddNotes": true
+ },
+ "Lab, Total Bilirubin details test done":{
+ "disableAddNotes": true
+ },
+ "TOTAL BILIRUBIN":{
+ "disableAddNotes": true
+ },
+ "Lab, Total Bilirubin Abnormal":{
+ "disableAddNotes": true
+ },
+ "Lab, Total Bilirubin upper limit of normal":{
+ "disableAddNotes": true
+ },
+ "Lab, ALT(SGPT) test done":{
+ "disableAddNotes": true
+ },
+ "SERUM GLUTAMIC-PYRUVIC TRANSAMINASE":{
+ "disableAddNotes": true
+ },
+ "Lab, ALT (SGPT) Abnormal":{
+ "disableAddNotes": true
+ },
+ "Lab, ALT (SGPT) upper limit of normal":{
+ "disableAddNotes": true
+ },
+ "Lab, CD4 count test done":{
+ "disableAddNotes": true
+ },
+ "CD4 COUNT":{
+ "disableAddNotes": true
+ },
+ "Lab, RNA VL test done":{
+ "disableAddNotes": true
+ },
+ "HIV VIRAL LOAD":{
+ "disableAddNotes": true
+ },
+ "Lab, Serum Albumin test done":{
+ "disableAddNotes": true
+ },
+ "SERUM ALBUMIN":{
+ "disableAddNotes": true
+ },
+ "Lab, Serum Albumin Abnormal":{
+ "disableAddNotes": true
+ },
+"Lab, Glucose(fasting) test done":{
+ "disableAddNotes": true
+ }
     },
     "drugOrder": {
       "duration": {
