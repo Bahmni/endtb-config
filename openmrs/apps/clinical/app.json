@@ -381,9 +381,6 @@
                 "BACTERIOLOGY_SAMPLE_APPEARANCE" : {
                     "conciseText" : true
                 },
-                "BACTERIOLOGY_SAMPLE_APPEARANCE" : {
-                    "conciseText" : true
-                },
                 "Bacteriology, Which monthly scheduled visit" : {
                     "conciseText" : true
                 },
@@ -715,6 +712,7 @@
         "duration": {
                   "required" : false
               },
+            "numberOfVisits" : 0,
             "defaultDurationUnit": "Day(s)",
             "defaultInstructions": "As directed",
             "frequencyDefaultDurationUnitsMap": [
@@ -739,7 +737,50 @@
                     "defaultDurationUnit": "Month(s)"
                 }
             ],
-            "drugFormDefaults": {}
+          "drugFormDefaults": {},
+                "sections": {
+                    "treatmentsDetails": {
+                      "displayType": "Full-Page",
+                    "title": "Treatments Details",
+                    "translationKey": "DASHBOARD_TITLE_TREATMENT_DETAIL",
+                    "name": "drugOrderDetails",
+                    "displayOrder": 3,
+                    "dashboardParams": {
+                        "drugNames": [
+                          "ISONIAZID",
+                        "ETHAMBUTOL",
+                        "PYRAZINAMIDE",
+                        "RIFAMPICIN",
+                        "KANAMYCIN"
+                      ],
+                      "columns": [
+                          {
+                  "translationKey": "DRUG_DETAILS_DRUG_NAME"
+              },
+              {
+                "translationKey": "DRUG_DETAILS_DOSE_INFO"
+              },
+              {
+                "translationKey": "DRUG_DETAILS_ROUTE"
+              },
+              {
+                "translationKey": "DRUG_DETAILS_START_DATE"
+              },
+              {
+                "translationKey": "DRUG_DETAILS_STOP_DATE"
+              },
+              {
+                "translationKey": "DRUG_DETAILS_ORDER_REASON_TEXT"
+              },
+              {
+                "translationKey": "DRUG_DETAILS_ORDER_REASON_CODE"
+              }
+            ],
+            "showDetailsButton": true
+          }
         }
+      }
+
+}
     }
 }

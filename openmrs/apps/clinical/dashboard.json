@@ -56,7 +56,7 @@
             },
             "treatmentsDetails": {
 		"title":"Treatments Details",
-		"translationKey" : "treatmentsDetails",
+		"translationKey" : "DASHBOARD_TITLE_TREATMENTS_DETAILS",
 		"name": "drugOrderDetails",
 		"displayOrder": 3,
 		"dashboardParams": {
@@ -64,19 +64,20 @@
 			"showDetailsButton":true
    		}
 	    },
-            "programs": {
+          "Forms": {
+            "name": "forms",
+            "dashboardParams": {
+              "title": null,
+              "maximumNoOfVisits": 0
+            },
+            "displayOrder": 3,
+            "translationKey": "DASHBOARD_TITLE_FORMS_KEY"
+          },
+
+  "programs": {
                 "name": "programs",
                 "displayOrder": 3,
                 "translationKey": "DASHBOARD_TITLE_PROGRAMS_KEY"
-            },
-            "Forms": {
-                "name": "forms",
-                "dashboardParams": {
-                    "title": null,
-                    "maximumNoOfVisits": 0
-                },
-                "displayOrder": 9,
-                "translationKey": "DASHBOARD_TITLE_FORMS_KEY"
             },
             "bacteriologyResults":{
                 "translationKey": "DASHBOARD_TITLE_BACTERIOLOGY_RESULTS_KEY",
@@ -335,7 +336,7 @@
                 }
             },
             "Drug-O-Gram": {
-                "displayType": "Full-Page",
+                "displayType": "Half-Page",
                 "title": "Drug Regimen",
                 "translationKey": "Drug Regimen",
                 "name": "chronicTreatmentChart",
@@ -344,7 +345,30 @@
                 },
                 "displayOrder": 10
             },
-            "completenessFlowsheet": {
+          "BacteriologyResults": {
+            "displayType": "Half-Page",
+            "title": "Bacteriology Results",
+            "name": "obsToObsFlowSheet",
+            "displayOrder": 10,
+            "dashboardParams": {
+              "numberOfVisits": 1,
+              "initialCount": 3,
+              "latestCount": 4,
+              "templateName": "BACTERIOLOGY CONCEPT SET",
+              "groupByConcept": "Specimen Collection Date",
+              "name": "DstExtension",
+              "conceptNames": [
+                "Bacteriology, Smear result",
+                "Bacteriology, Culture results"
+              ]
+            },
+            "allDetailsParams": {
+              "templateName": "BACTERIOLOGY CONCEPT SET",
+              "groupByConcept": "Specimen Collection Date"
+            }
+          },
+
+"completenessFlowsheet": {
                 "name": "flowSheet",
                 "title": "Treatment Completeness vs Weight and BMI",
                 "displayType": "Full-Page",
@@ -361,43 +385,102 @@
                     "labConcepts": []
                 }
             },
-            "labFlowsheet": {
-                "name": "flowSheet",
-                "title": "Laboratory Monitoring",
-                "displayType": "Full-Page",
-                "displayOrder": 12,
-                "dashboardParams": {
-                    "numberOfVisits": "5",
-                    "groupBy": "encounters",
-                    "obsConcepts": [
-                        "RED BLOOD CELLS",
-                        "Serum creatinine (umol/L)",
-                        "Hemoglobin",
-                        "Platelets",
-                        "ABSOLUTE NEUTROPHIL COUNT",
-                        "TOTAL BILIRUBIN"
-                    ],
-                    "labConcepts": []
-                },
-                "allFlowSheetDetails": {
-                    "groupBy": "visits",
-                    "obsConcepts": [
-                        "RED BLOOD CELLS",
-                        "Serum creatinine (umol/L)",
-                        "Hemoglobin",
-                        "Platelets",
-                        "ABSOLUTE NEUTROPHIL COUNT",
-                        "TOTAL BILIRUBIN"
-                    ],
-                    "labConcepts": [],
-                    "drugConcepts": []
-                }
+          "LabHaemotology": {
+            "displayType": "Full-Page",
+            "title": "Lab Results - Haematology and Biochemistry",
+            "name": "obsToObsFlowSheet",
+            "displayOrder": 12,
+            "dashboardParams": {
+              "numberOfVisits": 1,
+              "initialCount": 3,
+              "latestCount": 4,
+              "pivotOn": "column",
+              "templateName": "Lab Results Hemotology and Biochemistry Template",
+              "groupByConcept": "Specimen Collection Date",
+              "name": "DstExtension",
+              "conceptNames": [
+                "Lab, Neutrophils test result",
+                "HEMATOCRIT",
+                "ABSOLUTE NEUTROPHIL COUNT",
+                "Platelets",
+                "RED BLOOD CELLS",
+                "WHITE BLOOD CELLS",
+                "Hemoglobin",
+                "SERUM POTASSIUM",
+                "Lab, Magnesium test result",
+                "Lab, Ionized Calcium test result",
+                "BLOOD UREA NITROGEN",
+                "Serum creatinine (umol/L)",
+                "SERUM GLUCOSE",
+                "Fasting blood glucose measurement (mg/dL)",
+                "glycosylated hemoglobin A measurement",
+                "Thyroid stimulating hormone test",
+                "Lab, Lipase test result",
+                "SERUM GLUTAMIC-OXALOACETIC TRANSAMINASE",
+                "SERUM GLUTAMIC-PYRUVIC TRANSAMINASE",
+                "TOTAL BILIRUBIN"
+              ]
             },
-            "adverseEvents": {
+            "allDetailsParams": {
+              "templateName": "Lab Results Hemotology and Biochemistry Template",
+              "groupByConcept": "Specimen Collection Date"
+            }
+          },
+          "LabResultsSerologyTemplate": {
+                    "displayType": "Full-Page",
+                  "title": "Lab Results - Seriology",
+                  "name": "obsToObsFlowSheet",
+                  "displayOrder": 13,
+                  "dashboardParams": {
+                      "numberOfVisits": 1,
+                    "initialCount": 3,
+                    "latestCount": 4,
+                    "pivotOn" : "column",
+                    "templateName": "Lab Results Serology Template",
+                    "groupByConcept": "Specimen Collection Date",
+                    "name": "DstExtension",
+                    "conceptNames": [
+                        "SERUM ALBUMIN",
+                      "Lab, Pregnancy test result",
+                      "Lab, Hepatitis B antigen test result",
+                      "Lab, Hepatitis C antibody test result",
+                      "HIV VIRAL LOAD",
+                      "CD4 COUNT"
+                    ]
+                  },
+              "allDetailsParams": {
+                  "templateName": "Lab Results Serology Template",
+                "groupByConcept": "Specimen Collection Date"
+              }
+        },
+          "LabResultsOtherTests": {
+                    "displayType": "Full-Page",
+                  "title": "Lab Results - Other Tests",
+                  "name": "obsToObsFlowSheet",
+                  "displayOrder": 13,
+                  "dashboardParams": {
+                      "numberOfVisits": 1,
+                    "initialCount": 3,
+                    "latestCount": 4,
+                    "templateName": "Lab Results Other Tests Template",
+                    "groupByConcept": "Specimen Collection Date",
+                    "name": "DstExtension",
+                    "conceptNames": [
+                       "Lab, Other test name",
+                      "Lab, Other test result"
+                    ]
+                  },
+              "allDetailsParams": {
+                  "templateName": "Lab Results Other Tests Template",
+                "groupByConcept": "Specimen Collection Date"
+    }
+},
+
+"adverseEvents": {
                 "translationKey": "Adverse Events",
                 "name": "obsToObsFlowSheet",
                 "displayType": "Full-Page",
-                "displayOrder": 13,
+                "displayOrder": 14,
                 "dashboardParams": {
                     "scope": "All",
                     "groupByConcept": "AE Form, Adverse Event term",
@@ -417,7 +500,7 @@
                 "translationKey": "ECG Readings",
                 "name": "obsToObsFlowSheet",
                 "displayType": "Full-Page",
-                "displayOrder": 14,
+                "displayOrder": 15,
                 "dashboardParams": {
                     "scope": "All",
                     "groupByConcept": "EKG, Date of EKG",
@@ -436,7 +519,7 @@
                 "translationKey": "Chest X-Ray",
                 "name": "obsToObsFlowSheet",
                 "displayType": "Full-Page",
-                "displayOrder": 15,
+                "displayOrder": 16,
                 "dashboardParams": {
                     "scope": "All",
                     "groupByConcept": "Xray, Chest Xray Date",
