@@ -1,147 +1,153 @@
 {
-    "general": {
-        "displayByDefault": true,
-        "maxRecentlyViewedPatients": 10,
-        "sections": {
-            "patientInformation": {
-                "name": "patientInformation",
-                "patientAttributes": [
-                    "DRTBNationalID", "dateOfDRTB", "facilityPatientID", "nationalIdentificationNumber", "previousDRTBNumber", "telephoneNumber"
-                ],
-                "addressFields": [],
-                "displayOrder": 0,
-                "translationKey": "DASHBOARD_TITLE_PATIENT_INFORMATION_KEY"
-            },
-            "labResults1": {
-                "templateName": "Lab Results Template",
-                "name": "diseaseTemplate",
-                "dashboardParams": {
-                    "conceptNames": [],
-                    "showOnly": []
-                },
-                "allDiseaseDetails": {
-                    "showDetailsButton": true,
-                    "pivotTable": {
-                        "numberOfVisits": "15",
-                        "groupBy": "visits",
-                        "obsConcepts": [
-                            "Lab, RBC count test result",
-                            "Lab, Creatinine test result",
-                            "Lab, Creatinine test result unit",
-                            "Lab, Hemoglobin test result",
-                            "Lab, Platelet count test result",
-                            "Lab, Absolute neutrophil count test result",
-                            "Lab, Total bilirubin test result"
-                        ],
-                        "drugConcepts": [],
-                        "labConcepts": []
-                    }
-                },
-                "displayOrder": 10,
-                "title": "Lab Results"
-            },
-            "nutritionalValues": {
-                "name": "nutritionalValues",
-                "isObservation": true,
-                "dashboardParams": {
-                    "conceptNames": [
-                        "Height (cm)",
-                        "Weight (kg)",
-                        "BMI Data"
-                    ],
-                    "numberOfVisits": 1
-                },
-                "displayOrder": 1,
-                "translationKey": "DASHBOARD_TITLE_NUTRITIONAL_VALUES_KEY"
-            },
-            "treatmentsDetails": {
-		"title":"Treatments Details",
-		"translationKey" : "treatmentsDetails",
-		"name": "drugOrderDetails",
-		"displayOrder": 3,
-		"dashboardParams": {
-			"drugNames":["Isoniazid"],
-			"showDetailsButton":true
-   		}
-	    },
-            "programs": {
-                "name": "programs",
-                "displayOrder": 3,
-                "translationKey": "DASHBOARD_TITLE_PROGRAMS_KEY"
-            },
-            "Forms": {
-                "name": "forms",
-                "dashboardParams": {
-                    "title": null,
-                    "maximumNoOfVisits": 0
-                },
-                "displayOrder": 9,
-                "translationKey": "DASHBOARD_TITLE_FORMS_KEY"
-            },
-            "bacteriologyResults":{
-                "translationKey": "DASHBOARD_TITLE_BACTERIOLOGY_RESULTS_KEY",
-                "name": "bacteriologyResultsControl",
-                "scope": "All",
-                "orderType": "",
-                "displayOrder": 4,
-                "dashboardParams": {
-                    "conceptNames": [
-                        "BACTERIOLOGY CONCEPT SET"
-                    ]
-
-                }
-            },
-            "followup": {
-                "templateName": "Followup Template",
-                "name": "diseaseTemplate",
-                "dashboardParams": {
-                    "conceptNames": [
-                        "Height (cm)",
-                        "Weight (kg)",
-                        "BMI Data",
-                        "BMI Status Data"
-                    ],
-                    "showOnly": []
-                },
-                "allDiseaseDetails": {
-                    "showDetailsButton": true,
-                    "pivotTable": {
-                        "numberOfVisits": "15",
-                        "groupBy": "visits",
-                        "obsConcepts": [],
-                        "drugConcepts": [],
-                        "labConcepts": []
-                    }
-                },
-                "displayOrder": 6,
-                "title": "Followup Form Findings"
-            },
-            "baseline": {
-                "templateName": "Baseline Template",
-                "name": "diseaseTemplate",
-                "dashboardParams": {
-                    "conceptNames": [
-                        "Height (cm)",
-                        "Weight (kg)",
-                        "Body mass index",
-                        "BMI Status"
-                    ],
-                    "showOnly": []
-                },
-                "allDiseaseDetails": {
-                    "showDetailsButton": true,
-                    "pivotTable": {
-                        "numberOfVisits": "15",
-                        "groupBy": "visits",
-                        "obsConcepts": [],
-                        "drugConcepts": [],
-                        "labConcepts": []
-                    }
-                },
-                "displayOrder": 5,
-                "title": "Baseline Form Findings"
-            }
+  "general": {
+    "displayByDefault": true,
+    "maxRecentlyViewedPatients": 10,
+    "sections": {
+      "patientInformation": {
+        "name": "patientInformation",
+        "patientAttributes": [
+          "DRTBNationalID",
+          "dateOfDRTB",
+          "facilityPatientID",
+          "nationalIdentificationNumber",
+          "previousDRTBNumber",
+          "telephoneNumber"
+        ],
+        "addressFields": [],
+        "displayOrder": 0,
+        "translationKey": "DASHBOARD_TITLE_PATIENT_INFORMATION_KEY"
+      },
+      "labResults1": {
+        "templateName": "Lab Results Template",
+        "name": "diseaseTemplate",
+        "dashboardParams": {
+          "conceptNames": [],
+          "showOnly": []
         },
+        "allDiseaseDetails": {
+          "showDetailsButton": true,
+          "pivotTable": {
+            "numberOfVisits": "15",
+            "groupBy": "visits",
+            "obsConcepts": [
+              "Lab, RBC count test result",
+              "Lab, Creatinine test result",
+              "Lab, Creatinine test result unit",
+              "Lab, Hemoglobin test result",
+              "Lab, Platelet count test result",
+              "Lab, Absolute neutrophil count test result",
+              "Lab, Total bilirubin test result"
+            ],
+            "drugConcepts": [],
+            "labConcepts": []
+          }
+        },
+        "displayOrder": 10,
+        "title": "Lab Results"
+      },
+      "nutritionalValues": {
+        "name": "nutritionalValues",
+        "isObservation": true,
+        "dashboardParams": {
+          "conceptNames": [
+            "Height (cm)",
+            "Weight (kg)",
+            "BMI Data"
+          ],
+          "numberOfVisits": 1
+        },
+        "displayOrder": 1,
+        "translationKey": "DASHBOARD_TITLE_NUTRITIONAL_VALUES_KEY"
+      },
+      "treatmentsDetails": {
+        "title": "Treatments Details",
+        "translationKey": "treatmentsDetails",
+        "name": "drugOrderDetails",
+        "displayOrder": 3,
+        "dashboardParams": {
+          "drugNames": [
+            "Isoniazid"
+          ],
+          "showDetailsButton": true
+        }
+      },
+      "programs": {
+        "name": "programs",
+        "displayOrder": 3,
+        "translationKey": "DASHBOARD_TITLE_PROGRAMS_KEY"
+      },
+      "Forms": {
+        "name": "forms",
+        "dashboardParams": {
+          "title": null,
+          "maximumNoOfVisits": 0
+        },
+        "displayOrder": 9,
+        "translationKey": "DASHBOARD_TITLE_FORMS_KEY"
+      },
+      "bacteriologyResults": {
+        "translationKey": "DASHBOARD_TITLE_BACTERIOLOGY_RESULTS_KEY",
+        "name": "bacteriologyResultsControl",
+        "scope": "All",
+        "orderType": "",
+        "displayOrder": 4,
+        "dashboardParams": {
+          "conceptNames": [
+            "BACTERIOLOGY CONCEPT SET"
+          ]
+        }
+      },
+      "followup": {
+        "templateName": "Followup Template",
+        "name": "diseaseTemplate",
+        "dashboardParams": {
+          "conceptNames": [
+            "Height (cm)",
+            "Weight (kg)",
+            "BMI Data",
+            "BMI Status Data"
+          ],
+          "showOnly": []
+        },
+        "allDiseaseDetails": {
+          "showDetailsButton": true,
+          "pivotTable": {
+            "numberOfVisits": "15",
+            "groupBy": "visits",
+            "obsConcepts": [],
+            "drugConcepts": [],
+            "labConcepts": []
+          }
+        },
+        "displayOrder": 6,
+        "title": "Followup Form Findings"
+      },
+      "baseline": {
+        "templateName": "Baseline Template",
+        "name": "diseaseTemplate",
+        "dashboardParams": {
+          "conceptNames": [
+            "Height (cm)",
+            "Weight (kg)",
+            "Body mass index",
+            "BMI Status"
+          ],
+          "showOnly": []
+        },
+        "allDiseaseDetails": {
+          "showDetailsButton": true,
+          "pivotTable": {
+            "numberOfVisits": "15",
+            "groupBy": "visits",
+            "obsConcepts": [],
+            "drugConcepts": [],
+            "labConcepts": []
+          }
+        },
+        "displayOrder": 5,
+        "title": "Baseline Form Findings"
+      }
+    },
     "translationKey": "DASHBOARD_TAB_GENERAL_KEY"
   },
   "summary": {
