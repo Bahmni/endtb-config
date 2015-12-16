@@ -706,6 +706,9 @@
       },
       "Lab, Glucose(fasting) test done": {
         "disableAddNotes": true
+      },
+      "Hemoglobin": {
+        "disableAddNotes": true
       }
     },
     "drugOrder": {
