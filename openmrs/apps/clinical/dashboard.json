@@ -66,9 +66,27 @@
         "displayOrder": 3,
         "dashboardParams": {
           "drugNames": [
-            "Isoniazid"
-          ],
-          "showDetailsButton": true
+            "AMIKACIN",
+              "ISONIAZID",
+              "ETHAMBUTOL",
+              "PYRAZINAMIDE",
+              "RIFAMPICIN",
+              "Kanamycin", 
+              "TERIZIDONE",
+              "STREPTOMYCIN",
+              "CAPREOMYCIN",
+              "LEVOFLOXACIN",
+              "MOXIFLOXACIN",
+              "PROTHIONAMIDE",
+              "ETHIONAMIDE",
+              "CYCLOSERINE",
+              "Bedaquiline",
+              "DELAMANID",
+              "LINEZOLID",
+              "CLOFAZIMINE",
+              "CILASTATIN / IMIPENEM",
+              "AMOXICILLIN AND CLAVULANIC ACID"
+          ]
         }
       },
       "Forms": {
@@ -355,7 +373,7 @@
         "translationKey": "Drug Regimen",
         "name": "chronicTreatmentChart",
         "dashboardParams": {
-          "Drugs": [
+          "drugs": [
             "AMIKACIN",
             "RIFAMPICIN",
             "ISONIAZID"
