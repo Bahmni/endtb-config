@@ -709,6 +709,12 @@
       },
       "Hemoglobin": {
         "disableAddNotes": true
+      },
+      "Bacteriology, Smear microscopy test results": {
+          "allowAddMore":true
+      },
+      "Bacteriology, Culture results details":{
+          "allowAddMore":true
       }
     },
     "drugOrder": {
