@@ -85,7 +85,8 @@
               "LINEZOLID",
               "CLOFAZIMINE",
               "CILASTATIN / IMIPENEM",
-              "AMOXICILLIN AND CLAVULANIC ACID"
+              "AMOXICILLIN AND CLAVULANIC ACID",
+              "P-AMINOSALICYLIC ACID"
           ]
         }
       },
@@ -375,8 +376,26 @@
         "dashboardParams": {
           "drugs": [
             "AMIKACIN",
-            "RIFAMPICIN",
-            "ISONIAZID"
+              "ISONIAZID",
+              "ETHAMBUTOL",
+              "PYRAZINAMIDE",
+              "RIFAMPICIN",
+              "Kanamycin", 
+              "TERIZIDONE",
+              "STREPTOMYCIN",
+              "CAPREOMYCIN",
+              "LEVOFLOXACIN",
+              "MOXIFLOXACIN",
+              "PROTHIONAMIDE",
+              "ETHIONAMIDE",
+              "CYCLOSERINE",
+              "Bedaquiline",
+              "DELAMANID",
+              "LINEZOLID",
+              "CLOFAZIMINE",
+              "CILASTATIN / IMIPENEM",
+              "AMOXICILLIN AND CLAVULANIC ACID",
+              "P-AMINOSALICYLIC ACID"
           ]
         },
         "displayOrder": 10
