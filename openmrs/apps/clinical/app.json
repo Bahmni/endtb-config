@@ -747,36 +747,27 @@
           "displayOrder": 3,
           "dashboardParams": {
             "drugNames": [
+              "AMIKACIN",
               "ISONIAZID",
               "ETHAMBUTOL",
               "PYRAZINAMIDE",
               "RIFAMPICIN",
-              "KANAMYCIN"
-            ],
-            "columns": [
-              {
-                "translationKey": "DRUG_DETAILS_DRUG_NAME"
-              },
-              {
-                "translationKey": "DRUG_DETAILS_DOSE_INFO"
-              },
-              {
-                "translationKey": "DRUG_DETAILS_ROUTE"
-              },
-              {
-                "translationKey": "DRUG_DETAILS_START_DATE"
-              },
-              {
-                "translationKey": "DRUG_DETAILS_STOP_DATE"
-              },
-              {
-                "translationKey": "DRUG_DETAILS_ORDER_REASON_TEXT"
-              },
-              {
-                "translationKey": "DRUG_DETAILS_ORDER_REASON_CODE"
-              }
-            ],
-            "showDetailsButton": true
+              "Kanamycin", 
+              "TERIZIDONE",
+              "STREPTOMYCIN",
+              "CAPREOMYCIN",
+              "LEVOFLOXACIN",
+              "MOXIFLOXACIN",
+              "PROTHIONAMIDE",
+              "ETHIONAMIDE",
+              "CYCLOSERINE",
+              "Bedaquiline",
+              "DELAMANID",
+              "LINEZOLID",
+              "CLOFAZIMINE",
+              "CILASTATIN / IMIPENEM",
+              "AMOXICILLIN AND CLAVULANIC ACID"
+            ]
           }
         }
       }
