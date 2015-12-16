@@ -202,6 +202,31 @@ static def calculateAndAdd(BahmniEncounterTransaction bahmniEncounterTransaction
             voidObs(calculatedObs)
         }
     }
+
+    BahmniObservation idealTreatmentDaysObservation = find("MTC, Ideal total treatment days in the month", observations, null)
+    BahmniObservation nonPrescribedDaysObservation = find("MTC, Non prescribed days", observations, null)
+    BahmniObservation missedPrescribedDaysObservation = find("MTC, Missed prescribed days", observations, null)
+    BahmniObservation inCompletePrescribedDaysObservation = find("MTC, Incomplete prescribed days", observations, null)
+
+    if (hasValue(idealTreatmentDaysObservation) && hasValue(nonPrescribedDaysObservation) 
+        && hasValue(missedPrescribedDaysObservation) 
+        && hasValue(inCompletePrescribedDaysObservation)) {
+        def calculatedConceptName = "MTC, Total fully observed complete days"
+        BahmniObservation calculatedObs = find(calculatedConceptName, observations, null)
+        parent = obsParent(idealTreatmentDaysObservation, null)
+
+        Date obsDatetime = getDate(idealTreatmentDaysObservation)
+        def idealTreatmentDays = idealTreatmentDaysObservation.getValue() 
+        def nonPrescribedDays = nonPrescribedDaysObservation.getValue() 
+        def missedPrescribedDays = missedPrescribedDaysObservation.getValue()
+        def inCompletePrescribedDays = inCompletePrescribedDaysObservation.getValue()
+        def fullyObservedDays = idealTreatmentDays - (nonPrescribedDays + missedPrescribedDays + inCompletePrescribedDays)
+        if (calculatedObs == null)
+            calculatedObs = createObs(calculatedConceptName, parent, bahmniEncounterTransaction, obsDatetime) as BahmniObservation
+
+        calculatedObs.setValue(fullyObservedDays)
+        return
+    }
 }
 
 private static BahmniObservation obsParent(BahmniObservation child, BahmniObservation parent) {
