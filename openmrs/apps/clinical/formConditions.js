@@ -1335,5 +1335,16 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
             conditions.disable.push(conceptToEnable)
         }
         return conditions;
+  },
+  'Bacteriology, Smear result':  function (formName, formFieldValues) {
+  	var conceptToEnable = "Bacteriology, Smear result positivity";
+	var conditions = {enable: [], disable: []};
+	var conditionConcept = formFieldValues['Bacteriology, Smear result'];    
+	if(conditionConcept == "Positive" ) {
+		conditions.enable.push(conceptToEnable)
+	} else {
+		conditions.disable.push(conceptToEnable)
+	}
+	return conditions;
   }
 };
