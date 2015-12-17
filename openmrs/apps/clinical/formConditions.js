@@ -247,7 +247,7 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         var conditionConcept = formFieldValues['Baseline, Reason for not starting treatment'];
         var deathDT = "Baseline, date of death before treatment start";
 
-        if(conditionConcept == false) {
+        if(conditionConcept == "Died") {
             return {enable: [deathDT]}
         } else {
             return {disable: [deathDT]}
