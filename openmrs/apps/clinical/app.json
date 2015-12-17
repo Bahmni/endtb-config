@@ -712,6 +712,15 @@
       },
       "Bacteriology, Culture results details":{
           "allowAddMore":true
+      },
+      "Baseline, Other drug taken for more than a month":{
+          "allowAddMore":true
+      },
+      "Known Drug Allergies":{
+          "allowAddMore":true
+      },
+      "Baseline, Other pre-existing disease":{
+          "allowAddMore":true
       }
     },
     "drugOrder": {
