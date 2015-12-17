@@ -1372,5 +1372,41 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
 		conditions.disable.push(cultureColonyconceptToEnable)
 	}
 	return conditions;
+  },
+  'Baseline, Marital Status': function (formName, formFieldValues) {
+  var conceptToEnable = "Baseline, Other Marital Status"
+  var conditions = {enable: [], disable: []};
+  var conditionConcept = formFieldValues['Baseline, Marital Status'];    
+  if(conditionConcept == "Other" ) {
+    conditions.enable.push(conceptToEnable)
+  } else {
+    conditions.disable.push(conceptToEnable)
+  }
+  return conditions;
+  },
+  'Bacteriology, HAIN MTBDRplus test result': function (formName, formFieldValues) {
+  var conceptToEnable_isoniazid = "Bacteriology, Isoniazid"
+  var conceptToEnable_rifampicin =  "Bacteriology, Rifampicin"
+  var conditions = {enable: [], disable: []};
+  var conditionConcept = formFieldValues['Bacteriology, HAIN MTBDRplus test result'];    
+  if(conditionConcept == "Detected" ) {
+    conditions.enable.push(conceptToEnable_isoniazid)
+    conditions.enable.push(conceptToEnable_rifampicin)
+  } else {
+    conditions.disable.push(conceptToEnable_isoniazid)
+    conditions.disable.push(conceptToEnable_rifampicin)
+  }
+  return conditions;
+  },
+  "Bacteriology, Type of Visit": function (formName, formFieldValues) {
+  var conceptToEnable = "Bacteriology, Which monthly scheduled visit"
+  var conditions = {enable: [], disable: []};
+  var conditionConcept = formFieldValues['Bacteriology, Type of Visit'];    
+  if(conditionConcept == "Scheduled monthly visit" ) {
+    conditions.enable.push(conceptToEnable)
+  } else {
+    conditions.disable.push(conceptToEnable)
+  }
+  return conditions;
   }
 };
