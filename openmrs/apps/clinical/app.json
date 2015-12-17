@@ -284,9 +284,6 @@
       "HDS, New AE/SAE ID number": {
         "conciseText": true
       },
-      "HDS, Existing AE/SAE ID number": {
-        "conciseText": true
-      },
       "HDS, Other type of TB related surgery": {
         "conciseText": true
       },

@@ -825,17 +825,6 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         }
         return conditions;
   },
-  'HDS, Existing AE/SAE': function(formName, formFieldValues) {
-        var conditions = {enable: [], disable: []};
-        var conditionConcept = formFieldValues['HDS, Existing AE/SAE'];
-        var conceptToEnable = "HDS, Existing AE/SAE ID number";
-        if(conditionConcept == true) {
-            conditions.enable.push(conceptToEnable)
-        } else {
-            conditions.disable.push(conceptToEnable)
-        }
-        return conditions;
-  },
   'HDS, TB related surgery while hospitalization': function causeOfDeathLogics(formName, formFieldValues) {
         var conditions = {enable: [], disable: []};	
 	var conditionConcept = formFieldValues['HDS, TB related surgery while hospitalization'];    		
