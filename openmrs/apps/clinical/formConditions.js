@@ -141,7 +141,7 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
   'Baseline, WHO registration group': function(formName, formFieldValues) {
         var conditions = {enable: [], disable: []};
         var conditionConcept = formFieldValues['Baseline, WHO registration group'];
-        if(conditionConcept=="Relapse"||conditionConcept=="Treatment after loss to followup"||conditionConcept=="After failure of first treatment with first-line drugs"||conditionConcept=="After failure of retreatment regimen with first-line drugs") {
+        if(conditionConcept=="Relapse"||conditionConcept=="Treatment after loss to followup"||conditionConcept=="Treatment After Failure to Drugs"||conditionConcept=="Other previously treated patients") {
             conditions.enable.push("Category IV tuberculosis classification")
         } else {
             conditions.disable.push("Category IV tuberculosis classification")
@@ -234,51 +234,38 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
 	}
 	return conditions;
   },
-  'Baseline, Did the patient start treatment' : function (formName, formFieldValues) {
-	var conditions = {
-		enable : [],
-		disable : []
-	};
-	var enReason = "Baseline, Reason for not starting treatment";		
-	var conditionConcept = formFieldValues['Baseline, Did the patient start treatment'];
-	var deathDT = "Baseline, date of death before treatment start";
-	if (conditionConcept) 
-	{
-		conditions.enable.push(enReason);			
-	}				
-	else 
-	{
-		conditions.enable.push(enReason);
-		var reasonResponse = formFieldValues[enReason];
-		if (reasonResponse == "Died") 
-		{				
-			conditions.enable.push(deathDT);			
-		} 
-		else 
-		{
-			conditions.disable.push(enReason,deathDT);			
-		}
-	}
-	return conditions;
-  },
-  'Baseline, Reason for not starting treatment' : function (formName, formFieldValues) {
-	var conditions = {
-		enable : [],
-		disable : []
-	};
-	var enDeathDT = "Baseline, date of death before treatment start";
-	var conditionConcept = formFieldValues['Baseline, Reason for not starting treatment'];
-	var deathDT = "Baseline, date of death before treatment start";
-	if (conditionConcept == "Died") 
-	{
-		conditions.enable.push(enDeathDT);			
-	} 
-	else 
-	{
-		conditions.disable.push(enDeathDT);			
-	}
-	return conditions;
-  },
+    'Baseline, Did the patient start treatment' : function (formName, formFieldValues) {
+        var enReason = "Baseline, Reason for not starting treatment";
+        var conditionConcept = formFieldValues['Baseline, Did the patient start treatment'];
+        if(conditionConcept == false) {
+            return {enable: [enReason]}
+        } else {
+            return {disable: [enReason]}
+        }
+    },
+    'Baseline, Reason for not starting treatment': function(formName, formFieldValues) {
+        var conditionConcept = formFieldValues['Baseline, Reason for not starting treatment'];
+        var deathDT = "Baseline, date of death before treatment start";
+
+        if(conditionConcept == false) {
+            return {enable: [deathDT]}
+        } else {
+            return {disable: [deathDT]}
+        }
+    },
+    'Drug Allergies' : function (formName, formFieldValues) {
+        var conditions = {
+            enable : [],
+            disable : []
+        };
+        var conditionConcept = formFieldValues['Drug Allergies'];
+        if (conditionConcept == "True") {
+            conditions.enable.push("Which Drug Allergies")
+        } else {
+            conditions.disable.push("Which Drug Allergies")
+        }
+        return conditions;
+    },
   'Medication log, Type of treatment regimen': function (formName, formFieldValues) {
         var conceptToEnable_firstLine = "Medication log, First line drug regimen type";
         var conceptToEnable_secondLine = "Medication log, Second line regimen drug type"; 
