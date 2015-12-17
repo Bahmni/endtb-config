@@ -202,19 +202,20 @@ static def calculateAndAdd(BahmniEncounterTransaction bahmniEncounterTransaction
             voidObs(calculatedObs)
         }
     }
-
-     BahmniObservation idealTreatmentDaysObservation = find("MTC, Ideal total treatment days in the month", observations, null)
+    BahmniObservation idealTreatmentDaysObservation = find("MTC, Ideal total treatment days in the month", observations, null)
     BahmniObservation nonPrescribedDaysObservation = find("MTC, Non prescribed days", observations, null)
     BahmniObservation missedPrescribedDaysObservation = find("MTC, Missed prescribed days", observations, null)
     BahmniObservation inCompletePrescribedDaysObservation = find("MTC, Incomplete prescribed days", observations, null)
 
-    if (hasValue(idealTreatmentDaysObservation) && hasValue(nonPrescribedDaysObservation)
-        && hasValue(missedPrescribedDaysObservation)
+    def fullyObservedCompleteDaysConceptName = "MTC, Total fully observed complete days"
+    def completenessRateConceptName = "MTC, Completeness rate"
+    BahmniObservation fullyObservedDaysObs = find(fullyObservedCompleteDaysConceptName, observations, null)
+    BahmniObservation completenessRateObs = find(completenessRateConceptName, observations, null)
+
+    if (hasValue(idealTreatmentDaysObservation) && hasValue(nonPrescribedDaysObservation) 
+        && hasValue(missedPrescribedDaysObservation) 
         && hasValue(inCompletePrescribedDaysObservation)) {
-        def fullyObservedCompleteDaysConceptName = "MTC, Total fully observed complete days"
-        def completenessRateConceptName = "MTC, Completeness rate"
-        BahmniObservation fullyObservedDaysObs = find(fullyObservedCompleteDaysConceptName, observations, null)
-        BahmniObservation completenessRateObs = find(completenessRateConceptName, observations, null)
+        
         parent = obsParent(idealTreatmentDaysObservation, null)
 
         Date obsDatetime = getDate(idealTreatmentDaysObservation)
@@ -232,6 +233,16 @@ static def calculateAndAdd(BahmniEncounterTransaction bahmniEncounterTransaction
             completenessRateObs = createObs(completenessRateConceptName, parent, bahmniEncounterTransaction, obsDatetime) as BahmniObservation
         completenessRateObs.setValue(completenessRate)
         return
+    }
+    if(hasValue(idealTreatmentDaysObservation) && hasValue(fullyObservedDaysObs)){
+        parent = obsParent(idealTreatmentDaysObservation, null)
+        Date obsDatetime = getDate(idealTreatmentDaysObservation)
+        def idealTreatmentDays = idealTreatmentDaysObservation.getValue() as Double
+        def fullyObservedDays = fullyObservedDaysObs.getValue() as Double
+        def completenessRate = (fullyObservedDays / idealTreatmentDays) * 100 as Double
+        if(completenessRateObs == null)
+            completenessRateObs = createObs(completenessRateConceptName, parent, bahmniEncounterTransaction, obsDatetime) as BahmniObservation
+        completenessRateObs.setValue(completenessRate)
     }
 }
 
