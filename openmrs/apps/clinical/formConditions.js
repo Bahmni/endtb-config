@@ -1333,5 +1333,55 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
 		conditions.disable.push(conceptToEnable)
 	}
 	return conditions;
+  },
+  'Bacteriology, Xpert MTB result':  function (formName, formFieldValues) {
+  	var burdenconceptToEnable = "Bacteriology, MTB Burden";
+  	var rifconceptToEnable =	"Bacteriology, RIF resistance result type"
+	var conditions = {enable: [], disable: []};
+	var conditionConcept = formFieldValues['Bacteriology, Xpert MTB result'];    
+	if(conditionConcept == "Detected" ) {
+		conditions.enable.push(burdenconceptToEnable)
+		conditions.enable.push(rifconceptToEnable)
+	} else {
+		conditions.enable.push(burdenconceptToEnable)
+		conditions.enable.push(rifconceptToEnable)
+	}
+	return conditions;
+  },
+  'Bacteriology, HAIN MTBDRsl test result': function (formName, formFieldValues) {
+  	var fluoroquinoloneconceptToEnable = "Bacteriology, Fluoroquinolone";
+  	var aminoglycosideconceptToEnable =	"Bacteriology, Aminoglycoside"
+	var conditions = {enable: [], disable: []};
+	var conditionConcept = formFieldValues['Bacteriology, HAIN MTBDRsl test result'];    
+	if(conditionConcept == "Detected" ) {
+		conditions.enable.push(fluoroquinoloneconceptToEnable)
+		conditions.enable.push(aminoglycosideconceptToEnable)
+	} else {
+		conditions.enable.push(fluoroquinoloneconceptToEnable)
+		conditions.enable.push(aminoglycosideconceptToEnable)
+	}
+	return conditions;
+  },
+  'Bacteriology, Type of culture medium': function (formName, formFieldValues) {
+  	var otherCultureconceptToEnable =	"Bacteriology, Other culture medium"
+	var conditions = {enable: [], disable: []};
+	var conditionConcept = formFieldValues['Bacteriology, Type of culture medium'];    
+	if(conditionConcept == "Other" ) {
+		conditions.enable.push(otherCultureconceptToEnable)
+	} else {
+		conditions.enable.push(otherCultureconceptToEnable)
+	}
+	return conditions;
+  },
+  'Bacteriology, Culture results': function (formName, formFieldValues) {
+  	var cultureColonyconceptToEnable = "Bacteriology, Culture Colonies"
+	var conditions = {enable: [], disable: []};
+	var conditionConcept = formFieldValues['Bacteriology, Culture results'];    
+	if(conditionConcept == "Positive for M. tuberculosis" ) {
+		conditions.enable.push(cultureColonyconceptToEnable)
+	} else {
+		conditions.enable.push(cultureColonyconceptToEnable)
+	}
+	return conditions;
   }
 };
