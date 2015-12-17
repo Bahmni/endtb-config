@@ -1343,8 +1343,8 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
 		conditions.enable.push(burdenconceptToEnable)
 		conditions.enable.push(rifconceptToEnable)
 	} else {
-		conditions.enable.push(burdenconceptToEnable)
-		conditions.enable.push(rifconceptToEnable)
+		conditions.disable.push(burdenconceptToEnable)
+		conditions.disable.push(rifconceptToEnable)
 	}
 	return conditions;
   },
@@ -1357,8 +1357,8 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
 		conditions.enable.push(fluoroquinoloneconceptToEnable)
 		conditions.enable.push(aminoglycosideconceptToEnable)
 	} else {
-		conditions.enable.push(fluoroquinoloneconceptToEnable)
-		conditions.enable.push(aminoglycosideconceptToEnable)
+		conditions.disable.push(fluoroquinoloneconceptToEnable)
+		conditions.disable.push(aminoglycosideconceptToEnable)
 	}
 	return conditions;
   },
@@ -1369,7 +1369,7 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
 	if(conditionConcept == "Other" ) {
 		conditions.enable.push(otherCultureconceptToEnable)
 	} else {
-		conditions.enable.push(otherCultureconceptToEnable)
+		conditions.disable.push(otherCultureconceptToEnable)
 	}
 	return conditions;
   },
@@ -1380,7 +1380,7 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
 	if(conditionConcept == "Positive for M. tuberculosis" ) {
 		conditions.enable.push(cultureColonyconceptToEnable)
 	} else {
-		conditions.enable.push(cultureColonyconceptToEnable)
+		conditions.disable.push(cultureColonyconceptToEnable)
 	}
 	return conditions;
   }
