@@ -35,6 +35,9 @@
       "Consent scan copy": {
         "allowAddMore": true
       },
+      "Baseline, Past TB treatment table": {
+        "allowAddMore": true
+      },
       "Baseline, List of drugs taken for more than a month": {
         "multiSelect": true
       },
