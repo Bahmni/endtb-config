@@ -252,20 +252,33 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         } else {
             return {disable: [deathDT]}
         }
-    },
-    'Drug Allergies' : function (formName, formFieldValues) {
+      },
+      'Baseline, Drug Allergies' : function (formName, formFieldValues) {
         var conditions = {
             enable : [],
             disable : []
         };
-        var conditionConcept = formFieldValues['Drug Allergies'];
+        var conditionConcept = formFieldValues['Baseline, Drug Allergies'];
         if (conditionConcept == "True") {
-            conditions.enable.push("Which Drug Allergies")
+            conditions.enable.push("Baseline, Which Drug Allergies")
         } else {
-            conditions.disable.push("Which Drug Allergies")
+            conditions.disable.push("Baseline, Which Drug Allergies")
         }
-        return conditions;
-    },
+	return conditions;
+      },
+  'Baseline, Has the patient ever been treated for TB in the past?' : function (formName, formFieldValues) {
+        var conditions = {
+            enable : [],
+            disable : []
+        };
+        var conditionConcept = formFieldValues['Baseline, Has the patient ever been treated for TB in the past?'];
+        if (conditionConcept == "True") {
+            conditions.enable.push("Baseline, If Yes, What was the year of the patient's start of first TB treatment?")
+        } else {
+            conditions.disable.push("Baseline, If Yes, What was the year of the patient's start of first TB treatment?")
+        }
+	return conditions;
+  },
   'Medication log, Type of treatment regimen': function (formName, formFieldValues) {
         var conceptToEnable_firstLine = "Medication log, First line drug regimen type";
         var conceptToEnable_secondLine = "Medication log, Second line regimen drug type"; 
@@ -383,10 +396,11 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         var conditions = {enable: [], disable: []};
         var conditionConcept = formFieldValues['Followup, New AE reported'];
         var conceptToEnable = "Followup, New AE reference number";
+	var conceptEnSAE = "Followup, New serious AE reported";
         if(conditionConcept) {
-            conditions.enable.push(conceptToEnable)
+            conditions.enable.push(conceptToEnable,conceptEnSAE)
         } else {
-            conditions.disable.push(conceptToEnable)
+            conditions.disable.push(conceptToEnable,conceptEnSAE)
         }
         return conditions;
   },
@@ -553,7 +567,7 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
 	return conditions;
   },
   '6m PTO, 6 month post treatment outcome': function(formName, formFieldValues) {
-        var conceptToEnable_dateOfDeath = "DATE OF DEATH";
+        var conceptToEnable_dateOfDeath = "6m PTO, Date of death post treatment";
         var conceptToEnable_causeOfDeath = "6m PTO, Suspected primary cause of death";
         var conceptToEnable_reason = "6m PTO, Reasons for no post treatment followup";
         var conceptToEnable_commentsOnNoFup = "6m PTO, Comments on no post treatment followup";        
@@ -808,6 +822,17 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
 	}    
         return conditions;
   },
+  'HAN, Hospital name': function (formName, formFieldValues) {
+        var conceptToEnable = "HAN, Other hospital name";
+        var conditions = {enable: [], disable: []};
+        var conditionConcept = formFieldValues['HAN, Hospital name'];
+        if(conditionConcept == "Other" ) {
+                conditions.enable.push(conceptToEnable)
+        } else {
+                conditions.disable.push(conceptToEnable)
+        }
+        return conditions;
+  },
   'HDS, Reason for hospitalization': function causeOfDeathLogics(formName, formFieldValues) {
         var conceptToEnable = "HDS, Principal AE/SAE ID number";
 	var conceptEnSurgery = "HDS, TB related surgery while hospitalization";
@@ -825,11 +850,33 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
 	}
         return conditions; 
   },
-  'HDS, New AE/SAE reported': function(formName, formFieldValues) {
+  'HDS, New SAE reported': function(formName, formFieldValues) {
         var conditions = {enable: [], disable: []};
-        var conditionConcept = formFieldValues['HDS, New AE/SAE reported'];
-        var conceptToEnable = "HDS, New AE/SAE ID number";
+        var conditionConcept = formFieldValues['HDS, New SAE reported'];
+        var conceptToEnable = "HDS, New SAE Case number";
         if(conditionConcept == true) {
+            conditions.enable.push(conceptToEnable)
+        } else {
+            conditions.disable.push(conceptToEnable)
+        }
+        return conditions;
+  },
+  'HDS, New AE Reported': function(formName, formFieldValues) {
+        var conditions = {enable: [], disable: []};
+        var conditionConcept = formFieldValues['HDS, New AE Reported'];
+        var conceptToEnable = "HDS, New AE ID number";
+        if(conditionConcept == true) {
+            conditions.enable.push(conceptToEnable)
+        } else {
+            conditions.disable.push(conceptToEnable)
+        }
+        return conditions;
+  },
+  'HDS, Hospital name': function(formName, formFieldValues) {
+        var conditions = {enable: [], disable: []};
+        var conditionConcept = formFieldValues['HDS, Hospital name'];
+        var conceptToEnable = "HDS, Other hospital name";
+        if(conditionConcept == "Other") {
             conditions.enable.push(conceptToEnable)
         } else {
             conditions.disable.push(conceptToEnable)
@@ -1209,13 +1256,12 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
   'Xray, Extent of disease': function(formName, formFieldValues) {
         var conceptEnCavity = "Xray, Maximum cavity size";
 	var conceptEnFibrosis = "Xray, Fibrosis";
-	var conceptEnLastXray = "Xray, Comparison with last Xray";
         var conditions = {enable: [], disable: []};
         var conditionConcept = formFieldValues['Xray, Extent of disease'];
         if(conditionConcept == "Normal" || !conditionConcept) {
-            conditions.disable.push(conceptEnCavity,conceptEnFibrosis,conceptEnLastXray)
+            conditions.disable.push(conceptEnCavity,conceptEnFibrosis)
         } else {
-            conditions.enable.push(conceptEnCavity,conceptEnFibrosis,conceptEnLastXray)
+            conditions.enable.push(conceptEnCavity,conceptEnFibrosis)
         }
         return conditions;
   },
@@ -1252,16 +1298,27 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
 	}
 	return conditions;
   },
-  'EKG, Rythm': function causeOfDeathLogics(formName, formFieldValues) {
-        var conceptToEnable = "EKG, Other Rythm";
+  'EKG, Rhythm': function causeOfDeathLogics(formName, formFieldValues) {
+        var conceptToEnable = "EKG, Other Rhythm";
         var conditions = {enable: [], disable: []};
-	var SAETerm = formFieldValues['EKG, Rythm'];    	
+	var SAETerm = formFieldValues['EKG, Rhythm'];    	
 	if(SAETerm == "Other" ) {
 		conditions.enable.push(conceptToEnable)
 	} else {
 		conditions.disable.push(conceptToEnable)
 	}
 	return conditions;
+  },
+  'EKG, Reporting ECG Related AE': function causeOfDeathLogics(formName, formFieldValues) {
+        var conceptToEnable = "EKG, AE ID Number";
+        var conditions = {enable: [], disable: []};
+        var conditionConcept = formFieldValues['EKG, Reporting ECG Related AE'];
+        if(conditionConcept == "True") {
+                conditions.enable.push(conceptToEnable)
+        } else {
+                conditions.disable.push(conceptToEnable)
+        }
+        return conditions;
   },
   'MTC, Treatment delivery method': function (formName, formFieldValues) {
 	var conceptToEnable = "MTC, Other treatment delivery method";
@@ -1356,6 +1413,17 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
 		conditions.disable.push(cultureColonyconceptToEnable)
 	}
 	return conditions;
+  },
+  'Bacteriology, Type of media for DST': function (formName, formFieldValues) {
+        var cultureColonyconceptToEnable = "Bacteriology, Other type of media for DST"
+        var conditions = {enable: [], disable: []};
+        var conditionConcept = formFieldValues['Bacteriology, Type of media for DST'];
+        if(conditionConcept == "Other" ) {
+                conditions.enable.push(cultureColonyconceptToEnable)
+        } else {
+                conditions.disable.push(cultureColonyconceptToEnable)
+        }
+        return conditions;
   },
   'Baseline, Marital Status': function (formName, formFieldValues) {
   var conceptToEnable = "Baseline, Other Marital Status"
