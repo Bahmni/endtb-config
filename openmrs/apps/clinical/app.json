@@ -143,6 +143,21 @@
       "Followup, New AE reference number": {
         "conciseText": true
       },
+      "Followup, Brief Peripheral Neuropathy Screen" : {
+	"isTabular" : true
+      },
+      "Followup, Vibration Perception in Left" : {
+	"autocomplete" : true
+      },
+      "Followup, Ankle reflexes in left" : {
+        "autocomplete" : true
+      },
+      "Followup, Vibration Perception in Right" : {
+        "autocomplete" : true
+      },
+      "Followup, Ankle reflexes in right" : {
+        "autocomplete" : true
+      },
       "EOT, Reasons for treatment interrruption": {
         "multiSelect": true
       },
@@ -360,7 +375,6 @@
         "multiSelect": true
       },
       "MTC, Drug name": {
-        "multiSelect": true,
         "required": true
       },
       "Performance Status, Month of scheduled visit": {
@@ -407,7 +421,7 @@
       },
       "Bacteriology, Other drug details": {
         "isTabular": true,
-        "allowAddMore": false
+        "allowAddMore": true
       },
       "Baseline, Visual Acuity": {
         "isTabular": true
@@ -415,9 +429,6 @@
       "Bacteriology, DST with MIC": {
         "isTabular": false,
         "allowAddMore": true
-      },
-      "Bacteriology, MIC interpretation": {
-        "autocomplete": true
       },
       "Baseline, Brief Peripheral Neuropathy Screen": {
         "isTabular": true
@@ -722,7 +733,7 @@
       "Baseline, Other drug taken for more than a month":{
           "allowAddMore":true
       },
-      "Known Drug Allergies":{
+      "Baseline, Known Drug Allergies":{
           "allowAddMore":true
       },
       "Baseline, Other pre-existing disease":{
