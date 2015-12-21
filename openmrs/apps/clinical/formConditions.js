@@ -681,6 +681,17 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
 	}
 	return conditions;
   },
+  'AE Form, Is AE an SAE' : function (formName, formFieldValues) {
+        var conceptToEnable = "AE Form, SAE Case Number";
+        var conditions = {enable : [],disable : []};
+        var condtionalConcept = formFieldValues['AE Form, Is AE an SAE'];
+        if (condtionalConcept == true) {
+                conditions.enable.push(conceptToEnable)
+        } else {
+                conditions.disable.push(conceptToEnable)
+        }
+        return conditions;
+  },
   'AE Form, Other causal factors related to AE' : function (formName, formFieldValues) {
 	var enNonTBDrug = "AE Form, Non TB drug of other causal factor";
 	var enComorbidity = "AE Form, Comorbidity of other causal facrtor";
@@ -885,218 +896,213 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
 	}
         return conditions; 
   },
-  'Lab, Hemoglobin test done': function (formName, formFieldValues) {
-        var conceptToEnable1 = "Hemoglobin";
-        var conceptToEnable2 = "Lab, Hemoglobin Abnormal";
+  'Hemoglobin': function (formName, formFieldValues) {
+        var conceptToEnable = "Lab, Hemoglobin Abnormal";
         var conditions = {enable: [], disable: []};
-	var conditionConcept = formFieldValues['Lab, Hemoglobin test done'];    
-	if(conditionConcept == true ) {
-		conditions.enable.push(conceptToEnable1, conceptToEnable2)
+	var conditionConcept = formFieldValues['Hemoglobin'];    
+	if(conditionConcept) {
+		conditions.enable.push(conceptToEnable)
 	} else {
-		conditions.disable.push(conceptToEnable1, conceptToEnable2)
+		conditions.disable.push(conceptToEnable)
 	}
         return conditions;
   },
-  'Lab, Hematocrit test done': function (formName, formFieldValues) {
-        var conceptToEnable1 = "HEMATOCRIT";
-        var conceptToEnable2 = "Lab, Hematocrit Abnormal";
+  'HEMATOCRIT': function (formName, formFieldValues) {
+        var conceptToEnable = "Lab, Hematocrit Abnormal";
         var conditions = {enable: [], disable: []};
-	var conditionConcept = formFieldValues['Lab, Hematocrit test done'];    
+	var conditionConcept = formFieldValues['HEMATOCRIT'];    
 	
-	if(conditionConcept == true ) {
-		conditions.enable.push(conceptToEnable1, conceptToEnable2)
+	if(conditionConcept) {
+		conditions.enable.push(conceptToEnable)
 	} else {
-		conditions.disable.push(conceptToEnable1, conceptToEnable2)
+		conditions.disable.push(conceptToEnable)
 	}
         return conditions;
   },
-  'Lab, Platelet count test done': function (formName, formFieldValues) {
-        var conceptToEnable1 = "Platelets";
-        var conceptToEnable2 = "Lab, Platelets Abnormal";
+  'Platelets': function (formName, formFieldValues) {
+        var conceptToEnable = "Lab, Platelets Abnormal";
         var conditions = {enable: [], disable: []};
-	var conditionConcept = formFieldValues['Lab, Platelet count test done'];    
-		if(conditionConcept == true ) {
-			conditions.enable.push(conceptToEnable1, conceptToEnable2)
+	var conditionConcept = formFieldValues['Platelets'];    
+		if(conditionConcept) {
+			conditions.enable.push(conceptToEnable)
 		} else {
-			conditions.disable.push(conceptToEnable1, conceptToEnable2)
+			conditions.disable.push(conceptToEnable)
 		}
         return conditions;
   },
-  'Lab, RBC test done': function (formName, formFieldValues) {
-        var conceptToEnable1 = "RED BLOOD CELLS";
+  'RED BLOOD CELLS': function (formName, formFieldValues) {
         var conceptToEnable2 = "Lab, RBC Abnormal";
         var conditions = {enable: [], disable: []};
-	var conditionConcept = formFieldValues['Lab, RBC test done'];    
-		if(conditionConcept == true ) {
-			conditions.enable.push(conceptToEnable1, conceptToEnable2)
+	var conditionConcept = formFieldValues['RED BLOOD CELLS'];    
+		if(conditionConcept) {
+			conditions.enable.push(conceptToEnable2)
 		} else {
-			conditions.disable.push(conceptToEnable1, conceptToEnable2)
+			conditions.disable.push(conceptToEnable2)
 		}
         return conditions;
   },
-  'Lab, WBC test done': function (formName, formFieldValues) {
-        var conceptToEnable1 = "WHITE BLOOD CELLS";
+  'WHITE BLOOD CELLS': function (formName, formFieldValues) {
         var conceptToEnable2 = "Lab, WBC Abnormal";
         var conditions = {enable: [], disable: []};
-	var conditionConcept = formFieldValues['Lab, WBC test done'];    
-		if(conditionConcept == true ) {
-			conditions.enable.push(conceptToEnable1, conceptToEnable2)
+	var conditionConcept = formFieldValues['WHITE BLOOD CELLS'];    
+		if(conditionConcept) {
+			conditions.enable.push(conceptToEnable2)
 		} else {
-			conditions.disable.push(conceptToEnable1, conceptToEnable2)
+			conditions.disable.push(conceptToEnable2)
 		}
         return conditions;
   },
-  'Lab, Absolute neutrophil count test done': function (formName, formFieldValues) {
+  'ABSOLUTE NEUTROPHIL COUNT': function (formName, formFieldValues) {
         var conceptToEnable1 = "ABSOLUTE NEUTROPHIL COUNT";
         var conceptToEnable2 = "Lab, Absolute neutrophil count Abnormal";
         var conditions = {enable: [], disable: []};
-	var conditionConcept = formFieldValues['Lab, Absolute neutrophil count test done'];    
-		if(conditionConcept == true ) {
-			conditions.enable.push(conceptToEnable1, conceptToEnable2)
+	var conditionConcept = formFieldValues['ABSOLUTE NEUTROPHIL COUNT'];    
+		if(conditionConcept) {
+			conditions.enable.push(conceptToEnable2)
 		} else {
-			conditions.disable.push(conceptToEnable1, conceptToEnable2)
+			conditions.disable.push(conceptToEnable2)
 		}
         return conditions;
   },
-  'Lab, Neutrophils test done': function (formName, formFieldValues) {
+  'Lab, Neutrophils test result': function (formName, formFieldValues) {
         var conceptToEnable1 = "Lab, Neutrophils test result";
         var conceptToEnable2 = "Lab, Neutrophils Abnormal";
         var conditions = {enable: [], disable: []};
-	var conditionConcept = formFieldValues['Lab, Neutrophils test done'];    
-		if(conditionConcept == true ) {
-			conditions.enable.push(conceptToEnable1, conceptToEnable2)
+	var conditionConcept = formFieldValues['Lab, Neutrophils test result'];    
+		if(conditionConcept) {
+			conditions.enable.push(conceptToEnable2)
 		} else {
-			conditions.disable.push(conceptToEnable1, conceptToEnable2)
+			conditions.disable.push(conceptToEnable2)
 		}
         return conditions;
   },
-  'Lab, Potassium test done': function (formName, formFieldValues) {
+  'SERUM POTASSIUM': function (formName, formFieldValues) {
         var conceptToEnable1 = "SERUM POTASSIUM";
         var conceptToEnable2 = "Lab, Potassium Abnormal";
         var conditions = {enable: [], disable: []};
-	var conditionConcept = formFieldValues['Lab, Potassium test done'];    
-		if(conditionConcept == true ) {
-			conditions.enable.push(conceptToEnable1, conceptToEnable2)
+	var conditionConcept = formFieldValues['SERUM POTASSIUM'];    
+		if(conditionConcept) {
+			conditions.enable.push(conceptToEnable2)
 		} else {
-			conditions.disable.push(conceptToEnable1, conceptToEnable2)
+			conditions.disable.push(conceptToEnable2)
 		}
         return conditions;
   },
-  'Lab, Magnesium test done': function (formName, formFieldValues) {
+  'Lab, Magnesium test result': function (formName, formFieldValues) {
         var conceptToEnable1 = "Lab, Magnesium test result";
         var conceptToEnable2 = "Lab, Magnesium Abnormal";
         var conditions = {enable: [], disable: []};
-	var conditionConcept = formFieldValues['Lab, Magnesium test done'];    
-		if(conditionConcept == true ) {
-			conditions.enable.push(conceptToEnable1, conceptToEnable2)
+	var conditionConcept = formFieldValues['Lab, Magnesium test result'];    
+		if(conditionConcept) {
+			conditions.enable.push(conceptToEnable2)
 		} else {
-			conditions.disable.push(conceptToEnable1, conceptToEnable2)
+			conditions.disable.push(conceptToEnable2)
 		}
         return conditions;
   },
-  'Lab, Ionized Calcium test done': function (formName, formFieldValues) {
+  'Lab, Ionized Calcium test result': function (formName, formFieldValues) {
         var conceptToEnable1 = "Lab, Ionized Calcium test result";
         var conceptToEnable2 = "Lab, Ionized Calcium Abnormal";
         var conditions = {enable: [], disable: []};
-	var conditionConcept = formFieldValues['Lab, Ionized Calcium test done'];    
-		if(conditionConcept == true ) {
-			conditions.enable.push(conceptToEnable1, conceptToEnable2)
+	var conditionConcept = formFieldValues['Lab, Ionized Calcium test result'];    
+		if(conditionConcept) {
+			conditions.enable.push(conceptToEnable2)
 		} else {
-			conditions.disable.push(conceptToEnable1, conceptToEnable2)
+			conditions.disable.push(conceptToEnable2)
 		}
         return conditions;
   },
-  'Lab, Urea test done': function (formName, formFieldValues) {
+  'BLOOD UREA NITROGEN': function (formName, formFieldValues) {
         var conceptToEnable1 = "BLOOD UREA NITROGEN";
         var conceptToEnable2 = "Lab, Urea Abnormal";
         var conditions = {enable: [], disable: []};
-	var conditionConcept = formFieldValues['Lab, Urea test done'];    
-		if(conditionConcept == true ) {
-			conditions.enable.push(conceptToEnable1, conceptToEnable2)
+	var conditionConcept = formFieldValues['BLOOD UREA NITROGEN'];    
+		if(conditionConcept) {
+			conditions.enable.push(conceptToEnable2)
 		} else {
-			conditions.disable.push(conceptToEnable1, conceptToEnable2)
+			conditions.disable.push(conceptToEnable2)
 		}
         return conditions; 
   },
-  'Lab, Creatinine test done': function (formName, formFieldValues) {
+  'Serum creatinine (umol/L)': function (formName, formFieldValues) {
         var conceptToEnable1 = "Serum creatinine (umol/L)";
         var conceptToEnable2 = "Lab, Creatinine Abnormal";
         var conditions = {enable: [], disable: []};
-	var conditionConcept = formFieldValues['Lab, Creatinine test done'];    
-		if(conditionConcept == true ) {
-			conditions.enable.push(conceptToEnable1, conceptToEnable2)
+	var conditionConcept = formFieldValues['Serum creatinine (umol/L)'];    
+		if(conditionConcept) {
+			conditions.enable.push(conceptToEnable2)
 		} else {
-			conditions.disable.push(conceptToEnable1, conceptToEnable2)
+			conditions.disable.push(conceptToEnable2)
 		}    
         return conditions; 
   },
-  'Lab, Glucose test done': function (formName, formFieldValues) {
+  'SERUM GLUCOSE': function (formName, formFieldValues) {
         var conceptToEnable1 = "SERUM GLUCOSE";
         var conceptToEnable2 = "Lab, Glucose Abnormal";
         var conditions = {enable: [], disable: []};
-        var conditionConcept = formFieldValues['Lab, Glucose test done'];
-                if(conditionConcept == true ) {
-                        conditions.enable.push(conceptToEnable1, conceptToEnable2)
+        var conditionConcept = formFieldValues['SERUM GLUCOSE'];
+                if(conditionConcept) {
+                        conditions.enable.push(conceptToEnable2)
                 } else {
-                        conditions.disable.push(conceptToEnable1, conceptToEnable2)
+                        conditions.disable.push(conceptToEnable2)
                 }
         return conditions;
   },
-  'Lab, Glucose(fasting) test done': function (formName, formFieldValues) {
+  'Fasting blood glucose measurement (mg/dL)': function (formName, formFieldValues) {
         var conceptToEnable1 = "Fasting blood glucose measurement (mg/dL)";
         var conceptToEnable2 = "Lab, Glucose (fasting) Abnormal";
         var conditions = {enable: [], disable: []};
-        var conditionConcept = formFieldValues['Lab, Glucose(fasting) test done'];
-                if(conditionConcept == true ) {
-                        conditions.enable.push(conceptToEnable1, conceptToEnable2)
+        var conditionConcept = formFieldValues['Fasting blood glucose measurement (mg/dL)'];
+                if(conditionConcept) {
+                        conditions.enable.push(conceptToEnable2)
                 } else {
-                        conditions.disable.push(conceptToEnable1, conceptToEnable2)
+                        conditions.disable.push(conceptToEnable2)
                 }
         return conditions;
   },
-  'Lab, HbA1c test done': function (formName, formFieldValues) {
+  'glycosylated hemoglobin A measurement': function (formName, formFieldValues) {
         var conceptToEnable1 = "glycosylated hemoglobin A measurement";
         var conceptToEnable2 = "Lab, HbA1c Abnormal";
         var conditions = {enable: [], disable: []};
-        var conditionConcept = formFieldValues['Lab, HbA1c test done'];
-                if(conditionConcept == true ) {
-                        conditions.enable.push(conceptToEnable1, conceptToEnable2)
+        var conditionConcept = formFieldValues['glycosylated hemoglobin A measurement'];
+                if(conditionConcept) {
+                        conditions.enable.push(conceptToEnable2)
                 } else {
-                        conditions.disable.push(conceptToEnable1, conceptToEnable2)
+                        conditions.disable.push(conceptToEnable2)
                 }
         return conditions;
   },
-  'Lab, TSH test done': function (formName, formFieldValues) {
+  'Thyroid stimulating hormone test': function (formName, formFieldValues) {
         var conceptToEnable1 = "Thyroid stimulating hormone test";
         var conceptToEnable2 = "Lab, TSH Abnormal";
         var conditions = {enable: [], disable: []};
-        var conditionConcept = formFieldValues['Lab, TSH test done'];
-                if(conditionConcept == true ) {
-                        conditions.enable.push(conceptToEnable1, conceptToEnable2)
+        var conditionConcept = formFieldValues['Thyroid stimulating hormone test'];
+                if(conditionConcept) {
+                        conditions.enable.push(conceptToEnable2)
                 } else {
-                        conditions.disable.push(conceptToEnable1, conceptToEnable2)
+                        conditions.disable.push(conceptToEnable2)
                 }
         return conditions;
   },
-  'Lab, Lipase test done': function (formName, formFieldValues) {
+  'Lab, Lipase test result': function (formName, formFieldValues) {
         var conceptToEnable1 = "Lab, Lipase test result";
         var conceptToEnable2 = "Lab, Lipase Abnormal";
         var conditions = {enable: [], disable: []};
-        var conditionConcept = formFieldValues['Lab, Lipase test done'];
-                if(conditionConcept == true ) {
-                        conditions.enable.push(conceptToEnable1, conceptToEnable2)
+        var conditionConcept = formFieldValues['Lab, Lipase test result'];
+                if(conditionConcept) {
+                        conditions.enable.push(conceptToEnable2)
                 } else {
-                        conditions.disable.push(conceptToEnable1, conceptToEnable2)
+                        conditions.disable.push(conceptToEnable2)
                 }
         return conditions;
   },
-  'Lab, AST(SGOT) test done': function (formName, formFieldValues) {
+  'SERUM GLUTAMIC-OXALOACETIC TRANSAMINASE': function (formName, formFieldValues) {
         var conceptToEnable1 = "SERUM GLUTAMIC-OXALOACETIC TRANSAMINASE";
         var conceptToEnable2 = "Lab, AST (SGOT) Abnormal";
         var conditions = {enable: [], disable: []};
-        var conditionConcept = formFieldValues['Lab, AST(SGOT) test done'];
-        if(conditionConcept == true ) {
-        	conditions.enable.push(conceptToEnable1, conceptToEnable2)
+        var conditionConcept = formFieldValues['SERUM GLUTAMIC-OXALOACETIC TRANSAMINASE'];
+        if(conditionConcept) {
+        	conditions.enable.push(conceptToEnable2)
         	var values1 = formFieldValues['Lab, AST (SGOT) Abnormal'];
                 if(values1 == "True" ) {
                         conditions.enable.push("Lab, AST (SGOT) upper limit of normal")
@@ -1104,7 +1110,7 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
                         conditions.disable.push("Lab, AST (SGOT) upper limit of normal")
                 }        
 	} else {
-        	conditions.disable.push(conceptToEnable1, conceptToEnable2)
+        	conditions.disable.push(conceptToEnable2)
         }
         return conditions;
   },
@@ -1119,13 +1125,13 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
                 }
         return conditions;
   },
-  'Lab, ALT(SGPT) test done': function (formName, formFieldValues) {
+  'SERUM GLUTAMIC-PYRUVIC TRANSAMINASE': function (formName, formFieldValues) {
         var conceptToEnable1 = "SERUM GLUTAMIC-PYRUVIC TRANSAMINASE";
         var conceptToEnable2 = "Lab, ALT (SGPT) Abnormal";
         var conditions = {enable: [], disable: []};
-        var conditionConcept = formFieldValues['Lab, ALT(SGPT) test done'];
-        if(conditionConcept == true ) {
-                conditions.enable.push(conceptToEnable1, conceptToEnable2)
+        var conditionConcept = formFieldValues['SERUM GLUTAMIC-PYRUVIC TRANSAMINASE'];
+        if(conditionConcept) {
+                conditions.enable.push(conceptToEnable2)
                 var values1 = formFieldValues['Lab, ALT (SGPT) Abnormal'];
                 if(values1 == "True" ) {
                         conditions.enable.push("Lab, ALT (SGPT) upper limit of normal")
@@ -1133,7 +1139,7 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
                         conditions.disable.push("Lab, ALT (SGPT) upper limit of normal")
                 }
         } else {
-                conditions.disable.push(conceptToEnable1, conceptToEnable2)
+                conditions.disable.push(conceptToEnable2)
         }
         return conditions;
   },
@@ -1148,13 +1154,13 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
                 }
         return conditions;
   },
-  'Lab, Total Bilirubin details test done': function (formName, formFieldValues) {
+  'TOTAL BILIRUBIN': function (formName, formFieldValues) {
         var conceptToEnable1 = "TOTAL BILIRUBIN";
         var conceptToEnable2 = "Lab, Total Bilirubin Abnormal";
         var conditions = {enable: [], disable: []};
-        var conditionConcept = formFieldValues['Lab, Total Bilirubin details test done'];
-        if(conditionConcept == true ) {
-                conditions.enable.push(conceptToEnable1, conceptToEnable2)
+        var conditionConcept = formFieldValues['TOTAL BILIRUBIN'];
+        if(conditionConcept) {
+                conditions.enable.push(conceptToEnable2)
                 var values1 = formFieldValues['Lab, Total Bilirubin Abnormal'];
                 if(values1 == "True" ) {
                         conditions.enable.push("Lab, Total Bilirubin upper limit of normal")
@@ -1162,7 +1168,7 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
                         conditions.disable.push("Lab, Total Bilirubin upper limit of normal")
                 }
         } else {
-                conditions.disable.push(conceptToEnable1, conceptToEnable2)
+                conditions.disable.push(conceptToEnable2)
         }
         return conditions;
   },
@@ -1177,37 +1183,15 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
                 }
         return conditions;
   },
-  'Lab, CD4 count test done': function (formName, formFieldValues) {
-        var conceptToEnable1 = "CD4 COUNT";
-	var conditions = {enable: [], disable: []};
-        var conditionConcept = formFieldValues['Lab, CD4 count test done'];
-                if(conditionConcept == true ) {
-                        conditions.enable.push(conceptToEnable1)
-                } else {
-                        conditions.disable.push(conceptToEnable1)
-                }
-        return conditions;
-  },
-  'Lab, RNA VL test done': function (formName, formFieldValues) {
-        var conceptToEnable1 = "HIV VIRAL LOAD";
-	var conditions = {enable: [], disable: []};
-        var conditionConcept = formFieldValues['Lab, RNA VL test done'];
-                if(conditionConcept == true ) {
-                        conditions.enable.push(conceptToEnable1)
-                } else {
-                        conditions.disable.push(conceptToEnable1)
-                }
-        return conditions;
-  },
-  'Lab, Serum Albumin test done': function (formName, formFieldValues) {
+  'SERUM ALBUMIN': function (formName, formFieldValues) {
         var conceptToEnable1 = "SERUM ALBUMIN";
         var conceptToEnable2 = "Lab, Serum Albumin Abnormal";
         var conditions = {enable: [], disable: []};
-        var conditionConcept = formFieldValues['Lab, Serum Albumin test done'];
-                if(conditionConcept == true ) {
-                        conditions.enable.push(conceptToEnable1, conceptToEnable2)
+        var conditionConcept = formFieldValues['SERUM ALBUMIN'];
+                if(conditionConcept) {
+                        conditions.enable.push(conceptToEnable2)
                 } else {
-                        conditions.disable.push(conceptToEnable1, conceptToEnable2)
+                        conditions.disable.push(conceptToEnable2)
                 }
         return conditions;
   },

@@ -375,11 +375,8 @@
         "name": "chronicTreatmentChart",
         "dashboardParams": {
           "drugs": [
-            "AMIKACIN",
-              "ISONIAZID",
-              "ETHAMBUTOL",
-              "PYRAZINAMIDE",
               "RIFAMPICIN",
+              "PYRAZINAMIDE",
               "Kanamycin", 
               "TERIZIDONE",
               "STREPTOMYCIN",
@@ -394,6 +391,9 @@
               "LINEZOLID",
               "CLOFAZIMINE",
               "CILASTATIN / IMIPENEM",
+              "AMIKACIN",
+              "ISONIAZID",
+              "ETHAMBUTOL",
               "AMOXICILLIN AND CLAVULANIC ACID",
               "P-AMINOSALICYLIC ACID"
           ]
@@ -577,7 +577,7 @@
           "scope": "All",
           "groupByConcept": "Xray, Chest Xray Date",
           "name": "ChestXRayExtension",
-          "templateName": "Xray Template",
+          "templateName": "Xray, Xray Details",
           "conceptNames": [
             "Xray, Extent of disease",
             "Xray, Maximum cavity size",
