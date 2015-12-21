@@ -195,7 +195,7 @@
         "allowAddMore": true
       },
       "AE Form, AE related test": {
-        "conciseText": true
+        "autocomplete": true
       },
       "AE Form, AE related test ID": {
         "conciseText": true
@@ -706,6 +706,9 @@
       },
       "Lab, Glucose(fasting) test done": {
         "disableAddNotes": true
+      },
+      "Lab, Other test" : {
+	"allowAddMore" : true
       },
       "Hemoglobin": {
         "disableAddNotes": true
