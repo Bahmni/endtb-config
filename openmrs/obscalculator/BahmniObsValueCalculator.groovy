@@ -56,6 +56,37 @@ public class BahmniObsValueCalculator implements ObsValueCalculator {
         formNames.put("AE Form, Adverse Event details", "AE Form, Date of AE report");
         calculateAndAdd(bahmniEncounterTransaction);
         changeObsDateTime(bahmniEncounterTransaction);
+        convertUnits(bahmniEncounterTransaction);
+    }
+
+    static def convertUnits(BahmniEncounterTransaction bahmniEncounterTransaction){
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Hemoglobin mmol/L","Hemoglobin",1.61)
+        calculateAlternateObs(bahmniEncounterTransaction,"Hemoglobin","Lab, Hemoglobin mmol/L",1/1.61)
+        calculateAlternateObs(bahmniEncounterTransaction,"RED BLOOD CELLS","Lab, RBC with other unit",1000000)
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, RBC with other unit","RED BLOOD CELLS",1/1000000)
+        calculateAlternateObs(bahmniEncounterTransaction,"WHITE BLOOD CELLS","Lab, WBC other unit",1000)
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, RBC with other unit","RED BLOOD CELLS",1/1000)
+    }
+
+    static def calculateAlternateObs(BahmniEncounterTransaction bahmniEncounterTransaction, String actualConceptName, String alternateConceptName, float conversionFactor){
+        BahmniObservation bahmniObservation = find(actualConceptName, bahmniEncounterTransaction.getObservations(), null);
+        BahmniObservation parent = obsParent(bahmniObservation, null);
+        Double numericValue = getNumericValue(bahmniObservation);
+        if(numericValue == 0){
+            return;
+        }
+
+        BahmniObservation alternateObservation = find(alternateConceptName, bahmniEncounterTransaction.getObservations(),parent);
+        alternateObservation = alternateObservation ?: createObs(alternateConceptName, parent, bahmniEncounterTransaction, getDate(bahmniObservation)) as BahmniObservation
+
+        if(!hasValue(alternateObservation)){
+            double valueRounded = Math.round(new Double(numericValue * conversionFactor) * 100D) / 100D;
+            alternateObservation.setValue(valueRounded);
+        }
+    }
+
+    static def getNumericValue(BahmniObservation bahmniObservation){
+        return hasValue(bahmniObservation) && !bahmniObservation.voided ? bahmniObservation.getValue() as Double : 0;
     }
 
     static def changeObsDateTime(BahmniEncounterTransaction bahmniEncounterTransaction){
