@@ -56,6 +56,37 @@ public class BahmniObsValueCalculator implements ObsValueCalculator {
         formNames.put("AE Form, Adverse Event details", "AE Form, Date of AE report");
         calculateAndAdd(bahmniEncounterTransaction);
         changeObsDateTime(bahmniEncounterTransaction);
+        convertUnits(bahmniEncounterTransaction);
+    }
+
+    static def convertUnits(BahmniEncounterTransaction bahmniEncounterTransaction){
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Hemoglobin mmol/L","Hemoglobin",1.61)
+        calculateAlternateObs(bahmniEncounterTransaction,"Hemoglobin","Lab, Hemoglobin mmol/L",1/1.61)
+        calculateAlternateObs(bahmniEncounterTransaction,"RED BLOOD CELLS","Lab, RBC with other unit",1000000)
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, RBC with other unit","RED BLOOD CELLS",1/1000000)
+        calculateAlternateObs(bahmniEncounterTransaction,"WHITE BLOOD CELLS","Lab, WBC other unit",1000)
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, RBC with other unit","RED BLOOD CELLS",1/1000)
+    }
+
+    static def calculateAlternateObs(BahmniEncounterTransaction bahmniEncounterTransaction, String actualConceptName, String alternateConceptName, float conversionFactor){
+        BahmniObservation bahmniObservation = find(actualConceptName, bahmniEncounterTransaction.getObservations(), null);
+        BahmniObservation parent = obsParent(bahmniObservation, null);
+        Double numericValue = getNumericValue(bahmniObservation);
+        if(numericValue == 0){
+            return;
+        }
+
+        BahmniObservation alternateObservation = find(alternateConceptName, bahmniEncounterTransaction.getObservations(),parent);
+        alternateObservation = alternateObservation ?: createObs(alternateConceptName, parent, bahmniEncounterTransaction, getDate(bahmniObservation)) as BahmniObservation
+
+        if(!hasValue(alternateObservation)){
+            double valueRounded = Math.round(new Double(numericValue * conversionFactor) * 100D) / 100D;
+            alternateObservation.setValue(valueRounded);
+        }
+    }
+
+    static def getNumericValue(BahmniObservation bahmniObservation){
+        return hasValue(bahmniObservation) && !bahmniObservation.voided ? bahmniObservation.getValue() as Double : 0;
     }
 
     static def changeObsDateTime(BahmniEncounterTransaction bahmniEncounterTransaction){
@@ -223,65 +254,30 @@ static def calculateAndAdd(BahmniEncounterTransaction bahmniEncounterTransaction
             adherenceRateObs = createObs(adherenceRateConceptName, parent, bahmniEncounterTransaction, obsDatetime) as BahmniObservation
         adherenceRateObs.setValue(adherenceRate)    
     }
-    if(hasValue(idealTreatmentDaysObservation) && hasValue(fullyObservedDaysObs)){
-        parent = obsParent(idealTreatmentDaysObservation, null)
-        Date obsDatetime = getDate(idealTreatmentDaysObservation)
-        def idealTreatmentDays = idealTreatmentDaysObservation.getValue() as Double
-        def fullyObservedDays = fullyObservedDaysObs.getValue() as Double
-        def completenessRate
-        try{
-                if(idealTreatmentDays == 0){
-                        throw new Exception()
-                }
-                completenessRate = (fullyObservedDays / idealTreatmentDays) * 100 as Double
-        }catch(Exception E){
-                throw new BahmniEmrAPIException("Value zero for MTC, Ideal total treatment days in the month")
-        }
-        if(completenessRateObs == null)
-            completenessRateObs = createObs(completenessRateConceptName, parent, bahmniEncounterTransaction, obsDatetime) as BahmniObservation
-        completenessRateObs.setValue(completenessRate)
-
-        if(hasValue(nonPrescribedDaysObservation)){
-            def nonPrescribedDays = nonPrescribedDaysObservation.getValue() as Double
-            def adherenceRateDenominator
-            try{
-                    if(idealTreatmentDays == nonPrescribedDays){
-                            throw new Exception()
-                    }
-                    adherenceRateDenominator = (idealTreatmentDays - nonPrescribedDays) * 100 as Double
-            }catch(Exception E){
-                    throw new BahmniEmrAPIException("Value for MTC, Ideal total treatment days in the month is equal to MTC, Non prescribed days ")
-            }
-            def adherenceRate = fullyObservedDays / (adherenceRateDenominator) as Double
-            if(adherenceRateObs == null)
-                adherenceRateObs = createObs(adherenceRateConceptName, parent, bahmniEncounterTransaction, obsDatetime) as BahmniObservation
-            adherenceRateObs.setValue(adherenceRate)    
-        }
-    }
-
+    
     BahmniObservation observedDaysObs = find("MTC, Drug observed days", observations, null)
     BahmniObservation prescribedDaysObs = find("MTC, Drug prescribed days", observations, null)
 
-    def dotsRateConceptName = "MTC, DOTs rate"
-    BahmniObservation dotsRateObs = find(dotsRateConceptName, observations, null)
+    def dotRateConceptName = "MTC, DOT rate"
+    BahmniObservation dotRateObs = find(dotRateConceptName, observations, null)
 
     if(hasValue(observedDaysObs) && hasValue(prescribedDaysObs)){
         parent = obsParent(observedDaysObs, null)
         Date obsDatetime = getDate(observedDaysObs)
         def observedDays = observedDaysObs.getValue() as Double
         def prescribedDays = prescribedDaysObs.getValue() as Double
-        def dotsRate
+        def dotRate
         try{
                     if(prescribedDays == 0){
                             throw new Exception()
                     }
-                    dotsRate = (observedDays / prescribedDays) * 100 as Double
+                    dotRate = (observedDays / prescribedDays) * 100 as Double
         }catch(Exception E){
                     throw new BahmniEmrAPIException("Value for MTC, Drug prescribed days is equal to zero")
         }
-        if(dotsRateObs == null)
-            dotsRateObs = createObs(dotsRateConceptName, parent, bahmniEncounterTransaction, obsDatetime) as BahmniObservation   
-        dotsRateObs.setValue(dotsRate) 
+        if(dotRateObs == null)
+            dotRateObs = createObs(dotRateConceptName, parent, bahmniEncounterTransaction, obsDatetime) as BahmniObservation   
+        dotRateObs.setValue(dotRate) 
         return
     }
 }
