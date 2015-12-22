@@ -60,12 +60,39 @@ public class BahmniObsValueCalculator implements ObsValueCalculator {
     }
 
     static def convertUnits(BahmniEncounterTransaction bahmniEncounterTransaction){
-        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Hemoglobin mmol/L","Hemoglobin",1.61)
-        calculateAlternateObs(bahmniEncounterTransaction,"Hemoglobin","Lab, Hemoglobin mmol/L",1/1.61)
+        //Hemoglobin
+        calculateAlternateObs(bahmniEncounterTransaction,"Hemoglobin","Lab, Hemoglobin mmol/L",1/1.61);
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Hemoglobin mmol/L","Hemoglobin",1.61);
+        //RBC count
         calculateAlternateObs(bahmniEncounterTransaction,"RED BLOOD CELLS","Lab, RBC with other unit",1000000)
         calculateAlternateObs(bahmniEncounterTransaction,"Lab, RBC with other unit","RED BLOOD CELLS",1/1000000)
+        //WBC count
         calculateAlternateObs(bahmniEncounterTransaction,"WHITE BLOOD CELLS","Lab, WBC other unit",1000)
-        calculateAlternateObs(bahmniEncounterTransaction,"Lab, RBC with other unit","RED BLOOD CELLS",1/1000)
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, WBC other unit","WHITE BLOOD CELLS",1/1000)
+        //Potassium
+        calculateAlternateObs(bahmniEncounterTransaction,"SERUM POTASSIUM","Lab, Potassium other",3.91)
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Potassium other","SERUM POTASSIUM",1/3.91)
+        //Magnesium
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Magnesium test result","Lab, Magnesium other",0.41)
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Magnesium other","Lab, Magnesium test result",1/0.41)
+        //Ionised calcium
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Ionized Calcium test result","Lab, Ionized Calcium other",4.0)
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Ionized Calcium other","Lab, Ionized Calcium test result",1/4.00)
+        //Urea
+        calculateAlternateObs(bahmniEncounterTransaction,"BLOOD UREA NITROGEN","Lab, Urea other",2.80)
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Urea other","BLOOD UREA NITROGEN",1/2.80)
+        //Creatinine
+        calculateAlternateObs(bahmniEncounterTransaction,"Serum creatinine (umol/L)","Lab, Creatinine other",0.01)
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Creatinine other","Serum creatinine (umol/L)",1/0.01)
+        //Glucose (fasting)
+        calculateAlternateObs(bahmniEncounterTransaction,"Fasting blood glucose measurement (mg/dL)","Lab, Glucose (Fasting) other",18.02)
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Glucose (Fasting) other","Fasting blood glucose measurement (mg/dL)",1/18.02)
+        //Glucose
+        calculateAlternateObs(bahmniEncounterTransaction,"SERUM GLUCOSE","Lab, Glucose other",18.02)
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Glucose other","SERUM GLUCOSE",1/18.02)
+        //TOTAL BILIRUBIN
+        calculateAlternateObs(bahmniEncounterTransaction,"TOTAL BILIRUBIN","Lab, Total Bilirubin other",0.06)
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Total Bilirubin other","TOTAL BILIRUBIN",1/0.06)
     }
 
     static def calculateAlternateObs(BahmniEncounterTransaction bahmniEncounterTransaction, String actualConceptName, String alternateConceptName, float conversionFactor){
@@ -77,12 +104,10 @@ public class BahmniObsValueCalculator implements ObsValueCalculator {
         }
 
         BahmniObservation alternateObservation = find(alternateConceptName, bahmniEncounterTransaction.getObservations(),parent);
-        alternateObservation = alternateObservation ?: createObs(alternateConceptName, parent, bahmniEncounterTransaction, getDate(bahmniObservation)) as BahmniObservation
-
-        if(!hasValue(alternateObservation)){
-            double valueRounded = Math.round(new Double(numericValue * conversionFactor) * 100D) / 100D;
-            alternateObservation.setValue(valueRounded);
-        }
+        voidObs(alternateObservation);
+        BahmniObservation newAlternateObservation = createObs(alternateConceptName, parent, bahmniEncounterTransaction, getDate(bahmniObservation)) as BahmniObservation
+        double valueRounded = Math.round(new Double(numericValue * conversionFactor) * 100D) / 100D;
+        newAlternateObservation.setValue(valueRounded);
     }
 
     static def getNumericValue(BahmniObservation bahmniObservation){
