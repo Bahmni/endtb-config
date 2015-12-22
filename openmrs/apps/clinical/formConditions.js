@@ -56,9 +56,9 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
 	};
 	var conditionConcept = formFieldValues['Baseline, HIV serostatus result'];
 	if (conditionConcept == "Positive") {
-		conditions.enable.push("Baseline, HIV program registration number", "Date of HIV diagnosis", "CD4 COUNT", "CD4 date", "HIV VIRAL LOAD", "Baseline, Last RNA viral load date", "Baseline, On ARV treatment")
+		conditions.enable.push("Baseline, HIV program registration number", "Date of HIV diagnosis", "CD4 COUNT", "CD4 date", "HIV VIRAL LOAD", "Baseline, Last RNA viral load month", "Baseline, Last RNA viral load year", "Baseline, On ARV treatment")
 	} else {
-		conditions.disable.push("Baseline, HIV program registration number", "Date of HIV diagnosis", "CD4 COUNT", "CD4 date", "HIV VIRAL LOAD", "Baseline, Last RNA viral load date", "Baseline, On ARV treatment")
+		conditions.disable.push("Baseline, HIV program registration number", "Date of HIV diagnosis", "CD4 COUNT", "CD4 date", "HIV VIRAL LOAD", "Baseline, Last RNA viral load month", "Baseline, Last RNA viral load year", "Baseline, On ARV treatment")
 	}
 	return conditions;
   },

@@ -344,6 +344,9 @@
       "Audiometry, Audiometry date": {
         "required": true
       },
+      "Audiometry, Audiometry details" : {
+	"isTabular" : true
+      },
       "EKG, Date of EKG": {
         "required": true
       },
@@ -376,6 +379,9 @@
       },
       "MTC, Drug name": {
         "required": true
+      },
+      "MTC, DOT rate details" : {
+	"allowAddMore" : true
       },
       "Performance Status, Month of scheduled visit": {
         "conciseText": true
@@ -432,6 +438,24 @@
       },
       "Baseline, Brief Peripheral Neuropathy Screen": {
         "isTabular": true
+      },
+      "Baseline, Pain Aching or Buring in Left Feet and Leg" : {
+	"autocomplete" : true
+      },
+      "Baseline, Pins and Needles in Left Feet and Leg" : {
+        "autocomplete" : true
+      },
+      "Baseline, Numbness in Left Feet and Leg" : {
+        "autocomplete" : true
+      },
+      "Baseline, Pain Aching or Buring in Right Feet and Leg" : {
+        "autocomplete" : true
+      },
+      "Baseline, Pins and Needles in Right Feet and Leg" : {
+        "autocomplete" : true
+      },
+      "Baseline, Numbness in Right Feet and Leg" : {
+        "autocomplete" : true
       },
       "Baseline, Vibration Perception in Left": {
         "autocomplete": true

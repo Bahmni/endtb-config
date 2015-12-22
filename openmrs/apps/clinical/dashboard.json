@@ -215,6 +215,19 @@
         "displayOrder": 1,
         "translationKey": "Case Defintion"
       },
+	"monthlyTreatment": {
+        "name": "monthlytreatment",
+        "isObservation": true,
+        "displayType": "Full-Page",
+        "dashboardParams": {
+          "showGroupDateTime": false,
+          "conceptNames": [
+		"MTC, Total fully observed complete days"
+          ]
+        },
+        "displayOrder": 1,
+        "translationKey": "Monthly Treatment"
+      },
       "hivstatus": {
         "name": "hivstatus",
         "isObservation": true,
@@ -351,6 +364,7 @@
           "templateName": "BACTERIOLOGY CONCEPT SET",
           "conceptNames": [
             "Bacteriology, Isoniazid 0.2 µg/ml result",
+            "Bacteriology, Isoniazid 1 µg/ml  result",
             "Bacteriology, Isoniazid 1 µg/ml result",
             "Bacteriology, Rifampicin result",
             "Bacteriology, Ethambutol result",
@@ -441,7 +455,7 @@
       },
       "LabHaemotology": {
         "displayType": "Full-Page",
-        "title": "Lab Results - Haematology and Biochemistry",
+        "title": "Lab Results - Haematology",
         "name": "obsToObsFlowSheet",
         "displayOrder": 12,
         "dashboardParams": {
@@ -449,7 +463,7 @@
           "initialCount": 3,
           "latestCount": 4,
           "pivotOn": "column",
-          "templateName": "Lab Results Hemotology and Biochemistry Template",
+          "templateName": "Lab Results Hemotology Template",
           "groupByConcept": "Specimen Collection Date",
           "name": "DstExtension",
           "conceptNames": [
@@ -459,7 +473,28 @@
             "Platelets",
             "RED BLOOD CELLS",
             "WHITE BLOOD CELLS",
-            "Hemoglobin",
+            "Hemoglobin"
+          ]
+        },
+        "allDetailsParams": {
+          "templateName": "Lab Results Hemotology Template",
+          "groupByConcept": "Specimen Collection Date"
+        }
+      },
+      "LabBiochemistry": {
+        "displayType": "Full-Page",
+        "title": "Lab Results - Biochemistry",
+        "name": "obsToObsFlowSheet",
+        "displayOrder": 12,
+        "dashboardParams": {
+          "numberOfVisits": 1,
+          "initialCount": 3,
+          "latestCount": 4,
+          "pivotOn": "column",
+          "templateName": "Lab Results Biochemistry Template",
+          "groupByConcept": "Specimen Collection Date",
+          "name": "DstExtension",
+          "conceptNames": [
             "SERUM POTASSIUM",
             "Lab, Magnesium test result",
             "Lab, Ionized Calcium test result",
@@ -476,7 +511,7 @@
           ]
         },
         "allDetailsParams": {
-          "templateName": "Lab Results Hemotology and Biochemistry Template",
+          "templateName": "Lab Results Biochemistry Template",
           "groupByConcept": "Specimen Collection Date"
         }
       },
@@ -543,7 +578,6 @@
             "AE Form, AE Grade",
             "AE Form, Maximum severity of AE",
             "AE Form, AE review date",
-            "AE Form, AE severity at review",
             "AE Form, Date of AE Outcome",
             "AE Form, AE outcome"
           ]
