@@ -147,16 +147,53 @@
 	"isTabular" : true
       },
       "Followup, Vibration Perception in Left" : {
-	"autocomplete" : true
+	"autocomplete" : true,
+	"disableAddNotes": true
       },
       "Followup, Ankle reflexes in left" : {
-        "autocomplete" : true
+        "autocomplete" : true,
+	"disableAddNotes": true
       },
       "Followup, Vibration Perception in Right" : {
-        "autocomplete" : true
+        "autocomplete" : true,
+	"disableAddNotes": true
       },
       "Followup, Ankle reflexes in right" : {
-        "autocomplete" : true
+        "autocomplete" : true,
+	"disableAddNotes": true
+      },
+      "Followup, Visual Acuity" : {
+	"isTabular" : true
+      },
+      "Followup, Pain Aching or Buring in Right Feet and Leg" : {
+	"autocomplete" : true,
+	"disableAddNotes": true
+      },
+      "Followup, Pins and Needles in Right Feet and Leg" : {
+        "autocomplete" : true,
+	"disableAddNotes": true
+      },
+      "Followup, Numbness in Right Feet and Leg" : {
+        "autocomplete" : true,
+	"disableAddNotes": true
+      },
+      "Followup, Pain Aching or Buring in Left Feet and Leg" : {
+        "autocomplete" : true,
+	"disableAddNotes": true
+      },
+      "Followup, Pins and Needles in Left Feet and Leg" : {
+        "autocomplete" : true,
+	"disableAddNotes": true
+      },
+      "Followup, Numbness in Left Feet and Leg" : {
+        "autocomplete" : true,
+	"disableAddNotes": true
+      },
+      "Visual acuity, left eye" : {
+	"disableAddNotes" : true
+      },
+      "Visual acuity, right eye" : {
+        "disableAddNotes" : true
       },
       "EOT, Reasons for treatment interrruption": {
         "multiSelect": true
@@ -236,48 +273,6 @@
         "allowAddMore": true,
         "conciseText": true
       },
-      "SAE Form, Date of SAE report": {
-        "required": true
-      },
-      "SAE Form, SAE ID number": {
-        "conciseText": true
-      },
-      "SAE Form, SAE term": {
-        "autocomplete": true
-      },
-      "SAE Form, SAE term comprehensive AE list": {
-        "autocomplete": true
-      },
-      "SAE Form, Other SAE term": {
-        "conciseText": true
-      },
-      "SAE Form, Related tests (data from PV unit summary)": {
-        "allowAddMore": true
-      },
-      "SAE Form, Related test": {
-        "conciseText": true
-      },
-      "SAE Form, Related test lab ID": {
-        "conciseText": true
-      },
-      "SAE Form, TB drug treatment (data from PV unit summary)": {
-        "allowAddMore": true
-      },
-      "SAE Form, Other causal factors related to SAE": {
-        "multiSelect": true
-      },
-      "SAE Form, Non TB drug of ther causal factors": {
-        "allowAddMore": true,
-        "conciseText": true
-      },
-      "SAE Form, Comorbidity of other causal factors": {
-        "allowAddMore": true,
-        "conciseText": true
-      },
-      "SAE Form, Other causal factor": {
-        "allowAddMore": true,
-        "conciseText": true
-      },
       "PRF, Partners initials": {
         "conciseText": true
       },
@@ -346,6 +341,48 @@
       },
       "Audiometry, Audiometry details" : {
 	"isTabular" : true
+      },
+      "Audiometry, Left ear at 250Hz" : {
+	"disableAddNotes" : true
+      },
+      "Audiometry, Left ear at 500Hz" : {
+        "disableAddNotes" : true
+      },
+      "Audiometry, Left ear at 1000Hz" : {
+        "disableAddNotes" : true
+      },
+      "Audiometry, Left ear at 2000Hz" : {
+        "disableAddNotes" : true
+      },
+      "Audiometry, Left ear at 4000Hz" : {
+        "disableAddNotes" : true
+      },
+      "Audiometry, Left ear at 6000Hz" : {
+        "disableAddNotes" : true
+      },
+      "Audiometry, Left ear at 8000Hz" : {
+        "disableAddNotes" : true
+      },
+      "Audiometry, Right ear at 250Hz" : {
+        "disableAddNotes" : true
+      },
+      "Audiometry, Right ear at 500Hz" : {
+        "disableAddNotes" : true
+      },
+      "Audiometry, Right ear at 1000Hz" : {
+        "disableAddNotes" : true
+      },
+      "Audiometry, Right ear at 2000Hz" : {
+        "disableAddNotes" : true
+      },
+      "Audiometry, Right ear at 4000Hz" : {
+        "disableAddNotes" : true
+      },
+      "Audiometry, Right ear at 6000Hz" : {
+        "disableAddNotes" : true
+      },
+      "Audiometry, Right ear at 8000Hz" : {
+        "disableAddNotes" : true
       },
       "EKG, Date of EKG": {
         "required": true
@@ -440,34 +477,44 @@
         "isTabular": true
       },
       "Baseline, Pain Aching or Buring in Left Feet and Leg" : {
-	"autocomplete" : true
+	"autocomplete" : true,
+	"disableAddNotes": true
       },
       "Baseline, Pins and Needles in Left Feet and Leg" : {
-        "autocomplete" : true
+        "autocomplete" : true,
+	"disableAddNotes": true
       },
       "Baseline, Numbness in Left Feet and Leg" : {
-        "autocomplete" : true
+        "autocomplete" : true,
+	"disableAddNotes": true
       },
       "Baseline, Pain Aching or Buring in Right Feet and Leg" : {
-        "autocomplete" : true
+        "autocomplete" : true,
+	"disableAddNotes": true
       },
       "Baseline, Pins and Needles in Right Feet and Leg" : {
-        "autocomplete" : true
+        "autocomplete" : true,
+	"disableAddNotes": true
       },
       "Baseline, Numbness in Right Feet and Leg" : {
-        "autocomplete" : true
+        "autocomplete" : true,
+	"disableAddNotes": true
       },
       "Baseline, Vibration Perception in Left": {
-        "autocomplete": true
+        "autocomplete": true,
+	"disableAddNotes": true
       },
       "Baseline, Ankle reflexes in left": {
-        "autocomplete": true
+        "autocomplete": true,
+	"disableAddNotes": true
       },
       "Baseline, Vibration Perception in Right": {
-        "autocomplete": true
+        "autocomplete": true,
+	"disableAddNotes": true
       },
       "Baseline, Ankle reflexes in right": {
-        "autocomplete": true
+        "autocomplete": true,
+	"disableAddNotes": true
       },
       "Lab, Hemoglobin": {
         "isTabular": true
@@ -747,6 +794,39 @@
       },
       "Hemoglobin": {
         "disableAddNotes": true
+      },
+      "Lab, Hemoglobin mmol/L" : {
+	"disableAddNotes" : true
+      },
+      "Lab, RBC with other unit" : {
+	"disableAddNotes" : true
+      },
+      "Lab, WBC other unit" : {
+        "disableAddNotes" : true
+      },
+      "Lab, Potassium other" : {
+        "disableAddNotes" : true
+      },
+      "Lab, Magnesium other" : {
+        "disableAddNotes" : true
+      },
+      "Lab, Ionized Calcium other" : {
+        "disableAddNotes" : true
+      },
+      "Lab, Urea other" : {
+        "disableAddNotes" : true
+      },
+      "Lab, Creatinine other" : {
+        "disableAddNotes" : true
+      },
+      "Lab, Glucose other" : {
+        "disableAddNotes" : true
+      },
+      "Lab, Glucose (Fasting) other" : {
+        "disableAddNotes" : true
+      },
+      "Lab, Total Bilirubin other" : {
+	"disableAddNotes" : true
       },
       "Bacteriology, Smear microscopy test results": {
           "allowAddMore":true

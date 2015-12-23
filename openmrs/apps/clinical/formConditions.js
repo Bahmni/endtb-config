@@ -834,15 +834,9 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         return conditions;
   },
   'HDS, Reason for hospitalization': function causeOfDeathLogics(formName, formFieldValues) {
-        var conceptToEnable = "HDS, Principal AE/SAE ID number";
 	var conceptEnSurgery = "HDS, TB related surgery while hospitalization";
         var conditions = {enable: [], disable: []};
 	var conditionConcept = formFieldValues['HDS, Reason for hospitalization'];    
-	if(conditionConcept == "Adverse event" ) {
-		conditions.enable.push(conceptToEnable)
-	} else {
-		conditions.disable.push(conceptToEnable)
-	}
 	if(conditionConcept == "Surgical operation" ){
 		conditions.enable.push(conceptEnSurgery)
 	} else {
