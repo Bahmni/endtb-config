@@ -1168,5 +1168,14 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
     conditions.disable.push(conceptToEnable)
   }
   return conditions;
+  },
+  "Medication Stop Reason": function (drugOrder, conceptName) {
+    if(conceptName == "Adverse event"){
+        drugOrder.orderReasonNotesEnabled = true;
+        return true;
+    }
+    else
+        return false;
   }
+  
 };
