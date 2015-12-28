@@ -357,6 +357,7 @@
         "displayType": "Full-Page",
         "displayOrder": 9,
         "rotateInPrint": true,
+        "headingConceptSource":"Abbreviation",
         "dashboardParams": {
           "scope": "All",
           "groupByConcept": "Specimen Collection Date",
@@ -387,6 +388,7 @@
         "title": "Drug Regimen",
         "translationKey": "Drug Regimen",
         "name": "chronicTreatmentChart",
+        "headingConceptSource":"Abbreviation",
         "dashboardParams": {
           "drugs": [
               "RIFAMPICIN",
