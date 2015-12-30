@@ -333,6 +333,9 @@
       "Xray, Extent of disease": {
         "required": true
       },
+      "Xray, Other Radiological Tests" : {
+        "allowAddMore" : true
+      },
       "Audiometry, Month of scheduled visit": {
         "conciseText": true
       },
@@ -827,6 +830,21 @@
       },
       "Lab, Total Bilirubin other" : {
 	"disableAddNotes" : true
+      },
+      "Lab, Haematology Details" : {
+        "allowAddMore" : true
+      },
+      "Lab, Biochemistry Details" : {
+        "allowAddMore" : true
+      },
+      "Lab, Serology Details" : {
+        "allowAddMore" : true
+      },
+      "Lab, Pregnancy Details" : {
+        "allowAddMore" : true
+      },
+      "Lab, Other Tests Details" : {
+        "allowAddMore" : true
       },
       "Bacteriology, Smear microscopy test results": {
           "allowAddMore":true
