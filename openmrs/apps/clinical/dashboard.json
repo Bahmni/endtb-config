@@ -465,7 +465,7 @@
           "initialCount": 3,
           "latestCount": 4,
           "pivotOn": "column",
-          "templateName": "Lab Results Hemotology Template",
+          "templateName": "Lab, Haematology Details",
           "groupByConcept": "Specimen Collection Date",
           "name": "DstExtension",
           "conceptNames": [
@@ -479,7 +479,7 @@
           ]
         },
         "allDetailsParams": {
-          "templateName": "Lab Results Hemotology Template",
+          "templateName": "Lab, Haematology Details",
           "groupByConcept": "Specimen Collection Date"
         }
       },
@@ -493,7 +493,7 @@
           "initialCount": 3,
           "latestCount": 4,
           "pivotOn": "column",
-          "templateName": "Lab Results Biochemistry Template",
+          "templateName": "Lab, Biochemistry Details",
           "groupByConcept": "Specimen Collection Date",
           "name": "DstExtension",
           "conceptNames": [
@@ -513,7 +513,7 @@
           ]
         },
         "allDetailsParams": {
-          "templateName": "Lab Results Biochemistry Template",
+          "templateName": "Lab, Biochemistry Details",
           "groupByConcept": "Specimen Collection Date"
         }
       },
@@ -527,7 +527,7 @@
           "initialCount": 3,
           "latestCount": 4,
           "pivotOn": "column",
-          "templateName": "Lab Results Serology Template",
+          "templateName": "Lab, Serology Details",
           "groupByConcept": "Specimen Collection Date",
           "name": "DstExtension",
           "conceptNames": [
@@ -540,7 +540,29 @@
           ]
         },
         "allDetailsParams": {
-          "templateName": "Lab Results Serology Template",
+          "templateName": "Lab, Serology Details",
+          "groupByConcept": "Specimen Collection Date"
+        }
+      },
+      "LabResultsPregnancyTests": {
+        "displayType": "Full-Page",
+        "title": "Lab Results - Pregnancy Test",
+        "name": "obsToObsFlowSheet",
+        "displayOrder": 13,
+        "dashboardParams": {
+          "numberOfVisits": 1,
+          "initialCount": 3,
+          "latestCount": 4,
+          "templateName": "Lab, Pregnancy Details",
+          "groupByConcept": "Specimen Collection Date",
+          "name": "DstExtension",
+          "conceptNames": [
+            "Lab, Other test name",
+            "Lab, Other test result"
+          ]
+        },
+        "allDetailsParams": {
+          "templateName": "Lab, Pregnancy Details",
           "groupByConcept": "Specimen Collection Date"
         }
       },
@@ -553,7 +575,7 @@
           "numberOfVisits": 1,
           "initialCount": 3,
           "latestCount": 4,
-          "templateName": "Lab Results Other Tests Template",
+          "templateName": "Lab, Other Tests Details",
           "groupByConcept": "Specimen Collection Date",
           "name": "DstExtension",
           "conceptNames": [
@@ -562,7 +584,7 @@
           ]
         },
         "allDetailsParams": {
-          "templateName": "Lab Results Other Tests Template",
+          "templateName": "Lab, Other Tests Details",
           "groupByConcept": "Specimen Collection Date"
         }
       },
@@ -573,7 +595,7 @@
         "displayOrder": 14,
         "dashboardParams": {
           "scope": "All",
-          "groupByConcept": "AE Form, Adverse Event term",
+          "groupByConcept": "AE Form, AE term comprehensive list",
           "templateName": "AE Form, Adverse Event details",
           "conceptNames": [
             "AE Form, Date of AE onset",

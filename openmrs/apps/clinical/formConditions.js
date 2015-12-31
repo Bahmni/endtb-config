@@ -598,9 +598,9 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         	var reasonForNoPostTreatment = formFieldValues['6m PTO, Reasons for no post treatment followup'];    
 		if(reasonForNoPostTreatment!=null) {
 			if(reasonForNoPostTreatment.indexOf("Other") != -1 ) {
-				conditions.enable.push(conceptToEnable_otherReason, "6m PTO, Comments on no post treatment followup")
+				conditions.enable.push(conceptToEnable_otherReason)
 			} else {
-				conditions.disable.push(conceptToEnable_otherReason, "6m PTO, Comments on no post treatment followup")
+				conditions.disable.push(conceptToEnable_otherReason)
 			}
 		}   
         } else {
@@ -649,9 +649,9 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
 	var SAETerm = formFieldValues['6m PTO, Reasons for no post treatment followup'];    
 	if(SAETerm!=null) {
 		if(SAETerm.indexOf("Other") != -1 ) {
-			conditions.enable.push(conceptToEnable, "6m PTO, Comments on no post treatment followup")
+			conditions.enable.push(conceptToEnable)
 		} else {
-			conditions.disable.push(conceptToEnable, "6m PTO, Comments on no post treatment followup")
+			conditions.disable.push(conceptToEnable)
 		}
 	}    
         return conditions;
