@@ -418,7 +418,7 @@
       },
       "BacteriologyResults": {
         "displayType": "Half-Page",
-        "title": "Bacteriology Results",
+        "title": "Culture & Smear Results",
         "name": "obsToObsFlowSheet",
         "displayOrder": 10,
         "dashboardParams": {
@@ -457,7 +457,7 @@
       },
       "LabHaemotology": {
         "displayType": "Full-Page",
-        "title": "Lab Results - Haematology",
+        "title": "Lab Results - Hematology",
         "name": "obsToObsFlowSheet",
         "displayOrder": 12,
         "dashboardParams": {
@@ -519,7 +519,7 @@
       },
       "LabResultsSerologyTemplate": {
         "displayType": "Full-Page",
-        "title": "Lab Results - Seriology",
+        "title": "Lab Results - Serology",
         "name": "obsToObsFlowSheet",
         "displayOrder": 13,
         "dashboardParams": {
