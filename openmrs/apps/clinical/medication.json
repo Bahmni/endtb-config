@@ -1,0 +1,14 @@
+{
+   "conceptNameForDefaultDrugs": "All TB Drugs",
+   "inputOptionsConfig": {
+       "All TB Drugs": {
+           "doseUnits": ["mg"],
+           "frequencies" :["Seven days a week", "Alternate Days"],
+           "dosingInstructions": ["As directed","Before meals"],
+           "routes" : ["Oral", "Intramuscular"],
+           "durationUnits" : ["Day(s)","Month(s)"],
+           "dispensingUnits" : [],
+           "hideFields": ["durationUnits"]
+       }
+   }
+}
