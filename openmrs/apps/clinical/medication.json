@@ -23,7 +23,14 @@
       "hideFields": [
         "durationUnits",
         "dosingInstructions",
-        "dispensingUnits"
+        "dispensingUnits",
+        "dosingTypeToggle",
+        "additionalInstructions",
+        "duration",
+        "dosingInstructions",
+        "quantity",
+        "quantityUnits",
+        "sos"
       ]
     }
   },
@@ -47,7 +54,6 @@
         "title": "Inactive TB Drugs",
         "active": false,
         "includeConceptSet": "All TB Drugs",
-        "actions": ["stop"],
         "columns": [
           "drugName",
           "dosage",
@@ -78,8 +84,6 @@
       "inactiveNonTbDrugs": {
         "title": "Inactive Non TB Drugs",
         "actions": [
-          "revise",
-          "stop",
           "refill"
         ],
         "excludeConceptSet": "All TB Drugs",
