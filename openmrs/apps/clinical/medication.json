@@ -8,7 +8,56 @@
            "routes" : ["Oral", "Intramuscular"],
            "durationUnits" : ["Day(s)","Month(s)"],
            "dispensingUnits" : [],
-           "hideFields": ["durationUnits"]
+           "hideFields": ["durationUnits","dosingInstructions","dispensingUnits"]
        }
-   }
+   },
+   "drugOrderHistoryConfig": {
+  "view": "custom",
+  "sections": {
+    "allDrugs": {
+      "title": "All Drugs",
+      "actions": ["revise", "stop", "refill"]
+    },
+    "tbDrugs": {
+      "title": "TB Drugs",
+      "includeConceptSet": "All TB Drugs",
+      "columns": [
+        "drugName",
+        "dosage",
+        "route",
+        "startDate",
+        "stopDate",
+        "stopReason"
+
+      ]
+    },
+     "nonTbDrugs": {
+      "title": "Non TB Drugs",
+      "actions": ["revise", "stop", "refill"],
+
+      "excludeConceptSet": "All TB Drugs",
+      "columns": [
+        "drugName",
+        "dosage",
+        "route",
+        "startDate"
+      ]
+    },
+     "otherDrugs": {
+       "title": "Other Drugs",
+       "active": true,
+       "includeConceptSet": "DrugOther",
+       "columns": [
+         "drugName",
+         "dosage",
+         "route",
+         "startDate",
+         "stopDate",
+         "stopReason"
+
+       ]
+     }
+
+  }
+}
 }

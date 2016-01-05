@@ -63,8 +63,11 @@
         "title": "Treatments Details",
         "translationKey": "DASHBOARD_TITLE_TREATMENTS_DETAILS",
         "name": "drugOrderDetails",
+	"showDetailsButton" : true,
         "displayOrder": 3,
         "dashboardParams": {
+	  "showOnlyActive":true,                      
+          "drugConceptSet": "All TB Drugs",
           "drugNames": [
             "AMIKACIN",
               "ISONIAZID",
@@ -593,6 +596,7 @@
         "name": "obsToObsFlowSheet",
         "displayType": "Full-Page",
         "displayOrder": 14,
+	"isEditable": true,
         "dashboardParams": {
           "scope": "All",
           "groupByConcept": "AE Form, AE term comprehensive list",

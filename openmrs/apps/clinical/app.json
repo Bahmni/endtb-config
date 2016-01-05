@@ -866,6 +866,16 @@
       "duration": {
         "required": false
       },
+      "dosingInstructions": {
+        "required": false
+      },
+      "durationUnits": {
+        "required": false
+      },
+      "dispensingUnits": {
+        "required": false
+      },
+      "defaultStartDate" : false,
       "numberOfVisits": 0,
       "defaultDurationUnit": "Day(s)",
       "defaultInstructions": "As directed",
