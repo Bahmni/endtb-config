@@ -68,6 +68,7 @@
       },
       "activeNonTbDrugs": {
         "title": "Active Non TB Drugs",
+        "active": true,
         "actions": [
           "revise",
           "stop",
@@ -84,6 +85,7 @@
       },
       "inactiveNonTbDrugs": {
         "title": "Inactive Non TB Drugs",
+        "active": false,
         "actions": [
           "refill"
         ],
