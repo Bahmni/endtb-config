@@ -66,31 +66,8 @@
 	"showDetailsButton" : true,
         "displayOrder": 3,
         "dashboardParams": {
-	  "showOnlyActive":true,                      
-          "drugConceptSet": "All TB Drugs",
-          "drugNames": [
-            "AMIKACIN",
-              "ISONIAZID",
-              "ETHAMBUTOL",
-              "PYRAZINAMIDE",
-              "RIFAMPICIN",
-              "Kanamycin", 
-              "TERIZIDONE",
-              "STREPTOMYCIN",
-              "CAPREOMYCIN",
-              "LEVOFLOXACIN",
-              "MOXIFLOXACIN",
-              "PROTHIONAMIDE",
-              "ETHIONAMIDE",
-              "CYCLOSERINE",
-              "Bedaquiline",
-              "DELAMANID",
-              "LINEZOLID",
-              "CLOFAZIMINE",
-              "CILASTATIN / IMIPENEM",
-              "AMOXICILLIN AND CLAVULANIC ACID",
-              "P-AMINOSALICYLIC ACID"
-          ]
+	  "showOnlyActive":true,
+          "drugConceptSet": "All TB Drugs"
         }
       },
       "Forms": {
@@ -396,7 +373,7 @@
           "drugs": [
               "RIFAMPICIN",
               "PYRAZINAMIDE",
-              "Kanamycin", 
+              "Kanamycin",
               "TERIZIDONE",
               "STREPTOMYCIN",
               "CAPREOMYCIN",

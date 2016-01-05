@@ -901,41 +901,7 @@
           "defaultDurationUnit": "Month(s)"
         }
       ],
-      "drugFormDefaults": {},
-      "sections": {
-        "treatmentsDetails": {
-          "displayType": "Full-Page",
-          "title": "Treatments Details",
-          "translationKey": "DASHBOARD_TITLE_TREATMENT_DETAIL",
-          "name": "drugOrderDetails",
-          "displayOrder": 3,
-          "dashboardParams": {
-            "drugNames": [
-              "AMIKACIN",
-              "ISONIAZID",
-              "ETHAMBUTOL",
-              "PYRAZINAMIDE",
-              "RIFAMPICIN",
-              "Kanamycin", 
-              "TERIZIDONE",
-              "STREPTOMYCIN",
-              "CAPREOMYCIN",
-              "LEVOFLOXACIN",
-              "MOXIFLOXACIN",
-              "PROTHIONAMIDE",
-              "ETHIONAMIDE",
-              "CYCLOSERINE",
-              "Bedaquiline",
-              "DELAMANID",
-              "LINEZOLID",
-              "CLOFAZIMINE",
-              "CILASTATIN / IMIPENEM",
-              "AMOXICILLIN AND CLAVULANIC ACID",
-              "P-AMINOSALICYLIC ACID"
-            ]
-          }
-        }
-      }
+      "drugFormDefaults": {}
     }
   }
 }
