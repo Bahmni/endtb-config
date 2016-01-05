@@ -20,7 +20,7 @@
         "Month(s)"
       ],
       "dispensingUnits": [],
-      "hideFields": [
+      "disableFields": [
         "durationUnits",
         "dosingInstructions",
         "dispensingUnits",
