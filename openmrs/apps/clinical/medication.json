@@ -41,6 +41,7 @@
         "title": "Active TB Drugs",
         "active": true,
         "includeConceptSet": "All TB Drugs",
+        "captureStopReason": true,
         "actions": ["stop"],
         "columns": [
           "drugName",
