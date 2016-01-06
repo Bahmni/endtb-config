@@ -5,7 +5,9 @@
       "doseUnits": ["mg"],
       "frequencies": [
         "Seven days a week",
-        "Alternate Days"
+        "Alternate Days",
+        "Twice a week",
+        "Six days a week"
       ],
       "dosingInstructions": [
         "As directed",
@@ -13,7 +15,9 @@
       ],
       "routes": [
         "Oral",
-        "Intramuscular"
+        "Intramuscular",
+        "Intravenous",
+        "Inhalation"
       ],
       "durationUnits": [
         "Day(s)",
