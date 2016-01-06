@@ -573,9 +573,9 @@
         "name": "obsToObsFlowSheet",
         "displayType": "Full-Page",
         "displayOrder": 14,
-	"isEditable": true,
         "dashboardParams": {
           "scope": "All",
+	  "isEditable": true,
           "groupByConcept": "AE Form, AE term comprehensive list",
           "templateName": "AE Form, Adverse Event details",
           "conceptNames": [
@@ -626,6 +626,57 @@
       }
     },
     "translationKey": "DASHBOARD_TAB_PATIENT_SUMMARY_KEY"
+  },
+  "AELogForms": {
+    "displayByDefault": true,
+    "maxRecentlyViewedPatients": 10,
+    "printing": {
+      "title": "AE Log Dashboard",
+      "header": "AE Log",
+      "logo": "../images/jss-icon.png"
+    },
+    "sections": {
+      "patientInformation": {
+        "name": "patientInformation",
+        "displayType": "Full-Page",
+        "patientAttributes": [
+          "DRTBNationalID",
+          "dateOfDRTB",
+          "facilityPatientID",
+          "nationalIdentificationNumber",
+          "previousDRTBNumber",
+          "telephoneNumber"
+        ],
+        "addressFields": [
+          "cityVillage",
+          "address2",
+          "stateProvince",
+          "country"
+        ],
+        "displayOrder": 0,
+        "translationKey": "DASHBOARD_TITLE_PATIENT_INFORMATION_KEY"
+      },
+      "adverseEvents": {
+        "translationKey": "Adverse Events",
+        "name": "obsToObsFlowSheet",
+        "displayType": "Full-Page",
+        "displayOrder": 14,
+        "dashboardParams": {
+          "scope": "All",
+          "groupByConcept": "AE Form, AE term comprehensive list",
+          "templateName": "AE Form, Adverse Event details",
+          "conceptNames": [
+            "AE Form, Date of AE onset",
+            "AE Form, AE Grade",
+            "AE Form, Maximum severity of AE",
+            "AE Form, AE review date",
+            "AE Form, Date of AE Outcome",
+            "AE Form, AE outcome"
+          ]
+        }
+      }
+    },
+    "translationKey": "AE Log"
   },
   "trends": {
     "displayByDefault": true,

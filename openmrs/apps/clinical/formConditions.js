@@ -33,9 +33,9 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         var conditions = {enable: [], disable: []};
         var conditionConcept = formFieldValues['Baseline, Treatment for drug-susceptible TB'];
         if(conditionConcept=="True") {
-            conditions.enable.push("Baseline, How many drug-susceptible TB treatments","Baseline, Last DSTB Registration ID","Baseline, Last DSTB treatment registration facility")
+            conditions.enable.push("Baseline, How many drug-susceptible TB treatments","Baseline, Last DSTB Registration ID Details","Baseline, Last DSTB treatment registration facility")
         } else {
-            conditions.disable.push("Baseline, How many drug-susceptible TB treatments","Baseline, Last DSTB Registration ID","Baseline, Last DSTB treatment registration facility")
+            conditions.disable.push("Baseline, How many drug-susceptible TB treatments","Baseline, Last DSTB Registration ID Details","Baseline, Last DSTB treatment registration facility")
         }
         return conditions; 
   },
@@ -43,9 +43,9 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         var conditions = {enable: [], disable: []};
         var conditionConcept = formFieldValues['Baseline, Treatment for drug-resistant TB'];
         if(conditionConcept=="True") {
-            conditions.enable.push("Baseline, How many drug-resistant TB treatments","Baseline, Last DRTB Registration ID","Baseline, Last DRTB treatment registration facility")
+            conditions.enable.push("Baseline, How many drug-resistant TB treatments","Baseline, Last DRTB Registration ID Details","Baseline, Last DRTB treatment registration facility")
         } else {
-            conditions.disable.push("Baseline, How many drug-resistant TB treatments","Baseline, Last DRTB Registration ID","Baseline, Last DRTB treatment registration facility")
+            conditions.disable.push("Baseline, How many drug-resistant TB treatments","Baseline, Last DRTB Registration ID Details","Baseline, Last DRTB treatment registration facility")
         }
         return conditions; 
   },
@@ -688,7 +688,7 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
 	var conceptToEnable = "AE Form, TB drug treatment";
 	var conditions = {enable : [],disable : []};
 	var condtionalConcept = formFieldValues['AE Form, AE related to TB drugs'];
-	if (condtionalConcept == true) {
+	if (condtionalConcept == "True") {
 		conditions.enable.push(conceptToEnable)
 	} else {
 		conditions.disable.push(conceptToEnable)
