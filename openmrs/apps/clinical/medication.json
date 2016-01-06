@@ -42,25 +42,15 @@
         "active": true,
         "includeConceptSet": "All TB Drugs",
         "captureStopReason": true,
-        "actions": ["stop"],
-        "columns": [
-          "drugName",
-          "dosage",
-          "route",
-          "frequency",
-          "startDate"
-        ]
+        "actions": ["stop"]
       },
       "inactiveTbDrugs": {
         "title": "Inactive TB Drugs",
         "active": false,
         "includeConceptSet": "All TB Drugs",
         "columns": [
-          "drugName",
-          "dosage",
-          "route",
           "frequency",
-          "startDate",
+          "route",
           "stopDate",
           "stopReason",
           "stopReasonNotes"
@@ -76,11 +66,12 @@
         ],
         "excludeConceptSet": "All TB Drugs",
         "columns": [
-          "drugName",
-          "dosage",
-          "route",
           "frequency",
-          "startDate"
+          "route",
+          "duration",
+          "instructions",
+          "quantity",
+          "additionalInstructions"
         ]
       },
       "inactiveNonTbDrugs": {
@@ -91,11 +82,12 @@
         ],
         "excludeConceptSet": "All TB Drugs",
         "columns": [
-          "drugName",
-          "dosage",
-          "route",
           "frequency",
-          "startDate",
+          "route",
+          "duration",
+          "instructions",
+          "quantity",
+          "additionalInstructions",
           "stopDate",
           "stopReason",
           "stopReasonNotes"
