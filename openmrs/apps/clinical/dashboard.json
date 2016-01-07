@@ -449,13 +449,13 @@
           "groupByConcept": "Specimen Collection Date",
           "name": "DstExtension",
           "conceptNames": [
-            "Lab, Neutrophils test result",
-            "HEMATOCRIT",
-            "ABSOLUTE NEUTROPHIL COUNT",
-            "Platelets",
-            "RED BLOOD CELLS",
-            "WHITE BLOOD CELLS",
-            "Hemoglobin"
+	    "Lab, Hemoglobin mmol/L Data",
+	    "Lab, Hematocrit Data",
+            "Lab, Platelet count Data",
+            "Lab, RBC with other unit Data",
+            "Lab, WHITE BLOOD CELLS Data",
+	    "Lab, ABSOLUTE NEUTROPHIL COUNT Data",
+	    "Lab, Neutrophils test result Data"
           ]
         },
         "allDetailsParams": {
@@ -472,24 +472,25 @@
           "numberOfVisits": 1,
           "initialCount": 3,
           "latestCount": 4,
-          "pivotOn": "column",
+          "pivotOn": "row",
           "templateName": "Lab, Biochemistry Details",
           "groupByConcept": "Specimen Collection Date",
           "name": "DstExtension",
           "conceptNames": [
-            "SERUM POTASSIUM",
-            "Lab, Magnesium test result",
-            "Lab, Ionized Calcium test result",
-            "BLOOD UREA NITROGEN",
-            "Serum creatinine (umol/L)",
-            "SERUM GLUCOSE",
-            "Fasting blood glucose measurement (mg/dL)",
-            "glycosylated hemoglobin A measurement",
-            "Thyroid stimulating hormone test",
-            "Lab, Lipase test result",
-            "SERUM GLUTAMIC-OXALOACETIC TRANSAMINASE",
-            "SERUM GLUTAMIC-PYRUVIC TRANSAMINASE",
-            "TOTAL BILIRUBIN"
+            "Lab, SERUM POTASSIUM Data",
+            "Lab, Magnesium test result Data",
+            "Lab, Ionized Calcium test result Data",
+            "Lab, BLOOD UREA NITROGEN Data",
+            "Lab, Serum creatinine (umol/L) Data",
+            "Lab, SERUM GLUCOSE Data",
+            "Lab, Fasting blood glucose measurement (mg/dL) Data",
+            "Lab, glycosylated hemoglobin A measurement Data",
+            "Lab, Thyroid stimulating hormone test Data",
+            "Lab, Lipase test result Data",
+            "Lab, SERUM GLUTAMIC-OXALOACETIC TRANSAMINASE Data",
+            "Lab, SERUM GLUTAMIC-PYRUVIC TRANSAMINASE Data",
+            "Lab, TOTAL BILIRUBIN Data",
+	    "Lab, SERUM ALBUMIN Data"
           ]
         },
         "allDetailsParams": {
@@ -511,8 +512,6 @@
           "groupByConcept": "Specimen Collection Date",
           "name": "DstExtension",
           "conceptNames": [
-            "SERUM ALBUMIN",
-            "Lab, Pregnancy test result",
             "Lab, Hepatitis B antigen test result",
             "Lab, Hepatitis C antibody test result",
             "HIV VIRAL LOAD",
@@ -537,8 +536,7 @@
           "groupByConcept": "Specimen Collection Date",
           "name": "DstExtension",
           "conceptNames": [
-            "Lab, Other test name",
-            "Lab, Other test result"
+	    "Lab, Pregnancy test result"
           ]
         },
         "allDetailsParams": {
