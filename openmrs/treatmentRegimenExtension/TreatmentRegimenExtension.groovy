@@ -35,11 +35,10 @@ public class TreatmentRegimenExtension extends BaseTableExtension<TreatmentRegim
 		for (EncounterTransaction.Concept drug : treatmentRegimen.getHeaders()) {
 			RegimenRow lastStopRow = null;
 			for (RegimenRow row : treatmentRegimen.getRows()) {
-				Date rowDate = row.getDate();
 				if("Stop".equals(row.getDrugs().get(drug.getName()))) {
 					lastStopRow = row;
 				} else if(isStopFlagInInterval(row, drug, lastStopRow, restartTimeInterval)) {
-					lastStopRow.getDrugs().put(drug.getName(), null);
+					lastStopRow.getDrugs().put(drug.getName(), "");
 				}
 			}
 		}
