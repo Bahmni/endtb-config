@@ -155,5 +155,14 @@
                         "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
                         "applyDateRangeFor": "encounterCreateDate"
                 }
+        },
+        "drugOrderReport":{
+                "name": "Drug Order report",
+                "type":"MRSGeneric",
+                "config": {
+                        "type" : "sqlReport",
+                        "templateName": "DrugOrder",
+                        "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/drugOrderReport.sql"
+                }
         }
 }
