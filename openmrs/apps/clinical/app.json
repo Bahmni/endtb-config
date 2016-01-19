@@ -32,6 +32,9 @@
     },
     "visitTypeForRetrospectiveEntries": "GENERAL",
     "conceptSetUI": {
+      "Baseline, Date of baseline": {
+        "required": true
+      },
       "Consent scan copy": {
         "allowAddMore": true
       },
