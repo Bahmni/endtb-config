@@ -1,42 +1,39 @@
 {
-  "conceptNameForDefaultDrugs": "All TB Drugs",
   "inputOptionsConfig": {
-    "All TB Drugs": {
-      "doseUnits": ["mg"],
-      "frequencies": [
-        "Seven days a week",
-        "Alternate Days",
-        "Twice a week",
-        "Six days a week"
-      ],
-      "dosingInstructions": [
-        "As directed",
-        "Before meals"
-      ],
-      "routes": [
-        "Oral",
-        "Intramuscular",
-        "Intravenous",
-        "Inhalation"
-      ],
-      "durationUnits": [
-        "Day(s)",
-        "Month(s)"
-      ],
-      "dispensingUnits": [],
-      "disableFields": [
-        "durationUnits",
-        "dosingInstructions",
-        "dispensingUnits",
-        "dosingTypeToggle",
-        "additionalInstructions",
-        "duration",
-        "dosingInstructions",
-        "quantity",
-        "quantityUnits",
-        "sos"
-      ]
-    }
+    "drugConceptSet": "All TB Drugs",
+    "isDropDown": true,
+    "doseUnits": [
+      "mg","Tablet(s)"
+    ],
+    "frequencies": [
+      "Alternate Days",
+      "Seven days a week",
+      "Twice a week",
+      "Six days a week",
+      "Immediately"
+    ],
+    "dosingInstructions": [
+      "As directed",
+      "Before meals"
+    ],
+    "routes": [
+      "Oral",
+      "Intramuscular",
+      "Intravenous",
+      "Inhalation"
+    ],
+    "durationUnits": [
+      "Day(s)",
+      "Month(s)"
+    ],
+    "dispensingUnits": [],
+    "hiddenFields": [
+      "additionalInstructions",
+      "dosingInstructions",
+      "quantity",
+      "quantityUnits",
+      "sos"
+    ]
   },
   "drugOrderHistoryConfig": {
     "view": "custom",
@@ -46,7 +43,10 @@
         "active": true,
         "includeConceptSet": "All TB Drugs",
         "captureStopReason": true,
-        "actions": ["stop"]
+        "actions": [
+          "revise",
+          "stop"
+        ]
       },
       "inactiveTbDrugs": {
         "title": "Inactive TB Drugs",
