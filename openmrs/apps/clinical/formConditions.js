@@ -118,16 +118,6 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
 	}
 	return conditions;
   },
-  'Baseline, Currently pregnant': function(formName, formFieldValues) {
-        var conditions = {enable: [], disable: []};
-        var conditionConcept = formFieldValues['Baseline, Currently pregnant'];
-        if(conditionConcept=="True") {
-            conditions.enable.push("Estimated date of confinement")
-        } else {
-            conditions.disable.push("Estimated date of confinement")
-        }
-        return conditions;
-  },
   'Baseline, WHO registration group': function(formName, formFieldValues) {
         var conditions = {enable: [], disable: []};
         var conditionConcept = formFieldValues['Baseline, WHO registration group'];
@@ -208,42 +198,7 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         }
         return conditions;
   },
-  'Baseline, Eligible for new drugs' : function (formName, formFieldValues) {
-	var conditions = {
-		enable : [],
-		disable : []
-	};
-	var enDate = "Baseline, Date of eligibility for new drugs";
-	var en4Drugs = "Baseline, Patients for whom the construction of a regimen with four likely effective second-line drugs is not possible";
-	var enUnfavourable = "Baseline, Other patients who have high risk of unfavorable outcome but who do not fit the above categories";
-	var result = formFieldValues['Baseline, Eligible for new drugs'];
-	if (result == "True") {
-		conditions.enable.push(enDate,en4Drugs,enUnfavourable);
-	} else {
-		conditions.disable.push(enDate,en4Drugs,enUnfavourable);
-	}
-	return conditions;
-  },
-    'Baseline, Did the patient start treatment' : function (formName, formFieldValues) {
-        var enReason = "Baseline, Reason for not starting treatment";
-        var conditionConcept = formFieldValues['Baseline, Did the patient start treatment'];
-        if(conditionConcept == false) {
-            return {enable: [enReason]}
-        } else {
-            return {disable: [enReason]}
-        }
-    },
-    'Baseline, Reason for not starting treatment': function(formName, formFieldValues) {
-        var conditionConcept = formFieldValues['Baseline, Reason for not starting treatment'];
-        var deathDT = "Baseline, date of death before treatment start";
-
-        if(conditionConcept == "Died") {
-            return {enable: [deathDT]}
-        } else {
-            return {disable: [deathDT]}
-        }
-      },
-      'Baseline, Drug Allergies' : function (formName, formFieldValues) {
+  'Baseline, Drug Allergies' : function (formName, formFieldValues) {
         var conditions = {
             enable : [],
             disable : []
@@ -255,7 +210,7 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
             conditions.disable.push("Baseline, Which Drug Allergies")
         }
 	return conditions;
-      },
+  },
   'Baseline, Has the patient ever been treated for TB in the past?' : function (formName, formFieldValues) {
         var conditions = {
             enable : [],
@@ -269,74 +224,57 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         }
 	return conditions;
   },
-  'Medication log, Type of treatment regimen': function (formName, formFieldValues) {
-        var conceptToEnable_firstLine = "Medication log, First line drug regimen type";
-        var conceptToEnable_secondLine = "Medication log, Second line regimen drug type"; 
-        var conditions = {enable: [], disable: []};	
-	var conditionConcept = formFieldValues['Medication log, Type of treatment regimen'];    
-	if(conditionConcept == "Only 1st line drugs" ) {
-		conditions.enable.push(conceptToEnable_firstLine)
-	} else {
-		conditions.disable.push(conceptToEnable_firstLine)
-	}
-	if(conditionConcept == "Regimen including 2nd line drugs" ) {
-		conditions.enable.push(conceptToEnable_secondLine)
-	} else {
-		conditions.disable.push(conceptToEnable_secondLine)
-	}
-        return conditions;
-  },
-  'Medication log, Treatment delivery method': function causeOfDeathLogics(formName, formFieldValues) {
-        var conceptToEnable = "Medication log, Other treatment delivery method";
-        var conditions = {enable: [], disable: []}	
-	var conditionConcept = formFieldValues['Medication log, Treatment delivery method'];    	
-	if(conditionConcept == "Other" ) {
-		conditions.enable.push(conceptToEnable)
-	} else {
-		conditions.disable.push(conceptToEnable)
-	}		
-        return conditions;
-  },
-  'Medication log, Drug stop date': function(formName, formFieldValues) {
-	var conceptToEnable = "Medication log, Reason for medication change";
+  'TI, Did the patient start treatment' : function (formName, formFieldValues) {
+        var enReason = "TI, Reason for not starting treatment";
+        var txFacility = "TI, Treatment facility at start";
+        var txRegimen = "TI, Type of treatment regimen";
+        var firstLine = "TI, First line drug regimen type";
+        var secondLine = "TI, Second line regimen drug type";
+        var conditionConcept = formFieldValues['TI, Did the patient start treatment'];
+        if(conditionConcept == false) {
+            return {enable: [enReason], disable: [txFacility,txRegimen,firstLine,secondLine]}
+        } else if (conditionConcept == true) {
+            return {enable: [txFacility,txRegimen,firstLine,secondLine], disable: [enReason]}
+        } 
+        else {
+            return {disable: [txFacility,txRegimen,firstLine,secondLine,enReason]}
+        }
+  }, 
+  'TI, Currently pregnant': function(formName, formFieldValues) {
         var conditions = {enable: [], disable: []};
-        var conditionConcept = formFieldValues['Medication log, Drug stop date'];
-        var conceptToEnable_AE = "Medication log, AE ID number";
-        var conceptToEnable_other = "Medication log, Other reason for medication change";
-        if(conditionConcept) {
-		conditions.enable.push(conceptToEnable);
-		var reason = formFieldValues['Medication log, Reason for medication change'];    
-		if(reason == "Adverse event" ) {
-			conditions.enable.push(conceptToEnable_AE)
-		} else {
-			conditions.disable.push(conceptToEnable_AE)
-		}		
-		if(reason == "Other" ) {
-			conditions.enable.push(conceptToEnable_other)
-		} else {
-			conditions.disable.push(conceptToEnable_other)
-		}
+        var conditionConcept = formFieldValues['TI, Currently pregnant'];
+        if(conditionConcept=="True") {
+            conditions.enable.push("Estimated date of confinement")
         } else {
-            conditions.disable.push(conceptToEnable, conceptToEnable_AE, conceptToEnable_other)
+            conditions.disable.push("Estimated date of confinement")
         }
         return conditions;
   },
-  'Medication log, Reason for medication change': function (formName, formFieldValues) {
-        var conceptToEnable_AE = "Medication log, AE ID number";
-        var conceptToEnable_other = "Medication log, Other reason for medication change";
-        var conditions = {enable: [], disable: []};
-	var conditionConcept = formFieldValues['Medication log, Reason for medication change'];    
-	if(conditionConcept == "Adverse event" ) {
-		conditions.enable.push(conceptToEnable_AE)
+  'TI, Eligible for new drugs' : function (formName, formFieldValues) {
+	var conditions = {
+		enable : [],
+		disable : []
+	};
+	var enDate = "TI, Date of eligibility for new drugs";
+	var en4Drugs = "TI, Patients for whom the construction of a regimen with four likely effective second-line drugs is not possible";
+	var enUnfavourable = "TI, Other patients who have high risk of unfavorable outcome but who do not fit the above categories";
+	var result = formFieldValues['TI, Eligible for new drugs'];
+	if (result == "True") {
+		conditions.enable.push(enDate,en4Drugs,enUnfavourable);
 	} else {
-		conditions.disable.push(conceptToEnable_AE)
+		conditions.disable.push(enDate,en4Drugs,enUnfavourable);
 	}
-	if(conditionConcept == "Other" ) {
-		conditions.enable.push(conceptToEnable_other)
-	} else {
-		conditions.disable.push(conceptToEnable_other)
-	}      
 	return conditions;
+  },
+  'TI, Reason for not starting treatment': function(formName, formFieldValues) {
+        var conditionConcept = formFieldValues['TI, Reason for not starting treatment'];
+        var deathDT = "TI, Date of death before treatment start";
+
+        if(conditionConcept == "Died") {
+            return {enable: [deathDT]}
+        } else {
+            return {disable: [deathDT]}
+        }
   },
   'Followup, Type of Visit': function (formName, formFieldValues) {
         var conceptToEnable = "Followup, Month of scheduled visit";
@@ -1028,6 +966,59 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
 		conditions.disable.push(conceptToEnable)
 	}
 	return conditions;
+  },
+  'MTC, Principal reason for treatment incomplete': function (formName, formFieldValues) {
+        var programRelated = "MTC, Detailed program related reason";
+        var medicalRelated = "MTC, Detailed medical related reason";
+        var patientRelated = "MTC, Detailed patient related reason";
+        var otherRelated = "MTC, Other reason for treatment incomplete";
+        var conditions = {enable: [], disable: []};
+        var conditionConcept = formFieldValues['MTC, Principal reason for treatment incomplete'];
+        if(conditionConcept == "Program related" ) {
+                conditions.enable.push(programRelated)
+                conditions.disable.push(medicalRelated,patientRelated,otherRelated)
+        } else if(conditionConcept == "Medical or treatment related" ) {
+                conditions.enable.push(medicalRelated)
+                conditions.disable.push(programRelated,patientRelated,otherRelated)
+        } else if(conditionConcept == "Patient related" ) {
+                conditions.enable.push(patientRelated)
+                conditions.disable.push(programRelated,medicalRelated,otherRelated)
+        } else if(conditionConcept == "Other" ) {
+                conditions.enable.push(otherRelated)
+                conditions.disable.push(programRelated,medicalRelated,patientRelated)
+        } else {
+                conditions.disable.push(programRelated,medicalRelated,patientRelated,otherRelated)
+        }
+        return conditions;
+  },
+  'MTC, Additional contributing reasons for less than 100% completeness': function (formName, formFieldValues) {
+        var programRelated = "MTC, Additional contributing program related reasons";
+        var medicalRelated = "MTC, Additional contributing medical or treatment related reasons";
+        var patientRelated = "MTC, Additional contributing patient related reasons";
+        var otherRelated = "MTC, Other contributing reason for treatment incomplete";
+        var conditions = {enable: [], disable: []};
+        var conditionConcept = formFieldValues['MTC, Additional contributing reasons for less than 100% completeness'];
+        if(conditionConcept.indexOf("Program related") > -1) { 
+                conditions.enable.push(programRelated)
+        } else {
+                conditions.disable.push(programRelated)
+        }
+        if(conditionConcept.indexOf("Medical or treatment related") > -1) { 
+                conditions.enable.push(medicalRelated)
+        } else {
+                conditions.disable.push(medicalRelated)
+        }
+        if(conditionConcept.indexOf("Patient related") > -1) { 
+                conditions.enable.push(patientRelated)
+        } else {
+                conditions.disable.push(patientRelated)
+        }
+        if(conditionConcept.indexOf("Other") > -1) { 
+                conditions.enable.push(otherRelated)
+        } else {
+                conditions.disable.push(otherRelated)
+        }
+        return conditions;
   },
   'Performance Status, Type of visit': function causeOfDeathLogics(formName, formFieldValues) {
 	var conceptToEnable = "Performance Status, Month of scheduled visit";

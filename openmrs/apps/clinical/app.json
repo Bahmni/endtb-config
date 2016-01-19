@@ -47,10 +47,10 @@
       "Baseline, Disease site": {
         "multiSelect": true
       },
-      "Baseline, Patients for whom the construction of a regimen with four likely effective second-line drugs is not possible": {
+      "TI, Patients for whom the construction of a regimen with four likely effective second-line drugs is not possible": {
         "multiSelect": true
       },
-      "Baseline, Other patients who have high risk of unfavorable outcome but who do not fit the above categories": {
+      "TI, Other patients who have high risk of unfavorable outcome but who do not fit the above categories": {
         "multiSelect": true
       },
       "Baseline, Method of MDR-TB confirmation": {
@@ -90,7 +90,8 @@
         "conciseText": true
       },
       "Baseline, Other drug taken for more than a month": {
-        "conciseText": true
+        "conciseText": true,
+	"allowAddMore": true
       },
       "Baseline, HIV program registration number": {
         "conciseText": true
@@ -114,27 +115,6 @@
         "conciseText": true
       },
       "Baseline, Other method of MDR-TB confirmation": {
-        "conciseText": true
-      },
-      "Medication log, TB treatment start": {
-        "allowAddMore": true
-      },
-      "Medication log, TB treatment changes": {
-        "allowAddMore": true
-      },
-      "Medication log, Non-TB drugs": {
-        "allowAddMore": true
-      },
-      "Medication log, Other treatment delivery method": {
-        "conciseText": true
-      },
-      "Medication log, Other reason for medication change": {
-        "conciseText": true
-      },
-      "Medication log, Concomitant Drug name": {
-        "conciseText": true
-      },
-      "Medication log, Reason for drug administration": {
         "conciseText": true
       },
       "Followup, Month of scheduled visit": {
@@ -393,47 +373,40 @@
       "EKG, Date of EKG": {
         "required": true
       },
-      "EKG, Rhythm": {
-        "required": true
-      },
-      "EKG, Heart Rate": {
-        "required": true
-      },
-      "EKG, QT Interval": {
-        "required": true
-      },
-      "EKG, Month of scheduled visit": {
-        "conciseText": true
-      },
-      "EKG, Other Rythm": {
+      "EKG, Other Rhythm": {
         "conciseText": true
       },
       "MTC, Month of treatment period": {
-        "required": true
+        "required": true,
+        "autocomplete": true
       },
       "MTC, Year of treatment period": {
-        "required": true
+        "required": true,
+        "autocomplete": true
       },
       "MTC, Other treatment delivery method": {
         "conciseText": true
       },
-      "MTC, Contributing reason for treatment incomplete": {
+      "MTC, Additional contributing reasons for less than 100% completeness": {
         "multiSelect": true
       },
-      "MTC, Drug name": {
-        "required": true
+      "MTC, Additional contributing program related reasons" : {
+        "multiSelect": true
+      },
+      "MTC, Additional contributing medical or treatment related reasons" : {
+        "multiSelect": true
+      },
+      "MTC, Additional contributing patient related reasons" : {
+        "multiSelect": true
       },
       "MTC, DOT rate details" : {
-	"allowAddMore" : true
-      },
-      "Performance Status, Month of scheduled visit": {
-        "conciseText": true
-      },
+        "allowAddMore" : true
+      }, 
       "Performance Status, Assessment date": {
         "required": true
       },
       "ECOG Performance Status": {
-        "required": true
+        "autocomplete": true
       },
       "BACTERIOLOGY_SAMPLE_ID": {
         "conciseText": true
@@ -853,9 +826,6 @@
           "allowAddMore":true
       },
       "Bacteriology, Culture results details":{
-          "allowAddMore":true
-      },
-      "Baseline, Other drug taken for more than a month":{
           "allowAddMore":true
       },
       "Baseline, Known Drug Allergies":{
