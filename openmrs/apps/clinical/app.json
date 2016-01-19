@@ -117,8 +117,8 @@
       "Baseline, Other method of MDR-TB confirmation": {
         "conciseText": true
       },
-      "Followup, Month of scheduled visit": {
-        "conciseText": true
+      "Followup, Visit Date": {
+        "required": true
       },
       "Followup, New serious AE reference number": {
         "conciseText": true

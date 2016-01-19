@@ -276,17 +276,6 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
             return {disable: [deathDT]}
         }
   },
-  'Followup, Type of Visit': function (formName, formFieldValues) {
-        var conceptToEnable = "Followup, Month of scheduled visit";
-        var conditions = {enable: [], disable: []};		
-	var conditionConcept = formFieldValues['Followup, Type of Visit'];    
-	if(conditionConcept == "Scheduled monthly visit" ) {
-		conditions.enable.push(conceptToEnable)
-	} else {
-		conditions.disable.push(conceptToEnable)
-	}
-        return conditions; 
-  },
   'Followup, Currently Pregnant': function (formName, formFieldValues) {
         var conceptToEnable = "Followup, Pregnancy form case ID number";
         var conditions = {enable: [], disable: []};
