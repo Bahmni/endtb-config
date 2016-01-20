@@ -35,6 +35,21 @@
       "Baseline, Date of baseline": {
         "required": true
       },
+      "Baseline, Other Marital Status":{
+	"conciseText" : true
+      },
+      "Baseline, Last DSTB Registration ID" : {
+	"conciseText" : true
+      },
+      "Baseline, Last DRTB Registration ID" : {
+        "conciseText" : true
+      },
+      "TI, Did the patient start treatment" : {
+	"required" : true
+      },
+      "TUBERCULOSIS DRUG TREATMENT START DATE" : {
+	"required" : true
+      },
       "Consent scan copy": {
         "allowAddMore": true
       },

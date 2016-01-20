@@ -142,12 +142,12 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
 	}
 	return conditions;
   },
-  'Baseline, MRD-TB diagnosis method' : function (formName, formFieldValues) {
+  'Baseline, MDR-TB diagnosis method' : function (formName, formFieldValues) {
 	var conditions = {
 		enable : [],
 		disable : []
 	};
-	var conditionConcept = formFieldValues['Baseline, MRD-TB diagnosis method'];
+	var conditionConcept = formFieldValues['Baseline, MDR-TB diagnosis method'];
 	if (conditionConcept == "Bacteriologically Confirmed") {
 		conditions.enable.push("Baseline, Method of MDR-TB confirmation");
 		var enMethod = formFieldValues['Baseline, Method of MDR-TB confirmation'];
