@@ -763,20 +763,8 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
   },
   'HDS, Reason for hospitalization': function causeOfDeathLogics(formName, formFieldValues) {
 	var conceptEnOther = "HDS, Other reason for hospitalization";
-	var conceptEnAE = "HDS, New AE Reported";
-	var conceptEnSurgery = "HDS, TB related surgery while hospitalization";
         var conditions = {enable: [], disable: []};
 	var conditionConcept = formFieldValues['HDS, Reason for hospitalization'];    
-	if(conditionConcept == "Surgical operation" ){
-		conditions.enable.push(conceptEnSurgery)
-	} else {
-		conditions.disable.push(conceptEnSurgery)
-	}
-	if(conditionConcept == "Adverse event" ){
-                conditions.enable.push(conceptEnAE)
-        } else {
-                conditions.disable.push(conceptEnAE)
-        }
 	if(conditionConcept == "Other" ){
                 conditions.enable.push(conceptEnOther)
         } else {
@@ -799,11 +787,22 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         var conditions = {enable: [], disable: []};
         var conditionConcept = formFieldValues['HDS, New AE Reported'];
         var conceptToEnable = "HDS, New AE ID number";
-	var conceptEnSAE = "HDS, New SAE reported";
-        if(conditionConcept == true) {
-            conditions.enable.push(conceptToEnable,conceptEnSAE)
-        } else {
-            conditions.disable.push(conceptToEnable,conceptEnSAE)
+        var conceptEnSAE = "HDS, New SAE reported";
+        var conceptSAERefNum = "HDS, New SAE Case number";
+        if(conditionConcept != null) {
+            if(conditionConcept == true) {
+                conditions.enable.push(conceptToEnable,conceptEnSAE,conceptSAERefNum)
+                var conditionConceptSAE = formFieldValues['HDS, New SAE reported'];
+                if(conditionConceptSAE) {
+                        conditions.enable.push(conceptSAERefNum)
+                } else {
+                        conditions.disable.push(conceptSAERefNum)
+                }
+            } else {
+                conditions.disable.push(conceptToEnable,conceptEnSAE,conceptSAERefNum)
+            }
+        } else{
+                conditions.disable.push(conceptToEnable,conceptEnSAE,conceptSAERefNum)
         }
         return conditions;
   },
@@ -871,23 +870,12 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         var conceptToEnable = "Lab, Month of scheduled visit";
         var conditions = {enable: [], disable: []};
 	var conditionConcept = formFieldValues['Lab, Type of visit'];    
-	if(conditionConcept == "Scheduled monthly visit" ) {
+	if(conditionConcept == "Planned monthly assessment" ) {
 		conditions.enable.push(conceptToEnable)
 	} else {
 		conditions.disable.push(conceptToEnable)
 	}
         return conditions; 
-  },
-  'Xray, Type of visit': function(formName, formFieldValues) {
-        var conceptToEnable = "Xray, Month of scheduled visit";
-        var conditions = {enable: [], disable: []};
-	var conditionConcept = formFieldValues['Xray, Type of visit'];
-        if(conditionConcept == "Scheduled monthly visit" ) {
-            conditions.enable.push(conceptToEnable)
-        } else {
-            conditions.disable.push(conceptToEnable)
-        }
-        return conditions;
   },
   'Xray, Extent of disease': function(formName, formFieldValues) {
         var conceptEnCavity = "Xray, Maximum cavity size";
