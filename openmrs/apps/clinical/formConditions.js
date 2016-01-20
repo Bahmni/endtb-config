@@ -612,6 +612,17 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
 	}
 	return conditions;
   },
+	'AE Form, AE related test' : function (formName, formFieldValues) {
+		var conceptToEnable = "AE form, other related test";
+		var conditions = {enable : [],disable : []};
+		var AETerm = formFieldValues['AE Form, AE related test'];
+		if (AETerm == "Other") {
+			conditions.enable.push(conceptToEnable)
+		} else {
+			conditions.disable.push(conceptToEnable)
+		}
+		return conditions;
+	},
   'AE Form, AE related to TB drugs' : function (formName, formFieldValues) {
 	var conceptToEnable = "AE Form, TB drug treatment";
 	var conditions = {enable : [],disable : []};
@@ -625,12 +636,15 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
   },
   'AE Form, Is AE an SAE' : function (formName, formFieldValues) {
         var conceptToEnable = "AE Form, SAE Case Number";
+        var conceptSeriousnessCriteria = "AE Form, Seriousness criteria";
         var conditions = {enable : [],disable : []};
         var condtionalConcept = formFieldValues['AE Form, Is AE an SAE'];
         if (condtionalConcept == true) {
-                conditions.enable.push(conceptToEnable)
+                conditions.enable.push(conceptToEnable);
+                conditions.enable.push(conceptSeriousnessCriteria);
         } else {
-                conditions.disable.push(conceptToEnable)
+                conditions.disable.push(conceptToEnable);
+                conditions.disable.push(conceptSeriousnessCriteria);
         }
         return conditions;
   },
