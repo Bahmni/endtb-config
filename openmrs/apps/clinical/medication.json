@@ -1,101 +1,171 @@
 {
-  "inputOptionsConfig": {
-    "drugConceptSet": "All TB Drugs",
-    "isDropDown": true,
-    "doseUnits": [
-      "mg","Tablet(s)"
-    ],
-    "frequencies": [
-      "Alternate Days",
-      "Seven days a week",
-      "Twice a week",
-      "Six days a week",
-      "Immediately"
-    ],
-    "dosingInstructions": [
-      "As directed",
-      "Before meals"
-    ],
-    "routes": [
-      "Oral",
-      "Intramuscular",
-      "Intravenous",
-      "Inhalation"
-    ],
-    "durationUnits": [
-      "Day(s)",
-      "Month(s)"
-    ],
-    "dispensingUnits": [],
-    "hiddenFields": [
-      "additionalInstructions",
-      "dosingInstructions",
-      "quantity",
-      "quantityUnits",
-      "sos"
-    ]
+  "tbTabConfig": {
+    "inputOptionsConfig": {
+      "drugConceptSet": "All TB Drugs",
+      "isDropDown": true,
+      "doseUnits": [
+        "mg",
+        "Tablet(s)"
+      ],
+      "frequencies": [
+        "Alternate Days",
+        "Seven days a week",
+        "Twice a week",
+        "Six days a week",
+        "Immediately"
+      ],
+      "dosingInstructions": [
+        "As directed",
+        "Before meals"
+      ],
+      "routes": [
+        "Oral",
+        "Intramuscular",
+        "Intravenous",
+        "Inhalation"
+      ],
+      "durationUnits": [
+        "Day(s)",
+        "Month(s)"
+      ],
+      "dispensingUnits": [],
+      "hiddenFields": [
+        "additionalInstructions",
+        "dosingInstructions",
+        "quantity",
+        "quantityUnits",
+        "sos"
+      ]
+    },
+    "drugOrderHistoryConfig": {
+      "view": "custom",
+      "sections": {
+        "activeTbDrugs": {
+          "title": "Active TB Drugs",
+          "active": true,
+          "includeConceptSet": "All TB Drugs",
+          "captureStopReason": true,
+          "actions": [
+            "revise",
+            "stop",
+            "refill"
+          ]
+        },
+        "inactiveTbDrugs": {
+          "title": "Inactive TB Drugs",
+          "active": false,
+          "includeConceptSet": "All TB Drugs",
+          "columns": [
+            "frequency",
+            "route",
+            "stopDate",
+            "stopReason",
+            "stopReasonNotes"
+          ]
+        },
+        "activeNonTbDrugs": {
+          "title": "Active Non TB Drugs",
+          "active": true,
+          "actions": [
+            "revise",
+            "stop",
+            "refill"
+          ],
+          "excludeConceptSet": "All TB Drugs",
+          "columns": [
+            "frequency",
+            "route",
+            "duration",
+            "instructions",
+            "quantity",
+            "additionalInstructions"
+          ]
+        },
+        "inactiveNonTbDrugs": {
+          "title": "Inactive Non TB Drugs",
+          "active": false,
+          "actions": [
+            "refill"
+          ],
+          "excludeConceptSet": "All TB Drugs",
+          "columns": [
+            "frequency",
+            "route",
+            "duration",
+            "instructions",
+            "quantity",
+            "additionalInstructions",
+            "stopDate",
+            "stopReason",
+            "stopReasonNotes"
+          ]
+        }
+      }
+    }
   },
-  "drugOrderHistoryConfig": {
-    "view": "custom",
-    "sections": {
-      "activeTbDrugs": {
-        "title": "Active TB Drugs",
-        "active": true,
-        "includeConceptSet": "All TB Drugs",
-        "captureStopReason": true,
-        "actions": [
-          "revise",
-          "stop"
-        ]
-      },
-      "inactiveTbDrugs": {
-        "title": "Inactive TB Drugs",
-        "active": false,
-        "includeConceptSet": "All TB Drugs",
-        "columns": [
-          "frequency",
-          "route",
-          "stopDate",
-          "stopReason",
-          "stopReasonNotes"
-        ]
-      },
-      "activeNonTbDrugs": {
-        "title": "Active Non TB Drugs",
-        "active": true,
-        "actions": [
-          "revise",
-          "stop",
-          "refill"
-        ],
-        "excludeConceptSet": "All TB Drugs",
-        "columns": [
-          "frequency",
-          "route",
-          "duration",
-          "instructions",
-          "quantity",
-          "additionalInstructions"
-        ]
-      },
-      "inactiveNonTbDrugs": {
-        "title": "Inactive Non TB Drugs",
-        "active": false,
-        "actions": [
-          "refill"
-        ],
-        "excludeConceptSet": "All TB Drugs",
-        "columns": [
-          "frequency",
-          "route",
-          "duration",
-          "instructions",
-          "quantity",
-          "additionalInstructions",
-          "stopDate",
-          "stopReason",
-          "stopReasonNotes"
-        ]
+  "paracetamolTabConfig": {
+    "inputOptionsConfig": {
+      "drugConceptSet": "Paracetamol",
+      "isDropDown": true,
+      "doseUnits": [
+        "mg",
+        "Tablet(s)"
+      ],
+      "frequencies": [
+        "Alternate Days",
+        "Seven days a week",
+        "Twice a week",
+        "Six days a week",
+        "Immediately"
+      ],
+      "dosingInstructions": [
+        "As directed",
+        "Before meals"
+      ],
+      "routes": [
+        "Oral",
+        "Intramuscular",
+        "Intravenous",
+        "Inhalation"
+      ],
+      "durationUnits": [
+        "Day(s)",
+        "Month(s)"
+      ],
+      "dispensingUnits": [],
+      "hiddenFields": [
+        "additionalInstructions",
+        "dosingInstructions",
+        "quantity",
+        "quantityUnits",
+        "sos"
+      ]
+    },
+    "drugOrderHistoryConfig": {
+      "view": "custom",
+      "sections": {
+        "activeParacetamolDrugs": {
+          "title": "Active Paracetamol Drugs",
+          "active": true,
+          "includeConceptSet": "Paracetamol",
+          "captureStopReason": true,
+          "actions": [
+            "revise",
+            "stop"
+          ]
+        },
+        "inactiveParacetamolDrugs": {
+          "title": "Inactive Paracetamol Drugs",
+          "active": false,
+          "includeConceptSet": "Paracetamol",
+          "columns": [
+            "frequency",
+            "route",
+            "stopDate",
+            "stopReason",
+            "stopReasonNotes"
+          ]
+        }
       }
     }
   }
