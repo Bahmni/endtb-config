@@ -313,11 +313,22 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         var conditions = {enable: [], disable: []};
         var conditionConcept = formFieldValues['Followup, New AE reported'];
         var conceptToEnable = "Followup, New AE reference number";
-	var conceptEnSAE = "Followup, New serious AE reported";
-        if(conditionConcept) {
-            conditions.enable.push(conceptToEnable,conceptEnSAE)
-        } else {
-            conditions.disable.push(conceptToEnable,conceptEnSAE)
+        var conceptEnSAE = "Followup, New serious AE reported";
+        var conceptSAERefNum = "Followup, New serious AE reference number";
+        if(conditionConcept != null) {
+            if(conditionConcept == true) {
+                conditions.enable.push(conceptToEnable,conceptEnSAE,conceptSAERefNum)
+                var conditionConceptSAE = formFieldValues['Followup, New serious AE reported'];
+                if(conditionConceptSAE) {
+                        conditions.enable.push(conceptSAERefNum)
+                } else {
+                        conditions.disable.push(conceptSAERefNum)
+                }
+            } else {
+                conditions.disable.push(conceptToEnable,conceptEnSAE,conceptSAERefNum)
+            } 
+        } else{
+                conditions.disable.push(conceptToEnable,conceptEnSAE,conceptSAERefNum)
         }
         return conditions;
   },

@@ -135,6 +135,9 @@
       "Followup, Visit Date": {
         "required": true
       },
+      "Followup, Pregnancy form case ID number" : {
+	"conciseText" : true
+      },
       "Followup, New serious AE reference number": {
         "conciseText": true
       },
