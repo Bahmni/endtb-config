@@ -515,9 +515,6 @@
       "BACTERIOLOGY_SAMPLE_APPEARANCE": {
         "conciseText": true
       },
-      "Bacteriology, Which monthly scheduled visit": {
-        "conciseText": true
-      },
       "Bacteriology, Sequencing": {
         "allowAddMore": true
       },

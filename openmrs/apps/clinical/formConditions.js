@@ -1071,7 +1071,7 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
   },
   'Bacteriology, HAIN MTBDRsl test result': function (formName, formFieldValues) {
   	var fluoroquinoloneconceptToEnable = "Bacteriology, Fluoroquinolone";
-  	var aminoglycosideconceptToEnable =	"Bacteriology, Aminoglycoside"
+  	var aminoglycosideconceptToEnable =	"Bacteriology, MTBDRsl injectable"
 	var conditions = {enable: [], disable: []};
 	var conditionConcept = formFieldValues['Bacteriology, HAIN MTBDRsl test result'];    
 	if(conditionConcept == "Detected" ) {
@@ -1138,17 +1138,6 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
   } else {
     conditions.disable.push(conceptToEnable_isoniazid)
     conditions.disable.push(conceptToEnable_rifampicin)
-  }
-  return conditions;
-  },
-  "Bacteriology, Type of Visit": function (formName, formFieldValues) {
-  var conceptToEnable = "Bacteriology, Which monthly scheduled visit"
-  var conditions = {enable: [], disable: []};
-  var conditionConcept = formFieldValues['Bacteriology, Type of Visit'];    
-  if(conditionConcept == "Scheduled monthly visit" ) {
-    conditions.enable.push(conceptToEnable)
-  } else {
-    conditions.disable.push(conceptToEnable)
   }
   return conditions;
   },
