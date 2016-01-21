@@ -17,54 +17,12 @@
         "displayOrder": 0,
         "translationKey": "DASHBOARD_TITLE_PATIENT_INFORMATION_KEY"
       },
-      "labResults1": {
-        "templateName": "Lab Results Template",
-        "name": "diseaseTemplate",
-        "dashboardParams": {
-          "conceptNames": [],
-          "showOnly": []
-        },
-        "allDiseaseDetails": {
-          "showDetailsButton": true,
-          "pivotTable": {
-            "numberOfVisits": "15",
-            "groupBy": "visits",
-            "obsConcepts": [
-              "Lab, RBC count test result",
-              "Lab, Creatinine test result",
-              "Lab, Creatinine test result unit",
-              "Lab, Hemoglobin test result",
-              "Lab, Platelet count test result",
-              "Lab, Absolute neutrophil count test result",
-              "Lab, Total bilirubin test result"
-            ],
-            "drugConcepts": [],
-            "labConcepts": []
-          }
-        },
-        "displayOrder": 10,
-        "title": "Lab Results"
-      },
-      "nutritionalValues": {
-        "name": "nutritionalValues",
-        "isObservation": true,
-        "dashboardParams": {
-          "conceptNames": [
-            "Height (cm)",
-            "Weight (kg)",
-            "BMI Data"
-          ],
-          "numberOfVisits": 1
-        },
-        "displayOrder": 1,
-        "translationKey": "DASHBOARD_TITLE_NUTRITIONAL_VALUES_KEY"
-      },
       "treatmentsDetails": {
         "title": "Treatments Details",
         "translationKey": "DASHBOARD_TITLE_TREATMENTS_DETAILS",
         "name": "drugOrderDetails",
 	"showDetailsButton" : true,
-        "displayOrder": 3,
+        "displayOrder": 2,
         "dashboardParams": {
 	  "showOnlyActive":true,
           "drugConceptSet": "All TB Drugs"
@@ -76,12 +34,12 @@
           "title": null,
           "maximumNoOfVisits": 0
         },
-        "displayOrder": 3,
+        "displayOrder": 1,
         "translationKey": "DASHBOARD_TITLE_FORMS_KEY"
       },
       "programs": {
         "name": "programs",
-        "displayOrder": 3,
+        "displayOrder": 4,
         "translationKey": "DASHBOARD_TITLE_PROGRAMS_KEY"
       },
       "bacteriologyResults": {
@@ -89,62 +47,32 @@
         "name": "bacteriologyResultsControl",
         "scope": "All",
         "orderType": "",
-        "displayOrder": 4,
+        "displayOrder": 5,
         "dashboardParams": {
           "conceptNames": [
             "BACTERIOLOGY CONCEPT SET"
           ]
         }
       },
-      "followup": {
-        "templateName": "Followup Template",
-        "name": "diseaseTemplate",
-        "dashboardParams": {
-          "conceptNames": [
-            "Height (cm)",
-            "Weight (kg)",
-            "BMI Data",
-            "BMI Status Data"
-          ],
-          "showOnly": []
-        },
-        "allDiseaseDetails": {
-          "showDetailsButton": true,
-          "pivotTable": {
-            "numberOfVisits": "15",
-            "groupBy": "visits",
-            "obsConcepts": [],
-            "drugConcepts": [],
-            "labConcepts": []
-          }
-        },
+      "adverseEvents": {
+        "translationKey": "Adverse Events",
+        "name": "obsToObsFlowSheet",
+	"headingConceptSource":"Abbreviation",
         "displayOrder": 6,
-        "title": "Followup Form Findings"
-      },
-      "baseline": {
-        "templateName": "Baseline Template",
-        "name": "diseaseTemplate",
         "dashboardParams": {
+          "scope": "All",
+          "isEditable": true,
+          "groupByConcept": "AE Form, AE term comprehensive list",
+          "templateName": "AE Form, Adverse Event details",
           "conceptNames": [
-            "Height (cm)",
-            "Weight (kg)",
-            "Body mass index",
-            "BMI Status"
-          ],
-          "showOnly": []
-        },
-        "allDiseaseDetails": {
-          "showDetailsButton": true,
-          "pivotTable": {
-            "numberOfVisits": "15",
-            "groupBy": "visits",
-            "obsConcepts": [],
-            "drugConcepts": [],
-            "labConcepts": []
-          }
-        },
-        "displayOrder": 5,
-        "title": "Baseline Form Findings"
+            "AE Form, AE ID number",
+            "AE Form, Date of AE onset",
+            "AE Form, AE review date",
+            "AE Form, Date of AE Outcome",
+            "AE Form, AE outcome",
+	    "AE Form, SAE Case Number"
+          ]
+        }
       }
     },
     "translationKey": "DASHBOARD_TAB_GENERAL_KEY"
@@ -570,19 +498,22 @@
         "translationKey": "Adverse Events",
         "name": "obsToObsFlowSheet",
         "displayType": "Full-Page",
+	"headingConceptSource":"Abbreviation",
         "displayOrder": 14,
         "dashboardParams": {
           "scope": "All",
-	  "isEditable": true,
           "groupByConcept": "AE Form, AE term comprehensive list",
           "templateName": "AE Form, Adverse Event details",
           "conceptNames": [
+	    "AE Form, AE ID number",
             "AE Form, Date of AE onset",
             "AE Form, AE Grade",
             "AE Form, Maximum severity of AE",
             "AE Form, AE review date",
+	    "AE Form, AE severity at review",
             "AE Form, Date of AE Outcome",
-            "AE Form, AE outcome"
+            "AE Form, AE outcome",
+	    "AE Form, SAE Case Number"
           ]
         }
       },
@@ -624,109 +555,5 @@
       }
     },
     "translationKey": "DASHBOARD_TAB_PATIENT_SUMMARY_KEY"
-  },
-  "AELogForms": {
-    "displayByDefault": true,
-    "maxRecentlyViewedPatients": 10,
-    "printing": {
-      "title": "AE Log Dashboard",
-      "header": "AE Log",
-      "logo": "../images/jss-icon.png"
-    },
-    "sections": {
-      "patientInformation": {
-        "name": "patientInformation",
-        "displayType": "Full-Page",
-        "patientAttributes": [
-          "DRTBNationalID",
-          "dateOfDRTB",
-          "facilityPatientID",
-          "nationalIdentificationNumber",
-          "previousDRTBNumber",
-          "telephoneNumber"
-        ],
-        "addressFields": [
-          "cityVillage",
-          "address2",
-          "stateProvince",
-          "country"
-        ],
-        "displayOrder": 0,
-        "translationKey": "DASHBOARD_TITLE_PATIENT_INFORMATION_KEY"
-      },
-      "adverseEvents": {
-        "translationKey": "Adverse Events",
-        "name": "obsToObsFlowSheet",
-        "displayType": "Full-Page",
-        "displayOrder": 14,
-        "dashboardParams": {
-          "scope": "All",
-          "groupByConcept": "AE Form, AE term comprehensive list",
-          "templateName": "AE Form, Adverse Event details",
-          "conceptNames": [
-            "AE Form, Date of AE onset",
-            "AE Form, AE Grade",
-            "AE Form, Maximum severity of AE",
-            "AE Form, AE review date",
-            "AE Form, Date of AE Outcome",
-            "AE Form, AE outcome"
-          ]
-        }
-      }
-    },
-    "translationKey": "AE Log"
-  },
-  "trends": {
-    "displayByDefault": true,
-    "maxRecentlyViewedPatients": 10,
-    "sections": {
-      "patientInformation": {
-        "name": "patientInformation",
-        "patientAttributes": [],
-        "addressFields": [],
-        "displayOrder": 0,
-        "translationKey": "DASHBOARD_TITLE_PATIENT_INFORMATION_KEY"
-      },
-      "weight/BMI": {
-        "type": "observationGraph",
-        "name": "observationGraph",
-        "config": {
-          "yAxisConcepts": [
-            "Body mass index"
-          ],
-          "xAxisConcept": "observationDateTime",
-          "numberOfVisits": 10
-        },
-        "displayOrder": 6,
-        "title": "BMI"
-      },
-      "Lab, Hemoglobin test result": {
-        "type": "observationGraph",
-        "name": "observationGraph",
-        "config": {
-          "yAxisConcepts": [
-            "lab, Hemoglobin test result"
-          ],
-          "xAxisConcept": "observationDateTime",
-          "numberOfVisits": 10
-        },
-        "displayOrder": 6,
-        "title": "Hemoglobin"
-      },
-      "AST": {
-        "type": "observationGraph",
-        "name": "observationGraph",
-        "config": {
-          "yAxisConcepts": [
-            "Lab, AST"
-          ],
-          "xAxisConcept": "observationDateTime",
-          "numberOfVisits": 10
-        },
-        "displayOrder": 8,
-        "title": "AST"
-      }
-    },
-    "translationKey": "DASHBOARD_TAB_TRENDS_KEY"
   }
 }

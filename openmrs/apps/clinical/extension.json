@@ -32,40 +32,17 @@
     "order": 8,
     "requiredPrivilege": "app:clinical:consultationTab"
   },
-  "bahmni_clinical_patients_search_allpatients_active_app_clinical": {
-    "id": "bahmni.clinical.patients.search.allPatients",
-    "extensionPointId": "org.bahmni.patient.search",
-    "type": "config",
-    "extensionParams": {
-      "searchHandler": "emrapi.sqlSearch.activePatients",
-      "forwardUrl": "#/default/patient/{{patientUuid}}/dashboard",
-      "translationKey": "MODULE_LABEL_ACTIVE_KEY"
-    },
-    "order": 1,
-    "requiredPrivilege": "app:clinical"
-  },
-  "bahmni_clinical_patients_search_allpatients_my_patients_app_clinical": {
-    "id": "bahmni.clinical.patients.search.allPatients",
-    "extensionPointId": "org.bahmni.patient.search",
-    "type": "config",
-    "extensionParams": {
-      "searchHandler": "emrapi.sqlSearch.activePatientsByProvider",
-      "forwardUrl": "#/default/patient/{{patientUuid}}/dashboard",
-      "translationKey": "MODULE_LABEL_MY_PATIENTS_KEY"
-    },
-    "order": 3,
-    "requiredPrivilege": "app:clinical"
-  },
   "bahmni_clinical_patients_search_allpatients_all_app_clinical": {
     "id": "bahmni.clinical.patients.search.allPatients",
     "extensionPointId": "org.bahmni.patient.search",
     "type": "config",
     "extensionParams": {
       "forwardUrl": "#/default/patient/{{patientUuid}}/dashboard",
-      "translationKey": "MODULE_LABEL_ALL_KEY"
+      "translationKey": "MODULE_LABEL_ALL_KEY",
+      "view" : "tabular"
     },
-    "order": 4,
-    "requiredPrivilege": "app:clinical"
+    "order": 1,
+    "requiredPrivilege": "app:clinical" 
   },
   "bahmniClinicalConceptSetGroupObservationsBaseline": {
     "id": "bahmni.clinical.conceptSetGroup.observations.baseline",
