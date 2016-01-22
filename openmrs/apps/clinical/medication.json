@@ -2,7 +2,7 @@
   "tbTabConfig": {
     "inputOptionsConfig": {
       "drugConceptSet": "All TB Drugs",
-      "isDropDown": true,
+      "isDropDown": false,
       "doseUnits": [
         "mg",
         "Tablet(s)"
