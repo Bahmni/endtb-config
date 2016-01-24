@@ -107,6 +107,25 @@
         "displayOrder": 0,
         "translationKey": "DASHBOARD_TITLE_PATIENT_INFORMATION_KEY"
       },
+      "treatmentInfo": {
+        "name": "monthlytreatment",
+        "isObservation": true,
+        "displayType": "Full-Page",
+        "dashboardParams": {
+          "showGroupDateTime": false,
+          "conceptNames": [
+		"TUBERCULOSIS DRUG TREATMENT START DATE",
+            	"Tuberculosis treatment end date",
+		"Treatment Facility Name",
+		"EOT, Outcome",
+            	"6m PTO, 6 month post treatment outcome",
+		"MTC, Completeness rate",
+                "MTC, Total fully observed complete days"
+          ]
+        },
+        "displayOrder": 1,
+        "translationKey": "Treatment Information"
+      },
       "casedefinition": {
         "name": "casedefinition",
         "isObservation": true,
@@ -124,19 +143,6 @@
         "displayOrder": 1,
         "translationKey": "Case Defintion"
       },
-	"monthlyTreatment": {
-        "name": "monthlytreatment",
-        "isObservation": true,
-        "displayType": "Full-Page",
-        "dashboardParams": {
-          "showGroupDateTime": false,
-          "conceptNames": [
-		"MTC, Total fully observed complete days"
-          ]
-        },
-        "displayOrder": 1,
-        "translationKey": "Monthly Treatment"
-      },
       "hivstatus": {
         "name": "hivstatus",
         "isObservation": true,
@@ -145,12 +151,17 @@
           "showGroupDateTime": false,
           "conceptNames": [
             "Baseline, HIV serostatus result",
-            "Date of HIV diagnosis"
+            "Date of HIV diagnosis",
+	    "Baseline, Hepatitis B",
+	    "Baseline, Hepatitis C",
+	    "Lab, HIV test result",
+	    "Lab, Hepatitis B antigen test result",
+	    "Lab, Hepatitis C antibody test result"
           ],
           "scope": "latest"
         },
         "displayOrder": 2,
-        "translationKey": "HIV Status"
+        "translationKey": "Serology Status"
       },
       "comorbidities": {
         "name": "comorbidities",
@@ -166,8 +177,6 @@
             "Baseline, Chronic obstructive pulmonary disease",
             "Baseline, Cancer",
             "Baseline, Heart or atherosclerotic disease",
-            "Baseline, Hepatitis B",
-            "Baseline, Hepatitis C",
             "Baseline, Depression",
             "Baseline, Other psychiatric illness",
             "Baseline, Seizure disorder",
@@ -232,21 +241,6 @@
             "Baseline, Past TB treatment outcome"
           ]
         }
-      },
-      "treatmentoutcome": {
-        "name": "treatmentoutcome",
-        "isObservation": true,
-        "displayType": "Full-Page",
-        "dashboardParams": {
-          "showGroupDateTime": false,
-          "conceptNames": [
-            "EOT, Outcome",
-            "6m PTO, 6 month post treatment outcome"
-          ],
-          "scope": "latest"
-        },
-        "displayOrder": 8,
-        "translationKey": "Treatment Outcome"
       },
       "dstResults": {
         "translationKey": "DST Results",
@@ -337,9 +331,9 @@
           "groupByConcept": "Specimen Collection Date"
         }
       },
-      "completenessFlowsheet": {
+      "weightBMI": {
         "name": "flowSheet",
-        "title": "Treatment Completeness vs Weight and BMI",
+        "title": "Weight and BMI",
         "displayType": "Full-Page",
         "displayOrder": 11,
         "rotateInPrint": true,
@@ -348,10 +342,8 @@
           "groupBy": "encounters",
           "obsConcepts": [
             "Weight (kg)",
-            "BMI Data",
-            "MTC, Completeness rate"
-          ],
-          "labConcepts": []
+            "BMI Data"
+          ]
         }
       },
       "LabHaemotology": {
