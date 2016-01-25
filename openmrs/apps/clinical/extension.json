@@ -21,6 +21,20 @@
     "order": 7,
     "requiredPrivilege": "app:clinical:diagnosisTab"
   },
+  "bahmniClinicalBillingTreatmentTbTab": {
+    "id": "bahmni.clinical.billing.treatment",
+    "extensionPointId": "org.bahmni.clinical.consultation.board",
+    "type": "link",
+    "label": "Medications",
+    "translationKey": "TB",
+    "extensionParams": {
+      "tabConfigName": "tbTabConfig"
+    },
+    "url": "treatment",
+    "icon": "fa-user-md",
+    "order": 8,
+    "requiredPrivilege": "app:clinical:consultationTab"
+  },
   "bahmniClinicalBillingTreatmentParacetamolTab": {
     "id": "bahmni.clinical.billing.treatment",
     "extensionPointId": "org.bahmni.clinical.consultation.board",
