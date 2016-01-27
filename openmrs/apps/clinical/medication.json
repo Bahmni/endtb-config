@@ -1,226 +1,230 @@
 {
-  "tbTabConfig": {
-    "inputOptionsConfig": {
-      "drugConceptSet": "All TB Drugs",
-      "isDropDown": false,
-      "doseUnits": [
-        "mg",
-        "Tablet(s)"
-      ],
-      "frequencies": [
-        "Alternate Days",
-        "Seven days a week",
-        "Twice a week",
-        "Six days a week",
-        "Immediately"
-      ],
-      "dosingInstructions": [
-        "As directed",
-        "Before meals"
-      ],
-      "routes": [
-        "Oral",
-        "Intramuscular",
-        "Intravenous",
-        "Inhalation"
-      ],
-      "durationUnits": [
-        "Day(s)",
-        "Month(s)"
-      ],
-      "dispensingUnits": [],
-      "hiddenFields": [
-        "additionalInstructions",
-        "dosingInstructions",
-        "quantity",
-        "quantityUnits",
-        "sos"
-      ],
-      "defaultStartDate": false,
-      "defaultDurationUnit": "Day(s)",
-      "defaultInstructions": "As directed",
-      "frequencyDefaultDurationUnitsMap": [
-        {
-          "minFrequency": 5,
-          "maxFrequency": null,
-          "defaultDurationUnit": "Hour(s)"
-        },
-        {
-          "minFrequency": "1/7",
-          "maxFrequency": 5,
-          "defaultDurationUnit": "Day(s)"
-        },
-        {
-          "minFrequency": "1/30",
-          "maxFrequency": "1/7",
-          "defaultDurationUnit": "Week(s)"
-        },
-        {
-          "minFrequency": null,
-          "maxFrequency": "1/30",
-          "defaultDurationUnit": "Month(s)"
-        }
-      ],
-      "drugFormDefaults": {}
-    },
-    "drugOrderHistoryConfig": {
-      "view": "custom",
-      "sections": {
-        "activeTbDrugs": {
-          "title": "Active TB Drugs",
-          "active": true,
-          "includeConceptSet": "All TB Drugs",
-          "captureStopReason": true,
-          "actions": [
-            "revise",
-            "stop",
-            "refill"
-          ]
-        },
-        "inactiveTbDrugs": {
-          "title": "Inactive TB Drugs",
-          "active": false,
-          "includeConceptSet": "All TB Drugs",
-          "columns": [
-            "frequency",
-            "route",
-            "stopDate",
-            "stopReason",
-            "stopReasonNotes"
-          ]
-        },
-        "activeNonTbDrugs": {
-          "title": "Active Non TB Drugs",
-          "active": true,
-          "actions": [
-            "revise",
-            "stop",
-            "refill"
-          ],
-          "excludeConceptSet": "All TB Drugs",
-          "columns": [
-            "frequency",
-            "route",
-            "duration",
-            "instructions",
-            "quantity",
-            "additionalInstructions"
-          ]
-        },
-        "inactiveNonTbDrugs": {
-          "title": "Inactive Non TB Drugs",
-          "active": false,
-          "actions": [
-            "refill"
-          ],
-          "excludeConceptSet": "All TB Drugs",
-          "columns": [
-            "frequency",
-            "route",
-            "duration",
-            "instructions",
-            "quantity",
-            "additionalInstructions",
-            "stopDate",
-            "stopReason",
-            "stopReasonNotes"
-          ]
+  "commonConfig": {
+  },
+  "tabConfig": {
+    "tbTabConfig": {
+      "inputOptionsConfig": {
+        "drugConceptSet": "All TB Drugs",
+        "isDropDown": false,
+        "doseUnits": [
+          "mg",
+          "Tablet(s)"
+        ],
+        "frequencies": [
+          "Alternate Days",
+          "Seven days a week",
+          "Twice a week",
+          "Six days a week",
+          "Immediately"
+        ],
+        "dosingInstructions": [
+          "As directed",
+          "Before meals"
+        ],
+        "routes": [
+          "Oral",
+          "Intramuscular",
+          "Intravenous",
+          "Inhalation"
+        ],
+        "durationUnits": [
+          "Day(s)",
+          "Month(s)"
+        ],
+        "dispensingUnits": [],
+        "hiddenFields": [
+          "additionalInstructions",
+          "dosingInstructions",
+          "quantity",
+          "quantityUnits",
+          "sos"
+        ],
+        "defaultStartDate": false,
+        "defaultDurationUnit": "Day(s)",
+        "defaultInstructions": "As directed",
+        "frequencyDefaultDurationUnitsMap": [
+          {
+            "minFrequency": 5,
+            "maxFrequency": null,
+            "defaultDurationUnit": "Hour(s)"
+          },
+          {
+            "minFrequency": "1/7",
+            "maxFrequency": 5,
+            "defaultDurationUnit": "Day(s)"
+          },
+          {
+            "minFrequency": "1/30",
+            "maxFrequency": "1/7",
+            "defaultDurationUnit": "Week(s)"
+          },
+          {
+            "minFrequency": null,
+            "maxFrequency": "1/30",
+            "defaultDurationUnit": "Month(s)"
+          }
+        ],
+        "drugFormDefaults": {}
+      },
+      "drugOrderHistoryConfig": {
+        "view": "custom",
+        "sections": {
+          "activeTbDrugs": {
+            "title": "Active TB Drugs",
+            "active": true,
+            "includeConceptSet": "All TB Drugs",
+            "captureStopReason": true,
+            "actions": [
+              "revise",
+              "stop",
+              "refill"
+            ]
+          },
+          "inactiveTbDrugs": {
+            "title": "Inactive TB Drugs",
+            "active": false,
+            "includeConceptSet": "All TB Drugs",
+            "columns": [
+              "frequency",
+              "route",
+              "stopDate",
+              "stopReason",
+              "stopReasonNotes"
+            ]
+          },
+          "activeNonTbDrugs": {
+            "title": "Active Non TB Drugs",
+            "active": true,
+            "actions": [
+              "revise",
+              "stop",
+              "refill"
+            ],
+            "excludeConceptSet": "All TB Drugs",
+            "columns": [
+              "frequency",
+              "route",
+              "duration",
+              "instructions",
+              "quantity",
+              "additionalInstructions"
+            ]
+          },
+          "inactiveNonTbDrugs": {
+            "title": "Inactive Non TB Drugs",
+            "active": false,
+            "actions": [
+              "refill"
+            ],
+            "excludeConceptSet": "All TB Drugs",
+            "columns": [
+              "frequency",
+              "route",
+              "duration",
+              "instructions",
+              "quantity",
+              "additionalInstructions",
+              "stopDate",
+              "stopReason",
+              "stopReasonNotes"
+            ]
+          }
         }
       }
-    }
-  },
-  "paracetamolTabConfig": {
-    "inputOptionsConfig": {
-      "drugConceptSet": "Paracetamol Drugs",
-      "isDropDown": true,
-      "defaultStartDate": true,
-      "doseUnits": [
-        "mg",
-        "Tablet(s)"
-      ],
-      "frequencies": [
-        "Alternate Days",
-        "Seven days a week",
-        "Twice a week",
-        "Six days a week",
-        "Immediately"
-      ],
-      "dosingInstructions": [
-        "As directed",
-        "Before meals"
-      ],
-      "routes": [
-        "Oral",
-        "Intramuscular",
-        "Intravenous",
-        "Inhalation"
-      ],
-      "durationUnits": [
-        "Day(s)",
-        "Month(s)"
-      ],
-      "dispensingUnits": [],
-      "hiddenFields": [
-        "additionalInstructions",
-        "dosingInstructions",
-        "quantity",
-        "quantityUnits",
-        "sos"
-      ],
-      "duration": {
-        "required": true
-      },
-      "defaultStartDate": false,
-      "defaultDurationUnit": "Day(s)",
-      "defaultInstructions": "As directed",
-      "frequencyDefaultDurationUnitsMap": [
-        {
-          "minFrequency": 5,
-          "maxFrequency": null,
-          "defaultDurationUnit": "Hour(s)"
-        },
-        {
-          "minFrequency": "1/7",
-          "maxFrequency": 5,
-          "defaultDurationUnit": "Day(s)"
-        },
-        {
-          "minFrequency": "1/30",
-          "maxFrequency": "1/7",
-          "defaultDurationUnit": "Week(s)"
-        },
-        {
-          "minFrequency": null,
-          "maxFrequency": "1/30",
-          "defaultDurationUnit": "Month(s)"
-        }
-      ],
-      "drugFormDefaults": {}
     },
-    "drugOrderHistoryConfig": {
-      "numberOfVisits": 0,
-      "sections": {
-        "activeParacetamolDrugs": {
-          "title": "Active Paracetamol Drugs",
-          "active": true,
-          "includeConceptSet": "Paracetamol",
-          "captureStopReason": true,
-          "actions": [
-            "revise",
-            "stop"
-          ]
+    "paracetamolTabConfig": {
+      "inputOptionsConfig": {
+        "drugConceptSet": "Paracetamol Drugs",
+        "isDropDown": true,
+        "defaultStartDate": true,
+        "doseUnits": [
+          "mg",
+          "Tablet(s)"
+        ],
+        "frequencies": [
+          "Alternate Days",
+          "Seven days a week",
+          "Twice a week",
+          "Six days a week",
+          "Immediately"
+        ],
+        "dosingInstructions": [
+          "As directed",
+          "Before meals"
+        ],
+        "routes": [
+          "Oral",
+          "Intramuscular",
+          "Intravenous",
+          "Inhalation"
+        ],
+        "durationUnits": [
+          "Day(s)",
+          "Month(s)"
+        ],
+        "dispensingUnits": [],
+        "hiddenFields": [
+          "additionalInstructions",
+          "dosingInstructions",
+          "quantity",
+          "quantityUnits",
+          "sos"
+        ],
+        "duration": {
+          "required": true
         },
-        "inactiveParacetamolDrugs": {
-          "title": "Inactive Paracetamol Drugs",
-          "active": false,
-          "includeConceptSet": "Paracetamol",
-          "columns": [
-            "frequency",
-            "route",
-            "stopDate",
-            "stopReason",
-            "stopReasonNotes"
-          ]
+        "defaultStartDate": false,
+        "defaultDurationUnit": "Day(s)",
+        "defaultInstructions": "As directed",
+        "frequencyDefaultDurationUnitsMap": [
+          {
+            "minFrequency": 5,
+            "maxFrequency": null,
+            "defaultDurationUnit": "Hour(s)"
+          },
+          {
+            "minFrequency": "1/7",
+            "maxFrequency": 5,
+            "defaultDurationUnit": "Day(s)"
+          },
+          {
+            "minFrequency": "1/30",
+            "maxFrequency": "1/7",
+            "defaultDurationUnit": "Week(s)"
+          },
+          {
+            "minFrequency": null,
+            "maxFrequency": "1/30",
+            "defaultDurationUnit": "Month(s)"
+          }
+        ],
+        "drugFormDefaults": {}
+      },
+      "drugOrderHistoryConfig": {
+        "numberOfVisits": 0,
+        "sections": {
+          "activeParacetamolDrugs": {
+            "title": "Active Paracetamol Drugs",
+            "active": true,
+            "includeConceptSet": "Paracetamol",
+            "captureStopReason": true,
+            "actions": [
+              "revise",
+              "stop"
+            ]
+          },
+          "inactiveParacetamolDrugs": {
+            "title": "Inactive Paracetamol Drugs",
+            "active": false,
+            "includeConceptSet": "Paracetamol",
+            "columns": [
+              "frequency",
+              "route",
+              "stopDate",
+              "stopReason",
+              "stopReasonNotes"
+            ]
+          }
         }
       }
     }
