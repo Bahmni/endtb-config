@@ -155,12 +155,12 @@
     "order": 10,
     "requiredPrivilege": "app:clinical"
   },
-  "bahmniClinicalConceptSetGroupObservationsLabResultsHaematology": {
-    "id": "bahmni.clinical.conceptSetGroup.observations.labresultshaematology",
+  "bahmniClinicalConceptSetGroupObservationsLabResultsHemotology": {
+    "id": "bahmni.clinical.conceptSetGroup.observations.labresultshemotology",
     "extensionPointId": "org.bahmni.clinical.conceptSetGroup.observations",
     "type": "config",
     "extensionParams": {
-      "conceptName": "Lab Results Haematology Template",
+      "conceptName": "Lab Results Hemotology Template",
       "default": true
     },
     "order": 11,
