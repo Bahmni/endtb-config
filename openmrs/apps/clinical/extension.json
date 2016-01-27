@@ -32,17 +32,18 @@
     "order": 8,
     "requiredPrivilege": "app:clinical:consultationTab"
   },
-  "bahmni_clinical_patients_search_allpatients_all_app_clinical": {
+  "bahmni_clinical_patients_search_allpatients_app_clinical": {
     "id": "bahmni.clinical.patients.search.allPatients",
     "extensionPointId": "org.bahmni.patient.search",
     "type": "config",
     "extensionParams": {
+      "searchHandler": "emrapi.sqlSearch.allPatients",
       "forwardUrl": "#/default/patient/{{patientUuid}}/dashboard",
       "translationKey": "MODULE_LABEL_ALL_KEY",
       "view" : "tabular"
     },
     "order": 1,
-    "requiredPrivilege": "app:clinical" 
+    "requiredPrivilege": "app:clinical"
   },
   "bahmniClinicalConceptSetGroupObservationsBaseline": {
     "id": "bahmni.clinical.conceptSetGroup.observations.baseline",
