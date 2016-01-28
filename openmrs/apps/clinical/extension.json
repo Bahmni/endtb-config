@@ -22,12 +22,29 @@
     "order": 7,
     "requiredPrivilege": "app:clinical:diagnosisTab"
   },
-  "bahmniClinicalBillingTreatment": {
+  "bahmniClinicalBillingTreatmentTbTab": {
     "id": "bahmni.clinical.billing.treatment",
     "extensionPointId": "org.bahmni.clinical.consultation.board",
     "type": "link",
     "label": "Medications",
-    "translationKey": "Medication",
+    "translationKey": "TB Drugs",
+    "extensionParams": {
+      "tabConfigName": "tbTabConfig"
+    },
+    "url": "treatment",
+    "icon": "fa-user-md",
+    "order": 8,
+    "requiredPrivilege": "app:clinical:consultationTab"
+  },
+  "bahmniClinicalBillingTreatmentNonTbTab": {
+    "id": "bahmni.clinical.billing.treatment",
+    "extensionPointId": "org.bahmni.clinical.consultation.board",
+    "type": "link",
+    "label": "Medications",
+    "translationKey": "Non TB Drugs",
+    "extensionParams": {
+      "tabConfigName": "nonTbTabConfig"
+    },
     "url": "treatment",
     "icon": "fa-user-md",
     "order": 8,
