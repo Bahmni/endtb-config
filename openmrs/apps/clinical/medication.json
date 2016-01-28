@@ -1,102 +1,201 @@
 {
   "shouldOverRideConfig": true,
-  "inputOptionsConfig": {
-    "drugConceptSet": "All TB Drugs",
-    "isDropDown": true,
-    "doseUnits": [
-      "mg","Tablet(s)"
-    ],
-    "frequencies": [
-      "Alternate Days",
-      "Seven days a week",
-      "Twice a week",
-      "Six days a week",
-      "Immediately"
-    ],
-    "dosingInstructions": [
-      "As directed",
-      "Before meals"
-    ],
-    "routes": [
-      "Oral",
-      "Intramuscular",
-      "Intravenous",
-      "Inhalation"
-    ],
-    "durationUnits": [
-      "Day(s)",
-      "Month(s)"
-    ],
-    "dispensingUnits": [],
-    "hiddenFields": [
-      "additionalInstructions",
-      "dosingInstructions",
-      "quantity",
-      "quantityUnits",
-      "sos"
-    ]
+  "commonConfig": {
   },
-  "drugOrderHistoryConfig": {
-    "view": "custom",
-    "sections": {
-      "activeTbDrugs": {
-        "title": "Active TB Drugs",
-        "active": true,
-        "includeConceptSet": "All TB Drugs",
-        "captureStopReason": true,
-        "actions": [
-          "revise",
-          "stop"
-        ]
-      },
-      "inactiveTbDrugs": {
-        "title": "Inactive TB Drugs",
-        "active": false,
-        "includeConceptSet": "All TB Drugs",
-        "columns": [
-          "frequency",
-          "route",
-          "stopDate",
-          "stopReason",
-          "stopReasonNotes"
-        ]
-      },
-      "activeNonTbDrugs": {
-        "title": "Active Non TB Drugs",
-        "active": true,
-        "actions": [
-          "revise",
-          "stop",
-          "refill"
+  "tabConfig": {
+    "tbTabConfig": {
+      "inputOptionsConfig": {
+        "drugConceptSet": "All TB Drugs",
+        "isDropDown": true,
+        "doseUnits": [
+          "mg",
+          "Tablet(s)"
         ],
-        "excludeConceptSet": "All TB Drugs",
-        "columns": [
-          "frequency",
-          "route",
-          "duration",
-          "instructions",
-          "quantity",
-          "additionalInstructions"
-        ]
-      },
-      "inactiveNonTbDrugs": {
-        "title": "Inactive Non TB Drugs",
-        "active": false,
-        "actions": [
-          "refill"
+        "frequencies": [
+          "Alternate Days",
+          "Seven days a week",
+          "Twice a week",
+          "Six days a week",
+          "Immediately"
         ],
-        "excludeConceptSet": "All TB Drugs",
-        "columns": [
-          "frequency",
-          "route",
+        "dosingInstructions": [
+          "As directed",
+          "Before meals"
+        ],
+        "routes": [
+          "Oral",
+          "Intramuscular",
+          "Intravenous",
+          "Aerosol"
+        ],
+        "durationUnits": [
+          "Day(s)",
+          "Month(s)"
+        ],
+        "dispensingUnits": [],
+        "hiddenFields": [
+          "dosingTypeToggle",
           "duration",
-          "instructions",
+          "durationUnits",
           "quantity",
+          "quantityUnits",
           "additionalInstructions",
-          "stopDate",
-          "stopReason",
-          "stopReasonNotes"
-        ]
+          "dosingInstructions",
+          "sos"
+        ],
+        "defaultStartDate": false,
+        "defaultDurationUnit": "Day(s)",
+        "defaultInstructions": "As directed",
+        "frequencyDefaultDurationUnitsMap": [
+          {
+            "minFrequency": 5,
+            "maxFrequency": null,
+            "defaultDurationUnit": "Hour(s)"
+          },
+          {
+            "minFrequency": "1/7",
+            "maxFrequency": 5,
+            "defaultDurationUnit": "Day(s)"
+          },
+          {
+            "minFrequency": "1/30",
+            "maxFrequency": "1/7",
+            "defaultDurationUnit": "Week(s)"
+          },
+          {
+            "minFrequency": null,
+            "maxFrequency": "1/30",
+            "defaultDurationUnit": "Month(s)"
+          }
+        ],
+        "drugFormDefaults": {}
+      },
+      "drugOrderHistoryConfig": {
+        "view": "custom",
+        "sections": {
+          "activeTbDrugs": {
+            "title": "Active TB Drugs",
+            "active": true,
+            "includeConceptSet": "All TB Drugs",
+            "captureStopReason": true,
+            "actions": [
+              "revise",
+              "stop"
+            ]
+          },
+          "inactiveTbDrugs": {
+            "title": "Inactive TB Drugs",
+            "active": false,
+            "includeConceptSet": "All TB Drugs",
+            "columns": [
+              "frequency",
+              "route",
+              "stopDate",
+              "stopReason",
+              "stopReasonNotes"
+            ]
+          }
+        }
+      }
+    },
+    "nonTbTabConfig": {
+      "inputOptionsConfig": {
+        "defaultStartDate": true,
+        "doseUnits": [
+          "mg",
+          "Tablet(s)"
+        ],
+        "frequencies": [
+          "Alternate Days",
+          "Seven days a week",
+          "Twice a week",
+          "Six days a week",
+          "Immediately"
+        ],
+        "dosingInstructions": [
+          "As directed",
+          "Before meals"
+        ],
+        "routes": [
+          "Oral",
+          "Intramuscular",
+          "Intravenous",
+          "Inhalation"
+        ],
+        "durationUnits": [
+          "Day(s)",
+          "Month(s)"
+        ],
+        "dispensingUnits": [],
+        "defaultDurationUnit": "Day(s)",
+        "defaultInstructions": "As directed",
+        "frequencyDefaultDurationUnitsMap": [
+          {
+            "minFrequency": 5,
+            "maxFrequency": null,
+            "defaultDurationUnit": "Hour(s)"
+          },
+          {
+            "minFrequency": "1/7",
+            "maxFrequency": 5,
+            "defaultDurationUnit": "Day(s)"
+          },
+          {
+            "minFrequency": "1/30",
+            "maxFrequency": "1/7",
+            "defaultDurationUnit": "Week(s)"
+          },
+          {
+            "minFrequency": null,
+            "maxFrequency": "1/30",
+            "defaultDurationUnit": "Month(s)"
+          }
+        ],
+        "drugFormDefaults": {}
+      },
+      "drugOrderHistoryConfig": {
+        "view": "custom",
+        "numberOfVisits": 0,
+        "sections": {
+          "activeNonTbDrugs": {
+            "title": "Active Non TB Drugs",
+            "active": true,
+            "captureStopReason": true,
+            "actions": [
+              "revise",
+              "stop",
+              "refill"
+            ],
+            "excludeConceptSet": "All TB Drugs",
+            "columns": [
+              "frequency",
+              "route",
+              "duration",
+              "instructions",
+              "quantity",
+              "additionalInstructions"
+            ]
+          },
+          "inactiveNonTbDrugs": {
+            "title": "Inactive Non TB Drugs",
+            "active": false,
+            "actions": [
+              "refill"
+            ],
+            "excludeConceptSet": "All TB Drugs",
+            "columns": [
+              "frequency",
+              "route",
+              "duration",
+              "instructions",
+              "quantity",
+              "additionalInstructions",
+              "stopDate",
+              "stopReason",
+              "stopReasonNotes"
+            ]
+          }
+        }
       }
     }
   }

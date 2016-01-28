@@ -792,47 +792,6 @@
       "Baseline, Other pre-existing disease":{
           "allowAddMore":true
       }
-    },
-    "drugOrder": {
-      "duration": {
-        "required": false
-      },
-      "dosingInstructions": {
-        "required": false
-      },
-      "durationUnits": {
-        "required": false
-      },
-      "dispensingUnits": {
-        "required": false
-      },
-      "defaultStartDate" : false,
-      "numberOfVisits": 0,
-      "defaultDurationUnit": "Day(s)",
-      "defaultInstructions": "As directed",
-      "frequencyDefaultDurationUnitsMap": [
-        {
-          "minFrequency": 5,
-          "maxFrequency": null,
-          "defaultDurationUnit": "Hour(s)"
-        },
-        {
-          "minFrequency": "1/7",
-          "maxFrequency": 5,
-          "defaultDurationUnit": "Day(s)"
-        },
-        {
-          "minFrequency": "1/30",
-          "maxFrequency": "1/7",
-          "defaultDurationUnit": "Week(s)"
-        },
-        {
-          "minFrequency": null,
-          "maxFrequency": "1/30",
-          "defaultDurationUnit": "Month(s)"
-        }
-      ],
-      "drugFormDefaults": {}
     }
   }
 }
