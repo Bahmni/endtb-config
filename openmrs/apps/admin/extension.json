@@ -1,4 +1,5 @@
 {
+    "shouldOverRideConfig": true,
     "csv_upload": {
         "id": "bahmni.admin.csv",
         "extensionPointId": "org.bahmni.admin.dashboard",
