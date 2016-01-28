@@ -634,20 +634,6 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
 	}
 	return conditions;
   },
-  'AE Form, Is AE an SAE' : function (formName, formFieldValues) {
-        var conceptToEnable = "AE Form, SAE Case Number";
-        var conceptSeriousnessCriteria = "AE Form, Seriousness criteria";
-        var conditions = {enable : [],disable : []};
-        var condtionalConcept = formFieldValues['AE Form, Is AE an SAE'];
-        if (condtionalConcept == true) {
-                conditions.enable.push(conceptToEnable);
-                conditions.enable.push(conceptSeriousnessCriteria);
-        } else {
-                conditions.disable.push(conceptToEnable);
-                conditions.disable.push(conceptSeriousnessCriteria);
-        }
-        return conditions;
-  },
   'AE Form, Other causal factors related to AE' : function (formName, formFieldValues) {
 	var enNonTBDrug = "AE Form, Non TB drug of other causal factor";
 	var enComorbidity = "AE Form, Comorbidity of other causal facrtor";
@@ -675,6 +661,20 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
 	}
 	return conditions;
   },
+	'SAE Form, Previously reported as AE' : function (formName, formFieldValues) {
+		var previousAE = "SAE Form, AE ID # if previously reported as AE";
+		var SeriousnessCriteria = "SAE Form, Seriousness criteria";
+		var conditions = {enable : [],disable : []};
+		var PreviouslyReportedAE = formFieldValues['SAE Form, Previously reported as AE'];
+		if (PreviouslyReportedAE == true) {
+			conditions.enable.push(SeriousnessCriteria)
+			conditions.enable.push(previousAE)
+		} else {
+			conditions.disable.push(SeriousnessCriteria)
+			conditions.disable.push(previousAE)
+		}
+		return conditions;
+	},
   'SAE Form, SAE term comprehensive AE list' : function (formName, formFieldValues) {
 	var conceptToEnable = "SAE Form, Other SAE term";
 	var conditions = {enable : [],disable : []};
@@ -686,8 +686,31 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
 	}
 	return conditions;
   },
+	"SAE Form, Is SAE related to TB drugs": function(formName, formFieldValues){
+		var conceptToEnable = "SAE Form, TB drug treatment";
+		var conditions = {enable : [],disable : []};
+		var SAEIsTbDrug = formFieldValues['SAE Form, Is SAE related to TB drugs'];
+		if (SAEIsTbDrug == true) {
+			conditions.enable.push(conceptToEnable)
+		} else {
+			conditions.disable.push(conceptToEnable)
+		}
+		return conditions;
+	},
+
+	'SAE Form, Related test' : function (formName, formFieldValues) {
+		var conceptToEnable = "SAE form, other related test";
+		var conditions = {enable : [],disable : []};
+		var SAETerm = formFieldValues['SAE Form, Related test'];
+		if (SAETerm == "Other") {
+			conditions.enable.push(conceptToEnable)
+		} else {
+			conditions.disable.push(conceptToEnable)
+		}
+		return conditions;
+	},
   'SAE Form, Other causal factors related to SAE' : function (formName, formFieldValues) {
-	var enNonTBDrug = "SAE Form, Non TB drug of ther causal factors";
+	var enNonTBDrug = "SAE Form, Non TB drug of other causal factors";
 	var enComorbidity = "SAE Form, Comorbidity of other causal factors";
 	var enOtherCausalFactors = "SAE Form, Other causal factor";
 	var conditions = {enable : [],disable : []};
