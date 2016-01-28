@@ -26,7 +26,7 @@
     "extensionPointId": "org.bahmni.clinical.consultation.board",
     "type": "link",
     "label": "Medications",
-    "translationKey": "TB",
+    "translationKey": "TB Drugs",
     "extensionParams": {
       "tabConfigName": "tbTabConfig"
     },
@@ -35,14 +35,14 @@
     "order": 8,
     "requiredPrivilege": "app:clinical:consultationTab"
   },
-  "bahmniClinicalBillingTreatmentParacetamolTab": {
+  "bahmniClinicalBillingTreatmentNonTbTab": {
     "id": "bahmni.clinical.billing.treatment",
     "extensionPointId": "org.bahmni.clinical.consultation.board",
     "type": "link",
     "label": "Medications",
-    "translationKey": "Paracetamol",
+    "translationKey": "Non TB Drugs",
     "extensionParams": {
-      "tabConfigName": "paracetamolTabConfig"
+      "tabConfigName": "nonTbTabConfig"
     },
     "url": "treatment",
     "icon": "fa-user-md",
