@@ -1,4 +1,5 @@
 {
+    "shouldOverRideConfig": true,
     "bahmni_registration_navigation_patient_search": {
         "id": "bahmni.registration.navigation.patient.search",
         "extensionPointId": "org.bahmni.registration.navigation",

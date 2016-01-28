@@ -1,4 +1,5 @@
 {
+    "shouldOverRideConfig": true,
     "bahmni_registration": {
         "id": "bahmni.registration",
         "extensionPointId": "org.bahmni.home.dashboard",

@@ -1,4 +1,5 @@
 {
+  "shouldOverRideConfig": true,
   "bahmni_clinical_consultation_observations_app_clinical_observationtab": {
     "id": "bahmni.clinical.consultation.observations",
     "extensionPointId": "org.bahmni.clinical.consultation.board",

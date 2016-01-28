@@ -1,4 +1,5 @@
 {
+    "shouldOverRideConfig": true,
     "id": "bahmni.registration",
     "instanceOf": "bahmni.template.registration",
     "description": "Bahmni Patient Registration App",

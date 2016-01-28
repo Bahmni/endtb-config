@@ -1,4 +1,5 @@
 {
+    "shouldOverRideConfig": true,
     "id": "bahmni.homepage",
     "extensionPoints": [
         {

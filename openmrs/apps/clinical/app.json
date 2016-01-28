@@ -1,5 +1,6 @@
 {
   "id": "bahmni.clinical",
+  "shouldOverRideConfig": true,
   "extensionPoints": [
     {
       "id": "org.bahmni.clinical.consultation.board",
