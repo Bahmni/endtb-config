@@ -275,6 +275,39 @@
         "allowAddMore": true,
         "conciseText": true
       },
+      "AE Form, TB drug name": {
+        "autocomplete": true
+      },
+      "SAE Form, TB drug treatment": {
+        "allowAddMore": true
+      },
+      "SAE Form, Other causal factors related to SAE": {
+        "multiSelect": true
+      },
+      "SAE Form, TB drug name": {
+        "autocomplete": true
+      },
+      "SAE Form, Related tests (data from PV unit summary)": {
+        "allowAddMore": true
+      },
+      "SAE Form, SAE term comprehensive AE list": {
+        "autocomplete": true
+      },
+      "SAE Form, SAE review log": {
+        "allowAddMore": true
+      },
+      "SAE Form, Non TB drug of other causal factors": {
+        "allowAddMore": true,
+        "conciseText": true
+      },
+      "SAE Form, Comorbidity of other causal factors": {
+        "allowAddMore": true,
+        "conciseText": true
+      },
+      "SAE Form, Other causal factor": {
+        "allowAddMore": true,
+        "conciseText": true
+      },
       "PRF, Partners initials": {
         "conciseText": true
       },
