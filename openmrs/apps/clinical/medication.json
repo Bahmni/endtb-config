@@ -16,25 +16,23 @@
           "frequencyUnitsPlaceHolder": "MEDICATION_LABEL_FREQUENCY_UNIT_TB_TAB"
         },
         "doseUnits": [
-          "mg",
-          "Tablet(s)"
+          "mg"
         ],
         "frequencies": [
-          "Alternate Days",
-          "Seven days a week",
-          "Twice a week",
-          "Six days a week",
-          "Immediately"
+          "6 days per week",
+	  "7 days per week",
+	  "Every other day",
+	  "3 days per week"
         ],
         "dosingInstructions": [
           "As directed",
           "Before meals"
         ],
         "routes": [
-          "Oral",
-          "Intramuscular",
-          "Intravenous",
-          "Aerosol"
+          "Oral (PO)",
+	  "Intramuscular (IM)",
+	  "Intravenous (IV)",
+	  "Inhalation"
         ],
         "durationUnits": [
           "Day(s)",
@@ -47,7 +45,6 @@
           "durationUnits",
           "quantity",
           "quantityUnits",
-          "additionalInstructions",
           "dosingInstructions",
           "sos"
         ],
