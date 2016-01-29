@@ -4,6 +4,7 @@
   },
   "tabConfig": {
     "tbTabConfig": {
+      "hideBulkChangeDurationButton": true,
       "inputOptionsConfig": {
         "drugConceptSet": "All TB Drugs",
         "isDropDown": true,
