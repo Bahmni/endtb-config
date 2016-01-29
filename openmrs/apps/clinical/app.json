@@ -312,7 +312,11 @@
         "conciseText": true
       },
       "PRF, Pregnancy report case ID": {
+        "required": true,
         "conciseText": true
+      },
+      "PRF, TB drug name": {
+        "autocomplete": true
       },
       "PRF, Non-TB drug name": {
         "conciseText": true
