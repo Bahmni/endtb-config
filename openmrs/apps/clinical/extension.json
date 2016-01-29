@@ -56,7 +56,7 @@
     "type": "config",
     "extensionParams": {
       "searchHandler": "emrapi.sqlSearch.allPatients",
-      "forwardUrl": "#/default/patient/{{patientUuid}}/dashboard",
+      "forwardUrl": "#/default/patient/{{patientUuid}}/consultationContext",
       "translationKey": "MODULE_LABEL_ALL_KEY",
       "view" : "tabular"
     },
