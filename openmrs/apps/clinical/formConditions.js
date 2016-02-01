@@ -56,9 +56,9 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
 	};
 	var conditionConcept = formFieldValues['Baseline, HIV serostatus result'];
 	if (conditionConcept == "Positive") {
-		conditions.enable.push("Baseline, HIV program registration number", "Date of HIV diagnosis", "Baseline, CD4 count details", "CD4 date", "HIV VIRAL LOAD", "Baseline, Viral Load Date", "Antiretroviral treatment start date", "Baseline, On ARV treatment", "Baseline, Drugs used in ARV treatment")
+		conditions.enable.push("Baseline, HIV program registration number", "Date of HIV diagnosis", "Baseline, CD4 count details", "CD4 date", "Baseline, HIV Viral Load Details", "Baseline, Viral Load Date", "Antiretroviral treatment start date", "Baseline, On ARV treatment", "Baseline, Drugs used in ARV treatment")
 	} else {
-		conditions.disable.push("Baseline, HIV program registration number", "Date of HIV diagnosis", "Baseline, CD4 count details", "CD4 date", "HIV VIRAL LOAD", "Baseline, Viral Load Date", "Antiretroviral treatment start date",  "Baseline, On ARV treatment", "Baseline, Drugs used in ARV treatment")
+		conditions.disable.push("Baseline, HIV program registration number", "Date of HIV diagnosis", "Baseline, CD4 count details", "CD4 date", "Baseline, HIV Viral Load Details", "Baseline, Viral Load Date", "Antiretroviral treatment start date",  "Baseline, On ARV treatment", "Baseline, Drugs used in ARV treatment")
 	}
 	return conditions;
   },
@@ -135,7 +135,7 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
 	};
 	var enExtraPul = "Baseline, Exact extrapulmonary site";
 	var conditionConcept = formFieldValues['Baseline, Disease site'];
-	if (conditionConcept == "Extrapulmonary") {
+	if (conditionConcept.indexOf("Extrapulmonary") > -1) {
 		conditions.enable.push(enExtraPul);
 	} else {
 		conditions.disable.push(enExtraPul);
@@ -662,7 +662,7 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
 	return conditions;
   },
 	'SAE Form, Previously reported as AE' : function (formName, formFieldValues) {
-		var previousAE = "SAE Form, AE ID # if previously reported as AE";
+		var previousAE = "SAE Form, AE ID if previously reported as AE";
 		var SeriousnessCriteria = "SAE Form, Seriousness criteria";
 		var conditions = {enable : [],disable : []};
 		var PreviouslyReportedAE = formFieldValues['SAE Form, Previously reported as AE'];
