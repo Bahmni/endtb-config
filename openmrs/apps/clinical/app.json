@@ -205,6 +205,9 @@
       "Visual acuity, right eye" : {
         "disableAddNotes" : true
       },
+      "EOT, Outcome" : {
+	"required" : true
+      },
       "EOT, Reasons for treatment interrruption": {
         "multiSelect": true
       },
@@ -286,6 +289,12 @@
       "AE Form, TB drug name": {
         "autocomplete": true
       },
+      "SAE Form, Serious Adverse Event Details" : {
+	"allowAddMore" : true
+      },
+      "SAE Form, Date of SAE report" : {
+	"required" : true
+      },
       "SAE Form, TB drug treatment": {
         "allowAddMore": true
       },
@@ -301,7 +310,7 @@
       "SAE Form, SAE term comprehensive AE list": {
         "autocomplete": true
       },
-      "SAE Form, SAE review log": {
+      "SAE Form, SAE severity review": {
         "allowAddMore": true
       },
       "SAE Form, Non TB drug of other causal factors": {

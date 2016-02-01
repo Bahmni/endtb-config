@@ -96,8 +96,7 @@
               "frequency",
               "route",
               "stopDate",
-              "stopReason",
-              "stopReasonNotes"
+              "stopReason"
             ]
           }
         }
@@ -106,6 +105,7 @@
     "nonTbTabConfig": {
       "inputOptionsConfig": {
         "defaultStartDate": true,
+	"drugConceptSet": "All Other Drugs",
         "labels": {
           "dose": "MEDICATION_LABEL_DOSE_NON_TB_TAB",
           "doseUnitsPlaceHolder": "MEDICATION_LABEL_DOSE_UNITS_PLACEHOLDER_NON_TB_TAB",
@@ -157,8 +157,7 @@
               "route",
               "duration",
               "instructions",
-              "quantity",
-              "additionalInstructions"
+              "quantity"
             ]
           },
           "inactiveNonTbDrugs": {
@@ -174,10 +173,8 @@
               "duration",
               "instructions",
               "quantity",
-              "additionalInstructions",
               "stopDate",
-              "stopReason",
-              "stopReasonNotes"
+              "stopReason"
             ]
           }
         }

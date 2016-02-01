@@ -257,10 +257,10 @@
           "templateName": "BACTERIOLOGY CONCEPT SET",
           "conceptNames": [
             "Bacteriology, Isoniazid 0.2 µg/ml result",
-            "Bacteriology, Isoniazid 1 µg/ml  result",
             "Bacteriology, Isoniazid 1 µg/ml result",
             "Bacteriology, Rifampicin result",
             "Bacteriology, Ethambutol result",
+	    "Bacteriology, Streptomycin result",
             "Bacteriology, Pyrazinamide result",
             "Bacteriology, Ofloxacin result",
             "Bacteriology, Levofloxacin result",
@@ -283,27 +283,30 @@
         "headingConceptSource":"Abbreviation",
         "dashboardParams": {
           "drugs": [
+              "ISONIAZID",
               "RIFAMPICIN",
+              "ETHAMBUTOL",
               "PYRAZINAMIDE",
-              "Kanamycin",
-              "TERIZIDONE",
               "STREPTOMYCIN",
+              "AMIKACIN",
+              "Kanamycin",
               "CAPREOMYCIN",
               "LEVOFLOXACIN",
               "MOXIFLOXACIN",
               "PROTHIONAMIDE",
               "ETHIONAMIDE",
               "CYCLOSERINE",
+              "TERIZIDONE",
+              "P-AMINOSALICYLIC ACID",
+              "P-Aminosalicylic Acid Monosodium Salt",
               "Bedaquiline",
               "DELAMANID",
               "LINEZOLID",
               "CLOFAZIMINE",
               "CILASTATIN / IMIPENEM",
-              "AMIKACIN",
-              "ISONIAZID",
-              "ETHAMBUTOL",
               "AMOXICILLIN AND CLAVULANIC ACID",
-              "P-AMINOSALICYLIC ACID"
+              "Meropenem"
+
           ]
         },
         "displayOrder": 10
