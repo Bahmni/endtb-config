@@ -1,5 +1,4 @@
 {
-	"shouldOverRideConfig": true,
 	"patientInformation": {
                 "name": "Patient Information",
                 "type": "PatientReport"
