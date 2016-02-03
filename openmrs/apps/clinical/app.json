@@ -25,10 +25,8 @@
       "Patient file"
     ],
     "program": {
-        "National TB Number" : {
-                "required" : true
-        },
-        "National DRTB Number" : {
+	"showDashBoardWithinDateRange" : true,
+        "Registration Number" : {
                 "required" : true
         }
     },
