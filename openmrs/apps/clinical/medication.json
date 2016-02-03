@@ -104,6 +104,9 @@
     },
     "nonTbTabConfig": {
       "inputOptionsConfig": {
+	"duration" : {
+                "required": true
+        },
         "defaultStartDate": true,
 	"drugConceptSet": "All Other Drugs",
         "labels": {
