@@ -21,11 +21,11 @@
                         "applyDateRangeFor": "encounterCreateDate"
                 }
         },
-	"medicationLogTemplateReport":{
-                "name": "Medication Log Data Export",
+	"treatmentInitiationTemplateReport":{
+                "name": "Treatment Initiation Data Export",
                 "type": "obsTemplate",
                 "config": {
-                        "templateName": "Medication log Template",
+                        "templateName": "Treatment Initiation Template",
                         "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
                         "applyDateRangeFor": "encounterCreateDate"
                 }
@@ -102,11 +102,47 @@
                         "applyDateRangeFor": "encounterCreateDate"
                 }
         },
-        "labresultsTemplateReport":{
-                "name": "Lab Results Data Export",
+        "hemotologyLabresultsTemplateReport":{
+                "name": "Hemotology Lab Results Data Export",
                 "type": "obsTemplate",
                 "config": {
-                        "templateName": "Lab Results Template",
+                        "templateName": "Lab Results Hemotology Template",
+                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "applyDateRangeFor": "encounterCreateDate"
+                }
+        },
+	"biochemistryLabresultsTemplateReport":{
+                "name": "Biochemistry Lab Results Data Export",
+                "type": "obsTemplate",
+                "config": {
+                        "templateName": "Lab Results Biochemistry Template",
+                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "applyDateRangeFor": "encounterCreateDate"
+                }
+        },
+	"serologyLabresultsTemplateReport":{
+                "name": "Serology Lab Results Data Export",
+                "type": "obsTemplate",
+                "config": {
+                        "templateName": "Lab Results Serology Template",
+                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "applyDateRangeFor": "encounterCreateDate"
+                }
+        },
+	"pregnancyLabresultsTemplateReport":{
+                "name": "Pregnancy Lab Results Data Export",
+                "type": "obsTemplate",
+                "config": {
+                        "templateName": "Lab Results Pregnancy Template",
+                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "applyDateRangeFor": "encounterCreateDate"
+                }
+        },
+	"otherLabresultsTemplateReport":{
+                "name": "Other Lab Results Data Export",
+                "type": "obsTemplate",
+                "config": {
+                        "templateName": "Lab Results Other Tests Template",
                         "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
                         "applyDateRangeFor": "encounterCreateDate"
                 }
