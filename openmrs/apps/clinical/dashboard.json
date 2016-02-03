@@ -39,11 +39,6 @@
         "displayOrder": 1,
         "translationKey": "DASHBOARD_TITLE_FORMS_KEY"
       },
-      "programs": {
-        "name": "programs",
-        "displayOrder": 4,
-        "translationKey": "DASHBOARD_TITLE_PROGRAMS_KEY"
-      },
       "bacteriologyResults": {
         "translationKey": "DASHBOARD_TITLE_BACTERIOLOGY_RESULTS_KEY",
         "name": "bacteriologyResultsControl",
