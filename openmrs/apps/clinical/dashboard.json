@@ -111,7 +111,8 @@
           "showGroupDateTime": false,
           "conceptNames": [
 		"TUBERCULOSIS DRUG TREATMENT START DATE",
-            	"Tuberculosis treatment end date",
+            "Current month of treatment",
+            "Tuberculosis treatment end date",
 		"Treatment Facility Name",
 		"EOT, Outcome",
             	"6m PTO, 6 month post treatment outcome",
