@@ -215,8 +215,7 @@
             "Baseline, How many drug-resistant TB treatments",
 	    "Baseline, List of drugs taken for more than a month",
             "Baseline, Other drug taken for more than a month"
-          ],
-          "scope": "latest"
+          ]
         },
         "displayOrder": 5,
         "translationKey": "Past TB Treatment Information"

@@ -305,6 +305,9 @@
       "SAE Form, Related tests (data from PV unit summary)": {
         "allowAddMore": true
       },
+      "SAE Form, Related test" : {
+	"autocomplete" : true
+      },
       "SAE Form, SAE term comprehensive AE list": {
         "autocomplete": true
       },
@@ -470,6 +473,9 @@
       "Xray, Pneumothorax right side" : {
         "disableAddNotes" : true
       },
+      "Audiometry, Audiometry template details" : {
+	"allowAddMore" : true
+      },
       "Audiometry, Month of scheduled visit": {
         "conciseText": true
       },
@@ -521,11 +527,17 @@
       "Audiometry, Right ear at 8000Hz" : {
         "disableAddNotes" : true
       },
+      "EKG, Electrocardiogram Details" : {
+	"allowAddMore" : true
+      },
       "EKG, Date of EKG": {
         "required": true
       },
       "EKG, Other Rhythm": {
         "conciseText": true
+      },
+      "MTC, Monthly Treatment Completeness Details" : {
+	"allowAddMore" : true
       },
       "MTC, Month of treatment period": {
         "required": true,
@@ -552,6 +564,9 @@
       },
       "MTC, DOT rate details" : {
         "allowAddMore" : true
+      },
+      "Performance Status, Performance Status Details" : {
+	"allowAddMore" : true
       }, 
       "Performance Status, Assessment date": {
         "required": true
