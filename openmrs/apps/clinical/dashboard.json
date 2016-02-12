@@ -464,7 +464,7 @@
           "scope": "All",
           "groupByConcept": "EKG, Date of EKG",
           "name": "EcgReadingsExtension",
-          "templateName": "Electrocardiogram Template",
+          "templateName": "EKG, Electrocardiogram Details",
           "conceptNames": [
             "EKG, Month of scheduled visit",
             "EKG, Rythm",

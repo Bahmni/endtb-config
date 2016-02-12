@@ -51,9 +51,25 @@ public class BahmniObsValueCalculator implements ObsValueCalculator {
     }
 
     public void run(BahmniEncounterTransaction bahmniEncounterTransaction) {
-        formNames.put("Serious Adverse Events Template", "SAE Form, Date of SAE report");
-        formNames.put("SAE Form, SAE outcome ( from PV unit summary)", "SAE Form, Event end date");
+	formNames.put("Baseline Template", "Baseline, Date of baseline");
+        formNames.put("Treatment Initiation Template","TUBERCULOSIS DRUG TREATMENT START DATE");
+        formNames.put("Followup Template", "Followup, Visit Date");
+        formNames.put("Outcome End of Treatment Template", "Tuberculosis treatment end date");
+        formNames.put("6 month Post Treatment Outcome Template", "6m PTO, 6 month post treatment outcome date");
         formNames.put("AE Form, Adverse Event details", "AE Form, Date of AE report");
+        formNames.put("SAE Form, Serious Adverse Event Details", "SAE Form, Date of SAE report");
+        formNames.put("Pregnancy Report Form Template", "PRF, Date reporter made aware of pregnancy");
+        formNames.put("Hospital Admission Notification Template", "HAN, Hospital admission date");
+        formNames.put("Hospital Discharge Summary Template", "HDS, Hospital discharge date");
+        formNames.put("Lab, Haematology Details", "Specimen Collection Date");
+        formNames.put("Lab, Biochemistry Details", "Specimen Collection Date");
+        formNames.put("Lab, Serology Details", "Specimen Collection Date");
+        formNames.put("Lab, Pregnancy Details", "Specimen Collection Date");
+        formNames.put("Lab, Other Tests Details", "Specimen Collection Date");
+        formNames.put("Xray Template", "Xray, Chest Xray Date");
+        formNames.put("Audiometry, Audiometry template details", "Audiometry, Audiometry date");
+        formNames.put("EKG, Electrocardiogram Details", "EKG, Date of EKG");
+        formNames.put("Performance Status, Performance Status Details", "Performance Status, Assessment date");
         calculateAndAdd(bahmniEncounterTransaction);
         changeObsDateTime(bahmniEncounterTransaction);
         convertUnits(bahmniEncounterTransaction);

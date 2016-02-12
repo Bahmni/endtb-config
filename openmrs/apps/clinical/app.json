@@ -21,6 +21,7 @@
   ],
   "config": {
     "defaultVisitType": "General",
+    "showFormsDate" : true,
     "obsIgnoreList": [
       "Patient file"
     ],
@@ -369,6 +370,15 @@
       },
       "HDS, Type of TB related surgery": {
         "multiSelect": true
+      },
+      "Lab Results Hemotology Template" :{
+        "hideAbnormalButton" : true
+      },
+      "Lab Results Biochemistry Template" : {
+        "hideAbnormalButton" : true
+      },
+      "Lab Results Serology Template" : {
+        "hideAbnormalButton" : true
       },
       "Lab, Month of scheduled visit": {
         "conciseText": true
