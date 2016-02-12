@@ -160,31 +160,14 @@
         "displayOrder": 2,
         "translationKey": "Serology Status"
       },
-      "comorbidities": {
-        "name": "comorbidities",
-        "isObservation": true,
-        "showGroupDateTime": false,
-        "displayType": "Full-Page",
-        "dashboardParams": {
-          "showGroupDateTime": false,
-          "conceptNames": [
-            "Diabetes Mellitus",
-            "Baseline, Chronic renal insufficiency",
-            "History of liver cirrhosis",
-            "Baseline, Chronic obstructive pulmonary disease",
-            "Baseline, Cancer",
-            "Baseline, Heart or atherosclerotic disease",
-            "Baseline, Depression",
-            "Baseline, Other psychiatric illness",
-            "Baseline, Seizure disorder",
-            "Baseline, Pre-existing neuropathy",
-            "Baseline, Neuropathy grade",
-            "Baseline, Other pre-existing disease"
-          ],
-          "scope": "latest"
-        },
+      "coMorbidities": {
+        "name": "custom",
         "displayOrder": 3,
-        "translationKey": "Co-morbidities"
+        "displayType": "Full-Page",
+        "config": {
+          "title": "Co-morbidities",
+          "template": "<co-morbidities></co-morbidities>"
+        }
       },
       "importantdates": {
         "name": "importantdates",
