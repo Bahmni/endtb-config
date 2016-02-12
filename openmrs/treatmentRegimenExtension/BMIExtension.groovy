@@ -22,6 +22,20 @@ public class BMIExtension extends BaseTableExtension<PivotTable> {
         this.bahmniBridge = BahmniBridge
                 .create()
                 .forPatient(patientUuid);
+                Date startDate;
+        try {
+            Obs latestObs = bahmniBridge.latestObs("TUBERCULOSIS DRUG TREATMENT START DATE");
+            startDate = latestObs != null ? latestObs.getValueDatetime() : null;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return;
+        }
+        EncounterTransaction.Concept monthConcept = null;
+        if (startDate != null) {
+                    monthConcept = constructMonthConcept();
+        setMonthAsHeader(pivotTable, monthConcept);
+
+        }
 
 
         EncounterTransaction.Concept concept = new EncounterTransaction.Concept();
@@ -38,14 +52,51 @@ public class BMIExtension extends BaseTableExtension<PivotTable> {
             newPivotRow.addColumn("Followup, Visit Date", latestObsForDate);
             newPivotRow.addColumn("Height (cm)", latestObsForHeight);
             newPivotRow.addColumn("Weight (kg)", latestObsForWeight);
-            pivotTable.addRow(newPivotRow);
+            pivotTable.addRow(0,newPivotRow);
         }
 
         for (PivotRow pivotRow : pivotTable.getRows()) {
+            if (startDate != null) {
+                Date rowDate = getRowDate(pivotRow);
+                calucluateMonth(startDate, pivotRow, rowDate, monthConcept);
+            }
             ArrayList<BahmniObservation> weightBahmniObservation = pivotRow.getValue("Weight (kg)");
             BahmniObservation latestObsForBMIData = bahmniBridge.getChildObsFromParentObs(weightBahmniObservation.get(0).getObsGroupUuid(), "BMI Data");
             BahmniObservation latestObsForBMI = bahmniBridge.getChildObsFromParentObs(latestObsForBMIData.getUuid(), "Body mass index");
             pivotRow.addColumn("BMI", latestObsForBMI);
         }
     }
+
+    private void calucluateMonth(Date startDate, PivotRow pivotRow, Date rowDate, EncounterTransaction.Concept concept) {
+        Days days = Days.daysBetween(new DateTime(startDate), new DateTime(rowDate));
+
+        String month = String.format("%.1f", days.getDays() / 30.0F);
+
+        BahmniObservation bahmniObservation = new BahmniObservation();
+        bahmniObservation.setConcept(concept);
+        bahmniObservation.setValue(month);
+        pivotRow.addColumn("Month", bahmniObservation);
+    }
+
+    private static void setMonthAsHeader(PivotTable pivotTable, EncounterTransaction.Concept concept) {
+        pivotTable.getHeaders().add(concept);
+    }
+
+    private static EncounterTransaction.Concept constructMonthConcept() {
+        EncounterTransaction.Concept concept = new EncounterTransaction.Concept();
+        concept.setName("Month");
+        return concept;
+    }
+
+    private static Date getRowDate(PivotRow pivotRow) {
+        ArrayList<BahmniObservation> obs = pivotRow.getColumns().get("Followup, Visit Date");
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            return df.parse(obs.get(0).getValueAsString());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 }
