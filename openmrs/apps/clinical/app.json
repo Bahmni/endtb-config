@@ -24,11 +24,18 @@
     "obsIgnoreList": [
       "Patient file"
     ],
+    "patientContext": {
+      "programAttributes": [
+        "Registration Number",
+        "Registration Facility"
+      ],
+      "preferredIdentifier": "Registration Number"
+    },
     "program": {
-	"showDashBoardWithinDateRange" : true,
-        "Registration Number" : {
-                "required" : true
-        }
+      "showDashBoardWithinDateRange": true,
+      "Registration Number": {
+        "required": true
+      }
     },
     "otherInvestigationsMap": {},
     "maxConceptSetLevels": 3,
@@ -42,20 +49,20 @@
       "Baseline, Date of baseline": {
         "required": true
       },
-      "Baseline, Other Marital Status":{
-	"conciseText" : true
+      "Baseline, Other Marital Status": {
+        "conciseText": true
       },
-      "Baseline, Last DSTB Registration ID" : {
-	"conciseText" : true
+      "Baseline, Last DSTB Registration ID": {
+        "conciseText": true
       },
-      "Baseline, Last DRTB Registration ID" : {
-        "conciseText" : true
+      "Baseline, Last DRTB Registration ID": {
+        "conciseText": true
       },
-      "TI, Did the patient start treatment" : {
-	"required" : true
+      "TI, Did the patient start treatment": {
+        "required": true
       },
-      "TUBERCULOSIS DRUG TREATMENT START DATE" : {
-	"required" : true
+      "TUBERCULOSIS DRUG TREATMENT START DATE": {
+        "required": true
       },
       "Consent scan copy": {
         "allowAddMore": true
@@ -105,15 +112,9 @@
       "Baseline, Exact extrapulmonary site": {
         "conciseText": true
       },
-      "Baseline, Last DRTB Registration ID": {
-        "conciseText": true
-      },
-      "Baseline, Last DSTB Registration ID": {
-        "conciseText": true
-      },
       "Baseline, Other drug taken for more than a month": {
         "conciseText": true,
-	"allowAddMore": true
+        "allowAddMore": true
       },
       "Baseline, HIV program registration number": {
         "conciseText": true
@@ -134,7 +135,7 @@
         "conciseText": true
       },
       "Baseline, Other pre-existing disease": {
-        "conciseText": true
+        "allowAddMore": true
       },
       "Baseline, Other method of MDR-TB confirmation": {
         "conciseText": true
@@ -142,8 +143,8 @@
       "Followup, Visit Date": {
         "required": true
       },
-      "Followup, Pregnancy form case ID number" : {
-	"conciseText" : true
+      "Followup, Pregnancy form case ID number": {
+        "conciseText": true
       },
       "Followup, New serious AE reference number": {
         "conciseText": true
@@ -151,60 +152,60 @@
       "Followup, New AE reference number": {
         "conciseText": true
       },
-      "Followup, Brief Peripheral Neuropathy Screen" : {
-	"isTabular" : true
+      "Followup, Brief Peripheral Neuropathy Screen": {
+        "isTabular": true
       },
-      "Followup, Vibration Perception in Left" : {
-	"autocomplete" : true,
-	"disableAddNotes": true
+      "Followup, Vibration Perception in Left": {
+        "autocomplete": true,
+        "disableAddNotes": true
       },
-      "Followup, Ankle reflexes in left" : {
-        "autocomplete" : true,
-	"disableAddNotes": true
+      "Followup, Ankle reflexes in left": {
+        "autocomplete": true,
+        "disableAddNotes": true
       },
-      "Followup, Vibration Perception in Right" : {
-        "autocomplete" : true,
-	"disableAddNotes": true
+      "Followup, Vibration Perception in Right": {
+        "autocomplete": true,
+        "disableAddNotes": true
       },
-      "Followup, Ankle reflexes in right" : {
-        "autocomplete" : true,
-	"disableAddNotes": true
+      "Followup, Ankle reflexes in right": {
+        "autocomplete": true,
+        "disableAddNotes": true
       },
-      "Followup, Visual Acuity" : {
-	"isTabular" : true
+      "Followup, Visual Acuity": {
+        "isTabular": true
       },
-      "Followup, Pain Aching or Buring in Right Feet and Leg" : {
-	"autocomplete" : true,
-	"disableAddNotes": true
+      "Followup, Pain Aching or Buring in Right Feet and Leg": {
+        "autocomplete": true,
+        "disableAddNotes": true
       },
-      "Followup, Pins and Needles in Right Feet and Leg" : {
-        "autocomplete" : true,
-	"disableAddNotes": true
+      "Followup, Pins and Needles in Right Feet and Leg": {
+        "autocomplete": true,
+        "disableAddNotes": true
       },
-      "Followup, Numbness in Right Feet and Leg" : {
-        "autocomplete" : true,
-	"disableAddNotes": true
+      "Followup, Numbness in Right Feet and Leg": {
+        "autocomplete": true,
+        "disableAddNotes": true
       },
-      "Followup, Pain Aching or Buring in Left Feet and Leg" : {
-        "autocomplete" : true,
-	"disableAddNotes": true
+      "Followup, Pain Aching or Buring in Left Feet and Leg": {
+        "autocomplete": true,
+        "disableAddNotes": true
       },
-      "Followup, Pins and Needles in Left Feet and Leg" : {
-        "autocomplete" : true,
-	"disableAddNotes": true
+      "Followup, Pins and Needles in Left Feet and Leg": {
+        "autocomplete": true,
+        "disableAddNotes": true
       },
-      "Followup, Numbness in Left Feet and Leg" : {
-        "autocomplete" : true,
-	"disableAddNotes": true
+      "Followup, Numbness in Left Feet and Leg": {
+        "autocomplete": true,
+        "disableAddNotes": true
       },
-      "Visual acuity, left eye" : {
-	"disableAddNotes" : true
+      "Visual acuity, left eye": {
+        "disableAddNotes": true
       },
-      "Visual acuity, right eye" : {
-        "disableAddNotes" : true
+      "Visual acuity, right eye": {
+        "disableAddNotes": true
       },
-      "EOT, Outcome" : {
-	"required" : true
+      "EOT, Outcome": {
+        "required": true
       },
       "EOT, Reasons for treatment interrruption": {
         "multiSelect": true
@@ -287,11 +288,11 @@
       "AE Form, TB drug name": {
         "autocomplete": true
       },
-      "SAE Form, Serious Adverse Event Details" : {
-	"allowAddMore" : true
+      "SAE Form, Serious Adverse Event Details": {
+        "allowAddMore": true
       },
-      "SAE Form, Date of SAE report" : {
-	"required" : true
+      "SAE Form, Date of SAE report": {
+        "required": true
       },
       "SAE Form, TB drug treatment": {
         "allowAddMore": true
@@ -305,8 +306,8 @@
       "SAE Form, Related tests (data from PV unit summary)": {
         "allowAddMore": true
       },
-      "SAE Form, Related test" : {
-	"autocomplete" : true
+      "SAE Form, Related test": {
+        "autocomplete": true
       },
       "SAE Form, SAE term comprehensive AE list": {
         "autocomplete": true
@@ -348,14 +349,14 @@
       "PRF, Infant details": {
         "allowAddMore": true
       },
-      "HAN, Hospital admission date" : {
-        "required" : true
+      "HAN, Hospital admission date": {
+        "required": true
       },
-      "HDS, Hospital admission date" : {
-        "required" : true
+      "HDS, Hospital admission date": {
+        "required": true
       },
-      "HDS, Hospital discharge date" : {
-        "required" : true
+      "HDS, Hospital discharge date": {
+        "required": true
       },
       "HDS, Principal AE/SAE ID number": {
         "conciseText": true
@@ -393,88 +394,88 @@
       "Xray, Chest Xray Date": {
         "required": true
       },
-      "Xray, Other Radiological Tests" : {
-        "allowAddMore" : true
+      "Xray, Other Radiological Tests": {
+        "allowAddMore": true
       },
-      "Xray, Additional details" : {
-        "isTabular" : true
+      "Xray, Additional details": {
+        "isTabular": true
       },
-      "Xray, Cavity left side" : {
-        "disableAddNotes" : true,
-        "autocomplete" : true
+      "Xray, Cavity left side": {
+        "disableAddNotes": true,
+        "autocomplete": true
       },
-      "Xray, Maximum cavity size left side" : {
-        "disableAddNotes" : true,
-        "autocomplete" : true
+      "Xray, Maximum cavity size left side": {
+        "disableAddNotes": true,
+        "autocomplete": true
       },
-      "Xray, Fibrosis left side" : {
-        "disableAddNotes" : true,
-        "autocomplete" : true
+      "Xray, Fibrosis left side": {
+        "disableAddNotes": true,
+        "autocomplete": true
       },
-      "Xray, Infiltrate left side" : {
-        "disableAddNotes" : true,
-        "autocomplete" : true
+      "Xray, Infiltrate left side": {
+        "disableAddNotes": true,
+        "autocomplete": true
       },
-      "Xray, Tuberculoma left side" : {
-        "disableAddNotes" : true,
-        "autocomplete" : true
+      "Xray, Tuberculoma left side": {
+        "disableAddNotes": true,
+        "autocomplete": true
       },
-      "Xray, Disseminated left side" : {
-        "disableAddNotes" : true,
-        "autocomplete" : true
+      "Xray, Disseminated left side": {
+        "disableAddNotes": true,
+        "autocomplete": true
       },
-      "Xray, Nodule left side" : {
-        "disableAddNotes" : true,
-        "autocomplete" : true
+      "Xray, Nodule left side": {
+        "disableAddNotes": true,
+        "autocomplete": true
       },
-      "Xray, Pleural effusion left side" : {
-        "disableAddNotes" : true
+      "Xray, Pleural effusion left side": {
+        "disableAddNotes": true
       },
-      "Xray, Lymphadenopathy left side" : {
-        "disableAddNotes" : true
+      "Xray, Lymphadenopathy left side": {
+        "disableAddNotes": true
       },
-      "Xray, Pneumothorax left side" : {
-        "disableAddNotes" : true
+      "Xray, Pneumothorax left side": {
+        "disableAddNotes": true
       },
-      "Xray, Cavity right side" : {
-        "disableAddNotes" : true,
-        "autocomplete" : true
+      "Xray, Cavity right side": {
+        "disableAddNotes": true,
+        "autocomplete": true
       },
-      "Xray, Maximum cavity size right side" : {
-        "disableAddNotes" : true,
-        "autocomplete" : true
+      "Xray, Maximum cavity size right side": {
+        "disableAddNotes": true,
+        "autocomplete": true
       },
-      "Xray, Fibrosis right side" : {
-        "disableAddNotes" : true,
-        "autocomplete" : true
+      "Xray, Fibrosis right side": {
+        "disableAddNotes": true,
+        "autocomplete": true
       },
-      "Xray, Infiltrate right side" : {
-        "disableAddNotes" : true,
-        "autocomplete" : true
+      "Xray, Infiltrate right side": {
+        "disableAddNotes": true,
+        "autocomplete": true
       },
-      "Xray, Tuberculoma right side" : {
-        "disableAddNotes" : true,
-        "autocomplete" : true
+      "Xray, Tuberculoma right side": {
+        "disableAddNotes": true,
+        "autocomplete": true
       },
-      "Xray, Disseminated right side" : {
-        "disableAddNotes" : true,
-        "autocomplete" : true
+      "Xray, Disseminated right side": {
+        "disableAddNotes": true,
+        "autocomplete": true
       },
-      "Xray, Nodule right side" : {
-        "disableAddNotes" : true,
-        "autocomplete" : true
+      "Xray, Nodule right side": {
+        "disableAddNotes": true,
+        "autocomplete": true
       },
-      "Xray, Pleural effusion right side" : {
-        "disableAddNotes" : true
+      "Xray, Pleural effusion right side": {
+        "disableAddNotes": true
       },
-      "Xray, Lymphadenopathy right side" : {
-        "disableAddNotes" : true
+      "Xray, Lymphadenopathy right side": {
+        "disableAddNotes": true
       },
-      "Xray, Pneumothorax right side" : {
-        "disableAddNotes" : true
+      "Xray, Pneumothorax right side": {
+        "disableAddNotes": true
       },
-      "Audiometry, Audiometry template details" : {
-	"allowAddMore" : true
+      "Audiometry, Audiometry template details": {
+        "allowAddMore": true
       },
       "Audiometry, Month of scheduled visit": {
         "conciseText": true
@@ -482,53 +483,53 @@
       "Audiometry, Audiometry date": {
         "required": true
       },
-      "Audiometry, Audiometry details" : {
-	"isTabular" : true
+      "Audiometry, Audiometry details": {
+        "isTabular": true
       },
-      "Audiometry, Left ear at 250Hz" : {
-	"disableAddNotes" : true
+      "Audiometry, Left ear at 250Hz": {
+        "disableAddNotes": true
       },
-      "Audiometry, Left ear at 500Hz" : {
-        "disableAddNotes" : true
+      "Audiometry, Left ear at 500Hz": {
+        "disableAddNotes": true
       },
-      "Audiometry, Left ear at 1000Hz" : {
-        "disableAddNotes" : true
+      "Audiometry, Left ear at 1000Hz": {
+        "disableAddNotes": true
       },
-      "Audiometry, Left ear at 2000Hz" : {
-        "disableAddNotes" : true
+      "Audiometry, Left ear at 2000Hz": {
+        "disableAddNotes": true
       },
-      "Audiometry, Left ear at 4000Hz" : {
-        "disableAddNotes" : true
+      "Audiometry, Left ear at 4000Hz": {
+        "disableAddNotes": true
       },
-      "Audiometry, Left ear at 6000Hz" : {
-        "disableAddNotes" : true
+      "Audiometry, Left ear at 6000Hz": {
+        "disableAddNotes": true
       },
-      "Audiometry, Left ear at 8000Hz" : {
-        "disableAddNotes" : true
+      "Audiometry, Left ear at 8000Hz": {
+        "disableAddNotes": true
       },
-      "Audiometry, Right ear at 250Hz" : {
-        "disableAddNotes" : true
+      "Audiometry, Right ear at 250Hz": {
+        "disableAddNotes": true
       },
-      "Audiometry, Right ear at 500Hz" : {
-        "disableAddNotes" : true
+      "Audiometry, Right ear at 500Hz": {
+        "disableAddNotes": true
       },
-      "Audiometry, Right ear at 1000Hz" : {
-        "disableAddNotes" : true
+      "Audiometry, Right ear at 1000Hz": {
+        "disableAddNotes": true
       },
-      "Audiometry, Right ear at 2000Hz" : {
-        "disableAddNotes" : true
+      "Audiometry, Right ear at 2000Hz": {
+        "disableAddNotes": true
       },
-      "Audiometry, Right ear at 4000Hz" : {
-        "disableAddNotes" : true
+      "Audiometry, Right ear at 4000Hz": {
+        "disableAddNotes": true
       },
-      "Audiometry, Right ear at 6000Hz" : {
-        "disableAddNotes" : true
+      "Audiometry, Right ear at 6000Hz": {
+        "disableAddNotes": true
       },
-      "Audiometry, Right ear at 8000Hz" : {
-        "disableAddNotes" : true
+      "Audiometry, Right ear at 8000Hz": {
+        "disableAddNotes": true
       },
-      "EKG, Electrocardiogram Details" : {
-	"allowAddMore" : true
+      "EKG, Electrocardiogram Details": {
+        "allowAddMore": true
       },
       "EKG, Date of EKG": {
         "required": true
@@ -536,8 +537,8 @@
       "EKG, Other Rhythm": {
         "conciseText": true
       },
-      "MTC, Monthly Treatment Completeness Details" : {
-	"allowAddMore" : true
+      "MTC, Monthly Treatment Completeness Details": {
+        "allowAddMore": true
       },
       "MTC, Month of treatment period": {
         "required": true,
@@ -553,21 +554,21 @@
       "MTC, Additional contributing reasons for less than 100% completeness": {
         "multiSelect": true
       },
-      "MTC, Additional contributing program related reasons" : {
+      "MTC, Additional contributing program related reasons": {
         "multiSelect": true
       },
-      "MTC, Additional contributing medical or treatment related reasons" : {
+      "MTC, Additional contributing medical or treatment related reasons": {
         "multiSelect": true
       },
-      "MTC, Additional contributing patient related reasons" : {
+      "MTC, Additional contributing patient related reasons": {
         "multiSelect": true
       },
-      "MTC, DOT rate details" : {
-        "allowAddMore" : true
+      "MTC, DOT rate details": {
+        "allowAddMore": true
       },
-      "Performance Status, Performance Status Details" : {
-	"allowAddMore" : true
-      }, 
+      "Performance Status, Performance Status Details": {
+        "allowAddMore": true
+      },
       "Performance Status, Assessment date": {
         "required": true
       },
@@ -618,45 +619,45 @@
       "Baseline, Brief Peripheral Neuropathy Screen": {
         "isTabular": true
       },
-      "Baseline, Pain Aching or Buring in Left Feet and Leg" : {
-	"autocomplete" : true,
-	"disableAddNotes": true
+      "Baseline, Pain Aching or Buring in Left Feet and Leg": {
+        "autocomplete": true,
+        "disableAddNotes": true
       },
-      "Baseline, Pins and Needles in Left Feet and Leg" : {
-        "autocomplete" : true,
-	"disableAddNotes": true
+      "Baseline, Pins and Needles in Left Feet and Leg": {
+        "autocomplete": true,
+        "disableAddNotes": true
       },
-      "Baseline, Numbness in Left Feet and Leg" : {
-        "autocomplete" : true,
-	"disableAddNotes": true
+      "Baseline, Numbness in Left Feet and Leg": {
+        "autocomplete": true,
+        "disableAddNotes": true
       },
-      "Baseline, Pain Aching or Buring in Right Feet and Leg" : {
-        "autocomplete" : true,
-	"disableAddNotes": true
+      "Baseline, Pain Aching or Buring in Right Feet and Leg": {
+        "autocomplete": true,
+        "disableAddNotes": true
       },
-      "Baseline, Pins and Needles in Right Feet and Leg" : {
-        "autocomplete" : true,
-	"disableAddNotes": true
+      "Baseline, Pins and Needles in Right Feet and Leg": {
+        "autocomplete": true,
+        "disableAddNotes": true
       },
-      "Baseline, Numbness in Right Feet and Leg" : {
-        "autocomplete" : true,
-	"disableAddNotes": true
+      "Baseline, Numbness in Right Feet and Leg": {
+        "autocomplete": true,
+        "disableAddNotes": true
       },
       "Baseline, Vibration Perception in Left": {
         "autocomplete": true,
-	"disableAddNotes": true
+        "disableAddNotes": true
       },
       "Baseline, Ankle reflexes in left": {
         "autocomplete": true,
-	"disableAddNotes": true
+        "disableAddNotes": true
       },
       "Baseline, Vibration Perception in Right": {
         "autocomplete": true,
-	"disableAddNotes": true
+        "disableAddNotes": true
       },
       "Baseline, Ankle reflexes in right": {
         "autocomplete": true,
-	"disableAddNotes": true
+        "disableAddNotes": true
       },
       "Lab, Hemoglobin": {
         "isTabular": true
@@ -790,74 +791,71 @@
       "SERUM ALBUMIN": {
         "disableAddNotes": true
       },
-      "Lab, Other test" : {
-	"allowAddMore" : true
+      "Lab, Other test": {
+        "allowAddMore": true
       },
       "Hemoglobin": {
         "disableAddNotes": true
       },
-      "Lab, Hemoglobin mmol/L" : {
-	"disableAddNotes" : true
+      "Lab, Hemoglobin mmol/L": {
+        "disableAddNotes": true
       },
-      "Lab, RBC with other unit" : {
-	"disableAddNotes" : true
+      "Lab, RBC with other unit": {
+        "disableAddNotes": true
       },
-      "Lab, WBC other unit" : {
-        "disableAddNotes" : true
+      "Lab, WBC other unit": {
+        "disableAddNotes": true
       },
       "Lab, Neutrophils other test result": {
         "disableAddNotes": true
       },
-      "Lab, Potassium other" : {
-        "disableAddNotes" : true
+      "Lab, Potassium other": {
+        "disableAddNotes": true
       },
-      "Lab, Magnesium other" : {
-        "disableAddNotes" : true
+      "Lab, Magnesium other": {
+        "disableAddNotes": true
       },
-      "Lab, Ionized Calcium other" : {
-        "disableAddNotes" : true
+      "Lab, Ionized Calcium other": {
+        "disableAddNotes": true
       },
-      "Lab, Urea other" : {
-        "disableAddNotes" : true
+      "Lab, Urea other": {
+        "disableAddNotes": true
       },
-      "Lab, Creatinine other" : {
-        "disableAddNotes" : true
+      "Lab, Creatinine other": {
+        "disableAddNotes": true
       },
-      "Lab, Glucose other" : {
-        "disableAddNotes" : true
+      "Lab, Glucose other": {
+        "disableAddNotes": true
       },
-      "Lab, Glucose (Fasting) other" : {
-        "disableAddNotes" : true
+      "Lab, Glucose (Fasting) other": {
+        "disableAddNotes": true
       },
-      "Lab, Total Bilirubin other" : {
-	"disableAddNotes" : true
+      "Lab, Total Bilirubin other": {
+        "disableAddNotes": true
       },
-      "Lab, Haematology Details" : {
-        "allowAddMore" : true
+      "Lab, Haematology Details": {
+        "allowAddMore": true
       },
-      "Lab, Biochemistry Details" : {
-        "allowAddMore" : true
+      "Lab, Biochemistry Details": {
+        "allowAddMore": true
       },
-      "Lab, Serology Details" : {
-        "allowAddMore" : true
+      "Lab, Serology Details": {
+        "allowAddMore": true
       },
-      "Lab, Pregnancy Details" : {
-        "allowAddMore" : true
+      "Lab, Pregnancy Details": {
+        "allowAddMore": true
       },
-      "Lab, Other Tests Details" : {
-        "allowAddMore" : true
+      "Lab, Other Tests Details": {
+        "allowAddMore": true
       },
       "Bacteriology, Smear microscopy test results": {
-          "allowAddMore":true
+        "allowAddMore": true
       },
-      "Bacteriology, Culture results details":{
-          "allowAddMore":true
+      "Bacteriology, Culture results details": {
+        "allowAddMore": true
       },
-      "Baseline, Known Drug Allergies":{
-          "allowAddMore":true
-      },
-      "Baseline, Other pre-existing disease":{
-          "allowAddMore":true
+      "Baseline, Known Drug Allergies": {
+        "allowAddMore": true
       }
     }
   }
