@@ -4,21 +4,6 @@
     "displayByDefault": true,
     "maxRecentlyViewedPatients": 10,
     "sections": {
-      "patientInformation": {
-	"ageLimit" : 1,
-        "name": "patientInformation",
-        "patientAttributes": [
-          "DRTBNationalID",
-          "dateOfDRTB",
-          "facilityPatientID",
-          "nationalIdentificationNumber",
-          "previousDRTBNumber",
-          "telephoneNumber"
-        ],
-        "addressFields": [],
-        "displayOrder": 0,
-        "translationKey": "DASHBOARD_TITLE_PATIENT_INFORMATION_KEY"
-      },
       "treatmentsDetails": {
         "title": "Treatments Details",
         "translationKey": "DASHBOARD_TITLE_TREATMENTS_DETAILS",
@@ -83,26 +68,6 @@
       "logo": "../images/jss-icon.png"
     },
     "sections": {
-      "patientInformation": {
-        "name": "patientInformation",
-        "displayType": "Full-Page",
-        "patientAttributes": [
-          "DRTBNationalID",
-          "dateOfDRTB",
-          "facilityPatientID",
-          "nationalIdentificationNumber",
-          "previousDRTBNumber",
-          "telephoneNumber"
-        ],
-        "addressFields": [
-          "cityVillage",
-          "address2",
-          "stateProvince",
-          "country"
-        ],
-        "displayOrder": 0,
-        "translationKey": "DASHBOARD_TITLE_PATIENT_INFORMATION_KEY"
-      },
       "treatmentInfo": {
         "name": "monthlytreatment",
         "isObservation": true,
