@@ -76,13 +76,10 @@
           "showGroupDateTime": false,
           "conceptNames": [
 		"TUBERCULOSIS DRUG TREATMENT START DATE",
-            "Current month of treatment",
-            "Tuberculosis treatment end date",
-		"Treatment Facility Name",
+                "Current month of treatment",
+                "Tuberculosis treatment end date",
 		"EOT, Outcome",
-            	"6m PTO, 6 month post treatment outcome",
-		"MTC, Completeness rate",
-                "MTC, Total fully observed complete days"
+            	"6m PTO, 6 month post treatment outcome"
           ]
         },
         "displayOrder": 1,
@@ -278,6 +275,21 @@
           "groupByConcept": "Specimen Collection Date"
         }
       },
+      "txCompletenessRate": {
+        "name": "txCompleteness",
+        "isObservation": true,
+        "displayType": "Full-Page",
+        "dashboardParams": {
+          "showGroupDateTime": false,
+          "conceptNames": [
+                "Current month of treatment",
+                "MTC, Completeness rate"
+          ],
+          "scope": "latest"
+        },
+        "displayOrder": 11,
+        "translationKey": "Treatment Completeness Rate"
+      },
       "weightBMI": {
         "displayType": "Full-Page",
         "title": "Weight vs BMI",
@@ -295,8 +307,8 @@
           ]
         },
         "allDetailsParams": {
-          "templateName": "Lab, Haematology Details",
-          "groupByConcept": "Specimen Collection Date"
+          "templateName": "Followup Template",
+          "groupByConcept": "Followup, Visit Date"
         }
       },
       "LabHaemotology": {
