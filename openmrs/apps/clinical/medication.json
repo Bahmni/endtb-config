@@ -83,6 +83,16 @@
             "active": true,
             "includeConceptSet": "All TB Drugs",
             "captureStopReason": true,
+	    "columnHeaders": {
+                "drugName" : "DRUG_HISTORY_TB_DRUGNAME",
+                "dosage": "DRUG_HISTORY_TB_DOSAGE",
+                "route" : "DRUG_HISTORY_TB_ROUTE",
+		"duration" : "DRUG_HISTORY_TB_DURATION",
+                "frequency" : "DRUG_HISTORY_TB_FREQUENCY",
+                "startDate" : "DRUG_HISTORY_TB_STARTDATE",
+                "stopDate" : "DRUG_HISTORY_TB_STOPDATE",
+                "stopReason" : "DRUG_HISTORY_TB_STOPREASON"
+            },
             "actions": [
               "revise",
               "stop"
@@ -92,6 +102,16 @@
             "title": "Inactive TB Drugs",
             "active": false,
             "includeConceptSet": "All TB Drugs",
+	    "columnHeaders": {
+                "drugName" : "DRUG_HISTORY_TB_DRUGNAME",
+                "dosage": "DRUG_HISTORY_TB_DOSAGE",
+                "route" : "DRUG_HISTORY_TB_ROUTE",
+		"duration" : "DRUG_HISTORY_TB_DURATION",
+                "frequency" : "DRUG_HISTORY_TB_FREQUENCY",
+                "startDate" : "DRUG_HISTORY_TB_STARTDATE",
+                "stopDate" : "DRUG_HISTORY_TB_STOPDATE",
+                "stopReason" : "DRUG_HISTORY_TB_STOPREASON"
+            },
             "columns": [
               "frequency",
               "route",
@@ -149,6 +169,18 @@
             "title": "Active Non TB Drugs",
             "active": true,
             "captureStopReason": true,
+	    "columnHeaders": {
+		"drugName" : "DRUG_HISTORY_NONTB_DRUGNAME",
+		"dosage": "DRUG_HISTORY_NONTB_DOSAGE",
+		"route" : "DRUG_HISTORY_NONTB_ROUTE",
+		"duration" : "DRUG_HISTORY_NONTB_DURATION",
+		"frequency" : "DRUG_HISTORY_NONTB_FREQUENCY",
+		"startDate" : "DRUG_HISTORY_NONTB_STARTDATE",
+		"stopDate" : "DRUG_HISTORY_NONTB_STOPDATE",
+		"stopReason" : "DRUG_HISTORY_NONTB_STOPREASON",
+		"quantity" : "DRUG_HISTORY_NONTB_QUANTITY",
+		"instructions" : "DRUG_HISTORY_NONTB_INSTRUCTIONS"
+            },
             "actions": [
               "revise",
               "stop",
@@ -166,6 +198,18 @@
           "inactiveNonTbDrugs": {
             "title": "Inactive Non TB Drugs",
             "active": false,
+            "columnHeaders": {
+                "drugName" : "DRUG_HISTORY_NONTB_DRUGNAME",
+                "dosage": "DRUG_HISTORY_NONTB_DOSAGE",
+                "route" : "DRUG_HISTORY_NONTB_ROUTE",
+                "duration" : "DRUG_HISTORY_NONTB_DURATION",
+                "frequency" : "DRUG_HISTORY_NONTB_FREQUENCY",
+                "startDate" : "DRUG_HISTORY_NONTB_STARTDATE",
+                "stopDate" : "DRUG_HISTORY_NONTB_STOPDATE",
+                "stopReason" : "DRUG_HISTORY_NONTB_STOPREASON",
+                "quantity" : "DRUG_HISTORY_NONTB_QUANTITY",
+                "instructions" : "DRUG_HISTORY_NONTB_INSTRUCTIONS"
+            },
             "actions": [
               "refill"
             ],
