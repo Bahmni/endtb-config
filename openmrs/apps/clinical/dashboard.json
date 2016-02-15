@@ -214,7 +214,7 @@
         "dashboardParams": {
           "showGroupDateTime": false,
           "conceptNames": [
-            "Baseline, Year of First TB Treatment",
+            "Baseline, If Yes, What was the year of the patients start of first TB treatment Details",
             "Baseline, Treatment for drug-susceptible TB",
             "Baseline, How many drug-susceptible TB treatments",
             "Baseline, Treatment for drug-resistant TB",
