@@ -277,7 +277,7 @@
         }
       },
       "Drug-O-Gram": {
-        "displayType": "Half-Page",
+        "displayType": "LAYOUT_75_25",
         "title": "Drug Regimen",
         "translationKey": "Drug Regimen",
         "name": "chronicTreatmentChart",
@@ -313,7 +313,7 @@
         "displayOrder": 10
       },
       "BacteriologyResults": {
-        "displayType": "Half-Page",
+        "displayType": "LAYOUT_25_75",
         "title": "Culture & Smear Results",
         "name": "obsToObsFlowSheet",
 	"headingConceptSource":"Abbreviation",
