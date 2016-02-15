@@ -71,6 +71,14 @@
                 "pattern": "[a-zA-Z0-9]{9}",
                 "errorMessage": "Should be 9 characters"
             }
-        }
+        },
+      "patientSearch": {
+        "programAttributes": {
+          "label": "Registration Number",
+          "placeholder": "Enter Reg Number",
+          "field": "Registration Number"
+        },
+        "searchByPatientIdentifier": true
+      }
     }
 }
