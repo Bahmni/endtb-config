@@ -10,6 +10,7 @@ import org.openmrs.module.bahmniemrapi.obscalculator.ObsValueCalculator;
 import org.openmrs.module.bahmniemrapi.encountertransaction.contract.BahmniEncounterTransaction
 import org.openmrs.module.emrapi.encounter.domain.EncounterTransaction;
 import org.openmrs.module.bahmniemrapi.BahmniEmrAPIException;
+import org.bahmni.module.bahmnicore.service.impl.BahmniBridge;
 
 import org.joda.time.LocalDate;
 import org.joda.time.Months;
@@ -27,6 +28,7 @@ public class BahmniObsValueCalculator implements ObsValueCalculator {
     static Double BMI_SEVERELY_OBESE = 40.0;
     static Map<BahmniObservation, BahmniObservation> obsParentMap = new HashMap<BahmniObservation, BahmniObservation>();
     static Map<String,String> formNames = new HashMap<String, String>();
+    static BahmniBridge bahmniBridge = BahmniBridge.create();
 
     public static enum BmiStatus {
         VERY_SEVERELY_UNDERWEIGHT("Very Severely Underweight"),
@@ -77,75 +79,84 @@ public class BahmniObsValueCalculator implements ObsValueCalculator {
 
     static def convertUnits(BahmniEncounterTransaction bahmniEncounterTransaction){
         //Hemoglobin
-        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Hemoglobin Data","Hemoglobin","Lab, Hemoglobin mmol/L Data","Lab, Hemoglobin mmol/L",1/1.61);
-        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Hemoglobin mmol/L Data","Lab, Hemoglobin mmol/L","Lab, Hemoglobin Data","Hemoglobin",1.61);
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Hemoglobin Data","Hemoglobin","Hemoglobin Abnormal","Lab, Hemoglobin mmol/L Data","Lab, Hemoglobin mmol/L","Lab, Hemoglobin mmol/L Abnormal",1/1.61);
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Hemoglobin mmol/L Data","Lab, Hemoglobin mmol/L","Lab, Hemoglobin mmol/L Abnormal","Lab, Hemoglobin Data","Hemoglobin","Hemoglobin Abnormal",1.61);
 
         //RBC count
-	    calculateAlternateObs(bahmniEncounterTransaction,"Lab, RED BLOOD CELLS Data","RED BLOOD CELLS","Lab, RBC with other unit Data","Lab, RBC with other unit",1/1000000);
-        calculateAlternateObs(bahmniEncounterTransaction,"Lab, RBC with other unit Data","Lab, RBC with other unit","Lab, RED BLOOD CELLS Data","RED BLOOD CELLS",1000000);
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, RED BLOOD CELLS Data","RED BLOOD CELLS","RED BLOOD CELLS Abnormal","Lab, RBC with other unit Data","Lab, RBC with other unit","Lab, RBC with other unit Abnormal",1/1000000);
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, RBC with other unit Data","Lab, RBC with other unit","Lab, RBC with other unit Abnormal","Lab, RED BLOOD CELLS Data","RED BLOOD CELLS","RED BLOOD CELLS Abnormal",1000000);
 
         //WBC count
-	   calculateAlternateObs(bahmniEncounterTransaction,"Lab, WHITE BLOOD CELLS Data","WHITE BLOOD CELLS","Lab, WBC other unit Data","Lab, WBC other unit",1000);
-	   calculateAlternateObs(bahmniEncounterTransaction,"Lab, WBC other unit Data","Lab, WBC other unit","Lab, WHITE BLOOD CELLS Data","WHITE BLOOD CELLS",1/1000);
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, WHITE BLOOD CELLS Data","WHITE BLOOD CELLS","WHITE BLOOD CELLS Abnormal","Lab, WBC other unit Data","Lab, WBC other unit","Lab, WBC other unit Abnormal",1000);
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, WBC other unit Data","Lab, WBC other unit","Lab, WBC other unit Abnormal","Lab, WHITE BLOOD CELLS Data","WHITE BLOOD CELLS","WHITE BLOOD CELLS Abnormal",1/1000);
 
         //Potassium
-	    calculateAlternateObs(bahmniEncounterTransaction,"Lab, SERUM POTASSIUM Data","SERUM POTASSIUM","Lab, Potassium other Data","Lab, Potassium other",3.91);
-        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Potassium other Data","Lab, Potassium other","Lab, SERUM POTASSIUM Data","SERUM POTASSIUM",1/3.91);
-	
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, SERUM POTASSIUM Data","SERUM POTASSIUM","SERUM POTASSIUM Abnormal","Lab, Potassium other Data","Lab, Potassium other","Lab, Potassium other Abnormal",3.91);
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Potassium other Data","Lab, Potassium other","Lab, Potassium other Abnormal","Lab, SERUM POTASSIUM Data","SERUM POTASSIUM","SERUM POTASSIUM Abnormal",1/3.91);
+
         //Magnesium
-	    calculateAlternateObs(bahmniEncounterTransaction,"Lab, Magnesium test result Data","Lab, Magnesium test result","Lab, Magnesium other Data","Lab, Magnesium other",0.41);
-        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Magnesium other Data","Lab, Magnesium other","Lab, Magnesium test result Data","Lab, Magnesium test result",1/0.41);
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Magnesium test result Data","Lab, Magnesium test result","Lab, Magnesium test result Abnormal","Lab, Magnesium other Data","Lab, Magnesium other","Lab, Magnesium other Abnormal",0.41);
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Magnesium other Data","Lab, Magnesium other","Lab, Magnesium other Abnormal","Lab, Magnesium test result Data","Lab, Magnesium test result","Lab, Magnesium test result Abnormal",1/0.41);
 
         //Ionised calcium
-	    calculateAlternateObs(bahmniEncounterTransaction,"Lab, Ionized Calcium test result Data","Lab, Ionized Calcium test result","Lab, Ionized Calcium other Data","Lab, Ionized Calcium other",4);
-        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Ionized Calcium other Data","Lab, Ionized Calcium other","Lab, Ionized Calcium test result Data","Lab, Ionized Calcium test result",1/4);
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Ionized Calcium test result Data","Lab, Ionized Calcium test result","Lab, Ionized Calcium test result Abnormal","Lab, Ionized Calcium other Data","Lab, Ionized Calcium other","Lab, Ionized Calcium other Abnormal",4);
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Ionized Calcium other Data","Lab, Ionized Calcium other","Lab, Ionized Calcium other Abnormal","Lab, Ionized Calcium test result Data","Lab, Ionized Calcium test result","Lab, Ionized Calcium test result Abnormal",1/4);
 
         //Urea
-        calculateAlternateObs(bahmniEncounterTransaction,"Lab, BLOOD UREA NITROGEN Data","BLOOD UREA NITROGEN","Lab, Urea other Data","Lab, Urea other",2.80);
-        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Urea other Data","Lab, Urea other","Lab, BLOOD UREA NITROGEN Data","BLOOD UREA NITROGEN",1/2.80);
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, BLOOD UREA NITROGEN Data","BLOOD UREA NITROGEN","BLOOD UREA NITROGEN Abnormal","Lab, Urea other Data","Lab, Urea other","Lab, Urea other Abnormal",2.80);
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Urea other Data","Lab, Urea other","Lab, Urea other Abnormal","Lab, BLOOD UREA NITROGEN Data","BLOOD UREA NITROGEN","BLOOD UREA NITROGEN Abnormal",1/2.80);
 
         //Creatinine
-        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Serum creatinine (umol/L) Data","Serum creatinine (umol/L)","Lab, Creatinine other Data","Lab, Creatinine other",0.01);
-        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Creatinine other Data","Lab, Creatinine other","Lab, Serum creatinine (umol/L) Data","Serum creatinine (umol/L)",1/0.01);
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Serum creatinine (umol/L) Data","Serum creatinine (umol/L)","Serum creatinine (umol/L) Abnormal","Lab, Creatinine other Data","Lab, Creatinine other","Lab, Creatinine other Abnormal",0.01);
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Creatinine other Data","Lab, Creatinine other","Lab, Creatinine other Abnormal","Lab, Serum creatinine (umol/L) Data","Serum creatinine (umol/L)","Serum creatinine (umol/L) Abnormal",1/0.01);
 
         //Glucose (fasting)
-        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Fasting blood glucose measurement (mg/dL) Data","Fasting blood glucose measurement (mg/dL)","Lab, Glucose (Fasting) other Data","Lab, Glucose (Fasting) other",18.02);
-        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Glucose (Fasting) other Data","Lab, Glucose (Fasting) other","Lab, Fasting blood glucose measurement (mg/dL) Data","Fasting blood glucose measurement (mg/dL)",1/18.02);
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Fasting blood glucose measurement (mg/dL) Data","Fasting blood glucose measurement (mg/dL)","Fasting blood glucose measurement (mg/dL) Abnormal","Lab, Glucose (Fasting) other Data","Lab, Glucose (Fasting) other","Lab, Glucose (Fasting) other Abnormal",18.02);
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Glucose (Fasting) other Data","Lab, Glucose (Fasting) other","Lab, Glucose (Fasting) other Abnormal","Lab, Fasting blood glucose measurement (mg/dL) Data","Fasting blood glucose measurement (mg/dL)","Fasting blood glucose measurement (mg/dL) Abnormal",1/18.02);
 
         //Glucose
-        calculateAlternateObs(bahmniEncounterTransaction,"Lab, SERUM GLUCOSE Data","SERUM GLUCOSE","Lab, Glucose other Data","Lab, Glucose other",18.02);
-        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Glucose other Data","Lab, Glucose other","Lab, SERUM GLUCOSE Data","SERUM GLUCOSE",1/18.02);
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, SERUM GLUCOSE Data","SERUM GLUCOSE","SERUM GLUCOSE Abnormal","Lab, Glucose other Data","Lab, Glucose other","Lab, Glucose other Abnormal",18.02);
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Glucose other Data","Lab, Glucose other","Lab, Glucose other Abnormal","Lab, SERUM GLUCOSE Data","SERUM GLUCOSE","SERUM GLUCOSE Abnormal",1/18.02);
 
         //TOTAL BILIRUBIN
-        calculateAlternateObs(bahmniEncounterTransaction,"Lab, TOTAL BILIRUBIN Data","TOTAL BILIRUBIN","Lab, Total Bilirubin other Data","Lab, Total Bilirubin other",0.06);
-        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Total Bilirubin other Data","Lab, Total Bilirubin other","Lab, TOTAL BILIRUBIN Data","TOTAL BILIRUBIN",1/0.06);
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, TOTAL BILIRUBIN Data","TOTAL BILIRUBIN","TOTAL BILIRUBIN Abnormal","Lab, Total Bilirubin other Data","Lab, Total Bilirubin other","Lab, Total Bilirubin other Abnormal",0.06);
+        calculateAlternateObs(bahmniEncounterTransaction,"Lab, Total Bilirubin other Data","Lab, Total Bilirubin other","Lab, Total Bilirubin other Abnormal","Lab, TOTAL BILIRUBIN Data","TOTAL BILIRUBIN","TOTAL BILIRUBIN Abnormal",1/0.06);
     }
 
-    static def calculateAlternateObs(BahmniEncounterTransaction bahmniEncounterTransaction, String parentConceptNameForActualConcept,String actualConceptName, String parentConceptNameForAlternateConcept, String alternateConceptName, float conversionFactor){
+
+    static def calculateAlternateObs(BahmniEncounterTransaction bahmniEncounterTransaction, String parentConceptNameForActualConcept, String actualConceptName, String actualAbnormalConceptName, String parentConceptNameForAlternateConcept, String alternateConceptName, String alternateAbnormalConceptName, float conversionFactor){
         BahmniObservation bahmniObservation = find(actualConceptName, bahmniEncounterTransaction.getObservations(), null);
+        BahmniObservation abnormalBahmniObservation = find(actualAbnormalConceptName, bahmniEncounterTransaction.getObservations(), null);
         BahmniObservation parent = obsParent(bahmniObservation, null);
 
         BahmniObservation parentObsForActualConcept = find(parentConceptNameForActualConcept, bahmniEncounterTransaction.getObservations(), null);
         BahmniObservation parentForActualParent = obsParent(parentObsForActualConcept, null);
 
         Double numericValue = getNumericValue(bahmniObservation);
+        Boolean abnormalValue = getBooleanValue(abnormalBahmniObservation);
+
         if(numericValue == 0){
             return;
         }
 
         BahmniObservation alternateObservation = find(alternateConceptName, bahmniEncounterTransaction.getObservations(),parent);
         voidObs(alternateObservation);
-	BahmniObservation parentForAlternateObs = find(parentConceptNameForAlternateConcept, bahmniEncounterTransaction.getObservations(), parentForActualParent)
+        BahmniObservation parentForAlternateObs = find(parentConceptNameForAlternateConcept, bahmniEncounterTransaction.getObservations(), parentForActualParent)
         voidObs(parentForAlternateObs);
         BahmniObservation newParentObsForAlternateObs = createObs(parentConceptNameForAlternateConcept, parentForActualParent, bahmniEncounterTransaction, getDate(bahmniObservation)) as BahmniObservation
         BahmniObservation newAlternateObservation = createObs(alternateConceptName, newParentObsForAlternateObs, bahmniEncounterTransaction, getDate(bahmniObservation)) as BahmniObservation
+        BahmniObservation newAlternateAbnormalObservation = createObs(alternateAbnormalConceptName, newParentObsForAlternateObs, bahmniEncounterTransaction, getDate(bahmniObservation)) as BahmniObservation
         double valueRounded = Math.round(new Double(numericValue * conversionFactor) * 100D) / 100D;
         newAlternateObservation.setValue(valueRounded);
+        newAlternateAbnormalObservation.setValue(abnormalValue);
     }
 
 
     static def getNumericValue(BahmniObservation bahmniObservation){
         return hasValue(bahmniObservation) && !bahmniObservation.voided ? bahmniObservation.getValue() as Double : 0;
+    }
+    static def getBooleanValue(BahmniObservation bahmniObservation){
+        return hasValue(bahmniObservation) && !bahmniObservation.voided ? bahmniObservation.getValue() as Boolean : false;
     }
 
     static def changeObsDateTime(BahmniEncounterTransaction bahmniEncounterTransaction){
@@ -364,7 +375,7 @@ private static void voidObs(BahmniObservation bmiObservation) {
 }
 
 static BahmniObservation createObs(String conceptName, BahmniObservation parent, BahmniEncounterTransaction encounterTransaction, Date obsDatetime) {
-    def concept = Context.getConceptService().getConceptByName(conceptName)
+    def concept = bahmniBridge.getConceptByFullySpecifiedName(conceptName)
     BahmniObservation newObservation = new BahmniObservation()
     newObservation.setConcept(new EncounterTransaction.Concept(concept.getUuid(), conceptName))
     newObservation.setObservationDateTime(obsDatetime);
