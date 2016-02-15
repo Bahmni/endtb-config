@@ -9,27 +9,88 @@
         "translationKey": "DASHBOARD_TITLE_TREATMENTS_DETAILS",
         "name": "drugOrderDetails",
 	"showDetailsButton" : true,
-        "displayOrder": 2,
+        "displayOrder": 1,
         "dashboardParams": {
 	  "showOnlyActive":true,
           "drugConceptSet": "All TB Drugs"
         }
       },
-      "Forms": {
+      "baseline": {
         "name": "forms",
+        "displayOrder": 2, 
         "dashboardParams": {
-          "title": null,
-          "maximumNoOfVisits": 0
+                "title": null,
+                "maximumNoOfVisits": 10
         },
-        "displayOrder": 1,
-        "translationKey": "DASHBOARD_TITLE_FORMS_KEY"
+        "formGroup":["Baseline Template"],
+        "translationKey": "Baseline"
+      },
+      "followup": {
+        "name": "forms",
+        "displayOrder": 3, 
+        "dashboardParams": {
+                "title": null,
+                "maximumNoOfVisits": 10
+        },
+        "formGroup":["Followup Template","Monthly Treatment Completeness Template"],
+        "translationKey": "Follow-up"
+      },
+      "labsAndTestResults": {
+        "name": "forms",
+        "displayOrder": 4,
+        "dashboardParams": {
+                "title": null,
+                "maximumNoOfVisits": 10
+        },
+        "formGroup":["Lab Results Hemotology Template","Lab Results Biochemistry Template","Lab Results Serology Template","Lab Results Pregnancy Template","Lab Results Other Tests Template","Xray Template","Audiometry Template","Electrocardiogram Template","Performance Status Template"],
+        "translationKey": "Labs and Test Results"
+      },
+      "hospitalization": {
+        "name": "forms",
+        "displayOrder": 5,
+        "dashboardParams": {
+                "title": null,
+                "maximumNoOfVisits": 10
+        },
+        "formGroup":["Hospital Admission Notification Template","Hospital Discharge Summary Template"],
+        "translationKey": "Hospitalization"
+      },
+      "adverseEventsForms": {
+        "name": "forms",
+        "displayOrder": 6,
+        "dashboardParams": {
+                "title": null,
+                "maximumNoOfVisits": 10
+        },
+        "formGroup":["Adverse Events Template","Serious Adverse Events Template"],
+        "translationKey": "Adverse Events"
+      },
+      "pregnancyReportForm": {
+        "name": "forms",
+        "displayOrder": 7,
+        "dashboardParams": {
+                "title": null,
+                "maximumNoOfVisits": 10
+        },
+        "formGroup":["Pregnancy Report Form Template"],
+        "translationKey": "Pregnancy Report Form"
+      },
+      "outcome": {
+        "name": "forms",
+        "displayOrder": 8,
+        "dashboardParams": {
+                "title": null,
+                "maximumNoOfVisits": 10
+        },
+        "formGroup":["Outcome End of Treatment Template","6 month Post Treatment Outcome Template"],
+        "translationKey": "Outcome"
       },
       "bacteriologyResults": {
         "translationKey": "DASHBOARD_TITLE_BACTERIOLOGY_RESULTS_KEY",
         "name": "bacteriologyResultsControl",
         "scope": "All",
         "orderType": "",
-        "displayOrder": 5,
+        "displayOrder": 9,
         "dashboardParams": {
           "conceptNames": [
             "BACTERIOLOGY CONCEPT SET"
@@ -40,7 +101,7 @@
         "translationKey": "Adverse Events",
         "name": "obsToObsFlowSheet",
 	"headingConceptSource":"Abbreviation",
-        "displayOrder": 6,
+        "displayOrder": 10,
         "dashboardParams": {
           "scope": "All",
           "isEditable": true,
