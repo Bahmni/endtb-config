@@ -6,6 +6,9 @@
     "tbTabConfig": {
       "hideBulkChangeDurationButton": true,
       "inputOptionsConfig": {
+        "duration": {
+          "required": false 
+          },
         "drugConceptSet": "All TB Drugs",
         "isDropDown": true,
         "labels": {
@@ -124,9 +127,6 @@
     },
     "nonTbTabConfig": {
       "inputOptionsConfig": {
-	"duration" : {
-                "required": true
-        },
         "defaultStartDate": true,
 	"drugConceptSet": "All Other Drugs",
         "labels": {
