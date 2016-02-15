@@ -83,6 +83,9 @@
       "TI, Other patients who have high risk of unfavorable outcome but who do not fit the above categories": {
         "multiSelect": true
       },
+      "Estimated date of confinement" : {
+	"allowFutureDates" : true
+      },
       "Baseline, Method of MDR-TB confirmation": {
         "multiSelect": true
       },
