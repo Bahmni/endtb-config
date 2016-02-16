@@ -97,8 +97,8 @@
                 "stopReason" : "DRUG_HISTORY_TB_STOPREASON"
             },
             "actions": [
-              "revise",
-              "stop"
+              "stop",
+	      "void"
             ]
           },
           "inactiveTbDrugs": {
@@ -115,6 +115,9 @@
                 "stopDate" : "DRUG_HISTORY_TB_STOPDATE",
                 "stopReason" : "DRUG_HISTORY_TB_STOPREASON"
             },
+	    "actions": [
+              "void"
+            ],
             "columns": [
               "frequency",
               "route",
@@ -182,9 +185,9 @@
 		"instructions" : "DRUG_HISTORY_NONTB_INSTRUCTIONS"
             },
             "actions": [
-              "revise",
               "stop",
-              "refill"
+              "refill",
+	      "void"
             ],
             "excludeConceptSet": "All TB Drugs",
             "columns": [
