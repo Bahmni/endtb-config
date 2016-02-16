@@ -126,7 +126,7 @@
     "printing": {
       "title": "EndTB Patient Dashboard",
       "header": "Patient Summary",
-      "logo": "../images/jss-icon.png"
+      "logo": "../images/bahmniLogo.png"
     },
     "sections": {
       "treatmentInfo": {
