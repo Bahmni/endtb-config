@@ -636,7 +636,7 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
   },
   'AE Form, Other causal factors related to AE' : function (formName, formFieldValues) {
 	var enNonTBDrug = "AE Form, Non TB drug of other causal factor";
-	var enComorbidity = "AE Form, Comorbidity of other causal facrtor";
+	var enComorbidity = "AE Form, Comorbidity of other causal factor";
 	var enOtherCausalFactors = "AE Form, Other causal factor";
 	var conditions = {enable : [],disable : []};
 	var anyFactor = formFieldValues['AE Form, Other causal factors related to AE'];
@@ -660,6 +660,50 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
 		conditions.disable.push(enNonTBDrug, enComorbidity, enOtherCausalFactors)
 	}
 	return conditions;
+  },
+  'AE Form, Is AE an SAE' : function (formName, formFieldValues) {
+        var enSAENumber = "AE Form, SAE Case Number";
+        var enDateOutcome = "AE Form, Date of AE Outcome";
+        var enAEOutcome = "AE Form, AE outcome";
+        var enMaxSeverity = "AE Form, Maximum severity of AE";
+        var enRelatedTBDrugs = "AE Form, AE related to TB drugs";
+        var enTBDrugTx = "AE Form, TB drug treatment";
+        var enOtherCausalFact = "AE Form, Other causal factors";
+        var conditions = {enable : [],disable : []};
+        var conditionConcept = formFieldValues['AE Form, Is AE an SAE'];
+        if (conditionConcept == true) {
+                conditions.enable.push(enSAENumber)
+                conditions.disable.push(enDateOutcome,enAEOutcome,enMaxSeverity,enRelatedTBDrugs,enTBDrugTx,enOtherCausalFact)
+        } else {
+                var enNonTBDrug = "AE Form, Non TB drug of other causal factor";
+                var enComorbidity = "AE Form, Comorbidity of other causal factor";
+                var enOtherCausalFactors = "AE Form, Other causal factor";
+                var conditions = {enable : [],disable : []};
+                var anyFactor = formFieldValues['AE Form, Other causal factors related to AE'];
+                if (anyFactor != null) {
+                        if (anyFactor.indexOf("Non TB drugs") > -1) {
+                                conditions.enable.push(enNonTBDrug)
+                        } else {
+                                conditions.disable.push(enNonTBDrug)
+                        }
+                        if (anyFactor.indexOf("Co-morbidity") > -1) {
+                                conditions.enable.push(enComorbidity)
+                        } else {
+                                conditions.disable.push(enComorbidity)
+                        }
+                        if (anyFactor.indexOf("Other") > -1) {
+                                conditions.enable.push(enOtherCausalFactors)
+                        } else {
+                                conditions.disable.push(enOtherCausalFactors)
+                        }
+                } else {
+                        conditions.disable.push(enNonTBDrug, enComorbidity, enOtherCausalFactors)
+                }
+
+                conditions.disable.push(enSAENumber)
+                conditions.enable.push(enDateOutcome,enAEOutcome,enMaxSeverity,enRelatedTBDrugs,enTBDrugTx,enOtherCausalFact)
+        }
+        return conditions;
   },
 	'SAE Form, Previously reported as AE' : function (formName, formFieldValues) {
 		var previousAE = "SAE Form, AE ID if previously reported as AE";
