@@ -18,10 +18,11 @@ public class BMIExtension extends BaseTableExtension<PivotTable> {
 
 
     @Override
-    public void update(PivotTable pivotTable, String patientUuid) {
+    public void update(PivotTable pivotTable, String patientUuid, String patientProgramUuid) {
         this.bahmniBridge = BahmniBridge
                 .create()
-                .forPatient(patientUuid);
+                .forPatient(patientUuid)
+                .forPatientProgram(patientProgramUuid);
                 Date startDate;
         try {
             Obs latestObs = bahmniBridge.latestObs("TUBERCULOSIS DRUG TREATMENT START DATE");
