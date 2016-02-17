@@ -19,10 +19,11 @@ public class TreatmentRegimenExtension extends BaseTableExtension<TreatmentRegim
 	public BahmniBridge bahmniBridge;
 
 	@Override
-	public void update(TreatmentRegimen treatmentRegimen, String patientUuid) {
+	public void update(TreatmentRegimen treatmentRegimen, String patientUuid, String patientProgramUuid) {
 		this.bahmniBridge = BahmniBridge
 				.create()
-				.forPatient(patientUuid);
+				.forPatient(patientUuid)
+				.forPatientProgram(patientProgramUuid);
 		skipStopFlaging(STOPING_INTERVAL_HOURS, treatmentRegimen);
 		calculateMonth(treatmentRegimen, patientUuid);
 	}

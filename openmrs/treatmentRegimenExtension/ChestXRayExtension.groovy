@@ -20,10 +20,11 @@ public class ChestXRayExtension extends BaseTableExtension<PivotTable> {
     public BahmniBridge bahmniBridge;
 
     @Override
-    public void update(PivotTable pivotTable, String patientUuid) {
+    public void update(PivotTable pivotTable, String patientUuid, String patientProgramUuid) {
         this.bahmniBridge = BahmniBridge
                 .create()
-                .forPatient(patientUuid);
+                .forPatient(patientUuid)
+                .forPatientProgram(patientProgramUuid);
 
         Date startDate = null;
         try {

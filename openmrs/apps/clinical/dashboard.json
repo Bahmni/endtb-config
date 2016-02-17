@@ -545,8 +545,8 @@
           "name": "EcgReadingsExtension",
           "templateName": "EKG, Electrocardiogram Details",
           "conceptNames": [
-            "EKG, Month of scheduled visit",
-            "EKG, Rythm",
+            "EKG, Date of EKG",
+            "EKG, Rhythm",
             "EKG, Heart Rate",
             "EKG, QT Interval",
             "EKG, QTcF Interval"
