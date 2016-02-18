@@ -88,7 +88,6 @@
       "bacteriologyResults": {
         "translationKey": "DASHBOARD_TITLE_BACTERIOLOGY_RESULTS_KEY",
         "name": "bacteriologyResultsControl",
-        "scope": "All",
         "orderType": "",
         "displayOrder": 9,
         "dashboardParams": {
@@ -103,7 +102,6 @@
 	"headingConceptSource":"Abbreviation",
         "displayOrder": 10,
         "dashboardParams": {
-          "scope": "All",
           "isEditable": true,
           "groupByConcept": "AE Form, AE term comprehensive list",
           "templateName": "AE Form, Adverse Event details",
@@ -160,7 +158,7 @@
           ],
           "scope": "latest"
         },
-        "displayOrder": 1,
+        "displayOrder": 2,
         "translationKey": "Case Defintion"
       },
       "serologystatus": {
@@ -180,12 +178,12 @@
           ],
           "scope": "latest"
         },
-        "displayOrder": 2,
+        "displayOrder": 3,
         "translationKey": "Serology Status"
       },
       "coMorbidities": {
         "name": "custom",
-        "displayOrder": 3,
+        "displayOrder": 4,
         "displayType": "Full-Page",
         "config": {
           "title": "Co-morbidities",
@@ -204,7 +202,7 @@
           ],
           "scope": "latest"
         },
-        "displayOrder": 4,
+        "displayOrder": 5,
         "translationKey": "Important Dates"
       },
       "pasttbhistory": {
@@ -223,7 +221,7 @@
             "Baseline, Other drug taken for more than a month"
           ]
         },
-        "displayOrder": 5,
+        "displayOrder": 6,
         "translationKey": "Past TB Treatment Information"
       },
       "previousTBTreatmentRegimen": {
@@ -231,9 +229,8 @@
         "name": "obsToObsFlowSheet",
 	"headingConceptSource":"Abbreviation",
         "displayType": "Full-Page",
-        "displayOrder": 6,
+        "displayOrder": 7,
         "dashboardParams": {
-          "scope": "All",
           "groupByConcept": "Baseline, Start date of past TB treatment",
           "templateName": "Baseline, Past TB treatment table",
           "conceptNames": [
@@ -248,11 +245,10 @@
         "translationKey": "DST Results",
         "name": "obsToObsFlowSheet",
         "displayType": "Full-Page",
-        "displayOrder": 9,
+        "displayOrder": 8,
         "rotateInPrint": true,
         "headingConceptSource":"Abbreviation",
         "dashboardParams": {
-          "scope": "All",
           "groupByConcept": "Specimen Collection Date",
           "name": "DstExtension",
           "templateName": "BACTERIOLOGY CONCEPT SET",
@@ -309,7 +305,7 @@
               "Meropenem"
           ]
         },
-        "displayOrder": 10
+        "displayOrder": 9
       },
       "BacteriologyResults": {
         "displayType": "LAYOUT_25_75",
@@ -318,9 +314,6 @@
 	"headingConceptSource":"Abbreviation",
         "displayOrder": 10,
         "dashboardParams": {
-          "numberOfVisits": 1,
-          "initialCount": 3,
-          "latestCount": 4,
           "templateName": "BACTERIOLOGY CONCEPT SET",
           "groupByConcept": "Specimen Collection Date",
           "name": "DstExtension",
@@ -374,7 +367,6 @@
 	"headingConceptSource":"Abbreviation",
         "displayOrder": 13,
         "dashboardParams": {
-          "scope": "All",
           "pivotOn": "column",
           "templateName": "Lab, Haematology Details",
           "groupByConcept": "Specimen Collection Date",
@@ -401,7 +393,6 @@
 	"headingConceptSource":"Abbreviation",
         "displayOrder": 14,
         "dashboardParams": {
-          "scope": "All",
           "pivotOn": "column",
           "templateName": "Lab, Biochemistry Details",
           "groupByConcept": "Specimen Collection Date",
@@ -435,7 +426,6 @@
 	"headingConceptSource":"Abbreviation",
         "displayOrder": 15,
         "dashboardParams": {
-          "scope": "All",
           "pivotOn": "column",
           "templateName": "Lab, Serology Details",
           "groupByConcept": "Specimen Collection Date",
@@ -459,7 +449,6 @@
 	"headingConceptSource":"Abbreviation",
         "displayOrder": 16,
         "dashboardParams": {
-          "scope": "All",
 	  "pivotOn" : "column",
           "templateName": "Lab, Pregnancy Details",
           "groupByConcept": "Specimen Collection Date",
@@ -480,7 +469,6 @@
 	"headingConceptSource":"Abbreviation",
         "displayOrder": 17,
         "dashboardParams": {
-          "scope": "All",
 	  "pivotOn" : "column",
           "templateName": "Lab, Other Tests Details",
           "groupByConcept": "Specimen Collection Date",
@@ -502,7 +490,6 @@
 	"headingConceptSource":"Abbreviation",
         "displayOrder": 18,
         "dashboardParams": {
-          "scope": "All",
           "groupByConcept": "AE Form, AE term comprehensive list",
           "templateName": "AE Form, Adverse Event details",
           "conceptNames": [
@@ -525,7 +512,6 @@
         "displayType": "Full-Page",
         "displayOrder": 19,
         "dashboardParams": {
-          "scope": "All",
           "groupByConcept": "EKG, Date of EKG",
           "name": "EcgReadingsExtension",
           "templateName": "EKG, Electrocardiogram Details",
@@ -545,7 +531,6 @@
         "displayType": "Full-Page",
         "displayOrder": 20,
         "dashboardParams": {
-          "scope": "All",
           "groupByConcept": "Xray, Chest Xray Date",
           "name": "ChestXRayExtension",
           "templateName": "Xray, Xray Details",
