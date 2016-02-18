@@ -251,7 +251,8 @@ static def calculateAndAdd(BahmniEncounterTransaction bahmniEncounterTransaction
 
         def bmi = bmi(height, weight)
         bmiObservation = bmiObservation ?: createObs("Body mass index", bmiDataObservation, bahmniEncounterTransaction, obsDatetime) as BahmniObservation;
-        bmiObservation.setValue(bmi);
+        Double roundOffBMI = Math.round(getNumericValue(bmiObservation) * 100.0) / 100.0;
+        bmiObservation.setValue(roundOffBMI);
 
         def bmiStatus = bmiStatus(bmi, patientAgeInMonthsAsOfEncounter, patient.getGender());
         bmiStatusObservation = bmiStatusObservation ?: createObs("BMI Status", bmiStatusDataObservation, bahmniEncounterTransaction, obsDatetime) as BahmniObservation;
@@ -318,7 +319,7 @@ static def calculateAndAdd(BahmniEncounterTransaction bahmniEncounterTransaction
 
         if(completenessRateObs == null)
             completenessRateObs = createObs(completenessRateConceptName, parent, bahmniEncounterTransaction, obsDatetime) as BahmniObservation
-        completenessRateObs.setValue(completenessRate)
+        completenessRateObs.setValue(Math.round(completenessRate * 100.0) / 100.0)
 
         if(adherenceRateObs == null)
             adherenceRateObs = createObs(adherenceRateConceptName, parent, bahmniEncounterTransaction, obsDatetime) as BahmniObservation
