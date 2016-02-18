@@ -251,7 +251,7 @@ static def calculateAndAdd(BahmniEncounterTransaction bahmniEncounterTransaction
 
         def bmi = bmi(height, weight)
         bmiObservation = bmiObservation ?: createObs("Body mass index", bmiDataObservation, bahmniEncounterTransaction, obsDatetime) as BahmniObservation;
-        Double roundOffBMI = Math.round(getNumericValue(bmiObservation) * 100.0) / 100.0;
+        Double roundOffBMI = Math.round(bmi * 100.0) / 100.0;
         bmiObservation.setValue(roundOffBMI);
 
         def bmiStatus = bmiStatus(bmi, patientAgeInMonthsAsOfEncounter, patient.getGender());
