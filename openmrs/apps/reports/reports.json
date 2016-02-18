@@ -3,193 +3,214 @@
                 "name": "Patient Information",
                 "type": "PatientReport"
         },
-	"bacteriologyReport":{
+	"bacteriologyExport":{
                 "name": "Bacteriology Data Export",
-                "type": "obsTemplate",
+                "type": "programObsTemplate",
                 "config": {
                         "templateName": "BACTERIOLOGY CONCEPT SET",
                         "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
-                        "applyDateRangeFor": "encounterCreateDate"
+                        "programAttributes":["Registration Number", "Registration Facility"],
+                        "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
         },
-        "baselineTemplateReport":{
+        "baselineTemplateExport":{
                 "name": "Baseline Data Export",
-                "type": "obsTemplate",
+                "type": "programObsTemplate",
                 "config": {
                         "templateName": "Baseline Template",
                         "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
-                        "applyDateRangeFor": "encounterCreateDate"
+                        "programAttributes":["Registration Number", "Registration Facility"],
+                        "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
         },
-	"treatmentInitiationTemplateReport":{
+	"treatmentInitiationTemplateExport":{
                 "name": "Treatment Initiation Data Export",
-                "type": "obsTemplate",
+                "type": "programObsTemplate",
                 "config": {
                         "templateName": "Treatment Initiation Template",
                         "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
-                        "applyDateRangeFor": "encounterCreateDate"
+                        "programAttributes":["Registration Number", "Registration Facility"],
+                        "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
         },
-	"followupTemplateReport":{
+	"followupTemplateExport":{
                 "name": "Followup Data Export",
-                "type": "obsTemplate",
+                "type": "programObsTemplate",
                 "config": {
                         "templateName": "Followup Template",
                         "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
-                        "applyDateRangeFor": "encounterCreateDate"
+                        "programAttributes":["Registration Number", "Registration Facility"],
+                        "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
         },
-	"outcomeEndofTreatmentTemplateReport":{
+	"outcomeEndofTreatmentTemplateExport":{
                 "name": "Outcome End of Treatment Data Export",
-                "type": "obsTemplate",
+                "type": "programObsTemplate",
                 "config": {
                         "templateName": "Outcome End of Treatment Template",
                         "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
-                        "applyDateRangeFor": "encounterCreateDate"
+                        "programAttributes":["Registration Number", "Registration Facility"],
+                        "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
         },
-	"6monthPostTreatmentOutcomeTemplateReport":{
+	"6monthPostTreatmentOutcomeTemplateExport":{
                 "name": "6 month Post Treatment Outcome Data Export",
-                "type": "obsTemplate",
+                "type": "programObsTemplate",
                 "config": {
                         "templateName": "6 month Post Treatment Outcome Template",
                         "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
-                        "applyDateRangeFor": "encounterCreateDate"
+                        "programAttributes":["Registration Number", "Registration Facility"],
+                        "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
         },
-	"adverseEventsTemplateReport":{
+	"adverseEventsTemplateExport":{
                 "name": "Adverse Events Data Export",
-                "type": "obsTemplate",
+                "type": "programObsTemplate",
                 "config": {
                         "templateName": "Adverse Events Template",
                         "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
-                        "applyDateRangeFor": "encounterCreateDate"
+                        "programAttributes":["Registration Number", "Registration Facility"],
+                        "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
         },
-	"seriousAdverseEventsTemplateReport":{
+	"seriousAdverseEventsTemplateExport":{
                 "name": "Serious Adverse Events Data Export",
-                "type": "obsTemplate",
+                "type": "programObsTemplate",
                 "config": {
                         "templateName": "Serious Adverse Events Template",
                         "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
-                        "applyDateRangeFor": "encounterCreateDate"
+                        "programAttributes":["Registration Number", "Registration Facility"],
+                        "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
         },
-        "pregnancyReportFormTemplateReport":{
+        "pregnancyReportFormTemplateExport":{
                 "name": "Pregnancy Report Form Data Export",
-                "type": "obsTemplate",
+                "type": "programObsTemplate",
                 "config": {
                         "templateName": "Pregnancy Report Form Template",
                         "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
-                        "applyDateRangeFor": "encounterCreateDate"
+                        "programAttributes":["Registration Number", "Registration Facility"],
+                        "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
         },
-	"hospitalAdmissionNotificationTemplateReport":{
+	"hospitalAdmissionNotificationTemplateExport":{
                 "name": "Hospital Admission Notification Data Export",
-                "type": "obsTemplate",
+                "type": "programObsTemplate",
                 "config": {
                         "templateName": "Hospital Admission Notification Template",
                         "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
-                        "applyDateRangeFor": "encounterCreateDate"
+                        "programAttributes":["Registration Number", "Registration Facility"],
+                        "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
         },
-	"hospitalDischargeSummaryTemplateReport":{
+	"hospitalDischargeSummaryTemplateExport":{
                 "name": "Hospital Discharge Summary Export",
-                "type": "obsTemplate",
+                "type": "programObsTemplate",
                 "config": {
                         "templateName": "Hospital Discharge Summary Template",
                         "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
-                        "applyDateRangeFor": "encounterCreateDate"
+                        "programAttributes":["Registration Number", "Registration Facility"],
+                        "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
         },
-        "hemotologyLabresultsTemplateReport":{
+        "hemotologyLabresultsTemplateExport":{
                 "name": "Hemotology Lab Results Data Export",
-                "type": "obsTemplate",
+                "type": "programObsTemplate",
                 "config": {
                         "templateName": "Lab Results Hemotology Template",
                         "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
-                        "applyDateRangeFor": "encounterCreateDate"
+                        "programAttributes":["Registration Number", "Registration Facility"],
+                        "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
         },
-	"biochemistryLabresultsTemplateReport":{
+	"biochemistryLabresultsTemplateExport":{
                 "name": "Biochemistry Lab Results Data Export",
-                "type": "obsTemplate",
+                "type": "programObsTemplate",
                 "config": {
                         "templateName": "Lab Results Biochemistry Template",
                         "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
-                        "applyDateRangeFor": "encounterCreateDate"
+                        "programAttributes":["Registration Number", "Registration Facility"],
+                        "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
         },
-	"serologyLabresultsTemplateReport":{
+	"serologyLabresultsTemplateExport":{
                 "name": "Serology Lab Results Data Export",
-                "type": "obsTemplate",
+                "type": "programObsTemplate",
                 "config": {
                         "templateName": "Lab Results Serology Template",
                         "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
-                        "applyDateRangeFor": "encounterCreateDate"
+                        "programAttributes":["Registration Number", "Registration Facility"],
+                        "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
         },
-	"pregnancyLabresultsTemplateReport":{
+	"pregnancyLabresultsTemplateExport":{
                 "name": "Pregnancy Lab Results Data Export",
-                "type": "obsTemplate",
+                "type": "programObsTemplate",
                 "config": {
                         "templateName": "Lab Results Pregnancy Template",
                         "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
-                        "applyDateRangeFor": "encounterCreateDate"
+                        "programAttributes":["Registration Number", "Registration Facility"],
+                        "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
         },
-	"otherLabresultsTemplateReport":{
+	"otherLabresultsTemplateExport":{
                 "name": "Other Lab Results Data Export",
-                "type": "obsTemplate",
+                "type": "programObsTemplate",
                 "config": {
                         "templateName": "Lab Results Other Tests Template",
                         "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
-                        "applyDateRangeFor": "encounterCreateDate"
+                        "programAttributes":["Registration Number", "Registration Facility"],
+                        "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
         },
-	"xrayTemplateReport":{
+	"xrayTemplateExport":{
                 "name": "Xray Data Export",
-                "type": "obsTemplate",
+                "type": "programObsTemplate",
                 "config": {
                         "templateName": "Xray Template",
                         "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
-                        "applyDateRangeFor": "encounterCreateDate"
+                        "programAttributes":["Registration Number", "Registration Facility"],
+                        "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
         },
-	"audiometryTemplateReport":{
+	"audiometryTemplateExport":{
                 "name": "Audiometry Data Export",
-                "type": "obsTemplate",
+                "type": "programObsTemplate",
                 "config": {
                         "templateName": "Audiometry Template",
                         "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
-                        "applyDateRangeFor": "encounterCreateDate"
+                        "programAttributes":["Registration Number", "Registration Facility"],
+                        "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
         },
-	"electrocardiogramTemplateReport":{
+	"electrocardiogramTemplateExport":{
                 "name": "Electrocardiogram Data Export",
-                "type": "obsTemplate",
+                "type": "programObsTemplate",
                 "config": {
                         "templateName": "Electrocardiogram Template",
                         "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
-                        "applyDateRangeFor": "encounterCreateDate"
+                        "programAttributes":["Registration Number", "Registration Facility"],
+                        "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
         },
-	"monthlyTreatmentCompletenessTemplateReport":{
+	"monthlyTreatmentCompletenessTemplateExport":{
                 "name": "Monthly Treatment Completeness Data Export",
-                "type": "obsTemplate",
+                "type": "programObsTemplate",
                 "config": {
                         "templateName": "Monthly Treatment Completeness Template",
                         "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
-                        "applyDateRangeFor": "encounterCreateDate"
+                        "programAttributes":["Registration Number", "Registration Facility"],
+                        "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
         },
-	"performanceStatusTemplateReport":{
+	"performanceStatusTemplateExport":{
                 "name": "Performance Status Data Export",
-                "type": "obsTemplate",
+                "type": "programObsTemplate",
                 "config": {
                         "templateName": "Performance Status Template",
                         "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
-                        "applyDateRangeFor": "encounterCreateDate"
+                        "programAttributes":["Registration Number", "Registration Facility"],
+                        "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
         }
 }
