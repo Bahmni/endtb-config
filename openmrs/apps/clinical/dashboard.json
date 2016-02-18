@@ -163,8 +163,8 @@
         "displayOrder": 1,
         "translationKey": "Case Defintion"
       },
-      "hivstatus": {
-        "name": "hivstatus",
+      "serologystatus": {
+        "name": "serologystatus",
         "isObservation": true,
         "displayType": "Full-Page",
         "dashboardParams": {
@@ -307,7 +307,6 @@
               "CILASTATIN / IMIPENEM",
               "AMOXICILLIN AND CLAVULANIC ACID",
               "Meropenem"
-
           ]
         },
         "displayOrder": 10
@@ -356,7 +355,7 @@
         "title": "Weight vs BMI",
         "name": "obsToObsFlowSheet",
         "headingConceptSource":"Abbreviation",
-        "displayOrder": 11,
+        "displayOrder": 12,
         "dashboardParams": {
           "pivotOn": "column",
           "templateName": "Followup Template",
@@ -366,10 +365,6 @@
             "Weight (kg)",
             "Body mass index"
           ]
-        },
-        "allDetailsParams": {
-          "templateName": "Followup Template",
-          "groupByConcept": "Followup, Visit Date"
         }
       },
       "LabHaemotology": {
@@ -377,11 +372,9 @@
         "title": "Lab Results - Hematology",
         "name": "obsToObsFlowSheet",
 	"headingConceptSource":"Abbreviation",
-        "displayOrder": 12,
+        "displayOrder": 13,
         "dashboardParams": {
-          "numberOfVisits": 1,
-          "initialCount": 3,
-          "latestCount": 4,
+          "scope": "All",
           "pivotOn": "column",
           "templateName": "Lab, Haematology Details",
           "groupByConcept": "Specimen Collection Date",
@@ -406,11 +399,9 @@
         "title": "Lab Results - Biochemistry",
         "name": "obsToObsFlowSheet",
 	"headingConceptSource":"Abbreviation",
-        "displayOrder": 12,
+        "displayOrder": 14,
         "dashboardParams": {
-          "numberOfVisits": 1,
-          "initialCount": 3,
-          "latestCount": 4,
+          "scope": "All",
           "pivotOn": "column",
           "templateName": "Lab, Biochemistry Details",
           "groupByConcept": "Specimen Collection Date",
@@ -442,11 +433,9 @@
         "title": "Lab Results - Serology",
         "name": "obsToObsFlowSheet",
 	"headingConceptSource":"Abbreviation",
-        "displayOrder": 13,
+        "displayOrder": 15,
         "dashboardParams": {
-          "numberOfVisits": 1,
-          "initialCount": 3,
-          "latestCount": 4,
+          "scope": "All",
           "pivotOn": "column",
           "templateName": "Lab, Serology Details",
           "groupByConcept": "Specimen Collection Date",
@@ -468,11 +457,9 @@
         "title": "Lab Results - Pregnancy Test",
         "name": "obsToObsFlowSheet",
 	"headingConceptSource":"Abbreviation",
-        "displayOrder": 13,
+        "displayOrder": 16,
         "dashboardParams": {
-          "numberOfVisits": 1,
-          "initialCount": 3,
-          "latestCount": 4,
+          "scope": "All",
 	  "pivotOn" : "column",
           "templateName": "Lab, Pregnancy Details",
           "groupByConcept": "Specimen Collection Date",
@@ -491,11 +478,9 @@
         "title": "Lab Results - Other Tests",
         "name": "obsToObsFlowSheet",
 	"headingConceptSource":"Abbreviation",
-        "displayOrder": 13,
+        "displayOrder": 17,
         "dashboardParams": {
-          "numberOfVisits": 1,
-          "initialCount": 3,
-          "latestCount": 4,
+          "scope": "All",
 	  "pivotOn" : "column",
           "templateName": "Lab, Other Tests Details",
           "groupByConcept": "Specimen Collection Date",
@@ -515,7 +500,7 @@
         "name": "obsToObsFlowSheet",
         "displayType": "Full-Page",
 	"headingConceptSource":"Abbreviation",
-        "displayOrder": 14,
+        "displayOrder": 18,
         "dashboardParams": {
           "scope": "All",
           "groupByConcept": "AE Form, AE term comprehensive list",
@@ -538,15 +523,15 @@
         "name": "obsToObsFlowSheet",
 	"headingConceptSource":"Abbreviation",
         "displayType": "Full-Page",
-        "displayOrder": 15,
+        "displayOrder": 19,
         "dashboardParams": {
           "scope": "All",
           "groupByConcept": "EKG, Date of EKG",
           "name": "EcgReadingsExtension",
           "templateName": "EKG, Electrocardiogram Details",
           "conceptNames": [
-            "EKG, Month of scheduled visit",
-            "EKG, Rythm",
+            "EKG, Type of assessment",
+            "EKG, Rhythm",
             "EKG, Heart Rate",
             "EKG, QT Interval",
             "EKG, QTcF Interval"
@@ -558,7 +543,7 @@
         "name": "obsToObsFlowSheet",
 	"headingConceptSource":"Abbreviation",
         "displayType": "Full-Page",
-        "displayOrder": 16,
+        "displayOrder": 20,
         "dashboardParams": {
           "scope": "All",
           "groupByConcept": "Xray, Chest Xray Date",
