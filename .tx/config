@@ -1,5 +1,5 @@
 [main]
-host = https://www.transifex.com
+host = https://www.transifex.com/
 
 [bahmni.endtb-customization-of-clinical-app]
 file_filter = openmrs/i18n/clinical/locale_<lang>.json
