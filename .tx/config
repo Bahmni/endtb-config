@@ -25,3 +25,9 @@ source_file = openmrs/i18n/reports/locale_en.json
 source_lang = en
 type = KEYVALUEJSON
 
+[bahmni.endtb-concepts]
+file_filter = openmrs/i18n/concepts/locale_<lang>.properties
+source_file = openmrs/i18n/concepts/locale_en.properties
+source_lang = en
+type = UNICODEPROPERTIES
+
