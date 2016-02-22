@@ -1100,28 +1100,6 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
 	}
 	return conditions;
   },
-  '': function(formName, formFieldValues) {
-        var conditions = {enable: [], disable: []};
-        var conditionConcept = formFieldValues[''];
-	var conceptToEnable = "";
-        if(conditionConcept=="") {
-            conditions.enable.push(conceptToEnable)
-        } else {
-            conditions.disable.push(conceptToEnable)
-        }
-        return conditions;
-  },
-  'Bacteriology, Smear result':  function (formName, formFieldValues) {
-  	var conceptToEnable = "Bacteriology, Smear result positivity";
-	var conditions = {enable: [], disable: []};
-	var conditionConcept = formFieldValues['Bacteriology, Smear result'];    
-	if(conditionConcept == "Positive" ) {
-		conditions.enable.push(conceptToEnable)
-	} else {
-		conditions.disable.push(conceptToEnable)
-	}
-	return conditions;
-  },
   'Bacteriology, Xpert MTB result':  function (formName, formFieldValues) {
   	var burdenconceptToEnable = "Bacteriology, MTB Burden";
   	var rifconceptToEnable =	"Bacteriology, RIF resistance result type"
