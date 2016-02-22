@@ -285,15 +285,17 @@ static def calculateAndAdd(BahmniEncounterTransaction bahmniEncounterTransaction
         && hasValue(inCompletePrescribedDaysObservation)) {
         
         parent = obsParent(idealTreatmentDaysObservation, null)
-
         Date obsDatetime = getDate(idealTreatmentDaysObservation)
+        if (fullyObservedDaysObs == null) {
+            parent = createObs('MTC, Monthly calculations', parent, bahmniEncounterTransaction, obsDatetime)
+        }
         def idealTreatmentDays = idealTreatmentDaysObservation.getValue() as Double
         def nonPrescribedDays = nonPrescribedDaysObservation.getValue() as Double
         def missedPrescribedDays = missedPrescribedDaysObservation.getValue() as Double
         def inCompletePrescribedDays = inCompletePrescribedDaysObservation.getValue() as Double
         def completenessRate
         def adherenceRateDenominator
-        
+
         def fullyObservedDays = idealTreatmentDays - (nonPrescribedDays + missedPrescribedDays + inCompletePrescribedDays) as Double
 
         try{
@@ -304,7 +306,7 @@ static def calculateAndAdd(BahmniEncounterTransaction bahmniEncounterTransaction
                             throw new Exception()
                 }
                 completenessRate = (fullyObservedDays / idealTreatmentDays) * 100 as Double
-                adherenceRateDenominator = (idealTreatmentDays - nonPrescribedDays) * 100 as Double
+                adherenceRateDenominator = (idealTreatmentDays - nonPrescribedDays) as Double
 
         }catch(ArithmeticException E){
                 throw new BahmniEmrAPIException("Value zero for MTC, Ideal total treatment days in the month")
@@ -312,7 +314,7 @@ static def calculateAndAdd(BahmniEncounterTransaction bahmniEncounterTransaction
         catch(Exception E){
                 throw new BahmniEmrAPIException("Value for MTC, Ideal total treatment days in the month is equal to MTC, Non prescribed days ")
         }
-        def adherenceRate = fullyObservedDays / (adherenceRateDenominator) as Double
+        def adherenceRate = (fullyObservedDays / adherenceRateDenominator) * 100 as Double
         if (fullyObservedDaysObs == null)
             fullyObservedDaysObs = createObs(fullyObservedCompleteDaysConceptName, parent, bahmniEncounterTransaction, obsDatetime) as BahmniObservation
         fullyObservedDaysObs.setValue(fullyObservedDays)
@@ -323,7 +325,7 @@ static def calculateAndAdd(BahmniEncounterTransaction bahmniEncounterTransaction
 
         if(adherenceRateObs == null)
             adherenceRateObs = createObs(adherenceRateConceptName, parent, bahmniEncounterTransaction, obsDatetime) as BahmniObservation
-        adherenceRateObs.setValue(adherenceRate)    
+        adherenceRateObs.setValue(Math.round(adherenceRate * 100.0) / 100.0)
     }
     
     BahmniObservation observedDaysObs = find("MTC, Drug observed days", observations, null)
@@ -348,7 +350,7 @@ static def calculateAndAdd(BahmniEncounterTransaction bahmniEncounterTransaction
         }
         if(dotRateObs == null)
             dotRateObs = createObs(dotRateConceptName, parent, bahmniEncounterTransaction, obsDatetime) as BahmniObservation   
-        dotRateObs.setValue(dotRate) 
+        dotRateObs.setValue(Math.round(dotRate*100.0)/100.0)
         return
     }
 }
