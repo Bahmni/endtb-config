@@ -171,7 +171,7 @@
           "activeNonTbDrugs": {
             "title": "Active Non TB Drugs",
             "active": true,
-            "captureStopReason": true,
+            "captureStopReason": false,
 	    "columnHeaders": {
 		"drugName" : "DRUG_HISTORY_NONTB_DRUGNAME",
 		"dosage": "DRUG_HISTORY_NONTB_DOSAGE",
