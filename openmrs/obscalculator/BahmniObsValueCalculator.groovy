@@ -71,6 +71,7 @@ public class BahmniObsValueCalculator implements ObsValueCalculator {
         formNames.put("Xray Template", "Xray, Chest Xray Date");
         formNames.put("Audiometry Template", "Audiometry, Audiometry date");
         formNames.put("Electrocardiogram Template", "EKG, Date of EKG");
+	formNames.put("Monthly Treatment Completeness Template", "MTC, Month and year of treatment period");
         formNames.put("Performance Status Template", "Performance Status, Assessment date");
         calculateAndAdd(bahmniEncounterTransaction);
         changeObsDateTime(bahmniEncounterTransaction);

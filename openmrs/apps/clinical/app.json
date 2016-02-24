@@ -553,6 +553,13 @@
       "Monthly Treatment Completeness Template": {
         "allowAddMore": true
       },
+      "MTC, Month and year of treatment period" : {
+        "required" : true,
+        "minYear": 2000,
+        "maxYear": 2020,
+        "allowFutureDates": true,
+        "displayMonthAndYear": true
+      },
       "MTC, Month of treatment period": {
         "required": true,
         "autocomplete": true
