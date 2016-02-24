@@ -313,6 +313,7 @@
         "title": "Culture & Smear Results",
         "name": "obsToObsFlowSheet",
 	"headingConceptSource":"Abbreviation",
+	"dataConceptSource": "Abbreviation",
         "displayOrder": 10,
         "dashboardParams": {
           "templateName": "BACTERIOLOGY CONCEPT SET",
@@ -326,19 +327,18 @@
         }
       },
       "txCompletenessRate": {
-        "name": "txCompleteness",
-        "isObservation": true,
+        "name": "obsToObsFlowSheet",
+	"title": "Treatment Completeness Rate",
         "displayType": "Full-Page",
+	"displayOrder": 11,
         "dashboardParams": {
-          "showGroupDateTime": false,
+	  "pivotOn": "column",
+	  "templateName": "Monthly Treatment Completeness Template",
+	  "groupByConcept": "MTC, Month and year of treatment period",
           "conceptNames": [
-                "Current month of treatment",
                 "MTC, Completeness rate"
-          ],
-          "scope": "latest"
-        },
-        "displayOrder": 11,
-        "translationKey": "Treatment Completeness Rate"
+          ]
+        }
       },
       "weightBMI": {
         "displayType": "Full-Page",
