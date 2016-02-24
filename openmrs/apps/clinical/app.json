@@ -374,15 +374,6 @@
       "HDS, Type of TB related surgery": {
         "multiSelect": true
       },
-      "Lab Results Hemotology Template" :{
-        "hideAbnormalButton" : true
-      },
-      "Lab Results Biochemistry Template" : {
-        "hideAbnormalButton" : true
-      },
-      "Lab Results Serology Template" : {
-        "hideAbnormalButton" : true
-      },
       "Lab, Month of scheduled visit": {
         "conciseText": true
       },
@@ -854,13 +845,16 @@
         "disableAddNotes": true
       },
       "Lab Results Hemotology Template": {
-        "allowAddMore": true
+        "allowAddMore": true,
+	"hideAbnormalButton" : true
       },
       "Lab Results Biochemistry Template": {
-        "allowAddMore": true
+        "allowAddMore": true,
+	"hideAbnormalButton" : true
       },
       "Lab Results Serology Template": {
-        "allowAddMore": true
+        "allowAddMore": true,
+	"hideAbnormalButton" : true
       },
       "Lab Results Pregnancy Template": {
         "allowAddMore": true
