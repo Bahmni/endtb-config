@@ -85,7 +85,7 @@
         "dashboardParams": {
           "isEditable": true,
           "groupByConcept": "AE Form, AE term comprehensive list",
-          "templateName": "AE Form, Adverse Event details",
+          "templateName": "Adverse Events Template",
           "conceptNames": [
             "AE Form, AE ID number",
             "AE Form, SAE Case Number",
@@ -365,7 +365,7 @@
         "displayOrder": 13,
         "dashboardParams": {
           "pivotOn": "column",
-          "templateName": "Lab, Haematology Details",
+          "templateName": "Lab Results Hemotology Template",
           "groupByConcept": "Specimen Collection Date",
           "name": "DstExtension",
           "conceptNames": [
@@ -387,7 +387,7 @@
         "displayOrder": 14,
         "dashboardParams": {
           "pivotOn": "column",
-          "templateName": "Lab, Biochemistry Details",
+          "templateName": "Lab Results Biochemistry Template",
           "groupByConcept": "Specimen Collection Date",
           "name": "DstExtension",
           "conceptNames": [
@@ -416,7 +416,7 @@
         "displayOrder": 15,
         "dashboardParams": {
           "pivotOn": "column",
-          "templateName": "Lab, Serology Details",
+          "templateName": "Lab Results Serology Template",
           "groupByConcept": "Specimen Collection Date",
           "name": "DstExtension",
           "conceptNames": [
@@ -435,7 +435,7 @@
         "displayOrder": 16,
         "dashboardParams": {
 	  "pivotOn" : "column",
-          "templateName": "Lab, Pregnancy Details",
+          "templateName": "Lab Results Pregnancy Template",
           "groupByConcept": "Specimen Collection Date",
           "name": "DstExtension",
           "conceptNames": [
@@ -451,7 +451,7 @@
         "displayOrder": 17,
         "dashboardParams": {
 	  "pivotOn" : "column",
-          "templateName": "Lab, Other Tests Details",
+          "templateName": "Lab Results Other Tests Template",
           "groupByConcept": "Specimen Collection Date",
           "name": "DstExtension",
           "conceptNames": [
@@ -468,7 +468,7 @@
         "displayOrder": 18,
         "dashboardParams": {
           "groupByConcept": "AE Form, AE term comprehensive list",
-          "templateName": "AE Form, Adverse Event details",
+          "templateName": "Adverse Events Template",
           "conceptNames": [
 	    "AE Form, AE ID number",
 	    "AE Form, SAE Case Number",
@@ -491,7 +491,7 @@
         "dashboardParams": {
           "groupByConcept": "EKG, Date of EKG",
           "name": "EcgReadingsExtension",
-          "templateName": "EKG, Electrocardiogram Details",
+          "templateName": "Electrocardiogram Template",
           "conceptNames": [
             "EKG, Type of assessment",
             "EKG, Rhythm",

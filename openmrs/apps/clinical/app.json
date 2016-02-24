@@ -247,7 +247,7 @@
       "AE Form, Date of AE report": {
         "required": true
       },
-      "AE Form, Adverse Event details": {
+      "Adverse Events Template": {
         "allowAddMore": true
       },
       "AE Form, Adverse Event term": {
@@ -292,7 +292,7 @@
       "AE Form, TB drug name": {
         "autocomplete": true
       },
-      "SAE Form, Serious Adverse Event Details": {
+      "Serious Adverse Events Template": {
         "allowAddMore": true
       },
       "SAE Form, Date of SAE report": {
@@ -541,7 +541,7 @@
       "Audiometry, Right ear at 8000Hz": {
         "disableAddNotes": true
       },
-      "EKG, Electrocardiogram Details": {
+      "Electrocardiogram Template": {
         "allowAddMore": true
       },
       "EKG, Date of EKG": {
@@ -550,7 +550,7 @@
       "EKG, Other Rhythm": {
         "conciseText": true
       },
-      "MTC, Monthly Treatment Completeness Details": {
+      "Monthly Treatment Completeness Template": {
         "allowAddMore": true
       },
       "MTC, Month of treatment period": {
@@ -579,7 +579,7 @@
       "MTC, DOT rate details": {
         "allowAddMore": true
       },
-      "Performance Status, Performance Status Details": {
+      "Performance Status Template": {
         "allowAddMore": true
       },
       "Performance Status, Assessment date": {
@@ -846,19 +846,19 @@
       "Lab, Total Bilirubin other": {
         "disableAddNotes": true
       },
-      "Lab, Haematology Details": {
+      "Lab Results Hemotology Template": {
         "allowAddMore": true
       },
-      "Lab, Biochemistry Details": {
+      "Lab Results Biochemistry Template": {
         "allowAddMore": true
       },
-      "Lab, Serology Details": {
+      "Lab Results Serology Template": {
         "allowAddMore": true
       },
-      "Lab, Pregnancy Details": {
+      "Lab Results Pregnancy Template": {
         "allowAddMore": true
       },
-      "Lab, Other Tests Details": {
+      "Lab Results Other Tests Template": {
         "allowAddMore": true
       },
       "Bacteriology, Smear microscopy test results": {
