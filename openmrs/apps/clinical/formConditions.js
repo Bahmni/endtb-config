@@ -225,19 +225,20 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
 	return conditions;
   },
   'TI, Did the patient start treatment' : function (formName, formFieldValues) {
-        var enReason = "TI, Reason for not starting treatment";
+        var enStartDate = "TUBERCULOSIS DRUG TREATMENT START DATE";
+	var enReason = "TI, Reason for not starting treatment";
         var txFacility = "TI, Treatment facility at start";
         var txRegimen = "TI, Type of treatment regimen";
         var firstLine = "TI, First line drug regimen type";
         var secondLine = "TI, Second line regimen drug type";
         var conditionConcept = formFieldValues['TI, Did the patient start treatment'];
         if(conditionConcept == false) {
-            return {enable: [enReason], disable: [txFacility,txRegimen,firstLine,secondLine]}
+            return {enable: [enReason], disable: [enStartDate,txFacility,txRegimen,firstLine,secondLine]}
         } else if (conditionConcept == true) {
-            return {enable: [txFacility,txRegimen,firstLine,secondLine], disable: [enReason]}
+            return {enable: [enStartDate,txFacility,txRegimen,firstLine,secondLine], disable: [enReason]}
         } 
         else {
-            return {disable: [txFacility,txRegimen,firstLine,secondLine,enReason]}
+            return {disable: [enStartDate,txFacility,txRegimen,firstLine,secondLine,enReason]}
         }
   }, 
   'TI, Currently pregnant': function(formName, formFieldValues) {
