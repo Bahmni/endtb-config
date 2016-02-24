@@ -38,7 +38,7 @@ public class DstExtension extends BaseTableExtension<PivotTable> {
             setMonthAsHeader(pivotTable, concept);
         }
 
-        List<String> smearPositivityObsValueInDescendingOrder = Arrays.asList("3+", "2+", "1+", "Scanty");
+        List<String> smearPositivityObsValueInDescendingOrder = Arrays.asList("Three plus", "Two plus", "One plus", "Scanty 4-9", "Scanty 1-3", "Negative", "Not read");
         List<String> cultureResultObsValueInDescendingOrder = Arrays.asList("Positive for M. tuberculosis", "Negative for M. tuberculosis", "Contaminated",
                 "Only positive for other mycobacterium", "Other");
 
@@ -49,11 +49,11 @@ public class DstExtension extends BaseTableExtension<PivotTable> {
                 calucluateMonth(startDate, pivotRow, rowDate, concept);
             }
 
-            ArrayList<BahmniObservation> smearPositivityObs = pivotRow.getColumns().get("Bacteriology, Smear result positivity");
+            ArrayList<BahmniObservation> smearPositivityObs = pivotRow.getColumns().get("Bacteriology, Smear result");
             if (smearPositivityObs != null && smearPositivityObs.size() > 1) {
                 Collections.sort(smearPositivityObs, new obsValueComparator(smearPositivityObsValueInDescendingOrder));
-                pivotRow.getColumns().remove("Bacteriology, Smear result positivity");
-                pivotRow.addColumn("Bacteriology, Smear result positivity", smearPositivityObs.get(0));
+                pivotRow.getColumns().remove("Bacteriology, Smear result");
+                pivotRow.addColumn("Bacteriology, Smear result", smearPositivityObs.get(0));
             }
 
             ArrayList<BahmniObservation> cultureResultObs = pivotRow.getColumns().get("Bacteriology, Culture results");
