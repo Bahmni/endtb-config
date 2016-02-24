@@ -2,7 +2,7 @@
   "shouldOverRideConfig": true,
   "general": {
     "displayByDefault": true,
-    "maxRecentlyViewedPatients": 10,
+    "maxRecentlyViewedPatients": 1,
     "sections": {
       "tbTreatmentsDetails": {
         "title": "TB Treatments Details",
