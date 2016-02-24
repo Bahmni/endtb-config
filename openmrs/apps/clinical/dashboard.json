@@ -4,9 +4,9 @@
     "displayByDefault": true,
     "maxRecentlyViewedPatients": 10,
     "sections": {
-      "treatmentsDetails": {
-        "title": "Treatments Details",
-        "translationKey": "DASHBOARD_TITLE_TREATMENTS_DETAILS",
+      "tbTreatmentsDetails": {
+        "title": "TB Treatments Details",
+        "translationKey": "DASHBOARD_TITLE_TB_TREATMENTS_DETAILS",
         "name": "drugOrderDetails",
 	"showDetailsButton" : true,
         "displayOrder": 1,
@@ -15,29 +15,9 @@
           "drugConceptSet": "All TB Drugs"
         }
       },
-      "baseline": {
-        "name": "forms",
-        "displayOrder": 2, 
-        "dashboardParams": {
-                "title": null,
-                "maximumNoOfVisits": 10
-        },
-        "formGroup":["Baseline Template"],
-        "translationKey": "Baseline"
-      },
-      "followup": {
-        "name": "forms",
-        "displayOrder": 3, 
-        "dashboardParams": {
-                "title": null,
-                "maximumNoOfVisits": 10
-        },
-        "formGroup":["Followup Template","Monthly Treatment Completeness Template"],
-        "translationKey": "Follow-up"
-      },
       "labsAndTestResults": {
         "name": "forms",
-        "displayOrder": 4,
+        "displayOrder": 2,
         "dashboardParams": {
                 "title": null,
                 "maximumNoOfVisits": 10
@@ -45,15 +25,37 @@
         "formGroup":["Lab Results Hemotology Template","Lab Results Biochemistry Template","Lab Results Serology Template","Lab Results Pregnancy Template","Lab Results Other Tests Template","Xray Template","Audiometry Template","Electrocardiogram Template","Performance Status Template"],
         "translationKey": "Labs and Test Results"
       },
-      "hospitalization": {
+      "nontbTreatmentsDetails": {
+        "title": "Non-TB Treatments Details",
+        "translationKey": "DASHBOARD_TITLE_NONTB_TREATMENTS_DETAILS",
+        "name": "drugOrderDetails",
+        "showDetailsButton" : true,
+        "displayOrder": 3,
+        "dashboardParams": {
+          "showOnlyActive":true,
+          "drugConceptSet": "All Other Drugs"
+        }
+      },
+      "bacteriologyResults": {
+        "translationKey": "DASHBOARD_TITLE_BACTERIOLOGY_RESULTS_KEY",
+        "name": "bacteriologyResultsControl",
+        "orderType": "",
+        "displayOrder": 4,
+        "dashboardParams": {
+          "conceptNames": [
+            "BACTERIOLOGY CONCEPT SET"
+          ]
+        }
+      },
+      "baseline": {
         "name": "forms",
         "displayOrder": 5,
         "dashboardParams": {
                 "title": null,
                 "maximumNoOfVisits": 10
         },
-        "formGroup":["Hospital Admission Notification Template","Hospital Discharge Summary Template"],
-        "translationKey": "Hospitalization"
+        "formGroup":["Baseline Template", "Treatment Initiation Template"],
+        "translationKey": "Baseline"
       },
       "adverseEventsForms": {
         "name": "forms",
@@ -62,58 +64,57 @@
                 "title": null,
                 "maximumNoOfVisits": 10
         },
-        "formGroup":["Adverse Events Template","Serious Adverse Events Template"],
-        "translationKey": "Adverse Events"
+        "formGroup":["Adverse Events Template","Serious Adverse Events Template","Pregnancy Report Form Template"],
+        "translationKey": "Adverse Events Forms"
       },
-      "pregnancyReportForm": {
+      "followup": {
         "name": "forms",
-        "displayOrder": 7,
+        "displayOrder": 7, 
         "dashboardParams": {
                 "title": null,
                 "maximumNoOfVisits": 10
         },
-        "formGroup":["Pregnancy Report Form Template"],
-        "translationKey": "Pregnancy Report Form"
-      },
-      "outcome": {
-        "name": "forms",
-        "displayOrder": 8,
-        "dashboardParams": {
-                "title": null,
-                "maximumNoOfVisits": 10
-        },
-        "formGroup":["Outcome End of Treatment Template","6 month Post Treatment Outcome Template"],
-        "translationKey": "Outcome"
-      },
-      "bacteriologyResults": {
-        "translationKey": "DASHBOARD_TITLE_BACTERIOLOGY_RESULTS_KEY",
-        "name": "bacteriologyResultsControl",
-        "orderType": "",
-        "displayOrder": 9,
-        "dashboardParams": {
-          "conceptNames": [
-            "BACTERIOLOGY CONCEPT SET"
-          ]
-        }
+        "formGroup":["Followup Template","Monthly Treatment Completeness Template"],
+        "translationKey": "Follow-up"
       },
       "adverseEvents": {
         "translationKey": "Adverse Events",
         "name": "obsToObsFlowSheet",
-	"headingConceptSource":"Abbreviation",
-        "displayOrder": 10,
+        "headingConceptSource":"Abbreviation",
+        "displayOrder": 8,
         "dashboardParams": {
           "isEditable": true,
           "groupByConcept": "AE Form, AE term comprehensive list",
           "templateName": "AE Form, Adverse Event details",
           "conceptNames": [
             "AE Form, AE ID number",
-	    "AE Form, SAE Case Number",
+            "AE Form, SAE Case Number",
             "AE Form, Date of AE onset",
             "AE Form, AE review date",
             "AE Form, Date of AE Outcome",
             "AE Form, AE outcome"
           ]
         }
+      },
+      "hospitalization": {
+        "name": "forms",
+        "displayOrder": 9,
+        "dashboardParams": {
+                "title": null,
+                "maximumNoOfVisits": 10
+        },
+        "formGroup":["Hospital Admission Notification Template","Hospital Discharge Summary Template"],
+        "translationKey": "Hospitalization"
+      },
+      "outcome": {
+        "name": "forms",
+        "displayOrder": 10,
+        "dashboardParams": {
+                "title": null,
+                "maximumNoOfVisits": 10
+        },
+        "formGroup":["Outcome End of Treatment Template","6 month Post Treatment Outcome Template"],
+        "translationKey": "Outcome"
       }
     },
     "translationKey": "DASHBOARD_TAB_GENERAL_KEY"
