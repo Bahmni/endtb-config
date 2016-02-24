@@ -323,10 +323,6 @@
             "Bacteriology, Culture results",
 	    "Bacteriology, Culture Colonies"
           ]
-        },
-        "allDetailsParams": {
-          "templateName": "BACTERIOLOGY CONCEPT SET",
-          "groupByConcept": "Specimen Collection Date"
         }
       },
       "txCompletenessRate": {
@@ -381,10 +377,6 @@
             "Lab, ABSOLUTE NEUTROPHIL COUNT Data",
 	    "Lab, Neutrophils test result Data"
           ]
-        },
-        "allDetailsParams": {
-          "templateName": "Lab, Haematology Details",
-          "groupByConcept": "Specimen Collection Date"
         }
       },
       "LabBiochemistry": {
@@ -414,10 +406,6 @@
             "Lab, TOTAL BILIRUBIN Data",
 	    "Lab, SERUM ALBUMIN Data"
           ]
-        },
-        "allDetailsParams": {
-          "templateName": "Lab, Biochemistry Details",
-          "groupByConcept": "Specimen Collection Date"
         }
       },
       "LabResultsSerologyTemplate": {
@@ -437,10 +425,6 @@
             "HIV VIRAL LOAD",
             "CD4 COUNT"
           ]
-        },
-        "allDetailsParams": {
-          "templateName": "Lab, Serology Details",
-          "groupByConcept": "Specimen Collection Date"
         }
       },
       "LabResultsPregnancyTests": {
@@ -457,10 +441,6 @@
           "conceptNames": [
 	    "Lab, Pregnancy test result"
           ]
-        },
-        "allDetailsParams": {
-          "templateName": "Lab, Pregnancy Details",
-          "groupByConcept": "Specimen Collection Date"
         }
       },
       "LabResultsOtherTests": {
@@ -478,10 +458,6 @@
             "Lab, Other test name",
             "Lab, Other test result"
           ]
-        },
-        "allDetailsParams": {
-          "templateName": "Lab, Other Tests Details",
-          "groupByConcept": "Specimen Collection Date"
         }
       },
       "adverseEvents": {
