@@ -352,8 +352,7 @@
           "groupByConcept": "Followup, Visit Date",
           "name": "BMIExtension",
           "conceptNames": [
-            "Weight (kg)",
-            "Body mass index"
+            "Weight (kg)"
           ]
         }
       },
