@@ -320,7 +320,7 @@
           "groupByConcept": "Specimen Collection Date",
           "name": "DstExtension",
           "conceptNames": [
-            "Bacteriology, Smear result positivity",
+            "Bacteriology, Smear result",
             "Bacteriology, Culture results",
 	    "Bacteriology, Culture Colonies"
           ]
