@@ -249,6 +249,7 @@
         "displayOrder": 8,
         "rotateInPrint": true,
         "headingConceptSource":"Abbreviation",
+	"dataConceptSource": "Abbreviation",
         "dashboardParams": {
           "groupByConcept": "Specimen Collection Date",
           "name": "DstExtension",
@@ -279,7 +280,6 @@
         "translationKey": "Drug Regimen",
         "name": "chronicTreatmentChart",
         "headingConceptSource":"Abbreviation",
-	"dataConceptSource": "Abbreviation",
         "dashboardParams": {
           "drugs": [
               "ISONIAZID",
