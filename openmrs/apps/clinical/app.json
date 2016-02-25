@@ -21,6 +21,7 @@
   ],
   "config": {
     "defaultVisitType": "General",
+    "showSaveConfirmDialog" : true,
     "showFormsDate" : true,
     "obsIgnoreList": [
       "Patient file"
