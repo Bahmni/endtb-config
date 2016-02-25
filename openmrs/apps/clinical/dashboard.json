@@ -279,6 +279,7 @@
         "translationKey": "Drug Regimen",
         "name": "chronicTreatmentChart",
         "headingConceptSource":"Abbreviation",
+	"dataConceptSource": "Abbreviation",
         "dashboardParams": {
           "drugs": [
               "ISONIAZID",

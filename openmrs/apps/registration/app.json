@@ -41,7 +41,7 @@
                 }
         },
         "addressHierarchy": {
-            "showAddressFieldsTopDown": false,
+            "showAddressFieldsTopDown": true,
             "freeTextAddressFields": [
                 "address2",
                 "address1"
