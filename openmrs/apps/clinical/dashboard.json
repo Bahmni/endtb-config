@@ -23,7 +23,7 @@
                 "maximumNoOfVisits": 10
         },
         "formGroup":["Lab Results Hemotology Template","Lab Results Biochemistry Template","Lab Results Serology Template","Lab Results Pregnancy Template","Lab Results Other Tests Template","Xray Template","Audiometry Template","Electrocardiogram Template","Performance Status Template"],
-        "translationKey": "Labs and Test Results"
+        "translationKey": "DASHBOARD_TITLE_LAB_TESTS_FORMS"
       },
       "nontbTreatmentsDetails": {
         "title": "Non-TB Treatments Details",
@@ -55,7 +55,7 @@
                 "maximumNoOfVisits": 10
         },
         "formGroup":["Baseline Template", "Treatment Initiation Template"],
-        "translationKey": "Baseline"
+        "translationKey": "DASHBOARD_TITLE_BASELINE_FORMS"
       },
       "adverseEventsForms": {
         "name": "forms",
@@ -65,7 +65,7 @@
                 "maximumNoOfVisits": 10
         },
         "formGroup":["Adverse Events Template","Serious Adverse Events Template","Pregnancy Report Form Template"],
-        "translationKey": "Adverse Events Forms"
+        "translationKey": "DASHBOARD_TITLE_ADVERSE_EVENTS_FORMS"
       },
       "followup": {
         "name": "forms",
@@ -75,10 +75,10 @@
                 "maximumNoOfVisits": 10
         },
         "formGroup":["Followup Template","Monthly Treatment Completeness Template"],
-        "translationKey": "Follow-up"
+        "translationKey": "DASHBOARD_TITLE_FOLLOWUP_FORMS"
       },
       "adverseEvents": {
-        "translationKey": "Adverse Events",
+        "translationKey": "DASHBOARD_TITLE_ADVERSE_EVENTS_SUMMARY",
         "name": "obsToObsFlowSheet",
         "headingConceptSource":"Abbreviation",
         "displayOrder": 8,
@@ -104,7 +104,7 @@
                 "maximumNoOfVisits": 10
         },
         "formGroup":["Hospital Admission Notification Template","Hospital Discharge Summary Template"],
-        "translationKey": "Hospitalization"
+        "translationKey": "DASHBOARD_TITLE_HOSPITALIZATION_FORMS"
       },
       "outcome": {
         "name": "forms",
@@ -114,7 +114,7 @@
                 "maximumNoOfVisits": 10
         },
         "formGroup":["Outcome End of Treatment Template","6 month Post Treatment Outcome Template"],
-        "translationKey": "Outcome"
+        "translationKey": "DASHBOARD_TITLE_OUTCOME_FORMS"
       }
     },
     "translationKey": "DASHBOARD_TAB_GENERAL_KEY"
@@ -143,7 +143,7 @@
           ]
         },
         "displayOrder": 1,
-        "translationKey": "Treatment Information"
+        "translationKey": "SUMMARY_TITLE_TREATMENT_INFORMATION"
       },
       "casedefinition": {
         "name": "casedefinition",
@@ -160,7 +160,7 @@
           "scope": "latest"
         },
         "displayOrder": 2,
-        "translationKey": "Case Defintion"
+        "translationKey": "SUMMARY_TITLE_CASE_DEFINITION"
       },
       "serologystatus": {
         "name": "serologystatus",
@@ -180,7 +180,7 @@
           "scope": "latest"
         },
         "displayOrder": 3,
-        "translationKey": "Serology Status"
+        "translationKey": "SUMMARY_TITLE_SEROLOGY_STATUS"
       },
       "coMorbidities": {
         "name": "custom",
@@ -204,7 +204,7 @@
           "scope": "latest"
         },
         "displayOrder": 5,
-        "translationKey": "Important Dates"
+        "translationKey": "SUMMARY_TITLE_IMPORTANT_DATES"
       },
       "pasttbhistory": {
         "name": "pasttbhistory",
@@ -223,10 +223,10 @@
           ]
         },
         "displayOrder": 6,
-        "translationKey": "Past TB Treatment Information"
+        "translationKey": "SUMMARY_TITLE_PAST_TB_TREATMENT_INFO"
       },
       "previousTBTreatmentRegimen": {
-        "translationKey": "Previous TB Treatment Table",
+        "translationKey": "SUMMARY_TITLE_PREVIOUS_TB_TREATMENT_TABLE",
         "name": "obsToObsFlowSheet",
 	"headingConceptSource":"Abbreviation",
         "displayType": "Full-Page",
@@ -243,7 +243,7 @@
         }
       },
       "dstResults": {
-        "translationKey": "DST Results",
+        "translationKey": "SUMMARY_TITLE_DST_RESULTS",
         "name": "obsToObsFlowSheet",
         "displayType": "Full-Page",
         "displayOrder": 8,
@@ -277,7 +277,7 @@
       "Drug-O-Gram": {
         "displayType": "LAYOUT_75_25",
         "title": "Drug Regimen",
-        "translationKey": "Drug Regimen",
+        "translationKey": "SUMMARY_TITLE_DRUG_REGIMEN",
         "name": "chronicTreatmentChart",
         "headingConceptSource":"Abbreviation",
         "dashboardParams": {
@@ -461,7 +461,7 @@
         }
       },
       "adverseEvents": {
-        "translationKey": "Adverse Events",
+        "translationKey": "SUMMARY_TITLE_ADVERSE_EVENTS",
         "name": "obsToObsFlowSheet",
         "displayType": "Full-Page",
 	"headingConceptSource":"Abbreviation",
@@ -483,7 +483,7 @@
         }
       },
       "ecgReadings": {
-        "translationKey": "ECG Readings",
+        "translationKey": "SUMMARY_TITLE_ECG_READINGS",
         "name": "obsToObsFlowSheet",
 	"headingConceptSource":"Abbreviation",
         "displayType": "Full-Page",
@@ -502,7 +502,7 @@
         }
       },
       "chestXray": {
-        "translationKey": "Chest X-Ray",
+        "translationKey": "SUMMARY_TITLE_CHEST_XRAY",
         "name": "obsToObsFlowSheet",
 	"headingConceptSource":"Abbreviation",
         "displayType": "Full-Page",

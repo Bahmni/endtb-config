@@ -27,7 +27,7 @@
     "extensionPointId": "org.bahmni.clinical.consultation.board",
     "type": "link",
     "label": "Medications",
-    "translationKey": "TB Drugs",
+    "translationKey": "CLINICAL_EXTENSION_MEDICATION_TB_TAB",
     "extensionParams": {
       "tabConfigName": "tbTabConfig"
     },
@@ -41,7 +41,7 @@
     "extensionPointId": "org.bahmni.clinical.consultation.board",
     "type": "link",
     "label": "Medications",
-    "translationKey": "Non TB Drugs",
+    "translationKey": "CLINICAL_EXTENSION_MEDICATION_NONTB_TAB",
     "extensionParams": {
       "tabConfigName": "nonTbTabConfig"
     },
