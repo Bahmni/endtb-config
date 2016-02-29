@@ -64,6 +64,8 @@ public class BMIExtension extends BaseTableExtension<PivotTable> {
             ArrayList<BahmniObservation> weightBahmniObservation = pivotRow.getValue("Weight (kg)");
             BahmniObservation latestObsForBMIData = bahmniBridge.getChildObsFromParentObs(weightBahmniObservation.get(0).getObsGroupUuid(), "BMI Data");
             BahmniObservation latestObsForBMI = bahmniBridge.getChildObsFromParentObs(latestObsForBMIData.getUuid(), "Body mass index");
+            BahmniObservation abnormalObsForBMI = bahmniBridge.getChildObsFromParentObs(latestObsForBMIData.getUuid(), "BMI Abnormal");
+            latestObsForBMI.setAbnormal(abnormalObsForBMI.getValue());
             pivotRow.addColumn("BMI", latestObsForBMI);
         }
     }
