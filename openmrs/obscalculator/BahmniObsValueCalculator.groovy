@@ -88,14 +88,14 @@ public class BahmniObsValueCalculator implements ObsValueCalculator {
     static def convertUnits(BahmniEncounterTransaction bahmniEncounterTransaction,Map<String,List<BahmniObservation>> bahmniObsConceptMap) {
 
         //Hemoglobin
-        calculateAlternateObs(bahmniEncounterTransaction,bahmniObsConceptMap.get("Lab, Hemoglobin"),"Lab, Hemoglobin Data", "Hemoglobin", "Hemoglobin Abnormal", "Lab, Hemoglobin mmol/L Data", "Lab, Hemoglobin mmol/L", "Lab, Hemoglobin mmol/L Abnormal", 1 / 1.61);
         calculateAlternateObs(bahmniEncounterTransaction,bahmniObsConceptMap.get("Lab, Hemoglobin"),"Lab, Hemoglobin mmol/L Data", "Lab, Hemoglobin mmol/L", "Lab, Hemoglobin mmol/L Abnormal", "Lab, Hemoglobin Data", "Hemoglobin", "Hemoglobin Abnormal", 1.61);
+	calculateAlternateObs(bahmniEncounterTransaction,bahmniObsConceptMap.get("Lab, Hemoglobin"),"Lab, Hemoglobin Data", "Hemoglobin", "Hemoglobin Abnormal", "Lab, Hemoglobin mmol/L Data", "Lab, Hemoglobin mmol/L", "Lab, Hemoglobin mmol/L Abnormal", 1 / 1.61);
 
         //RBC count
-        calculateAlternateObs(bahmniEncounterTransaction,bahmniObsConceptMap.get("Lab, RBC count"),"Lab, RED BLOOD CELLS Data", "RED BLOOD CELLS", "RED BLOOD CELLS Abnormal", "Lab, RBC with other unit Data", "Lab, RBC with other unit", "Lab, RBC with other unit Abnormal", 1 / 1000000);
         calculateAlternateObs(bahmniEncounterTransaction,bahmniObsConceptMap.get("Lab, RBC count"), "Lab, RBC with other unit Data", "Lab, RBC with other unit", "Lab, RBC with other unit Abnormal", "Lab, RED BLOOD CELLS Data", "RED BLOOD CELLS", "RED BLOOD CELLS Abnormal", 1000000);
-
-        //WBC count
+	calculateAlternateObs(bahmniEncounterTransaction,bahmniObsConceptMap.get("Lab, RBC count"),"Lab, RED BLOOD CELLS Data", "RED BLOOD CELLS", "RED BLOOD CELLS Abnormal", "Lab, RBC with other unit Data", "Lab, RBC with other unit", "Lab, RBC with other unit Abnormal", 1 / 1000000);
+        
+	//WBC count
         calculateAlternateObs(bahmniEncounterTransaction, bahmniObsConceptMap.get("Lab, WBC"),"Lab, WHITE BLOOD CELLS Data", "WHITE BLOOD CELLS", "WHITE BLOOD CELLS Abnormal", "Lab, WBC other unit Data", "Lab, WBC other unit", "Lab, WBC other unit Abnormal", 1000);
         calculateAlternateObs(bahmniEncounterTransaction, bahmniObsConceptMap.get("Lab, WBC"),"Lab, WBC other unit Data", "Lab, WBC other unit", "Lab, WBC other unit Abnormal", "Lab, WHITE BLOOD CELLS Data", "WHITE BLOOD CELLS", "WHITE BLOOD CELLS Abnormal", 1 / 1000);
 
@@ -104,8 +104,8 @@ public class BahmniObsValueCalculator implements ObsValueCalculator {
         calculateAlternateObs(bahmniEncounterTransaction,bahmniObsConceptMap.get("Lab, Potassium"), "Lab, Potassium other Data", "Lab, Potassium other", "Lab, Potassium other Abnormal", "Lab, SERUM POTASSIUM Data", "SERUM POTASSIUM", "SERUM POTASSIUM Abnormal", 1 / 3.91);
 
         //Magnesium
-        calculateAlternateObs(bahmniEncounterTransaction,bahmniObsConceptMap.get("Lab, Magnesium") ,"Lab, Magnesium test result Data", "Lab, Magnesium test result", "Lab, Magnesium test result Abnormal", "Lab, Magnesium other Data", "Lab, Magnesium other", "Lab, Magnesium other Abnormal", 0.41);
         calculateAlternateObs(bahmniEncounterTransaction,bahmniObsConceptMap.get("Lab, Magnesium") ,"Lab, Magnesium other Data", "Lab, Magnesium other", "Lab, Magnesium other Abnormal", "Lab, Magnesium test result Data", "Lab, Magnesium test result", "Lab, Magnesium test result Abnormal", 1 / 0.41);
+	calculateAlternateObs(bahmniEncounterTransaction,bahmniObsConceptMap.get("Lab, Magnesium") ,"Lab, Magnesium test result Data", "Lab, Magnesium test result", "Lab, Magnesium test result Abnormal", "Lab, Magnesium other Data", "Lab, Magnesium other", "Lab, Magnesium other Abnormal", 0.41);
 
         //Ionised calcium
         calculateAlternateObs(bahmniEncounterTransaction,bahmniObsConceptMap.get("Lab, Ionized Calcium") ,"Lab, Ionized Calcium test result Data", "Lab, Ionized Calcium test result", "Lab, Ionized Calcium test result Abnormal", "Lab, Ionized Calcium other Data", "Lab, Ionized Calcium other", "Lab, Ionized Calcium other Abnormal", 4);
@@ -116,8 +116,8 @@ public class BahmniObsValueCalculator implements ObsValueCalculator {
         calculateAlternateObs(bahmniEncounterTransaction,bahmniObsConceptMap.get("Lab, Urea"), "Lab, Urea other Data", "Lab, Urea other", "Lab, Urea other Abnormal", "Lab, BLOOD UREA NITROGEN Data", "BLOOD UREA NITROGEN", "BLOOD UREA NITROGEN Abnormal", 1 / 2.80);
 
         //Creatinine
-        calculateAlternateObs(bahmniEncounterTransaction,bahmniObsConceptMap.get("Lab, Creatinine"), "Lab, Serum creatinine (umol/L) Data", "Serum creatinine (umol/L)", "Serum creatinine (umol/L) Abnormal", "Lab, Creatinine other Data", "Lab, Creatinine other", "Lab, Creatinine other Abnormal", 0.01);
         calculateAlternateObs(bahmniEncounterTransaction,bahmniObsConceptMap.get("Lab, Creatinine"), "Lab, Creatinine other Data", "Lab, Creatinine other", "Lab, Creatinine other Abnormal", "Lab, Serum creatinine (umol/L) Data", "Serum creatinine (umol/L)", "Serum creatinine (umol/L) Abnormal", 1 / 0.01);
+	calculateAlternateObs(bahmniEncounterTransaction,bahmniObsConceptMap.get("Lab, Creatinine"), "Lab, Serum creatinine (umol/L) Data", "Serum creatinine (umol/L)", "Serum creatinine (umol/L) Abnormal", "Lab, Creatinine other Data", "Lab, Creatinine other", "Lab, Creatinine other Abnormal", 0.01);
 
         //Glucose (fasting)
         calculateAlternateObs(bahmniEncounterTransaction,bahmniObsConceptMap.get("Lab, Glucose (Fasting)"), "Lab, Fasting blood glucose measurement (mg/dL) Data", "Fasting blood glucose measurement (mg/dL)", "Fasting blood glucose measurement (mg/dL) Abnormal", "Lab, Glucose (Fasting) other Data", "Lab, Glucose (Fasting) other", "Lab, Glucose (Fasting) other Abnormal", 18.02);
