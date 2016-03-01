@@ -606,7 +606,7 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
 	var conceptToEnable = "AE Form, Other AE term";
 	var conditions = {enable : [],disable : []};
 	var AETerm = formFieldValues['AE Form, AE term comprehensive list'];
-	if (AETerm == "Other") {
+	if (AETerm && AETerm.value == "Other") {
 		conditions.enable.push(conceptToEnable)
 	} else {
 		conditions.disable.push(conceptToEnable)
@@ -617,7 +617,7 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
 		var conceptToEnable = "AE form, other related test";
 		var conditions = {enable : [],disable : []};
 		var AETerm = formFieldValues['AE Form, AE related test'];
-		if (AETerm == "Other") {
+		if (AETerm && AETerm.value == "Other") {
 			conditions.enable.push(conceptToEnable)
 		} else {
 			conditions.disable.push(conceptToEnable)
@@ -724,7 +724,7 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
 	var conceptToEnable = "SAE Form, Other SAE term";
 	var conditions = {enable : [],disable : []};
 	var SAETerm = formFieldValues['SAE Form, SAE term comprehensive AE list'];
-	if (SAETerm == "Other") {
+	if (SAETerm SAETerm.value == "Other") {
 		conditions.enable.push(conceptToEnable)
 	} else {
 		conditions.disable.push(conceptToEnable)
@@ -747,7 +747,7 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
 		var conceptToEnable = "SAE form, other related test";
 		var conditions = {enable : [],disable : []};
 		var SAETerm = formFieldValues['SAE Form, Related test'];
-		if (SAETerm == "Other") {
+		if (SAETerm && SAETerm.value == "Other") {
 			conditions.enable.push(conceptToEnable)
 		} else {
 			conditions.disable.push(conceptToEnable)
