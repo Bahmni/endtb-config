@@ -54,6 +54,7 @@
             "Doctor": "provider",
             "Parent": "patient"
         },
+	"dobMandatory": true,
         "defaultIdentifierPrefix": "ARA",
         "defaultVisitType": "General",
         "searchByIdForwardUrl": "/patient/{{patientUuid}}",
