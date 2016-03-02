@@ -367,14 +367,9 @@ public class BahmniObsValueCalculator implements ObsValueCalculator {
 
             def patientProgramUuid = bahmniEncounterTransaction.getPatientProgramUuid()
             bahmniBridge.forPatientProgram(patientProgramUuid);
-            def previousHeightValue = bahmniBridge.getLatestBahmniObservationFor("Height (cm)");
-            def previousWeightValue = bahmniBridge.getLatestBahmniObservationFor("Weight (kg)");
 
-            previousHeightValue = previousHeightValue ? previousHeightValue.getValue() : null;
-            previousWeightValue = previousWeightValue ? previousWeightValue.getValue() : null;
-
-            Double height = hasValue(heightObservation) && !heightObservation.voided ? heightObservation.getValue() as Double : previousHeightValue as Double
-            Double weight = hasValue(weightObservation) && !weightObservation.voided ? weightObservation.getValue() as Double : previousWeightValue as Double
+            Double height = hasValue(heightObservation) ? heightObservation.getValue() as Double: null
+            Double weight = hasValue(weightObservation) ? weightObservation.getValue() as Double : null
             Date obsDatetime = getDate(weightObservation) != null ? getDate(weightObservation) : getDate(heightObservation)
 
             if (height == null || weight == null) {
@@ -384,18 +379,21 @@ public class BahmniObsValueCalculator implements ObsValueCalculator {
                 return
             }
 
-            bmiDataObservation = bmiDataObservation ?: createObs("BMI Data", parent, bahmniEncounterTransaction, obsDatetime) as BahmniObservation
+            if(hasValue(heightObservation) && hasValue(weightObservation)){
+                bmiDataObservation = bmiDataObservation ?: createObs("BMI Data", parent, bahmniEncounterTransaction, obsDatetime) as BahmniObservation
 
-            def bmi = bmi(height, weight)
-            bmiObservation = bmiObservation ?: createObs("Body mass index", bmiDataObservation, bahmniEncounterTransaction, obsDatetime) as BahmniObservation;
-            Double roundOffBMI = Math.round(bmi * 100.0) / 100.0;
-            bmiObservation.setValue(roundOffBMI);
+                def bmi = bmi(height, weight)
+                bmiObservation = bmiObservation ?: createObs("Body mass index", bmiDataObservation, bahmniEncounterTransaction, obsDatetime) as BahmniObservation;
+                Double roundOffBMI = Math.round(bmi * 100.0) / 100.0;
+                bmiObservation.setValue(roundOffBMI);
 
-            def bmiStatus = bmiStatus(bmi, patientAgeInMonthsAsOfEncounter, patient.getGender());
+                def bmiStatus = bmiStatus(bmi, patientAgeInMonthsAsOfEncounter, patient.getGender());
 
-            def bmiAbnormal = bmiAbnormal(bmiStatus);
-            bmiAbnormalObservation = bmiAbnormalObservation ?: createObs("BMI Abnormal", bmiDataObservation, bahmniEncounterTransaction, obsDatetime) as BahmniObservation;
-            bmiAbnormalObservation.setValue(bmiAbnormal);
+                def bmiAbnormal = bmiAbnormal(bmiStatus);
+                bmiAbnormalObservation = bmiAbnormalObservation ?: createObs("BMI Abnormal", bmiDataObservation, bahmniEncounterTransaction, obsDatetime) as BahmniObservation;
+                bmiAbnormalObservation.setValue(bmiAbnormal);
+            }
+
         }
     }
 

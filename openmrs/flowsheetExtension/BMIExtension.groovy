@@ -51,6 +51,10 @@ public class BMIExtension extends BaseTableExtension<PivotTable> {
             BahmniObservation latestObsForWeight = bahmniBridge.getChildObsFromParentObs(latestObsForParentOfHeight.getUuid(), "Weight (kg)");
 
             newPivotRow.addColumn("Followup, Visit Date", latestObsForDate);
+            if(latestObsForHeight == null || latestObsForWeight == null){
+                pivotTable.addRow(0,newPivotRow);
+                return;
+            }
             newPivotRow.addColumn("Height (cm)", latestObsForHeight);
             newPivotRow.addColumn("Weight (kg)", latestObsForWeight);
             pivotTable.addRow(0,newPivotRow);
