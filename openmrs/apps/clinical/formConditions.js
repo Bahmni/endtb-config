@@ -724,7 +724,7 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
 	var conceptToEnable = "SAE Form, Other SAE term";
 	var conditions = {enable : [],disable : []};
 	var SAETerm = formFieldValues['SAE Form, SAE term comprehensive AE list'];
-	if (SAETerm SAETerm.value == "Other") {
+	if (SAETerm && SAETerm.value == "Other") {
 		conditions.enable.push(conceptToEnable)
 	} else {
 		conditions.disable.push(conceptToEnable)
