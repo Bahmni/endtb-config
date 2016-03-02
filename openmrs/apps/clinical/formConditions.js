@@ -1194,6 +1194,55 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
     }
     else
         return false;
-  }
-  
+  },
+	'Baseline, Date of baseline': function (formName, formFieldValues) {
+		var result = {
+			enable: [],
+			disable: [],
+			error: ""
+		};
+		var maxDate = formFieldValues['TUBERCULOSIS DRUG TREATMENT START DATE'];
+		var lastVisitDate = formFieldValues['Baseline, Date of baseline'];
+		var todaysDate = new Date();
+		todaysDate = moment(todaysDate).format("YYYY-MM-DD");
+		if (lastVisitDate && lastVisitDate < maxDate){
+			console.log("Yayayaya");
+			result.error = "The date should be less than" + maxDate;
+		}
+		return result;
+	},
+
+	'TUBERCULOSIS DRUG TREATMENT START DATE': function (formName, formFieldValues) {
+		var result = {
+			enable: [],
+			disable: [],
+			error: ""
+		};
+		var maxDate = formFieldValues['TUBERCULOSIS DRUG TREATMENT START DATE'];
+		var lastVisitDate = formFieldValues['Baseline, Date of baseline'];
+		var todaysDate = new Date();
+		todaysDate = moment(todaysDate).format("YYYY-MM-DD");
+		if (lastVisitDate && lastVisitDate < maxDate){
+			console.log("Yayayaya");
+			result.error = "The date should be less than" + maxDate;
+		}
+		return result;
+	},
+
+	'AE Form, Date of AE onset': function (formName, formFieldValues) {
+		var result = {
+			enable: [],
+			disable: [],
+			error: ""
+		};
+		var maxDate = formFieldValues['AE Form, Date of AE report'];
+		var lastVisitDate = formFieldValues['AE Form, Date of AE onset'];
+		var todaysDate = new Date();
+		todaysDate = moment(todaysDate).format("YYYY-MM-DD");
+		if (lastVisitDate && lastVisitDate < maxDate){
+			console.log("Yayayaya");
+			result.error = "The last visit date should not be greater than today";
+		}
+		return result;
+	}
 };
