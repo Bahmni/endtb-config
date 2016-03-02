@@ -52,7 +52,6 @@ public class BMIExtension extends BaseTableExtension<PivotTable> {
 
             newPivotRow.addColumn("Followup, Visit Date", latestObsForDate);
             if(latestObsForHeight == null || latestObsForWeight == null){
-                pivotTable.addRow(0,newPivotRow);
                 return;
             }
             newPivotRow.addColumn("Height (cm)", latestObsForHeight);
@@ -67,10 +66,13 @@ public class BMIExtension extends BaseTableExtension<PivotTable> {
             }
             ArrayList<BahmniObservation> weightBahmniObservation = pivotRow.getValue("Weight (kg)");
             BahmniObservation latestObsForBMIData = bahmniBridge.getChildObsFromParentObs(weightBahmniObservation.get(0).getObsGroupUuid(), "BMI Data");
-            BahmniObservation latestObsForBMI = bahmniBridge.getChildObsFromParentObs(latestObsForBMIData.getUuid(), "Body mass index");
-            BahmniObservation abnormalObsForBMI = bahmniBridge.getChildObsFromParentObs(latestObsForBMIData.getUuid(), "BMI Abnormal");
-            latestObsForBMI.setAbnormal(abnormalObsForBMI.getValue());
-            pivotRow.addColumn("BMI", latestObsForBMI);
+            if(latestObsForBMIData != null){
+                BahmniObservation latestObsForBMI = bahmniBridge.getChildObsFromParentObs(latestObsForBMIData.getUuid(), "Body mass index");
+                BahmniObservation abnormalObsForBMI = bahmniBridge.getChildObsFromParentObs(latestObsForBMIData.getUuid(), "BMI Abnormal");
+                latestObsForBMI.setAbnormal(abnormalObsForBMI.getValue());
+                pivotRow.addColumn("BMI", latestObsForBMI);
+            }
+
         }
     }
 

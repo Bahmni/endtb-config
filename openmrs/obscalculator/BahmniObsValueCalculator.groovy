@@ -337,8 +337,6 @@ public class BahmniObsValueCalculator implements ObsValueCalculator {
             return
         }
 
-        heightObservation = heightObservation ? heightObservation : find("Height (cm)", observations, null)
-        weightObservation = weightObservation ? weightObservation : find("Weight (kg)", observations, null)
         calculateBMIWithHeightAndWeight(bahmniEncounterTransaction, parent, heightObservation, weightObservation)
     }
 
