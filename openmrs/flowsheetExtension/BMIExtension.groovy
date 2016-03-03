@@ -23,7 +23,7 @@ public class BMIExtension extends BaseTableExtension<PivotTable> {
                 .create()
                 .forPatient(patientUuid)
                 .forPatientProgram(patientProgramUuid);
-                Date startDate;
+        Date startDate;
         try {
             Obs latestObs = bahmniBridge.latestObs("TUBERCULOSIS DRUG TREATMENT START DATE");
             startDate = latestObs != null ? latestObs.getValueDatetime() : null;
@@ -33,31 +33,16 @@ public class BMIExtension extends BaseTableExtension<PivotTable> {
         }
         EncounterTransaction.Concept monthConcept = null;
         if (startDate != null) {
-                    monthConcept = constructMonthConcept();
-        setMonthAsHeader(pivotTable, monthConcept);
+            monthConcept = constructMonthConcept();
+            setMonthAsHeader(pivotTable, monthConcept);
 
         }
-
 
         EncounterTransaction.Concept concept = new EncounterTransaction.Concept();
         concept.setName("BMI");
         pivotTable.getHeaders().add(concept);
 
-        PivotRow newPivotRow = new PivotRow();
-        BahmniObservation latestObsForParentOfHeight = bahmniBridge.getLatestBahmniObservationFor("Baseline, Clinical Examination")
-        if(latestObsForParentOfHeight != null) {
-            BahmniObservation latestObsForDate = bahmniBridge.getChildObsFromParentObs(latestObsForParentOfHeight.getObsGroupUuid(), "Baseline, Date of baseline");
-            BahmniObservation latestObsForHeight = bahmniBridge.getChildObsFromParentObs(latestObsForParentOfHeight.getUuid(), "Height (cm)");
-            BahmniObservation latestObsForWeight = bahmniBridge.getChildObsFromParentObs(latestObsForParentOfHeight.getUuid(), "Weight (kg)");
-
-            newPivotRow.addColumn("Followup, Visit Date", latestObsForDate);
-            if(latestObsForHeight == null || latestObsForWeight == null){
-                return;
-            }
-            newPivotRow.addColumn("Height (cm)", latestObsForHeight);
-            newPivotRow.addColumn("Weight (kg)", latestObsForWeight);
-            pivotTable.addRow(0,newPivotRow);
-        }
+        addBaselinePivotRow(pivotTable);
 
         for (PivotRow pivotRow : pivotTable.getRows()) {
             if (startDate != null) {
@@ -65,14 +50,41 @@ public class BMIExtension extends BaseTableExtension<PivotTable> {
                 calucluateMonth(startDate, pivotRow, rowDate, monthConcept);
             }
             ArrayList<BahmniObservation> weightBahmniObservation = pivotRow.getValue("Weight (kg)");
-            BahmniObservation latestObsForBMIData = bahmniBridge.getChildObsFromParentObs(weightBahmniObservation.get(0).getObsGroupUuid(), "BMI Data");
-            if(latestObsForBMIData != null){
-                BahmniObservation latestObsForBMI = bahmniBridge.getChildObsFromParentObs(latestObsForBMIData.getUuid(), "Body mass index");
-                BahmniObservation abnormalObsForBMI = bahmniBridge.getChildObsFromParentObs(latestObsForBMIData.getUuid(), "BMI Abnormal");
-                latestObsForBMI.setAbnormal(abnormalObsForBMI.getValue());
-                pivotRow.addColumn("BMI", latestObsForBMI);
+            if(weightBahmniObservation!=null && weightBahmniObservation.size()>0){
+                BahmniObservation latestObsForBMIData = bahmniBridge.getChildObsFromParentObs(weightBahmniObservation.get(0).getObsGroupUuid(), "BMI Data");
+                if (latestObsForBMIData != null) {
+                    BahmniObservation latestObsForBMI = bahmniBridge.getChildObsFromParentObs(latestObsForBMIData.getUuid(), "Body mass index");
+                    BahmniObservation abnormalObsForBMI = bahmniBridge.getChildObsFromParentObs(latestObsForBMIData.getUuid(), "BMI Abnormal");
+                    latestObsForBMI.setAbnormal(abnormalObsForBMI.getValue());
+                    pivotRow.addColumn("BMI", latestObsForBMI);
+                }
             }
+        }
+    }
 
+    private void addBaselinePivotRow(PivotTable pivotTable) {
+        PivotRow newPivotRow = new PivotRow();
+        BahmniObservation latestObsForParentOfHeight = bahmniBridge.getLatestBahmniObservationFor("Baseline, Clinical Examination")
+        if (latestObsForParentOfHeight == null) {
+            return;
+        }
+
+        BahmniObservation latestObsForDate = bahmniBridge.getChildObsFromParentObs(latestObsForParentOfHeight.getObsGroupUuid(), "Baseline, Date of baseline");
+        BahmniObservation latestObsForHeight = bahmniBridge.getChildObsFromParentObs(latestObsForParentOfHeight.getUuid(), "Height (cm)");
+        BahmniObservation latestObsForWeight = bahmniBridge.getChildObsFromParentObs(latestObsForParentOfHeight.getUuid(), "Weight (kg)");
+
+        addRow(newPivotRow,"Followup, Visit Date", latestObsForDate)
+        addRow(newPivotRow,"Height (cm)", latestObsForHeight)
+        addRow(newPivotRow,"Weight (kg)", latestObsForWeight)
+
+        if (newPivotRow.getColumns().size() > 0) {
+            pivotTable.addRow(0, newPivotRow);
+        }
+    }
+
+    private void addRow(PivotRow pivotRow,String key, Object value){
+        if(value!=null){
+            pivotRow.addColumn(key,value);
         }
     }
 
