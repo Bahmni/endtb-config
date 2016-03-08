@@ -145,6 +145,9 @@
       "Baseline, Other method of MDR-TB confirmation": {
         "conciseText": true
       },
+      "Followup Template" : {
+	"allowAddMore" : true
+      },
       "Followup, Visit Date": {
         "required": true
       },
@@ -396,6 +399,9 @@
       "Specimen Collection Date": {
         "required": true
       },
+      "Xray Template" : {
+	"allowAddMore" : true
+      },
       "Xray, Chest Xray Date": {
         "required": true
       },
@@ -481,6 +487,9 @@
       },
       "Audiometry, Audiometry template details": {
         "allowAddMore": true
+      },
+      "Audiometry Template" : {
+	"allowAddMore" : true
       },
       "Audiometry, Month of scheduled visit": {
         "conciseText": true

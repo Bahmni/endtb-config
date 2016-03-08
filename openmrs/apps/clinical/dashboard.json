@@ -156,8 +156,7 @@
             "Baseline, Disease site",
             "Baseline, Drug resistance",
             "Baseline, Subclassification for confimed drug resistant cases"
-          ],
-          "scope": "latest"
+          ]
         },
         "displayOrder": 2,
         "translationKey": "SUMMARY_TITLE_CASE_DEFINITION"
