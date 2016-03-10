@@ -561,14 +561,6 @@
         "allowFutureDates": true,
         "displayMonthAndYear": true
       },
-      "MTC, Month of treatment period": {
-        "required": true,
-        "autocomplete": true
-      },
-      "MTC, Year of treatment period": {
-        "required": true,
-        "autocomplete": true
-      },
       "MTC, Other treatment delivery method": {
         "conciseText": true
       },
