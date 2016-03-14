@@ -516,16 +516,6 @@
             "Xray, Fibrosis"
           ]
         }
-      },
-      "labRanges": {
-        "name": "custom",
-        "displayOrder": 21,
-        "displayType": "Full-Page",
-	"showOnlyInPrint" : true,
-        "config": {
-          "title": "Lab Results Normal Ranges",
-          "template": "<lab-ranges></lab-ranges>"
-        }
       }
     },
     "translationKey": "DASHBOARD_TAB_PATIENT_SUMMARY_KEY"

@@ -87,6 +87,9 @@
       "Estimated date of confinement" : {
 	"allowFutureDates" : true
       },
+      "PRF, Estimated date of delivery" : {
+        "allowFutureDates" : true
+      },
       "Baseline, Method of MDR-TB confirmation": {
         "multiSelect": true
       },

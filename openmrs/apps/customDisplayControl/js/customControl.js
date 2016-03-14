@@ -30,16 +30,6 @@ angular.module('bahmni.common.displaycontrol.custom')
             link: link,
             template: '<ng-include src="contentUrl"/>'
         }
-    }]).directive('labRanges', ['observationsService', 'appService', 'spinner', function (observationsService, appService, spinner) {
-        var link = function ($scope) {
-            $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/labRanges.html";
-        };
-
-        return {
-            restrict: 'E',
-            link: link,
-            template: '<ng-include src="contentUrl"/>'
-        }
     }]).directive('coMorbidities', ['observationsService', 'appService', 'spinner', function (observationsService, appService, spinner) {
     var link = function ($scope) {
         var conceptNames = ["Diabetes Mellitus","Baseline, Chronic renal insufficiency","History of liver cirrhosis",
