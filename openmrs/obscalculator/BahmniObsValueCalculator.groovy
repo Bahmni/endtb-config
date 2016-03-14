@@ -181,6 +181,19 @@ public class BahmniObsValueCalculator implements ObsValueCalculator {
         return null
     }
 
+    static List<BahmniObservation> findListOfObservationsInChildObs(String conceptName, parent) {
+        List<BahmniObservation> obsList = new ArrayList<BahmniObservation>();
+        if(parent == null)
+            return obsList;
+
+        for (BahmniObservation observation : parent.getGroupMembers()) {
+            if (conceptName.equalsIgnoreCase(observation.getConcept().getName()) && !observation.getVoided()) {
+                obsList.add(observation);
+            }
+        }
+        return obsList;
+    }
+
     static def getNumericValue(BahmniObservation bahmniObservation) {
         return hasValue(bahmniObservation) && !bahmniObservation.voided ? bahmniObservation.getValue() as Double : 0;
     }
@@ -308,30 +321,31 @@ public class BahmniObsValueCalculator implements ObsValueCalculator {
                 adherenceRateObs.setValue(Math.round(adherenceRate * 100.0) / 100.0)
             }
 
-            BahmniObservation dotRateDetailsObs = findConceptInChildObs("MTC, DOT rate details", bahmniObs);
 
-            BahmniObservation observedDaysObs = findConceptInChildObs("MTC, Drug observed days", dotRateDetailsObs)
-            BahmniObservation prescribedDaysObs = findConceptInChildObs("MTC, Drug prescribed days", dotRateDetailsObs)
+            for (BahmniObservation dotRateDetailsObs : findListOfObservationsInChildObs("MTC, DOT rate details", bahmniObs)) {
+                BahmniObservation observedDaysObs = findConceptInChildObs("MTC, Drug observed days", dotRateDetailsObs)
+                BahmniObservation prescribedDaysObs = findConceptInChildObs("MTC, Drug prescribed days", dotRateDetailsObs)
 
-            def dotRateConceptName = "MTC, DOT rate"
-            BahmniObservation dotRateObs = findConceptInChildObs(dotRateConceptName, dotRateDetailsObs)
+                def dotRateConceptName = "MTC, DOT rate"
+                BahmniObservation dotRateObs = findConceptInChildObs(dotRateConceptName, dotRateDetailsObs)
 
-            if (hasValue(observedDaysObs) && hasValue(prescribedDaysObs)) {
-                Date obsDatetime = getDate(observedDaysObs)
-                def observedDays = observedDaysObs.getValue() as Double
-                def prescribedDays = prescribedDaysObs.getValue() as Double
-                def dotRate
-                try {
-                    if (prescribedDays == 0) {
-                        throw new Exception()
+                if (hasValue(observedDaysObs) && hasValue(prescribedDaysObs)) {
+                    Date obsDatetime = getDate(observedDaysObs)
+                    def observedDays = observedDaysObs.getValue() as Double
+                    def prescribedDays = prescribedDaysObs.getValue() as Double
+                    def dotRate
+                    try {
+                        if (prescribedDays == 0) {
+                            throw new Exception()
+                        }
+                        dotRate = (observedDays / prescribedDays) * 100 as Double
+                    } catch (Exception E) {
+                        throw new BahmniEmrAPIException("Value for MTC, Drug prescribed days is equal to zero")
                     }
-                    dotRate = (observedDays / prescribedDays) * 100 as Double
-                } catch (Exception E) {
-                    throw new BahmniEmrAPIException("Value for MTC, Drug prescribed days is equal to zero")
+                    if (dotRateObs == null)
+                        dotRateObs = createObs(dotRateConceptName, dotRateDetailsObs, bahmniEncounterTransaction, obsDatetime) as BahmniObservation
+                    dotRateObs.setValue(Math.round(dotRate * 100.0) / 100.0)
                 }
-                if (dotRateObs == null)
-                    dotRateObs = createObs(dotRateConceptName, dotRateDetailsObs, bahmniEncounterTransaction, obsDatetime) as BahmniObservation
-                dotRateObs.setValue(Math.round(dotRate * 100.0) / 100.0)
             }
         }
     }
