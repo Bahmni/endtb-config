@@ -37,6 +37,7 @@
         "translationKey": "MODULE_LABEL_REPORTS_KEY",
         "url": "../reports/#/dashboard",
         "icon": "icon-bahmni-reports",
-        "order": 5
+        "order": 5,
+	"requiredPrivilege": "app:reports"
     }
 }

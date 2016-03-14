@@ -167,46 +167,46 @@
         "isTabular": true
       },
       "Followup, Vibration Perception in Left": {
-        "autocomplete": true,
+        "dropdown": true,
         "disableAddNotes": true
       },
       "Followup, Ankle reflexes in left": {
-        "autocomplete": true,
+        "dropdown": true,
         "disableAddNotes": true
       },
       "Followup, Vibration Perception in Right": {
-        "autocomplete": true,
+        "dropdown": true,
         "disableAddNotes": true
       },
       "Followup, Ankle reflexes in right": {
-        "autocomplete": true,
+        "dropdown": true,
         "disableAddNotes": true
       },
       "Followup, Visual Acuity": {
         "isTabular": true
       },
       "Followup, Pain Aching or Buring in Right Feet and Leg": {
-        "autocomplete": true,
+        "dropdown": true,
         "disableAddNotes": true
       },
       "Followup, Pins and Needles in Right Feet and Leg": {
-        "autocomplete": true,
+        "dropdown": true,
         "disableAddNotes": true
       },
       "Followup, Numbness in Right Feet and Leg": {
-        "autocomplete": true,
+        "dropdown": true,
         "disableAddNotes": true
       },
       "Followup, Pain Aching or Buring in Left Feet and Leg": {
-        "autocomplete": true,
+        "dropdown": true,
         "disableAddNotes": true
       },
       "Followup, Pins and Needles in Left Feet and Leg": {
-        "autocomplete": true,
+        "dropdown": true,
         "disableAddNotes": true
       },
       "Followup, Numbness in Left Feet and Leg": {
-        "autocomplete": true,
+        "dropdown": true,
         "disableAddNotes": true
       },
       "Visual acuity, left eye": {
@@ -257,9 +257,6 @@
       "Adverse Events Template": {
         "allowAddMore": true
       },
-      "AE Form, Adverse Event term": {
-        "autocomplete": true
-      },
       "AE Form, AE term comprehensive list": {
         "autocomplete": true
       },
@@ -297,7 +294,7 @@
         "conciseText": true
       },
       "AE Form, TB drug name": {
-        "autocomplete": true
+        "dropdown": true
       },
       "Serious Adverse Events Template": {
         "allowAddMore": true
@@ -312,7 +309,7 @@
         "multiSelect": true
       },
       "SAE Form, TB drug name": {
-        "autocomplete": true
+        "dropdown": true
       },
       "SAE Form, Related tests (data from PV unit summary)": {
         "allowAddMore": true
@@ -346,7 +343,7 @@
         "conciseText": true
       },
       "PRF, TB drug name": {
-        "autocomplete": true
+        "dropdown": true
       },
       "PRF, Non-TB drug name": {
         "conciseText": true
@@ -416,31 +413,31 @@
       },
       "Xray, Cavity left side": {
         "disableAddNotes": true,
-        "autocomplete": true
+        "dropdown": true
       },
       "Xray, Maximum cavity size left side": {
         "disableAddNotes": true,
-        "autocomplete": true
+        "dropdown": true
       },
       "Xray, Fibrosis left side": {
         "disableAddNotes": true,
-        "autocomplete": true
+        "dropdown": true
       },
       "Xray, Infiltrate left side": {
         "disableAddNotes": true,
-        "autocomplete": true
+        "dropdown": true
       },
       "Xray, Tuberculoma left side": {
         "disableAddNotes": true,
-        "autocomplete": true
+        "dropdown": true
       },
       "Xray, Disseminated left side": {
         "disableAddNotes": true,
-        "autocomplete": true
+        "dropdown": true
       },
       "Xray, Nodule left side": {
         "disableAddNotes": true,
-        "autocomplete": true
+        "dropdown": true
       },
       "Xray, Pleural effusion left side": {
         "disableAddNotes": true
@@ -453,31 +450,31 @@
       },
       "Xray, Cavity right side": {
         "disableAddNotes": true,
-        "autocomplete": true
+        "dropdown": true
       },
       "Xray, Maximum cavity size right side": {
         "disableAddNotes": true,
-        "autocomplete": true
+        "dropdown": true
       },
       "Xray, Fibrosis right side": {
         "disableAddNotes": true,
-        "autocomplete": true
+        "dropdown": true
       },
       "Xray, Infiltrate right side": {
         "disableAddNotes": true,
-        "autocomplete": true
+        "dropdown": true
       },
       "Xray, Tuberculoma right side": {
         "disableAddNotes": true,
-        "autocomplete": true
+        "dropdown": true
       },
       "Xray, Disseminated right side": {
         "disableAddNotes": true,
-        "autocomplete": true
+        "dropdown": true
       },
       "Xray, Nodule right side": {
         "disableAddNotes": true,
-        "autocomplete": true
+        "dropdown": true
       },
       "Xray, Pleural effusion right side": {
         "disableAddNotes": true
@@ -589,7 +586,7 @@
         "required": true
       },
       "ECOG Performance Status": {
-        "autocomplete": true
+        "dropdown": true
       },
       "BACTERIOLOGY_SAMPLE_ID": {
         "conciseText": true
@@ -636,43 +633,43 @@
         "isTabular": true
       },
       "Baseline, Pain Aching or Buring in Left Feet and Leg": {
-        "autocomplete": true,
+        "dropdown": true,
         "disableAddNotes": true
       },
       "Baseline, Pins and Needles in Left Feet and Leg": {
-        "autocomplete": true,
+        "dropdown": true,
         "disableAddNotes": true
       },
       "Baseline, Numbness in Left Feet and Leg": {
-        "autocomplete": true,
+        "dropdown": true,
         "disableAddNotes": true
       },
       "Baseline, Pain Aching or Buring in Right Feet and Leg": {
-        "autocomplete": true,
+        "dropdown": true,
         "disableAddNotes": true
       },
       "Baseline, Pins and Needles in Right Feet and Leg": {
-        "autocomplete": true,
+        "dropdown": true,
         "disableAddNotes": true
       },
       "Baseline, Numbness in Right Feet and Leg": {
-        "autocomplete": true,
+        "dropdown": true,
         "disableAddNotes": true
       },
       "Baseline, Vibration Perception in Left": {
-        "autocomplete": true,
+        "dropdown": true,
         "disableAddNotes": true
       },
       "Baseline, Ankle reflexes in left": {
-        "autocomplete": true,
+        "dropdown": true,
         "disableAddNotes": true
       },
       "Baseline, Vibration Perception in Right": {
-        "autocomplete": true,
+        "dropdown": true,
         "disableAddNotes": true
       },
       "Baseline, Ankle reflexes in right": {
-        "autocomplete": true,
+        "dropdown": true,
         "disableAddNotes": true
       },
       "Lab, Hemoglobin": {
