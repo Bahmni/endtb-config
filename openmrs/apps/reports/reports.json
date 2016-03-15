@@ -13,6 +13,27 @@
                         "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
         },
+	"programDrugOrder": {
+        "name": "Program Drug Order Report",
+        "type": "ProgramDrugOrder",
+        "config": {
+                "programs": [
+                       "Second-line TB treatment register",
+                        "Basic management unit TB register"
+                ],
+                "patientAttributes": [
+                        "nationalIdentificationNumber",
+                        "patientAddress",
+                        "patientDistrict",
+                        "patientCountry",
+                        "telephoneNumber"
+                ],
+                "programAttributes": [
+                          "Registration Number",
+                        "Registration Facility"
+                     ]
+                }
+        },
         "baselineTemplateExport":{
                 "name": "Baseline Data Export",
                 "type": "programObsTemplate",
