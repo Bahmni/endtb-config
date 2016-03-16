@@ -708,16 +708,16 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
   },
 	'SAE Form, Previously reported as AE' : function (formName, formFieldValues) {
 		var previousAE = "SAE Form, AE ID if previously reported as AE";
-		var SeriousnessCriteria = "SAE Form, Seriousness criteria";
-		var conditions = {enable : [],disable : []};
-		var PreviouslyReportedAE = formFieldValues['SAE Form, Previously reported as AE'];
-		if (PreviouslyReportedAE == true) {
-			conditions.enable.push(SeriousnessCriteria)
-			conditions.enable.push(previousAE)
-		} else {
-			conditions.disable.push(SeriousnessCriteria)
-			conditions.disable.push(previousAE)
-		}
+		var dateBecomeSerious = "SAE Form, Date event became serious";
+                var conditions = {enable : [],disable : []};
+                var PreviouslyReportedAE = formFieldValues['SAE Form, Previously reported as AE'];
+                if (PreviouslyReportedAE == true) {
+                        conditions.enable.push(dateBecomeSerious)
+                        conditions.enable.push(previousAE)
+                } else {
+                        conditions.disable.push(dateBecomeSerious)
+                        conditions.disable.push(previousAE)
+                }
 		return conditions;
 	},
   'SAE Form, SAE term comprehensive AE list' : function (formName, formFieldValues) {
