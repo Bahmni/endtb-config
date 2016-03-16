@@ -28,6 +28,7 @@
                         "title" : "Patient Contact Details",
                         "attributes" : [
                                 "patientAddress",
+				"patientAddressLine2",
                                 "patientDistrict",
                                 "patientCountry",
                                 "telephoneNumber"
