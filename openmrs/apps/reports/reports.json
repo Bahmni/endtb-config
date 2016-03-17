@@ -8,7 +8,7 @@
                 "type": "programObsTemplate",
                 "config": {
                         "templateName": "BACTERIOLOGY CONCEPT SET",
-                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "patientAttributes": ["nationalIdentificationNumber", "patientAddress", "patientAddressLine2", "patientDistrict", "patientCountry", "telephoneNumber"],
                         "programAttributes":["Registration Number", "Registration Facility"],
                         "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
@@ -17,29 +17,17 @@
         "name": "Drug Order Export",
         "type": "ProgramDrugOrder",
         "config": {
-                "programs": [
-                       "Second-line TB treatment register",
-                        "Basic management unit TB register"
-                ],
-                "patientAttributes": [
-                        "nationalIdentificationNumber",
-                        "patientAddress",
-                        "patientDistrict",
-                        "patientCountry",
-                        "telephoneNumber"
-                ],
-                "programAttributes": [
-                          "Registration Number",
-                        "Registration Facility"
-                     ]
-                }
-        },
+                "programs": ["Second-line TB treatment register", "Basic management unit TB register"],
+                "patientAttributes": ["nationalIdentificationNumber", "patientAddress", "patientAddressLine2", "patientDistrict", "patientCountry", "telephoneNumber"],
+                "programAttributes": ["Registration Number", "Registration Facility"]
+	        }
+	},
         "baselineTemplateExport":{
                 "name": "Baseline Data Export",
                 "type": "programObsTemplate",
                 "config": {
                         "templateName": "Baseline Template",
-                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "patientAttributes": ["nationalIdentificationNumber", "patientAddress", "patientAddressLine2", "patientDistrict", "patientCountry", "telephoneNumber"],
                         "programAttributes":["Registration Number", "Registration Facility"],
                         "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
@@ -49,7 +37,7 @@
                 "type": "programObsTemplate",
                 "config": {
                         "templateName": "Treatment Initiation Template",
-                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "patientAttributes": ["nationalIdentificationNumber", "patientAddress", "patientAddressLine2", "patientDistrict", "patientCountry", "telephoneNumber"],
                         "programAttributes":["Registration Number", "Registration Facility"],
                         "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
@@ -59,7 +47,7 @@
                 "type": "programObsTemplate",
                 "config": {
                         "templateName": "Followup Template",
-                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "patientAttributes": ["nationalIdentificationNumber", "patientAddress", "patientAddressLine2", "patientDistrict", "patientCountry", "telephoneNumber"],
                         "programAttributes":["Registration Number", "Registration Facility"],
                         "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
@@ -69,7 +57,7 @@
                 "type": "programObsTemplate",
                 "config": {
                         "templateName": "Outcome End of Treatment Template",
-                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "patientAttributes": ["nationalIdentificationNumber", "patientAddress", "patientAddressLine2", "patientDistrict", "patientCountry", "telephoneNumber"],
                         "programAttributes":["Registration Number", "Registration Facility"],
                         "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
@@ -79,7 +67,7 @@
                 "type": "programObsTemplate",
                 "config": {
                         "templateName": "6 month Post Treatment Outcome Template",
-                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "patientAttributes": ["nationalIdentificationNumber", "patientAddress", "patientAddressLine2", "patientDistrict", "patientCountry", "telephoneNumber"],
                         "programAttributes":["Registration Number", "Registration Facility"],
                         "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
@@ -89,7 +77,7 @@
                 "type": "programObsTemplate",
                 "config": {
                         "templateName": "Adverse Events Template",
-                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "patientAttributes": ["nationalIdentificationNumber", "patientAddress", "patientAddressLine2", "patientDistrict", "patientCountry", "telephoneNumber"],
                         "programAttributes":["Registration Number", "Registration Facility"],
                         "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
@@ -99,7 +87,7 @@
                 "type": "programObsTemplate",
                 "config": {
                         "templateName": "Serious Adverse Events Template",
-                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "patientAttributes": ["nationalIdentificationNumber", "patientAddress", "patientAddressLine2", "patientDistrict", "patientCountry", "telephoneNumber"],
                         "programAttributes":["Registration Number", "Registration Facility"],
                         "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
@@ -109,7 +97,7 @@
                 "type": "programObsTemplate",
                 "config": {
                         "templateName": "Pregnancy Report Form Template",
-                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "patientAttributes": ["nationalIdentificationNumber", "patientAddress", "patientAddressLine2", "patientDistrict", "patientCountry", "telephoneNumber"],
                         "programAttributes":["Registration Number", "Registration Facility"],
                         "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
@@ -119,7 +107,7 @@
                 "type": "programObsTemplate",
                 "config": {
                         "templateName": "Hospital Admission Notification Template",
-                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "patientAttributes": ["nationalIdentificationNumber", "patientAddress", "patientAddressLine2", "patientDistrict", "patientCountry", "telephoneNumber"],
                         "programAttributes":["Registration Number", "Registration Facility"],
                         "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
@@ -129,7 +117,7 @@
                 "type": "programObsTemplate",
                 "config": {
                         "templateName": "Hospital Discharge Summary Template",
-                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "patientAttributes": ["nationalIdentificationNumber", "patientAddress", "patientAddressLine2", "patientDistrict", "patientCountry", "telephoneNumber"],
                         "programAttributes":["Registration Number", "Registration Facility"],
                         "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
@@ -139,7 +127,7 @@
                 "type": "programObsTemplate",
                 "config": {
                         "templateName": "Lab Results Hemotology Template",
-                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "patientAttributes": ["nationalIdentificationNumber", "patientAddress", "patientAddressLine2", "patientDistrict", "patientCountry", "telephoneNumber"],
                         "programAttributes":["Registration Number", "Registration Facility"],
                         "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
@@ -149,7 +137,7 @@
                 "type": "programObsTemplate",
                 "config": {
                         "templateName": "Lab Results Biochemistry Template",
-                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "patientAttributes": ["nationalIdentificationNumber", "patientAddress", "patientAddressLine2", "patientDistrict", "patientCountry", "telephoneNumber"],
                         "programAttributes":["Registration Number", "Registration Facility"],
                         "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
@@ -159,7 +147,7 @@
                 "type": "programObsTemplate",
                 "config": {
                         "templateName": "Lab Results Serology Template",
-                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "patientAttributes": ["nationalIdentificationNumber", "patientAddress", "patientAddressLine2", "patientDistrict", "patientCountry", "telephoneNumber"],
                         "programAttributes":["Registration Number", "Registration Facility"],
                         "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
@@ -169,7 +157,7 @@
                 "type": "programObsTemplate",
                 "config": {
                         "templateName": "Lab Results Pregnancy Template",
-                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "patientAttributes": ["nationalIdentificationNumber", "patientAddress", "patientAddressLine2", "patientDistrict", "patientCountry", "telephoneNumber"],
                         "programAttributes":["Registration Number", "Registration Facility"],
                         "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
@@ -179,7 +167,7 @@
                 "type": "programObsTemplate",
                 "config": {
                         "templateName": "Lab Results Other Tests Template",
-                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "patientAttributes": ["nationalIdentificationNumber", "patientAddress", "patientAddressLine2", "patientDistrict", "patientCountry", "telephoneNumber"],
                         "programAttributes":["Registration Number", "Registration Facility"],
                         "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
@@ -189,7 +177,7 @@
                 "type": "programObsTemplate",
                 "config": {
                         "templateName": "Xray Template",
-                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "patientAttributes": ["nationalIdentificationNumber", "patientAddress", "patientAddressLine2", "patientDistrict", "patientCountry", "telephoneNumber"],
                         "programAttributes":["Registration Number", "Registration Facility"],
                         "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
@@ -199,7 +187,7 @@
                 "type": "programObsTemplate",
                 "config": {
                         "templateName": "Audiometry Template",
-                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "patientAttributes": ["nationalIdentificationNumber", "patientAddress", "patientAddressLine2", "patientDistrict", "patientCountry", "telephoneNumber"],
                         "programAttributes":["Registration Number", "Registration Facility"],
                         "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
@@ -209,7 +197,7 @@
                 "type": "programObsTemplate",
                 "config": {
                         "templateName": "Electrocardiogram Template",
-                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "patientAttributes": ["nationalIdentificationNumber", "patientAddress", "patientAddressLine2", "patientDistrict", "patientCountry", "telephoneNumber"],
                         "programAttributes":["Registration Number", "Registration Facility"],
                         "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
@@ -219,7 +207,7 @@
                 "type": "programObsTemplate",
                 "config": {
                         "templateName": "Monthly Treatment Completeness Template",
-                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "patientAttributes": ["nationalIdentificationNumber", "patientAddress", "patientAddressLine2", "patientDistrict", "patientCountry", "telephoneNumber"],
                         "programAttributes":["Registration Number", "Registration Facility"],
                         "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
@@ -229,7 +217,7 @@
                 "type": "programObsTemplate",
                 "config": {
                         "templateName": "Performance Status Template",
-                        "patientAttributes": ["patientAddress", "patientDistrict", "patientCountry", "telephoneNumber"],
+                        "patientAttributes": ["nationalIdentificationNumber", "patientAddress", "patientAddressLine2", "patientDistrict", "patientCountry", "telephoneNumber"],
                         "programAttributes":["Registration Number", "Registration Facility"],
                         "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
