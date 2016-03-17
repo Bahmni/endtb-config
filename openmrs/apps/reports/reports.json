@@ -14,7 +14,7 @@
                 }
         },
 	"programDrugOrder": {
-        "name": "Program Drug Order Report",
+        "name": "Drug Order Export",
         "type": "ProgramDrugOrder",
         "config": {
                 "programs": [
