@@ -735,6 +735,9 @@
       "Lab, Total Bilirubin": {
         "isTabular": true
       },
+      "Lab, CD4 count": {
+	"isTabular": true
+      },
       "Lab, Serum Albumin": {
         "isTabular": true
       },
@@ -752,6 +755,9 @@
       },
       "ABSOLUTE NEUTROPHIL COUNT": {
         "disableAddNotes": true
+      },
+      "Lab, Absolute neutrophil count other test result": {
+	"disableAddNotes": true
       },
       "Lab, Neutrophils test result": {
         "disableAddNotes": true
@@ -798,11 +804,17 @@
       "CD4 COUNT": {
         "disableAddNotes": true
       },
+      "Lab, CD4 count other result": {
+	"disableAddNotes": true
+      }, 
       "HIV VIRAL LOAD": {
         "disableAddNotes": true
       },
       "SERUM ALBUMIN": {
         "disableAddNotes": true
+      },
+      "Lab, Serum Albumin other": {
+	"disableAddNotes": true
       },
       "Lab, Other test": {
         "allowAddMore": true
@@ -810,7 +822,7 @@
       "Hemoglobin": {
         "disableAddNotes": true
       },
-      "Lab, Hemoglobin mmol/L": {
+      "Lab, Hemoglobin g/dl": {
         "disableAddNotes": true
       },
       "Lab, RBC with other unit": {

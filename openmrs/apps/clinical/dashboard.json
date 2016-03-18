@@ -368,7 +368,7 @@
           "groupByConcept": "Specimen Collection Date",
           "name": "DstExtension",
           "conceptNames": [
-	    "Lab, Hemoglobin mmol/L Data",
+	    "Lab, Hemoglobin g/dl Data",
             "Lab, Hematocrit Data",
             "Lab, Platelet count Data",
             "Lab, RBC with other unit Data",
@@ -422,7 +422,7 @@
             "Lab, Hepatitis B antigen test result",
             "Lab, Hepatitis C antibody test result",
             "HIV VIRAL LOAD",
-            "CD4 COUNT"
+            "Lab, CD4 COUNT Data"
           ]
         }
       },
