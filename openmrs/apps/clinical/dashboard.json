@@ -371,9 +371,9 @@
 	    "Lab, Hemoglobin g/dl Data",
             "Lab, Hematocrit Data",
             "Lab, Platelet count Data",
-            "Lab, RBC with other unit Data",
+            "Lab, RED BLOOD CELLS Data",
             "Lab, WHITE BLOOD CELLS Data",
-            "Lab, ABSOLUTE NEUTROPHIL COUNT Data",
+            "Lab, Absolute neutrophil count other test result Data",
 	    "Lab, Neutrophils test result Data"
           ]
         }
@@ -392,10 +392,10 @@
           "conceptNames": [
             "Lab, SERUM POTASSIUM Data",
             "Lab, Magnesium test result Data",
-            "Lab, Ionized Calcium test result Data",
+            "Lab, Ionized Calcium other Data",
             "Lab, BLOOD UREA NITROGEN Data",
-            "Lab, Serum creatinine (umol/L) Data",
-            "Lab, SERUM GLUCOSE Data",
+            "Lab, Creatinine other Data",
+            "Lab, Glucose other Data",
             "Lab, Fasting blood glucose measurement (mg/dL) Data",
             "Lab, glycosylated hemoglobin A measurement Data",
             "Lab, Thyroid stimulating hormone test Data",
