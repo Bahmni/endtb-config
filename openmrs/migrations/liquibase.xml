@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+        <changeSet id="endtb-treatment-month-concept" author="Padma, Jaswanth">
+                <comment>Add current month of treatment concept</comment>
+                <sql>
+                        set @concept_id = 0;
+                        set @concept_name_short_id = 0;
+                        set @concept_name_full_id = 0;
+
+                        call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id,'Current month of treatment','Current month of treatment', 'Text', 'Misc', false);
+                </sql>
+        </changeSet>
+
+</databaseChangeLog>
