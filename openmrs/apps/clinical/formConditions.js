@@ -948,17 +948,6 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
 	}        
         return conditions;
   },
-  'Lab, Type of visit': function (formName, formFieldValues) {
-        var conceptToEnable = "Lab, Month of scheduled visit";
-        var conditions = {enable: [], disable: []};
-	var conditionConcept = formFieldValues['Lab, Type of visit'];    
-	if(conditionConcept == "Planned monthly assessment" ) {
-		conditions.enable.push(conceptToEnable)
-	} else {
-		conditions.disable.push(conceptToEnable)
-	}
-        return conditions; 
-  },
   'Xray, Extent of disease': function(formName, formFieldValues) {
         var conceptEnCavity = "Xray, Maximum cavity size";
 	var conceptEnFibrosis = "Xray, Fibrosis";
