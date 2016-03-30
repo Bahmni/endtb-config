@@ -265,7 +265,6 @@
         "name": "obsToObsFlowSheet",
         "displayType": "Full-Page",
         "displayOrder": 8,
-        "rotateInPrint": true,
         "headingConceptSource":"Abbreviation",
 	"dataConceptSource": "Abbreviation",
         "dashboardParams": {
