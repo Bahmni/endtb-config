@@ -96,6 +96,25 @@
           ]
         }
       },
+      "seriousAdverseEvents": {
+	"translationKey": "DASHBOARD_TITLE_SERIOUS_ADVERSE_EVENTS_SUMMARY",
+        "name": "obsToObsFlowSheet",
+        "headingConceptSource":"Abbreviation",
+        "displayOrder": 10,
+        "dashboardParams": {
+          "isEditable": true,
+          "groupByConcept": "SAE Form, SAE term comprehensive AE list",
+          "templateName": "Serious Adverse Events Template",
+          "conceptNames": [
+            "SAE Form, SAE ID number",
+            "SAE Form, AE ID if previously reported as AE",
+            "SAE Form, Event onset date",
+            "SAE Form, Date event became serious",
+            "SAE Form, Event end date",
+            "SAE Form, SAE outcome"
+          ]
+        }
+      },
       "hospitalization": {
         "name": "forms",
         "displayOrder": 9,
@@ -108,7 +127,7 @@
       },
       "outcome": {
         "name": "forms",
-        "displayOrder": 10,
+        "displayOrder": 11,
         "dashboardParams": {
                 "title": null,
                 "maximumNoOfVisits": 10
@@ -474,10 +493,33 @@
             "AE Form, Date of AE onset",
             "AE Form, AE Grade",
             "AE Form, AE review date",
+            "AE Form, AE severity at review",
 	    "AE Form, Maximum severity of AE",
-	    "AE Form, AE severity at review",
             "AE Form, Date of AE Outcome",
             "AE Form, AE outcome"
+          ]
+        }
+      },
+      "seriousAdverseEvents": {
+        "translationKey": "SUMMARY_TITLE_SERIOUS_ADVERSE_EVENTS",
+        "name": "obsToObsFlowSheet",
+        "displayType": "Full-Page",
+        "headingConceptSource":"Abbreviation",
+        "displayOrder": 19,
+        "dashboardParams": {
+          "groupByConcept": "SAE Form, SAE term comprehensive AE list",
+          "templateName": "Serious Adverse Events Template",
+          "conceptNames": [
+            "SAE Form, SAE ID number",
+            "SAE Form, AE ID if previously reported as AE",
+            "SAE Form, Event onset date",
+            "SAE Form, Date event became serious",
+            "SAE Form, SAE severity grade",
+            "SAE Form, SAE review date",
+            "SAE Form, SAE severity at review",
+            "SAE Form, Maximum severity of SAE",
+            "SAE Form, Event end date",
+            "SAE Form, SAE outcome"
           ]
         }
       },
@@ -486,7 +528,7 @@
         "name": "obsToObsFlowSheet",
 	"headingConceptSource":"Abbreviation",
         "displayType": "Full-Page",
-        "displayOrder": 19,
+        "displayOrder": 20,
         "dashboardParams": {
           "groupByConcept": "EKG, Date of EKG",
           "name": "EcgReadingsExtension",
@@ -505,7 +547,7 @@
         "name": "obsToObsFlowSheet",
 	"headingConceptSource":"Abbreviation",
         "displayType": "Full-Page",
-        "displayOrder": 20,
+        "displayOrder": 21,
         "dashboardParams": {
           "groupByConcept": "Xray, Chest Xray Date",
           "name": "ChestXRayExtension",
