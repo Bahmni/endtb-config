@@ -5,20 +5,19 @@
     "maxRecentlyViewedPatients": 1,
     "sections": {
       "tbTreatmentsDetails": {
-        "title": "TB Treatments Details",
         "translationKey": "DASHBOARD_TITLE_TB_TREATMENTS_DETAILS",
-        "name": "drugOrderDetails",
+        "type": "drugOrderDetails",
 	"showDetailsButton" : true,
         "displayOrder": 1,
-        "dashboardParams": {
+        "dashboardConfig": {
 	  "showOnlyActive":true,
           "drugConceptSet": "All TB Drugs"
         }
       },
       "labsAndTestResults": {
-        "name": "forms",
+        "type": "forms",
         "displayOrder": 2,
-        "dashboardParams": {
+        "dashboardConfig": {
                 "title": null,
                 "maximumNoOfVisits": 10
         },
@@ -26,31 +25,30 @@
         "translationKey": "DASHBOARD_TITLE_LAB_TESTS_FORMS"
       },
       "nontbTreatmentsDetails": {
-        "title": "Non-TB Treatments Details",
         "translationKey": "DASHBOARD_TITLE_NONTB_TREATMENTS_DETAILS",
-        "name": "drugOrderDetails",
+        "type": "drugOrderDetails",
         "showDetailsButton" : true,
         "displayOrder": 3,
-        "dashboardParams": {
+        "dashboardConfig": {
           "showOnlyActive":true,
           "drugConceptSet": "All Other Drugs"
         }
       },
       "bacteriologyResults": {
         "translationKey": "DASHBOARD_TITLE_BACTERIOLOGY_RESULTS_KEY",
-        "name": "bacteriologyResultsControl",
+        "type": "bacteriologyResultsControl",
         "orderType": "",
         "displayOrder": 4,
-        "dashboardParams": {
+        "dashboardConfig": {
           "conceptNames": [
             "BACTERIOLOGY CONCEPT SET"
           ]
         }
       },
       "baseline": {
-        "name": "forms",
+        "type": "forms",
         "displayOrder": 5,
-        "dashboardParams": {
+        "dashboardConfig": {
                 "title": null,
                 "maximumNoOfVisits": 10
         },
@@ -58,9 +56,9 @@
         "translationKey": "DASHBOARD_TITLE_BASELINE_FORMS"
       },
       "adverseEventsForms": {
-        "name": "forms",
+        "type": "forms",
         "displayOrder": 6,
-        "dashboardParams": {
+        "dashboardConfig": {
                 "title": null,
                 "maximumNoOfVisits": 10
         },
@@ -68,9 +66,9 @@
         "translationKey": "DASHBOARD_TITLE_ADVERSE_EVENTS_FORMS"
       },
       "followup": {
-        "name": "forms",
+        "type": "forms",
         "displayOrder": 7, 
-        "dashboardParams": {
+        "dashboardConfig": {
                 "title": null,
                 "maximumNoOfVisits": 10
         },
@@ -79,10 +77,10 @@
       },
       "adverseEvents": {
         "translationKey": "DASHBOARD_TITLE_ADVERSE_EVENTS_SUMMARY",
-        "name": "obsToObsFlowSheet",
+        "type": "obsToObsFlowSheet",
         "headingConceptSource":"Abbreviation",
         "displayOrder": 8,
-        "dashboardParams": {
+        "dashboardConfig": {
           "isEditable": true,
           "groupByConcept": "AE Form, AE term comprehensive list",
           "templateName": "Adverse Events Template",
@@ -98,10 +96,10 @@
       },
       "seriousAdverseEvents": {
 	"translationKey": "DASHBOARD_TITLE_SERIOUS_ADVERSE_EVENTS_SUMMARY",
-        "name": "obsToObsFlowSheet",
+        "type": "obsToObsFlowSheet",
         "headingConceptSource":"Abbreviation",
         "displayOrder": 10,
-        "dashboardParams": {
+        "dashboardConfig": {
           "isEditable": true,
           "groupByConcept": "SAE Form, SAE term comprehensive AE list",
           "templateName": "Serious Adverse Events Template",
@@ -116,9 +114,9 @@
         }
       },
       "hospitalization": {
-        "name": "forms",
+        "type": "forms",
         "displayOrder": 9,
-        "dashboardParams": {
+        "dashboardConfig": {
                 "title": null,
                 "maximumNoOfVisits": 10
         },
@@ -126,9 +124,9 @@
         "translationKey": "DASHBOARD_TITLE_HOSPITALIZATION_FORMS"
       },
       "outcome": {
-        "name": "forms",
+        "type": "forms",
         "displayOrder": 11,
-        "dashboardParams": {
+        "dashboardConfig": {
                 "title": null,
                 "maximumNoOfVisits": 10
         },
@@ -148,10 +146,10 @@
     },
     "sections": {
       "treatmentInfo": {
-        "name": "monthlytreatment",
+        "type": "monthlytreatment",
         "isObservation": true,
         "displayType": "Full-Page",
-        "dashboardParams": {
+        "dashboardConfig": {
           "showGroupDateTime": false,
           "conceptNames": [
 		"TUBERCULOSIS DRUG TREATMENT START DATE",
@@ -165,10 +163,10 @@
         "translationKey": "SUMMARY_TITLE_TREATMENT_INFORMATION"
       },
       "casedefinition": {
-        "name": "casedefinition",
+        "type": "casedefinition",
         "isObservation": true,
         "displayType": "Full-Page",
-        "dashboardParams": {
+        "dashboardConfig": {
           "showGroupDateTime": false,
           "conceptNames": [
             "Baseline, WHO registration group",
@@ -181,10 +179,10 @@
         "translationKey": "SUMMARY_TITLE_CASE_DEFINITION"
       },
       "serologystatus": {
-        "name": "serologystatus",
+        "type": "serologystatus",
         "isObservation": true,
         "displayType": "Full-Page",
-        "dashboardParams": {
+        "dashboardConfig": {
           "showGroupDateTime": false,
           "conceptNames": [
             "Baseline, HIV serostatus result",
@@ -201,7 +199,7 @@
         "translationKey": "SUMMARY_TITLE_SEROLOGY_STATUS"
       },
       "coMorbidities": {
-        "name": "custom",
+        "type": "custom",
         "displayOrder": 4,
         "displayType": "Full-Page",
         "config": {
@@ -210,10 +208,10 @@
         }
       },
       "importantdates": {
-        "name": "importantdates",
+        "type": "importantdates",
         "isObservation": true,
         "displayType": "Full-Page",
-        "dashboardParams": {
+        "dashboardConfig": {
           "showGroupDateTime": false,
           "conceptNames": [
             "TUBERCULOSIS DRUG TREATMENT START DATE",
@@ -225,10 +223,10 @@
         "translationKey": "SUMMARY_TITLE_IMPORTANT_DATES"
       },
       "pasttbhistory": {
-        "name": "pasttbhistory",
+        "type": "pasttbhistory",
         "isObservation": true,
         "displayType": "Full-Page",
-        "dashboardParams": {
+        "dashboardConfig": {
           "showGroupDateTime": false,
           "conceptNames": [
             "Baseline, If Yes, What was the year of the patients start of first TB treatment Details",
@@ -245,11 +243,11 @@
       },
       "previousTBTreatmentRegimen": {
         "translationKey": "SUMMARY_TITLE_PREVIOUS_TB_TREATMENT_TABLE",
-        "name": "obsToObsFlowSheet",
+        "type": "obsToObsFlowSheet",
 	"headingConceptSource":"Abbreviation",
         "displayType": "Full-Page",
         "displayOrder": 7,
-        "dashboardParams": {
+        "dashboardConfig": {
           "groupByConcept": "Baseline, Start date of past TB treatment",
           "templateName": "Baseline, Past TB treatment table",
           "conceptNames": [
@@ -262,14 +260,14 @@
       },
       "dstResults": {
         "translationKey": "SUMMARY_TITLE_DST_RESULTS",
-        "name": "obsToObsFlowSheet",
+        "type": "obsToObsFlowSheet",
         "displayType": "Full-Page",
         "displayOrder": 8,
         "headingConceptSource":"Abbreviation",
 	"dataConceptSource": "Abbreviation",
-        "dashboardParams": {
+        "dashboardConfig": {
           "groupByConcept": "Specimen Collection Date",
-          "name": "DstExtension",
+          "type": "DstExtension",
           "templateName": "BACTERIOLOGY CONCEPT SET",
           "conceptNames": [
             "Bacteriology, Isoniazid 0.2 µg/ml result",
@@ -293,11 +291,10 @@
       },
       "Drug-O-Gram": {
         "displayType": "LAYOUT_75_25",
-        "title": "Drug Regimen",
         "translationKey": "SUMMARY_TITLE_DRUG_REGIMEN",
-        "name": "chronicTreatmentChart",
+        "type": "chronicTreatmentChart",
         "headingConceptSource":"Abbreviation",
-        "dashboardParams": {
+        "dashboardConfig": {
           "drugs": [
               "ISONIAZID",
               "RIFAMPICIN",
@@ -329,14 +326,14 @@
       "BacteriologyResults": {
         "displayType": "LAYOUT_25_75",
         "title": "Culture & Smear Results",
-        "name": "obsToObsFlowSheet",
+        "type": "obsToObsFlowSheet",
 	"headingConceptSource":"Abbreviation",
 	"dataConceptSource": "Abbreviation",
         "displayOrder": 10,
-        "dashboardParams": {
+        "dashboardConfig": {
           "templateName": "BACTERIOLOGY CONCEPT SET",
           "groupByConcept": "Specimen Collection Date",
-          "name": "DstExtension",
+          "type": "DstExtension",
           "conceptNames": [
             "Bacteriology, Smear result",
             "Bacteriology, Culture results",
@@ -345,11 +342,11 @@
         }
       },
       "txCompletenessRate": {
-        "name": "obsToObsFlowSheet",
+        "type": "obsToObsFlowSheet",
 	"title": "Treatment Completeness Rate",
         "displayType": "Full-Page",
 	"displayOrder": 11,
-        "dashboardParams": {
+        "dashboardConfig": {
 	  "pivotOn": "column",
 	  "templateName": "Monthly Treatment Completeness Template",
 	  "groupByConcept": "MTC, Month and year of treatment period",
@@ -361,14 +358,14 @@
       "weightBMI": {
         "displayType": "Full-Page",
         "title": "Weight vs BMI",
-        "name": "obsToObsFlowSheet",
+        "type": "obsToObsFlowSheet",
         "headingConceptSource":"Abbreviation",
         "displayOrder": 12,
-        "dashboardParams": {
+        "dashboardConfig": {
           "pivotOn": "column",
           "templateName": "Followup Template",
           "groupByConcept": "Followup, Visit Date",
-          "name": "BMIExtension",
+          "type": "BMIExtension",
           "conceptNames": [
             "Weight (kg)"
           ]
@@ -377,14 +374,14 @@
       "LabHaemotology": {
         "displayType": "Full-Page",
         "title": "Lab Results - Hematology",
-        "name": "obsToObsFlowSheet",
+        "type": "obsToObsFlowSheet",
 	"headingConceptSource":"Abbreviation",
         "displayOrder": 13,
-        "dashboardParams": {
+        "dashboardConfig": {
           "pivotOn": "column",
           "templateName": "Lab Results Hemotology Template",
           "groupByConcept": "Specimen Collection Date",
-          "name": "DstExtension",
+          "type": "DstExtension",
           "conceptNames": [
 	    "Lab, Hemoglobin g/dl Data",
             "Lab, Hematocrit Data",
@@ -399,14 +396,14 @@
       "LabBiochemistry": {
         "displayType": "Full-Page",
         "title": "Lab Results - Biochemistry",
-        "name": "obsToObsFlowSheet",
+        "type": "obsToObsFlowSheet",
 	"headingConceptSource":"Abbreviation",
         "displayOrder": 14,
-        "dashboardParams": {
+        "dashboardConfig": {
           "pivotOn": "column",
           "templateName": "Lab Results Biochemistry Template",
           "groupByConcept": "Specimen Collection Date",
-          "name": "DstExtension",
+          "type": "DstExtension",
           "conceptNames": [
             "Lab, SERUM POTASSIUM Data",
             "Lab, Magnesium test result Data",
@@ -428,14 +425,14 @@
       "LabResultsSerologyTemplate": {
         "displayType": "Full-Page",
         "title": "Lab Results - Serology",
-        "name": "obsToObsFlowSheet",
+        "type": "obsToObsFlowSheet",
 	"headingConceptSource":"Abbreviation",
         "displayOrder": 15,
-        "dashboardParams": {
+        "dashboardConfig": {
           "pivotOn": "column",
           "templateName": "Lab Results Serology Template",
           "groupByConcept": "Specimen Collection Date",
-          "name": "DstExtension",
+          "type": "DstExtension",
           "conceptNames": [
             "Lab, Hepatitis B antigen test result",
             "Lab, Hepatitis C antibody test result",
@@ -447,14 +444,14 @@
       "LabResultsPregnancyTests": {
         "displayType": "Full-Page",
         "title": "Lab Results - Pregnancy Test",
-        "name": "obsToObsFlowSheet",
+        "type": "obsToObsFlowSheet",
 	"headingConceptSource":"Abbreviation",
         "displayOrder": 16,
-        "dashboardParams": {
+        "dashboardConfig": {
 	  "pivotOn" : "column",
           "templateName": "Lab Results Pregnancy Template",
           "groupByConcept": "Specimen Collection Date",
-          "name": "DstExtension",
+          "type": "DstExtension",
           "conceptNames": [
 	    "Lab, Pregnancy test result"
           ]
@@ -463,14 +460,14 @@
       "LabResultsOtherTests": {
         "displayType": "Full-Page",
         "title": "Lab Results - Other Tests",
-        "name": "obsToObsFlowSheet",
+        "type": "obsToObsFlowSheet",
 	"headingConceptSource":"Abbreviation",
         "displayOrder": 17,
-        "dashboardParams": {
+        "dashboardConfig": {
 	  "pivotOn" : "column",
           "templateName": "Lab Results Other Tests Template",
           "groupByConcept": "Specimen Collection Date",
-          "name": "DstExtension",
+          "type": "DstExtension",
           "conceptNames": [
             "Lab, Other test name",
             "Lab, Other test result"
@@ -479,11 +476,11 @@
       },
       "adverseEvents": {
         "translationKey": "SUMMARY_TITLE_ADVERSE_EVENTS",
-        "name": "obsToObsFlowSheet",
+        "type": "obsToObsFlowSheet",
         "displayType": "Full-Page",
 	"headingConceptSource":"Abbreviation",
         "displayOrder": 18,
-        "dashboardParams": {
+        "dashboardConfig": {
           "groupByConcept": "AE Form, AE term comprehensive list",
           "templateName": "Adverse Events Template",
           "conceptNames": [
@@ -501,11 +498,11 @@
       },
       "seriousAdverseEvents": {
         "translationKey": "SUMMARY_TITLE_SERIOUS_ADVERSE_EVENTS",
-        "name": "obsToObsFlowSheet",
+        "type": "obsToObsFlowSheet",
         "displayType": "Full-Page",
         "headingConceptSource":"Abbreviation",
         "displayOrder": 19,
-        "dashboardParams": {
+        "dashboardConfig": {
           "groupByConcept": "SAE Form, SAE term comprehensive AE list",
           "templateName": "Serious Adverse Events Template",
           "conceptNames": [
@@ -524,13 +521,13 @@
       },
       "ecgReadings": {
         "translationKey": "SUMMARY_TITLE_ECG_READINGS",
-        "name": "obsToObsFlowSheet",
+        "type": "obsToObsFlowSheet",
 	"headingConceptSource":"Abbreviation",
         "displayType": "Full-Page",
         "displayOrder": 20,
-        "dashboardParams": {
+        "dashboardConfig": {
           "groupByConcept": "EKG, Date of EKG",
-          "name": "EcgReadingsExtension",
+          "type": "EcgReadingsExtension",
           "templateName": "Electrocardiogram Template",
           "conceptNames": [
             "EKG, Type of assessment",
@@ -543,13 +540,13 @@
       },
       "chestXray": {
         "translationKey": "SUMMARY_TITLE_CHEST_XRAY",
-        "name": "obsToObsFlowSheet",
+        "type": "obsToObsFlowSheet",
 	"headingConceptSource":"Abbreviation",
         "displayType": "Full-Page",
         "displayOrder": 21,
-        "dashboardParams": {
+        "dashboardConfig": {
           "groupByConcept": "Xray, Chest Xray Date",
-          "name": "ChestXRayExtension",
+          "type": "ChestXRayExtension",
           "templateName": "Xray, Xray Details",
           "conceptNames": [
             "Xray, Extent of disease",
