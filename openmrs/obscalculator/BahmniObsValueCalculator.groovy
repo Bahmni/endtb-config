@@ -136,8 +136,10 @@ public class BahmniObsValueCalculator implements ObsValueCalculator {
 
             if (dateObs) {
                 String target = dateObs.getValueAsString();
-                DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-                Date result = df.parse(target);
+                String timezoneInfo = new Date().format("'T'HH:mm:ss.SSSZ");
+                String dateWithTimeZoneInfo = target + timezoneInfo;
+                DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+                Date result = df.parse(dateWithTimeZoneInfo);
 
                 changeDateTime(observation, result);
             }
