@@ -5,7 +5,6 @@
     "maxRecentlyViewedPatients": 1,
     "sections": {
       "tbTreatmentsDetails": {
-        "title": "TB Treatments Details",
         "translationKey": "DASHBOARD_TITLE_TB_TREATMENTS_DETAILS",
         "name": "drugOrderDetails",
 	"showDetailsButton" : true,
@@ -26,7 +25,6 @@
         "translationKey": "DASHBOARD_TITLE_LAB_TESTS_FORMS"
       },
       "nontbTreatmentsDetails": {
-        "title": "Non-TB Treatments Details",
         "translationKey": "DASHBOARD_TITLE_NONTB_TREATMENTS_DETAILS",
         "name": "drugOrderDetails",
         "showDetailsButton" : true,
@@ -293,7 +291,6 @@
       },
       "Drug-O-Gram": {
         "displayType": "LAYOUT_75_25",
-        "title": "Drug Regimen",
         "translationKey": "SUMMARY_TITLE_DRUG_REGIMEN",
         "name": "chronicTreatmentChart",
         "headingConceptSource":"Abbreviation",
@@ -328,7 +325,7 @@
       },
       "BacteriologyResults": {
         "displayType": "LAYOUT_25_75",
-        "title": "Culture & Smear Results",
+        "translationKey": "SUMMARY_TITLE_CULTURE_SMEAR_RESULT",
         "name": "obsToObsFlowSheet",
 	"headingConceptSource":"Abbreviation",
 	"dataConceptSource": "Abbreviation",
@@ -346,7 +343,7 @@
       },
       "txCompletenessRate": {
         "name": "obsToObsFlowSheet",
-	"title": "Treatment Completeness Rate",
+	"translationKey": "SUMMARY_TITLE_TREATMENT_COMPLETENESS_RATE",
         "displayType": "Full-Page",
 	"displayOrder": 11,
         "dashboardParams": {
@@ -360,7 +357,7 @@
       },
       "weightBMI": {
         "displayType": "Full-Page",
-        "title": "Weight vs BMI",
+        "translationKey": "SUMMARY_TITLE_WEIGHT_VS_BMI",
         "name": "obsToObsFlowSheet",
         "headingConceptSource":"Abbreviation",
         "displayOrder": 12,
@@ -376,7 +373,7 @@
       },
       "LabHaemotology": {
         "displayType": "Full-Page",
-        "title": "Lab Results - Hematology",
+        "translationKey": "SUMMARY_TITLE_LAB_HEMATOLOGY",
         "name": "obsToObsFlowSheet",
 	"headingConceptSource":"Abbreviation",
         "displayOrder": 13,
@@ -398,7 +395,7 @@
       },
       "LabBiochemistry": {
         "displayType": "Full-Page",
-        "title": "Lab Results - Biochemistry",
+        "translationKey": "SUMMARY_TITLE_LAB_BIOCHEMISTRY",
         "name": "obsToObsFlowSheet",
 	"headingConceptSource":"Abbreviation",
         "displayOrder": 14,
@@ -427,7 +424,7 @@
       },
       "LabResultsSerologyTemplate": {
         "displayType": "Full-Page",
-        "title": "Lab Results - Serology",
+        "translationKey": "SUMMARY_TITLE_LAB_SEROLOGY",
         "name": "obsToObsFlowSheet",
 	"headingConceptSource":"Abbreviation",
         "displayOrder": 15,
@@ -446,7 +443,7 @@
       },
       "LabResultsPregnancyTests": {
         "displayType": "Full-Page",
-        "title": "Lab Results - Pregnancy Test",
+        "translationKey": "SUMMARY_TITLE_LAB_PREGNANCY",
         "name": "obsToObsFlowSheet",
 	"headingConceptSource":"Abbreviation",
         "displayOrder": 16,
@@ -462,7 +459,7 @@
       },
       "LabResultsOtherTests": {
         "displayType": "Full-Page",
-        "title": "Lab Results - Other Tests",
+        "translationKey": "SUMMARY_TITLE_LAB_OTHER_TESTS",
         "name": "obsToObsFlowSheet",
 	"headingConceptSource":"Abbreviation",
         "displayOrder": 17,

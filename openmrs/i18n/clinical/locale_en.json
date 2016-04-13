@@ -169,5 +169,13 @@
   "SUMMARY_TITLE_ADVERSE_EVENTS": "Adverse Events",
   "SUMMARY_TITLE_SERIOUS_ADVERSE_EVENTS": "Serious Adverse Events",
   "SUMMARY_TITLE_ECG_READINGS": "ECG Readings",
-  "SUMMARY_TITLE_CHEST_XRAY": "Chest X-Ray"
+  "SUMMARY_TITLE_CHEST_XRAY": "Chest X-Ray",
+  "SUMMARY_TITLE_CULTURE_SMEAR_RESULT": "Culture & Smear Results",
+  "SUMMARY_TITLE_TREATMENT_COMPLETENESS_RATE": "Treatment Completeness Rate",
+  "SUMMARY_TITLE_WEIGHT_VS_BMI": "Weight vs BMI",
+  "SUMMARY_TITLE_LAB_HEMATOLOGY": "Lab Results - Hematology",
+  "SUMMARY_TITLE_LAB_BIOCHEMISTRY": "Lab Results - Biochemistry",
+  "SUMMARY_TITLE_LAB_SEROLOGY": "Lab Results - Serology",
+  "SUMMARY_TITLE_LAB_PREGNANCY": "Lab Results - Pregnancy Test",
+  "SUMMARY_TITLE_LAB_OTHER_TESTS": "Lab Results - Other Tests"
 }
