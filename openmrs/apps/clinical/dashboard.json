@@ -325,7 +325,7 @@
       },
       "BacteriologyResults": {
         "displayType": "LAYOUT_25_75",
-        "title": "Culture & Smear Results",
+        "translationKey": "SUMMARY_TITLE_CULTURE_SMEAR_RESULT",
         "type": "obsToObsFlowSheet",
 	"headingConceptSource":"Abbreviation",
 	"dataConceptSource": "Abbreviation",
@@ -342,8 +342,8 @@
         }
       },
       "txCompletenessRate": {
+	  "translationKey": "SUMMARY_TITLE_TREATMENT_COMPLETENESS_RATE",
         "type": "obsToObsFlowSheet",
-	"title": "Treatment Completeness Rate",
         "displayType": "Full-Page",
 	"displayOrder": 11,
         "dashboardConfig": {
@@ -357,7 +357,7 @@
       },
       "weightBMI": {
         "displayType": "Full-Page",
-        "title": "Weight vs BMI",
+        "translationKey": "SUMMARY_TITLE_WEIGHT_VS_BMI",
         "type": "obsToObsFlowSheet",
         "headingConceptSource":"Abbreviation",
         "displayOrder": 12,
@@ -373,7 +373,7 @@
       },
       "LabHaemotology": {
         "displayType": "Full-Page",
-        "title": "Lab Results - Hematology",
+        "translationKey": "SUMMARY_TITLE_LAB_HEMATOLOGY",
         "type": "obsToObsFlowSheet",
 	"headingConceptSource":"Abbreviation",
         "displayOrder": 13,
@@ -395,7 +395,7 @@
       },
       "LabBiochemistry": {
         "displayType": "Full-Page",
-        "title": "Lab Results - Biochemistry",
+        "translationKey": "SUMMARY_TITLE_LAB_BIOCHEMISTRY",
         "type": "obsToObsFlowSheet",
 	"headingConceptSource":"Abbreviation",
         "displayOrder": 14,
@@ -424,7 +424,7 @@
       },
       "LabResultsSerologyTemplate": {
         "displayType": "Full-Page",
-        "title": "Lab Results - Serology",
+        "translationKey": "SUMMARY_TITLE_LAB_SEROLOGY",
         "type": "obsToObsFlowSheet",
 	"headingConceptSource":"Abbreviation",
         "displayOrder": 15,
@@ -443,7 +443,7 @@
       },
       "LabResultsPregnancyTests": {
         "displayType": "Full-Page",
-        "title": "Lab Results - Pregnancy Test",
+        "translationKey": "SUMMARY_TITLE_LAB_PREGNANCY",
         "type": "obsToObsFlowSheet",
 	"headingConceptSource":"Abbreviation",
         "displayOrder": 16,
@@ -459,7 +459,7 @@
       },
       "LabResultsOtherTests": {
         "displayType": "Full-Page",
-        "title": "Lab Results - Other Tests",
+        "translationKey": "SUMMARY_TITLE_LAB_OTHER_TESTS",
         "type": "obsToObsFlowSheet",
 	"headingConceptSource":"Abbreviation",
         "displayOrder": 17,
