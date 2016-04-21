@@ -1,7 +1,10 @@
 {
 	"patientInformation": {
-                "name": "Patient Information",
-                "type": "PatientReport"
+                "name": "Patient Registration",
+                "type": "MRSGeneric",
+                "config": {
+                        "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/PersonReport.sql"
+                }
         },
 	"bacteriologyExport":{
                 "name": "Bacteriology Data Export",

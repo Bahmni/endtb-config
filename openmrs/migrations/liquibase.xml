@@ -7,4 +7,31 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd
         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
+    <changeSet id="ENDTB-201604201208" author="Shireesha, Shruthi">
+        <createTable tableName="metadata_code_dictionary">
+            <column name="concept_id" type="int(11)"/>
+            <column name="name" type="varchar(255)"/>
+            <column name="code" type="int(11)"/>
+        </createTable>
+        <addUniqueConstraint
+                             columnNames="concept_id, name"
+                             constraintName="metadata_code_key"
+                             tableName="metadata_code_dictionary"
+                             />
+    </changeSet>
+    <changeSet id="ENDTB-201604201236" author="Shireesha, Shruthi">
+        <insert tableName="metadata_code_dictionary">
+            <column name="name" value="M"/>
+            <column name="code" valueNumeric="1"/>
+        </insert>
+        <insert tableName="metadata_code_dictionary">
+            <column name="name" value="F"/>
+            <column name="code" valueNumeric="2"/>
+        </insert>
+        <insert tableName="metadata_code_dictionary">
+            <column name="name" value="O"/>
+            <column name="code" valueNumeric="3"/>
+        </insert>
+    </changeSet>
+    
 </databaseChangeLog>
