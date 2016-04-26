@@ -39,5 +39,15 @@
         "icon": "icon-bahmni-reports",
         "order": 5,
 	"requiredPrivilege": "app:reports"
+    },
+    "bahmni_exports": {
+        "id": "bahmni.reports",
+        "extensionPointId": "org.bahmni.home.dashboard",
+        "type": "link",
+        "translationKey": "MODULE_LABEL_EXPORTS_KEY",
+        "url": "../reports/#/dashboard?appName=exports",
+        "icon": "icon-bahmni-reports",
+        "order": 6,
+        "requiredPrivilege": "app:reports"
     }
 }

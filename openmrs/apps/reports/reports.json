@@ -1,11 +1,4 @@
 {
-	"patientInformation": {
-                "name": "Patient Registration",
-                "type": "MRSGeneric",
-                "config": {
-                        "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/PersonReport.sql"
-                }
-        },
 	"bacteriologyExport":{
                 "name": "Bacteriology Data Export",
                 "type": "programObsTemplate",
@@ -223,6 +216,20 @@
                         "patientAttributes": ["nationalIdentificationNumber", "patientAddress", "patientAddressLine2", "patientDistrict", "patientCountry", "telephoneNumber"],
                         "programAttributes":["Registration Number", "Registration Facility"],
                         "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
+                }
+        },
+        "patientInformation": {
+                "name": "Patient Registration",
+                "type": "MRSGeneric",
+                "config": {
+                        "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/PersonReport.sql"
+                }
+        },
+        "treatmentRegistration": {
+                "name": "Treatment Registration",
+                "type": "MRSGeneric",
+                "config": {
+                        "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/programEnrollment.sql"
                 }
         }
 }

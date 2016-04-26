@@ -1,0 +1,16 @@
+{
+	"patientInformation": {
+                "name": "Patient Registration",
+                "type": "MRSGeneric",
+                "config": {
+                        "sqlPath": "/var/www/bahmni_config/openmrs/apps/exports/sql/PersonReport.sql"
+                }
+        },
+    "treatmentRegistration": {
+                "name": "Treatment Registration",
+                "type": "MRSGeneric",
+               "config": {
+                        "sqlPath": "/var/www/bahmni_config/openmrs/apps/exports/sql/programEnrollment.sql"
+               }
+    }
+}
