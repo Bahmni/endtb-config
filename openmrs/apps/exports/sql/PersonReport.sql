@@ -36,6 +36,3 @@ FROM
      LEFT JOIN concept_view person_attribute_cn ON attr.value = person_attribute_cn.concept_id AND attr_type.format LIKE "%Concept") o
   LEFT OUTER JOIN person_attribute_type pat ON o.person_attribute_type_id = pat.person_attribute_type_id
 group by person_id;
-
-
-select * from concept;

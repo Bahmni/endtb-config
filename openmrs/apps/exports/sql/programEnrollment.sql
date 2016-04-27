@@ -6,7 +6,7 @@ SELECT
   MAX(IF(pat.program_attribute_type_id = '2', IF( pat.datatype LIKE "%Concept%", o.concept_name ,o.attr_value), NULL)) AS `regnum`,
   DATE_FORMAT(o.date_enrolled, '%d/%b/%Y') as 'd_reg',
   MAX(IF(pat.program_attribute_type_id = '6', IF( pat.datatype LIKE "%Concept%", o.concept_name ,o.attr_value), NULL)) AS `reg_facility`,
-  o.outcome
+  o.status
   FROM
    (SELECT
       pi.identifier,
@@ -19,7 +19,7 @@ SELECT
       pp.patient_id,
       prog.program_id,
       cn.name as concept_name,
-      outcome_concept.name as outcome,
+      outcome_concept.name as status,
       pp.patient_program_id
       FROM  patient_program pp
       JOIN program prog ON pp.program_id = prog.program_id
