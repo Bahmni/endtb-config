@@ -9,15 +9,25 @@
                         "programNames": ["Basic management unit TB register","Second-line TB treatment register"]
                 }
         },
-	"programDrugOrder": {
+	
+	 "AEIReport": {
+                "name": "Adverse Events Intrest",
+                "type": "MRSGeneric",
+                "config": {
+                        "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/AEI.sql",
+                         "macroTemplatePath" : "/var/www/bahmni_config/openmrs/apps/reports/macroTemplates/AEITemplate.xls"
+                }
+        },
+        "programDrugOrder": {
         "name": "Drug Order Export",
         "type": "ProgramDrugOrder",
         "config": {
                 "programs": ["Second-line TB treatment register", "Basic management unit TB register"],
                 "patientAttributes": ["nationalIdentificationNumber", "patientAddress", "patientAddressLine2", "patientDistrict", "patientCountry", "telephoneNumber"],
-                "programAttributes": ["Registration Number", "Registration Facility"]
-	        }
-	},
+                "programAttributes": ["Registration Number", "Registration Facility"],
+                "macroTemplatePath" : "/var/www/bahmni_config/openmrs/apps/reports/macroTemplates/DrugTemplate.xls"
+                }
+        },
         "baselineTemplateExport":{
                 "name": "Baseline Data Export",
                 "type": "programObsTemplate",
