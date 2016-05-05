@@ -11,7 +11,7 @@
         },
 	
 	 "AEIReport": {
-                "name": "Adverse Events Intrest",
+                "name": "Adverse Events Interest",
                 "type": "MRSGeneric",
                 "config": {
                         "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/AEI.sql",
