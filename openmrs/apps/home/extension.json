@@ -46,7 +46,7 @@
         "type": "link",
         "translationKey": "MODULE_LABEL_EXPORTS_KEY",
         "url": "../reports/#/dashboard?appName=exports",
-        "icon": "icon-bahmni-reports",
+        "icon": "fa-download",
         "order": 6,
         "requiredPrivilege": "app:reports"
     }

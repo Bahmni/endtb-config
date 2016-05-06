@@ -132,6 +132,9 @@
       "inputOptionsConfig": {
         "defaultStartDate": true,
 	"drugConceptSet": "All Other Drugs",
+	"duration": {
+          "required": false
+          },
         "labels": {
           "dose": "MEDICATION_LABEL_DOSE_NON_TB_TAB",
           "doseUnitsPlaceHolder": "MEDICATION_LABEL_DOSE_UNITS_PLACEHOLDER_NON_TB_TAB",
