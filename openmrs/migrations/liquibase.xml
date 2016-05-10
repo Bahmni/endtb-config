@@ -57,4 +57,17 @@
                 values (793,1648,4,now(),5,uuid());
         </sql>
     </changeSet>
+    <changeSet id="ENDTB-201605101705" author="Mahesh">
+        <comment>Updating INCORRECT to CORRECT plates in Baseline and Followup forms</comment>
+        <sql>
+		update concept_name set name = 'Followup, Left Eye Correct Plates' where concept_id = 181 and concept_name_type = 'FULLY_SPECIFIED';
+		update concept_name set name = 'Followup, Right Eye Correct Plates' where concept_id = 182 and concept_name_type = 'FULLY_SPECIFIED';
+		update concept_name set name = 'Followup, Correct plates' where concept_id = 189 and concept_name_type = 'FULLY_SPECIFIED';
+		update concept_name set name = 'Number of Correct Plates' where concept_id = 189 and concept_name_type = 'SHORT';
+		update concept_name set name = 'Baseline, Left Eye Correct Plates' where concept_id = 316 and concept_name_type = 'FULLY_SPECIFIED';
+		update concept_name set name = 'Baseline, Right Eye Correct Plates' where concept_id = 317 and concept_name_type = 'FULLY_SPECIFIED';
+		update concept_name set name = 'Number of Correct Plates' where concept_id = 362 and concept_name_type = 'SHORT';
+		update concept_name set name = 'Baseline, Correct plates' where concept_id = 362 and concept_name_type = 'FULLY_SPECIFIED';
+        </sql>
+    </changeSet>
 </databaseChangeLog>
