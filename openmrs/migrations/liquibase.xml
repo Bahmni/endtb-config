@@ -33,5 +33,28 @@
             <column name="code" valueNumeric="3"/>
         </insert>
     </changeSet>
-    
+    <changeSet id="ENDTB-201605101556" author="Mahesh">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(*) from concept_answer where concept_id = 792 and answer_concept = 1648
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding 'Unable to or did not access' option to 'Followup, Ankle reflexes in left'</comment>
+        <sql>
+		insert into concept_answer (concept_id,answer_concept,creator,date_created,sort_weight,uuid) 
+		values (792,1648,4,now(),6,uuid());
+        </sql>
+    </changeSet>
+    <changeSet id="ENDTB-201605101601" author="Mahesh">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(*) from concept_answer where concept_id = 793 and answer_concept = 1648
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding 'Unable to or did not access' option to 'Followup, Vibration Perception in Left'</comment>
+        <sql>
+                insert into concept_answer (concept_id,answer_concept,creator,date_created,sort_weight,uuid) 
+                values (793,1648,4,now(),5,uuid());
+        </sql>
+    </changeSet>
 </databaseChangeLog>
