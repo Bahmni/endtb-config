@@ -70,4 +70,28 @@
 		update concept_name set name = 'Baseline, Correct plates' where concept_id = 362 and concept_name_type = 'FULLY_SPECIFIED';
         </sql>
     </changeSet>
+    <changeSet id="ENDTB-201605111155" author="Mahesh">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(*) from concept_answer where concept_id = 799 and answer_concept = 1648
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding 'Unable to or did not access' option to 'Followup, Ankle reflexes in right'</comment>
+        <sql>
+                insert into concept_answer (concept_id,answer_concept,creator,date_created,sort_weight,uuid)
+                values (799,1648,4,now(),6,uuid());
+        </sql>
+    </changeSet>
+    <changeSet id="ENDTB-201605111157" author="Mahesh">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(*) from concept_answer where concept_id = 798 and answer_concept = 1648
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding 'Unable to or did not access' option to 'Followup, Vibration Perception in Right'</comment>
+        <sql>
+                insert into concept_answer (concept_id,answer_concept,creator,date_created,sort_weight,uuid)
+                values (798,1648,4,now(),5,uuid());
+        </sql>
+    </changeSet>
 </databaseChangeLog>
