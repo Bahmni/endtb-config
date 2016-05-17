@@ -7,4 +7,65 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd
         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
+    <changeSet id="ENDTB-201605101556" author="Mahesh">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(*) from concept_answer where concept_id = 792 and answer_concept = 1648
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding 'Unable to or did not access' option to 'Followup, Ankle reflexes in left'</comment>
+        <sql>
+            insert into concept_answer (concept_id,answer_concept,creator,date_created,sort_weight,uuid)
+            values (792,1648,4,now(),6,uuid());
+        </sql>
+    </changeSet>
+    <changeSet id="ENDTB-201605101601" author="Mahesh">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(*) from concept_answer where concept_id = 793 and answer_concept = 1648
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding 'Unable to or did not access' option to 'Followup, Vibration Perception in Left'</comment>
+        <sql>
+            insert into concept_answer (concept_id,answer_concept,creator,date_created,sort_weight,uuid)
+            values (793,1648,4,now(),5,uuid());
+        </sql>
+    </changeSet>
+    <changeSet id="ENDTB-201605101705" author="Mahesh">
+        <comment>Updating INCORRECT to CORRECT plates in Baseline and Followup forms</comment>
+        <sql>
+            update concept_name set name = 'Followup, Left Eye Correct Plates' where concept_id = 181 and concept_name_type = 'FULLY_SPECIFIED';
+            update concept_name set name = 'Followup, Right Eye Correct Plates' where concept_id = 182 and concept_name_type = 'FULLY_SPECIFIED';
+            update concept_name set name = 'Followup, Correct plates' where concept_id = 189 and concept_name_type = 'FULLY_SPECIFIED';
+            update concept_name set name = 'Number of Correct Plates' where concept_id = 189 and concept_name_type = 'SHORT';
+            update concept_name set name = 'Baseline, Left Eye Correct Plates' where concept_id = 316 and concept_name_type = 'FULLY_SPECIFIED';
+            update concept_name set name = 'Baseline, Right Eye Correct Plates' where concept_id = 317 and concept_name_type = 'FULLY_SPECIFIED';
+            update concept_name set name = 'Number of Correct Plates' where concept_id = 362 and concept_name_type = 'SHORT';
+            update concept_name set name = 'Baseline, Correct plates' where concept_id = 362 and concept_name_type = 'FULLY_SPECIFIED';
+        </sql>
+    </changeSet>
+    <changeSet id="ENDTB-201605111155" author="Mahesh">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(*) from concept_answer where concept_id = 799 and answer_concept = 1648
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding 'Unable to or did not access' option to 'Followup, Ankle reflexes in right'</comment>
+        <sql>
+            insert into concept_answer (concept_id,answer_concept,creator,date_created,sort_weight,uuid)
+            values (799,1648,4,now(),6,uuid());
+        </sql>
+    </changeSet>
+    <changeSet id="ENDTB-201605111157" author="Mahesh">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(*) from concept_answer where concept_id = 798 and answer_concept = 1648
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding 'Unable to or did not access' option to 'Followup, Vibration Perception in Right'</comment>
+        <sql>
+            insert into concept_answer (concept_id,answer_concept,creator,date_created,sort_weight,uuid)
+            values (798,1648,4,now(),5,uuid());
+        </sql>
+    </changeSet>
 </databaseChangeLog>
