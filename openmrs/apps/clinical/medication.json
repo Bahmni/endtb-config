@@ -142,6 +142,9 @@
           "additionalInstructions": "MEDICATION_LABEL_ADDITIONAL_INSTRUCTIONS_NON_TB_TAB",
           "dosingInstructionsPlaceHolder": "MEDICATION_LABEL_DOSING_INSTRUCTIONS_PLACEHOLDER_NON_TB_TAB"
         },
+        "hiddenFields": [
+          "dosingTypeToggle"
+        ],
         "defaultDurationUnit": "Day(s)",
         "frequencyDefaultDurationUnitsMap": [
           {
