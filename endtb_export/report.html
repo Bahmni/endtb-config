@@ -1,83 +1,106 @@
 <html>
+<head>
+    <link rel="stylesheet" href="/bahmni/styles/clinical.css">
+</head>
+
 <body>
-<div id="report">
-    Endtb Exports
-    <section class="report-section">
-        <table>
-            <tr>
-                <td>Date</td>
-                <td>Status</td>
-                <td>Messages</td>
-                <td>Download</td>
-            </tr>
-            <tr>
-                    <td>24-May-2016</td>
-                    <td>COMPLETED</td>
-                    <td></td>
-                    <td><a href="endtbExports201605241153.zip">Download</a></td>
-            </tr>
-<tr>
-                    <td>24-May-2016</td>
-                    <td>COMPLETED</td>
-                    <td></td>
-                    <td><a href="endtbExports201605241150.zip">Download</a></td>
-            </tr>
-<tr>
-                    <td>24-May-2016</td>
-                    <td>COMPLETED</td>
-                    <td></td>
-                    <td><a href="endtbExports201605241149.zip">Download</a></td>
-            </tr>
-<tr>
-                    <td>24-May-2016</td>
-                    <td>COMPLETED</td>
-                    <td></td>
-                    <td><a href="endtbExports201605241147.zip">Download</a></td>
-            </tr>
-<tr>
-                    <td>24-May-2016</td>
-                    <td>COMPLETED</td>
-                    <td></td>
-                    <td><a href="endtbExports201605241139.zip">Download</a></td>
-            </tr>
-<tr>
-                    <td>24-May-2016</td>
-                    <td>COMPLETED</td>
-                    <td></td>
-                    <td><a href="endtbExports201605241134.zip">Download</a></td>
-            </tr>
-<tr>
-                    <td>24-May-2016</td>
-                    <td>COMPLETED</td>
-                    <td></td>
-                    <td><a href="endtbExports201605241129.zip">Download</a></td>
-            </tr>
-<tr>
-                    <td>24-May-2016</td>
-                    <td>COMPLETED</td>
-                    <td></td>
-                    <td><a href="endtbExports201605241128.zip">Download</a></td>
-            </tr>
-<tr>
-                    <td>24-May-2016</td>
-                    <td>COMPLETED</td>
-                    <td></td>
-                    <td><a href="endtbExports201605240946.zip">Download</a></td>
-            </tr>
-<tr>
-                    <td>24-May-2016</td>
-                    <td>COMPLETED</td>
-                    <td></td>
-                    <td><a href="endtbExports201605240942.zip">Download</a></td>
-            </tr>
-<tr>
-                    <td>24-May-2016</td>
-                    <td>COMPLETED</td>
-                    <td></td>
-                    <td><a href="null201605240941.zip">Download</a></td>
-            </tr>
-        </table>
-    </section>
-</div>
+    <div class="opd-header-wrapper">
+        <div class="opd-header-top">
+            <header>
+                <ul>
+                    <li ng-repeat="backLink in backLinks">
+                        <a class="back-btn" accesskey="h" ng-href="../home/" ng-click="closeAllDialogs()" href="../../bahmni/home/">
+                            <i class="fa fa-home"></i>
+                        </a>
+                    </li>
+                </ul>
+            </header>
+        </div>
+    </div>
+    <div class="opd-wrapper">
+        <div class="opd-content-wrapper">
+            <section class="section-grid">
+                <h2 class="section-title">Endtb Exports</h2>
+                    <table class="alt-row">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Messages</th>
+                                <th>Download</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>24-May-2016</td>
+                                <td>COMPLETED</td>
+                                <td></td>
+                                <td><a href="endtbExports201605241153.zip" class="button small report-download"><i class="fa fa-download"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td>24-May-2016</td>
+                                <td>COMPLETED</td>
+                                <td></td>
+                                <td><a href="endtbExports201605241150.zip" class="button small report-download"><i class="fa fa-download"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td>24-May-2016</td>
+                                <td>COMPLETED</td>
+                                <td></td>
+                                <td><a href="endtbExports201605241149.zip" class="button small report-download"><i class="fa fa-download"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td>24-May-2016</td>
+                                <td>COMPLETED</td>
+                                <td></td>
+                                <td><a href="endtbExports201605241147.zip" class="button small report-download"><i class="fa fa-download"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td>24-May-2016</td>
+                                <td>COMPLETED</td>
+                                <td></td>
+                                <td><a href="endtbExports201605241139.zip" class="button small report-download"><i class="fa fa-download"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td>24-May-2016</td>
+                                <td>COMPLETED</td>
+                                <td></td>
+                                <td><a href="endtbExports201605241134.zip" class="button small report-download"><i class="fa fa-download"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td>24-May-2016</td>
+                                <td>COMPLETED</td>
+                                <td></td>
+                                <td><a href="endtbExports201605241129.zip" class="button small report-download"><i class="fa fa-download"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td>24-May-2016</td>
+                                <td>COMPLETED</td>
+                                <td></td>
+                                <td><a href="endtbExports201605241128.zip" class="button small report-download"><i class="fa fa-download"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td>24-May-2016</td>
+                                <td>COMPLETED</td>
+                                <td></td>
+                                <td><a href="endtbExports201605240946.zip" class="button small report-download"><i class="fa fa-download"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td>24-May-2016</td>
+                                <td>COMPLETED</td>
+                                <td></td>
+                                <td><a href="endtbExports201605240942.zip" class="button small report-download"><i class="fa fa-download"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td>24-May-2016</td>
+                                <td>COMPLETED</td>
+                                <td></td>
+                                <td><a href="null201605240941.zip" class="button small report-download"><i class="fa fa-download"></i></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+            </section>
+        </div>
+    </div>
 </body>
 </html>
