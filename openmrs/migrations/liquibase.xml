@@ -68,15 +68,15 @@
             values (798,1648,4,now(),5,uuid());
         </sql>
     </changeSet>
-    <changeSet id="ENDTB-20160519180300" author="shivakumar">
+    <changeSet id="ENDTB-20160524112300" author="shivakumar">
         <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="0">
-                select count(*)  from concept_reference_source where name="endtb-export-terms";
+                select count(*)  from concept_reference_source where name="endTB-Export";
             </sqlCheck>
         </preConditions>
         <comment>adding new concept_reference_source</comment>
         <sql>
-            insert into concept_reference_source (name,description,creator,date_created,uuid) values ('endtb-export-code','endtb exports',1,now(),uuid());
+            insert into concept_reference_source (name,description,creator,date_created,uuid) values ('EndTB-Export','endtb exports',1,now(),uuid());
         </sql>
     </changeSet>
 </databaseChangeLog>
