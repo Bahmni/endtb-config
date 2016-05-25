@@ -206,25 +206,26 @@ public class BahmniObsValueCalculator implements ObsValueCalculator {
                 def inCompletePrescribedDays = inCompletePrescribedDaysObservation.getValue() as Double
                 def completenessRate
                 def adherenceRateDenominator
+                def adherenceRate
 
                 def fullyObservedDays = idealTreatmentDays - (nonPrescribedDays + missedPrescribedDays + inCompletePrescribedDays) as Double
-
-                try {
-                    if (idealTreatmentDays == 0) {
-                        throw new ArithmeticException()
-                    } else if (idealTreatmentDays == nonPrescribedDays) {
+                try{
+                    if(fullyObservedDays < 0) {
                         throw new Exception()
                     }
+                } catch(Exception e){
+                    throw new BahmniEmrAPIException("Please enter correct data. The sum of non prescribed, missed, incomplete days cannot be more than Ideal days")
+                }
+
+                if (idealTreatmentDays == 0 || idealTreatmentDays == nonPrescribedDays) {
+                    completenessRate = 0
+                    adherenceRate = 100
+                } else{
                     completenessRate = (fullyObservedDays / idealTreatmentDays) * 100 as Double
                     adherenceRateDenominator = (idealTreatmentDays - nonPrescribedDays) as Double
+                    adherenceRate = (fullyObservedDays / adherenceRateDenominator) * 100 as Double
+                }
 
-                } catch (ArithmeticException E) {
-                    throw new BahmniEmrAPIException("Value zero for MTC, Ideal total treatment days in the month")
-                }
-                catch (Exception E) {
-                    throw new BahmniEmrAPIException("Value for MTC, Ideal total treatment days in the month is equal to MTC, Non prescribed days ")
-                }
-                def adherenceRate = (fullyObservedDays / adherenceRateDenominator) * 100 as Double
                 if (fullyObservedDaysObs == null)
                     fullyObservedDaysObs = createObs(fullyObservedCompleteDaysConceptName, monthlyCalculations, bahmniEncounterTransaction, obsDatetime) as BahmniObservation
                 fullyObservedDaysObs.setValue(fullyObservedDays)
