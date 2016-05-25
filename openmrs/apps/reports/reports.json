@@ -1,5 +1,4 @@
 {
-
 	"DrugOrderReport": {
                 "name": "Drug Order Report",
                 "type": "MRSGeneric",
@@ -24,5 +23,16 @@
                         "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/SAE.sql",
 			 "macroTemplatePath" : "/var/www/bahmni_config/openmrs/apps/reports/macroTemplates/SAETemplate.xls"
                 }
-	}
+	},
+	"FinalOutcomeReport": {
+                "name": "Final Outcome Report",
+                "type": "MRSGeneric",
+                "config": {
+                        "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/finalOutcome.sql",
+			 "macroTemplatePath" : "/var/www/bahmni_config/openmrs/apps/reports/macroTemplates/finalOutcomeTemplate.xls"
+                }
+
+        }
+
+
 }
