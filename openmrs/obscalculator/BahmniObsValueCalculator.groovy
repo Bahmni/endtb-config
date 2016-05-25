@@ -134,7 +134,7 @@ public class BahmniObsValueCalculator implements ObsValueCalculator {
             observations.add(observation);
             BahmniObservation dateObs = find(formNames.get(observation.getConcept().getName()), observations, null);
 
-            if (dateObs) {
+            if (dateObs && dateObs.getValueAsString()!= "") {
                 String target = dateObs.getValueAsString();
                 String timezoneInfo = new Date().format("'T'HH:mm:ss.SSSZ");
                 String dateWithTimeZoneInfo = target + timezoneInfo;
