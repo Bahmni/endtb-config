@@ -32,7 +32,13 @@
 			 "macroTemplatePath" : "/var/www/bahmni_config/openmrs/apps/reports/macroTemplates/finalOutcomeTemplate.xls"
                 }
 
+        },
+    "InterimOutcomeByOutcomeStatus": {
+                "name": "Interim Outcome By Status",
+                "type": "MRSGeneric",
+                "config": {
+                        "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/interim_outcome_1.sql",
+             "macroTemplatePath" : "/var/www/bahmni_config/openmrs/apps/reports/macroTemplates/InterimOutcomes1.xls"
+                }
         }
-
-
 }
