@@ -76,6 +76,7 @@
         </preConditions>
         <comment>adding new concept_reference_source</comment>
         <sql>
+            update concept_reference_source set hl7_code = null where hl7_code = '';
             insert into concept_reference_source (name,description,creator,date_created,uuid) values ('EndTB-Export','Codes for output in endTB exports',1,now(),uuid());
         </sql>
     </changeSet>
