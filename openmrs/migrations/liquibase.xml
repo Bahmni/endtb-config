@@ -86,4 +86,8 @@
         </sql>
         <sqlFile splitStatements="false" path="CreateReferenceMapping.sql"/>
     </changeSet>
+    <changeSet id="ENDTB-201605271117" author="Mahesh">
+        <comment>Adding reference terms for endTB exports codes</comment>
+        <sqlFile path="export_ref_terms.sql"/>
+    </changeSet>
 </databaseChangeLog>
