@@ -90,4 +90,8 @@
         <comment>Adding reference terms for endTB exports codes</comment>
         <sqlFile path="export_ref_terms.sql"/>
     </changeSet>
+    <changeSet id="ENDTB-201605271537" author="Mahesh">
+        <comment>Mapping export codes with respective concepts</comment>
+        <sqlFile path="concept_ref_map.sql"/>
+    </changeSet>
 </databaseChangeLog>
