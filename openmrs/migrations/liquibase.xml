@@ -170,4 +170,87 @@
                 delete from concept_numeric where concept_id = @conceptID;
         </sql>
     </changeSet>
+    <changeSet id="ENDTB-201605280823" author="Mahesh">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(*) from concept_name where concept_id = 224 and locale = 'en' and concept_name_type = 'SHORT' and voided = 0;
+            </sqlCheck>
+        </preConditions>
+        <comment>Updating Gatifloxacin drug shortname</comment>
+        <sql>
+		update concept_name set name = 'Gatifloxacin (Gtx)', voided = 0, voided_by = null, date_voided = null where concept_id = 224 and concept_name_type = 'SHORT' and locale = 'en';
+        </sql>
+    </changeSet>
+    <changeSet id="ENDTB-201605280829" author="Mahesh">
+        <comment>Updating order of drugs for the field Past TB Drugs more than 1 month in Past TB Treatment</comment>
+        <sql>
+                update concept_answer set sort_weight = 1 where concept_id = 278 and answer_concept = 221;
+		update concept_answer set sort_weight = 2 where concept_id = 278 and answer_concept = 1225;
+		update concept_answer set sort_weight = 3 where concept_id = 278 and answer_concept = 237;
+		update concept_answer set sort_weight = 4 where concept_id = 278 and answer_concept = 1226;
+		update concept_answer set sort_weight = 5 where concept_id = 278 and answer_concept = 238;
+		update concept_answer set sort_weight = 6 where concept_id = 278 and answer_concept = 240;
+		update concept_answer set sort_weight = 7 where concept_id = 278 and answer_concept = 215;
+		update concept_answer set sort_weight = 8 where concept_id = 278 and answer_concept = 219;
+		update concept_answer set sort_weight = 9 where concept_id = 278 and answer_concept = 227;
+		update concept_answer set sort_weight = 10 where concept_id = 278 and answer_concept = 242;
+		update concept_answer set sort_weight = 11 where concept_id = 278 and answer_concept = 217;
+		update concept_answer set sort_weight = 12 where concept_id = 278 and answer_concept = 224;
+		update concept_answer set sort_weight = 13 where concept_id = 278 and answer_concept = 228;
+		update concept_answer set sort_weight = 14 where concept_id = 278 and answer_concept = 231;
+		update concept_answer set sort_weight = 15 where concept_id = 278 and answer_concept = 234;
+		update concept_answer set sort_weight = 16 where concept_id = 278 and answer_concept = 220;
+		update concept_answer set sort_weight = 17 where concept_id = 278 and answer_concept = 223;
+		update concept_answer set sort_weight = 18 where concept_id = 278 and answer_concept = 235;
+		update concept_answer set sort_weight = 19 where concept_id = 278 and answer_concept = 1227;
+		update concept_answer set sort_weight = 20 where concept_id = 278 and answer_concept = 236;
+		update concept_answer set sort_weight = 21 where concept_id = 278 and answer_concept = 244;
+		update concept_answer set sort_weight = 22 where concept_id = 278 and answer_concept = 216;
+		update concept_answer set sort_weight = 23 where concept_id = 278 and answer_concept = 1251;
+		update concept_answer set sort_weight = 24 where concept_id = 278 and answer_concept = 1258;
+		update concept_answer set sort_weight = 25 where concept_id = 278 and answer_concept = 218;
+		update concept_answer set sort_weight = 26 where concept_id = 278 and answer_concept = 1252;
+		update concept_answer set sort_weight = 27 where concept_id = 278 and answer_concept = 1228;
+		update concept_answer set sort_weight = 28 where concept_id = 278 and answer_concept = 229;
+		update concept_answer set sort_weight = 29 where concept_id = 278 and answer_concept = 230;
+		update concept_answer set sort_weight = 30 where concept_id = 278 and answer_concept = 243;
+        </sql>
+    </changeSet>
+    <changeSet id="ENDTB-201605280836" author="Mahesh">
+        <comment>Updating the drugs for the field Past TB Drug Regimen in Past TB Treatment Table</comment>
+        <sql>
+		update concept_answer set sort_weight = 1 where concept_id = 731 and answer_concept = 221;
+		update concept_answer set sort_weight = 2 where concept_id = 731 and answer_concept = 1225;
+		update concept_answer set sort_weight = 3 where concept_id = 731 and answer_concept = 237;
+		update concept_answer set sort_weight = 4 where concept_id = 731 and answer_concept = 1226;
+		update concept_answer set sort_weight = 7 where concept_id = 731 and answer_concept = 215;
+		update concept_answer set sort_weight = 8 where concept_id = 731 and answer_concept = 219;
+		update concept_answer set sort_weight = 9 where concept_id = 731 and answer_concept = 227;
+		update concept_answer set sort_weight = 10 where concept_id = 731 and answer_concept = 242;
+		update concept_answer set sort_weight = 13 where concept_id = 731 and answer_concept = 228;
+		update concept_answer set sort_weight = 14 where concept_id = 731 and answer_concept = 231;
+		update concept_answer set sort_weight = 16 where concept_id = 731 and answer_concept = 220;
+		update concept_answer set sort_weight = 17 where concept_id = 731 and answer_concept = 223;
+		update concept_answer set sort_weight = 18 where concept_id = 731 and answer_concept = 235;
+		update concept_answer set sort_weight = 19 where concept_id = 731 and answer_concept = 1227;
+		update concept_answer set sort_weight = 20 where concept_id = 731 and answer_concept = 236;
+		update concept_answer set sort_weight = 21 where concept_id = 731 and answer_concept = 244;
+		update concept_answer set sort_weight = 22 where concept_id = 731 and answer_concept = 216;
+		update concept_answer set sort_weight = 23 where concept_id = 731 and answer_concept = 1251;
+		update concept_answer set sort_weight = 25 where concept_id = 731 and answer_concept = 218;
+		update concept_answer set sort_weight = 26 where concept_id = 731 and answer_concept = 1252;
+		update concept_answer set sort_weight = 27 where concept_id = 731 and answer_concept = 1228;
+		update concept_answer set sort_weight = 28 where concept_id = 731 and answer_concept = 229;
+		update concept_answer set sort_weight = 29 where concept_id = 731 and answer_concept = 230;
+
+		insert into concept_answer(concept_id, answer_concept, creator, date_created, sort_weight, uuid) values 
+			(731,217,4,now(),11,uuid()),
+			(731,224,4,now(),12,uuid()),
+			(731,234,4,now(),15,uuid()),
+			(731,238,4,now(),5,uuid()),
+			(731,240,4,now(),6,uuid()),
+			(731,243,4,now(),30,uuid()),
+			(731,1258,4,now(),24,uuid());
+        </sql>
+    </changeSet>
 </databaseChangeLog>
