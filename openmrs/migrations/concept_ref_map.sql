@@ -430,7 +430,7 @@ call create_reference_mapping('Baseline, Last DSTB Registration ID Details','pas
 
 call create_reference_mapping('Baseline, Last DSTB treatment registration facility','pasttb_ds_fac');
 
-call create_reference_mapping('Baseline, Left Eye Incorrect Plates','colorblind_l_base');
+call create_reference_mapping('Baseline, Left Eye Correct Plates','colorblind_l_base');
 
 call create_reference_mapping('Baseline, List of drugs taken for more than a month','pasttb_drg1mo');
 
@@ -490,7 +490,7 @@ call create_reference_mapping('Baseline, Refugee or displaced person','refugee')
 
 call create_reference_mapping('Baseline, Registration number of past TB treatment','reg_pasttb');
 
-call create_reference_mapping('Baseline, Right Eye Incorrect Plates','colorblind_r_base');
+call create_reference_mapping('Baseline, Right Eye Correct Plates','colorblind_r_base');
 
 call create_reference_mapping('Baseline, Seizure disorder','seizure_base');
 
@@ -824,7 +824,7 @@ call create_reference_mapping('Followup, How many alcoholic drinks per week','dr
 
 call create_reference_mapping('Followup, Is alcoholic','alcohol_fup');
 
-call create_reference_mapping('Followup, Left Eye Incorrect Plates','colorblind_l_fup');
+call create_reference_mapping('Followup, Left Eye Correct Plates','colorblind_l_fup');
 
 call create_reference_mapping('Followup, New AE reference number','new_ae_num_fup');
 
@@ -854,7 +854,7 @@ call create_reference_mapping('Followup, Pregnancy form case ID number','preg_fo
 
 call create_reference_mapping('Followup, Reason for next visit','reas_nextvis_fup');
 
-call create_reference_mapping('Followup, Right Eye Incorrect Plates','colorblind_r_fup');
+call create_reference_mapping('Followup, Right Eye Correct Plates','colorblind_r_fup');
 
 call create_reference_mapping('Followup, Sputum culture ordered','order_cult_fup');
 
