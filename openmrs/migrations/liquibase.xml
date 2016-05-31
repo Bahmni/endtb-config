@@ -253,4 +253,16 @@
 			(731,1258,4,now(),24,uuid());
         </sql>
     </changeSet>
+    <changeSet id="ENDTB-201605280823" author="Mahesh">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(*) from concept_name where name = 'Once' and concept_name_type = 'FULLY_SPECIFIED';
+            </sqlCheck>
+        </preConditions>
+        <comment>Updating drug frequency Immediately to Once</comment>
+        <sql>
+		update concept_name set name = 'Once' where concept_id = 88  and concept_name_type = 'FULLY_SPECIFIED';
+		update order_frequency set uuid = uuid() where concept_id = 88;
+        </sql>
+    </changeSet>
 </databaseChangeLog>
