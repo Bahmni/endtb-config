@@ -50,7 +50,7 @@ call create_reference_mapping('3 = Not felt','3');
 
 call create_reference_mapping('3 = Pre-XDR - injectable (resistance to at least one second-line injectable, but susceptible to a fluoroquinolone)','3');
 
-call create_reference_mapping('3 days per week','4');
+call create_reference_mapping('3 days per week','17');
 
 call create_reference_mapping('4 = Clonus','4');
 
@@ -62,7 +62,7 @@ call create_reference_mapping('5 or more','5');
 
 call create_reference_mapping('6 = Unable to tolerate MDR drugs necessary for construction of the regimen','6');
 
-call create_reference_mapping('6 days per week','1');
+call create_reference_mapping('6 days per week','14');
 
 call create_reference_mapping('6-month post-treatment assessment','5');
 
@@ -92,7 +92,7 @@ call create_reference_mapping('6m PTO, Type of surgery related to post treatment
 
 call create_reference_mapping('7 = Patients who have FAILED an MDR regimen','7');
 
-call create_reference_mapping('7 days per week','2');
+call create_reference_mapping('7 days per week','13');
 
 call create_reference_mapping('8 = Extensive or advanced disease','8');
 
@@ -166,7 +166,7 @@ call create_reference_mapping('AE Form, TB drug name','ae_tbdrug');
 
 call create_reference_mapping('AE Form, TB drugs suspended due to this AE','ae_all_susp');
 
-call create_reference_mapping('Aerosol','5');
+call create_reference_mapping('Aerosol','6');
 
 call create_reference_mapping('Alanine Aminotransferase (ALT or SGPT) Increased','60');
 
@@ -540,7 +540,7 @@ call create_reference_mapping('BLOOD UREA NITROGEN','urea');
 
 call create_reference_mapping('Blood Urea Nitrogen Increased','20');
 
-call create_reference_mapping('BMI Data','bmi_fup');
+call create_reference_mapping('BMI Data','bmi');
 
 call create_reference_mapping('Borderline','3');
 
@@ -756,21 +756,21 @@ call create_reference_mapping('Ethionamide','41');
 
 call create_reference_mapping('Every 2 hours','3');
 
-call create_reference_mapping('Every 2 weeks','18');
+call create_reference_mapping('Every 2 weeks','21');
 
 call create_reference_mapping('Every 3 hours','4');
 
-call create_reference_mapping('Every 3 weeks','19');
+call create_reference_mapping('Every 3 weeks','22');
 
 call create_reference_mapping('Every 4 hours','5');
 
-call create_reference_mapping('Every 6 hours','7');
+call create_reference_mapping('Every 6 hours','8');
 
-call create_reference_mapping('Every 8 hours','8');
+call create_reference_mapping('Every 8 hours','9');
 
 call create_reference_mapping('Every hour','2');
 
-call create_reference_mapping('Every other day','3');
+call create_reference_mapping('Every other day','18');
 
 call create_reference_mapping('Evidence of additional acquired resistance to fluoroquinolones or second-line injectable drugs','3');
 
@@ -778,7 +778,7 @@ call create_reference_mapping('Extrapulmonary','2');
 
 call create_reference_mapping('F','2');
 
-call create_reference_mapping('Facility patient ID','id_pt_adm');
+call create_reference_mapping('Facility patient ID','id_pt');
 
 call create_reference_mapping('Failed','4');
 
@@ -806,7 +806,7 @@ call create_reference_mapping('fibrosis right side','fibrosis_r');
 
 call create_reference_mapping('Financial problem','3');
 
-call create_reference_mapping('Five days a week','12');
+call create_reference_mapping('Five days a week','15');
 
 call create_reference_mapping('Five times a day','6');
 
@@ -872,7 +872,7 @@ call create_reference_mapping('Followup, Visit Date','d_fupvis');
 
 call create_reference_mapping('Forced Expiratory Volume Decreased','151');
 
-call create_reference_mapping('Four days a week','13');
+call create_reference_mapping('Four days a week','16');
 
 call create_reference_mapping('Fully active','0');
 
@@ -956,7 +956,7 @@ call create_reference_mapping('Headache','92');
 
 call create_reference_mapping('Hearing Impaired','40');
 
-call create_reference_mapping('Height (cm)','ht_fup');
+call create_reference_mapping('Height (cm)','ht');
 
 call create_reference_mapping('HEMATOCRIT','ht');
 
@@ -1056,7 +1056,7 @@ call create_reference_mapping('International Normalized Ratio Increased','111');
 
 call create_reference_mapping('Intramuscular (IM)','2');
 
-call create_reference_mapping('Intravenous (IV)','4');
+call create_reference_mapping('Intravenous (IV)','3');
 
 call create_reference_mapping('Invalid','3');
 
@@ -1198,7 +1198,7 @@ call create_reference_mapping('Married','1');
 
 call create_reference_mapping('Massive hemoptysis','4');
 
-call create_reference_mapping('Maximum severity of AE','ae_maxsev');
+call create_reference_mapping('AE Form, Maximum severity of AE','ae_maxsev');
 
 call create_reference_mapping('MDR','8');
 
@@ -1290,7 +1290,7 @@ call create_reference_mapping('Nausea','83');
 
 call create_reference_mapping('Negative','0');
 
-call create_reference_mapping('Negative for M. tuberculosis','1');
+call create_reference_mapping('Negative for M. tuberculosis','0');
 
 call create_reference_mapping('Neuro-Cerebellar Disorders','183');
 
@@ -1340,9 +1340,9 @@ call create_reference_mapping('Often (more than 10 times)','3');
 
 call create_reference_mapping('Oligospermia','224');
 
-call create_reference_mapping('Once a month','20');
+call create_reference_mapping('Once a month','23');
 
-call create_reference_mapping('Once a week','17');
+call create_reference_mapping('Once a week','20');
 
 call create_reference_mapping('One plus','3');
 
@@ -1396,6 +1396,8 @@ call create_reference_mapping('Patient refused','1');
 
 call create_reference_mapping('Patient refused to finish treatment/bad relation with health worker','2');
 
+call create_reference_mapping('Patient refused followup','2');
+
 call create_reference_mapping('Patient related','3');
 
 call create_reference_mapping('PDR scheme A - 9 RZE','4');
@@ -1428,7 +1430,7 @@ call create_reference_mapping('Pneumonectomy','1');
 
 call create_reference_mapping('Positive','1');
 
-call create_reference_mapping('Positive for M. tuberculosis','0');
+call create_reference_mapping('Positive for M. tuberculosis','1');
 
 call create_reference_mapping('Pott’s disease or meningitis - 2 (HRZE) / 10 (HR)','2');
 
@@ -1444,9 +1446,7 @@ call create_reference_mapping('Previously treated with second line drugs','2');
 
 call create_reference_mapping('PRF, Child exposure to breast feeding','infant_expbf');
 
-call create_reference_mapping('PRF',' Complication during pregnancy');
-
-call create_reference_mapping('Synonyms','preg_comp');
+call create_reference_mapping('PRF, Complication during pregnancy','preg_comp');
 
 call create_reference_mapping('PRF, Date of birth of partner','preg_partdob');
 
@@ -1498,7 +1498,7 @@ call create_reference_mapping('Psychosis','202');
 
 call create_reference_mapping('Pulmonary','1');
 
-call create_reference_mapping('Pulse','pulse_fup');
+call create_reference_mapping('Pulse','pulse');
 
 call create_reference_mapping('Pyrazinamide','13');
 
@@ -1542,13 +1542,13 @@ call create_reference_mapping('Resolved with sequelae','4');
 
 call create_reference_mapping('Resolving','5');
 
-call create_reference_mapping('Respiratory rate','resp_fup');
+call create_reference_mapping('Respiratory rate','resp');
 
 call create_reference_mapping('Restricted','1');
 
 call create_reference_mapping('Retinopathy','72');
 
-call create_reference_mapping('RETURN VISIT DATE','d_nextvis_tx');
+call create_reference_mapping('RETURN VISIT DATE','d_nextvis');
 
 call create_reference_mapping('Rifampicin','11');
 
@@ -1696,9 +1696,9 @@ call create_reference_mapping('Streptomycin','14');
 
 call create_reference_mapping('Student','3');
 
-call create_reference_mapping('Sub Cutaneous','3');
+call create_reference_mapping('Sub Cutaneous','5');
 
-call create_reference_mapping('Substance abuse','5');
+call create_reference_mapping('Substance abuse','3');
 
 call create_reference_mapping('Suicidal ideation','203');
 
@@ -1778,7 +1778,7 @@ call create_reference_mapping('Treatment After Failure to Drugs','4');
 
 call create_reference_mapping('Treatment after loss to followup','3');
 
-call create_reference_mapping('Treatment Facility Name','hosp_adm');
+call create_reference_mapping('Treatment Facility Name','fup_facility');
 
 call create_reference_mapping('Treatment initiation','4');
 
@@ -1788,9 +1788,9 @@ call create_reference_mapping('TUBERCULOSIS DRUG TREATMENT START DATE','d_startt
 
 call create_reference_mapping('Tuberculosis treatment end date','d_txend');
 
-call create_reference_mapping('Twice a day','9');
+call create_reference_mapping('Twice a day','12');
 
-call create_reference_mapping('Twice a week','16');
+call create_reference_mapping('Twice a week','19');
 
 call create_reference_mapping('Two plus','4');
 
@@ -1806,15 +1806,15 @@ call create_reference_mapping('Very low','0');
 
 call create_reference_mapping('Vestibular Disorder','42');
 
-call create_reference_mapping('Visual acuity, left eye','va_l_fup');
+call create_reference_mapping('Visual acuity, left eye','va_l');
 
-call create_reference_mapping('Visual acuity, right eye','va_r_base');
+call create_reference_mapping('Visual acuity, right eye','va_r');
 
 call create_reference_mapping('Vital Capacity Abnormal','152');
 
 call create_reference_mapping('Vomiting','86');
 
-call create_reference_mapping('Weight (kg)','wt_fup');
+call create_reference_mapping('Weight (kg)','wt');
 
 call create_reference_mapping('Weight Gain','153');
 
@@ -1894,3 +1894,18 @@ call create_reference_mapping('Xray, Tuberculoma right side','tuberc_r');
 
 call create_reference_mapping('Xray, Type of assessment','xray_type');
 
+call create_reference_mapping('Number, 1','1');
+
+call create_reference_mapping('Number, 2','2');
+
+call create_reference_mapping('Number, 3','3');
+
+call create_reference_mapping('Number, 4','4');
+
+call create_reference_mapping('Audiometry, AE ID number','id_audio_ae');
+
+call create_reference_mapping('Immediately','1');
+
+call create_reference_mapping('Thrice a day','10');
+
+call create_reference_mapping('Every 12 hours','11');
