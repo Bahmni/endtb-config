@@ -404,10 +404,6 @@ table.alt-row tbody tr:nth-child(even) td, table.alt-row tbody tr:nth-child(even
   background-color: #f3f3f3;
 }
 
-.bahmni-reports .reports-page {
-  margin-top: 10px;
-}
-
 .bahmni-reports table th, .bahmni-reports table td {
   font-size: 14px;
   box-sizing: border-box;
@@ -424,18 +420,6 @@ table.alt-row tbody tr:nth-child(even) td, table.alt-row tbody tr:nth-child(even
   font-size: 14px;
 }
 
-.bahmni-reports table .reports-start-date,
-.bahmni-reports table .reports-stop-date {
-  width: 170px;
-}
-
-.bahmni-reports table .reports-format {
-  width: 200px;
-}
-
-.bahmni-reports table .reports-action {
-  width: 125px;
-}
 
 .bahmni-reports table td button {
   padding: 5px 10px;
