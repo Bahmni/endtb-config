@@ -40,5 +40,12 @@
                         "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/interim_outcome_1.sql",
              "macroTemplatePath" : "/var/www/bahmni_config/openmrs/apps/reports/macroTemplates/InterimOutcomes1.xls"
                 }
-        }
+        },
+  "patientInformationReport": {
+              "name": "Patient Information Report",
+              "type": "MRSGeneric",
+              "config": {
+                "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/personReport.sql"
+              }
+  }
 }

@@ -5,6 +5,6 @@
     "extensionPoints": [],
     "config": {
         "paperSize": "A3",
-	"supportedFormats": ["custom excel"]
+	"supportedFormats": ["custom excel", "csv"]
     }
 }
