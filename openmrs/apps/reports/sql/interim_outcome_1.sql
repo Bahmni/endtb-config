@@ -1,5 +1,5 @@
 select patients_with_drugs.patient_id,drug_name,drug_start_date,treatment_start_date,treatment_end_date,
-  eot_outcome,eot_outcome_date, datediff(treatment_end_date,drug_start_date) as numberOfDaysPostTreatmentStarted
+  eot_outcome,eot_outcome_date, cast(datediff(treatment_end_date,drug_start_date) as unsigned) as numberOfDaysPostTreatmentStarted
 from
   (select o.patient_id as patient_id, cn.name as drug_name,
           IF(Date(o.scheduled_date) IS NULL, Date(o.date_activated), Date(o.scheduled_date)) AS drug_start_date
