@@ -45,7 +45,7 @@
               "name": "Patient Information Report",
               "type": "MRSGeneric",
               "config": {
-                "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/personReport.sql"
+                "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/PersonReport.sql"
               }
   }
 }
