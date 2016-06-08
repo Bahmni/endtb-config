@@ -296,7 +296,6 @@
 		update concept_answer set sort_weight = 4 where concept_id =1317 and answer_concept=149;
 	</sql>
     </changeSet>
-    <changeset>
 	<changeSet id="ENDTB-201606071014" author="Shiva kumar">
 	<comment>Updating followup form reflexes</comment>
 	<sql>
@@ -314,7 +313,7 @@
 		update concept_answer set sort_weight = 6 where concept_id =799 and answer_concept=1648;
 
 	</sql>
-    </changeset>
+    </changeSet>
     <changeSet id="ENDTB-201606071045" author="Shiva kumar">
 	<comment>Updating followup form absolute high and low values for Visual acuity</comment>
 	<sql>
@@ -322,8 +321,8 @@
 		update concept_numeric set hi_absolute=400 ,low_absolute=0 where concept_id=314;
 
 	</sql>
-    </changeset>
-   <changeSet id="ENDTB-201606071045" author="Shiva kumar">
+    </changeSet>
+   <changeSet id="ENDTB-201606071047" author="Shiva kumar">
 	<comment>Updating followup and Baseline form absolute high and low values for color blindness</comment>
 	<sql>
 		update concept_numeric set low_absolute =0 and hi_absolute =11 where concept_id =181;
@@ -332,7 +331,7 @@
 		update concept_numeric set low_absolute= 0 and hi_absolute =11 where concept_id =317;
 
 	</sql>
-    </changeset>
+    </changeSet>
     <changeSet id="ENDTB-201606071145" author="Shiva kumar">
 	<comment>Updating  Reasons for Lost to Follow-up</comment>
 	<sql>
@@ -353,7 +352,7 @@
 		update concept_answer set sort_weight=7 where concept_id=956 and answer_concept=246;
 		update concept_answer set sort_weight=8 where concept_id=956 and answer_concept=149;
 	</sql>
-    </changeset>
+    </changeSet>
     <changeSet id="ENDTB-201606071301" author="Shiva kumar">
 	<comment>Updating  Baseline form Reason for next assessment</comment>
 	<sql>
@@ -368,6 +367,7 @@
 		update concept_answer set sort_weight=1 where concept_id=1790 and answer_concept=1750;
 		update concept_answer set sort_weight=1 where concept_id=1790 and answer_concept=1751;
 	</sql>
+    </chnageSet>
     <changeSet id="ENDTB-201606071402" author="Shiva kumar">
 	<comment>Updating  Baseline form Ankle reflexes</comment>
 	<sql>
@@ -384,19 +384,20 @@
 		update concept_answer set sort_weight=5 where concept_id =764 and answer_concept=762;
 		update concept_answer set sort_weight=6 where concept_id =764 and answer_concept=1648;
 	</sql>
-    </changeset>
+    </changeSet>
     <changeSet id="ENDTB-201606071447" author="Shiva kumar">
 	<comment>Updating Year first TB treatment in Baseline form</comment>
-		update concept_numeric set hi_absolute=2050 where concept_id =273;
 	<sql>
-    </chnageset>
+		update concept_numeric set hi_absolute=2050 where concept_id =273;
+	</sql>
+    </changeSet>
     <changeSet id="ENDTB-201606071847" author="Shiva kumar">
 	<comment>Adding new Answer concept in Outcome</comment>
 	<sql>
 		insert into concept_answer(concept_id, answer_concept, creator, date_created, sort_weight, uuid) values 
 			(914,735,1,now(),10,uuid());
 	</sql>
-    </changeset>
+    </changeSet>
 
     <changeSet id="ENDTB-201606081123" author="Shiva kumar, Sudhamsh">
 	<comment>Updating Past TB outcome in Baseline form</comment>
@@ -411,7 +412,7 @@
 		update concept_answer set sort_weight= 7 where concept_id = 737 and answer_concept= 735;
 		update concept_answer set sort_weight= 8 where concept_id = 737 and answer_concept= 208;	
 	</sql>
-    </changeset>
+    </changeSet>
 
     <changeSet id="ENDTB-201606081148" author="Shiva kumar, Sudhamsh">
 	<comment>Updating Last Drug resistant TB treatment outcome in Baseline form</comment>
@@ -426,7 +427,7 @@
 		update concept_answer set sort_weight= 6 where concept_id = 1747 and answer_concept= 413;
 
 	</sql>
-    </changeset>
+    </changeSet>
 
     <changeSet id="ENDTB-201606081154" author="Shiva kumar, Sudhamsh">
 	<comment>Updating Last Drug sensitiveTB treatment outcome in Baseline form</comment>
@@ -441,7 +442,7 @@
 		update concept_answer set sort_weight= 6 where concept_id = 1744 and answer_concept= 413;
 
 	</sql>
-    </changeset>
+    </changeSet>
 
     <changeSet id="ENDTB-201606081237" author="Shiva kumar, Sudhamsh">
 	<comment>Updating If no, reason for not starting treatment in Treatment Initiation form</comment>
@@ -453,7 +454,7 @@
 		update concept_answer set sort_weight= 1 where concept_id = 352 and answer_concept= 347;
 		update concept_answer set sort_weight= 6 where concept_id = 352 and answer_concept= 246;
 	</sql>
-    </changeset>
+    </changeSet>
 
     <changeSet id="ENDTB-201606081257" author="Shiva kumar, Sudhamsh">
 	<comment>Updating Reason for next visit in Treatment Initiation form</comment>
@@ -465,7 +466,7 @@
 		update concept_answer set sort_weight= 3 where concept_id = 1792 and answer_concept= 1748;
 		update concept_answer set sort_weight= 4 where concept_id = 1792 and answer_concept= 1749;
 	</sql>
-    </changeset>
+    </changeSet>
 
 
     <changeSet id="ENDTB-201606081317" author="Shiva kumar, Sudhamsh">
@@ -478,7 +479,7 @@
 		update concept_answer set sort_weight= 5 where concept_id = 865 and answer_concept= 1750;
 		update concept_answer set sort_weight= 6 where concept_id = 865 and answer_concept= 1751;
 	</sql>
-    </changeset>
+    </changeSet>
 
     <changeSet id="ENDTB-201606081459" author="Shiva kumar, Sudhamsh">
 	<comment>Updating Reason for hospitalization in HDS form</comment>
@@ -494,7 +495,7 @@
        		update concept_answer set sort_weight=9 where concept_id=885 and answer_concept=246;
         	update concept_answer set sort_weight=10 where concept_id=885 and answer_concept=149;
 	</sql>
-    </changeset>
+    </changeSet>
 
     <changeSet id="ENDTB-201606081518" author="Shiva kumar, Sudhamsh">
 	<comment>Updating Type of visit in Bacteriology form </comment>
@@ -506,7 +507,7 @@
 		update concept_answer set sort_weight= 5 where concept_id = 1079 and answer_concept= 1750;
 		update concept_answer set sort_weight= 6 where concept_id = 1079 and answer_concept= 1751;
 	</sql>
-    </changeset>
+    </changeSet>
 
     <changeSet id="ENDTB-201606081703" author="Shiva kumar, Sudhamsh">
 	<comment>Updating Type of assessment in  X-Ray form </comment>
@@ -518,6 +519,6 @@
 		update concept_answer set sort_weight=5 where concept_id =963 and answer_concept=1750;
 
 	</sql>
-    </changeset>
+    </changeSet>
 
 </databaseChangeLog>
