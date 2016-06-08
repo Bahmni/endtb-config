@@ -189,7 +189,7 @@ public class BahmniObsValueCalculator implements ObsValueCalculator {
 
                 Date obsDatetime = getDate(idealTreatmentDaysObservation)
 
-                if (fullyObservedDaysObs == null) {
+                if (monthlyCalculations == null) {
                     monthlyCalculations = createObs('MTC, Monthly calculations', bahmniObs, bahmniEncounterTransaction, obsDatetime)
                 } else {
                     voidObs(fullyObservedDaysObs);
