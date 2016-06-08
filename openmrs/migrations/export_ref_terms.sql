@@ -618,4 +618,9 @@ insert into concept_reference_term (creator,code,concept_source_id,uuid,date_cre
 (4,'xray_compare',@source_id,uuid(),now()),
 (4,'xray_extent',@source_id,uuid(),now()),
 (4,'xray_res',@source_id,uuid(),now()),
-(4,'xray_type',@source_id,uuid(),now());
+(4,'xray_type',@source_id,uuid(),now()),
+(4,'past_tb_ds_reg_unk',@source_id,uuid(),now()),
+(4,'pasttb_dr_reg_unk',@source_id,uuid(),now()),
+(4,'lastcd4_base_unk',@source_id,uuid(),now()),
+(4,'pasttb_yr_unk',@source_id,uuid(),now()),
+(4,'lastvl_base_unk',@source_id,uuid(),now());

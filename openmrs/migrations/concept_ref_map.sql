@@ -356,6 +356,10 @@ call create_reference_mapping('Baseline, Cancer type','canc_base_sp');
 
 call create_reference_mapping('Baseline, CD4 count details','lastcd4_base');
 
+call create_reference_mapping('CD4 COUNT','lastcd4_base');
+
+call create_reference_mapping('CD4 COUNT Unknown','lastcd4_base_unk');
+
 call create_reference_mapping('Baseline, Chronic obstructive pulmonary disease','copd_base');
 
 call create_reference_mapping('Baseline, Chronic renal insufficiency','renal_base');
@@ -408,6 +412,10 @@ call create_reference_mapping('Baseline, HIV serostatus result','hiv_base');
 
 call create_reference_mapping('Baseline, HIV Viral Load Details','lastvl_base');
 
+call create_reference_mapping('HIV VIRAL LOAD','lastvl_base');
+
+call create_reference_mapping('HIV VIRAL LOAD Unknown','lastvl_base_unk');
+
 call create_reference_mapping('Baseline, Homeless within past 1 year','homeless');
 
 call create_reference_mapping('Baseline, How many alcoholic drinks per week','drinks_wk_base');
@@ -418,15 +426,27 @@ call create_reference_mapping('Baseline, How many drug-susceptible TB treatments
 
 call create_reference_mapping('Baseline, If Yes, What was the year of the patients start of first TB treatment Details','pasttb_yrstart');
 
+call create_reference_mapping('Baseline, If Yes, What was the year of the patients start of first TB treatment?','pasttb_yrstart');
+
+call create_reference_mapping('Year first TB treatment Unknown','pasttb_yr_unk');
+
 call create_reference_mapping('Baseline, Is alcoholic','alcohol_base');
 
 call create_reference_mapping('Baseline, Is prison past or present','prison_when');
 
 call create_reference_mapping('Baseline, Last DRTB Registration ID Details','pasttb_dr_reg');
 
+call create_reference_mapping('Baseline, Last DRTB Registration ID','pasttb_dr_reg');
+
+call create_reference_mapping('Baseline, Last DRTB Registration ID Unknown','pasttb_dr_reg_unk');
+
 call create_reference_mapping('Baseline, Last DRTB treatment registration facility','pasttb_dr_fac');
 
 call create_reference_mapping('Baseline, Last DSTB Registration ID Details','pasttb_ds_reg');
+
+call create_reference_mapping('Baseline, Last DSTB Registration ID','pasttb_ds_reg');
+
+call create_reference_mapping('Baseline, Last DSTB Registration ID Unknown','past_tb_ds_reg_unk');
 
 call create_reference_mapping('Baseline, Last DSTB treatment registration facility','pasttb_ds_fac');
 
@@ -802,7 +822,7 @@ call create_reference_mapping('Fever (oral)','91');
 
 call create_reference_mapping('Fibrin Split Product','106');
 
-call create_reference_mapping('fibrosis right side','fibrosis_r');
+call create_reference_mapping('Xray, Fibrosis right side','fibrosis_r');
 
 call create_reference_mapping('Financial problem','3');
 
@@ -1066,23 +1086,24 @@ call create_reference_mapping('Isoniazid','10');
 
 call create_reference_mapping('Kanamycin','21');
 
-call create_reference_mapping('Lab, Absolute neutrophil count other test result','abs_neut');
+call create_reference_mapping('Lab, ABSOLUTE NEUTROPHIL COUNT Data','abs_neut');
 
-call create_reference_mapping('Lab, Absolute neutrophil count other test result Data','abs_neut');
+call create_reference_mapping('ABSOLUTE NEUTROPHIL COUNT','abs_neut');
+
 
 call create_reference_mapping('Lab, BLOOD UREA NITROGEN Data','urea');
 
 call create_reference_mapping('Lab, CD4 count','cd4_test');
 
-call create_reference_mapping('Lab, Creatinine other','creat');
+call create_reference_mapping('Lab, Serum creatinine (umol/L) Data','creat');
 
-call create_reference_mapping('Lab, Creatinine other Data','creat');
+call create_reference_mapping('Serum creatinine (umol/L)','creat');
 
 call create_reference_mapping('Lab, Fasting blood glucose measurement (mg/dL) Data','fbs');
 
-call create_reference_mapping('Lab, Glucose other','rbs');
+call create_reference_mapping('SERUM GLUCOSE','rbs');
 
-call create_reference_mapping('Lab, Glucose other Data','rbs');
+call create_reference_mapping('Lab, SERUM GLUCOSE Data','rbs');
 
 call create_reference_mapping('Lab, glycosylated hemoglobin A measurement Data','hba1c');
 
@@ -1092,15 +1113,17 @@ call create_reference_mapping('Lab, Hemoglobin g/dl','hb');
 
 call create_reference_mapping('Lab, Hemoglobin g/dl Data','hb');
 
+call create_reference_mapping('Hemoglobin','hb');
+
 call create_reference_mapping('Lab, Hepatitis B antigen test result','hepb_test');
 
 call create_reference_mapping('Lab, Hepatitis C antibody test result','hepc_test');
 
 call create_reference_mapping('Lab, HIV test result','hiv_test');
 
-call create_reference_mapping('Lab, Ionized Calcium other','ca');
+call create_reference_mapping('Lab, Ionized Calcium test result','ca');
 
-call create_reference_mapping('Lab, Ionized Calcium other Data','ca');
+call create_reference_mapping('Lab, Ionized Calcium test result Data','ca');
 
 call create_reference_mapping('Lab, Lab name','lab_lab');
 
@@ -1470,6 +1493,8 @@ call create_reference_mapping('PRF, Infant normal at birth','infanthealthy');
 
 call create_reference_mapping('PRF, Non-TB drug exposure','preg_othdrugexp');
 
+call create_reference_mapping('PRF, Non-TB drug name','preg_othdrugexp');
+
 call create_reference_mapping('PRF, Partners initials','preg_partin');
 
 call create_reference_mapping('PRF, Pregnancy in TB patient or partner','preg_who');
@@ -1481,6 +1506,8 @@ call create_reference_mapping('PRF, Reason for infant abnormal at birth','infant
 call create_reference_mapping('PRF, Reason for not giving birth to a live child','reas_nolivebirth');
 
 call create_reference_mapping('PRF, TB drug exposure','preg_tbdrugexp');
+
+call create_reference_mapping('PRF, TB drug name','preg_tbdrugexp');
 
 call create_reference_mapping('Profile unconfirmed','1');
 
@@ -1909,3 +1936,5 @@ call create_reference_mapping('Immediately','1');
 call create_reference_mapping('Thrice a day','10');
 
 call create_reference_mapping('Every 12 hours','11');
+
+call create_reference_mapping('Patient refused followup','2');
