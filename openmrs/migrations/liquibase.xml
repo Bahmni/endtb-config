@@ -260,9 +260,264 @@
             </sqlCheck>
         </preConditions>
         <comment>Updating drug frequency Immediately to Once</comment>
-        <sql>
+	<sql>
 		update concept_name set name = 'Once' where concept_id = 88  and concept_name_type = 'FULLY_SPECIFIED';
 		update order_frequency set uuid = uuid() where concept_id = 88;
         </sql>
     </changeSet>
+    <changeSet id="ENDTB-201606061251" author="Shiva kumar">
+        <comment>Adding answer-concept and Updating type of assesment in follow up form</comment>
+	<sql>
+		Insert into concept_answer(concept_id,answer_concept,creator,date_created,sort_weight,uuid) values (166,784,1,now(),6,uuid());
+
+		update concept_answer set sort_weight = 1 where concept_id = 166 and answer_concept = 784;
+		update concept_answer set sort_weight = 2 where concept_id = 166 and answer_concept = 1788;
+		update concept_answer set sort_weight = 3 where concept_id = 166 and answer_concept = 1748;
+		update concept_answer set sort_weight = 4 where concept_id = 166 and answer_concept = 1749;
+		update concept_answer set sort_weight = 5 where concept_id = 166 and answer_concept = 1750;
+		update concept_answer set sort_weight = 6 where concept_id = 166 and answer_concept = 1751;
+	</sql>
+    </changeSet>
+	<changeSet id="ENDTB-201606061551" author="Shiva kumar">
+	<comment>updating absolute high and low values in followup form</comment>
+	<sql>
+		update concept_numeric set hi_absolute ='750',low_absolute ='0.5' where concept_id ='1199';
+		update concept_numeric set hi_absolute ='260',low_absolute ='30' where concept_id ='1200';
+		update concept_numeric set hi_absolute ='300',low_absolute ='1' where concept_id ='169';
+		update concept_numeric set hi_absolute ='200',low_absolute ='1' where concept_id ='1202'
+	</sql>
+    </changeSet>
+	<changeSet id="ENDTB-201606061712" author="Shiva kumar">
+	<comment>updating answer in followup form</comment>
+	<sql>
+		update concept_answer set sort_weight = 1 where concept_id =1317 and answer_concept=1;
+		update concept_answer set sort_weight = 2 where concept_id =1317 and answer_concept=2;
+		update concept_answer set sort_weight = 3 where concept_id =1317 and answer_concept=1014;
+		update concept_answer set sort_weight = 4 where concept_id =1317 and answer_concept=149;
+	</sql>
+    </changeSet>
+    <changeset>
+	<changeSet id="ENDTB-201606071014" author="Shiva kumar">
+	<comment>Updating followup form reflexes</comment>
+	<sql>
+		update concept_answer set sort_weight = 1 where concept_id =792 and answer_concept=1649;
+		update concept_answer set sort_weight = 2 where concept_id =792 and answer_concept=760;
+		update concept_answer set sort_weight = 3 where concept_id =792 and answer_concept=759;
+		update concept_answer set sort_weight = 4 where concept_id =792 and answer_concept=761;
+		update concept_answer set sort_weight = 5 where concept_id =792 and answer_concept=762;
+		update concept_answer set sort_weight = 6 where concept_id =792 and answer_concept=1648;
+		update concept_answer set sort_weight = 1 where concept_id =799 and answer_concept=1649;
+		update concept_answer set sort_weight = 2 where concept_id =799 and answer_concept=760;
+		update concept_answer set sort_weight = 3 where concept_id =799 and answer_concept=759;
+		update concept_answer set sort_weight = 4 where concept_id =799 and answer_concept=761;
+		update concept_answer set sort_weight = 5 where concept_id =799 and answer_concept=762;
+		update concept_answer set sort_weight = 6 where concept_id =799 and answer_concept=1648;
+
+	</sql>
+    </changeset>
+    <changeSet id="ENDTB-201606071045" author="Shiva kumar">
+	<comment>Updating followup form absolute high and low values for Visual acuity</comment>
+	<sql>
+		update concept_numeric set hi_absolute=400 ,low_absolute=0 where concept_id=313;
+		update concept_numeric set hi_absolute=400 ,low_absolute=0 where concept_id=314;
+
+	</sql>
+    </changeset>
+   <changeSet id="ENDTB-201606071045" author="Shiva kumar">
+	<comment>Updating followup and Baseline form absolute high and low values for color blindness</comment>
+	<sql>
+		update concept_numeric set low_absolute =0 and hi_absolute =11 where concept_id =181;
+		update concept_numeric set low_absolute =0 and hi_absolute =11 where concept_id =182;
+		update concept_numeric set low_absolute= 0 and hi_absolute =11 where concept_id =316;
+		update concept_numeric set low_absolute= 0 and hi_absolute =11 where concept_id =317;
+
+	</sql>
+    </changeset>
+    <changeSet id="ENDTB-201606071145" author="Shiva kumar">
+	<comment>Updating  Reasons for Lost to Follow-up</comment>
+	<sql>
+		update concept_answer set sort_weight=1 where concept_id=937 and answer_concept=521;
+		update concept_answer set sort_weight=2 where concept_id=937 and answer_concept=931;
+		update concept_answer set sort_weight=3 where concept_id=937 and answer_concept=932;
+		update concept_answer set sort_weight=4 where concept_id=937 and answer_concept=933;
+		update concept_answer set sort_weight=5 where concept_id=937 and answer_concept=934;
+		update concept_answer set sort_weight=6 where concept_id=937 and answer_concept=935;
+		update concept_answer set sort_weight=7 where concept_id=937 and answer_concept=246;
+		update concept_answer set sort_weight=8 where concept_id=937 and answer_concept=149;
+		update concept_answer set sort_weight=1 where concept_id=956 and answer_concept=521;
+		update concept_answer set sort_weight=2 where concept_id=956 and answer_concept=955;
+		update concept_answer set sort_weight=3 where concept_id=956 and answer_concept=932;
+		update concept_answer set sort_weight=4 where concept_id=956 and answer_concept=933;
+		update concept_answer set sort_weight=5 where concept_id=956 and answer_concept=934;
+		update concept_answer set sort_weight=6 where concept_id=956 and answer_concept=935;
+		update concept_answer set sort_weight=7 where concept_id=956 and answer_concept=246;
+		update concept_answer set sort_weight=8 where concept_id=956 and answer_concept=149;
+	</sql>
+    </changeset>
+    <changeSet id="ENDTB-201606071301" author="Shiva kumar">
+	<comment>Updating  Baseline form Reason for next assessment</comment>
+	<sql>
+		Insert into concept_answer(concept_id,answer_concept,creator,date_created,sort_weight,uuid) values (1790,784,1,now(),4,uuid());
+		Insert into concept_answer(concept_id,answer_concept,creator,date_created,sort_weight,uuid) values (1790,1750,1,now(),5,uuid());
+		Insert into concept_answer(concept_id,answer_concept,creator,date_created,sort_weight,uuid) values (1790,1751,1,now(),6,uuid());
+
+		update concept_answer set sort_weight=1 where concept_id=1790 and answer_concept=784;
+		update concept_answer set sort_weight=1 where concept_id=1790 and answer_concept=1788;
+		update concept_answer set sort_weight=1 where concept_id=1790 and answer_concept=1748;
+		update concept_answer set sort_weight=1 where concept_id=1790 and answer_concept=1749;
+		update concept_answer set sort_weight=1 where concept_id=1790 and answer_concept=1750;
+		update concept_answer set sort_weight=1 where concept_id=1790 and answer_concept=1751;
+	</sql>
+    <changeSet id="ENDTB-201606071402" author="Shiva kumar">
+	<comment>Updating  Baseline form Ankle reflexes</comment>
+	<sql>
+		update concept_answer set sort_weight=1 where concept_id =763 and answer_concept=1649;
+		update concept_answer set sort_weight=2 where concept_id =763 and answer_concept=760;
+		update concept_answer set sort_weight=3 where concept_id =763 and answer_concept=759;
+		update concept_answer set sort_weight=4 where concept_id =763 and answer_concept=761;
+		update concept_answer set sort_weight=5 where concept_id =763 and answer_concept=762;
+		update concept_answer set sort_weight=6 where concept_id =763 and answer_concept=1648;
+		update concept_answer set sort_weight=1 where concept_id =764 and answer_concept=1649;
+		update concept_answer set sort_weight=2 where concept_id =764 and answer_concept=760;
+		update concept_answer set sort_weight=3 where concept_id =764 and answer_concept=759;
+		update concept_answer set sort_weight=4 where concept_id =764 and answer_concept=761;
+		update concept_answer set sort_weight=5 where concept_id =764 and answer_concept=762;
+		update concept_answer set sort_weight=6 where concept_id =764 and answer_concept=1648;
+	</sql>
+    </changeset>
+    <changeSet id="ENDTB-201606071447" author="Shiva kumar">
+	<comment>Updating Year first TB treatment in Baseline form</comment>
+		update concept_numeric set hi_absolute=2050 where concept_id =273;
+	<sql>
+    </chnageset>
+    <changeSet id="ENDTB-201606071847" author="Shiva kumar">
+	<comment>Adding new Answer concept in Outcome</comment>
+	<sql>
+		insert into concept_answer(concept_id, answer_concept, creator, date_created, sort_weight, uuid) values 
+			(914,735,1,now(),10,uuid());
+	</sql>
+    </changeset>
+
+    <changeSet id="ENDTB-201606081123" author="Shiva kumar, Sudhamsh">
+	<comment>Updating Past TB outcome in Baseline form</comment>
+	<sql>
+		delete from concept_answer where answer_concept in ( 411, 736,149,734 ) and concept_id=737;
+		insert into concept_answer (concept_id, answer_concept, creator, date_created,sort_weight, uuid) values (737,413,1,now(),6, uuid()),
+															(737,349,1,now(),3, uuid()), 
+															(737,913,1,now(),5, uuid());
+		update concept_answer set sort_weight= 2 where concept_id = 737 and answer_concept= 732;
+		update concept_answer set sort_weight= 4 where concept_id = 737 and answer_concept= 204;
+		update concept_answer set sort_weight= 1 where concept_id = 737 and answer_concept= 407;
+		update concept_answer set sort_weight= 7 where concept_id = 737 and answer_concept= 735;
+		update concept_answer set sort_weight= 8 where concept_id = 737 and answer_concept= 208;	
+	</sql>
+    </changeset>
+
+    <changeSet id="ENDTB-201606081148" author="Shiva kumar, Sudhamsh">
+	<comment>Updating Last Drug resistant TB treatment outcome in Baseline form</comment>
+	<sql>
+		delete from concept_answer where answer_concept in (348,149,736) and concept_id=1747;
+		insert into concept_answer (concept_id, answer_concept, creator, date_created,sort_weight, uuid) values (1747,913,1,now(),5, uuid()), 
+															(1747,349,1,now(),3, uuid()),
+															(1747,735,1,now(),7, uuid());
+		update concept_answer set sort_weight= 2 where concept_id = 1747 and answer_concept= 732;
+		update concept_answer set sort_weight= 4 where concept_id = 1747 and answer_concept= 204;
+		update concept_answer set sort_weight= 1 where concept_id = 1747 and answer_concept= 407;
+		update concept_answer set sort_weight= 6 where concept_id = 1747 and answer_concept= 413;
+
+	</sql>
+    </changeset>
+
+    <changeSet id="ENDTB-201606081154" author="Shiva kumar, Sudhamsh">
+	<comment>Updating Last Drug sensitiveTB treatment outcome in Baseline form</comment>
+	<sql>
+		delete from concept_answer where answer_concept in (348,1746,149) and concept_id=1744;
+		insert into concept_answer (concept_id, answer_concept, creator, date_created,sort_weight, uuid) values (1744,913,1,now(),5, uuid()), 
+															(1744,349,1,now(),3, uuid()),
+															(1744,735,1,now(),7, uuid());
+		update concept_answer set sort_weight= 2 where concept_id = 1744 and answer_concept= 732;
+		update concept_answer set sort_weight= 4 where concept_id = 1744 and answer_concept= 204;
+		update concept_answer set sort_weight= 1 where concept_id = 1744 and answer_concept= 407;
+		update concept_answer set sort_weight= 6 where concept_id = 1744 and answer_concept= 413;
+
+	</sql>
+    </changeset>
+
+    <changeSet id="ENDTB-201606081237" author="Shiva kumar, Sudhamsh">
+	<comment>Updating If no, reason for not starting treatment in Treatment Initiation form</comment>
+	<sql>
+		update concept_answer set sort_weight= 3 where concept_id = 352 and answer_concept= 349;
+		update concept_answer set sort_weight= 5 where concept_id = 352 and answer_concept= 348;
+		update concept_answer set sort_weight= 2 where concept_id = 352 and answer_concept= 351;
+		update concept_answer set sort_weight= 4 where concept_id = 352 and answer_concept= 350;
+		update concept_answer set sort_weight= 1 where concept_id = 352 and answer_concept= 347;
+		update concept_answer set sort_weight= 6 where concept_id = 352 and answer_concept= 246;
+	</sql>
+    </changeset>
+
+    <changeSet id="ENDTB-201606081257" author="Shiva kumar, Sudhamsh">
+	<comment>Updating Reason for next visit in Treatment Initiation form</comment>
+	<sql>
+		insert into concept_answer (concept_id, answer_concept, creator, date_created,sort_weight, uuid) values (1792,784,1,now(),1, uuid()), 
+															(1792,1750,1,now(),5, uuid()),
+															(1792,1751,1,now(),6, uuid());
+		update concept_answer set sort_weight= 2 where concept_id = 1792 and answer_concept= 1788;
+		update concept_answer set sort_weight= 3 where concept_id = 1792 and answer_concept= 1748;
+		update concept_answer set sort_weight= 4 where concept_id = 1792 and answer_concept= 1749;
+	</sql>
+    </changeset>
+
+
+    <changeSet id="ENDTB-201606081317" author="Shiva kumar, Sudhamsh">
+	<comment>Updating Type of Assessment in Performance Status form</comment>
+	<sql>
+		insert into concept_answer (concept_id, answer_concept, creator, date_created,sort_weight, uuid) values (865,1788,1,now(),2, uuid());
+		update concept_answer set sort_weight= 1 where concept_id = 865 and answer_concept= 784;
+		update concept_answer set sort_weight= 3 where concept_id = 865 and answer_concept= 1748;
+		update concept_answer set sort_weight= 4 where concept_id = 865 and answer_concept= 1749;
+		update concept_answer set sort_weight= 5 where concept_id = 865 and answer_concept= 1750;
+		update concept_answer set sort_weight= 6 where concept_id = 865 and answer_concept= 1751;
+	</sql>
+    </changeset>
+
+    <changeSet id="ENDTB-201606081459" author="Shiva kumar, Sudhamsh">
+	<comment>Updating Reason for hospitalization in HDS form</comment>
+	<sql>
+		update concept_answer set sort_weight=1 where concept_id=885 and answer_concept=521;
+		update concept_answer set sort_weight=2 where concept_id=885 and answer_concept=879;
+		update concept_answer set sort_weight=3 where concept_id=885 and answer_concept=880;
+		update concept_answer set sort_weight=4 where concept_id=885 and answer_concept=884;
+		update concept_answer set sort_weight=5 where concept_id=885 and answer_concept=878;
+		update concept_answer set sort_weight=6 where concept_id=885 and answer_concept=881;
+		update concept_answer set sort_weight=7 where concept_id=885 and answer_concept=882;
+		update concept_answer set sort_weight=8 where concept_id=885 and answer_concept=883;
+       		update concept_answer set sort_weight=9 where concept_id=885 and answer_concept=246;
+        	update concept_answer set sort_weight=10 where concept_id=885 and answer_concept=149;
+	</sql>
+    </changeset>
+
+    <changeSet id="ENDTB-201606081518" author="Shiva kumar, Sudhamsh">
+	<comment>Updating Type of visit in Bacteriology form </comment>
+	<sql>
+		insert into concept_answer (concept_id, answer_concept, creator, date_created,sort_weight, uuid) values (1079,1788,1,now(),2, uuid());
+		update concept_answer set sort_weight= 1 where concept_id = 1079 and answer_concept= 784;
+		update concept_answer set sort_weight= 3 where concept_id = 1079 and answer_concept= 1748;
+		update concept_answer set sort_weight= 4 where concept_id = 1079 and answer_concept= 1749;
+		update concept_answer set sort_weight= 5 where concept_id = 1079 and answer_concept= 1750;
+		update concept_answer set sort_weight= 6 where concept_id = 1079 and answer_concept= 1751;
+	</sql>
+    </changeset>
+
+    <changeSet id="ENDTB-201606081703" author="Shiva kumar, Sudhamsh">
+	<comment>Updating Type of assessment in  X-Ray form </comment>
+	<sql>
+		delete from concept_answer where concept_id=963 and answer_concept = 1813;
+		insert into concept_answer (concept_id,answer_concept,creator,date_created,sort_weight,uuid) values (963,1788,1,now(),2,uuid()),(963,1748,1,now(),3,uuid()),(963,1751,1,now(),6,uuid());
+		update concept_answer set sort_weight=1 where concept_id =963 and answer_concept=784;
+		update concept_answer set sort_weight=4 where concept_id =963 and answer_concept=1749;
+		update concept_answer set sort_weight=5 where concept_id =963 and answer_concept=1750;
+
+	</sql>
+    </changeset>
+
 </databaseChangeLog>
