@@ -258,7 +258,8 @@
         "allowAddMore": true
       },
       "AE Form, AE term comprehensive list": {
-        "autocomplete": true
+        "autocomplete": true,
+	"required":true
       },
       "AE Form, Other AE term": {
         "conciseText": true
@@ -318,7 +319,8 @@
         "autocomplete": true
       },
       "SAE Form, SAE term comprehensive AE list": {
-        "autocomplete": true
+        "autocomplete": true,
+	"required":true
       },
       "SAE Form, SAE severity review": {
         "allowAddMore": true
@@ -339,7 +341,7 @@
         "conciseText": true
       },
       "PRF, Pregnancy report case ID": {
-        "required": true,
+        "required": false,
         "conciseText": true
       },
       "PRF, TB drug name": {
