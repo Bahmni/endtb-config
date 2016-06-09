@@ -356,16 +356,13 @@
     <changeSet id="ENDTB-201606071301" author="Shiva kumar">
 	<comment>Updating  Baseline form Reason for next assessment</comment>
 	<sql>
-		Insert into concept_answer(concept_id,answer_concept,creator,date_created,sort_weight,uuid) values (1790,784,1,now(),4,uuid());
+		Insert into concept_answer(concept_id,answer_concept,creator,date_created,sort_weight,uuid) values (1790,784,1,now(),1,uuid());
 		Insert into concept_answer(concept_id,answer_concept,creator,date_created,sort_weight,uuid) values (1790,1750,1,now(),5,uuid());
 		Insert into concept_answer(concept_id,answer_concept,creator,date_created,sort_weight,uuid) values (1790,1751,1,now(),6,uuid());
-
-		update concept_answer set sort_weight=1 where concept_id=1790 and answer_concept=784;
-		update concept_answer set sort_weight=1 where concept_id=1790 and answer_concept=1788;
-		update concept_answer set sort_weight=1 where concept_id=1790 and answer_concept=1748;
-		update concept_answer set sort_weight=1 where concept_id=1790 and answer_concept=1749;
-		update concept_answer set sort_weight=1 where concept_id=1790 and answer_concept=1750;
-		update concept_answer set sort_weight=1 where concept_id=1790 and answer_concept=1751;
+		update concept_answer set sort_weight=2 where concept_id=1790 and answer_concept=1788;
+		update concept_answer set sort_weight=3 where concept_id=1790 and answer_concept=1748;
+		update concept_answer set sort_weight=4 where concept_id=1790 and answer_concept=1749;
+		
 	</sql>
     </changeSet>
     <changeSet id="ENDTB-201606071402" author="Shiva kumar">
