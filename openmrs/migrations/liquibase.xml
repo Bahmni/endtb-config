@@ -367,7 +367,8 @@
 		update concept_answer set sort_weight=1 where concept_id=1790 and answer_concept=1750;
 		update concept_answer set sort_weight=1 where concept_id=1790 and answer_concept=1751;
 	</sql>
-    </chnageSet>
+    </changeSet>
+
     <changeSet id="ENDTB-201606071402" author="Shiva kumar">
 	<comment>Updating  Baseline form Ankle reflexes</comment>
 	<sql>
