@@ -591,9 +591,9 @@
     </changeSet>
 
     <changeSet id="ENDTB-201606091253" author="Shiva kumar, Sudhamsh">
-	<comment>Updating DOT rate (i) in Monthly Tx Completeness form </comment>
+	<comment>Updating DOT rate (i)in Monthly Tx Completeness form </comment>
 	<sql>
-		update concept_numeric set hi_absolute=100 , low_absloute=0 where concept_id=995;
+		update concept_numeric set hi_absolute=100 , low_absolute=0 where concept_id=995;
 	</sql>
     </changeSet>
 
