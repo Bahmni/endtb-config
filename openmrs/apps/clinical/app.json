@@ -320,7 +320,7 @@
       },
       "SAE Form, SAE term comprehensive AE list": {
         "autocomplete": true,
-	"required":true
+	"required": true
       },
       "SAE Form, SAE severity review": {
         "allowAddMore": true
@@ -503,46 +503,60 @@
         "isTabular": true
       },
       "Audiometry, Left ear at 250Hz": {
-        "disableAddNotes": true
+        "disableAddNotes": true,
+	"dropdown": true
       },
       "Audiometry, Left ear at 500Hz": {
-        "disableAddNotes": true
+        "disableAddNotes": true,
+	"dropdown": true
       },
       "Audiometry, Left ear at 1000Hz": {
-        "disableAddNotes": true
+        "disableAddNotes": true,
+	"dropdown": true
       },
       "Audiometry, Left ear at 2000Hz": {
-        "disableAddNotes": true
+        "disableAddNotes": true,
+	"dropdown": true
       },
       "Audiometry, Left ear at 4000Hz": {
-        "disableAddNotes": true
+        "disableAddNotes": true,
+	"dropdown": true
       },
       "Audiometry, Left ear at 6000Hz": {
-        "disableAddNotes": true
+        "disableAddNotes": true,
+	"dropdown": true
       },
       "Audiometry, Left ear at 8000Hz": {
-        "disableAddNotes": true
+        "disableAddNotes": true,
+	"dropdown": true
       },
       "Audiometry, Right ear at 250Hz": {
-        "disableAddNotes": true
+        "disableAddNotes": true,
+	"dropdown": true
       },
       "Audiometry, Right ear at 500Hz": {
-        "disableAddNotes": true
+        "disableAddNotes": true,
+	"dropdown": true
       },
       "Audiometry, Right ear at 1000Hz": {
-        "disableAddNotes": true
+        "disableAddNotes": true,
+	"dropdown": true
       },
       "Audiometry, Right ear at 2000Hz": {
-        "disableAddNotes": true
+        "disableAddNotes": true,
+	"dropdown": true
       },
       "Audiometry, Right ear at 4000Hz": {
-        "disableAddNotes": true
+        "disableAddNotes": true,
+	"dropdown": true
       },
       "Audiometry, Right ear at 6000Hz": {
-        "disableAddNotes": true
+        "disableAddNotes": true,
+	"dropdown": true
       },
       "Audiometry, Right ear at 8000Hz": {
-        "disableAddNotes": true
+        "disableAddNotes": true,
+	"dropdown": true
       },
       "Electrocardiogram Template": {
         "allowAddMore": true

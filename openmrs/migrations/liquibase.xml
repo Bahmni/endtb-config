@@ -608,5 +608,297 @@
             update concept_numeric set hi_absolute=100 , low_absolute=0 where concept_id=995;
         </sql>
     </changeSet>
+    <changeSet id="ENDTB-201606101222" author="Swathi,Shiva">
+        <comment>Fix the new add_concept procedure</comment>
+        <sql>
+            DROP PROCEDURE IF EXISTS add_concept;
+        </sql>
+        <sqlFile splitStatements="false" path="E1_1__AddConceptProc.sql"/>
+    </changeSet>
+    <changeSet id="ENDTB-201606101225" author="Swathi,Shiva">
+        <comment>Add the new add_concept_answer procedure</comment>
+        <sql>
+            DROP PROCEDURE IF EXISTS add_concept_answer;
+        </sql>
+        <sqlFile splitStatements="false" path="E1_2__AddConceptAnswerProc.sql"/>
+    </changeSet>
+    <changeSet id="ENDTB-201606101335" author="Swathi,Shiva">
+        <comment>Add the new add_concept_set_members procedure</comment>
+        <sql>
+            DROP PROCEDURE IF EXISTS add_concept_set_members;
+        </sql>
+        <sqlFile splitStatements="false" path="E1_3__AddConceptSetMemberProc.sql"/>
+    </changeSet>
+    <changeSet id="ENDTB-201606101142" author="Shiva kumar, Swathi">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(*) from concept_answer where concept_id = 851 and answer_concept = 1788;
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding 2 week assessment in Audiometry form, Type of assessment</comment>
+        <sql>
+            call add_concept_answer (851, 1788, 2);
+            update concept_answer set sort_weight =1 where concept_id=851 and answer_concept=784;
+            update concept_answer set sort_weight =3 where concept_id=851 and answer_concept=1748;
+            update concept_answer set sort_weight =4 where concept_id=851 and answer_concept=1749;
+            update concept_answer set sort_weight =5 where concept_id=851 and answer_concept=1750;
+            update concept_answer set sort_weight =6 where concept_id=851 and answer_concept=1751;
+        </sql>
+    </changeSet>
+    <changeSet id="ENDTB-201606101221" author="Shivakumar ,Swathi">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">
+                select count(*) from concept_view where concept_full_name = 'Audiometry, AE ID number' and concept_datatype_name = 'Numeric';
+            </sqlCheck>
+        </preConditions>
+        <comment>Migrating Audiometry, AE ID number from numeric to text</comment>
+        <sql>
+            select concept_id into @conceptID from concept_view where concept_full_name = 'Audiometry, AE ID number';
+            update obs set value_text = concat(value_numeric) where concept_id = @conceptID;
+            update concept set datatype_id = (select concept_datatype_id from concept_datatype where name = 'Text') where concept_id = @conceptID;
+            update obs set value_numeric = NULL where concept_id = @conceptID;
+            delete from concept_numeric where concept_id = @conceptID;
+        </sql>
+    </changeSet>
+    <changeSet id="ENDTB-201606101255" author="Swathi,Shiva">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="14">
+                select count(*) from concept_view where concept_full_name in ('Audiometry, Left ear at
+                250Hz','Audiometry, Left ear at 500Hz','Audiometry, Left ear at 1000Hz','Audiometry, Left ear at
+                2000Hz','Audiometry, Left ear at 4000Hz','Audiometry, Left ear at 6000Hz','Audiometry, Left ear at
+                8000Hz','Audiometry, Right ear at 250Hz','Audiometry, Right ear at 500Hz','Audiometry, Right ear at
+                1000Hz','Audiometry, Right ear at 2000Hz','Audiometry, Right ear at 4000Hz','Audiometry, Right ear at
+                6000Hz','Audiometry, Right ear at 8000Hz') and concept_datatype_name = 'Numeric';
+            </sqlCheck>
+        </preConditions>
+        <comment>Migrating Audiometry Left/Right ear at xxHz from numeric to dropdown(CodedConcept) of Ranges as answers
+        </comment>
+        <sql>
+            set @concept_id = 0;
+            set @concept_name_short_id = 0;
+            set @concept_name_full_id = 0;
+            set @concept_datatype_coded = 0;
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Audiometry, 0 to 20 db', '0 to 20 db', 'N/A', 'misc', false);
+            set @child1_concept_id = @concept_id;
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Audiometry, 21 to 40 dB', '21 to 40 dB', 'N/A', 'misc', false);
+            set @child2_concept_id = @concept_id;
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Audiometry, 41 to 55 dB', '41 to 55 dB', 'N/A', 'misc', false);
+            set @child3_concept_id = @concept_id;
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Audiometry, 56 to 70 dB', '56 to 70 dB', 'N/A', 'misc', false);
+            set @child4_concept_id = @concept_id;
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Audiometry, 71 to 90 dB', '71 to 90 dB', 'N/A', 'misc', false);
+            set @child5_concept_id = @concept_id;
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Audiometry, 91+ dB', '91+ dB', 'N/A', 'misc', false);
+            set @child6_concept_id = @concept_id;
+
+            SELECT concept_datatype_id INTO @concept_datatype_id from concept_datatype WHERE name = 'Coded';
+
+            SELECT concept_id INTO @concept_id FROM concept_name WHERE name = 'Audiometry, Left ear at 250Hz';
+            UPDATE concept SET datatype_id = @concept_datatype_id where concept_id = @concept_id;
+            call add_concept_answer (@concept_id, @child1_concept_id, 1);
+            call add_concept_answer (@concept_id, @child2_concept_id, 2);
+            call add_concept_answer (@concept_id, @child3_concept_id, 3);
+            call add_concept_answer (@concept_id, @child4_concept_id, 4);
+            call add_concept_answer (@concept_id, @child5_concept_id, 5);
+            call add_concept_answer (@concept_id, @child6_concept_id, 6);
+            set @coded1_concept_id = @concept_id;
+
+
+            SELECT concept_id INTO @concept_id FROM concept_name WHERE name = 'Audiometry, Left ear at 500Hz';
+            UPDATE concept SET datatype_id = @concept_datatype_id where concept_id = @concept_id;
+            call add_concept_answer (@concept_id, @child1_concept_id, 1);
+            call add_concept_answer (@concept_id, @child2_concept_id, 2);
+            call add_concept_answer (@concept_id, @child3_concept_id, 3);
+            call add_concept_answer (@concept_id, @child4_concept_id, 4);
+            call add_concept_answer (@concept_id, @child5_concept_id, 5);
+            call add_concept_answer (@concept_id, @child6_concept_id, 6);
+            set @coded2_concept_id = @concept_id;
+
+            SELECT concept_id INTO @concept_id FROM concept_name WHERE name = 'Audiometry, Left ear at 1000Hz';
+            UPDATE concept SET datatype_id = @concept_datatype_id where concept_id = @concept_id;
+            call add_concept_answer (@concept_id, @child1_concept_id, 1);
+            call add_concept_answer (@concept_id, @child2_concept_id, 2);
+            call add_concept_answer (@concept_id, @child3_concept_id, 3);
+            call add_concept_answer (@concept_id, @child4_concept_id, 4);
+            call add_concept_answer (@concept_id, @child5_concept_id, 5);
+            call add_concept_answer (@concept_id, @child6_concept_id, 6);
+            set @coded3_concept_id = @concept_id;
+
+            SELECT concept_id INTO @concept_id FROM concept_name WHERE name = 'Audiometry, Left ear at 2000Hz';
+            UPDATE concept SET datatype_id = @concept_datatype_id where concept_id = @concept_id;
+            call add_concept_answer (@concept_id, @child1_concept_id, 1);
+            call add_concept_answer (@concept_id, @child2_concept_id, 2);
+            call add_concept_answer (@concept_id, @child3_concept_id, 3);
+            call add_concept_answer (@concept_id, @child4_concept_id, 4);
+            call add_concept_answer (@concept_id, @child5_concept_id, 5);
+            call add_concept_answer (@concept_id, @child6_concept_id, 6);
+            set @coded4_concept_id = @concept_id;
+
+            SELECT concept_id INTO @concept_id FROM concept_name WHERE name = 'Audiometry, Left ear at 4000Hz';
+            UPDATE concept SET datatype_id = @concept_datatype_id where concept_id = @concept_id;
+            call add_concept_answer (@concept_id, @child1_concept_id, 1);
+            call add_concept_answer (@concept_id, @child2_concept_id, 2);
+            call add_concept_answer (@concept_id, @child3_concept_id, 3);
+            call add_concept_answer (@concept_id, @child4_concept_id, 4);
+            call add_concept_answer (@concept_id, @child5_concept_id, 5);
+            call add_concept_answer (@concept_id, @child6_concept_id, 6);
+            set @coded5_concept_id = @concept_id;
+
+            SELECT concept_id INTO @concept_id FROM concept_name WHERE name = 'Audiometry, Left ear at 6000Hz';
+            UPDATE concept SET datatype_id = @concept_datatype_id where concept_id = @concept_id;
+            call add_concept_answer (@concept_id, @child1_concept_id, 1);
+            call add_concept_answer (@concept_id, @child2_concept_id, 2);
+            call add_concept_answer (@concept_id, @child3_concept_id, 3);
+            call add_concept_answer (@concept_id, @child4_concept_id, 4);
+            call add_concept_answer (@concept_id, @child5_concept_id, 5);
+            call add_concept_answer (@concept_id, @child6_concept_id, 6);
+            set @coded6_concept_id = @concept_id;
+
+            SELECT concept_id INTO @concept_id FROM concept_name WHERE name = 'Audiometry, Left ear at 8000Hz';
+            UPDATE concept SET datatype_id = @concept_datatype_id where concept_id = @concept_id;
+            call add_concept_answer (@concept_id, @child1_concept_id, 1);
+            call add_concept_answer (@concept_id, @child2_concept_id, 2);
+            call add_concept_answer (@concept_id, @child3_concept_id, 3);
+            call add_concept_answer (@concept_id, @child4_concept_id, 4);
+            call add_concept_answer (@concept_id, @child5_concept_id, 5);
+            call add_concept_answer (@concept_id, @child6_concept_id, 6);
+            set @coded7_concept_id = @concept_id;
+
+            SELECT concept_id INTO @concept_id FROM concept_name WHERE name = 'Audiometry, Right ear at 250Hz';
+            UPDATE concept SET datatype_id = @concept_datatype_id where concept_id = @concept_id;
+            call add_concept_answer (@concept_id, @child1_concept_id, 1);
+            call add_concept_answer (@concept_id, @child2_concept_id, 2);
+            call add_concept_answer (@concept_id, @child3_concept_id, 3);
+            call add_concept_answer (@concept_id, @child4_concept_id, 4);
+            call add_concept_answer (@concept_id, @child5_concept_id, 5);
+            call add_concept_answer (@concept_id, @child6_concept_id, 6);
+            set @coded8_concept_id = @concept_id;
+
+            SELECT concept_id INTO @concept_id FROM concept_name WHERE name = 'Audiometry, Right ear at 500Hz';
+            UPDATE concept SET datatype_id = @concept_datatype_id where concept_id = @concept_id;
+            call add_concept_answer (@concept_id, @child1_concept_id, 1);
+            call add_concept_answer (@concept_id, @child2_concept_id, 2);
+            call add_concept_answer (@concept_id, @child3_concept_id, 3);
+            call add_concept_answer (@concept_id, @child4_concept_id, 4);
+            call add_concept_answer (@concept_id, @child5_concept_id, 5);
+            call add_concept_answer (@concept_id, @child6_concept_id, 6);
+            set @coded9_concept_id = @concept_id;
+
+            SELECT concept_id INTO @concept_id FROM concept_name WHERE name = 'Audiometry, Right ear at 1000Hz';
+            UPDATE concept SET datatype_id = @concept_datatype_id where concept_id = @concept_id;
+            call add_concept_answer (@concept_id, @child1_concept_id, 1);
+            call add_concept_answer (@concept_id, @child2_concept_id, 2);
+            call add_concept_answer (@concept_id, @child3_concept_id, 3);
+            call add_concept_answer (@concept_id, @child4_concept_id, 4);
+            call add_concept_answer (@concept_id, @child5_concept_id, 5);
+            call add_concept_answer (@concept_id, @child6_concept_id, 6);
+            set @coded10_concept_id = @concept_id;
+
+            SELECT concept_id INTO @concept_id FROM concept_name WHERE name = 'Audiometry, Right ear at 2000Hz';
+            UPDATE concept SET datatype_id = @concept_datatype_id where concept_id = @concept_id;
+            call add_concept_answer (@concept_id, @child1_concept_id, 1);
+            call add_concept_answer (@concept_id, @child2_concept_id, 2);
+            call add_concept_answer (@concept_id, @child3_concept_id, 3);
+            call add_concept_answer (@concept_id, @child4_concept_id, 4);
+            call add_concept_answer (@concept_id, @child5_concept_id, 5);
+            call add_concept_answer (@concept_id, @child6_concept_id, 6);
+            set @coded11_concept_id = @concept_id;
+
+            SELECT concept_id INTO @concept_id FROM concept_name WHERE name = 'Audiometry, Right ear at 4000Hz';
+            UPDATE concept SET datatype_id = @concept_datatype_id where concept_id = @concept_id;
+            call add_concept_answer (@concept_id, @child1_concept_id, 1);
+            call add_concept_answer (@concept_id, @child2_concept_id, 2);
+            call add_concept_answer (@concept_id, @child3_concept_id, 3);
+            call add_concept_answer (@concept_id, @child4_concept_id, 4);
+            call add_concept_answer (@concept_id, @child5_concept_id, 5);
+            call add_concept_answer (@concept_id, @child6_concept_id, 6);
+            set @coded12_concept_id = @concept_id;
+
+            SELECT concept_id INTO @concept_id FROM concept_name WHERE name = 'Audiometry, Right ear at 6000Hz';
+            UPDATE concept SET datatype_id = @concept_datatype_id where concept_id = @concept_id;
+            call add_concept_answer (@concept_id, @child1_concept_id, 1);
+            call add_concept_answer (@concept_id, @child2_concept_id, 2);
+            call add_concept_answer (@concept_id, @child3_concept_id, 3);
+            call add_concept_answer (@concept_id, @child4_concept_id, 4);
+            call add_concept_answer (@concept_id, @child5_concept_id, 5);
+            call add_concept_answer (@concept_id, @child6_concept_id, 6);
+            set @coded13_concept_id = @concept_id;
+
+            SELECT concept_id INTO @concept_id FROM concept_name WHERE name = 'Audiometry, Right ear at 8000Hz';
+            UPDATE concept SET datatype_id = @concept_datatype_id where concept_id = @concept_id;
+            call add_concept_answer (@concept_id, @child1_concept_id, 1);
+            call add_concept_answer (@concept_id, @child2_concept_id, 2);
+            call add_concept_answer (@concept_id, @child3_concept_id, 3);
+            call add_concept_answer (@concept_id, @child4_concept_id, 4);
+            call add_concept_answer (@concept_id, @child5_concept_id, 5);
+            call add_concept_answer (@concept_id, @child6_concept_id, 6);
+            set @coded14_concept_id = @concept_id;
+
+            UPDATE obs set value_coded =
+            IF((value_numeric BETWEEN 0 AND 20), @child1_concept_id,
+            IF((value_numeric BETWEEN 21 AND 40), @child2_concept_id,
+            IF((value_numeric BETWEEN 41 AND 55), @child3_concept_id,
+            IF((value_numeric BETWEEN 56 AND 70), @child4_concept_id,
+            IF((value_numeric BETWEEN 71 AND 90), @child5_concept_id,
+            IF((value_numeric >= 91), @child6_concept_id,
+            value_numeric)))))),
+            value_numeric = NULL
+            WHERE concept_id in (@coded1_concept_id,@coded2_concept_id,@coded3_concept_id,@coded4_concept_id,@coded5_concept_id,@coded6_concept_id,@coded7_concept_id,@coded8_concept_id,@coded9_concept_id,@coded10_concept_id,@coded11_concept_id,@coded12_concept_id,@coded13_concept_id,@coded14_concept_id);
+
+            delete from concept_numeric where concept_id in (@coded1_concept_id,@coded2_concept_id,@coded3_concept_id,@coded4_concept_id,@coded5_concept_id,@coded6_concept_id,@coded7_concept_id,@coded8_concept_id,@coded9_concept_id,@coded10_concept_id,@coded11_concept_id,@coded12_concept_id,@coded13_concept_id,@coded14_concept_id);
+        </sql>
+    </changeSet>
+    <changeSet id="ENDTB-201606101355" author="Swathi, Shiva">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">
+                select count(*) from concept_view where concept_full_name = 'TI, Treatment initiation details';
+            </sqlCheck>
+            <sqlCheck expectedResult="1">
+                select count(*) from concept_view where concept_full_name = 'Facility patient ID';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding Facility patient ID in Treatment initiation details</comment>
+        <sql>
+            select concept_id into @set_concept_id from concept_view where concept_full_name = 'TI, Treatment initiation details';
+            select concept_id into @concept_set_member1_id from concept_view where concept_full_name = 'TI, Did the patient start treatment';
+            select concept_id into @concept_set_member2_id from concept_view where concept_full_name = 'TUBERCULOSIS DRUG TREATMENT START DATE';
+            select concept_id into @concept_set_member3_id from concept_view where concept_full_name = 'TI, Treatment facility at start';
+            select concept_id into @concept_set_member4_id from concept_view where concept_full_name = 'Facility patient ID';
+            select concept_id into @concept_set_member5_id from concept_view where concept_full_name = 'TI, Type of treatment regimen';
+           select concept_id into @concept_set_member12_id from concept_view where concept_full_name = 'TI, First line drug regimen type';
+            select concept_id into @concept_set_member6_id from concept_view where concept_full_name = 'TI, Second line regimen drug type';
+            select concept_id into @concept_set_member7_id from concept_view where concept_full_name = 'TI, Reason for not starting treatment';
+            select concept_id into @concept_set_member8_id from concept_view where concept_full_name = 'TI, Date of death before treatment start';
+            select concept_id into @concept_set_member9_id from concept_view where concept_full_name = 'RETURN VISIT DATE';
+            select concept_id into @concept_set_member10_id from concept_view where concept_full_name = 'TI, Reason for next assessment';
+            select concept_id into @concept_set_member11_id from concept_view where concept_full_name = 'TI, Other assessment reason';
+            call add_concept_set_members (@set_concept_id,@concept_set_member4_id,4);
+            update concept_set set sort_weight = 1 where concept_id = @concept_set_member1_id and concept_set=@set_concept_id;
+            update concept_set set sort_weight = 2 where concept_id = @concept_set_member2_id and concept_set=@set_concept_id;
+            update concept_set set sort_weight = 3 where concept_id = @concept_set_member3_id and concept_set=@set_concept_id;
+            update concept_set set sort_weight = 6 where concept_id = @concept_set_member5_id and concept_set=@set_concept_id;
+            update concept_set set sort_weight = 7 where concept_id = @concept_set_member6_id and concept_set=@set_concept_id;
+            update concept_set set sort_weight = 8 where concept_id = @concept_set_member7_id and concept_set=@set_concept_id;
+            update concept_set set sort_weight = 9 where concept_id = @concept_set_member8_id and concept_set=@set_concept_id;
+            update concept_set set sort_weight = 10 where concept_id = @concept_set_member9_id and concept_set=@set_concept_id;
+            update concept_set set sort_weight = 11 where concept_id = @concept_set_member10_id and concept_set=@set_concept_id;
+            update concept_set set sort_weight = 12 where concept_id = @concept_set_member11_id and concept_set=@set_concept_id;
+	    update concept_set set sort_weight = 5 where concept_id = @concept_set_member12_id and concept_set=@set_concept_id;
+        </sql>
+    </changeSet>
+
+<changeSet id="ENDTB-201606100508" author="Shiva kumar,sudhamsh">
+           <comment>Updating Reason for next visit in Followup Assessment form </comment>
+    <sql>
+        insert into concept_answer(concept_id ,answer_concept,creator,date_created,sort_weight,uuid) values (1794,784,1,now(),1,uuid());
+        update concept_answer set sort_weight=2 where concept_id=1794 and answer_concept=1788;
+        update concept_answer set sort_weight=3 where concept_id=1794 and answer_concept=1748;
+        update concept_answer set sort_weight=4 where concept_id=1794 and answer_concept=1749;
+        update concept_answer set sort_weight=5 where concept_id=1794 and answer_concept=1750;
+        update concept_answer set sort_weight=6 where concept_id=1794 and answer_concept=1751;
+    </sql>
+   </changeSet>
+
+
 
 </databaseChangeLog>
