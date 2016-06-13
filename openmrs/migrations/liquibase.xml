@@ -915,4 +915,10 @@ select count(*) from concept_view where concept_full_name in ('Audiometry, Left 
             update concept_answer set sort_weight = 6 where concept_id = 1790 and answer_concept = 1751;
         </sql>
     </changeSet>
+    <changeSet id="ENDTB-201606131434" author="Shiva kumar">
+        <comment>Stored procedure for adding concept_description</comment>
+        <sql>
+            call add_concept_description(1840,'For some facilities a patient is given a Facilty patient ID # which is a specific number for the  patient in this facility ');
+        </sql>
+    </changeSet>
 </databaseChangeLog>
