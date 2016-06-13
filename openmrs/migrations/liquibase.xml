@@ -663,12 +663,7 @@
     <changeSet id="ENDTB-201606101255" author="Swathi,Shiva">
         <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="14">
-                select count(*) from concept_view where concept_full_name in ('Audiometry, Left ear at
-                250Hz','Audiometry, Left ear at 500Hz','Audiometry, Left ear at 1000Hz','Audiometry, Left ear at
-                2000Hz','Audiometry, Left ear at 4000Hz','Audiometry, Left ear at 6000Hz','Audiometry, Left ear at
-                8000Hz','Audiometry, Right ear at 250Hz','Audiometry, Right ear at 500Hz','Audiometry, Right ear at
-                1000Hz','Audiometry, Right ear at 2000Hz','Audiometry, Right ear at 4000Hz','Audiometry, Right ear at
-                6000Hz','Audiometry, Right ear at 8000Hz') and concept_datatype_name = 'Numeric';
+select count(*) from concept_view where concept_full_name in ('Audiometry, Left ear at 250Hz','Audiometry, Left ear at 500Hz','Audiometry, Left ear at 1000Hz','Audiometry, Left ear at 2000Hz','Audiometry, Left ear at 4000Hz','Audiometry, Left ear at 6000Hz','Audiometry, Left ear at 8000Hz','Audiometry, Right ear at 250Hz','Audiometry, Right ear at 500Hz','Audiometry, Right ear at 1000Hz','Audiometry, Right ear at 2000Hz','Audiometry, Right ear at 4000Hz','Audiometry, Right ear at 6000Hz','Audiometry, Right ear at 8000Hz') and concept_datatype_name = 'Numeric';
             </sqlCheck>
         </preConditions>
         <comment>Migrating Audiometry Left/Right ear at xxHz from numeric to dropdown(CodedConcept) of Ranges as answers
@@ -900,7 +895,7 @@
    </changeSet>
     <changeSet id="ENDTB-201606101558" author="Bharat">
         <comment>Stored procedure for adding concept_description</comment>
-        <sqlFile path="add_concept_description_storedproc.sql"/>
+        <sqlFile splitStatements="false" path="add_concept_description_storedproc.sql"/>
     </changeSet>
 
     <changeSet id="ENDTB-201606101559" author="Bharat">
