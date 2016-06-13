@@ -895,7 +895,10 @@ select count(*) from concept_view where concept_full_name in ('Audiometry, Left 
    </changeSet>
     <changeSet id="ENDTB-201606101558" author="Bharat">
         <comment>Stored procedure for adding concept_description</comment>
-        <sqlFile splitStatements="false" path="add_concept_description_storedproc.sql"/>
+        <sql>
+            DROP PROCEDURE IF EXISTS add_concept_description;
+            CREATE PROCEDURE add_concept_description( concept_id INT, descr VARCHAR(250) ) BEGIN INSERT INTO concept_description(uuid, concept_id, description, locale, creator, date_created) values(uuid(), concept_id, descr, 'en', 1, now()); END;
+        </sql>
     </changeSet>
 
     <changeSet id="ENDTB-201606101559" author="Bharat">
