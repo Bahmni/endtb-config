@@ -887,7 +887,7 @@
         </sql>
     </changeSet>
 
-<changeSet id="ENDTB-201606100508" author="Shiva kumar,sudhamsh">
+    <changeSet id="ENDTB-201606100508" author="Shiva kumar,sudhamsh">
            <comment>Updating Reason for next visit in Followup Assessment form </comment>
     <sql>
         insert into concept_answer(concept_id ,answer_concept,creator,date_created,sort_weight,uuid) values (1794,784,1,now(),1,uuid());
@@ -898,7 +898,29 @@
         update concept_answer set sort_weight=6 where concept_id=1794 and answer_concept=1751;
     </sql>
    </changeSet>
+    <changeSet id="ENDTB-201606101558" author="Bharat">
+        <comment>Stored procedure for adding concept_description</comment>
+        <sqlFile path="add_concept_description_storedproc.sql"/>
+    </changeSet>
 
+    <changeSet id="ENDTB-201606101559" author="Bharat">
+        <comment>Stored procedure for adding concept_description</comment>
+        <sql>
+            update concept_name set name='8 = Unable to or did not assess' where concept_name_id in (3750,3814);
+            call add_concept_description(1202,'breaths per minute');
+            call add_concept_description(169,'heart beats per minutes');
+        </sql>
+    </changeSet>
 
-
+    <changeSet id="ENDTB-201606101615" author="Bharat">
+        <comment>Updating the concept answers for 'Reason for next visit'</comment>
+        <sql>
+            update concept_answer set sort_weight = 1 where concept_id = 1790 and answer_concept = 784;
+            update concept_answer set sort_weight = 2 where concept_id = 1790 and answer_concept = 1788;
+            update concept_answer set sort_weight = 3 where concept_id = 1790 and answer_concept = 1748;
+            update concept_answer set sort_weight = 4 where concept_id = 1790 and answer_concept = 1749;
+            update concept_answer set sort_weight = 5 where concept_id = 1790 and answer_concept = 1750;
+            update concept_answer set sort_weight = 6 where concept_id = 1790 and answer_concept = 1751;
+        </sql>
+    </changeSet>
 </databaseChangeLog>
