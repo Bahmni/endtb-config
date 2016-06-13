@@ -1,6 +1,6 @@
 {
 	"DrugOrderReport": {
-                "name": "Drug Order Report",
+                "name": "Drug Order Report (Custom Excel)",
                 "type": "MRSGeneric",
                 "config": {
                         "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/DrugOrder.sql",
@@ -8,7 +8,7 @@
                 }
         },
 	"AEIReport": {
-                "name": "Adverse Events Interest",
+                "name": "Adverse Events Interest (Custom Excel)",
                 "type": "MRSGeneric",
                 "config": {
                         "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/AEI.sql",
@@ -17,7 +17,7 @@
 	
 	},
 	"SAEReport": {
-                "name": "Serious Adverse Events",
+                "name": "Serious Adverse Events (Custom Excel)",
                 "type": "MRSGeneric",
                 "config": {
                         "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/SAE.sql",
@@ -25,7 +25,7 @@
                 }
 	},
 	"FinalOutcomeReport": {
-                "name": "Final Outcome Report",
+                "name": "Final Outcome Report (Custom Excel)",
                 "type": "MRSGeneric",
                 "config": {
                         "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/finalOutcome.sql",
@@ -34,7 +34,7 @@
 
         },
     "InterimOutcomeByOutcomeStatus": {
-                "name": "Interim Outcome By Status",
+                "name": "Interim Outcome By Status (Custom Excel)",
                 "type": "MRSGeneric",
                 "config": {
                         "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/interim_outcome_1.sql",
@@ -42,10 +42,27 @@
                 }
         },
   "patientInformationReport": {
-              "name": "Patient Information Report",
+              "name": "Patient Information Report (Excel)",
               "type": "MRSGeneric",
               "config": {
-                "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/PersonReport.sql"
+                "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/PersonReport.sql",
+                "macroTemplatePath" : "/var/www/bahmni_config/openmrs/apps/reports/macroTemplates/Empty.xls"
               }
+  },
+  "BasicRegisterTreatmentCohort": {
+    "name": "Basic Register Treatment Cohort Report (Excel)",
+    "type": "MRSGeneric",
+    "config": {
+      "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/basicRegisterTreatmentCohort.sql",
+      "macroTemplatePath" : "/var/www/bahmni_config/openmrs/apps/reports/macroTemplates/Empty.xls"
+    }
+  },
+  "BasicRegisterNewDrugsCohort": {
+    "name": "Basic Register New Drugs Cohort Report (Excel)",
+    "type": "MRSGeneric",
+    "config": {
+      "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/basicRegisterNewDrugsCohort.sql",
+      "macroTemplatePath" : "/var/www/bahmni_config/openmrs/apps/reports/macroTemplates/Empty.xls"
+    }
   }
 }
