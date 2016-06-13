@@ -577,29 +577,23 @@
     <changeSet id="ENDTB-201606091238" author="Shiva kumar, Sudhamsh">
         <comment>Updating patient related reasons in Monthly Tx Completeness form</comment>
         <sql>
-            delete from concept_answer where concept_id= 988 and answer_concept in (983,984,985,1781);
-            insert into concept_answer(concept_id,answer_concept,creator,date_created,sort_weight,uuid) values
-            (988,934,1,now(),3,uuid()),
-            (988,955,1,now(),4,uuid()),
-            (988,935,1,now(),6,uuid()),
-            (988,246,1,now(),7,uuid()),
-            (988,149,1,now(),8,uuid()),(988,521,1,now(),1,uuid());
-            update concept_answer set sort_weight =2 where concept_id=988 and answer_concept=1585;
-            update concept_answer set sort_weight =5 where concept_id=988 and answer_concept=932;
+            update concept_answer set sort_weight =1 where concept_id=988 and answer_concept=983;
+            update concept_answer set sort_weight =2 where concept_id=988 and answer_concept=985;
+            update concept_answer set sort_weight =3 where concept_id=988 and answer_concept=932;
+            update concept_answer set sort_weight =4 where concept_id=988 and answer_concept=1585;
+            update concept_answer set sort_weight =5 where concept_id=988 and answer_concept=984;
+            update concept_answer set sort_weight =6 where concept_id=988 and answer_concept=1781;
         </sql>
     </changeSet>
     <changeSet id="ENDTB-201606091243" author="Shiva kumar, Sudhamsh">
         <comment>Updating Additional contributing patient related reasons in Monthly Tx Completeness form</comment>
         <sql>
-            delete from concept_answer where concept_id= 1786 and answer_concept in (983,984,985,1781);
-            insert into concept_answer(concept_id,answer_concept,creator,date_created,sort_weight,uuid) values
-            (1786,934,1,now(),3,uuid()),
-            (1786,955,1,now(),4,uuid()),
-            (1786,935,1,now(),6,uuid()),
-            (1786,246,1,now(),7,uuid()),
-            (1786,149,1,now(),8,uuid()),(1786,521,1,now(),1,uuid());
-            update concept_answer set sort_weight =2 where concept_id=1786 and answer_concept=1585;
-            update concept_answer set sort_weight =5 where concept_id=1786 and answer_concept=932;
+            update concept_answer set sort_weight =1 where concept_id=1786 and answer_concept=983;
+            update concept_answer set sort_weight =2 where concept_id=1786 and answer_concept=985;
+            update concept_answer set sort_weight =3 where concept_id=1786 and answer_concept=932;
+            update concept_answer set sort_weight =4 where concept_id=1786 and answer_concept=1585;
+            update concept_answer set sort_weight =5 where concept_id=1786 and answer_concept=984;
+            update concept_answer set sort_weight =6 where concept_id=1786 and answer_concept=1781;
         </sql>
     </changeSet>
     <changeSet id="ENDTB-201606091253" author="Shiva kumar, Sudhamsh">
