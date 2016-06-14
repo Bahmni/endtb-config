@@ -653,7 +653,7 @@
     <changeSet id="ENDTB-201606101255" author="Swathi,Shiva">
         <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="14">
-select count(*) from concept_view where concept_full_name in ('Audiometry, Left ear at 250Hz','Audiometry, Left ear at 500Hz','Audiometry, Left ear at 1000Hz','Audiometry, Left ear at 2000Hz','Audiometry, Left ear at 4000Hz','Audiometry, Left ear at 6000Hz','Audiometry, Left ear at 8000Hz','Audiometry, Right ear at 250Hz','Audiometry, Right ear at 500Hz','Audiometry, Right ear at 1000Hz','Audiometry, Right ear at 2000Hz','Audiometry, Right ear at 4000Hz','Audiometry, Right ear at 6000Hz','Audiometry, Right ear at 8000Hz') and concept_datatype_name = 'Numeric';
+                select count(*) from concept_view where concept_full_name in ('Audiometry, Left ear at 250Hz','Audiometry, Left ear at 500Hz','Audiometry, Left ear at 1000Hz','Audiometry, Left ear at 2000Hz','Audiometry, Left ear at 4000Hz','Audiometry, Left ear at 6000Hz','Audiometry, Left ear at 8000Hz','Audiometry, Right ear at 250Hz','Audiometry, Right ear at 500Hz','Audiometry, Right ear at 1000Hz','Audiometry, Right ear at 2000Hz','Audiometry, Right ear at 4000Hz','Audiometry, Right ear at 6000Hz','Audiometry, Right ear at 8000Hz') and concept_datatype_name = 'Numeric';
             </sqlCheck>
         </preConditions>
         <comment>Migrating Audiometry Left/Right ear at xxHz from numeric to dropdown(CodedConcept) of Ranges as answers
@@ -850,7 +850,7 @@ select count(*) from concept_view where concept_full_name in ('Audiometry, Left 
             select concept_id into @concept_set_member3_id from concept_view where concept_full_name = 'TI, Treatment facility at start';
             select concept_id into @concept_set_member4_id from concept_view where concept_full_name = 'Facility patient ID';
             select concept_id into @concept_set_member5_id from concept_view where concept_full_name = 'TI, Type of treatment regimen';
-           select concept_id into @concept_set_member12_id from concept_view where concept_full_name = 'TI, First line drug regimen type';
+            select concept_id into @concept_set_member12_id from concept_view where concept_full_name = 'TI, First line drug regimen type';
             select concept_id into @concept_set_member6_id from concept_view where concept_full_name = 'TI, Second line regimen drug type';
             select concept_id into @concept_set_member7_id from concept_view where concept_full_name = 'TI, Reason for not starting treatment';
             select concept_id into @concept_set_member8_id from concept_view where concept_full_name = 'TI, Date of death before treatment start';
@@ -868,20 +868,20 @@ select count(*) from concept_view where concept_full_name in ('Audiometry, Left 
             update concept_set set sort_weight = 10 where concept_id = @concept_set_member9_id and concept_set=@set_concept_id;
             update concept_set set sort_weight = 11 where concept_id = @concept_set_member10_id and concept_set=@set_concept_id;
             update concept_set set sort_weight = 12 where concept_id = @concept_set_member11_id and concept_set=@set_concept_id;
-	    update concept_set set sort_weight = 5 where concept_id = @concept_set_member12_id and concept_set=@set_concept_id;
+	        update concept_set set sort_weight = 5 where concept_id = @concept_set_member12_id and concept_set=@set_concept_id;
         </sql>
     </changeSet>
 
     <changeSet id="ENDTB-201606100508" author="Shiva kumar,sudhamsh">
            <comment>Updating Reason for next visit in Followup Assessment form </comment>
-    <sql>
-        insert into concept_answer(concept_id ,answer_concept,creator,date_created,sort_weight,uuid) values (1794,784,1,now(),1,uuid());
-        update concept_answer set sort_weight=2 where concept_id=1794 and answer_concept=1788;
-        update concept_answer set sort_weight=3 where concept_id=1794 and answer_concept=1748;
-        update concept_answer set sort_weight=4 where concept_id=1794 and answer_concept=1749;
-        update concept_answer set sort_weight=5 where concept_id=1794 and answer_concept=1750;
-        update concept_answer set sort_weight=6 where concept_id=1794 and answer_concept=1751;
-    </sql>
+        <sql>
+            insert into concept_answer(concept_id ,answer_concept,creator,date_created,sort_weight,uuid) values (1794,784,1,now(),1,uuid());
+            update concept_answer set sort_weight=2 where concept_id=1794 and answer_concept=1788;
+            update concept_answer set sort_weight=3 where concept_id=1794 and answer_concept=1748;
+            update concept_answer set sort_weight=4 where concept_id=1794 and answer_concept=1749;
+            update concept_answer set sort_weight=5 where concept_id=1794 and answer_concept=1750;
+            update concept_answer set sort_weight=6 where concept_id=1794 and answer_concept=1751;
+        </sql>
    </changeSet>
     <changeSet id="ENDTB-201606101558" author="Bharat">
         <comment>Stored procedure for adding concept_description</comment>
@@ -918,26 +918,26 @@ select count(*) from concept_view where concept_full_name in ('Audiometry, Left 
         </sql>
     </changeSet>
     <changeSet id="ENDTB-201606140850" author="Mahesh">
-	<preConditions onFail="MARK_RAN">
+	    <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="1">
-                select count(*) from concept_set cs 
-			inner join concept_view cv1 on cs.concept_id = cv1.concept_id
-			inner join concept_view cv2 on cs.concept_set = cv2.concept_id
-			where cv1.concept_full_name = 'Bacteriology, DST with MIC' and cv2.concept_full_name = 'Bacteriology, DST result details';
+                select count(*) from concept_set cs
+                inner join concept_view cv1 on cs.concept_id = cv1.concept_id
+                inner join concept_view cv2 on cs.concept_set = cv2.concept_id
+                where cv1.concept_full_name = 'Bacteriology, DST with MIC' and cv2.concept_full_name = 'Bacteriology, DST result details';
             </sqlCheck>
         </preConditions>
         <comment>Moving DST with MIC out of DST results set and renaming it to Non standard DST with MIC</comment>
         <sql>
-		select concept_id into @dstWithMic from concept_view where concept_full_name = 'Bacteriology, DST with MIC';
-		select concept_id into @dstResults from concept_view where concept_full_name = 'Bacteriology, DST result details';
-		select concept_id into @sequencing from concept_view where concept_full_name = 'Bacteriology, Sequencing';
-		select concept_id into @bactResults from concept_view where concept_full_name = 'Bacteriology Results';
-		update concept_set set sort_weight = 6 where concept_set = @bactResults and concept_id = @sequencing;
-		update concept_set set concept_set = @bactResults and sort_weight = 5 where concept_set = @dstResults and concept_id = @dstWithMic;
-		update obs o inner join obs o2 on o.obs_group_id = o2.obs_id 
-			set o.obs_group_id = o2.obs_group_id 
-			where o.concept_id = @dstWithMic and o2.concept_id = @dstResults;
-		update concept_name set name = 'Non standard DST with MIC'  where concept_id = @dstWithMic and concept_name_type = 'SHORT';
+            select concept_id into @dstWithMic from concept_view where concept_full_name = 'Bacteriology, DST with MIC';
+            select concept_id into @dstResults from concept_view where concept_full_name = 'Bacteriology, DST result details';
+            select concept_id into @sequencing from concept_view where concept_full_name = 'Bacteriology, Sequencing';
+            select concept_id into @bactResults from concept_view where concept_full_name = 'Bacteriology Results';
+            update concept_set set sort_weight = 6 where concept_set = @bactResults and concept_id = @sequencing;
+            update concept_set set concept_set = @bactResults, sort_weight = 5 where concept_set = @dstResults and concept_id = @dstWithMic;
+            update obs o inner join obs o2 on o.obs_group_id = o2.obs_id
+                set o.obs_group_id = o2.obs_group_id
+                where o.concept_id = @dstWithMic and o2.concept_id = @dstResults;
+            update concept_name set name = 'Non standard DST with MIC'  where concept_id = @dstWithMic and concept_name_type = 'SHORT';
         </sql>
     </changeSet>
     <changeSet id="ENDTB-201606131734" author="Swathi, Sudhamsh">
