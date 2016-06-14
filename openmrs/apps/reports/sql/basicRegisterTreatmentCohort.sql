@@ -113,9 +113,9 @@ FROM
          AND o.obs_datetime = (SELECT MAX(obs_datetime)
                                FROM obs ,episode_encounter
                                WHERE obs.concept_id = o.concept_id
-                                     AND o.voided=0
+                                     AND obs.voided=0
                                      AND episode_encounter.episode_id=ee.episode_id
-                                     AND obs.encounter_id = ee.encounter_id)) add_more_obs ON (add_more_obs.episode_id = ee.episode_id)
+                                     AND obs.encounter_id = episode_encounter.encounter_id)) add_more_obs ON (add_more_obs.episode_id = ee.episode_id)
   LEFT JOIN (SELECT episode_id, dr.regimen_date,
                MAX( IF (cv.code ='E'      ,dr.dose,NULL)) AS E        ,
                MAX( IF (cv.code ='H'      ,dr.dose,NULL)) AS H        ,
