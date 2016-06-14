@@ -1938,3 +1938,35 @@ call create_reference_mapping('Thrice a day','10');
 call create_reference_mapping('Every 12 hours','11');
 
 call create_reference_mapping('Patient refused followup','2');
+
+call create_reference_mapping('Audiometry, 0 to 20 db','1');
+
+call create_reference_mapping('Audiometry, 21 to 40 dB','2');
+
+call create_reference_mapping('Audiometry, 41 to 55 dB','3');
+
+call create_reference_mapping('Audiometry, 56 to 70 dB','4');
+
+call create_reference_mapping('Audiometry, 71 to 90 dB','5');
+
+call create_reference_mapping('Audiometry, 91+ dB','6');
+
+call create_reference_mapping('PAC','1');
+
+call create_reference_mapping('PICC','2');
+
+call create_reference_mapping('Imp','54');
+
+call create_reference_mapping('Imp + Amx/Clv','2');
+
+call create_reference_mapping('Imp+ Amx/Clv+ Km','3');
+
+call create_reference_mapping('IMp+ Amx/Clv+Cm','4');
+
+call create_reference_mapping('none currently','5');
+
+call create_reference_mapping('No longer needed','1');
+
+call create_reference_mapping('Complication','2');
+
+call create_reference_mapping('patient request','3');

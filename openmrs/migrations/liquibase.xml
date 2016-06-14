@@ -100,10 +100,6 @@
         <comment>Adding reference terms for endTB exports codes</comment>
         <sqlFile path="export_ref_terms.sql"/>
     </changeSet>
-    <changeSet id="ENDTB-201605271537" author="Mahesh">
-        <comment>Mapping export codes with respective concepts</comment>
-        <sqlFile path="concept_ref_map.sql"/>
-    </changeSet>
     <changeSet id="ENDTB-201605271655" author="Mahesh">
         <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="1">
@@ -943,5 +939,82 @@ select count(*) from concept_view where concept_full_name in ('Audiometry, Left 
 			where o.concept_id = @dstWithMic and o2.concept_id = @dstResults;
 		update concept_name set name = 'Non standard DST with MIC'  where concept_id = @dstWithMic and concept_name_type = 'SHORT';
         </sql>
+    </changeSet>
+    <changeSet id="ENDTB-201606131734" author="Swathi, Sudhamsh">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(*) from concept_view where concept_full_name = 'Followup, Central Venous Access Devices (CVAD)';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding MSF Optional Concepts CVAD to Followup Form</comment>
+        <sql>
+            set @concept_id = 0;
+            set @concept_name_short_id = 0;
+            set @concept_name_full_id = 0;
+            select concept_id into @other_concept_id from concept_view where concept_full_name = 'Other';
+            select concept_id into @set_concept_id from concept_view where concept_full_name = 'Followup Template';
+
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Followup, Date insertion CVAD', 'Date insertion CVAD', 'Date', 'Misc', false);
+            set @child1_concept_id = @concept_id;
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Followup, Type CVAD', 'Type CVAD', 'Coded', 'Misc', false);
+            set @child2_concept_id = @concept_id;
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Followup, Drugs by CVAD', 'Drugs by CVAD', 'Coded', 'Misc', false);
+            set @child3_concept_id = @concept_id;
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Followup, Date removal CVAD', 'Date removal CVAD', 'Date', 'Misc', false);
+            set @child4_concept_id = @concept_id;
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Followup, Reason for removal of CVAD', 'Reason for removal of CVAD', 'Coded', 'Misc', false);
+            set @child5_concept_id = @concept_id;
+
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'PAC', '', 'N/A', 'Misc', false);
+            set @child21_concept_id = @concept_id;
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'PICC', '', 'N/A', 'Misc', false);
+            set @child22_concept_id = @concept_id;
+            call add_concept_answer (@child2_concept_id, @child21_concept_id, 1);
+            call add_concept_answer (@child2_concept_id, @child22_concept_id, 2);
+            call add_concept_answer (@child2_concept_id, @other_concept_id, 3);
+
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Imp', '', 'N/A', 'Misc', false);
+            set @child31_concept_id = @concept_id;
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Imp + Amx/Clv', '', 'N/A', 'Misc', false);
+            set @child32_concept_id = @concept_id;
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Imp+ Amx/Clv+ Km', '', 'N/A', 'Misc', false);
+            set @child33_concept_id = @concept_id;
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'IMp+ Amx/Clv+Cm', '', 'N/A', 'Misc', false);
+            set @child34_concept_id = @concept_id;
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'none currently', '', 'N/A', 'Misc', false);
+            set @child35_concept_id = @concept_id;
+            call add_concept_answer (@child3_concept_id, @child31_concept_id, 1);
+            call add_concept_answer (@child3_concept_id, @child32_concept_id, 2);
+            call add_concept_answer (@child3_concept_id, @child33_concept_id, 3);
+            call add_concept_answer (@child3_concept_id, @child34_concept_id, 4);
+            call add_concept_answer (@child3_concept_id, @child35_concept_id, 5);
+            call add_concept_answer (@child3_concept_id, @other_concept_id, 6);
+
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'No longer needed', '', 'N/A', 'Misc', false);
+            set @child51_concept_id = @concept_id;
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Complication', '', 'N/A', 'Misc', false);
+            set @child52_concept_id = @concept_id;
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'patient request', '', 'N/A', 'Misc', false);
+            set @child53_concept_id = @concept_id;
+            call add_concept_answer (@child5_concept_id, @child51_concept_id, 1);
+            call add_concept_answer (@child5_concept_id, @child52_concept_id, 2);
+            call add_concept_answer (@child5_concept_id, @child53_concept_id, 3);
+            call add_concept_answer (@child5_concept_id, @other_concept_id, 4);
+
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Followup, Central Venous Access Devices (CVAD)', 'Central Venous Access Devices (CVAD)', 'N/A', 'Misc', true);
+            call add_concept_set_members (@concept_id,@child1_concept_id,1);
+            call add_concept_set_members (@concept_id,@child2_concept_id,2);
+            call add_concept_set_members (@concept_id,@child3_concept_id,3);
+            call add_concept_set_members (@concept_id,@child4_concept_id,4);
+            call add_concept_set_members (@concept_id,@child5_concept_id,5);
+
+            call add_concept_set_members (@set_concept_id, @concept_id, 6);
+            select concept_id into @concept_set_member6_id from concept_view where concept_full_name = 'Followup, Next visit';
+            update concept_set set sort_weight = 7 where concept_id = @concept_set_member6_id and concept_set=@set_concept_id;
+        </sql>
+    </changeSet>
+    <changeSet id="ENDTB-201605271537" author="Mahesh">
+        <comment>Mapping export codes with respective concepts</comment>
+        <sqlFile path="concept_ref_map.sql"/>
     </changeSet>
 </databaseChangeLog>
