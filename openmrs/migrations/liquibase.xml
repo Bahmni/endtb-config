@@ -921,4 +921,27 @@ select count(*) from concept_view where concept_full_name in ('Audiometry, Left 
             call add_concept_description(1840,'For some facilities a patient is given a Facilty patient ID # which is a specific number for the  patient in this facility ');
         </sql>
     </changeSet>
+    <changeSet id="ENDTB-201606140850" author="Mahesh">
+	<preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">
+                select count(*) from concept_set cs 
+			inner join concept_view cv1 on cs.concept_id = cv1.concept_id
+			inner join concept_view cv2 on cs.concept_set = cv2.concept_id
+			where cv1.concept_full_name = 'Bacteriology, DST with MIC' and cv2.concept_full_name = 'Bacteriology, DST result details';
+            </sqlCheck>
+        </preConditions>
+        <comment>Moving DST with MIC out of DST results set and renaming it to Non standard DST with MIC</comment>
+        <sql>
+		select concept_id into @dstWithMic from concept_view where concept_full_name = 'Bacteriology, DST with MIC';
+		select concept_id into @dstResults from concept_view where concept_full_name = 'Bacteriology, DST result details';
+		select concept_id into @sequencing from concept_view where concept_full_name = 'Bacteriology, Sequencing';
+		select concept_id into @bactResults from concept_view where concept_full_name = 'Bacteriology Results';
+		update concept_set set sort_weight = 6 where concept_set = @bactResults and concept_id = @sequencing;
+		update concept_set set concept_set = @bactResults and sort_weight = 5 where concept_set = @dstResults and concept_id = @dstWithMic;
+		update obs o inner join obs o2 on o.obs_group_id = o2.obs_id 
+			set o.obs_group_id = o2.obs_group_id 
+			where o.concept_id = @dstWithMic and o2.concept_id = @dstResults;
+		update concept_name set name = 'Non standard DST with MIC'  where concept_id = @dstWithMic and concept_name_type = 'SHORT';
+        </sql>
+    </changeSet>
 </databaseChangeLog>
