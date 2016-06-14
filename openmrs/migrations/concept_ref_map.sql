@@ -1972,3 +1972,11 @@ call create_reference_mapping('No longer needed','1');
 call create_reference_mapping('Complication','2');
 
 call create_reference_mapping('patient request','3');
+
+call create_reference_mapping('Bacteriology, Bedaquiline result','bdqres_dst');
+
+call create_reference_mapping('Bacteriology, Delamanid result','dlmres_dst');
+
+call create_reference_mapping('Bacteriology, Linezolid result','lzdres_dst');
+
+call create_reference_mapping('Bacteriology, Clofazamine result','cfzres_dst');

@@ -623,4 +623,8 @@ insert into concept_reference_term (creator,code,concept_source_id,uuid,date_cre
 (4,'pasttb_dr_reg_unk',@source_id,uuid(),now()),
 (4,'lastcd4_base_unk',@source_id,uuid(),now()),
 (4,'pasttb_yr_unk',@source_id,uuid(),now()),
-(4,'lastvl_base_unk',@source_id,uuid(),now());
+(4,'lastvl_base_unk',@source_id,uuid(),now()),
+(4,'bdqres_dst',@source_id,uuid(),now()),
+(4,'dlmres_dst',@source_id,uuid(),now()),
+(4,'lzdres_dst',@source_id,uuid(),now()),
+(4,'cfzres_dst',@source_id,uuid(),now());

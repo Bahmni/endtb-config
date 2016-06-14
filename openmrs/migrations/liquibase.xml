@@ -1033,10 +1033,6 @@
 
         </sql>
     </changeSet>
-    <changeSet id="ENDTB-201605271537" author="Mahesh">
-        <comment>Mapping export codes with respective concepts</comment>
-        <sqlFile path="concept_ref_map.sql"/>
-    </changeSet>
     <changeSet id="ENDTB-201606141232" author="Shivakumar">
         <comment>Deleting Other concepts from Lab Results Concepts</comment>
         <sql>
@@ -1056,6 +1052,107 @@
             DELETE FROM concept_set WHERE concept_set=583 AND concept_id= 1682;
         </sql>
     </changeSet>
+    <changeSet id="ENDTB-201606141720" author="Mahesh">
+        <comment>Adding new concepts in Bacteriology DST results section</comment>
+	<preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(*) from concept_view where concept_full_name in ('Bacteriology, Bedaquiline result','Bacteriology, Delamanid result','Bacteriology, Linezolid result','Bacteriology, Clofazamine result');
+            </sqlCheck>
+        </preConditions>
+        <sql>
+		set @concept_id = 0;
+		set @concept_name_short_id = 0;
+		set @concept_name_full_id = 0;
+		set @concept_datatype_coded = 0;
+
+		call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Bacteriology, Bedaquiline result', 'Bdq', 'Coded', 'Misc', false);
+		set @bdq_concept_id = @concept_id;
+		call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Bacteriology, Delamanid result', 'Dlm', 'Coded', 'Misc', false);
+		set @dlm_concept_id = @concept_id;
+		call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Bacteriology, Linezolid result', 'Lzd', 'Coded', 'Misc', false);
+		set @lzd_concept_id = @concept_id;
+		call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Bacteriology, Clofazamine result', 'Cfz', 'Coded', 'Misc', false);
+		set @cfz_concept_id = @concept_id;
+
+		select concept_id into @sus from concept_view where concept_full_name = 'Susceptible';
+		select concept_id into @res from concept_view where concept_full_name = 'Resistant';
+		select concept_id into @ind from concept_view where concept_full_name = 'Indeterminate';
+		select concept_id into @dstResults from concept_view where concept_full_name = 'Bacteriology, DST result details';
+		select concept_id into @otherDrugs from concept_view where concept_full_name = 'Bacteriology, Other drug details';
+
+		call add_concept_answer (@bdq_concept_id, @sus, 1);
+		call add_concept_answer (@bdq_concept_id, @res, 2);
+		call add_concept_answer (@bdq_concept_id, @ind, 3);
+		call add_concept_answer (@dlm_concept_id, @sus, 1);
+		call add_concept_answer (@dlm_concept_id, @res, 2);
+		call add_concept_answer (@dlm_concept_id, @ind, 3);
+		call add_concept_answer (@lzd_concept_id, @sus, 1);
+		call add_concept_answer (@lzd_concept_id, @res, 2);
+		call add_concept_answer (@lzd_concept_id, @ind, 3);
+		call add_concept_answer (@cfz_concept_id, @sus, 1);
+		call add_concept_answer (@cfz_concept_id, @res, 2);
+		call add_concept_answer (@cfz_concept_id, @ind, 3);
+
+		call add_concept_set_members (@dstResults, @bdq_concept_id,18);
+		call add_concept_set_members (@dstResults, @dlm_concept_id,19);
+		call add_concept_set_members (@dstResults, @lzd_concept_id,20);
+		call add_concept_set_members (@dstResults, @cfz_concept_id,21);
+
+		update concept_set set sort_weight = 22 where concept_set = @dstResults and concept_id = @otherDrugs;
+
+		select concept_reference_term_id into @bdqRef from concept_reference_term where code = 'Bdq';
+		select concept_reference_term_id into @bdqRef from concept_reference_term where code = 'Dlm';
+		select concept_reference_term_id into @bdqRef from concept_reference_term where code = 'Lzd';
+		select concept_reference_term_id into @bdqRef from concept_reference_term where code = 'Cfz';
 
 
+		INSERT INTO concept_reference_map (concept_reference_term_id, concept_map_type_id,creator,date_created,concept_id,uuid)
+		        (SELECT  ct.concept_reference_term_id,1,1,now(),cn.concept_id,uuid()
+		         FROM  concept_name cn,
+		           concept_reference_term ct,
+		           concept_reference_source cs
+		         WHERE ct.code = 'Bdq'
+		               AND ct.concept_source_id = cs.concept_source_id
+		               AND cs.name='Abbreviation'
+		               AND cn.name= 'Bacteriology, Bedaquiline result'
+		               AND cn.concept_name_type='FULLY_SPECIFIED');
+
+		INSERT INTO concept_reference_map (concept_reference_term_id, concept_map_type_id,creator,date_created,concept_id,uuid)
+		        (SELECT  ct.concept_reference_term_id,1,1,now(),cn.concept_id,uuid()
+		         FROM  concept_name cn,
+		           concept_reference_term ct,
+		           concept_reference_source cs
+		         WHERE ct.code = 'Dlm'
+		               AND ct.concept_source_id = cs.concept_source_id
+		               AND cs.name='Abbreviation'
+		               AND cn.name= 'Bacteriology, Delamanid result'
+		               AND cn.concept_name_type='FULLY_SPECIFIED');
+
+		INSERT INTO concept_reference_map (concept_reference_term_id, concept_map_type_id,creator,date_created,concept_id,uuid)
+		        (SELECT  ct.concept_reference_term_id,1,1,now(),cn.concept_id,uuid()
+		         FROM  concept_name cn,
+		           concept_reference_term ct,
+		           concept_reference_source cs
+		         WHERE ct.code = 'Lzd'
+		               AND ct.concept_source_id = cs.concept_source_id
+		               AND cs.name='Abbreviation'
+		               AND cn.name= 'Bacteriology, Linezolid result'
+		               AND cn.concept_name_type='FULLY_SPECIFIED');
+
+		INSERT INTO concept_reference_map (concept_reference_term_id, concept_map_type_id,creator,date_created,concept_id,uuid)
+		        (SELECT  ct.concept_reference_term_id,1,1,now(),cn.concept_id,uuid()
+		         FROM  concept_name cn,
+		           concept_reference_term ct,
+		           concept_reference_source cs
+		         WHERE ct.code = 'Cfz'
+		               AND ct.concept_source_id = cs.concept_source_id
+		               AND cs.name='Abbreviation'
+		               AND cn.name= 'Bacteriology, Clofazamine result'
+		               AND cn.concept_name_type='FULLY_SPECIFIED');
+        </sql>
+    </changeSet>
+    <changeSet id="ENDTB-201605271537" author="Mahesh">
+        <comment>Mapping export codes with respective concepts</comment>
+        <sqlFile path="concept_ref_map.sql"/>
+    </changeSet>
 </databaseChangeLog>
