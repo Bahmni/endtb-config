@@ -239,33 +239,66 @@ public class BahmniObsValueCalculator implements ObsValueCalculator {
                 adherenceRateObs.setValue(Math.round(adherenceRate * 100.0) / 100.0)
             }
 
-
+            def totalDotRate = 0;
+            def dotRateCount = 0;
             for (BahmniObservation dotRateDetailsObs : findListOfObservationsInChildObs("MTC, DOT rate details", bahmniObs)) {
                 BahmniObservation observedDaysObs = findConceptInChildObs("MTC, Drug observed days", dotRateDetailsObs)
                 BahmniObservation prescribedDaysObs = findConceptInChildObs("MTC, Drug prescribed days", dotRateDetailsObs)
+                BahmniObservation missedDaysObs = findConceptInChildObs("MTC, Drug missed days", dotRateDetailsObs)
 
                 def dotRateConceptName = "MTC, DOT rate"
                 BahmniObservation dotRateObs = findConceptInChildObs(dotRateConceptName, dotRateDetailsObs)
 
-                if (hasValue(observedDaysObs) && hasValue(prescribedDaysObs)) {
-                    Date obsDatetime = getDate(observedDaysObs)
-                    def observedDays = observedDaysObs.getValue() as Double
+                if (hasValue(prescribedDaysObs)) {
                     def prescribedDays = prescribedDaysObs.getValue() as Double
                     def dotRate
                     try {
                         if (prescribedDays == 0) {
                             throw new Exception()
                         }
-                        dotRate = (observedDays / prescribedDays) * 100 as Double
                     } catch (Exception E) {
                         throw new BahmniEmrAPIException("Value for MTC, Drug prescribed days is equal to zero")
                     }
-                    if (dotRateObs == null)
-                        dotRateObs = createObs(dotRateConceptName, dotRateDetailsObs, bahmniEncounterTransaction, obsDatetime) as BahmniObservation
-                    dotRateObs.setValue(Math.round(dotRate * 100.0) / 100.0)
+
+                    if (hasValue(observedDaysObs)) {
+                        Date obsDatetime = getDate(observedDaysObs)
+                        def observedDays = observedDaysObs.getValue() as Double
+                        dotRate = (observedDays / prescribedDays) * 100 as Double
+                        dotRateObs = setDotRateObs(dotRateObs, dotRateConceptName, dotRateDetailsObs, bahmniEncounterTransaction, obsDatetime, dotRate)
+                    } else if (hasValue(missedDaysObs)) {
+                        Date obsDatetime = getDate(missedDaysObs)
+                        def missedDays = missedDaysObs.getValue() as Double
+                        dotRate = ((prescribedDays - missedDays) /prescribedDays) * 100 as Double
+                        dotRateObs = setDotRateObs(dotRateObs, dotRateConceptName, dotRateDetailsObs, bahmniEncounterTransaction, obsDatetime, dotRate)
+                    }
+                }
+
+                if(dotRateObs!=null) {
+                    totalDotRate += dotRateObs.getValue() as Double
+                    dotRateCount ++;
                 }
             }
+
+            def overallDotRate = findConceptInChildObs("MTC, Overall DOT Rate", bahmniObs)
+            if (dotRateCount > 0) {
+                if (overallDotRate == null) {
+                    overallDotRate = createObs("MTC, Overall DOT Rate", bahmniObs, bahmniEncounterTransaction, bahmniObs.getObservationDateTime()) as BahmniObservation
+                }
+                overallDotRate.setValue(Math.round((totalDotRate * 100.0 / dotRateCount)) / 100.0)
+            }
+            else {
+                voidObs(overallDotRate)
+            }
         }
+    }
+
+    private
+    static BahmniObservation setDotRateObs(BahmniObservation dotRateObs, String dotRateConceptName, BahmniObservation dotRateDetailsObs, BahmniEncounterTransaction bahmniEncounterTransaction, Date obsDatetime, double dotRate) {
+        if (dotRateObs == null) {
+            dotRateObs = createObs(dotRateConceptName, dotRateDetailsObs, bahmniEncounterTransaction, obsDatetime) as BahmniObservation
+        }
+        dotRateObs.setValue(Math.round(dotRate * 100.0) / 100.0)
+        return dotRateObs
     }
 
     private

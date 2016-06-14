@@ -1301,6 +1301,8 @@ call create_reference_mapping('MTC, Total fully observed complete days','obsdays
 
 call create_reference_mapping('MTC, Treatment delivery method','tx_deliv');
 
+call create_reference_mapping('MTC, Overall DOT Rate','dotrate');
+
 call create_reference_mapping('Mucocutaneous Symptoms','244');
 
 call create_reference_mapping('Muscle Strength Disorders','182');

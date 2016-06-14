@@ -1013,6 +1013,26 @@
             update concept_set set sort_weight = 7 where concept_id = @concept_set_member6_id and concept_set=@set_concept_id;
         </sql>
     </changeSet>
+    <changeSet id="ENDTB-201606141539" author="Deepak, Shireesha">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(*) from concept_view where concept_full_name = 'MTC, Overall DOT Rate';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding MTC, Overall DOT Rate to Monthly Completeness Form</comment>
+        <sql>
+            set @concept_id = 0;
+            set @concept_name_short_id = 0;
+            set @concept_name_full_id = 0;
+
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'MTC, Overall DOT Rate', 'Overall DOT rate (X)',  'Numeric', 'Misc', false);
+            select concept_id into @set_concept_id from concept_view where concept_full_name='Monthly Treatment Completeness Template';
+
+            call add_concept_set_members (@set_concept_id, @concept_id, 11);
+            insert into concept_numeric (concept_id, precise) value (@concept_id, 1);
+
+        </sql>
+    </changeSet>
     <changeSet id="ENDTB-201605271537" author="Mahesh">
         <comment>Mapping export codes with respective concepts</comment>
         <sqlFile path="concept_ref_map.sql"/>
@@ -1036,4 +1056,6 @@
             DELETE FROM concept_set WHERE concept_set=583 AND concept_id= 1682;
         </sql>
     </changeSet>
+
+
 </databaseChangeLog>
