@@ -620,7 +620,7 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
 	var conceptToEnable = "AE Form, Other AE term";
 	var conditions = {enable : [],disable : []};
 	var AETerm = formFieldValues['AE Form, AE term comprehensive list'];
-	if (AETerm && AETerm.value == "Other") {
+	if (AETerm && (AETerm == "Other" || AETerm.value == "Other")) {
 		conditions.enable.push(conceptToEnable)
 	} else {
 		conditions.disable.push(conceptToEnable)
