@@ -16,7 +16,8 @@ drug.name AS drug_name,
   JOIN (select cast(COALESCE(orders.scheduled_date, orders.date_activated) AS date) AS start_date,orders.encounter_id,orders.order_id,orders.voided from orders) orders
       ON (e1.encounter_id = orders.encounter_id
                   AND orders.start_date>= '#startDate#'
-                  AND orders.start_date<= '#endDate#')
+                  AND orders.start_date<= '#endDate#'
+                  AND (cast(orders.startDate AS DATE) >= "2015-04-01"))
   JOIN drug_order ON (orders.order_id = drug_order.order_id
                       AND orders.voided IS FALSE)
   JOIN drug ON (drug_order.drug_inventory_id=drug.drug_id)
