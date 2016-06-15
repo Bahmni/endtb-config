@@ -601,6 +601,9 @@
       "Performance Status, Assessment date": {
         "required": true
       },
+      "6m PTO, 6 month post treatment outcome": {
+        "required": true
+      },
       "ECOG Performance Status": {
         "dropdown": true
       },
