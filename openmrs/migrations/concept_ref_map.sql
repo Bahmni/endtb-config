@@ -1980,3 +1980,59 @@ call create_reference_mapping('Bacteriology, Delamanid result','dlmres_dst');
 call create_reference_mapping('Bacteriology, Linezolid result','lzdres_dst');
 
 call create_reference_mapping('Bacteriology, Clofazamine result','cfzres_dst');
+
+call create_reference_mapping('Other treatment facility name','fup_facility_oth');
+
+call create_reference_mapping('Lab, Hemoglobin g/dl Abnormal','hb_abn');
+
+call create_reference_mapping('Hematocrit Abnormal','ht_abn');
+
+call create_reference_mapping('Lab, Platelet count Abnormal','plat_abn');
+
+call create_reference_mapping('RED BLOOD CELLS Abnormal','rbc_abn');
+
+call create_reference_mapping('WHITE BLOOD CELLS Abnormal','wbc_abn');
+
+call create_reference_mapping('Lab, Neutrophils test result Abnormal','Neutrophils_abn');
+
+call create_reference_mapping('SERUM POTASSIUM Abnormal','k_abn');
+
+call create_reference_mapping('Lab, Magnesium test result Abnormal','mg_abn');
+
+call create_reference_mapping('BLOOD UREA NITROGEN Abnormal','urea_abn');
+
+call create_reference_mapping('Fasting blood glucose measurement (mg/dL) Abnormal','fbs_abn');
+
+call create_reference_mapping('Lab, glycosylated hemoglobin A measurement Abnormal','hba1c_abn');
+
+call create_reference_mapping('Thyroid stimulating hormone test Abnormal','tsh_abn');
+
+call create_reference_mapping('Lab, Lipase test result Abnormal','lip_abn');
+
+call create_reference_mapping('SERUM GLUTAMIC-OXALOACETIC TRANSAMINASE Abnormal','ast_abn');
+
+call create_reference_mapping('SERUM GLUTAMIC-PYRUVIC TRANSAMINASE Abnormal','alt_abn');
+
+call create_reference_mapping('TOTAL BILIRUBIN Abnormal','tot_bil_abn');
+
+call create_reference_mapping('SERUM ALBUMIN Abnormal','alb_abn');
+
+call create_reference_mapping('Lab, CD4 COUNT Data','cd4_test');
+
+call create_reference_mapping('CD4 COUNT Abnormal','cd4_test_abn');
+
+call create_reference_mapping('Lab, Creatinine other','creat');
+
+call create_reference_mapping('Lab, Glucose other','rbs');
+
+call create_reference_mapping('Lab, Ionized Calcium other','ca');
+
+call create_reference_mapping('Lab, Ionized Calcium test result Abnormal','ca_abn');
+
+call create_reference_mapping('Lab, Creatinine other','creat');
+
+call create_reference_mapping('Lab, Creatinine other Abnormal','creat_abn');
+
+call create_reference_mapping('Lab, Glucose other Abnormal','rbs_abn');
+
+call create_reference_mapping('Lab, Absolute neutrophil count other test result','abs_neut');

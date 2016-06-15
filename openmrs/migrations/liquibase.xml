@@ -850,25 +850,25 @@
             select concept_id into @concept_set_member3_id from concept_view where concept_full_name = 'TI, Treatment facility at start';
             select concept_id into @concept_set_member4_id from concept_view where concept_full_name = 'Facility patient ID';
             select concept_id into @concept_set_member5_id from concept_view where concept_full_name = 'TI, Type of treatment regimen';
-            select concept_id into @concept_set_member12_id from concept_view where concept_full_name = 'TI, First line drug regimen type';
-            select concept_id into @concept_set_member6_id from concept_view where concept_full_name = 'TI, Second line regimen drug type';
-            select concept_id into @concept_set_member7_id from concept_view where concept_full_name = 'TI, Reason for not starting treatment';
-            select concept_id into @concept_set_member8_id from concept_view where concept_full_name = 'TI, Date of death before treatment start';
-            select concept_id into @concept_set_member9_id from concept_view where concept_full_name = 'RETURN VISIT DATE';
-            select concept_id into @concept_set_member10_id from concept_view where concept_full_name = 'TI, Reason for next assessment';
-            select concept_id into @concept_set_member11_id from concept_view where concept_full_name = 'TI, Other assessment reason';
+            select concept_id into @concept_set_member6_id from concept_view where concept_full_name = 'TI, First line drug regimen type';
+            select concept_id into @concept_set_member7_id from concept_view where concept_full_name = 'TI, Second line regimen drug type';
+            select concept_id into @concept_set_member8_id from concept_view where concept_full_name = 'TI, Reason for not starting treatment';
+            select concept_id into @concept_set_member9_id from concept_view where concept_full_name = 'TI, Date of death before treatment start';
+            select concept_id into @concept_set_member10_id from concept_view where concept_full_name = 'RETURN VISIT DATE';
+            select concept_id into @concept_set_member11_id from concept_view where concept_full_name = 'TI, Reason for next assessment';
+            select concept_id into @concept_set_member12_id from concept_view where concept_full_name = 'TI, Other assessment reason';
             call add_concept_set_members (@set_concept_id,@concept_set_member4_id,4);
             update concept_set set sort_weight = 1 where concept_id = @concept_set_member1_id and concept_set=@set_concept_id;
             update concept_set set sort_weight = 2 where concept_id = @concept_set_member2_id and concept_set=@set_concept_id;
             update concept_set set sort_weight = 3 where concept_id = @concept_set_member3_id and concept_set=@set_concept_id;
-            update concept_set set sort_weight = 6 where concept_id = @concept_set_member5_id and concept_set=@set_concept_id;
-            update concept_set set sort_weight = 7 where concept_id = @concept_set_member6_id and concept_set=@set_concept_id;
-            update concept_set set sort_weight = 8 where concept_id = @concept_set_member7_id and concept_set=@set_concept_id;
-            update concept_set set sort_weight = 9 where concept_id = @concept_set_member8_id and concept_set=@set_concept_id;
-            update concept_set set sort_weight = 10 where concept_id = @concept_set_member9_id and concept_set=@set_concept_id;
-            update concept_set set sort_weight = 11 where concept_id = @concept_set_member10_id and concept_set=@set_concept_id;
-            update concept_set set sort_weight = 12 where concept_id = @concept_set_member11_id and concept_set=@set_concept_id;
-	        update concept_set set sort_weight = 5 where concept_id = @concept_set_member12_id and concept_set=@set_concept_id;
+            update concept_set set sort_weight = 5 where concept_id = @concept_set_member5_id and concept_set=@set_concept_id;
+            update concept_set set sort_weight = 6 where concept_id = @concept_set_member6_id and concept_set=@set_concept_id;
+            update concept_set set sort_weight = 7 where concept_id = @concept_set_member7_id and concept_set=@set_concept_id;
+            update concept_set set sort_weight = 8 where concept_id = @concept_set_member8_id and concept_set=@set_concept_id;
+            update concept_set set sort_weight = 9 where concept_id = @concept_set_member9_id and concept_set=@set_concept_id;
+            update concept_set set sort_weight = 10 where concept_id = @concept_set_member10_id and concept_set=@set_concept_id;
+            update concept_set set sort_weight = 11 where concept_id = @concept_set_member11_id and concept_set=@set_concept_id;
+	        update concept_set set sort_weight = 12 where concept_id = @concept_set_member12_id and concept_set=@set_concept_id;
         </sql>
     </changeSet>
 
@@ -1038,10 +1038,10 @@
         <sql>
             DELETE FROM concept_set WHERE concept_set=585 AND concept_id= 1686;
             DELETE FROM concept_set WHERE concept_set=844 AND concept_id= 1690;
-            DELETE FROM concept_set WHERE concept_set=845 AND concept_id= 1694;
+            DELETE FROM concept_set WHERE concept_set=845 AND concept_id= 1692;
             DELETE FROM concept_set WHERE concept_set=586 AND concept_id= 1698;
-            DELETE FROM concept_set WHERE concept_set=587 AND concept_id= 1702;
-            DELETE FROM concept_set WHERE concept_set=588 AND concept_id= 1706;
+            DELETE FROM concept_set WHERE concept_set=587 AND concept_id= 1700;
+            DELETE FROM concept_set WHERE concept_set=588 AND concept_id= 1704;
             DELETE FROM concept_set WHERE concept_set=842 AND concept_id= 1710;
             DELETE FROM concept_set WHERE concept_set=592 AND concept_id= 1724;
             DELETE FROM concept_set WHERE concept_set=601 AND concept_id= 1729;
@@ -1049,7 +1049,7 @@
             DELETE FROM concept_set WHERE concept_set=577 AND concept_id= 1655;
             DELETE FROM concept_set WHERE concept_set=580 AND concept_id= 1669;
             DELETE FROM concept_set WHERE concept_set=581 AND concept_id= 1675;
-            DELETE FROM concept_set WHERE concept_set=583 AND concept_id= 1682;
+            DELETE FROM concept_set WHERE concept_set=583 AND concept_id= 1677;
         </sql>
     </changeSet>
     <changeSet id="ENDTB-201606141720" author="Mahesh">
@@ -1154,5 +1154,30 @@
     <changeSet id="ENDTB-201605271537" author="Mahesh">
         <comment>Mapping export codes with respective concepts</comment>
         <sqlFile path="concept_ref_map.sql"/>
+    </changeSet>
+    <changeSet id="ENDTB-201606151710" author="Shiva">
+        <comment>Adding reference mappings from Other Concepts removed from Lab Result Conceptset</comment>
+        <sql>
+            INSERT INTO concept_reference_map (concept_reference_term_id, concept_map_type_id,creator,date_created,concept_id,uuid)
+            values(334,1,1,now(),1644,uuid()),
+            (455,1,1,now(),1644,uuid()),
+            (617,1,1,now(),1644,uuid()),
+            (242,2,1,now(),1644,uuid()),
+            (55,1,1,now(),1644,uuid()),
+            (616,1,1,now(),1644,uuid()),
+            (335,1,1,now(),1644,uuid()),
+            (611,1,1,now(),1681,uuid()),
+            (52,1,1,now(),1681,uuid()),
+            (450,1,1,now(),1681,uuid()),
+            (267,1,1,now(),1681,uuid()),
+            (328,1,1,now(),1681,uuid()),
+            (670,1,1,now(),1681,uuid()),
+            (238,2,1,now(),1681,uuid()),
+            (119,1,1,now(),1643,uuid()),
+            (454,1,1,now(),1643,uuid()),
+            (241,2,1,now(),1643,uuid()),
+            (333,1,1,now(),1643,uuid()),
+            (676,1,1,now(),1643,uuid());
+        </sql>
     </changeSet>
 </databaseChangeLog>
