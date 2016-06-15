@@ -1053,12 +1053,12 @@
         </sql>
     </changeSet>
     <changeSet id="ENDTB-201606141720" author="Mahesh">
-        <comment>Adding new concepts in Bacteriology DST results section</comment>
-	<preConditions onFail="MARK_RAN">
+        <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="0">
                 select count(*) from concept_view where concept_full_name in ('Bacteriology, Bedaquiline result','Bacteriology, Delamanid result','Bacteriology, Linezolid result','Bacteriology, Clofazamine result');
             </sqlCheck>
         </preConditions>
+        <comment>Adding new concepts in Bacteriology DST results section</comment>
         <sql>
 		set @concept_id = 0;
 		set @concept_name_short_id = 0;
