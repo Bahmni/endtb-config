@@ -1,6 +1,6 @@
 {
 	"DrugOrderReport": {
-                "name": "Drug Order Report (Custom Excel)",
+                "name": "New drug enrollment -UNITAID (Custom Excel)",
                 "type": "MRSGeneric",
                 "config": {
                         "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/DrugOrder.sql",
@@ -8,7 +8,7 @@
                 }
         },
 	"AEIReport": {
-                "name": "Adverse Events Interest (Custom Excel)",
+                "name": "New drug AEI in first 6 months- UNITAID (Custom Excel)",
                 "type": "MRSGeneric",
                 "config": {
                         "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/AEI.sql",
@@ -17,7 +17,7 @@
 	
 	},
 	"SAEReport": {
-                "name": "Serious Adverse Events (Custom Excel)",
+                "name": "New drug SAE in first 6 months-UNITAID (Custom Excel)",
                 "type": "MRSGeneric",
                 "config": {
                         "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/SAE.sql",
@@ -25,7 +25,7 @@
                 }
 	},
 	"InterimOutcomeByOutcomeStatus": {
-                "name": "Interim Outcome By Status (Custom Excel)",
+                "name": "New drug interim outcome at month 6 -UNITAID (Custom Excel)",
                 "type": "MRSGeneric",
                 "config": {
                         "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/interim_outcome_1.sql",
@@ -33,7 +33,7 @@
                 }
         },
         "FinalOutcomeReport": {
-                "name": "Final Outcome Report (Custom Excel)",
+                "name": "New drug final outcome -UNITAID (Custom Excel)",
                 "type": "MRSGeneric",
                 "config": {
                         "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/finalOutcome.sql",
