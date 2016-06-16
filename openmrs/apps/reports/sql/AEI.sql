@@ -6,11 +6,7 @@ SELECT
   orders.start_date,
   obs_en.`AE Form, Date of AE onset`,
   obs_en.`AE Form, AE term comprehensive list`
-
   FROM patient_program pp
-  JOIN program prog ON (pp.program_id = prog.program_id
-                        AND prog.name IN ('Basic management unit TB register',
-                                          'Second-line TB treatment register'))
   JOIN episode_patient_program epp ON epp.patient_program_id = pp.patient_program_id
   JOIN episode_encounter ee ON ee.episode_id = epp.episode_id
   JOIN encounter e1 ON e1.encounter_id = ee.encounter_id
@@ -18,7 +14,7 @@ SELECT
       ON (e1.encounter_id = orders.encounter_id
                   AND orders.start_date>= '#startDate#'
                   AND orders.start_date<= '#endDate#'
-                  AND (cast(orders.startDate AS DATE) >= "2015-04-01"))
+                  AND (cast(orders.start_date AS DATE) >= '2015-04-01'))
   JOIN drug_order ON (orders.order_id = drug_order.order_id
                       AND orders.voided IS FALSE)
   JOIN drug ON (drug_order.drug_inventory_id=drug.drug_id)
@@ -26,7 +22,7 @@ SELECT
   JOIN encounter e2 ON (e2.encounter_id=ee2.encounter_id)
   JOIN person ON person.person_id = e2.patient_id
   JOIN patient_identifier pi ON pi.patient_id = e2.patient_id
-  LEFT JOIN
+  JOIN
   (select root.encounter_id,root.obs_id as root_obs_id,o.obs_id,root.person_id,
       GROUP_CONCAT(DISTINCT(IF(cv.concept_full_name = 'AE Form, Date of AE onset',  o.value_datetime, NULL)) SEPARATOR ',') AS 'AE Form, Date of AE onset',
       GROUP_CONCAT(DISTINCT(IF(cv.concept_full_name = 'AE Form, AE term comprehensive list',  coalesce(answer.concept_short_name, answer.concept_full_name), NULL)) SEPARATOR ',') AS 'AE Form, AE term comprehensive list'
@@ -44,5 +40,5 @@ SELECT
       and cv.concept_full_name in  ('AE Form, Date of AE onset', 'AE Form, AE term comprehensive list')
     group by o.obs_group_id ) obs_en ON (e2.encounter_id = obs_en.encounter_id and
                                         (`AE Form, Date of AE onset` BETWEEN orders.start_date AND DATE_ADD(orders.start_date,INTERVAL 210 DAY)
-                                         AND `AE Form, AE term comprehensive list` IN('Prolonged QT interval','Hypokalemia','Hearing impairment ','Hypothyroidism','Increased liver enzymes','Optic nerve disorder','Anemia','Platelets decreased','Acute kidney injury','Prolonged (corrected) QT interval', 'Hypokalemia (K ≤ 3.4 mEq/L)', 'Hearing impairment (hearing loss)', 'Hypothyroidism', 'Increased liver enzymes (ALT increased or AST increased (>= 1.1 x ULN))', 'Optic nerve disorder (optic neuritis)', 'Anemia (Hb < 10.5 g/dL)','Platelets Decreased ( < 75000/mm^3 )', 'Acute kidney injury (acute renal failure)')) ) GROUP BY obs_en.root_obs_id,pi.identifier,
-         drug.drug_id;
+                                         AND `AE Form, AE term comprehensive list` IN('Prolonged QT interval','Hypokalemia','Hearing impairment ','Hypothyroidism','Increased liver enzymes','Optic nerve disorder','Anemia','Platelets decreased','Acute kidney injury','Prolonged (corrected) QT interval', 'Hypokalemia (K ≤ 3.4 mEq/L)', 'Hearing impairment (hearing loss)', 'Hypothyroidism', 'Increased liver enzymes (ALT increased or AST increased (>= 1.1 x ULN))', 'Optic nerve disorder (optic neuritis)', 'Anemia (Hb < 10.5 g/dL)','Platelets Decreased ( < 75000/mm^3 )', 'Acute kidney injury (acute renal failure)')) )
+GROUP BY pp.patient_program_id,drug.name,obs_en.root_obs_id;
