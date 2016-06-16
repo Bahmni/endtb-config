@@ -1,21 +1,24 @@
 SELECT
-  p.id   AS patientId,  
-  p.startDate   AS startDate,
-  p.stopDate    AS stopDate,
-  p.name        AS drugName
-
+  p.patientProgramId        AS patientProgramId,
+  p.identifier as identifier,
+  p.startDate AS startDate,
+  p.drugName      AS drugName,
+  p.stopDate  AS stopDate
 FROM
   (SELECT
-     patient_identifier.identifier as id,
-     orders.patient_id                                                                            AS patientID,		
-     IF(drug_order.drug_non_coded IS NULL, drug.name, drug_order.drug_non_coded)                       AS name,     
+     pp.patient_program_id                                                                             AS patientProgramId,
+      pi.identifier AS identifier,
+     IF(drug_order.drug_non_coded IS NULL, drug.name, drug_order.drug_non_coded)                       AS drugName,
      IF(Date(orders.scheduled_date) IS NULL, Date(orders.date_activated), Date(orders.scheduled_date)) AS startDate,
      IF(Date(orders.date_stopped) IS NULL, Date(orders.auto_expire_date), Date(orders.date_stopped))   AS stopDate
-
-   FROM drug_order
-     LEFT JOIN orders ON orders.order_id = drug_order.order_id AND orders.order_action != "DISCONTINUE" AND orders.voided = 0
-     LEFT JOIN drug ON drug.drug_id = drug_order.drug_inventory_id AND drug.retired = 0
-     LEFT JOIN patient_identifier ON orders.patient_id = patient_identifier.patient_id
+   FROM
+     patient_program pp
+     INNER JOIN episode_patient_program epp ON epp.patient_program_id = pp.patient_program_id and pp.voided=0
+     INNER JOIN episode_encounter ee ON epp.episode_id = ee.episode_id
+     INNER JOIN orders orders ON ee.encounter_id = orders.encounter_id AND orders.order_action != 'DISCONTINUE' AND orders.voided = 0
+     INNER JOIN drug_order drug_order ON orders.order_id = drug_order.order_id
+     INNER JOIN drug drug ON drug_order.drug_inventory_id = drug.drug_id AND drug.retired = 0
+     INNER JOIN patient_identifier pi on pp.patient_id=pi.patient_id
   ) p
 WHERE
   p.startDate <= "#endDate#"

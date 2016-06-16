@@ -1,6 +1,7 @@
-SELECT pi.identifier,
-drug.name AS drug_name,
-  prog.name AS program_name,
+SELECT
+  pp.patient_program_id,
+  drug.name AS drug_name,
+  pi.identifier,
   pp.date_enrolled,
   orders.start_date,
   obs_en.`AE Form, Date of AE onset`,
