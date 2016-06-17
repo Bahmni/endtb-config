@@ -1995,8 +1995,6 @@ call create_reference_mapping('WHITE BLOOD CELLS Abnormal','wbc_abn');
 
 call create_reference_mapping('Lab, Neutrophils test result Abnormal','neutrophils_abn');
 
-call create_reference_mapping('Specimen Sample Source NonCoded','')
-
 call create_reference_mapping('SERUM POTASSIUM Abnormal','k_abn');
 
 call create_reference_mapping('Lab, Magnesium test result Abnormal','mg_abn');
