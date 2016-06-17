@@ -966,7 +966,7 @@ call create_reference_mapping('HDS, Side of TB related surgery','tbsurg_side');
 
 call create_reference_mapping('HDS, TB related surgery date','d_tbsurg');
 
-call create_reference_mapping('HDS, TB related surgery while hospitalization','hosp_TB_surg');
+call create_reference_mapping('HDS, TB related surgery while hospitalization','hosp_tb_surg');
 
 call create_reference_mapping('HDS, Type of TB related surgery','tbsurg_type');
 
@@ -1771,7 +1771,7 @@ call create_reference_mapping('TI, Eligible for new drugs','eligible');
 
 call create_reference_mapping('TI, First line drug regimen type','reg_type_fl');
 
-call create_reference_mapping('TI, Has the endTB Observational Study Consent Form been explained and signed','consent_endTB');
+call create_reference_mapping('TI, Has the endTB Observational Study Consent Form been explained and signed','consent_endtb');
 
 call create_reference_mapping('TI, Has the Treatment with New Drugs Consent Form been explained and signed','consent_drugs');
 
@@ -1993,7 +1993,7 @@ call create_reference_mapping('RED BLOOD CELLS Abnormal','rbc_abn');
 
 call create_reference_mapping('WHITE BLOOD CELLS Abnormal','wbc_abn');
 
-call create_reference_mapping('Lab, Neutrophils test result Abnormal','Neutrophils_abn');
+call create_reference_mapping('Lab, Neutrophils test result Abnormal','neutrophils_abn');
 
 call create_reference_mapping('SERUM POTASSIUM Abnormal','k_abn');
 
@@ -2027,7 +2027,7 @@ call create_reference_mapping('Lab, Glucose other','rbs');
 
 call create_reference_mapping('Lab, Ionized Calcium other','ca');
 
-call create_reference_mapping('Lab, Ionized Calcium test result Abnormal','ca_abn');
+call create_reference_mapping('Lab, Ionized Calcium other Abnormal','ca_abn');
 
 call create_reference_mapping('Lab, Creatinine other','creat');
 
@@ -2036,3 +2036,21 @@ call create_reference_mapping('Lab, Creatinine other Abnormal','creat_abn');
 call create_reference_mapping('Lab, Glucose other Abnormal','rbs_abn');
 
 call create_reference_mapping('Lab, Absolute neutrophil count other test result','abs_neut');
+
+call create_reference_mapping('Lab, Absolute neutrophil count other test result Abnormal','abs_neut_abn');
+
+call create_reference_mapping('Followup, Date insertion CVAD','d_cvad_insert');
+
+call create_reference_mapping('Followup, Type CVAD','type_cvad');
+
+call create_reference_mapping('Followup, Drugs by CVAD','drugs_cvad');
+
+call create_reference_mapping('Followup, Date removal CVAD','d_cvad_remov');
+
+call create_reference_mapping('Followup, Reason for removal of CVAD','reas_remov_cvad');
+
+call create_reference_mapping('Baseline, Past TB treatment drug regimen','pasttb_regimen');
+
+call create_reference_mapping('Body mass index','bmi');
+
+call create_reference_mapping('BMI Abnormal','bmi_abn');

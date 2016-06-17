@@ -212,7 +212,7 @@ insert into concept_reference_term (creator,code,concept_source_id,uuid,date_cre
 (4,'comm_nopost_fup',@source_id,uuid(),now()),
 (4,'complrate',@source_id,uuid(),now()),
 (4,'consent_drugs',@source_id,uuid(),now()),
-(4,'consent_endTB',@source_id,uuid(),now()),
+(4,'consent_endtb',@source_id,uuid(),now()),
 (4,'copd_base',@source_id,uuid(),now()),
 (4,'creat',@source_id,uuid(),now()),
 (4,'csres_dst',@source_id,uuid(),now()),
@@ -316,7 +316,7 @@ insert into concept_reference_term (creator,code,concept_source_id,uuid,date_cre
 (4,'homeless',@source_id,uuid(),now()),
 (4,'hosp_course',@source_id,uuid(),now()),
 (4,'hosp_dis',@source_id,uuid(),now()),
-(4,'hosp_TB_surg',@source_id,uuid(),now()),
+(4,'hosp_tb_surg',@source_id,uuid(),now()),
 (4,'hrtdis_base',@source_id,uuid(),now()),
 (4,'hrtdis_base_sp',@source_id,uuid(),now()),
 (4,'ht',@source_id,uuid(),now()),
@@ -402,7 +402,7 @@ insert into concept_reference_term (creator,code,concept_source_id,uuid,date_cre
 (4,'new_sae_num',@source_id,uuid(),now()),
 (4,'nodule_l',@source_id,uuid(),now()),
 (4,'nodule_r',@source_id,uuid(),now()),
-(4,'nonTB_cause',@source_id,uuid(),now()),
+(4,'nontb_cause',@source_id,uuid(),now()),
 (4,'nontb_cause_post',@source_id,uuid(),now()),
 (4,'nopresdays',@source_id,uuid(),now()),
 (4,'obsdays',@source_id,uuid(),now()),
@@ -634,7 +634,7 @@ insert into concept_reference_term (creator,code,concept_source_id,uuid,date_cre
 (4,'plat_abn',@source_id,uuid(),now()),
 (4,'rbc_abn',@source_id,uuid(),now()),
 (4,'wbc_abn',@source_id,uuid(),now()),
-(4,'Neutrophils_abn',@source_id,uuid(),now()),
+(4,'neutrophils_abn',@source_id,uuid(),now()),
 (4,'k_abn',@source_id,uuid(),now()),
 (4,'mg_abn',@source_id,uuid(),now()),
 (4,'urea_abn',@source_id,uuid(),now()),
@@ -650,3 +650,12 @@ insert into concept_reference_term (creator,code,concept_source_id,uuid,date_cre
 (4,'ca_abn',@source_id,uuid(),now()),
 (4,'creat_abn',@source_id,uuid(),now()),
 (4,'rbs_abn',@source_id,uuid(),now());
+(4,'abs_neut_abn',@source_id,uuid(),now());
+(4,'d_cvad_insert',@source_id,uuid(),now());
+(4,'type_cvad',@source_id,uuid(),now());
+(4,'drugs_cvad',@source_id,uuid(),now());
+(4,'d_cvad_remov',@source_id,uuid(),now());
+(4,'reas_remov_cvad',@source_id,uuid(),now());
+(4,'pasttb_regimen',@source_id,uuid(),now());
+(4,'bmi',@source_id,uuid(),now());
+(4,'bmi_abn',@source_id,uuid(),now());
