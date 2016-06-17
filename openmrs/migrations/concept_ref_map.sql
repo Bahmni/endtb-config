@@ -1995,6 +1995,8 @@ call create_reference_mapping('WHITE BLOOD CELLS Abnormal','wbc_abn');
 
 call create_reference_mapping('Lab, Neutrophils test result Abnormal','neutrophils_abn');
 
+call create_reference_mapping('Specimen Sample Source NonCoded','')
+
 call create_reference_mapping('SERUM POTASSIUM Abnormal','k_abn');
 
 call create_reference_mapping('Lab, Magnesium test result Abnormal','mg_abn');
@@ -2054,3 +2056,5 @@ call create_reference_mapping('Baseline, Past TB treatment drug regimen','pasttb
 call create_reference_mapping('Body mass index','bmi');
 
 call create_reference_mapping('BMI Abnormal','bmi_abn');
+
+call create_reference_mapping('Specimen Sample Source NonCoded','sample_type_cn');
