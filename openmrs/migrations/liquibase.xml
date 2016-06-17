@@ -1180,4 +1180,14 @@
             (676,1,1,now(),1643,uuid());
         </sql>
     </changeSet>
+    <changeSet id="ENDTB-201606171751" author="Shiva">
+        <comment>Updating class and datatype for concept 8 = Unable to or did not assess</comment>
+        <sql>
+            select concept_id into @conceptID from concept_view where concept_full_name = '8 = Unable to or did not assess';
+            update concept set datatype_id = (select concept_datatype_id from concept_datatype where name = 'N/A') where concept_id = @conceptID;
+            update concept set class_id = (select concept_class_id from concept_class where name = 'Misc') where concept_id = @conceptID;
+            update obs set value_numeric = NULL where concept_id = @conceptID;
+            delete from concept_numeric where concept_id = @conceptID;
+        </sql>
+    </changeSet>
 </databaseChangeLog>
