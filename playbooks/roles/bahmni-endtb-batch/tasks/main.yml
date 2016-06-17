@@ -2,4 +2,4 @@
   yum:  name=bahmni-endtb-batch state=absent
 
 - name: Install bahmni-endtb-batch
-  yum:  name=https://snap-ci.com/buildartifacts/blue/70475/defaultPipeline/48/Build_Batch/1/build/distributions/bahmni-endtb-batch-1.0.0-48.noarch.rpm state=present
+  yum:  name=https://dl.bintray.com/bahmni/rpm/rpms/bahmni-endtb-batch-1.0.0-52.noarch.rpm state=present
