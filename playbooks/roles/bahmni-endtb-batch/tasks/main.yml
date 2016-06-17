@@ -1,0 +1,5 @@
+- name: Remove bahmni-endtb-batch before installing
+  yum:  name=bahmni-endtb-batch state=absent
+
+- name: Install bahmni-endtb-batch
+  yum:  name=https://snap-ci.com/buildartifacts/blue/70475/defaultPipeline/48/Build_Batch/1/build/distributions/bahmni-endtb-batch-1.0.0-48.noarch.rpm state=present
