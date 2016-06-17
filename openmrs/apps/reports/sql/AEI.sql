@@ -22,7 +22,7 @@ SELECT
   JOIN encounter e2 ON (e2.encounter_id=ee2.encounter_id)
   JOIN person ON person.person_id = e2.patient_id
   JOIN patient_identifier pi ON pi.patient_id = e2.patient_id
-  JOIN
+  LFET JOIN
   (select root.encounter_id,root.obs_id as root_obs_id,o.obs_id,root.person_id,
       GROUP_CONCAT(DISTINCT(IF(cv.concept_full_name = 'AE Form, Date of AE onset',  o.value_datetime, NULL)) SEPARATOR ',') AS 'AE Form, Date of AE onset',
       GROUP_CONCAT(DISTINCT(IF(cv.concept_full_name = 'AE Form, AE term comprehensive list',  coalesce(answer.concept_short_name, answer.concept_full_name), NULL)) SEPARATOR ',') AS 'AE Form, AE term comprehensive list'

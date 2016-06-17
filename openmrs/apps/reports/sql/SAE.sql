@@ -22,7 +22,7 @@ drug.name AS drug_name,
   JOIN encounter e2 ON (e2.encounter_id=ee2.encounter_id)
   JOIN person ON person.person_id = e2.patient_id
   JOIN patient_identifier pi ON pi.patient_id = e2.patient_id
-  JOIN
+  LEFT JOIN
   (select root.encounter_id,root.obs_id as root_obs_id,o.obs_id,root.person_id,
       GROUP_CONCAT(DISTINCT(IF(cv.concept_full_name = 'SAE Form, Date event became serious',  o.value_datetime, NULL)) SEPARATOR ',') AS 'SAE Form, Date event became serious',
       GROUP_CONCAT(DISTINCT(IF(cv.concept_full_name = 'SAE Form, SAE term comprehensive AE list',  coalesce(answer.concept_short_name, answer.concept_full_name), NULL)) SEPARATOR ',') AS 'SAE Form, SAE term comprehensive AE list'
