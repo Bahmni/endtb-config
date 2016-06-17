@@ -659,4 +659,4 @@ insert into concept_reference_term (creator,code,concept_source_id,uuid,date_cre
 (4,'pasttb_regimen',@source_id,uuid(),now()),
 (4,'bmi',@source_id,uuid(),now()),
 (4,'bmi_abn',@source_id,uuid(),now()),
-(4,'sample_type_cn',source_id,uuid(),now());
+(4,'sample_type_cn',@source_id,uuid(),now());
