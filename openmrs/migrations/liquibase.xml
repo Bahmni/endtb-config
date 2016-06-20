@@ -1201,4 +1201,34 @@
             delete from concept_numeric where concept_id = @conceptID;
         </sql>
     </changeSet>
+    <changeSet id="ENDTB-201606201551" author="Swathi">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="10">
+                select count(*) from concept_view where concept_full_name in ('PAC','PICC','Imp','Imp + Amx/Clv','Imp+ Amx/Clv+ Km','IMp+ Amx/Clv+Cm','none currently','No longer needed','Complication','patient request');
+            </sqlCheck>
+        </preConditions>
+        <comment>Removing the empty short names for the new concepts created using add_concept procedure</comment>
+        <sql>
+            SELECT concept_id INTO @conceptId FROM concept_name WHERE name = 'PAC' and concept_name_type='FULLY_SPECIFIED';
+            UPDATE concept_name SET voided = 1 WHERE concept_name_type='SHORT' AND concept_id = @conceptId;
+            SELECT concept_id INTO @conceptId FROM concept_name WHERE name = 'PICC' and concept_name_type='FULLY_SPECIFIED';
+            UPDATE concept_name SET voided = 1 WHERE concept_name_type='SHORT' AND concept_id = @conceptId;
+            SELECT concept_id INTO @conceptId FROM concept_name WHERE name = 'Imp' and concept_name_type='FULLY_SPECIFIED';
+            UPDATE concept_name SET voided = 1 WHERE concept_name_type='SHORT' AND concept_id = @conceptId;
+            SELECT concept_id INTO @conceptId FROM concept_name WHERE name = 'Imp + Amx/Clv' and concept_name_type='FULLY_SPECIFIED';
+            UPDATE concept_name SET voided = 1 WHERE concept_name_type='SHORT' AND concept_id = @conceptId;
+            SELECT concept_id INTO @conceptId FROM concept_name WHERE name = 'Imp+ Amx/Clv+ Km' and concept_name_type='FULLY_SPECIFIED';
+            UPDATE concept_name SET voided = 1 WHERE concept_name_type='SHORT' AND concept_id = @conceptId;
+            SELECT concept_id INTO @conceptId FROM concept_name WHERE name = 'IMp+ Amx/Clv+Cm' and concept_name_type='FULLY_SPECIFIED';
+            UPDATE concept_name SET voided = 1 WHERE concept_name_type='SHORT' AND concept_id = @conceptId;
+            SELECT concept_id INTO @conceptId FROM concept_name WHERE name = 'none currently' and concept_name_type='FULLY_SPECIFIED';
+            UPDATE concept_name SET voided = 1 WHERE concept_name_type='SHORT' AND concept_id = @conceptId;
+            SELECT concept_id INTO @conceptId FROM concept_name WHERE name = 'No longer needed' and concept_name_type='FULLY_SPECIFIED';
+            UPDATE concept_name SET voided = 1 WHERE concept_name_type='SHORT' AND concept_id = @conceptId;
+            SELECT concept_id INTO @conceptId FROM concept_name WHERE name = 'Complication' and concept_name_type='FULLY_SPECIFIED';
+            UPDATE concept_name SET voided = 1 WHERE concept_name_type='SHORT' AND concept_id = @conceptId;
+            SELECT concept_id INTO @conceptId FROM concept_name WHERE name = 'patient request' and concept_name_type='FULLY_SPECIFIED';
+            UPDATE concept_name SET voided = 1 WHERE concept_name_type='SHORT' AND concept_id = @conceptId;
+        </sql>
+    </changeSet>
 </databaseChangeLog>
