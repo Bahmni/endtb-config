@@ -1,12 +1,26 @@
 {
 	"DrugOrderReport": {
-                "name": "New drug enrollment -UNITAID (Custom Excel)",
-                "type": "MRSGeneric",
-                "config": {
-                        "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/DrugOrder.sql",
-                        "macroTemplatePath" : "/var/www/bahmni_config/openmrs/apps/reports/macroTemplates/DrugOrderTemplate.xls"
-                }
-        },
+        "name": "New drug enrollment -UNITAID (Custom Excel)",
+        "type": "MRSGeneric",
+        "config": {
+                "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/DrugOrder.sql",
+                "macroTemplatePath" : "/var/www/bahmni_config/openmrs/apps/reports/macroTemplates/DrugOrderTemplate.xls"
+        }
+    },
+    "AdverseEventsReport": {
+          "name": "Adverse Events Report (Excel)",
+          "type": "MRSGeneric",
+          "config": {
+              "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/adverseEvents.sql"
+          }
+    },
+    "SeriousAdverseEventsReport": {
+        "name": "Serious Adverse Events Report (Excel)",
+        "type": "MRSGeneric",
+        "config": {
+            "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/seriousAdverseEvents.sql"
+        }
+    },
 	"AEIReport": {
                 "name": "New drug AEI in first 6 months- UNITAID (Custom Excel)",
                 "type": "MRSGeneric",
@@ -14,7 +28,7 @@
                         "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/AEI.sql",
 			"macroTemplatePath" : "/var/www/bahmni_config/openmrs/apps/reports/macroTemplates/AEITemplate.xls"
                 }
-	
+
 	},
 	"SAEReport": {
                 "name": "New drug SAE in first 6 months-UNITAID (Custom Excel)",
