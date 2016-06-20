@@ -100,96 +100,6 @@
         <comment>Adding reference terms for endTB exports codes</comment>
         <sqlFile path="export_ref_terms.sql"/>
     </changeSet>
-    <changeSet id="ENDTB-201605271655" author="Mahesh">
-        <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="1">
-                select count(*) from concept_view where concept_full_name = 'Bacteriology, Smear test lab ID number' and
-                concept_datatype_name = 'Numeric';
-            </sqlCheck>
-        </preConditions>
-        <comment>Migrating Smear test lab ID from numeric to text</comment>
-        <sql>
-            select concept_id into @conceptID from concept_view where concept_full_name = 'Bacteriology, Smear test lab
-            ID number';
-            update obs set value_text = concat(value_numeric) where concept_id = @conceptID;
-            update concept set datatype_id = (select concept_datatype_id from concept_datatype where name = 'Text')
-            where concept_id = @conceptID;
-            update obs set value_numeric = NULL where concept_id = @conceptID;
-            delete from concept_numeric where concept_id = @conceptID;
-        </sql>
-    </changeSet>
-    <changeSet id="ENDTB-201605271710" author="Mahesh">
-        <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="1">
-                select count(*) from concept_view where concept_full_name = 'Bacteriology, Xpert test ID number' and
-                concept_datatype_name = 'Numeric';
-            </sqlCheck>
-        </preConditions>
-        <comment>Migrating Xpert test ID from numeric to text</comment>
-        <sql>
-            select concept_id into @conceptID from concept_view where concept_full_name = 'Bacteriology, Xpert test ID
-            number';
-            update obs set value_text = concat(value_numeric) where concept_id = @conceptID;
-            update concept set datatype_id = (select concept_datatype_id from concept_datatype where name = 'Text')
-            where concept_id = @conceptID;
-            update obs set value_numeric = NULL where concept_id = @conceptID;
-            delete from concept_numeric where concept_id = @conceptID;
-        </sql>
-    </changeSet>
-    <changeSet id="ENDTB-201605271711" author="Mahesh">
-        <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="1">
-                select count(*) from concept_view where concept_full_name = 'Bacteriology, HAIN MTBDRplus test lab ID'
-                and concept_datatype_name = 'Numeric';
-            </sqlCheck>
-        </preConditions>
-        <comment>Migrating HAIN MTBDRplus test lab ID from numeric to text</comment>
-        <sql>
-            select concept_id into @conceptID from concept_view where concept_full_name = 'Bacteriology, HAIN MTBDRplus
-            test lab ID';
-            update obs set value_text = concat(value_numeric) where concept_id = @conceptID;
-            update concept set datatype_id = (select concept_datatype_id from concept_datatype where name = 'Text')
-            where concept_id = @conceptID;
-            update obs set value_numeric = NULL where concept_id = @conceptID;
-            delete from concept_numeric where concept_id = @conceptID;
-        </sql>
-    </changeSet>
-    <changeSet id="ENDTB-201605271712" author="Mahesh">
-        <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="1">
-                select count(*) from concept_view where concept_full_name = 'Bacteriology, HAIN MTBDRsl test ID' and
-                concept_datatype_name = 'Numeric';
-            </sqlCheck>
-        </preConditions>
-        <comment>Migrating HAIN MTBDRsl test ID from numeric to text</comment>
-        <sql>
-            select concept_id into @conceptID from concept_view where concept_full_name = 'Bacteriology, HAIN MTBDRsl
-            test ID';
-            update obs set value_text = concat(value_numeric) where concept_id = @conceptID;
-            update concept set datatype_id = (select concept_datatype_id from concept_datatype where name = 'Text')
-            where concept_id = @conceptID;
-            update obs set value_numeric = NULL where concept_id = @conceptID;
-            delete from concept_numeric where concept_id = @conceptID;
-        </sql>
-    </changeSet>
-    <changeSet id="ENDTB-201605271713" author="Mahesh">
-        <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="1">
-                select count(*) from concept_view where concept_full_name = 'Bacteriology, Culture test lab ID' and
-                concept_datatype_name = 'Numeric';
-            </sqlCheck>
-        </preConditions>
-        <comment>Migrating Culture test lab ID from numeric to text</comment>
-        <sql>
-            select concept_id into @conceptID from concept_view where concept_full_name = 'Bacteriology, Culture test
-            lab ID';
-            update obs set value_text = concat(value_numeric) where concept_id = @conceptID;
-            update concept set datatype_id = (select concept_datatype_id from concept_datatype where name = 'Text')
-            where concept_id = @conceptID;
-            update obs set value_numeric = NULL where concept_id = @conceptID;
-            delete from concept_numeric where concept_id = @conceptID;
-        </sql>
-    </changeSet>
     <changeSet id="ENDTB-201605280823" author="Mahesh">
         <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="0">
@@ -1186,6 +1096,107 @@
             select concept_id into @conceptID from concept_view where concept_full_name = '8 = Unable to or did not assess';
             update concept set datatype_id = (select concept_datatype_id from concept_datatype where name = 'N/A') where concept_id = @conceptID;
             update concept set class_id = (select concept_class_id from concept_class where name = 'Misc') where concept_id = @conceptID;
+            update obs set value_numeric = NULL where concept_id = @conceptID;
+            delete from concept_numeric where concept_id = @conceptID;
+        </sql>
+    </changeSet>
+    <changeSet id="ENDTB-201606201140" author="Swathi,Sudhamsh">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">
+                select count(*) from concept_view where concept_full_name = 'EKG, AE ID Number' and concept_datatype_name = 'Numeric';
+            </sqlCheck>
+        </preConditions>
+        <comment>Migrating Culture test lab ID from numeric to text</comment>
+        <sql>
+            select concept_id into @conceptID from concept_view where concept_full_name = 'EKG, AE ID Number';
+            update obs set value_text = concat(value_numeric) where concept_id = @conceptID;
+            update concept set datatype_id = (select concept_datatype_id from concept_datatype where name = 'Text')
+            where concept_id = @conceptID;
+            update obs set value_numeric = NULL where concept_id = @conceptID;
+            delete from concept_numeric where concept_id = @conceptID;
+        </sql>
+    </changeSet>
+    <changeSet id="ENDTB-201606201141" author="Mahesh">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">
+                select count(*) from concept_view where concept_full_name = 'Bacteriology, Smear test lab ID number' and
+                concept_datatype_name = 'Numeric';
+            </sqlCheck>
+        </preConditions>
+        <comment>Migrating Smear test lab ID from numeric to text</comment>
+        <sql>
+            select concept_id into @conceptID from concept_view where concept_full_name = 'Bacteriology, Smear test lab ID number';
+            update obs set value_text = concat(value_numeric) where concept_id = @conceptID;
+            update concept set datatype_id = (select concept_datatype_id from concept_datatype where name = 'Text')
+            where concept_id = @conceptID;
+            update obs set value_numeric = NULL where concept_id = @conceptID;
+            delete from concept_numeric where concept_id = @conceptID;
+        </sql>
+    </changeSet>
+    <changeSet id="ENDTB-201606201142" author="Mahesh">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">
+                select count(*) from concept_view where concept_full_name = 'Bacteriology, Xpert test ID number' and
+                concept_datatype_name = 'Numeric';
+            </sqlCheck>
+        </preConditions>
+        <comment>Migrating Xpert test ID from numeric to text</comment>
+        <sql>
+            select concept_id into @conceptID from concept_view where concept_full_name = 'Bacteriology, Xpert test ID number';
+            update obs set value_text = concat(value_numeric) where concept_id = @conceptID;
+            update concept set datatype_id = (select concept_datatype_id from concept_datatype where name = 'Text')
+            where concept_id = @conceptID;
+            update obs set value_numeric = NULL where concept_id = @conceptID;
+            delete from concept_numeric where concept_id = @conceptID;
+        </sql>
+    </changeSet>
+    <changeSet id="ENDTB-201606201143" author="Mahesh">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">
+                select count(*) from concept_view where concept_full_name = 'Bacteriology, HAIN MTBDRplus test lab ID'
+                and concept_datatype_name = 'Numeric';
+            </sqlCheck>
+        </preConditions>
+        <comment>Migrating HAIN MTBDRplus test lab ID from numeric to text</comment>
+        <sql>
+            select concept_id into @conceptID from concept_view where concept_full_name = 'Bacteriology, HAIN MTBDRplus test lab ID';
+            update obs set value_text = concat(value_numeric) where concept_id = @conceptID;
+            update concept set datatype_id = (select concept_datatype_id from concept_datatype where name = 'Text')
+            where concept_id = @conceptID;
+            update obs set value_numeric = NULL where concept_id = @conceptID;
+            delete from concept_numeric where concept_id = @conceptID;
+        </sql>
+    </changeSet>
+    <changeSet id="ENDTB-201606201144" author="Mahesh">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">
+                select count(*) from concept_view where concept_full_name = 'Bacteriology, HAIN MTBDRsl test ID' and
+                concept_datatype_name = 'Numeric';
+            </sqlCheck>
+        </preConditions>
+        <comment>Migrating HAIN MTBDRsl test ID from numeric to text</comment>
+        <sql>
+            select concept_id into @conceptID from concept_view where concept_full_name = 'Bacteriology, HAIN MTBDRsl test ID';
+            update obs set value_text = concat(value_numeric) where concept_id = @conceptID;
+            update concept set datatype_id = (select concept_datatype_id from concept_datatype where name = 'Text')
+            where concept_id = @conceptID;
+            update obs set value_numeric = NULL where concept_id = @conceptID;
+            delete from concept_numeric where concept_id = @conceptID;
+        </sql>
+    </changeSet>
+    <changeSet id="ENDTB-201606201145" author="Mahesh">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">
+                select count(*) from concept_view where concept_full_name = 'Bacteriology, Culture test lab ID' and
+                concept_datatype_name = 'Numeric';
+            </sqlCheck>
+        </preConditions>
+        <comment>Migrating Culture test lab ID from numeric to text</comment>
+        <sql>
+            select concept_id into @conceptID from concept_view where concept_full_name = 'Bacteriology, Culture test lab ID';
+            update obs set value_text = concat(value_numeric) where concept_id = @conceptID;
+            update concept set datatype_id = (select concept_datatype_id from concept_datatype where name = 'Text')
+            where concept_id = @conceptID;
             update obs set value_numeric = NULL where concept_id = @conceptID;
             delete from concept_numeric where concept_id = @conceptID;
         </sql>
