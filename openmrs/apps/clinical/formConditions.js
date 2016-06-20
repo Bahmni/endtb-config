@@ -402,10 +402,10 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         }
         var enInterruption = "EOT, Reasons for treatment interrruption";
         var enAdditional = "EOT, Additional information on treatment interruption";
+        var enOtherReasons = "EOT, Other reasons for treatment interruption";
         if (outcome == "LTFU") {
             conditions.enable.push(enInterruption, enAdditional);
             var reasonResponse = formFieldValues[enInterruption];
-            var enOtherReasons = "EOT, Other reasons for treatment interruption";
             if (reasonResponse != null) {
                 if (reasonResponse.indexOf("Other") > -1) {
                     conditions.enable.push(enOtherReasons)
@@ -416,7 +416,7 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
                 conditions.disable.push(enOtherReasons)
             }
         } else {
-            conditions.disable.push(enInterruption, enAdditional);
+            conditions.disable.push(enInterruption, enAdditional, enOtherReasons);
         }
         var enTransferOut = "EOT, Did the patient transfer out";
         var enTransferred = "EOT, Transferred to where";
