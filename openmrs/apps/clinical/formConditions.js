@@ -712,7 +712,7 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
             }
 
             conditions.disable.push(enSAENumber)
-            conditions.enable.push(enDateOutcome, enAEOutcome, enMaxSeverity, enRelatedTBDrugs, enTBDrugTx, enOtherCausalFact)
+            conditions.enable.push(enDateOutcome, enAEOutcome, enMaxSeverity, enRelatedTBDrugs, enOtherCausalFact)
         }
         return conditions;
     },
