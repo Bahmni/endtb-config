@@ -1183,6 +1183,17 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         }
         return conditions;
     },
+    'Baseline, Start date of past TB treatment': function (formName, formFieldValues) {
+        var conceptToEnable = ["Baseline, End date of past TB treatment", "Baseline, Type of past TB treatment", "Baseline, Past TB treatment regimen type", "Baseline, Past TB treatment drug regimen", "Baseline, Registration number of past TB treatment", "Baseline, Past TB treatment outcome", "Baseline, Place treatment started"];
+        var conditions = {enable: [], disable: []};
+        var conditionConcept = formFieldValues['Baseline, Start date of past TB treatment'];
+        if (conditionConcept) {
+            conditions.enable = conceptToEnable
+        } else {
+            conditions.disable = conceptToEnable
+        }
+        return conditions;
+    },
     "Medication Stop Reason": function (drugOrder, conceptName) {
         if (conceptName == "Adverse event" || conceptName == "Other") {
             drugOrder.orderReasonNotesEnabled = true;
