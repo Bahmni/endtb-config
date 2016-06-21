@@ -62,6 +62,15 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         }
         return conditions;
     },
+    'Baseline, Reason for next assessment': function (formName, formFieldValues) {
+        var otherReasonLine = "Baseline, Other assessment reason";
+        var conditionConcept = formFieldValues['Baseline, Reason for next assessment'];
+        if (conditionConcept == 'Other assessment') {
+            return {enable: [otherReasonLine]}
+        } else {
+            return {disable: [otherReasonLine]}
+        }
+    },
     'Diabetes Mellitus': function (formName, formFieldValues) {
         var conditions = {enable: [], disable: []};
         var conditionConcept = formFieldValues['Diabetes Mellitus'];
@@ -286,7 +295,15 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
             return {disable: [deathDT]}
         }
     },
-
+    'TI, Reason for next assessment': function (formName, formFieldValues) {
+        var otherReasonLine = "TI, Other assessment reason";
+        var conditionConcept = formFieldValues['TI, Reason for next assessment'];
+        if (conditionConcept == 'Other assessment') {
+            return {enable: [otherReasonLine]}
+        } else {
+            return {disable: [otherReasonLine]}
+        }
+    },
     'Followup, Currently Pregnant': function (formName, formFieldValues) {
         var conceptToEnable = "Followup, Pregnancy form case ID number";
         var conditions = {enable: [], disable: []};
@@ -353,6 +370,15 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
             conditions.disable.push(conceptToEnable)
         }
         return conditions;
+    },
+    'Followup, Reason for next visit': function (formName, formFieldValues) {
+        var otherReasonLine = "Followup, Other assessment reason";
+        var conditionConcept = formFieldValues['Followup, Reason for next visit'];
+        if (conditionConcept == 'Other assessment') {
+            return {enable: [otherReasonLine]}
+        } else {
+            return {disable: [otherReasonLine]}
+        }
     },
     'EOT, Outcome': function (formName, formFieldValues) {
         var enDOD = "DATE OF DEATH";
