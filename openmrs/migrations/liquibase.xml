@@ -1249,4 +1249,49 @@
             UPDATE concept_name SET voided = 1 WHERE concept_name_type='SHORT' AND concept_id = @conceptId;
         </sql>
     </changeSet>
+    <changeSet id="ENDTB-201606271248" author="Shivakumar, Sudhamsh">    
+        <comment> Updating absolute ranges for lab results  </comment>
+        <sql>            
+            update concept_numeric set low_absolute =0 where concept_id=1621;
+            update concept_numeric set hi_absolute= 100 , low_absolute =0 where concept_id=1248;
+            update concept_numeric set low_absolute =0 where concept_id=1212;
+            update concept_numeric set low_absolute =0 where concept_id=1213;
+            update concept_numeric set low_absolute =0 where concept_id=1214;
+            update concept_numeric set low_absolute =0 where concept_id=1681;
+            update concept_numeric set hi_absolute= 100 , low_absolute =0 where concept_id=548;
+            update concept_numeric set low_absolute =0 where concept_id=1216;
+            update concept_numeric set low_absolute =0 where concept_id=822;
+            update concept_numeric set low_absolute =0 where concept_id=1217;
+            update concept_numeric set low_absolute =0 where concept_id=1643;
+            update concept_numeric set low_absolute =0 where concept_id=1644;
+            update concept_numeric set low_absolute =0 where concept_id=1220;
+            update concept_numeric set hi_absolute=100, low_absolute =0 where concept_id=1198;
+            update concept_numeric set low_absolute =0 where concept_id=1221;
+            update concept_numeric set low_absolute =0 where concept_id=828;
+            update concept_numeric set low_absolute =0 where concept_id=1222;
+            update concept_numeric set low_absolute =0 where concept_id=1249;
+            update concept_numeric set low_absolute =0 where concept_id=1246;
+
+        </sql>
+    </changeSet>
+
+    <changeSet id="ENDTB-201606271304" author="Shivakumar, Sudhamsh">    
+        <comment> Updating Synonyms for lab results </comment>
+        <sql>
+            update concept_reference_term set code = 'Plat' where code = 'Plt' and concept_source_id = (select concept_source_id from concept_reference_source where name = 'Abbreviation');
+            update concept_reference_term set code = 'Abs neut' where code = 'ANC' and concept_source_id = (select concept_source_id from concept_reference_source where name = 'Abbreviation');
+            update concept_reference_term set code = '%neut' where code = 'Neutrophils' and concept_source_id = (select concept_source_id from concept_reference_source where name = 'Abbreviation');
+            update concept_reference_term set code = 'Ca' where code = 'Ionised Ca' and concept_source_id = (select concept_source_id from concept_reference_source where name = 'Abbreviation');
+            update concept_reference_term set code = 'Creat' where code = 'Creatinine' and concept_source_id = (select concept_source_id from concept_reference_source where name = 'Abbreviation');
+            update concept_reference_term set code = 'RBS' where code = 'Glucose' and concept_source_id = (select concept_source_id from concept_reference_source where name = 'Abbreviation');
+            update concept_reference_term set code = 'FBS' where code = 'Glucose (Fasting)' and concept_source_id = (select concept_source_id from concept_reference_source where name = 'Abbreviation');
+            update concept_reference_term set code = 'HbA1c' where code = 'HbA1C' and concept_source_id = (select concept_source_id from concept_reference_source where name = 'Abbreviation');
+            update concept_reference_term set code = 'Lip' where code = 'Lipase' and concept_source_id = (select concept_source_id from concept_reference_source where name = 'Abbreviation');
+            update concept_reference_term set code = 'AST' where code = 'AST/SGOT' and concept_source_id = (select concept_source_id from concept_reference_source where name = 'Abbreviation');
+            update concept_reference_term set code = 'ALT' where code = 'ALT/SGPT' and concept_source_id = (select concept_source_id from concept_reference_source where name = 'Abbreviation');
+            update concept_reference_term set code = 'Tot Bil' where code = 'Total Bilirubin' and concept_source_id = (select concept_source_id from concept_reference_source where name = 'Abbreviation');
+            update concept_reference_term set code = 'HepC ab' where code = 'Hep C ab' and concept_source_id = (select concept_source_id from concept_reference_source where name = 'Abbreviation');                
+            update concept_reference_term set code = 'Alb' where code = 'Serum Albumin' and concept_source_id = (select concept_source_id from concept_reference_source where name = 'Abbreviation');
+        </sql>
+    </changeSet>
 </databaseChangeLog>

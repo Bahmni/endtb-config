@@ -278,6 +278,7 @@
           "templateName": "Baseline, Past TB treatment table",
           "conceptNames": [
             "Baseline, End date of past TB treatment",
+	          "Baseline, Past TB treatment drug regimen",
             "Baseline, Type of past TB treatment",
             "Baseline, Past TB treatment regimen type",
             "Baseline, Past TB treatment outcome"
@@ -413,7 +414,7 @@
         "displayType": "Full-Page",
         "displayOrder": 13,
         "dashboardConfig": {
-          "pivotOn": "column",
+          "pivotOn": "row",
           "templateName": "Monthly Treatment Completeness Template",
           "groupByConcept": "MTC, Month and year of treatment period",
           "conceptNames": [
@@ -428,7 +429,7 @@
         "headingConceptSource": "Abbreviation",
         "displayOrder": 14,
         "dashboardConfig": {
-          "pivotOn": "column",
+          "pivotOn": "row",
           "templateName": "Followup Template",
           "groupByConcept": "Followup, Visit Date",
           "type": "BMIExtension",
@@ -444,7 +445,7 @@
         "headingConceptSource": "Abbreviation",
         "displayOrder": 15,
         "dashboardConfig": {
-          "pivotOn": "column",
+          "pivotOn": "row",
           "templateName": "Lab Results Hemotology Template",
           "groupByConcept": "Specimen Collection Date",
           "type": "DstExtension",
@@ -466,7 +467,7 @@
         "headingConceptSource": "Abbreviation",
         "displayOrder": 16,
         "dashboardConfig": {
-          "pivotOn": "column",
+          "pivotOn": "row",
           "templateName": "Lab Results Biochemistry Template",
           "groupByConcept": "Specimen Collection Date",
           "type": "DstExtension",
@@ -495,7 +496,7 @@
         "headingConceptSource": "Abbreviation",
         "displayOrder": 17,
         "dashboardConfig": {
-          "pivotOn": "column",
+          "pivotOn": "row",
           "templateName": "Lab Results Serology Template",
           "groupByConcept": "Specimen Collection Date",
           "type": "DstExtension",
@@ -514,7 +515,7 @@
         "headingConceptSource": "Abbreviation",
         "displayOrder": 18,
         "dashboardConfig": {
-          "pivotOn": "column",
+          "pivotOn": "row",
           "templateName": "Lab Results Pregnancy Template",
           "groupByConcept": "Specimen Collection Date",
           "type": "DstExtension",
@@ -530,7 +531,7 @@
         "headingConceptSource": "Abbreviation",
         "displayOrder": 19,
         "dashboardConfig": {
-          "pivotOn": "column",
+          "pivotOn": "row",
           "templateName": "Lab Results Other Tests Template",
           "groupByConcept": "Specimen Collection Date",
           "type": "DstExtension",
