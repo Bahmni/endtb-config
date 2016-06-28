@@ -1,9 +1,8 @@
 import org.apache.commons.lang.ObjectUtils
 import org.apache.commons.lang.StringUtils
 import org.bahmni.module.bahmnicore.service.impl.BahmniBridge
-import org.hibernate.Query
-import org.hibernate.SessionFactory
-import org.openmrs.Obs
+import org.joda.time.LocalDate
+import org.joda.time.Months
 import org.openmrs.Patient
 import org.openmrs.api.context.Context
 import org.openmrs.module.bahmniemrapi.BahmniEmrAPIException
@@ -15,8 +14,6 @@ import org.openmrs.util.OpenmrsUtil
 
 import java.text.DateFormat
 import java.text.SimpleDateFormat
-import org.joda.time.LocalDate
-import org.joda.time.Months
 
 public class BahmniObsValueCalculator implements ObsValueCalculator {
     static Double BMI_VERY_SEVERELY_UNDERWEIGHT = 16.0;
@@ -305,19 +302,21 @@ public class BahmniObsValueCalculator implements ObsValueCalculator {
     static void calculateBMI(String templateName, Collection<BahmniObservation> observations, BahmniEncounterTransaction bahmniEncounterTransaction, Map<String, List<BahmniObservation>> bahmniObsConceptMap) {
         Collection<BahmniObservation> templateObservations = bahmniObsConceptMap.get(templateName)
         BahmniObservation heightObservation, weightObservation, parent;
-        if (templateObservations != null && templateObservations.size() > 0) {
-            parent = templateObservations.get(0);
-            heightObservation = findConceptInChildObs("Height (cm)", parent)
-            weightObservation = findConceptInChildObs("Weight (kg)", parent)
-        }
-        if (heightObservation == null && weightObservation == null) {
-            BahmniObservation bmiDataObservation = findConceptInChildObs("BMI Data", parent)
-            BahmniObservation bmiObservation = findConceptInChildObs("Body mass index", bmiDataObservation)
-            BahmniObservation bmiAbnormalObservation = findConceptInChildObs("BMI Abnormal", bmiDataObservation)
-            voidObs(bmiDataObservation);
-            voidObs(bmiObservation);
-            voidObs(bmiAbnormalObservation);
-            return
+        for (int i=0; i< templateObservations.size(); i++) {
+            if (templateObservations != null && templateObservations.size() > 0) {
+                parent = templateObservations.get(i);
+                heightObservation = findConceptInChildObs("Height (cm)", parent)
+                weightObservation = findConceptInChildObs("Weight (kg)", parent)
+            }
+            if (heightObservation == null && weightObservation == null) {
+                BahmniObservation bmiDataObservation = findConceptInChildObs("BMI Data", parent)
+                BahmniObservation bmiObservation = findConceptInChildObs("Body mass index", bmiDataObservation)
+                BahmniObservation bmiAbnormalObservation = findConceptInChildObs("BMI Abnormal", bmiDataObservation)
+                voidObs(bmiDataObservation);
+                voidObs(bmiObservation);
+                voidObs(bmiAbnormalObservation);
+                continue
+            }
         }
 
         calculateBMIWithHeightAndWeight(bahmniEncounterTransaction, parent, heightObservation, weightObservation)
