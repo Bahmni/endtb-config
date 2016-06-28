@@ -302,7 +302,7 @@ public class BahmniObsValueCalculator implements ObsValueCalculator {
     static void calculateBMI(String templateName, Collection<BahmniObservation> observations, BahmniEncounterTransaction bahmniEncounterTransaction, Map<String, List<BahmniObservation>> bahmniObsConceptMap) {
         Collection<BahmniObservation> templateObservations = bahmniObsConceptMap.get(templateName)
         BahmniObservation heightObservation, weightObservation, parent;
-        for (int i=0; i< templateObservations.size(); i++) {
+        for (int i=0; templateObservations && i< templateObservations.size(); i++) {
             if (templateObservations != null && templateObservations.size() > 0) {
                 parent = templateObservations.get(i);
                 heightObservation = findConceptInChildObs("Height (cm)", parent)
@@ -315,11 +315,10 @@ public class BahmniObsValueCalculator implements ObsValueCalculator {
                 voidObs(bmiDataObservation);
                 voidObs(bmiObservation);
                 voidObs(bmiAbnormalObservation);
-                continue
+                continue;
             }
+            calculateBMIWithHeightAndWeight(bahmniEncounterTransaction, parent, heightObservation, weightObservation);
         }
-
-        calculateBMIWithHeightAndWeight(bahmniEncounterTransaction, parent, heightObservation, weightObservation)
     }
 
 
