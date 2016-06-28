@@ -1,8 +1,8 @@
 SELECT
   ppa.value_reference AS 'Treatment ID',
   GROUP_CONCAT(DISTINCT (IF(first_child_cn.name = 'SAE Form, SAE ID number', first_child_obs.value_text, NULL)) SEPARATOR ',') AS 'SAE case Number',
-  GROUP_CONCAT(DISTINCT (IF(first_child_cn.name = 'SAE Form, SAE term comprehensive AE list', (SELECT coalesce(concept_short_name, concept_full_name) from concept_view where concept_id = first_child_obs.value_coded), NULL)) SEPARATOR ',') AS 'Adverse Event term',
-  GROUP_CONCAT(DISTINCT (IF(first_child_cn.name = 'SAE Form, Other SAE term', first_child_obs.value_text, NULL)) SEPARATOR ',') AS 'Other Adverse event term not in comprehensive list',
+  GROUP_CONCAT(DISTINCT (IF(first_child_cn.name = 'SAE Form, SAE term comprehensive AE list', (SELECT coalesce(concept_short_name, concept_full_name) from concept_view where concept_id = first_child_obs.value_coded), NULL)) SEPARATOR ',') AS 'Serious Adverse Event term',
+  GROUP_CONCAT(DISTINCT (IF(first_child_cn.name = 'SAE Form, Other SAE term', first_child_obs.value_text, NULL)) SEPARATOR ',') AS 'Other Serious Adverse event term not in comprehensive list',
   GROUP_CONCAT(DISTINCT (IF(first_child_cn.name = 'SAE Form, Event onset date', DATE_FORMAT(first_child_obs.value_datetime, '%d-%M-%Y'), NULL)) SEPARATOR ',') AS 'Date of SAE  onset',
   GROUP_CONCAT(DISTINCT (IF(first_child_cn.name = 'SAE Form, Date of SAE report', DATE_FORMAT(first_child_obs.value_datetime, '%d-%M-%Y'), NULL)) SEPARATOR ',') AS 'Date of SAE reporting',
   GROUP_CONCAT(DISTINCT (IF(first_child_cn.name = 'SAE Form, Previously reported as AE', (SELECT coalesce(concept_short_name, concept_full_name) from concept_view where concept_id = first_child_obs.value_coded), NULL)) SEPARATOR ',') AS 'Was this event previously reported as an AE',
