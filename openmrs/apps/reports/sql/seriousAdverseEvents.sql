@@ -12,7 +12,6 @@ SELECT
   GROUP_CONCAT(DISTINCT (IF(first_child_cn.name = 'SAE Form, TB drugs suspended due to this SAE', (SELECT coalesce(concept_short_name, concept_full_name) from concept_view where concept_id = first_child_obs.value_coded), NULL)) SEPARATOR ',') AS 'Were all anti-TB drug suspended due to this SAE?',
   GROUP_CONCAT(DISTINCT (IF(first_child_cn.name = 'SAE Form, SAE severity grade', (SELECT coalesce(concept_short_name, concept_full_name) from concept_view where concept_id = first_child_obs.value_coded), NULL)) SEPARATOR ',') AS 'SAE Grade (severity)'
 FROM obs top_level_obs
-  INNER JOIN patient p ON p.patient_id = top_level_obs.person_id AND p.voided = 0 AND top_level_obs.voided = 0
   LEFT JOIN obs first_child_obs ON top_level_obs.obs_id = first_child_obs.obs_group_id AND first_child_obs.voided = 0
   LEFT JOIN concept_name top_level_cn ON top_level_cn.concept_id = top_level_obs.concept_id AND top_level_cn.concept_name_type = 'FULLY_SPECIFIED'
   LEFT JOIN concept_name first_child_cn ON first_child_cn.concept_id = first_child_obs.concept_id AND first_child_cn.concept_name_type = 'FULLY_SPECIFIED'
@@ -20,6 +19,6 @@ FROM obs top_level_obs
   INNER JOIN episode_patient_program epp ON ee.episode_id=epp.episode_id
   INNER JOIN patient_program_attribute ppa ON ppa.patient_program_id=epp.patient_program_id
   INNER JOIN program_attribute_type pat ON pat.program_attribute_type_id=ppa.attribute_type_id AND pat.name='Registration Number'
-  INNER JOIN patient_identifier pi ON pi.patient_id = top_level_obs.person_id
+  INNER JOIN patient_identifier pi ON pi.patient_id = top_level_obs.person_id AND top_level_obs.voided = 0
 WHERE top_level_cn.name='Serious Adverse Events Template' AND cast(top_level_obs.obs_datetime AS DATE) BETWEEN '#startDate#' AND '#endDate#'
 GROUP BY top_level_obs.obs_id;
