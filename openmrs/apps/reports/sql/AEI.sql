@@ -1,7 +1,7 @@
 SELECT
   pp.patient_program_id,
   drug.name AS drug_name,
-  pi.identifier,
+  pp.patient_id,
   pp.date_enrolled,
   orders.start_date,
   obs_en.`AE Form, Date of AE onset`,
@@ -20,8 +20,6 @@ SELECT
   JOIN drug ON (drug_order.drug_inventory_id=drug.drug_id)
   JOIN episode_encounter ee2 ON ee2.episode_id = epp.episode_id
   JOIN encounter e2 ON (e2.encounter_id=ee2.encounter_id)
-  JOIN person ON person.person_id = e2.patient_id
-  JOIN patient_identifier pi ON pi.patient_id = e2.patient_id
   LEFT JOIN
   (select root.encounter_id,root.obs_id as root_obs_id,o.obs_id,root.person_id,
       GROUP_CONCAT(DISTINCT(IF(cv.concept_full_name = 'AE Form, Date of AE onset',  o.value_datetime, NULL)) SEPARATOR ',') AS 'AE Form, Date of AE onset',

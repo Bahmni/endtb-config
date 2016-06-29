@@ -1,4 +1,4 @@
-SELECT pi.identifier,
+SELECT pp.patient_id,
   drug.name AS drug_name,
   outcome.Outcome,
   pp.patient_program_id
@@ -14,7 +14,6 @@ FROM patient_program pp
 JOIN drug_order ON (orders.order_id = drug_order.order_id AND orders.voided IS FALSE)
 JOIN drug ON (drug_order.drug_inventory_id=drug.drug_id)
 INNER JOIN concept_name cn ON drug.concept_id = cn.concept_id AND cn.name IN ('Bedaquiline','Delamanid') AND cn.concept_name_type='FULLY_SPECIFIED' AND drug.retired=0
-JOIN patient_identifier pi ON pi.patient_id = e1.patient_id
 LEFT JOIN (
 SELECT cv2.concept_full_name AS Outcome, o.encounter_id, ee.episode_id FROM obs o
 JOIN concept_view cv ON o.concept_id = cv.concept_id
