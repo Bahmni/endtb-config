@@ -45,7 +45,7 @@
         "extensionPointId": "org.bahmni.home.dashboard",
         "type": "link",
         "translationKey": "MODULE_LABEL_EXPORTS_KEY",
-        "url": "../../bahmni_config/endtb_export/report.html",
+        "url": "../../bahmni_config/report.html",
         "icon": "fa-download",
         "order": 6,
         "requiredPrivilege": "app:reports"
