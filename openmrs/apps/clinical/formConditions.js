@@ -275,8 +275,8 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
             disable: []
         };
         var enDate = "TI, Date of eligibility for new drugs";
-        var en4Drugs = "TI, Patients for whom the construction of a regimen with four likely effective second-line drugs is not possible";
-        var enUnfavourable = "TI, Other patients who have high risk of unfavorable outcome but who do not fit the above categories";
+        var en4Drugs = "ti_patients_const_four_drug_regimen_not_possible";
+        var enUnfavourable = "ti_oth_patient_high_risk_unfavourable";
         var result = formFieldValues['TI, Eligible for new drugs'];
         if (result == "True") {
             conditions.enable.push(enDate, en4Drugs, enUnfavourable);
