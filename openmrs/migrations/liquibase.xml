@@ -1301,4 +1301,11 @@
         <comment>Mapping new export codes with respective concepts</comment>
         <sqlFile path="concept_ref_map_extended.sql"/>
     </changeSet>
+    <changeSet id="ENDTB-201605301440" author="Sudhamsh">
+        <comment>Mapping new export codes with respective concepts</comment>
+        <sql>            
+            update concept_name set name = 'ti_oth_patient_high_risk_unfavourable' where concept_name_type='FULLY_SPECIFIED' and concept_id = 339;
+            update concept_name set name = 'ti_patients_const_four_drug_regimen_not_possible' where concept_name_type='FULLY_SPECIFIED' and concept_id =338;
+        </sql>
+    </changeSet>
 </databaseChangeLog>
