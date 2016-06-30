@@ -1,3 +1,6 @@
 bahmni_repo_url: https://dl.bintray.com/bahmni/rpm/
 implementation_name: endtb
 timezone: Asia/Kolkata
+omods:
+ - url: https://s3.amazonaws.com/endtb-artifacts/1.2
+   modules: [bahmniendtb-1.2-SNAPSHOT.omod]
