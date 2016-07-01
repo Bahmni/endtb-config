@@ -1293,11 +1293,11 @@
             update concept_reference_term set code = 'Alb' where code = 'Serum Albumin' and concept_source_id = (select concept_source_id from concept_reference_source where name = 'Abbreviation');
         </sql>
     </changeSet>
-    <changeSet id="ENDTB-201606301207" author="Sudhamsh">
+    <changeSet id="ENDTB-201606301227" author="Sudhamsh">
         <comment>Adding new reference terms for endTB exports codes</comment>
-        <sqlFile path="export_ref_terms.sql"/>
+        <sqlFile path="export_ref_terms_extended.sql"/>
     </changeSet>
-    <changeSet id="ENDTB-201605301208" author="Sudhamsh">
+    <changeSet id="ENDTB-201605301237" author="Sudhamsh">
         <comment>Mapping new export codes with respective concepts</comment>
         <sqlFile path="concept_ref_map_extended.sql"/>
     </changeSet>
