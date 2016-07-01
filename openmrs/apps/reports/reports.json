@@ -93,5 +93,14 @@
       "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/adherenceMonthlyReview.sql",
       "macroTemplatePath" : "/var/www/bahmni_config/openmrs/apps/reports/macroTemplates/Empty.xls"
     }
+  },
+
+  "DailyWeeklyVisitReportCohort": {
+    "name": "Daily/Weekly Visit  Report(Excel)",
+    "type": "MRSGeneric",
+    "config": {
+      "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/dailyWeeklyVisitReport.sql",
+      "macroTemplatePath" : "/var/www/bahmni_config/openmrs/apps/reports/macroTemplates/Empty.xls"
+    }
   }
 }
