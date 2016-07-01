@@ -106,7 +106,7 @@ call create_reference_mapping('Related Test, Creatinine','12');
 
 call create_reference_mapping('Related Test, Glucose','13');
 
-call create_reference_mapping('Related Test, Glucose','14');
+call create_reference_mapping('Related Test, Glucose (Fasting)','14');
 
 call create_reference_mapping('Related Test, HbA1c','15');
 
@@ -114,9 +114,9 @@ call create_reference_mapping('Related Test, TSH','16');
 
 call create_reference_mapping('Related Test, Lipase','17');
 
-call create_reference_mapping('Related Test, AST','18');
+call create_reference_mapping('Related Test, AST (SGOT)','18');
 
-call create_reference_mapping('Related Test, ALT','19');
+call create_reference_mapping('Related Test, ALT (SGPT)','19');
 
 call create_reference_mapping('Related Test, Total bilirubin','20');
 
@@ -142,3 +142,4 @@ call create_reference_mapping('Related Test, BPNS','30');
 
 call create_reference_mapping('Related Test, EMG','31');
 
+call create_reference_mapping('8 = Unable to or did not assess','8');
