@@ -1,7 +1,6 @@
 SELECT
   ppa.value_reference                                                                                                                                                                                                                            AS 'Treatment ID',
   pi.identifier                                                                                                                                                                                                                                  AS 'EMR ID',
-  GROUP_CONCAT(DISTINCT (IF(first_child_cn.name = 'AE Form, AE ID number', first_child_obs.value_text, NULL)) SEPARATOR ',')                                                                                                                     AS 'AE ID number',
   GROUP_CONCAT(DISTINCT (IF(first_child_cn.name = 'AE Form, Date of AE onset', DATE_FORMAT(first_child_obs.value_datetime, '%d-%M-%Y'), NULL)) SEPARATOR ',')                                                                                    AS 'Date of AE onset',
   GROUP_CONCAT(DISTINCT (IF(first_child_cn.name = 'AE Form, Date of AE report', DATE_FORMAT(first_child_obs.value_datetime, '%d-%M-%Y'), NULL)) SEPARATOR ',')                                                                                   AS 'Date of AE reporting',
   GROUP_CONCAT(DISTINCT (IF(first_child_cn.name = 'AE Form, AE ID number', first_child_obs.value_text, NULL)) SEPARATOR ',')                                                                                                                     AS 'AE ID',
