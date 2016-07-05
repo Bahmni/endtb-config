@@ -1,5 +1,5 @@
 SELECT
-  data.`Registration No`,
+  data.`Registration Number`,
   data.`EMR ID`,
   data.`Patient first name`,
   data.`Patient last name`,
@@ -16,7 +16,7 @@ SELECT
 FROM
   (SELECT
      o1.person_id,
-     GROUP_CONCAT(DISTINCT IF(pat.name = 'Registration Number', ppa.value_reference, NULL)) AS 'Registration No',
+     GROUP_CONCAT(DISTINCT IF(pat.name = 'Registration Number', ppa.value_reference, NULL)) AS 'Registration Number',
      pi.identifier                                                                          AS 'EMR ID',
      pn.given_name                                                                          AS 'Patient first name',
      pn.family_name                                                                         AS 'Patient last name',
@@ -32,12 +32,14 @@ FROM
                                                           FROM concept_view
                                                           WHERE concept_id = COALESCE(treatment_name.value_coded, ppa.value_reference)), NULL) SEPARATOR
                   ',')                                                                      AS 'Current treatment facility',
-     DATE_FORMAT(o1.obs_datetime, '%d-%b-%Y')                                               AS 'Date of last visit',
-     DATEDIFF(STR_TO_DATE('#startDate#', '%Y-%m-%d'), o1.obs_datetime)                       AS 'Days since last visit',
-     DATE_FORMAT(COALESCE(follow_up_next_visit_obs.value_datetime, baseline_next_visit_obs.value_datetime),
-                 '%d-%b-%Y')                                                                AS 'Next scheduled visit'
+     DATE_FORMAT(MAX(DISTINCT (o1.obs_datetime)), '%d-%b-%Y')                                               AS 'Date of last visit',
+     DATEDIFF(STR_TO_DATE('#startDate#', '%Y-%m-%d'), MAX(DISTINCT(o1.obs_datetime)))                       AS 'Days since last visit',
+      DATE_FORMAT(COALESCE(follow_up_next_visit_obs.value_datetime, baseline_next_visit_obs.value_datetime),
+                  '%d-%b-%Y')                                                                AS 'Next scheduled visit'
    FROM obs o1
      INNER JOIN episode_encounter ee1 ON ee1.encounter_id = o1.encounter_id AND o1.voided = 0
+     INNER JOIN concept_name cn ON cn.concept_id = o1.concept_id AND cn.concept_name_type = 'FULLY_SPECIFIED' AND
+                                   cn.name IN ('Followup, Visit Date', 'Baseline, Date of baseline')
      LEFT JOIN
      (SELECT
         o.obs_id,
@@ -47,9 +49,10 @@ FROM
         o.obs_datetime,
         ee.episode_id
       FROM obs o
+        INNER JOIN concept_name cn ON cn.concept_id = o.concept_id AND cn.concept_name_type = 'FULLY_SPECIFIED' AND
+                                      cn.name IN ('Followup, Visit Date', 'Baseline, Date of baseline')
         INNER JOIN episode_encounter ee ON ee.encounter_id = o.encounter_id AND o.voided = 0) obsEpisode
        ON o1.person_id = obsEpisode.person_id
-          AND o1.concept_id = obsEpisode.concept_id
           AND obsEpisode.episode_id = ee1.episode_id
           AND o1.obs_datetime < obsEpisode.obs_datetime
      INNER JOIN episode_patient_program epp ON epp.episode_id = ee1.episode_id
@@ -58,29 +61,14 @@ FROM
      INNER JOIN person p ON p.person_id = o1.person_id
      INNER JOIN person_name pn ON p.person_id = pn.person_id
      INNER JOIN patient_identifier pi ON pi.patient_id = p.person_id
-     LEFT JOIN person_attribute pa ON pa.person_id = p.person_id
+     LEFT JOIN person_attribute pa ON pa.person_id = p.person_id AND pa.voided=0
      LEFT JOIN person_attribute_type patt ON patt.person_attribute_type_id = pa.person_attribute_type_id
-     INNER JOIN concept_name cn ON cn.concept_id = o1.concept_id AND cn.concept_name_type = 'FULLY_SPECIFIED' AND
-                                   cn.name IN ('Followup, Visit Date', 'Baseline, Date of baseline')
-     LEFT JOIN obs follow_up_next_visit_obs ON follow_up_next_visit_obs.obs_group_id IN (SELECT obs_id
-                                                                                         FROM obs o
-                                                                                         WHERE
-                                                                                           o.obs_group_id =
-                                                                                           o1.obs_group_id
-                                                                                           AND o.voided = 0) AND
+     LEFT JOIN obs follow_up_next_visit_obs ON follow_up_next_visit_obs.obs_group_id IN (SELECT obs_id FROM obs o WHERE o.obs_group_id = o1.obs_group_id AND o.voided = 0) AND
                                                follow_up_next_visit_obs.voided = 0 AND
-                                               follow_up_next_visit_obs.concept_id = (SELECT concept_id
-                                                                                      FROM concept_name
-                                                                                      WHERE
-                                                                                        name = 'RETURN VISIT DATE' AND
-                                                                                        concept_name_type =
-                                                                                        'FULLY_SPECIFIED')
+                                               follow_up_next_visit_obs.concept_id = (SELECT concept_id FROM concept_name WHERE name = 'RETURN VISIT DATE' AND concept_name_type = 'FULLY_SPECIFIED')
      LEFT JOIN obs baseline_next_visit_obs
        ON baseline_next_visit_obs.obs_group_id = o1.obs_group_id AND baseline_next_visit_obs.voided = 0 AND
-          baseline_next_visit_obs.concept_id = (SELECT concept_id
-                                                FROM concept_name
-                                                WHERE
-                                                  name = 'RETURN VISIT DATE' AND concept_name_type = 'FULLY_SPECIFIED')
+          baseline_next_visit_obs.concept_id = (SELECT concept_id FROM concept_name WHERE name = 'RETURN VISIT DATE' AND concept_name_type = 'FULLY_SPECIFIED')
      LEFT JOIN (SELECT
                   treatment_name_obs1.*,
                   ee1.episode_id
@@ -99,10 +87,8 @@ FROM
                                ee.episode_id
                              FROM obs o
                                INNER JOIN episode_encounter ee ON ee.encounter_id = o.encounter_id AND o.voided = 0
-                               INNER JOIN concept_name cn ON cn.concept_id = o.concept_id AND cn.name IN
-                                                                                              ('TI, Treatment facility at start', 'Treatment Facility Name')
-                                                             AND
-                                                             cn.concept_name_type = 'FULLY_SPECIFIED') treatment_name_obs2
+                               INNER JOIN concept_name cn ON cn.concept_id = o.concept_id AND cn.name IN ('TI, Treatment facility at start', 'Treatment Facility Name')
+                                              AND cn.concept_name_type = 'FULLY_SPECIFIED') treatment_name_obs2
                     ON treatment_name_obs2.person_id = treatment_name_obs1.person_id AND
                        treatment_name_obs2.episode_id = ee1.episode_id AND
                        treatment_name_obs1.obs_datetime < treatment_name_obs2.obs_datetime
@@ -110,4 +96,4 @@ FROM
        ON treatment_name.person_id = o1.person_id AND treatment_name.episode_id = ee1.episode_id
    WHERE obsEpisode.obs_id IS NULL
    GROUP BY epp.patient_program_id) data
-WHERE data.`Days since last visit` > 37;
+WHERE data.`Days since last visit` >= 37;
