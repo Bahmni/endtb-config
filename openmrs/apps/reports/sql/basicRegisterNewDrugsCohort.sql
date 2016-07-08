@@ -1,4 +1,38 @@
-SELECT  ppa.value_reference AS `Registration Number`,
+SELECT
+  results.`Registration Number`,
+  results.`EMR ID`,
+  results.`Patient Last name`,
+  results.`Patient First name`,
+  results.`Ttr Cohort`,
+  results.`WHO registration group`,
+  results.`MTB confirmed`,
+  results.`DR Resistance profile`,
+  results.`Subclassification for confirmed`,
+  DATE_FORMAT(results.tb_treatment_start_date, '%d/%b/%Y') AS `start ttr date`,
+  TRUNCATE(TIMESTAMPDIFF(DAY, results.tb_treatment_start_date, coalesce(results.tb_treatment_end_date, NOW()))/30,1) AS `treatment duration`,
+  results.`Dlm Start Date`,
+  results.`Dlm Duration`,
+  results.`Bdq Start Date`,
+  results.`Bdq Duration`,
+  results.`Current facility`,
+  results.`Last ttr Change date`,
+  results.E        , results.H        , results.R        , results.Z        ,
+  results.Am       , results.Km       , results.Cm       , results.Lfx      ,
+  results.Mfx      , results.Cs       , results.PAS      , results.Pto      ,
+  results.Bdq      , results.Dlm      , results.Cfz      , results.Lzd      ,
+  results.ImpCln   , results.`Amx-Clv`,
+  results.`HIV baseline`,
+  results.`HIV lab`,
+  results.`Hep B baseline`,
+  results.`Hep B lab`,
+  results.`Hep C baseline`,
+  results.`Hep C lab`,
+  results.`Diabetes baseline`,
+  results.`outcome`,
+  DATE_FORMAT(results.tb_treatment_end_date, '%d/%b/%Y') AS `End of treatment date`,
+  results.`Next visit`
+FROM
+(SELECT  ppa.value_reference AS `Registration Number`,
         pi.identifier AS `EMR ID`,
         person_name.family_name AS `Patient Last name`,
         person_name.given_name AS `Patient First name`,
@@ -7,8 +41,8 @@ SELECT  ppa.value_reference AS `Registration Number`,
         MAX(IF(obs.concept_full_name = 'Baseline, MDR-TB diagnosis method', obs.value, NULL)) AS `MTB confirmed`,
         MAX(IF(obs.concept_full_name = 'Baseline, Drug resistance', obs.value, NULL)) AS `DR Resistance profile`,
         MAX(IF(obs.concept_full_name = 'Baseline, Subclassification for confimed drug resistant cases', obs.value, NULL)) AS `Subclassification for confirmed`,
-        MAX(IF(date_obs.concept_full_name='TUBERCULOSIS DRUG TREATMENT START DATE',DATE_FORMAT(date_obs.date_value, '%d/%b/%Y'),NULL))              AS `start ttr date`,
-        TRUNCATE(MAX(IF(date_obs.concept_full_name='TUBERCULOSIS DRUG TREATMENT START DATE',TIMESTAMPDIFF(DAY,date_obs.date_value, NOW())/30,NULL)),1)          AS `treatment duration`,
+        MAX(IF(date_obs.concept_full_name='TUBERCULOSIS DRUG TREATMENT START DATE',date_obs.date_value, NULL)) AS `tb_treatment_start_date`,
+        MAX(IF(date_obs.concept_full_name='Tuberculosis treatment end date', date_obs.date_value, NULL)) AS `tb_treatment_end_date`,
         MAX(IF(dd.name = 'Delamanid (Dlm)',DATE_FORMAT(dd.start_date, '%d/%b/%Y'),NULL )) AS `Dlm Start Date`,
         TRUNCATE(MAX(IF(dd.name = 'Delamanid (Dlm)',dd.duration,NULL )),1) AS `Dlm Duration`,
         MAX(IF(dd.name = 'Bedaquiline (Bdq)',DATE_FORMAT(dd.start_date, '%d/%b/%Y'),NULL )) AS `Bdq Start Date`,
@@ -41,8 +75,7 @@ SELECT  ppa.value_reference AS `Registration Number`,
         MAX(IF(add_more_obs.concept_full_name = 'Lab, Hepatitis C antibody test result', add_more_obs.value, NULL)) AS `Hep C lab`,
         MAX(IF(obs.concept_full_name = 'Diabetes Mellitus', obs.value, NULL))                                       AS `Diabetes baseline`,
         MAX(IF(obs.concept_full_name = 'EOT, Outcome', obs.value, NULL))                                            AS `outcome`,
-        MAX(IF(date_obs.concept_full_name='Tuberculosis treatment end date',DATE_FORMAT(date_obs.date_value, '%d/%b/%Y'),NULL))              AS `End of treatment date`,
-               DATE_FORMAT(return_visit_obs.latest_return_visit, '%d/%b/%Y') AS `Next visit`
+        DATE_FORMAT(return_visit_obs.latest_return_visit, '%d/%b/%Y') AS `Next visit`
                FROM
                person_name,
                patient_identifier pi,
@@ -209,6 +242,6 @@ SELECT  ppa.value_reference AS `Registration Number`,
       AND bdq_dlm_orders.scheduled_date BETWEEN '#startDate#' AND '#endDate#'
       AND bdq_dlm_orders.concept_id = cv.concept_id
       AND cv.concept_full_name IN ('Bedaquiline', 'Delamanid')
-               GROUP BY epp.episode_id;
+               GROUP BY epp.episode_id) AS results;
 
 
