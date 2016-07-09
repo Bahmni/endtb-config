@@ -102,5 +102,13 @@
       "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/dailyWeeklyVisitReport.sql",
       "macroTemplatePath" : "/var/www/bahmni_config/openmrs/apps/reports/macroTemplates/Empty.xls"
     }
+  },
+  "adherenceCohort": {
+    "name": "Adherence Montly Summary  Report(Excel)",
+    "type": "MRSGeneric",
+    "config": {
+      "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/adherenceReasonsSummary.sql",
+      "macroTemplatePath" : "/var/www/bahmni_config/openmrs/apps/reports/macroTemplates/Empty.xls"
+    }
   }
 }
