@@ -9,7 +9,7 @@ SELECT
   GROUP_CONCAT(DISTINCT(IF (t1.name='EOT, Outcome', coalesce(t1.concept_short_name, t1.concept_full_name), NULL ))) AS 'Ttr Outcome',
   GROUP_CONCAT(DISTINCT(IF (t1.name='Tuberculosis treatment end date', DATE_FORMAT(t1.value_datetime,'%d/%b/%Y'), NULL ))) AS 'End of ttr Date',
   GROUP_CONCAT(DISTINCT(IF (t1.name='EOT, End of Treatment Outcome date', DATE_FORMAT(t1.value_datetime,'%d/%b/%Y'), NULL ))) AS 'Ttr outcome date',
-  GROUP_CONCAT(DISTINCT(IF (t1.name='Tuberculosis treatment end date',TRUNCATE(TIMESTAMPDIFF(DAY,t1.start_ttr, t1.value_datetime)/30.5, 1), TRUNCATE(TIMESTAMPDIFF(DAY,t1.start_ttr, NOW())/30.5, 1) ))) AS 'Ttr duration',
+  Min(IF (t1.name='Tuberculosis treatment end date',TRUNCATE(TIMESTAMPDIFF(DAY,t1.start_ttr, t1.value_datetime)/30.5, 1), TRUNCATE(TIMESTAMPDIFF(DAY,t1.start_ttr, NOW())/30.5, 1) )) AS 'Ttr duration',
   MAX(M1) AS 'M1',  MAX(M2) AS 'M2', MAX(M3) AS 'M3', MAX(M4) AS 'M4', MAX(M5) AS 'M5', MAX(M6) AS 'M6',
   MAX(M7) AS 'M7',  MAX(M8) AS 'M8', MAX(M9) AS 'M9', MAX(M10) AS 'M10', MAX(M11) AS 'M11', MAX(M12) AS 'M12',
   MAX(M13) AS 'M13',  MAX(M14) AS 'M14', MAX(M15) AS 'M15', MAX(M16) AS 'M16', MAX(M17) AS 'M17', MAX(M18) AS 'M18',
