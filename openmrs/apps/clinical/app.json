@@ -78,10 +78,10 @@
       "Baseline, Disease site": {
         "multiSelect": true
       },
-      "TI, Patients for whom the construction of a regimen with four likely effective second-line drugs is not possible": {
+      "ti_patients_const_four_drug_regimen_not_possible": {
         "multiSelect": true
       },
-      "TI, Other patients who have high risk of unfavorable outcome but who do not fit the above categories": {
+      "ti_oth_patient_high_risk_unfavourable": {
         "multiSelect": true
       },
       "Estimated date of confinement" : {
