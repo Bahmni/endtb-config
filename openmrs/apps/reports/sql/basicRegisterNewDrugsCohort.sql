@@ -212,15 +212,19 @@ FROM
                     AND o.scheduled_date <= NOW()
                     AND d.name IN ('Delamanid (Dlm)', 'Bedaquiline (Bdq)')
               GROUP BY ee.episode_id,d.drug_id) dd ON (dd.episode_id = ee.episode_id)
-               LEFT JOIN (SELECT  MAX(COALESCE(o.value_datetime, o.obs_datetime)) AS latest_return_visit, ee.episode_id
-             FROM    obs o,
-               concept_view cv,
-               episode_encounter ee
-             WHERE    cv.concept_full_name IN ('RETURN VISIT DATE')
-                      AND o.encounter_id = ee.encounter_id
-                      AND cv.concept_id = o.concept_id
-                      AND o.voided=0
-             GROUP BY ee.episode_id) return_visit_obs ON ee.episode_id=return_visit_obs.episode_id
+               LEFT JOIN (
+                           SELECT obs1.value_datetime AS latest_return_visit, ee.episode_id, obs1.person_id, cn.name  FROM
+                             obs obs1
+                             INNER JOIN concept_name cn ON cn.concept_id=obs1.concept_id AND cn.name='RETURN VISIT DATE' AND cn.concept_name_type='FULLY_SPECIFIED'
+                             INNER JOIN episode_encounter ee ON ee.encounter_id=obs1.encounter_id AND obs1.voided=0
+                             LEFT JOIN (
+                                         SELECT o.obs_datetime, o.obs_id, o.value_datetime, ee.episode_id FROM
+                                           obs o
+                                           INNER JOIN concept_name cn ON cn.concept_id=o.concept_id AND cn.name='RETURN VISIT DATE' AND cn.concept_name_type='FULLY_SPECIFIED' AND o.voided=0
+                                           INNER JOIN episode_encounter ee ON ee.encounter_id=o.encounter_id
+                                       ) obs2 ON obs1.obs_datetime < obs2.obs_datetime AND ee.episode_id=obs2.episode_id
+                           WHERE obs2.obs_id IS NULL
+                         ) return_visit_obs ON ee.episode_id=return_visit_obs.episode_id
                LEFT JOIN (SELECT  (COALESCE(o.value_datetime, o.obs_datetime)) AS date_value, ee.episode_id, cv.concept_full_name
              FROM    obs o,
                concept_view cv,
