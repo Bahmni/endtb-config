@@ -213,7 +213,7 @@ FROM
                     AND d.name IN ('Delamanid (Dlm)', 'Bedaquiline (Bdq)')
               GROUP BY ee.episode_id,d.drug_id) dd ON (dd.episode_id = ee.episode_id)
                LEFT JOIN (
-                           SELECT obs1.value_datetime AS latest_return_visit, ee.episode_id, obs1.person_id, cn.name  FROM
+                           SELECT obs1.value_datetime AS latest_return_visit, ee.episode_id  FROM
                              obs obs1
                              INNER JOIN concept_name cn ON cn.concept_id=obs1.concept_id AND cn.name='RETURN VISIT DATE' AND cn.concept_name_type='FULLY_SPECIFIED'
                              INNER JOIN episode_encounter ee ON ee.encounter_id=obs1.encounter_id AND obs1.voided=0
