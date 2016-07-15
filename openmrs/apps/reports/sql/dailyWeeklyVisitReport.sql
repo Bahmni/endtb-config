@@ -116,5 +116,5 @@ FROM
 
     LEFT JOIN person_attribute pa ON pa.person_id = p.person_id and pa.voided=0
     LEFT JOIN person_attribute_type peat ON peat.person_attribute_type_id = pa.person_attribute_type_id AND peat.name='telephoneNumber'
-GROUP BY ee.episode_id) visitReport
+GROUP BY ee.episode_id ORDER BY visitDate) visitReport
 WHERE STR_TO_DATE(visitReport.`Next visit date`, '%d/%b/%Y') BETWEEN '#startDate#' AND '#endDate#';
