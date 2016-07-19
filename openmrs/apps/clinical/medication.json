@@ -11,6 +11,7 @@
           },
         "drugConceptSet": "All TB Drugs",
         "isDropDown": true,
+	"hideOrderSet" : true,
         "labels": {
           "drugNamePlaceHolder": "MEDICATION_LABEL_DRUG_NAME_PLACEHOLDER_TB_TAB",
           "dose": "MEDICATION_LABEL_DOSE_TB_TAB",
