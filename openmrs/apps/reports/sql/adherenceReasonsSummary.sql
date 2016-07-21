@@ -5,7 +5,7 @@ FROM
      pi.identifier  AS `EMR ID`,
      DATE_FORMAT(adm.obs_datetime, '%b/%Y') AS 'Adherence Data Month',
      MAX(IF(tsd_cv.concept_full_name='TUBERCULOSIS DRUG TREATMENT START DATE' ,DATE_FORMAT(tsd.value_datetime, '%d/%b/%Y'), NULL )) As 'Treatment Start Date',
-     TRUNCATE(MAX(IF(tsd_cv.concept_full_name='TUBERCULOSIS DRUG TREATMENT START DATE',(TIMESTAMPDIFF(DAY,tsd.value_datetime, adm.obs_datetime) + 30.5)/30.5,NULL)),0)          AS 'Treatment Duration',
+     ROUND(MAX(IF(tsd_cv.concept_full_name='TUBERCULOSIS DRUG TREATMENT START DATE',(TIMESTAMPDIFF(DAY,tsd.value_datetime,LAST_DAY(adm.obs_datetime)))/30.5,NULL)),1)          AS 'Treatment Duration',
      MAX(IF(tsd_cv.concept_full_name='Tuberculosis treatment end date' ,DATE_FORMAT(tsd.value_datetime, '%d/%b/%Y'), NULL )) As 'Treatment End Date',
      COALESCE(MAX(treat_det_coded.concept_full_name), MAX(IF(pat.name='Registration Facility',reg_facility.concept_full_name, NULL ))) As 'Current Treatment Facility',
      MAX(IF(rate_cv.concept_full_name='MTC, Completeness rate', rate.value_numeric, NULL)) As 'Completeness Rate',
