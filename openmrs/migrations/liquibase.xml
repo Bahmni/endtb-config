@@ -1308,4 +1308,15 @@
             update concept_name set name = 'ti_patients_const_four_drug_regimen_not_possible' where concept_name_type='FULLY_SPECIFIED' and concept_id =338;
         </sql>
     </changeSet>
+    <changeSet id="ENDTB-201607221144" author="Sudhamsh, Swathi">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="2">
+                SELECT COUNT(*) FROM concept_reference_map WHERE concept_id=1681 AND concept_reference_term_id=670;
+            </sqlCheck>
+        </preConditions>
+        <comment>Removing Duplicate concept reference terms for cocnept 1681</comment>
+        <sql>
+            DELETE FROM concept_reference_map WHERE concept_id=1681 AND concept_reference_term_id=670 ORDER BY date_created DESC limit 1;
+        </sql>
+    </changeSet>
 </databaseChangeLog>
