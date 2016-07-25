@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title>{{'DQ_PRINT_TITLE_DATA_QUALITY_REPORT' | translate }}</title>
+    <meta charset="utf-8">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes, minimal-ui" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+</head>
+
+<body>
+<div class="opd-search-wrapper">
+    <body>
+       <div class="tab-content" ng-if="::search.searchTypes.length">
+        <resize  search-results="search.searchResults"
+                visible-results="search.visiblePatients" class="active-visits">
+            <div class="ward-details-container">
+                <table class="table patient-list-table">
+                    <thead>
+                    <tr>
+                        <th ng-repeat="heading in getPrintableHeadings(search.visiblePatients)"><strong>{{ ::heading | translate }}</strong></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="row in search.visiblePatients">
+                        <td ng-repeat="heading in getPrintableHeadings(search.visiblePatients)">
+                            {{::row[heading]}}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </resize>
+       </div>
+    </body>
+</div>
+</body>
+</html>

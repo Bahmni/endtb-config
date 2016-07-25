@@ -46,6 +46,8 @@
   "MODULE_LABEL_PROGRAMS_KEY": "Treatments",
   "MODULE_LABEL_MY_PATIENTS_KEY": "My Patients",
   "MODULE_LABEL_ALL_KEY": "All Patients",
+  "MODULE_LABEL_ERROR_REPORTS_KEY": "Error Reports",
+  "MODULE_LABEL_DATA_INTEGRITY_KEY": "Data integrity",
 
   "DASHBOARD_TITLE_VISITS_KEY": "Visits",
   "DASHBOARD_TITLE_FORMS_KEY": "Forms",
@@ -179,5 +181,14 @@
   "SUMMARY_TITLE_LAB_BIOCHEMISTRY": "Lab Results - Biochemistry",
   "SUMMARY_TITLE_LAB_SEROLOGY": "Lab Results - Serology",
   "SUMMARY_TITLE_LAB_PREGNANCY": "Lab Results - Pregnancy Test",
-  "SUMMARY_TITLE_LAB_OTHER_TESTS": "Lab Results - Other Tests"
+  "SUMMARY_TITLE_LAB_OTHER_TESTS": "Lab Results - Other Tests",
+
+  "DQ_PRINT_TITLE_DATA_QUALITY_REPORT": "Data Quality Report",
+  "DQ_COLUMN_TITLE_TREATMENT_REG_NO": "Treatment Reg No",
+  "name": "Name",
+  "DQ_COLUMN_TITLE_EMR_ID": "EMR ID",
+  "DQ_COLUMN_TITLE_NOTES": "Notes",
+  "DQ_COLUMN_TITLE_ACTION": "Action",
+  "DQ_COLUMN_TITLE_NEXT_EXECUTION_TIME": "Next Execution Time",
+  "DQ_COLUMN_TITLE_RULE_NAME":"Rule Name"
 }

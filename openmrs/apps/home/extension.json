@@ -49,5 +49,15 @@
         "icon": "fa-download",
         "order": 6,
         "requiredPrivilege": "app:reports"
+    },
+    "bahmni_dataintegrity": {
+        "id": "bahmni.reports",
+        "extensionPointId": "org.bahmni.home.dashboard",
+        "type": "link",
+        "translationKey": "MODULE_LABEL_DATA_INTEGRITY_KEY",
+        "url": "../clinical/#/dataintegrity/patient/search",
+        "icon": "icon-bahmni-reports",
+        "order": 7,
+        "requiredPrivilege": "app:reports"
     }
 }
