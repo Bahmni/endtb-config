@@ -1,7 +1,8 @@
 SELECT pp.patient_id,
-orders.start_date,
+  drug.name,
   outcome.Outcome,
-  pp.patient_program_id
+  pp.patient_program_id,
+  orders.start_date
 FROM patient_program pp
   JOIN program prog ON (pp.program_id = prog.program_id
                         AND prog.name IN ('Basic management unit TB register','Second-line TB treatment register'))
