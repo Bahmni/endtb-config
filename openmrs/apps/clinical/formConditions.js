@@ -653,7 +653,7 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         var conceptToEnable = "AE form, other related test";
         var conditions = {enable: [], disable: []};
         var AETerm = formFieldValues['AE Form, AE related test'];
-        if (AETerm && AETerm.value == "Other") {
+        if (AETerm && (AETerm == "Other" || AETerm.value == "Other")) {
             conditions.enable.push(conceptToEnable)
         } else {
             conditions.disable.push(conceptToEnable)
@@ -780,7 +780,7 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         var conceptToEnable = "SAE form, other related test";
         var conditions = {enable: [], disable: []};
         var SAETerm = formFieldValues['SAE Form, Related test'];
-        if (SAETerm && SAETerm.value == "Other") {
+        if (SAETerm && (SAETerm == "Other" || SAETerm.value == "Other")) {
             conditions.enable.push(conceptToEnable)
         } else {
             conditions.disable.push(conceptToEnable)
