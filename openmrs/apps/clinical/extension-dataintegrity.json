@@ -4,7 +4,7 @@
     "extensionPointId": "org.bahmni.patient.search",
     "type": "config",
     "extensionParams": {
-      "searchHandler": "emrapi.sqlSearch.allPatients",
+      "searchHandler": "endtb.sqlSearch.dataIntegrity",
       "forwardUrl": "#/default/patient/{{patientUuid}}/dashboard?programUuid={{programUuid}}&enrollment={{enrollment}}",
       "translationKey": "MODULE_LABEL_ERROR_REPORTS_KEY",
       "view" : "tabular",

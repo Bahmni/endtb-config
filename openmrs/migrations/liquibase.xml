@@ -1319,4 +1319,9 @@
             DELETE FROM concept_reference_map WHERE concept_id=1681 AND concept_reference_term_id=670 ORDER BY date_created DESC limit 1;
         </sql>
     </changeSet>
+
+    <changeSet id="ENTB-201607281534" author="Shireesha, Swathi">
+            <comment> Sql for selecting results for data integrity module</comment>
+        <sqlFile path="E1_4__DataIntegritySearch.sql"/>
+    </changeSet>
 </databaseChangeLog>
