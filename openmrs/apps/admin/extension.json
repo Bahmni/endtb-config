@@ -5,6 +5,9 @@
         "extensionPointId": "org.bahmni.admin.dashboard",
         "type": "link",
         "extensionParams": {},
+        "urlMap": {
+            "saeUpload": {"name": "SAE Form Upload", "url" :"/openmrs/ws/rest/v1/endtb/admin/upload/encounter"}
+        },
         "label": "CSV Upload",
         "url": "#/csv",
         "icon": "fa-upload",
