@@ -1324,14 +1324,4 @@
             <comment> Sql for selecting results for data integrity module</comment>
         <sqlFile path="E1_4__DataIntegritySearch.sql"/>
     </changeSet>
-    <changeSet id="ENTB-201608021256" author="Sudhamsh">
-            <comment> Tagging visit location to registration desk </comment>
-             <sql>
-                select location_tag_id into @logtagid from location_tag where name = 'Login Location';
-                select location_id into @locationid from location_tag_map where location_tag_id= @logtagid;
-                select location_tag_id into @visittagid from location_tag where name = 'Visit Location';
-                insert into location_tag_map (location_id, location_tag_id) value (@locationid, @visittagid);
-                update visit set location_id = @locationid where location_id is NULL;
-            </sql>            
-    </changeSet>
 </databaseChangeLog>
