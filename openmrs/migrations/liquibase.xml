@@ -1331,6 +1331,7 @@
                 select location_id into @locationid from location_tag_map where location_tag_id= @logtagid;
                 select location_tag_id into @visittagid from location_tag where name = 'Visit Location';
                 insert into location_tag_map (location_id, location_tag_id) value (@locationid, @visittagid);
+                update visit set location_id = @locationid where location_id is NULL;
             </sql>            
     </changeSet>
 </databaseChangeLog>
