@@ -185,6 +185,7 @@
   "SUMMARY_TITLE_LAB_OTHER_TESTS": "Lab Results - Other Tests",
 
   "DQ_PRINT_TITLE_DATA_QUALITY_REPORT": "Data Quality Report",
+  "DQ_DASHBOARD": "Data Quality Dashboard",
   "DQ_COLUMN_TITLE_TREATMENT_REG_NO": "Treatment Reg No",
   "name": "Name",
   "DQ_COLUMN_TITLE_EMR_ID": "EMR ID",

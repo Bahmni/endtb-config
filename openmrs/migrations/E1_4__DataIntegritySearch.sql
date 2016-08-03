@@ -1,3 +1,8 @@
+DELETE FROM global_property
+WHERE property IN (
+        'endtb.sqlSearch.dataIntegrity'
+);
+
 INSERT INTO global_property (`property`, `property_value`, `description`, `uuid`)
 VALUES ('endtb.sqlSearch.dataIntegrity',
         'SELECT
@@ -22,6 +27,7 @@ VALUES ('endtb.sqlSearch.dataIntegrity',
         JOIN patient_identifier pi ON pn.person_id = pi.patient_id
         JOIN program_attribute_type pat ON ppa.attribute_type_id = pat.program_attribute_type_id
         WHERE pat.name = \'Registration Number\' AND p.voided = 0 AND pn.voided = 0
+        ORDER BY ppa.value_reference ASC
         ',
         'Sql query to get list of results from dataintegrity_rule table',
         uuid()
