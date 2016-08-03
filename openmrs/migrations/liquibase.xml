@@ -1353,4 +1353,16 @@
             DROP PROCEDURE IF EXISTS fix_all_bacteriology_obs_datetime;
         </sql>
     </changeSet>
+    <changeSet id="ENTB-201608031330" author="Swathi">
+        <comment> Fixing Bacteriology obs to be voided when Sample is removed </comment>
+        <sql>
+            DROP PROCEDURE IF EXISTS fix_all_bacteriology_samples_voided;
+        </sql>
+        <sqlFile splitStatements="false" path="E1_7__FixAllBacteriologySamplesVoided.sql"/>
+        <sql>
+            SET max_sp_recursion_depth = 255;
+            CALL fix_all_bacteriology_samples_voided();
+            DROP PROCEDURE IF EXISTS fix_all_bacteriology_samples_voided;
+        </sql>
+    </changeSet>
 </databaseChangeLog>
