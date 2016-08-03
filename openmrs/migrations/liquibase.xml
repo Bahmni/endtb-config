@@ -1334,7 +1334,7 @@
                 update visit set location_id = @locationid where location_id is NULL;
             </sql>            
     </changeSet>
-    <changeSet id="ENTB-201608021847" author="Swathi">
+    <changeSet id="ENTB-201608021849" author="Swathi">
         <comment> Create procedure to get all child obs for a parent obs id </comment>
         <sql>
             DROP PROCEDURE IF EXISTS get_all_child_obs;
