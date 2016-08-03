@@ -1339,7 +1339,7 @@
         <sql>
             DROP PROCEDURE IF EXISTS get_all_child_obs;
         </sql>
-        <sqlFile splitStatements="false" path="E1_5__GetAllChildObsProc.sql"/>
+        <sqlFile splitStatements="false" path="E1_5__getAllChildObsProc.sql"/>
     </changeSet>
     <changeSet id="ENTB-201608021848" author="Swathi, Sudhamsh">
         <comment> Fixing Bacteriology obs datetime to Sample Collection date </comment>
