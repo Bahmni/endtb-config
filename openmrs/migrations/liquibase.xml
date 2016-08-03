@@ -1334,4 +1334,23 @@
                 update visit set location_id = @locationid where location_id is NULL;
             </sql>            
     </changeSet>
+    <changeSet id="ENTB-201608021847" author="Swathi">
+        <comment> Create procedure to get all child obs for a parent obs id </comment>
+        <sql>
+            DROP PROCEDURE IF EXISTS get_all_child_obs;
+        </sql>
+        <sqlFile splitStatements="false" path="E1_5__GetAllChildObsProc.sql"/>
+    </changeSet>
+    <changeSet id="ENTB-201608021848" author="Swathi, Sudhamsh">
+        <comment> Fixing Bacteriology obs datetime to Sample Collection date </comment>
+        <sql>
+            DROP PROCEDURE IF EXISTS fix_all_bacteriology_obs_datetime;
+        </sql>
+        <sqlFile splitStatements="false" path="E1_6__FixAllBacteriologyObsDatetime.sql"/>
+        <sql>
+            SET max_sp_recursion_depth = 255;
+            CALL fix_all_bacteriology_obs_datetime();
+            DROP PROCEDURE IF EXISTS fix_all_bacteriology_obs_datetime;
+        </sql>
+    </changeSet>
 </databaseChangeLog>
