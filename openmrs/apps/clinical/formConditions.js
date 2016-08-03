@@ -236,14 +236,15 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         var txRegimen = "TI, Type of treatment regimen";
         var firstLine = "TI, First line drug regimen type";
         var secondLine = "TI, Second line regimen drug type";
+        var dateOfDeath = "TI, Date of death before treatment start";
         var conditionConcept = formFieldValues['TI, Did the patient start treatment'];
         if (conditionConcept == false) {
-            return {enable: [enReason], disable: [enStartDate, txFacility, txRegimen]}
+            return {enable: [enReason], disable: [enStartDate, txFacility, txRegimen, firstLine, secondLine]}
         } else if (conditionConcept == true) {
-            return {enable: [enStartDate, txFacility, txRegimen], disable: [enReason]}
+            return {enable: [enStartDate, txFacility, txRegimen], disable: [enReason, dateOfDeath]}
         }
         else {
-            return {disable: [enStartDate, txFacility, txRegimen, firstLine, secondLine, enReason]}
+            return {disable: [enStartDate, txFacility, txRegimen, firstLine, secondLine, enReason, dateOfDeath]}
         }
     },
     'TI, Type of treatment regimen': function (formName, formFieldValues) {
