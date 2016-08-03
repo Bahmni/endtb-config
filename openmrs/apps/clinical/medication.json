@@ -133,6 +133,7 @@
       "inputOptionsConfig": {
         "defaultStartDate": true,
 	"drugConceptSet": "All Other Drugs",
+	"hideOrderSet" : true,
 	"duration": {
           "required": false
           },
@@ -221,7 +222,7 @@
                 "instructions" : "DRUG_HISTORY_NONTB_INSTRUCTIONS"
             },
             "actions": [
-              "refill"
+              "refill","void"
             ],
             "excludeConceptSet": "All TB Drugs",
             "columns": [
