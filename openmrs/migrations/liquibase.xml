@@ -1324,13 +1324,12 @@
             <comment> Sql for selecting results for data integrity module</comment>
         <sqlFile path="E1_4__DataIntegritySearch.sql"/>
     </changeSet>
-    <changeSet id="ENTB-201608021259" author="Sudhamsh">
-        <preConditions onFail="MARK_RAN">        
+    <changeSet id="ENTB-201608021252" author="Sudhamsh">
+        <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="0">
-                select location_tag_id into @logtagid from location_tag where name = 'Login Location';
-                select location_id into @locationid from location_tag_map where location_tag_id= @logtagid;
-                select location_tag_id into @visittagid from location_tag where name = 'Visit Location';
-                select count(*) from location_tag_map where location_id = @locationid and location_tag_id = @visittagid ;
+                SELECT COUNT(DISTINCT location_id) FROM location_tag_map ltm
+                 JOIN location_tag lt ON lt.location_tag_id = ltm.location_tag_id AND lt.name in ('Login Location', 'Visit Location')
+                GROUP BY location_id HAVING COUNT(ltm.location_tag_id) > 1;
             </sqlCheck>
         </preConditions>
             <comment> Tagging visit location to registration desk </comment>
