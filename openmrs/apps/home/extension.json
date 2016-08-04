@@ -56,7 +56,7 @@
         "type": "link",
         "translationKey": "MODULE_LABEL_DATA_INTEGRITY_KEY",
         "url": "../clinical/#/dataintegrity/patient/search",
-        "icon": "icon-bahmni-reports",
+        "icon": "icon-bahmni-data-integrity",
         "order": 7,
         "requiredPrivilege": "app:reports"
     }
