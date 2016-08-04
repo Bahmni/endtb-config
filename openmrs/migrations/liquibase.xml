@@ -1324,7 +1324,15 @@
             <comment> Sql for selecting results for data integrity module</comment>
         <sqlFile path="E1_4__DataIntegritySearch.sql"/>
     </changeSet>
-    <changeSet id="ENTB-201608021256" author="Sudhamsh">
+    <changeSet id="ENTB-201608021259" author="Sudhamsh">
+        <preConditions onFail="MARK_RAN">        
+            <sqlCheck expectedResult="0">
+                select location_tag_id into @logtagid from location_tag where name = 'Login Location';
+                select location_id into @locationid from location_tag_map where location_tag_id= @logtagid;
+                select location_tag_id into @visittagid from location_tag where name = 'Visit Location';
+                select count(*) from location_tag_map where location_id = @locationid and location_tag_id = @visittagid ;
+            </sqlCheck>
+        </preConditions>
             <comment> Tagging visit location to registration desk </comment>
              <sql>
                 select location_tag_id into @logtagid from location_tag where name = 'Login Location';
