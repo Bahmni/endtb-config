@@ -4,7 +4,7 @@ SELECT
   o.given_name as 'given_name',
   DATE_FORMAT(o.birthdate, '%d/%b/%Y') as 'dob',
   o.age as 'age',
-  GROUP_CONCAT(DISTINCT (IF(o.gender = 'M',1, IF(o.gender = 'F',2, 3))) SEPARATOR ',') AS 'sex',
+  o.gender AS 'sex',
   GROUP_CONCAT(DISTINCT(IF(pat.name = 'nationalIdentificationNumber', o.attr_value, NULL)) SEPARATOR ',') AS `id_nat`,
   DATE_FORMAT(o.date_created, '%d/%b/%Y') as `creation_date`,
   GROUP_CONCAT(DISTINCT(IF(pat.name = 'patientAddress',o.attr_value, NULL)) SEPARATOR ',') AS `address_line1`,
@@ -27,7 +27,7 @@ FROM
      p.person_id
    FROM  person p
      JOIN patient pa ON p.person_id = pa.patient_id and cast(pa.date_created AS DATE) BETWEEN '#startDate#' AND '#endDate#'
-     JOIN person_name pn ON p.person_id = pn.person_id
+     JOIN person_name pn ON p.person_id = pn.person_id and p.voided =0
      JOIN patient_identifier pi ON pa.patient_id = pi.patient_id
      LEFT OUTER JOIN person_address addr ON p.person_id = addr.person_id
      LEFT OUTER JOIN person_attribute attr ON p.person_id = attr.person_id and attr.voided = false
