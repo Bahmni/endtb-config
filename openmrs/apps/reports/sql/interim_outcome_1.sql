@@ -1,6 +1,6 @@
 select pp.patient_program_id,drug_name,
   episodes_with_drugs.episode_id,drug_start_date,treatment_start_date,treatment_end_date,
-  eot_outcome,eot_outcome_date, cast(datediff(treatment_end_date,drug_start_date) as unsigned) as numberOfDaysPostTreatmentStarted,
+  eot_outcome,eot_outcome_date, cast(greatest(datediff(treatment_end_date,drug_start_date),0) as unsigned) as numberOfDaysPostTreatmentStarted,
   pp.patient_id
 from
   (select ee.episode_id , cn.name as drug_name, o.encounter_id,
