@@ -36,7 +36,8 @@
     "program": {
       "showDashBoardWithinDateRange": true,
       "Registration Number": {
-        "required": true
+        "required": true,
+        "unique" : true
       }
     },
     "otherInvestigationsMap": {},
