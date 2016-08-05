@@ -649,6 +649,9 @@
         "isTabular": false,
         "allowAddMore": true
       },
+      "Bacteriology, Other drug details": {
+        "allowAddMore": true
+      },
       "Baseline, Brief Peripheral Neuropathy Screen": {
         "isTabular": true
       },
