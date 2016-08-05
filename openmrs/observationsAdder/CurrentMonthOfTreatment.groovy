@@ -19,22 +19,32 @@ public class CurrentMonthOfTreatment implements ObservationsAdder {
 
     @Override
     public void addObservations(Collection<BahmniObservation> observations, List<String> conceptNames) throws ParseException {
+        BahmniObservation drugTreatmentEndDateObservation = getObservationForConceptName(observations, "Tuberculosis treatment end date");
+        BahmniObservation drugTreatmentStartDateObservation = getObservationForConceptName(observations, "TUBERCULOSIS DRUG TREATMENT START DATE");
+
         if (conceptNames.contains("Current month of treatment")) {
-            BahmniObservation drugTreatmentStartDateObservation = getTreatmentStartDateObservation(observations);
 
             if (drugTreatmentStartDateObservation != null) {
                 String string = drugTreatmentStartDateObservation.getValueAsString();
                 DateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
-                Date date = format.parse(string);
-                String month = getCurrentMonthOfTreatment(date);
+                Date drugTreatmentStartDate = format.parse(string);
+                Date endDate = new Date();
+                String conceptName = "Current month of treatment";
 
-                Concept currentMonthOfTreatmentConcept = Context.getConceptService().getConcept("Current month of treatment");
-                EncounterTransaction.Concept concept = new ConceptMapper().map(currentMonthOfTreatmentConcept);
+                if(drugTreatmentEndDateObservation != null) {
+                    String endDateString = drugTreatmentEndDateObservation.getValueAsString();
+                    endDate = format.parse(endDateString);
+                    conceptName = "Treatment Duration";
+                }
 
-                BahmniObservation currentMonthOfTreatmentObservation = createObservation(drugTreatmentStartDateObservation, concept);
-                currentMonthOfTreatmentObservation.setValue(month);
+                String valueToBeAdded = getDurationInMonthsBetweenDates(drugTreatmentStartDate, endDate);
+                Concept conceptToBeAdded = Context.getConceptService().getConcept(conceptName);
 
-                observations.add(currentMonthOfTreatmentObservation);
+                EncounterTransaction.Concept concept = new ConceptMapper().map(conceptToBeAdded);
+                BahmniObservation observationToBeAdded = createObservation(drugTreatmentStartDateObservation, concept);
+                observationToBeAdded.setValue(valueToBeAdded);
+
+                observations.add(observationToBeAdded);
             }
         }
     }
@@ -50,15 +60,16 @@ public class CurrentMonthOfTreatment implements ObservationsAdder {
         return bahmniObservation;
     }
 
-    private String getCurrentMonthOfTreatment(Date startDate) {
+    private String getDurationInMonthsBetweenDates(Date startDate, Date endDate) {
         DateTime startDateTime = new DateTime(startDate);
-        Days days = Days.daysBetween(startDateTime, new DateTime());
+        DateTime endDateTime = new DateTime(endDate)
+        Days days = Days.daysBetween(startDateTime, endDateTime);
         return String.format("%.1f", days.getDays() / 30.0F);
     }
 
-    private BahmniObservation getTreatmentStartDateObservation(Collection<BahmniObservation> observations) {
+    private BahmniObservation getObservationForConceptName(Collection<BahmniObservation> observations, String conceptName) {
         for (BahmniObservation obs : observations) {
-            if (obs.getConcept().getName().equals("TUBERCULOSIS DRUG TREATMENT START DATE")) {
+            if (obs.getConcept().getName().equals(conceptName)) {
                 return obs;
             }
         }

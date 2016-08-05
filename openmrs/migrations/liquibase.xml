@@ -1372,4 +1372,18 @@
             DROP PROCEDURE IF EXISTS fix_all_bacteriology_samples_voided;
         </sql>
     </changeSet>
+    <changeSet id="ENDTB-201608051500" author="Shireesha">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(*) from concept_view where concept_full_name = 'Treatment Duration';
+            </sqlCheck>
+        </preConditions>
+        <comment> Adding concept Treatment Duration </comment>
+        <sql>
+            set @concept_id = 0;
+            set @concept_name_short_id = 0;
+            set @concept_name_full_id = 0;
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Treatment Duration', 'Treatment Duration',  'Text', 'Misc', false);
+        </sql>
+    </changeSet>
 </databaseChangeLog>

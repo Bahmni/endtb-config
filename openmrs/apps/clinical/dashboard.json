@@ -180,6 +180,7 @@
           "conceptNames": [
             "TUBERCULOSIS DRUG TREATMENT START DATE",
             "Current month of treatment",
+            "Treatment Duration",
             "Tuberculosis treatment end date",
             "EOT, Outcome",
             "6m PTO, 6 month post treatment outcome"
