@@ -1369,12 +1369,16 @@
             call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Treatment Duration', 'Treatment Duration',  'Text', 'Misc', false);
         </sql>
     </changeSet>
-    <changeSet id="ENTB-201608081230" author="Sudhamsh">
+    <changeSet id="ENTB-201608080330" author="Sudhamsh">
         <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="0">
-                SELECT COUNT(DISTINCT location_id) FROM location_tag_map ltm
-                 JOIN location_tag lt ON lt.location_tag_id = ltm.location_tag_id AND lt.name in ('Login Location', 'Visit Location')
-                GROUP BY location_id HAVING COUNT(ltm.location_tag_id) > 1;
+		select 
+		  case when exists(SELECT COUNT(DISTINCT location_id) FROM location_tag_map ltm
+				 JOIN location_tag lt ON lt.location_tag_id = ltm.location_tag_id AND lt.name in ('Login Location', 'Visit Location')
+				GROUP BY location_id HAVING COUNT(ltm.location_tag_id) > 1)
+		    then 1
+		    else 0
+		  end
             </sqlCheck>
         </preConditions>
             <comment> Tagging visit location to registration desk </comment>
