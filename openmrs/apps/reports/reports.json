@@ -112,7 +112,7 @@
     }
   },
   "InterimOutcomeBacteriology": {
-    "name": "Interim Outcome Culture Results - UNITAID",
+    "name": "Interim Outcome Culture Results -UNITAID (Custom Excel)",
     "type": "MRSGeneric",
     "config": {
       "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/interim_bacteriology_results.sql",
