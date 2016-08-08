@@ -41,6 +41,7 @@ public class DstExtension extends BaseTableExtension<PivotTable> {
         List<String> smearPositivityObsValueInDescendingOrder = Arrays.asList("Three plus", "Two plus", "One plus", "Scanty 4-9", "Scanty 1-3", "Negative", "Not read");
         List<String> cultureResultObsValueInDescendingOrder = Arrays.asList("Positive for M. tuberculosis", "Negative for M. tuberculosis", "Contaminated",
                 "Only positive for other mycobacterium", "Other");
+        List<String> cultureColoniesObsValueInDescendingOrder = Arrays.asList("Greater than 200 colonies", "Greater than 100 colonies", "10 to 100 colonies", "Less than 10 colonies", "Not done");
 
         for (PivotRow pivotRow : pivotTable.getRows()) {
             if (startDate != null) {
@@ -61,6 +62,13 @@ public class DstExtension extends BaseTableExtension<PivotTable> {
                 Collections.sort(cultureResultObs, new obsValueComparator(cultureResultObsValueInDescendingOrder));
                 pivotRow.getColumns().remove("Bacteriology, Culture results");
                 pivotRow.addColumn("Bacteriology, Culture results", cultureResultObs.get(0));
+            }
+
+            ArrayList<BahmniObservation> cultureColoniesObs = pivotRow.getColumns().get("Bacteriology, Culture Colonies")
+            if (cultureColoniesObs != null && cultureColoniesObs.size() > 1) {
+                Collections.sort(cultureColoniesObs, new obsValueComparator(cultureColoniesObsValueInDescendingOrder));
+                pivotRow.getColumns().remove("Bacteriology, Culture Colonies");
+                pivotRow.addColumn("Bacteriology, Culture Colonies", cultureColoniesObs.get(0));
             }
         }
     }
@@ -108,9 +116,16 @@ public class DstExtension extends BaseTableExtension<PivotTable> {
         @Override
         public int compare(BahmniObservation o1, BahmniObservation o2) {
 
-            Integer o1ValueIndex = valueList.indexOf(o1.getValueAsString());
-            Integer o2ValueIndex = valueList.indexOf(o2.getValueAsString());
+            Integer o1ValueIndex = valueList.indexOf(getFullySpecifiedValueAsString(o1));
+            Integer o2ValueIndex = valueList.indexOf(getFullySpecifiedValueAsString(o2));
             return o1ValueIndex.compareTo(o2ValueIndex);
+        }
+
+        private String getFullySpecifiedValueAsString(BahmniObservation bahmniObservation) {
+            if(null != bahmniObservation.getValue() && null != bahmniObservation.getValue().getName()) {
+                return bahmniObservation.getValue().getName().toString();
+            }
+            return bahmniObservation.getValueAsString();
         }
     }
 }
