@@ -1324,23 +1324,6 @@
             <comment> Sql for selecting results for data integrity module</comment>
         <sqlFile path="E1_4__DataIntegritySearch.sql"/>
     </changeSet>
-    <changeSet id="ENTB-201608021252" author="Sudhamsh">
-        <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="0">
-                SELECT COUNT(DISTINCT location_id) FROM location_tag_map ltm
-                 JOIN location_tag lt ON lt.location_tag_id = ltm.location_tag_id AND lt.name in ('Login Location', 'Visit Location')
-                GROUP BY location_id HAVING COUNT(ltm.location_tag_id) > 1;
-            </sqlCheck>
-        </preConditions>
-            <comment> Tagging visit location to registration desk </comment>
-             <sql>
-                select location_tag_id into @logtagid from location_tag where name = 'Login Location';
-                select location_id into @locationid from location_tag_map where location_tag_id= @logtagid;
-                select location_tag_id into @visittagid from location_tag where name = 'Visit Location';
-                insert into location_tag_map (location_id, location_tag_id) value (@locationid, @visittagid);
-                update visit set location_id = @locationid where location_id is NULL;
-            </sql>            
-    </changeSet>
     <changeSet id="ENTB-201608021849" author="Swathi">
         <comment> Create procedure to get all child obs for a parent obs id </comment>
         <sql>
@@ -1385,5 +1368,34 @@
             set @concept_name_full_id = 0;
             call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Treatment Duration', 'Treatment Duration',  'Text', 'Misc', false);
         </sql>
+    </changeSet>
+    <changeSet id="ENTB-201608081230" author="Sudhamsh">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT COUNT(DISTINCT location_id) FROM location_tag_map ltm
+                 JOIN location_tag lt ON lt.location_tag_id = ltm.location_tag_id AND lt.name in ('Login Location', 'Visit Location')
+                GROUP BY location_id HAVING COUNT(ltm.location_tag_id) > 1;
+            </sqlCheck>
+        </preConditions>
+            <comment> Tagging visit location to registration desk </comment>
+             <sql>
+                select location_tag_id into @logtagid from location_tag where name = 'Login Location';
+                select location_id into @locationid from location_tag_map where location_tag_id= @logtagid;
+                select location_tag_id into @visittagid from location_tag where name = 'Visit Location';
+                insert into location_tag_map (location_id, location_tag_id) value (@locationid, @visittagid);             
+            </sql>            
+    </changeSet>
+    <changeSet id="ENTB-201608081232" author="Sudhamsh">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(*) from visit where location_id is NULL; 
+            </sqlCheck>
+        </preConditions>
+            <comment> Updating null values in location id to location id </comment>
+             <sql>
+                select location_tag_id into @visittagid from location_tag where name = 'Visit Location';
+                select location_id into @locationid from location_tag_map where location_tag_id= @visittagid;
+                update visit set location_id = @locationid where location_id is NULL;
+            </sql>            
     </changeSet>
 </databaseChangeLog>
