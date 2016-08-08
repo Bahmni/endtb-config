@@ -1,6 +1,7 @@
 select pp.patient_program_id,drug_name,
   episodes_with_drugs.episode_id,drug_start_date,treatment_start_date,treatment_end_date,
-  eot_outcome,eot_outcome_date, cast(datediff(treatment_end_date,drug_start_date) as unsigned) as numberOfDaysPostTreatmentStarted,
+  eot_outcome,eot_outcome_date, cast(case WHEN (treatment_end_date is not null and treatment_end_date >= drug_start_date) THEN
+  datediff(treatment_end_date,drug_start_date) END as unsigned) as numberOfDaysPostTreatmentStarted,
   pp.patient_id
 from
   (select ee.episode_id , cn.name as drug_name, o.encounter_id,
@@ -28,10 +29,7 @@ from
    WHERE cn.name IN
          ('TUBERCULOSIS DRUG TREATMENT START DATE', 'DATE OF DEATH', 'EOT, Outcome', 'EOT, End of Treatment Outcome date', 'Tuberculosis treatment end date')
    GROUP BY ee.episode_id) as patients_with_treatment_details on ee.episode_id = patients_with_treatment_details.episode_id
-   where datediff(treatment_end_date,drug_start_date) >= 0
  GROUP BY pp.patient_program_id;
-
-
 
 
 
