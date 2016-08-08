@@ -1385,10 +1385,10 @@
                 insert into location_tag_map (location_id, location_tag_id) value (@locationid, @visittagid);             
             </sql>            
     </changeSet>
-    <changeSet id="ENTB-201608081232" author="Sudhamsh">
+    <changeSet id="ENTB-201608080234" author="Sudhamsh">
         <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="0">
-                select count(*) from visit where location_id is NULL; 
+            <sqlCheck expectedResult="1">
+                select count(*)!=0 from visit where location_id is NULL; 
             </sqlCheck>
         </preConditions>
             <comment> Updating null values in location id to location id </comment>
