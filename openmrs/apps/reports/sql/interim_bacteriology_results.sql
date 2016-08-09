@@ -1,4 +1,6 @@
-select patient_id,patient_program_id,
+SELECT
+  patient_id,
+  patient_program_id,
   COALESCE(MAX(CASE WHEN result = 'Positive for M. tuberculosis'
     THEN 'Positive for M. tuberculosis' END),
            MAX(CASE WHEN result = 'Negative for M. tuberculosis'
@@ -8,25 +10,27 @@ select patient_id,patient_program_id,
            MAX(CASE WHEN result = 'Only positive for other mycobacterium'
              THEN 'Only positive for other mycobacterium' END),
            MAX(CASE WHEN result = 'Other'
-             THEN 'Other' END), NULL) AS bacteriology_result,
+             THEN 'Other' END), NULL)                        AS bacteriology_result,
   CAST(COALESCE(MAX(CASE WHEN result = 'Positive for M. tuberculosis'
     THEN numberOfDays END),
-           MAX(CASE WHEN result = 'Negative for M. tuberculosis'
-             THEN numberOfDays END),
-           MAX(CASE WHEN result = 'Contaminated'
-             THEN numberOfDays END),
-           MAX(CASE WHEN result = 'Only positive for other mycobacterium'
-             THEN numberOfDays END),
-           MAX(CASE WHEN result = 'Other'
-             THEN numberOfDays END), NULL) AS UNSIGNED) AS numberOfDays
-from (SELECT
+                MAX(CASE WHEN result = 'Negative for M. tuberculosis'
+                  THEN numberOfDays END),
+                MAX(CASE WHEN result = 'Contaminated'
+                  THEN numberOfDays END),
+                MAX(CASE WHEN result = 'Only positive for other mycobacterium'
+                  THEN numberOfDays END),
+                MAX(CASE WHEN result = 'Other'
+                  THEN numberOfDays END), NULL) AS UNSIGNED) AS numberOfDays
+FROM (SELECT
         interim_outcome_results.patient_id,
         interim_outcome_results.patient_program_id,
-        CASE WHEN (DATEDIFF(obs_datetime,drug_start_date) > 155 and DATEDIFF(obs_datetime,drug_start_date) < 210)
-          THEN result ELSE NULL END  as result,
+        CASE WHEN (DATEDIFF(obs_datetime, drug_start_date) >= 167 AND DATEDIFF(obs_datetime, drug_start_date) <= 198)
+          THEN result
+        ELSE NULL END AS result,
         interim_outcome_results.drug_start_date,
-       CASE WHEN (DATEDIFF(obs_datetime,drug_start_date) > 155 and DATEDIFF(obs_datetime,drug_start_date) < 210)
-          THEN DATEDIFF(obs_datetime,drug_start_date) ELSE NULL END  as numberOfDays
+        CASE WHEN (DATEDIFF(obs_datetime, drug_start_date) >= 167 AND DATEDIFF(obs_datetime, drug_start_date) <= 198)
+          THEN DATEDIFF(obs_datetime, drug_start_date)
+        ELSE NULL END AS numberOfDays
       FROM (SELECT
               pp.patient_program_id,
               pp.patient_id,
@@ -44,8 +48,9 @@ from (SELECT
                  o.encounter_id,
                  MIN(COALESCE(o.scheduled_date, o.date_activated)) AS drug_start_date
                FROM drug d
-                 INNER JOIN concept_name cn ON d.concept_id = cn.concept_id AND cn.name IN ('Bedaquiline', 'Delamanid') AND
-                                               cn.concept_name_type = 'FULLY_SPECIFIED' AND d.retired = 0
+                 INNER JOIN concept_name cn
+                   ON d.concept_id = cn.concept_id AND cn.name IN ('Bedaquiline', 'Delamanid') AND
+                      cn.concept_name_type = 'FULLY_SPECIFIED' AND d.retired = 0
                  INNER JOIN drug_order dro ON d.drug_id = dro.drug_inventory_id
                  INNER JOIN orders o ON dro.order_id = o.order_id AND o.voided = 0 AND o.order_action != 'DISCONTINUE'
                  INNER JOIN episode_encounter ee ON ee.encounter_id = o.encounter_id
@@ -76,7 +81,8 @@ from (SELECT
                WHERE cn.name IN
                      ('TUBERCULOSIS DRUG TREATMENT START DATE', 'DATE OF DEATH', 'EOT, Outcome', 'EOT, End of Treatment Outcome date', 'Tuberculosis treatment end date')
                GROUP BY ee.episode_id) AS patients_with_treatment_details
-                ON ee.episode_id = patients_with_treatment_details.episode_id WHERE eot_outcome IS NULL
+                ON ee.episode_id = patients_with_treatment_details.episode_id
+            WHERE eot_outcome IS NULL
             GROUP BY pp.patient_program_id) AS interim_outcome_results
         LEFT OUTER JOIN
         (SELECT
@@ -94,7 +100,6 @@ from (SELECT
            JOIN patient_program pp ON epp.patient_program_id = pp.patient_program_id
         ) AS bacteriology_results
           ON interim_outcome_results.patient_program_id = bacteriology_results.patient_program_id
-     ) as interim_culture_results
-GROUP BY patient_program_id
-;
+     ) AS interim_culture_results
+GROUP BY patient_program_id;
 
