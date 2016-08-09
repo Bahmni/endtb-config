@@ -82,7 +82,6 @@ FROM (SELECT
                      ('TUBERCULOSIS DRUG TREATMENT START DATE', 'DATE OF DEATH', 'EOT, Outcome', 'EOT, End of Treatment Outcome date', 'Tuberculosis treatment end date')
                GROUP BY ee.episode_id) AS patients_with_treatment_details
                 ON ee.episode_id = patients_with_treatment_details.episode_id
-            WHERE eot_outcome IS NULL
             GROUP BY pp.patient_program_id) AS interim_outcome_results
         LEFT OUTER JOIN
         (SELECT
@@ -100,6 +99,7 @@ FROM (SELECT
            JOIN patient_program pp ON epp.patient_program_id = pp.patient_program_id
         ) AS bacteriology_results
           ON interim_outcome_results.patient_program_id = bacteriology_results.patient_program_id
+      WHERE treatment_end_date is NULL or (treatment_end_date > date_add(drug_start_date,INTERVAL 198 DAY))
      ) AS interim_culture_results
 GROUP BY patient_program_id;
 
