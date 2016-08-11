@@ -144,7 +144,7 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         };
         var enExtraPul = "Baseline, Exact extrapulmonary site";
         var conditionConcept = formFieldValues['Baseline, Disease site'];
-        if (conditionConcept.indexOf("Extrapulmonary") > -1) {
+        if (conditionConcept && conditionConcept.indexOf("Extrapulmonary") > -1) {
             conditions.enable.push(enExtraPul);
         } else {
             conditions.disable.push(enExtraPul);
@@ -939,7 +939,7 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         if (conditionConcept == true) {
             conditions.enable.push("HDS, TB related surgery date", "HDS, Type of TB related surgery", "HDS, Side of TB related surgery", "HDS, Indication of TB related surgery");
             var values1 = formFieldValues['HDS, Type of TB related surgery'];
-            if (values1 == "Other") {
+            if (values1 && values1 == "Other") {
                 conditions.enable.push("HDS, Other type of TB related surgery")
             } else {
                 conditions.disable.push("HDS, Other type of TB related surgery")
@@ -1091,22 +1091,22 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         var otherRelated = "MTC, Other contributing reason for treatment incomplete";
         var conditions = {enable: [], disable: []};
         var conditionConcept = formFieldValues['MTC, Additional contributing reasons for less than 100% completeness'];
-        if (conditionConcept.indexOf("Program related") > -1) {
+        if (conditionConcept && conditionConcept.indexOf("Program related") > -1) {
             conditions.enable.push(programRelated)
         } else {
             conditions.disable.push(programRelated)
         }
-        if (conditionConcept.indexOf("Medical or treatment related") > -1) {
+        if (conditionConcept && conditionConcept.indexOf("Medical or treatment related") > -1) {
             conditions.enable.push(medicalRelated)
         } else {
             conditions.disable.push(medicalRelated)
         }
-        if (conditionConcept.indexOf("Patient related") > -1) {
+        if (conditionConcept && conditionConcept.indexOf("Patient related") > -1) {
             conditions.enable.push(patientRelated)
         } else {
             conditions.disable.push(patientRelated)
         }
-        if (conditionConcept.indexOf("Other") > -1) {
+        if (conditionConcept && conditionConcept.indexOf("Other") > -1) {
             conditions.enable.push(otherRelated)
         } else {
             conditions.disable.push(otherRelated)

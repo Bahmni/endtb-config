@@ -86,7 +86,7 @@
         "multiSelect": true
       },
       "Estimated date of confinement" : {
-	"allowFutureDates" : true
+	    "allowFutureDates" : true
       },
       "PRF, Estimated date of delivery" : {
         "allowFutureDates" : true
@@ -150,7 +150,7 @@
         "conciseText": true
       },
       "Followup Template" : {
-	"allowAddMore" : true
+	    "allowAddMore" : true
       },
       "Followup, Visit Date": {
         "required": true
@@ -260,7 +260,7 @@
       },
       "AE Form, AE term comprehensive list": {
         "autocomplete": true,
-	"required":true
+	    "required":true
       },
       "AE Form, Other AE term": {
         "conciseText": true
@@ -321,7 +321,7 @@
       },
       "SAE Form, SAE term comprehensive AE list": {
         "autocomplete": true,
-	"required": true
+	    "required": true
       },
       "SAE Form, SAE severity review": {
         "allowAddMore": true
@@ -403,7 +403,7 @@
         "required": true
       },
       "Xray Template" : {
-	"allowAddMore" : true
+	    "allowAddMore" : true
       },
       "Xray, Chest Xray Date": {
         "required": true
@@ -492,7 +492,7 @@
         "allowAddMore": true
       },
       "Audiometry Template" : {
-	"allowAddMore" : true
+	    "allowAddMore" : true
       },
       "Audiometry, Month of scheduled visit": {
         "conciseText": true
@@ -505,59 +505,59 @@
       },
       "Audiometry, Left ear at 250Hz": {
         "disableAddNotes": true,
-	"dropdown": true
+	    "dropdown": true
       },
       "Audiometry, Left ear at 500Hz": {
         "disableAddNotes": true,
-	"dropdown": true
+	    "dropdown": true
       },
       "Audiometry, Left ear at 1000Hz": {
         "disableAddNotes": true,
-	"dropdown": true
+	    "dropdown": true
       },
       "Audiometry, Left ear at 2000Hz": {
         "disableAddNotes": true,
-	"dropdown": true
+	    "dropdown": true
       },
       "Audiometry, Left ear at 4000Hz": {
         "disableAddNotes": true,
-	"dropdown": true
+	    "dropdown": true
       },
       "Audiometry, Left ear at 6000Hz": {
         "disableAddNotes": true,
-	"dropdown": true
+	    "dropdown": true
       },
       "Audiometry, Left ear at 8000Hz": {
         "disableAddNotes": true,
-	"dropdown": true
+	    "dropdown": true
       },
       "Audiometry, Right ear at 250Hz": {
         "disableAddNotes": true,
-	"dropdown": true
+	    "dropdown": true
       },
       "Audiometry, Right ear at 500Hz": {
         "disableAddNotes": true,
-	"dropdown": true
+	    "dropdown": true
       },
       "Audiometry, Right ear at 1000Hz": {
         "disableAddNotes": true,
-	"dropdown": true
+	    "dropdown": true
       },
       "Audiometry, Right ear at 2000Hz": {
         "disableAddNotes": true,
-	"dropdown": true
+	    "dropdown": true
       },
       "Audiometry, Right ear at 4000Hz": {
         "disableAddNotes": true,
-	"dropdown": true
+	    "dropdown": true
       },
       "Audiometry, Right ear at 6000Hz": {
         "disableAddNotes": true,
-	"dropdown": true
+	    "dropdown": true
       },
       "Audiometry, Right ear at 8000Hz": {
         "disableAddNotes": true,
-	"dropdown": true
+	    "dropdown": true
       },
       "Electrocardiogram Template": {
         "allowAddMore": true
@@ -756,7 +756,7 @@
         "isTabular": true
       },
       "Lab, CD4 count": {
-	"isTabular": true
+	    "isTabular": true
       },
       "Lab, Serum Albumin": {
         "isTabular": true
@@ -777,7 +777,7 @@
         "disableAddNotes": true
       },
       "Lab, Absolute neutrophil count other test result": {
-	"disableAddNotes": true
+	    "disableAddNotes": true
       },
       "Lab, Neutrophils test result": {
         "disableAddNotes": true
@@ -825,7 +825,7 @@
         "disableAddNotes": true
       },
       "Lab, CD4 count other result": {
-	"disableAddNotes": true
+	    "disableAddNotes": true
       }, 
       "HIV VIRAL LOAD": {
         "disableAddNotes": true
@@ -834,7 +834,7 @@
         "disableAddNotes": true
       },
       "Lab, Serum Albumin other": {
-	"disableAddNotes": true
+	    "disableAddNotes": true
       },
       "Lab, Other test": {
         "allowAddMore": true
@@ -880,15 +880,15 @@
       },
       "Lab Results Hemotology Template": {
         "allowAddMore": true,
-	"hideAbnormalButton" : true
+	    "hideAbnormalButton" : true
       },
       "Lab Results Biochemistry Template": {
         "allowAddMore": true,
-	"hideAbnormalButton" : true
+	    "hideAbnormalButton" : true
       },
       "Lab Results Serology Template": {
         "allowAddMore": true,
-	"hideAbnormalButton" : true
+	    "hideAbnormalButton" : true
       },
       "Lab Results Pregnancy Template": {
         "allowAddMore": true
