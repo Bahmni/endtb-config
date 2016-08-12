@@ -192,5 +192,6 @@
   "DQ_COLUMN_TITLE_NOTES": "Notes",
   "DQ_COLUMN_TITLE_ACTION": "Action",
   "DQ_COLUMN_TITLE_NEXT_EXECUTION_TIME": "Next Execution Time",
-  "DQ_COLUMN_TITLE_RULE_NAME":"Rule Name"
+  "DQ_COLUMN_TITLE_RULE_NAME":"Rule Name",
+  "DQ_COLUMN_TITLE_REG_FACILITY": "Treatment Facility"
 }
