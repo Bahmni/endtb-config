@@ -118,5 +118,13 @@
       "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/interim_bacteriology_results.sql",
       "macroTemplatePath": "/var/www/bahmni_config/openmrs/apps/reports/macroTemplates/InterimTemplate_cultural.xls"
     }
+  },
+  "DRregister_aggregated": {
+    "name": "DRregister_aggregated report and cohort(Custom Excel)",
+    "type": "MRSGeneric",
+    "config": {
+      "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/DRregister_aggregated.sql",
+      "macroTemplatePath": "/var/www/bahmni_config/openmrs/apps/reports/macroTemplates/DRregister_aggregatedTemplate.xls"
+    }
   }
 }
