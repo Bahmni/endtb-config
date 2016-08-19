@@ -3,6 +3,12 @@
   "general": {
     "displayByDefault": true,
     "maxRecentlyViewedPatients": 1,
+    "printing": {
+      "title": "EndTB General Patient Dashboard",
+      "header": "Treatment Dashboard",
+      "logo": "../images/bahmniLogo.png",
+      "showNameAndImage": true
+    },
     "sections": {
       "tbTreatmentsDetails": {
         "translationKey": "DASHBOARD_TITLE_TB_TREATMENTS_DETAILS",
@@ -168,7 +174,8 @@
     "printing": {
       "title": "EndTB Patient Dashboard",
       "header": "Patient Summary",
-      "logo": "../images/bahmniLogo.png"
+      "logo": "../images/bahmniLogo.png",
+      "showNameAndImage": true
     },
     "sections": {
       "treatmentInfo": {
