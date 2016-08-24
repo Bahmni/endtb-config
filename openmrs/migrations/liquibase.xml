@@ -1402,4 +1402,8 @@
                 update visit set location_id = @locationid where location_id is NULL;
             </sql>            
     </changeSet>
+    <changeSet id="ENTB-201608231710" author="Sourav, Vikash">
+        <comment> Sql for searching patients modified</comment>
+        <sqlFile path="search_patients.sql"/>
+    </changeSet>
 </databaseChangeLog>
