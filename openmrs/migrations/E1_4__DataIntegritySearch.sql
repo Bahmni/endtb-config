@@ -8,7 +8,7 @@ VALUES ('endtb.sqlSearch.dataIntegrity',
         'SELECT
           di_rule.rule_name                                                                           AS DQ_COLUMN_TITLE_RULE_NAME,
           ppa.value_reference                                                                         AS DQ_COLUMN_TITLE_TREATMENT_REG_NO,
-          CONCAT(pn.given_name, '' '', pn.family_name)                                                AS name,
+          CONCAT(pn.given_name, '' '', pn.family_name)                                                AS DQ_COLUMN_TITLE_NAME,
           COALESCE(MAX(treat_det_coded.concept_full_name), MAX(cv_reg.concept_full_name))             AS DQ_COLUMN_TITLE_REG_FACILITY,
           pi.identifier                                                                               AS DQ_COLUMN_TITLE_EMR_ID,
           di_result.notes                                                                             AS DQ_COLUMN_TITLE_NOTES,

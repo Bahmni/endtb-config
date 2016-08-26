@@ -187,7 +187,7 @@
   "DQ_PRINT_TITLE_DATA_QUALITY_REPORT": "Data Quality Report",
   "DQ_DASHBOARD": "Data Quality Dashboard",
   "DQ_COLUMN_TITLE_TREATMENT_REG_NO": "Treatment Reg No",
-  "name": "Name",
+  "DQ_COLUMN_TITLE_NAME": "Name",
   "DQ_COLUMN_TITLE_EMR_ID": "EMR ID",
   "DQ_COLUMN_TITLE_NOTES": "Notes",
   "DQ_COLUMN_TITLE_ACTION": "Action",

@@ -9,7 +9,8 @@
       "translationKey": "MODULE_LABEL_ERROR_REPORTS_KEY",
       "view" : "tabular",
       "showPrint": true,
-      "printHtmlLocation": "/bahmni_config/openmrs/apps/dataintegrity/patientListPrint.html"
+      "printHtmlLocation": "/bahmni_config/openmrs/apps/dataintegrity/patientListPrint.html",
+      "searchColumns" : ["DQ_COLUMN_TITLE_TREATMENT_REG_NO", "DQ_COLUMN_TITLE_NAME"]
     },
     "order": 1,
     "requiredPrivilege": "app:clinical"
