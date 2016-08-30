@@ -1406,4 +1406,17 @@
         <comment> Sql for searching patients modified</comment>
         <sqlFile path="search_patients.sql"/>
     </changeSet>
+    <changeSet id="ENDTB-201608301145" author="Jaya, Shireesha">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(*) from concept_reference_term  where code='reas_tbd_stop';
+            </sqlCheck>
+        </preConditions>
+        <comment> Adding EndTB-Export code for Stopped Order Reason</comment>
+        <sql>
+            select concept_source_id into @source_id from concept_reference_source where name = 'EndTB-Export';
+            insert into concept_reference_term (creator,code,concept_source_id,uuid,date_created) values (4,'reas_tbd_stop',@source_id,uuid(),now());
+            call create_reference_mapping('Stopped Order Reason','reas_tbd_stop');
+        </sql>
+    </changeSet>
 </databaseChangeLog>
