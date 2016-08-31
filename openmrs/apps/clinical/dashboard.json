@@ -1,5 +1,23 @@
 {
   "shouldOverRideConfig": true,
+  "monitering": {
+    "displayByDefault": true,
+    "maxRecentlyViewedPatients": 10,
+    "printing": {
+      "title": "EndTB General Patient Monitering",
+      "header": "Patient Monitering",
+      "logo": "../images/bahmniLogo.png",
+      "showNameAndImage": true
+    },
+    "sections": {
+      "seriousAdverseEvents": {
+        "translationKey": "SUMMARY_TITLE_PATIENT_OBSERVATION_CHART",
+        "type": "patientObservationsChart",
+        "displayType": "Full-Page"
+      }
+    },
+    "translationKey": "DASHBOARD_TAB_PATIENT_MONITERING_KEY"
+  },
   "general": {
     "displayByDefault": true,
     "maxRecentlyViewedPatients": 1,
