@@ -33,25 +33,52 @@ angular.module('bahmni.common.displaycontrol.custom')
     }]).directive('coMorbidities', ['observationsService', 'appService', 'spinner', function (observationsService, appService, spinner) {
     var link = function ($scope) {
         var conceptNames = ["Diabetes Mellitus","Baseline, Chronic renal insufficiency","History of liver cirrhosis",
-            "Baseline, Chronic obstructive pulmonary disease", "Baseline, Has cancer",
-            "Baseline, Heart or atherosclerotic disease", "Baseline, Hepatitis B", "Baseline, Hepatitis C", "Baseline, Depression",
-            "Baseline, Has other psychiatric illness", "Baseline, Psychiatric illness type", "Baseline, Seizure disorder","Baseline, Pre-existing neuropathy", 
-	    "Baseline, Other pre-existing disease"];
+            "Baseline, Chronic obstructive pulmonary disease", "Baseline, Has cancer","Baseline, Cancer type",
+            "Baseline, Heart or atherosclerotic disease", "Baseline, Type of heart disease","Baseline, Hepatitis B", "Baseline, Hepatitis C", "Baseline, Depression",
+            "Baseline, Has other psychiatric illness", "Baseline, Psychiatric illness type","Baseline, Seizure disorder","Baseline, Pre-existing neuropathy","Baseline, Other pre-existing disease"];
         $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/coMorbidities.html";
         var allComorbidityConceptNames = [];
+        var conceptNameWithFreeTextFields = ["Baseline, Has cancer","Baseline, Cancer type",
+            "Baseline, Has other psychiatric illness", "Baseline, Psychiatric illness type", "Baseline, Heart or atherosclerotic disease", "Baseline, Type of heart disease"];
+
         spinner.forPromise(observationsService.fetch($scope.patient.uuid, conceptNames, undefined, undefined, $scope.visitUuid, undefined, null, $scope.enrollment).then(function (response) {
-            var observations = _.filter(response.data, function(obs){
-              return obs.value.name === "True" ;
+
+            var isFreeTextWithoutCodedObs = function (obs) {
+                return obs.concept.dataType === "Text" && conceptNameWithFreeTextFields.indexOf(obs.concept.name) === -1;
+            };
+
+            var isCodedObsWithFreeText = function (obs) {
+                return conceptNameWithFreeTextFields.indexOf(obs.concept.name) >= 0;
+            };
+
+            var getStringToDisplay = function (obs) {
+                var stringToDisplay = obs.conceptNameToDisplay;
+                var freeTextField = _.find(response.data, function (freeText) {
+                    return freeText.obsGroupUuid === obs.obsGroupUuid && freeText.concept.dataType === "Text";
+                });
+                if (!(freeTextField === undefined)) {
+                    stringToDisplay = stringToDisplay + ' (' + freeTextField.valueAsString + ')';
+                }
+                return stringToDisplay;
+            };
+
+            var addCodedObs = function(obs){
+                if(obs.value.name === "True"){
+                    var displayString = obs.conceptNameToDisplay;
+                    if(isCodedObsWithFreeText(obs)) {
+                        displayString = getStringToDisplay(obs);
+                    }
+                    allComorbidityConceptNames.push(displayString);
+                }
+            };
+
+            _.each(response.data, function (obs) {
+                if(isFreeTextWithoutCodedObs(obs)){
+                    allComorbidityConceptNames.push(obs.valueAsString);
+                }
+                addCodedObs(obs);
             });
-            _.each(observations, function(obs){
-                allComorbidityConceptNames.push(obs.conceptNameToDisplay);
-            });
-            var freeTextObservations = _.filter(response.data, function(obs){
-              return obs.concept.dataType === "Text";
-            });
-            _.each(freeTextObservations, function(obs){
-                allComorbidityConceptNames.push(obs.valueAsString);
-            });
+
             $scope.allComorbidities = allComorbidityConceptNames.join(", ");
             $scope.hasNoValue = _.isEmpty(allComorbidityConceptNames);
         }));
