@@ -1319,11 +1319,6 @@
             DELETE FROM concept_reference_map WHERE concept_id=1681 AND concept_reference_term_id=670 ORDER BY date_created DESC limit 1;
         </sql>
     </changeSet>
-
-    <changeSet id="ENTB-201608261524" author="Shireesha, Swathi">
-            <comment> Sql for selecting results for data integrity module</comment>
-        <sqlFile path="E1_4__DataIntegritySearch.sql"/>
-    </changeSet>
     <changeSet id="ENTB-201608021849" author="Swathi">
         <comment> Create procedure to get all child obs for a parent obs id </comment>
         <sql>
@@ -1418,5 +1413,9 @@
             insert into concept_reference_term (creator,code,concept_source_id,uuid,date_created) values (4,'reas_tbd_stop',@source_id,uuid(),now());
             call create_reference_mapping('Stopped Order Reason','reas_tbd_stop');
         </sql>
+    </changeSet>
+    <changeSet id="ENTB-201609011524" author="Deepak">
+        <comment> Sql for selecting results for data integrity module</comment>
+        <sqlFile path="E1_4__DataIntegritySearch.sql"/>
     </changeSet>
 </databaseChangeLog>
