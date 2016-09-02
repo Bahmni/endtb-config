@@ -1402,4 +1402,43 @@
                 update visit set location_id = @locationid where location_id is NULL;
             </sql>            
     </changeSet>
+        <changeSet id="ENDTB-201609010211" author="Sudhamsh">
+        <comment>Addressing the changes in the type and Reason for next assessment </comment>
+        <sql>
+            select concept_id into @concept_id1 from concept_view where concept_full_name ='Baseline, Reason for next assessment';
+            select concept_id into @concept_id2 from concept_view where concept_full_name ='Followup, Reason for next visit';
+            select concept_id into @concept_id3 from concept_view where concept_full_name ='TI, Reason for next assessment';
+            select concept_id into @concept_id4 from concept_view where concept_full_name ='Followup, Type of Visit';
+            select concept_id into @concept_id5 from concept_view where concept_full_name ='Xray, Type of assessment';
+            select concept_id into @concept_id6 from concept_view where concept_full_name ='Audiometry, Type of assessment';
+            select concept_id into @concept_id7 from concept_view where concept_full_name ='Bacteriology, Type of Visit';
+            select concept_id into @concept_id8 from concept_view where concept_full_name ='Performance Status, Type of assessment';
+
+            select concept_id into @concept_id11 from concept_view where concept_full_name ='Baseline';
+            select concept_id into @concept_id12 from concept_view where concept_full_name ='2 week assessment';
+            select concept_id into @concept_id13 from concept_view where concept_full_name ='Planned monthly assessment';
+            select concept_id into @concept_id14 from concept_view where concept_full_name ='Other assessment';
+            select concept_id into @concept_id15 from concept_view where concept_full_name ='End of treatment assessment';
+            select concept_id into @concept_id16 from concept_view where concept_full_name ='6-month post-treatment assessment';
+
+            delete from concept_answer where answer_concept in ( @concept_id11,@concept_id15,@concept_id16 ) and concept_id=@concept_id1;
+            delete from concept_answer where answer_concept in ( @concept_id11 ) and concept_id=@concept_id2;
+            delete from concept_answer where answer_concept in ( @concept_id11,@concept_id15,@concept_id16 ) and concept_id=@concept_id3;
+            delete from concept_answer where answer_concept in ( @concept_id11 ) and concept_id=@concept_id4;
+            delete from concept_answer where answer_concept in ( @concept_id12 ) and concept_id in ( @concept_id5, @concept_id6, @concept_id7, @concept_id8 );
+            delete from concept_answer where answer_concept in ( @concept_id13 ) and concept_id=@concept_id5;
+        </sql>
+    </changeSet>
+    <changeSet id="ENDTB-201609010215" author="Sudhamsh">
+        <comment>Removing Died from Past TB treatment outcome,DSTB and DRTB outcomes Baseline form</comment>
+        <sql>
+            select concept_id into @concept_id1 from concept_view where concept_full_name ='Baseline, Past TB treatment outcome';
+            select concept_id into @concept_id2 from concept_view where concept_full_name ='Baseline, What is the outcome of the last DSTB treatment';
+            select concept_id into @concept_id3 from concept_view where concept_full_name ='Baseline, What is the outcome of the last DRTB treatment';
+
+            select concept_id into @concept_id_child from concept_view where concept_full_name ='Died';
+
+            delete from concept_answer where answer_concept=@concept_id_child and concept_id in (@concept_id1,@concept_id2,@concept_id3);    
+        </sql>
+    </changeSet>
 </databaseChangeLog>
