@@ -1417,7 +1417,8 @@
     <changeSet id="ENTB-201609011524" author="Deepak">
         <comment> Sql for selecting results for data integrity module</comment>
         <sqlFile path="E1_4__DataIntegritySearch.sql"/>
-        <changeSet id="ENDTB-201609010211" author="Sudhamsh">
+    </changeSet>
+    <changeSet id="ENDTB-201609010211" author="Sudhamsh">
         <comment>Addressing the changes in the type and Reason for next assessment </comment>
         <sql>
             select concept_id into @concept_id1 from concept_view where concept_full_name ='Baseline, Reason for next assessment';
