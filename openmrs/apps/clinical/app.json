@@ -313,7 +313,7 @@
       "SAE Form, TB drug name": {
         "dropdown": true
       },
-      "SAE Form, Related tests": {
+      "SAE Form, Related tests (data from PV unit summary)": {
         "allowAddMore": true
       },
       "SAE Form, Related test": {
