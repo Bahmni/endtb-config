@@ -1418,7 +1418,7 @@
         <comment> Sql for selecting results for data integrity module</comment>
         <sqlFile path="E1_4__DataIntegritySearch.sql"/>
     </changeSet>
-    <changeSet id="ENDTB-201609010211" author="Sudhamsh">
+    <changeSet id="ENDTB-201609010212" author="Sudhamsh">
         <comment>Addressing the changes in the type and Reason for next assessment </comment>
         <sql>
             select concept_id into @concept_id1 from concept_view where concept_full_name ='Baseline, Reason for next assessment';
@@ -1443,6 +1443,7 @@
             delete from concept_answer where answer_concept in ( @concept_id11 ) and concept_id=@concept_id4;
             delete from concept_answer where answer_concept in ( @concept_id12 ) and concept_id in ( @concept_id5, @concept_id6, @concept_id7, @concept_id8 );
             delete from concept_answer where answer_concept in ( @concept_id13 ) and concept_id=@concept_id5;
+            update concept_answer set sort_weight=2 where answer_concept=@concept_id16 and concept_id=@concept_id5;
         </sql>
     </changeSet>
     <changeSet id="ENDTB-201609010215" author="Sudhamsh">
