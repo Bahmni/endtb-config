@@ -1442,11 +1442,11 @@
             delete from concept_answer where answer_concept=@concept_id_child and concept_id in (@concept_id1,@concept_id2,@concept_id3);    
         </sql>
     </changeSet>
-    <changeSet id="ENDTB-201609010426" author="Sudhamsh">
+    <changeSet id="ENDTB-201609010428" author="Sudhamsh">
         <comment>Removing '(data from PV unit summary)' from fully specified names</comment>
         <sql>
             select concept_id into @concept_id1 from concept_view where concept_full_name = 'SAE Form, Related tests (data from PV unit summary)';
-            update concept_name set name = 'SAE Form, Related tests' where concept_name_type='FULLY_SPECIFIED' and concept_id = @concept_id1;
+            update concept_name set name = 'Related tests' where concept_name_type='SHORT' and concept_id = @concept_id1;
         </sql>
     </changeSet>
 </databaseChangeLog>
