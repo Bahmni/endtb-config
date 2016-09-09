@@ -4,8 +4,8 @@
     "displayByDefault": true,
     "maxRecentlyViewedPatients": 10,
     "printing": {
-      "title": "EndTB General Patient Monitering",
-      "header": "Patient Monitering",
+      "title": "EndTB General Patient Monitoring",
+      "header": "Patient Monitoring",
       "logo": "../images/bahmniLogo.png",
       "showNameAndImage": true
     },
@@ -64,7 +64,7 @@
         "showDetailsButton": true,
         "displayOrder": 3,
         "dashboardConfig": {
-          "showOnlyActive": true,
+          "showOnlyActive": false,
           "drugConceptSet": "All Other Drugs"
         }
       },
