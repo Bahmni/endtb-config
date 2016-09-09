@@ -20,6 +20,8 @@
     "visitUuid"
   ],
   "config": {
+    "showNetworkStatusMessage": true,
+    "networkStatusCheckInterval": 5000,
     "defaultVisitType": "General",
     "showSaveConfirmDialog" : true,
     "showFormsDate" : true,
@@ -49,6 +51,9 @@
     },
     "visitTypeForRetrospectiveEntries": "GENERAL",
     "conceptSetUI": {
+      "All Observation Templates": {
+        "showPanelView": true
+      },
       "Baseline, Date of baseline": {
         "required": true
       },
