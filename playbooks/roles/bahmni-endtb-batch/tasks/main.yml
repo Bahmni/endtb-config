@@ -3,3 +3,10 @@
 
 - name: Install bahmni-endtb-batch
   yum:  name=https://dl.bintray.com/bahmni/rpm/rpms/bahmni-endtb-batch-1.1.0-63.noarch.rpm state=present
+
+- name: Get bahmniapps from remote location if configured
+  get_url: url={{ bahmniapps_url }}
+   force=yes
+   dest=/opt/bahmni-web/etc/bahmniapps
+   mode=0755
+  when: bahmniapps_url is defined
