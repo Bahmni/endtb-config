@@ -1,0 +1,81 @@
+{
+  "milestones": [
+    {
+      "name": "M1",
+      "min": 0,
+      "max": 30,
+      "entities": {
+        "clinical": {
+          "singleConcepts": [
+            "Baseline, Prison"
+          ],
+          "groupConcepts": {
+            "asd": [
+              "qwe",
+              "123"
+            ]
+          }
+        },
+        "bacteriology": {
+          "singleConcepts": [
+            "Bacteriology, Fluoroquinolone"
+          ],
+          "groupConcepts": {}
+        },
+        "drugs": {
+          "singleConcepts": [
+            "Isoniazid"
+          ],
+          "groupConcepts": {}
+        }
+      }
+    },
+    {
+      "name": "M2",
+      "min": 31,
+      "max": 60
+    },
+    {
+      "name": "M3",
+      "min": 61,
+      "max": 90
+    },
+    {
+      "name": "M4",
+      "min": 91,
+      "max": 120
+    },
+    {
+      "name": "M5",
+      "min": 121,
+      "max": 150
+    },
+    {
+      "name": "M6",
+      "min": 151,
+      "max": 180
+    }
+  ],
+  "entities": {
+    "clinical": {
+      "singleConcepts": [
+        "Height (cm)",
+        "Weight (kg)"
+      ],
+      "groupConcepts": {}
+    },
+    "bacteriology": {
+      "singleConcepts": [
+        "Bacteriology, Culture results"
+      ],
+      "groupConcepts": {}
+    },
+    "drugs": {
+      "singleConcepts": [
+        "Delamanid"
+      ],
+      "groupConcepts": {}
+    }
+  },
+  "startDateConcept": "TUBERCULOSIS DRUG TREATMENT START DATE"
+}
