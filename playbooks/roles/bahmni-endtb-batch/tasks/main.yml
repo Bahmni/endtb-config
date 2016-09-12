@@ -7,13 +7,16 @@
 - name: Get bahmniapps from remote location if configured
   get_url: url={{ bahmniapps_url }}
    force=yes
-   dest=/opt/bahmni-web/etc/bahmniapps/openmrs-module-bahmniapps-endtb-release-0.84.zip
+   dest=/opt/bahmni-web/etc/openmrs-module-bahmniapps-endtb-release-0.84.zip
    mode=0755
   when: bahmniapps_url is defined
+
 - name: Unzip downloaded bahmniapps file
   unarchive:
-   src=/opt/bahmni-web/etc/bahmniapps/openmrs-module-bahmniapps-endtb-release-0.84.zip
-   dest=/opt/bahmni-web/etc/bahmniapps
-   force=yes
-   mode=0755
+   src=/opt/bahmni-web/etc/openmrs-module-bahmniapps-endtb-release-0.84.zip
+   dest=/opt/bahmni-web/etc/
+  when: bahmniapps_url is defined
+
+- name: copy unzipped downloaded bahmniapps folder
+  command: cp -r --no-target-directory /opt/bahmni-web/etc/openmrs-module-bahmniapps-endtb-release-0.84 /opt/bahmni-web/etc/bahmniapps
   when: bahmniapps_url is defined
