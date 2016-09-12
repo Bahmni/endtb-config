@@ -12,8 +12,12 @@
     "sections": {
       "seriousAdverseEvents": {
         "translationKey": "SUMMARY_TITLE_PATIENT_OBSERVATION_CHART",
-        "type": "patientObservationsChart",
-        "displayType": "Full-Page"
+        "type": "custom",
+        "displayType": "Full-Page",
+        "config": {
+          "title": "Co-morbidities",
+          "template": "<patient-monitoring-tool section='section' patient='patient' enrollment='{{enrollment}}'></patient-monitoring-tool>"
+        }
       }
     },
     "translationKey": "DASHBOARD_TAB_PATIENT_MONITERING_KEY"

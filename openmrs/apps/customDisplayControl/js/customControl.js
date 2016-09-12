@@ -62,4 +62,36 @@ angular.module('bahmni.common.displaycontrol.custom')
         link: link,
         template: '<ng-include src="contentUrl"/>'
     }
-}]);
+}]).directive('patientMonitoringTool', ['$translate', 'spinner', 'observationsService', '$q', 'appService',
+    function ($translate, spinner, observationsService, $q, appService) {
+        var link = function ($scope) {
+
+            var getPatientObservationChartData = function () {
+
+                return observationsService.fetchPatientMonitoringChartData('/openmrs/ws/rest/v1/endtb/patientFlowsheet', $scope.patient.uuid, $scope.enrollment).success(function (data) {
+                    $scope.flowsheetHeader = data.flowsheetHeader;
+                    $scope.flowsheetData = data.flowsheetData;
+                    //$scope.flowsheetDataKeys = Object.keys($scope.flowsheetData);
+                    $scope.highlightedColumnIndex = data.flowsheetHeader.indexOf(data.currentMilestoneName);
+                })
+            };
+
+            var init = function () {
+                return $q.all([getPatientObservationChartData()]).then(function () {
+                });
+            };
+            $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/patientMonitoringTool.html";
+
+            spinner.forPromise(init());
+        };
+        return {
+            restrict: 'E',
+            link: link,
+            scope: {
+                section: "=",
+                patient: "=",
+                enrollment: "@"
+            },
+            template: '<ng-include src="contentUrl"/>'
+        };
+    }]);;

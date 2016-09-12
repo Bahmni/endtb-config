@@ -1,0 +1,32 @@
+<section class="dashboard-tabular-obs-section" id="tabular-obs">
+    <div>
+        <h2 class="section-title">{{section | titleTranslate}}</h2>
+        <section class="patient-monitering">
+            <div class="legends">
+                Legends : <span class="monitoring-legends-color">Current Month </span>
+                <span class="legends-color legends-yellow"> Planned monitoring schedule </span>
+                <span class="legends-color legends-green"> Date added </span>
+                <span class="legends-color legends-purple">Pending data entry </span>
+            </div>
+            <div class="monitoring-table-wrap">
+                <div class="monitoring-table-scroll">
+                    <table>
+                        <tr>
+                            <th class="monitoring-fixed-column"> </th>
+                            <th ng-repeat="header in flowsheetHeader"
+                                ng-class="{'monitoring-results—-current': $index == highlightedColumnIndex}">
+                                {{header}}
+                                <hint concept-details="header"/>
+                            </th>
+                        </tr>
+                        <tr ng-repeat="(key, value) in flowsheetData">
+                            <td class="monitoring-fixed-column">{{ key }}</td>
+                            <td ng-repeat="data in value track by $index" class="monitoring-results monitoring-results--{{data}}"
+                                ng-class="{'monitoring-results—-current': $index == highlightedColumnIndex}"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+</section>
