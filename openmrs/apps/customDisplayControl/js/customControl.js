@@ -62,8 +62,8 @@ angular.module('bahmni.common.displaycontrol.custom')
         link: link,
         template: '<ng-include src="contentUrl"/>'
     }
-}]).directive('patientMonitoringTool', ['$http', '$translate', 'spinner', '$q', 'appService',
-    function ($http, $translate, spinner, $q, appService) {
+}]).directive('patientMonitoringTool', ['$http', '$translate', 'spinner', '$q', 'appService', 'messagingService',
+    function ($http, $translate, spinner, $q, appService, messagingService) {
         var link = function ($scope) {
 
             var getPatientObservationChartData = function () {
@@ -71,6 +71,11 @@ angular.module('bahmni.common.displaycontrol.custom')
                 return fetchPatientMonitoringChartData('/openmrs/ws/rest/v1/endtb/patientFlowsheet', $scope.patient.uuid, $scope.enrollment).success(function (data) {
                     $scope.flowsheetHeader = data.flowsheetHeader;
                     $scope.flowsheetData = data.flowsheetData;
+                    $scope.startDate = data.startDate;
+                    if($scope.startDate == null) {
+                        messagingService.showMessage("error", "Start date missing. Cannot display monitoring schedule");
+                    }
+
                     $scope.highlightedColumnIndex = data.flowsheetHeader.indexOf(data.currentMilestoneName);
                 })
             };
