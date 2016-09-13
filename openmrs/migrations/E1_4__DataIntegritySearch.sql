@@ -26,8 +26,6 @@ VALUES ('endtb.sqlSearch.dataIntegrity',
                     JOIN
                 episode_patient_program epp ON epp.patient_program_id = pp.patient_program_id
                     JOIN
-                episode_encounter ee ON ee.episode_id = epp.episode_id
-                    JOIN
                 person p ON pp.patient_id = p.person_id
                     JOIN
                 program prog ON prog.program_id = pp.program_id
@@ -41,8 +39,9 @@ VALUES ('endtb.sqlSearch.dataIntegrity',
                     JOIN
                 program_attribute_type pat ON ppa.attribute_type_id = pat.program_attribute_type_id
                     LEFT JOIN
-                (SELECT DISTINCT
-                    COALESCE(MAX(treat_det_coded.concept_full_name), MAX(cv_reg.concept_full_name)) AS facility,
+                episode_encounter ee ON ee.episode_id = epp.episode_id
+                    LEFT JOIN
+                    (SELECT DISTINCT COALESCE(MAX(treat_det_coded.concept_full_name), MAX(cv_reg.concept_full_name)) AS facility,
                         epp.patient_program_id
                 FROM
                     episode_patient_program epp
