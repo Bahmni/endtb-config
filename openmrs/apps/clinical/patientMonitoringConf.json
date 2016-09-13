@@ -10,9 +10,9 @@
             "Baseline, Prison"
           ],
           "groupConcepts": {
-            "asd": [
-              "qwe",
-              "123"
+            "BMI": [
+              "Height (cm)",
+              "Weight (kg)"
             ]
           }
         },
@@ -43,7 +43,25 @@
     {
       "name": "M4",
       "min": 91,
-      "max": 120
+      "max": 120,
+      "entities": {
+        "clinical": {
+          "singleConcepts": [],
+          "groupConcepts": {}
+        },
+        "bacteriology": {
+          "singleConcepts": [
+            "Bacteriology, Fluoroquinolone"
+          ],
+          "groupConcepts": {}
+        },
+        "drugs": {
+          "singleConcepts": [
+            "Isoniazid"
+          ],
+          "groupConcepts": {}
+        }
+      }
     },
     {
       "name": "M5",
@@ -74,6 +92,56 @@
       "name": "M10",
       "min": 271,
       "max": 300
+    },
+    {
+      "name": "M11",
+      "min": 301,
+      "max": 330
+    },
+    {
+      "name": "M12",
+      "min": 331,
+      "max": 360
+    },
+    {
+      "name": "M13",
+      "min": 361,
+      "max": 390
+    },
+    {
+      "name": "M14",
+      "min": 391,
+      "max": 420
+    },
+    {
+      "name": "M15",
+      "min": 421,
+      "max": 450
+    },
+    {
+      "name": "M16",
+      "min": 451,
+      "max": 480
+    },
+    {
+      "name": "M17",
+      "min": 481,
+      "max": 510
+    },
+    {
+      "name": "M18",
+      "min": 511,
+      "max": 540
+    },
+    {
+      "name": "M90",
+      "min": 541,
+      "max": 570
+    },
+    {
+      "name": "M20",
+      "min": 571,
+      "max": 600
     }
   ],
   "entities": {
@@ -97,5 +165,6 @@
       "groupConcepts": {}
     }
   },
-  "startDateConcept": "TUBERCULOSIS DRUG TREATMENT START DATE"
+  "startDateConcept": "TUBERCULOSIS DRUG TREATMENT START DATE",
+  "endDateConcept": "EOT, End of Treatment Outcome date"
 }

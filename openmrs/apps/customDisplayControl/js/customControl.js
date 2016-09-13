@@ -89,18 +89,24 @@ angular.module('bahmni.common.displaycontrol.custom')
         link: link,
         template: '<ng-include src="contentUrl"/>'
     }
-}]).directive('patientMonitoringTool', ['$translate', 'spinner', 'observationsService', '$q', 'appService',
-    function ($translate, spinner, observationsService, $q, appService) {
+}]).directive('patientMonitoringTool', ['$http', '$translate', 'spinner', '$q', 'appService',
+    function ($http, $translate, spinner, $q, appService) {
         var link = function ($scope) {
 
             var getPatientObservationChartData = function () {
 
-                return observationsService.fetchPatientMonitoringChartData('/openmrs/ws/rest/v1/endtb/patientFlowsheet', $scope.patient.uuid, $scope.enrollment).success(function (data) {
+                return fetchPatientMonitoringChartData('/openmrs/ws/rest/v1/endtb/patientFlowsheet', $scope.patient.uuid, $scope.enrollment).success(function (data) {
                     $scope.flowsheetHeader = data.flowsheetHeader;
                     $scope.flowsheetData = data.flowsheetData;
-                    //$scope.flowsheetDataKeys = Object.keys($scope.flowsheetData);
                     $scope.highlightedColumnIndex = data.flowsheetHeader.indexOf(data.currentMilestoneName);
                 })
+            };
+
+            var fetchPatientMonitoringChartData = function(url, patientUuid, programUuid) {
+                return $http.get(url, {
+                    params: {patientUuid: patientUuid, programUuid: programUuid},
+                    withCredentials: true
+                });
             };
 
             var init = function () {
