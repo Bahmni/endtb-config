@@ -14,7 +14,7 @@
                         <tr>
                             <th class="monitoring-fixed-column"> </th>
                             <th ng-repeat="header in flowsheetHeader"
-                                ng-class="{'monitoring-results—-current': $index == highlightedColumnIndex}">
+                                ng-class="{'monitoring-resultsCurrent': $index == highlightedColumnIndex}">
                                 {{header}}
                                 <hint concept-details="header"/>
                             </th>
@@ -22,7 +22,7 @@
                         <tr ng-repeat="(key, value) in flowsheetData">
                             <td class="monitoring-fixed-column">{{ key }}</td>
                             <td ng-repeat="data in value track by $index" class="monitoring-results monitoring-results--{{data}}"
-                                ng-class="{'monitoring-results—-current': $index == highlightedColumnIndex}"></td>
+                                ng-class="{'monitoring-results--{{data}}Current': $index == highlightedColumnIndex}"></td>
                         </tr>
                     </table>
                 </div>
