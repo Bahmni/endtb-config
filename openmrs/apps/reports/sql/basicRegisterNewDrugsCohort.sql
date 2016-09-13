@@ -32,7 +32,7 @@ SELECT
   DATE_FORMAT(results.tb_treatment_end_date, '%d/%b/%Y') AS `End of treatment date`,
   results.`Next visit`
 FROM
-(SELECT  ppa.value_reference AS `Registration Number`,
+(SELECT  MAX(IF(pat.name='Registration Number', ppa.value_reference, NULL )) AS `Registration Number`,
         pi.identifier AS `EMR ID`,
         person_name.family_name AS `Patient Last name`,
         person_name.given_name AS `Patient First name`,
@@ -47,7 +47,7 @@ FROM
         TRUNCATE(MAX(IF(dd.name = 'Delamanid (Dlm)',dd.duration,NULL )),1) AS `Dlm Duration`,
         MAX(IF(dd.name = 'Bedaquiline (Bdq)',DATE_FORMAT(dd.start_date, '%d/%b/%Y'),NULL )) AS `Bdq Start Date`,
         TRUNCATE(MAX(IF(dd.name = 'Bedaquiline (Bdq)',dd.duration,NULL )),1) AS `Bdq Duration`,
-  cf.facility AS `Current facility`,
+        IFNULL(cf.facility, MAX(IF(pat.name='Registration Facility', (SELECT concept_full_name from concept_view WHERE concept_id = ppa.value_reference), NULL ))) AS `Current facility`,
         DATE_FORMAT(regimen.regimen_date, '%d/%b/%Y') AS `Last ttr Change date`,
   regimen.E        ,
   regimen.H        ,
@@ -239,7 +239,7 @@ FROM
       AND epp.patient_program_id = patient_program.patient_program_id
       AND ppa.patient_program_id = patient_program.patient_program_id
       AND ppa.attribute_type_id = pat.program_attribute_type_id
-      AND pat.name = 'Registration Number'
+      AND (pat.name = 'Registration Number' OR pat.name = 'Registration Facility')
       AND ee.episode_id = epp.episode_id
       AND ee.encounter_id = e.encounter_id
       AND bdq_dlm_orders.encounter_id = ee.encounter_id
