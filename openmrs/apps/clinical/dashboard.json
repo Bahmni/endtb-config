@@ -1,6 +1,6 @@
 {
   "shouldOverRideConfig": true,
-  "monitering": {
+  "monitoring": {
     "displayByDefault": true,
     "maxRecentlyViewedPatients": 10,
     "printing": {

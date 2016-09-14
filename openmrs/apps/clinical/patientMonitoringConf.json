@@ -10,7 +10,7 @@
             "Baseline, Prison"
           ],
           "groupConcepts": {
-            "BMI": [
+            "groupconcept": [
               "Height (cm)",
               "Weight (kg)"
             ]
@@ -38,7 +38,25 @@
     {
       "name": "M3",
       "min": 61,
-      "max": 90
+      "max": 90,
+      "entities": {
+        "clinical": {
+          "singleConcepts": [],
+          "groupConcepts": {}
+        },
+        "bacteriology": {
+          "singleConcepts": [
+            "Bacteriology, Fluoroquinolone"
+          ],
+          "groupConcepts": {}
+        },
+        "drugs": {
+          "singleConcepts": [
+            "Isoniazid"
+          ],
+          "groupConcepts": {}
+        }
+      }
     },
     {
       "name": "M4",
