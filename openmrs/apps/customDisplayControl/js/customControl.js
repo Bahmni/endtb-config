@@ -125,11 +125,6 @@ angular.module('bahmni.common.displaycontrol.custom')
         return {
             restrict: 'E',
             link: link,
-            scope: {
-                section: "=",
-                patient: "=",
-                enrollment: "@"
-            },
             template: '<ng-include src="contentUrl"/>'
         };
     }]);;
