@@ -19,7 +19,7 @@
           }
       }
     },
-    "translationKey": "DASHBOARD_TAB_PATIENT_MONITERING_KEY"
+    "translationKey": "DASHBOARD_TAB_PATIENT_MONITORING_KEY"
   },
   "general": {
     "displayByDefault": true,
