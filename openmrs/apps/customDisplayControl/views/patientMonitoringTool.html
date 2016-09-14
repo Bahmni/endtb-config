@@ -1,11 +1,24 @@
 <div>
+    <section  class="dashboard-tabular-obs-section" id="attributes">
+        <div>
+            <h2 class="section-title">{{"PATIENT_MONITORING_SCHEDULE_TOOL_TITLE" | titleTranslate}} </h2>
+            <div>{{"PATIENT_MONITORING_REGISTRATION_NUMBER" | titleTranslate }} : {{treatmentRegNum}}</div>
+            <div>{{"PATIENT_MONITORING_REPORT_DATE" | titleTranslate}}: {{reportDate | bahmniDate}}</div>
+            <div>{{"PATIENT_MONITORING_EMR_ID" | titleTranslate}}: {{patientEMRID}}</div>
+            <div>{{"PATIENT_MONITORING_START_DATE_OF_NEW_DRUG_TREATMENT" | titleTranslate }}: {{drugStartDate | bahmniDate}}</div>
+            <div>{{"PATIENT_MONITORING_START_DATE_OF_MDRTB_TREATMENT" | titleTranslate }}: {{mdrtbTreatementStartDate | bahmniDate}}</div>
+            <div>{{"PATIENT_MONITORING_ACTIVE_DRUG_REGIMEN" | titleTranslate }}: {{activeTBRegimen}}</div>
+            <div>{{"PATIENT_MONITORING_CURRENT_MONTH_OF_NEW_DRUG_TREATMENT" | titleTranslate }} : {{currentMonthOfNewDrugTreatment | number : 1}}</div>
+            <div>{{"PATIENT_MONITORING_CURRENT_MONTH_OF_MDRTB_TREATMENT" | titleTranslate }} : {{currentMonthOfMDRTBTreatment | number : 1}}</div>
+        </div>
+    </section>
     <h2 class="section-title">{{config.title | titleTranslate}}</h2>
     <section class="patient-monitering">
         <div class="legends">
-            Legends : <span class="monitoring-legends-color">Current Month </span>
-            <span class="legends-color legends-yellow"> Planned monitoring schedule </span>
-            <span class="legends-color legends-green"> Date added </span>
-            <span class="legends-color legends-purple">Pending data entry </span>
+            {{"PATIENT_MONITORING_LEGENDS" | titleTranslate }} : <span class="monitoring-legends-color">{{"PATIENT_MONITORING_CURRENT_MONTH" | titleTranslate}} </span>
+            <span class="legends-color legends-yellow"> {{"PATIENT_MONITORING_PLANNED_MONITORING_SCHEDULE" | titleTranslate }} </span>
+            <span class="legends-color legends-green"> {{"PATIENT_MONITORING_DATE_ADDED" | titleTranslate }} </span>
+            <span class="legends-color legends-purple">{{"PATIENT_MONITORING_PENDING_DATA_ENTRY" | titleTranslate }}</span>
         </div>
         <div class="monitoring-table-wrap">
             <div class="monitoring-table-scroll">

@@ -93,6 +93,38 @@ angular.module('bahmni.common.displaycontrol.custom')
     function ($http, $translate, spinner, $q, appService, messagingService) {
         var link = function ($scope) {
 
+           var fetchFlowsheetAttributes = function(patientProgramUuid) {
+                return $http.get('/openmrs/ws/rest/v1/endtb/patientFlowsheetAttributes', {
+                    params: { patientProgramUuid: patientProgramUuid},
+                    withCredentials: true
+                });
+            };
+
+            var getAllDrugOrdersFor = function (patientUuid, conceptSetToBeIncluded, conceptSetToBeExcluded, isActive, patientProgramUuid, $q ) {
+                var deferred = $q.defer();
+                var params= {patientUuid: patientUuid};
+                if(conceptSetToBeIncluded){
+                    params.includeConceptSet = conceptSetToBeIncluded;
+                }
+                if(conceptSetToBeExcluded){
+                    params.excludeConceptSet = conceptSetToBeExcluded;
+                }
+                if(isActive !== undefined){
+                    params.isActive=isActive;
+                }
+                if(patientProgramUuid){
+                    params.patientProgramUuid = patientProgramUuid;
+                }
+
+                $http.get(Bahmni.Common.Constants.bahmniDrugOrderUrl + "/drugOrderDetails", {
+                    params: params,
+                    withCredentials: true
+                }).success(function (response) {
+                    deferred.resolve(response);
+                });
+                return deferred.promise;
+            };
+
             var getPatientObservationChartData = function () {
 
                 return fetchPatientMonitoringChartData('/openmrs/ws/rest/v1/endtb/patientFlowsheet', $scope.patient.uuid, $scope.enrollment).success(function (data) {
@@ -114,8 +146,36 @@ angular.module('bahmni.common.displaycontrol.custom')
                 });
             };
 
+            var getPatientAttributes = function () {
+                return fetchFlowsheetAttributes($scope.enrollment).success(function (data) {
+                    $scope.treatmentRegNum = data.treatmentRegistrationNumber;
+                    $scope.reportDate = new Date();
+                    $scope.patientEMRID = data.patientEMRID;
+                    $scope.drugStartDate = data.newDrugTreatmentStartDate;
+                    $scope.mdrtbTreatementStartDate = data.mdrtbTreatmentStartDate;
+
+                    if($scope.drugStartDate != null){
+                        $scope.currentMonthOfNewDrugTreatment = Bahmni.Common.Util.DateUtil.diffInDays($scope.drugStartDate - $scope.reportDate)/30.5;
+                     }
+
+                    if($scope.mdrtbTreatementStartDate != null){
+                        $scope.currentMonthOfMDRTBTreatment = Bahmni.Common.Util.DateUtil.diffInDays($scope.mdrtbTreatementStartDate - $scope.reportDate)/30.5;
+                    }
+                });
+            };
+
+            var getActiveTBDrugOrders = function () {
+                return getAllDrugOrdersFor($scope.patient.uuid, "All TB Drugs", null, true, $scope.enrollment, $q).then(function (responseData) {
+                    $scope.activeTBRegimen = _.map(responseData, function(data){
+                        return _.find(data.concept.mappings, function(mapping){
+                            return mapping.source === "Abbreviation";
+                        }).code;
+                    }).join("-");
+                });
+            };
+
             var init = function () {
-                return $q.all([getPatientObservationChartData()]).then(function () {
+                return $q.all([getPatientObservationChartData(), getPatientAttributes(), getActiveTBDrugOrders()]).then(function () {
                 });
             };
             $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/patientMonitoringTool.html";
@@ -127,4 +187,4 @@ angular.module('bahmni.common.displaycontrol.custom')
             link: link,
             template: '<ng-include src="contentUrl"/>'
         };
-    }]);;
+    }]);
