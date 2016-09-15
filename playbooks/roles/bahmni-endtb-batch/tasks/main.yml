@@ -12,7 +12,11 @@
   when: bahmniapps_url is defined
 
 - name: Unzip downloaded bahmniapps file
-  command: unzip /opt/bahmni-web/etc/bahmniapps.zip -d /opt/bahmni-web/etc/endtb-bahmniapps
+  unarchive:
+    src=/opt/bahmni-web/etc/bahmniapps.zip
+    dest=/opt/bahmni-web/etc/endtb-bahmniapps
+    creates=yes
+    mode=0755
   when: bahmniapps_url is defined
 
 - name: unlinking /var/www/bahmniapps
