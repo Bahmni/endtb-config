@@ -11,16 +11,16 @@
    mode=0755
   when: bahmniapps_url is defined
 
+- name: unlinking /var/www/bahmniapps
+  command: unlink /var/www/bahmniapps
+  when: bahmniapps_url is defined
+
 - name: Removing endtb-bahmniapps folder
   command: rm -rf /opt/bahmni-web/etc/endtb-bahmniapps
   when: bahmniapps_url is defined
 
 - name: Unzip downloaded bahmniapps file
   command: unzip /opt/bahmni-web/etc/bahmniapps.zip -d /opt/bahmni-web/etc/endtb-bahmniapps
-  when: bahmniapps_url is defined
-
-- name: unlinking /var/www/bahmniapps
-  command: unlink /var/www/bahmniapps
   when: bahmniapps_url is defined
 
 - name: linking /var/www/bahmniapps to entdb-release-84 bahmniapps
