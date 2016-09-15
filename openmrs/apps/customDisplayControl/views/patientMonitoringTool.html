@@ -1,44 +1,43 @@
-<div>
-    <section  class="dashboard-tabular-obs-section" id="attributes">
-        <div>
-            <h2 class="section-title">{{"PATIENT_MONITORING_SCHEDULE_TOOL_TITLE" | titleTranslate}} </h2>
-            <div>{{"PATIENT_MONITORING_REGISTRATION_NUMBER" | titleTranslate }} : {{treatmentRegNum}}</div>
-            <div>{{"PATIENT_MONITORING_REPORT_DATE" | titleTranslate}}: {{reportDate | bahmniDate}}</div>
-            <div>{{"PATIENT_MONITORING_EMR_ID" | titleTranslate}}: {{patientEMRID}}</div>
-            <div>{{"PATIENT_MONITORING_START_DATE_OF_NEW_DRUG_TREATMENT" | titleTranslate }}: {{drugStartDate | bahmniDate}}</div>
-            <div>{{"PATIENT_MONITORING_START_DATE_OF_MDRTB_TREATMENT" | titleTranslate }}: {{mdrtbTreatementStartDate | bahmniDate}}</div>
-            <div>{{"PATIENT_MONITORING_ACTIVE_DRUG_REGIMEN" | titleTranslate }}: {{activeTBRegimen}}</div>
-            <div>{{"PATIENT_MONITORING_CURRENT_MONTH_OF_NEW_DRUG_TREATMENT" | titleTranslate }} : {{currentMonthOfNewDrugTreatment | number : 1}}</div>
-            <div>{{"PATIENT_MONITORING_CURRENT_MONTH_OF_MDRTB_TREATMENT" | titleTranslate }} : {{currentMonthOfMDRTBTreatment | number : 1}}</div>
-        </div>
-    </section>
+<section  class="dashboard-monitoring-section clearfix" id="attributes">
+    <h2 class="section-title">{{"PATIENT_MONITORING_SCHEDULE_TOOL_TITLE" | titleTranslate}} </h2>
+    <ul class="patient-monitering-schedule-details">
+        <li>{{"PATIENT_MONITORING_REGISTRATION_NUMBER" | titleTranslate }} : <span>{{treatmentRegNum}}</span></li>
+        <li>{{"PATIENT_MONITORING_REPORT_DATE" | titleTranslate}}: <span>{{reportDate | bahmniDate}}</span></li>
+        <li>{{"PATIENT_MONITORING_EMR_ID" | titleTranslate}}: <span>{{patientEMRID}}</span></li>
+        <li>{{"PATIENT_MONITORING_START_DATE_OF_NEW_DRUG_TREATMENT" | titleTranslate }}: <span>{{drugStartDate | bahmniDate}}</span></li>
+        <li>{{"PATIENT_MONITORING_START_DATE_OF_MDRTB_TREATMENT" | titleTranslate }}: <span>{{mdrtbTreatementStartDate | bahmniDate}}</span></li>
+        <li>{{"PATIENT_MONITORING_ACTIVE_DRUG_REGIMEN" | titleTranslate }}: <span>{{activeTBRegimen}}</span></li>
+        <li>{{"PATIENT_MONITORING_CURRENT_MONTH_OF_NEW_DRUG_TREATMENT" | titleTranslate }} : <span>{{currentMonthOfNewDrugTreatment | number : 1}}</span></li>
+        <li>{{"PATIENT_MONITORING_CURRENT_MONTH_OF_MDRTB_TREATMENT" | titleTranslate }} : <span>{{currentMonthOfMDRTBTreatment | number : 1}}</span></li>
+    </ul>
+</section>
+
+<section class="patient-monitering">
     <h2 class="section-title">{{config.title | titleTranslate}}</h2>
-    <section class="patient-monitering">
-        <div class="legends">
-            {{"PATIENT_MONITORING_LEGENDS" | titleTranslate }} : <span class="monitoring-legends-color">{{"PATIENT_MONITORING_CURRENT_MONTH" | titleTranslate}} </span>
-            <span class="legends-color legends-yellow"> {{"PATIENT_MONITORING_PLANNED_MONITORING_SCHEDULE" | titleTranslate }} </span>
-            <span class="legends-color legends-green"> {{"PATIENT_MONITORING_DATE_ADDED" | titleTranslate }} </span>
-            <span class="legends-color legends-purple">{{"PATIENT_MONITORING_PENDING_DATA_ENTRY" | titleTranslate }}</span>
+    <div class="legends">
+        {{"PATIENT_MONITORING_LEGENDS" | titleTranslate }} : <span class="monitoring-legends">{{"PATIENT_MONITORING_CURRENT_MONTH" | titleTranslate}} </span>
+        <span class="monitoring-legends monitoring-legends--yellow"> {{"PATIENT_MONITORING_PLANNED_MONITORING_SCHEDULE" | titleTranslate }} </span>
+        <span class="monitoring-legends monitoring-legends--green"> {{"PATIENT_MONITORING_DATE_ADDED" | titleTranslate }} </span>
+        <span class="monitoring-legends monitoring-legends--purple">{{"PATIENT_MONITORING_PENDING_DATA_ENTRY" | titleTranslate }}</span>
+    </div>
+    <div class="monitoring-table-wrap">
+        <div class="monitoring-table-scroll">
+            <table>
+                <tr>
+                    <th class="monitoring-fixed-column"></th>
+                    <th ng-repeat="header in flowsheetHeader"
+                        ng-class="{'monitoring-resultsCurrent': $index == highlightedColumnIndex}">
+                        {{header}}
+                        <hint concept-details="header"/>
+                    </th>
+                </tr>
+                <tr ng-repeat="(key, value) in flowsheetData">
+                    <td class="monitoring-fixed-column">{{ key }}</td>
+                    <td ng-repeat="data in value track by $index"
+                        class="monitoring-results monitoring-results--{{data}}"
+                        ng-class="{'monitoring-results--{{data}}Current': $index == highlightedColumnIndex}"></td>
+                </tr>
+            </table>
         </div>
-        <div class="monitoring-table-wrap">
-            <div class="monitoring-table-scroll">
-                <table>
-                    <tr>
-                        <th class="monitoring-fixed-column"></th>
-                        <th ng-repeat="header in flowsheetHeader"
-                            ng-class="{'monitoring-resultsCurrent': $index == highlightedColumnIndex}">
-                            {{header}}
-                            <hint concept-details="header"/>
-                        </th>
-                    </tr>
-                    <tr ng-repeat="(key, value) in flowsheetData">
-                        <td class="monitoring-fixed-column">{{ key }}</td>
-                        <td ng-repeat="data in value track by $index"
-                            class="monitoring-results monitoring-results--{{data}}"
-                            ng-class="{'monitoring-results--{{data}}Current': $index == highlightedColumnIndex}"></td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </section>
-</div>
+    </div>
+</section>
