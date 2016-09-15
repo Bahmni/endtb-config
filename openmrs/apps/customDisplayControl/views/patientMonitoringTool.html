@@ -1,19 +1,19 @@
-<section  class="dashboard-monitoring-section clearfix" id="attributes">
+<section class="dashboard-monitoring-section clearfix" id="attributes">
     <h2 class="section-title">{{"PATIENT_MONITORING_SCHEDULE_TOOL_TITLE" | titleTranslate}} </h2>
-    <ul class="patient-monitering-schedule-details">
-        <li>{{"PATIENT_MONITORING_REGISTRATION_NUMBER" | titleTranslate }} : <span>{{treatmentRegNum}}</span></li>
-        <li>{{"PATIENT_MONITORING_REPORT_DATE" | titleTranslate}}: <span>{{reportDate | bahmniDate}}</span></li>
-        <li>{{"PATIENT_MONITORING_EMR_ID" | titleTranslate}}: <span>{{patientEMRID}}</span></li>
-        <li>{{"PATIENT_MONITORING_START_DATE_OF_NEW_DRUG_TREATMENT" | titleTranslate }}: <span>{{drugStartDate | bahmniDate}}</span></li>
-        <li>{{"PATIENT_MONITORING_START_DATE_OF_MDRTB_TREATMENT" | titleTranslate }}: <span>{{mdrtbTreatementStartDate | bahmniDate}}</span></li>
-        <li>{{"PATIENT_MONITORING_ACTIVE_DRUG_REGIMEN" | titleTranslate }}: <span>{{activeTBRegimen}}</span></li>
-        <li>{{"PATIENT_MONITORING_CURRENT_MONTH_OF_NEW_DRUG_TREATMENT" | titleTranslate }} : <span>{{currentMonthOfNewDrugTreatment | number : 1}}</span></li>
-        <li>{{"PATIENT_MONITORING_CURRENT_MONTH_OF_MDRTB_TREATMENT" | titleTranslate }} : <span>{{currentMonthOfMDRTBTreatment | number : 1}}</span></li>
-    </ul>
+    <div class="patient-monitering-schedule-details clearfix">
+        <ul>
+            <li>{{"PATIENT_MONITORING_REGISTRATION_NUMBER" | titleTranslate }} : <span>{{treatmentRegNum}}</span></li>
+            <li>{{"PATIENT_MONITORING_REPORT_DATE" | titleTranslate}}: <span>{{reportDate | bahmniDate}}</span></li>
+            <li>{{"PATIENT_MONITORING_EMR_ID" | titleTranslate}}: <span>{{patientEMRID}}</span></li>
+            <li>{{"PATIENT_MONITORING_START_DATE_OF_NEW_DRUG_TREATMENT" | titleTranslate }}: <span>{{drugStartDate | bahmniDate}}</span></li>
+            <li>{{"PATIENT_MONITORING_START_DATE_OF_MDRTB_TREATMENT" | titleTranslate }}: <span>{{mdrtbTreatementStartDate | bahmniDate}}</span></li>
+            <li>{{"PATIENT_MONITORING_ACTIVE_DRUG_REGIMEN" | titleTranslate }}: <span>{{activeTBRegimen}}</span></li>
+            <li>{{"PATIENT_MONITORING_CURRENT_MONTH_OF_NEW_DRUG_TREATMENT" | titleTranslate }} : <span>{{currentMonthOfNewDrugTreatment | number : 1}}</span></li>
+            <li>{{"PATIENT_MONITORING_CURRENT_MONTH_OF_MDRTB_TREATMENT" | titleTranslate }} : <span>{{currentMonthOfMDRTBTreatment | number : 1}}</span></li>
+        </ul>
+    </div>
 </section>
-
-<section class="patient-monitering">
-    <h2 class="section-title">{{config.title | titleTranslate}}</h2>
+<section class="patient-monitering-table">
     <div class="legends">
         {{"PATIENT_MONITORING_LEGENDS" | titleTranslate }} : <span class="monitoring-legends">{{"PATIENT_MONITORING_CURRENT_MONTH" | titleTranslate}} </span>
         <span class="monitoring-legends monitoring-legends--yellow"> {{"PATIENT_MONITORING_PLANNED_MONITORING_SCHEDULE" | titleTranslate }} </span>
