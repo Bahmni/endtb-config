@@ -135,7 +135,8 @@ angular.module('bahmni.common.displaycontrol.custom')
                         messagingService.showMessage("error", "Start date missing. Cannot display monitoring schedule");
                     }
 
-                    $scope.highlightedColumnIndex = data.flowsheetHeader.indexOf(data.currentMilestoneName);
+                    $scope.highlightedColumnIndex = data.flowsheetHeader.indexOf(data.highlightedMilestone);
+                    $scope.treatmentStopped = data.treatmentStopped;
                 })
             };
 
