@@ -136,7 +136,7 @@ angular.module('bahmni.common.displaycontrol.custom')
                     }
 
                     $scope.highlightedColumnIndex = data.flowsheetHeader.indexOf(data.highlightedMilestone);
-                    $scope.treatmentStopped = data.treatmentStopped;
+                    $scope.treatmentStopped = true === data.treatmentStopped;
                 })
             };
 
