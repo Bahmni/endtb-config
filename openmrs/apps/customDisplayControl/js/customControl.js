@@ -2,24 +2,10 @@
 
 angular.module('bahmni.common.displaycontrol.custom')
     .directive('birthCertificate', ['observationsService', 'appService', 'spinner', function (observationsService, appService, spinner) {
-            var link = function ($scope) {
-                console.log("inside birth certificate");
-                var conceptNames = ["HEIGHT"];
-                $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/birthCertificate.html";
-                spinner.forPromise(observationsService.fetch($scope.patient.uuid, conceptNames, "latest", undefined, $scope.visitUuid, undefined).then(function (response) {
-                    $scope.observations = response.data;
-                }));
-            };
-
-            return {
-                restrict: 'E',
-                template: '<ng-include src="contentUrl"/>',
-                link: link
-            }
-    }]).directive('deathCertificate', ['observationsService', 'appService', 'spinner', function (observationsService, appService, spinner) {
         var link = function ($scope) {
-            var conceptNames = ["WEIGHT"];
-            $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/deathCertificate.html";
+            console.log("inside birth certificate");
+            var conceptNames = ["HEIGHT"];
+            $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/birthCertificate.html";
             spinner.forPromise(observationsService.fetch($scope.patient.uuid, conceptNames, "latest", undefined, $scope.visitUuid, undefined).then(function (response) {
                 $scope.observations = response.data;
             }));
@@ -27,18 +13,32 @@ angular.module('bahmni.common.displaycontrol.custom')
 
         return {
             restrict: 'E',
-            link: link,
-            template: '<ng-include src="contentUrl"/>'
+            template: '<ng-include src="contentUrl"/>',
+            link: link
         }
-    }]).directive('coMorbidities', ['observationsService', 'appService', 'spinner', function (observationsService, appService, spinner) {
+    }]).directive('deathCertificate', ['observationsService', 'appService', 'spinner', function (observationsService, appService, spinner) {
     var link = function ($scope) {
-        var conceptNames = ["Diabetes Mellitus","Baseline, Chronic renal insufficiency","History of liver cirrhosis",
-            "Baseline, Chronic obstructive pulmonary disease", "Baseline, Has cancer","Baseline, Cancer type",
-            "Baseline, Heart or atherosclerotic disease", "Baseline, Type of heart disease","Baseline, Hepatitis B", "Baseline, Hepatitis C", "Baseline, Depression",
-            "Baseline, Has other psychiatric illness", "Baseline, Psychiatric illness type","Baseline, Seizure disorder","Baseline, Pre-existing neuropathy","Baseline, Other pre-existing disease"];
+        var conceptNames = ["WEIGHT"];
+        $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/deathCertificate.html";
+        spinner.forPromise(observationsService.fetch($scope.patient.uuid, conceptNames, "latest", undefined, $scope.visitUuid, undefined).then(function (response) {
+            $scope.observations = response.data;
+        }));
+    };
+
+    return {
+        restrict: 'E',
+        link: link,
+        template: '<ng-include src="contentUrl"/>'
+    }
+}]).directive('coMorbidities', ['observationsService', 'appService', 'spinner', function (observationsService, appService, spinner) {
+    var link = function ($scope) {
+        var conceptNames = ["Diabetes Mellitus", "Baseline, Chronic renal insufficiency", "History of liver cirrhosis",
+            "Baseline, Chronic obstructive pulmonary disease", "Baseline, Has cancer", "Baseline, Cancer type",
+            "Baseline, Heart or atherosclerotic disease", "Baseline, Type of heart disease", "Baseline, Hepatitis B", "Baseline, Hepatitis C", "Baseline, Depression",
+            "Baseline, Has other psychiatric illness", "Baseline, Psychiatric illness type", "Baseline, Seizure disorder", "Baseline, Pre-existing neuropathy", "Baseline, Other pre-existing disease"];
         $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/coMorbidities.html";
         var allComorbidityConceptNames = [];
-        var conceptNameWithFreeTextFields = ["Baseline, Has cancer","Baseline, Cancer type",
+        var conceptNameWithFreeTextFields = ["Baseline, Has cancer", "Baseline, Cancer type",
             "Baseline, Has other psychiatric illness", "Baseline, Psychiatric illness type", "Baseline, Heart or atherosclerotic disease", "Baseline, Type of heart disease"];
 
         spinner.forPromise(observationsService.fetch($scope.patient.uuid, conceptNames, undefined, undefined, $scope.visitUuid, undefined, null, $scope.enrollment).then(function (response) {
@@ -62,10 +62,10 @@ angular.module('bahmni.common.displaycontrol.custom')
                 return stringToDisplay;
             };
 
-            var addCodedObs = function(obs){
-                if(obs.value.name === "True"){
+            var addCodedObs = function (obs) {
+                if (obs.value.name === "True") {
                     var displayString = obs.conceptNameToDisplay;
-                    if(isCodedObsWithFreeText(obs)) {
+                    if (isCodedObsWithFreeText(obs)) {
                         displayString = getStringToDisplay(obs);
                     }
                     allComorbidityConceptNames.push(displayString);
@@ -73,7 +73,7 @@ angular.module('bahmni.common.displaycontrol.custom')
             };
 
             _.each(response.data, function (obs) {
-                if(isFreeTextWithoutCodedObs(obs)){
+                if (isFreeTextWithoutCodedObs(obs)) {
                     allComorbidityConceptNames.push(obs.valueAsString);
                 }
                 addCodedObs(obs);
@@ -89,30 +89,29 @@ angular.module('bahmni.common.displaycontrol.custom')
         link: link,
         template: '<ng-include src="contentUrl"/>'
     }
-}]).directive('patientMonitoringTool', ['$http', '$translate', 'spinner', '$q', 'appService', 'messagingService',
-    function ($http, $translate, spinner, $q, appService, messagingService) {
+}]).directive('patientMonitoringTool', ['$http', '$translate', 'spinner', '$q', 'appService', 'messagingService', 'observationsService',
+    function ($http, $translate, spinner, $q, appService, messagingService, observationsService) {
         var link = function ($scope) {
-
-           var fetchFlowsheetAttributes = function(patientProgramUuid) {
+            var fetchFlowsheetAttributes = function (patientProgramUuid) {
                 return $http.get('/openmrs/ws/rest/v1/endtb/patientFlowsheetAttributes', {
-                    params: { patientProgramUuid: patientProgramUuid},
+                    params: {patientProgramUuid: patientProgramUuid},
                     withCredentials: true
                 });
             };
 
-            var getAllDrugOrdersFor = function (patientUuid, conceptSetToBeIncluded, conceptSetToBeExcluded, isActive, patientProgramUuid, $q ) {
+            var getAllDrugOrdersFor = function (patientUuid, conceptSetToBeIncluded, conceptSetToBeExcluded, isActive, patientProgramUuid, $q) {
                 var deferred = $q.defer();
-                var params= {patientUuid: patientUuid};
-                if(conceptSetToBeIncluded){
+                var params = {patientUuid: patientUuid};
+                if (conceptSetToBeIncluded) {
                     params.includeConceptSet = conceptSetToBeIncluded;
                 }
-                if(conceptSetToBeExcluded){
+                if (conceptSetToBeExcluded) {
                     params.excludeConceptSet = conceptSetToBeExcluded;
                 }
-                if(isActive !== undefined){
-                    params.isActive=isActive;
+                if (isActive !== undefined) {
+                    params.isActive = isActive;
                 }
-                if(patientProgramUuid){
+                if (patientProgramUuid) {
                     params.patientProgramUuid = patientProgramUuid;
                 }
 
@@ -125,24 +124,22 @@ angular.module('bahmni.common.displaycontrol.custom')
                 return deferred.promise;
             };
 
-            var getPatientObservationChartData = function () {
 
-                return fetchPatientMonitoringChartData('/openmrs/ws/rest/v1/endtb/patientFlowsheet', $scope.patient.uuid, $scope.enrollment).success(function (data) {
+            var getPatientObservationChartData = function (startDate, stopDate) {
+                return fetchPatientMonitoringChartData('/openmrs/ws/rest/v1/endtb/patientFlowsheet', $scope.patient.uuid, $scope.enrollment, startDate, stopDate).success(function (data) {
                     $scope.flowsheetHeader = data.flowsheetHeader;
                     $scope.flowsheetData = data.flowsheetData;
-                    $scope.startDate = data.startDate;
-                    if($scope.startDate == null) {
+                    if (startDate == null) {
                         messagingService.showMessage("error", "Start date missing. Cannot display monitoring schedule");
                     }
-
                     $scope.highlightedColumnIndex = data.flowsheetHeader.indexOf(data.highlightedMilestone);
-                    $scope.treatmentStopped = true === data.treatmentStopped;
+                    $scope.treatmentStopped = stopDate !=null ? true : false;
                 })
             };
 
-            var fetchPatientMonitoringChartData = function(url, patientUuid, programUuid) {
+            var fetchPatientMonitoringChartData = function(url, patientUuid, programUuid, startDate, stopDate) {
                 return $http.get(url, {
-                    params: {patientUuid: patientUuid, programUuid: programUuid},
+                    params: {patientUuid: patientUuid, programUuid: programUuid, startDate: startDate, stopDate: stopDate},
                     withCredentials: true
                 });
             };
@@ -155,28 +152,61 @@ angular.module('bahmni.common.displaycontrol.custom')
                     $scope.drugStartDate = data.newDrugTreatmentStartDate;
                     $scope.mdrtbTreatementStartDate = data.mdrtbTreatmentStartDate;
 
-                    if($scope.drugStartDate != null){
-                        $scope.currentMonthOfNewDrugTreatment = Bahmni.Common.Util.DateUtil.diffInDays($scope.drugStartDate - $scope.reportDate)/30.5;
-                     }
+                    if ($scope.drugStartDate != null) {
+                        $scope.currentMonthOfNewDrugTreatment = Bahmni.Common.Util.DateUtil.diffInDays($scope.drugStartDate - $scope.reportDate) / 30.5;
+                    }
 
-                    if($scope.mdrtbTreatementStartDate != null){
-                        $scope.currentMonthOfMDRTBTreatment = Bahmni.Common.Util.DateUtil.diffInDays($scope.mdrtbTreatementStartDate - $scope.reportDate)/30.5;
+                    if ($scope.mdrtbTreatementStartDate != null) {
+                        $scope.currentMonthOfMDRTBTreatment = Bahmni.Common.Util.DateUtil.diffInDays($scope.mdrtbTreatementStartDate - $scope.reportDate) / 30.5;
                     }
                 });
             };
 
             var getActiveTBDrugOrders = function () {
                 return getAllDrugOrdersFor($scope.patient.uuid, "All TB Drugs", null, true, $scope.enrollment, $q).then(function (responseData) {
-                    $scope.activeTBRegimen = _.map(responseData, function(data){
-                        return _.find(data.concept.mappings, function(mapping){
+                    $scope.activeTBRegimen = _.map(responseData, function (data) {
+                        return _.find(data.concept.mappings, function (mapping) {
                             return mapping.source === "Abbreviation";
                         }).code;
                     }).join("-");
                 });
             };
 
+            var getStartDateForDrugConcepts = function (patientProgramUuid, drugConcepts) {
+                return $http.get('/openmrs/ws/rest/v1/endtb/startDateForDrugs', {
+                    params: {patientProgramUuid: patientProgramUuid, drugConcepts: drugConcepts},
+                    withCredentials: true
+                })
+            };
+
+            var getDateValueForAObsConcept = function (patientProgramUuid, conceptName) {
+                return observationsService.fetchForPatientProgram(patientProgramUuid, [conceptName]).then(function (response) {
+                    if(response.data.length != 0) {
+                        return response.data[0].value;
+                    } else {
+                        return null;
+                    }
+                });
+            };
+
+            var getStartDateForFlowsheet = function () {
+                var startDateObsConcept = $scope.config.startDateObsConcept;
+                var startDateDrugConcepts = $scope.config.startDateDrugConcepts;
+                var patientProgramUuid = $scope.enrollment;
+                if(startDateObsConcept!=null && startDateDrugConcepts!=null) {
+                    return $q.when("Both start date obs and drug concepts are configured");
+                } else if(startDateObsConcept!=null) {
+                    return getDateValueForAObsConcept(patientProgramUuid, startDateObsConcept);
+                } else {
+                    return getStartDateForDrugConcepts(patientProgramUuid, startDateDrugConcepts).then(function (response) {
+                        return moment(response.data).format("YYYY-MM-DD");
+                    });
+                }
+            };
+
             var init = function () {
-                return $q.all([getPatientObservationChartData(), getPatientAttributes(), getActiveTBDrugOrders()]).then(function () {
+                return $q.all([getStartDateForFlowsheet(), getDateValueForAObsConcept($scope.enrollment, $scope.config.endDateConcept), getPatientAttributes(), getActiveTBDrugOrders()]).then(function (results) {
+                    return getPatientObservationChartData(results[0], results[1]);
                 });
             };
             $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/patientMonitoringTool.html";
