@@ -1,38 +1,5 @@
 {
   "shouldOverRideConfig": true,
-  "monitoring": {
-    "displayByDefault": true,
-    "maxRecentlyViewedPatients": 10,
-    "printing": {
-      "title": "EndTB General Patient Monitoring",
-      "header": "Patient Monitoring",
-      "logo": "../images/bahmniLogo.png",
-      "showNameAndImage": true
-    },
-    "sections": {
-      "patientMonitoring": {
-        "type": "custom",
-        "displayType": "Full-Page",
-        "config": {
-          "startDateDrugConcepts": ["Isoniazid", "Delamanid"],
-          "endDateConcept": "EOT, End of Treatment Outcome date",
-          "title": "SUMMARY_TITLE_PATIENT_OBSERVATION_CHART",
-          "template": "<patient-monitoring-tool section='section' patient='patient' enrollment='{{enrollment}}'></patient-monitoring-tool>"
-        }
-      },
-      "patientMonitoring1": {
-        "type": "custom",
-        "displayType": "Full-Page",
-        "config": {
-          "startDateDrugConcepts": ["Isoniazid", "Delamanid"],
-          "title": "SUMMARY_TITLE_PATIENT_OBSERVATION_CHART",
-          "template": "<patient-monitoring-tool section='section' patient='patient' enrollment='{{enrollment}}'></patient-monitoring-tool>"
-        }
-      }
-
-    },
-    "translationKey": "DASHBOARD_TAB_PATIENT_MONITORING_KEY"
-  },
   "general": {
     "displayByDefault": true,
     "maxRecentlyViewedPatients": 1,
@@ -203,7 +170,7 @@
   },
   "summary": {
     "displayByDefault": true,
-    "maxRecentlyViewedPatients": 10,
+    "maxRecentlyViewedPatients": 1,
     "printing": {
       "title": "EndTB Patient Dashboard",
       "header": "Patient Summary",
@@ -665,5 +632,38 @@
       }
     },
     "translationKey": "DASHBOARD_TAB_PATIENT_SUMMARY_KEY"
+  },
+  "monitoring": {
+    "displayByDefault": true,
+    "maxRecentlyViewedPatients": 1,
+    "printing": {
+      "title": "EndTB General Patient Monitoring",
+      "header": "Patient Monitoring",
+      "logo": "../images/bahmniLogo.png",
+      "showNameAndImage": true
+    },
+    "sections": {
+      "patientMonitoring": {
+        "type": "custom",
+        "displayType": "Full-Page",
+        "config": {
+          "startDateDrugConcepts": ["Bedaquiline"],
+          "endDateConcept": "EOT, End of Treatment Outcome date",
+          "title": "SUMMARY_TITLE_PATIENT_OBSERVATION_CHART",
+          "template": "<patient-monitoring-tool section='section' patient='patient' enrollment='{{enrollment}}'></patient-monitoring-tool>"
+        }
+      },
+      "patientMonitoring1": {
+        "type": "custom",
+        "displayType": "Full-Page",
+        "config": {
+          "startDateObsConcept" : "TUBERCULOSIS DRUG TREATMENT START DATE",
+          "title": "SUMMARY_TITLE_PATIENT_OBSERVATION_CHART",
+          "template": "<patient-monitoring-tool section='section' patient='patient' enrollment='{{enrollment}}'></patient-monitoring-tool>"
+        }
+      }
+
+    },
+    "translationKey": "DASHBOARD_TAB_PATIENT_MONITORING_KEY"
   }
 }

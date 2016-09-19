@@ -182,7 +182,5 @@
       ],
       "groupConcepts": {}
     }
-  },
-  "startDateConcept": "TUBERCULOSIS DRUG TREATMENT START DATE",
-  "endDateConcept": "EOT, End of Treatment Outcome date"
+  }
 }

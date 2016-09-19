@@ -133,7 +133,7 @@ angular.module('bahmni.common.displaycontrol.custom')
                         messagingService.showMessage("error", "Start date missing. Cannot display monitoring schedule");
                     }
                     $scope.highlightedColumnIndex = data.flowsheetHeader.indexOf(data.highlightedMilestone);
-                    $scope.treatmentStopped = stopDate !=null ? true : false;
+                    $scope.treatmentStopped = stopDate ? true : false;
                 })
             };
 
@@ -193,14 +193,17 @@ angular.module('bahmni.common.displaycontrol.custom')
                 var startDateObsConcept = $scope.config.startDateObsConcept;
                 var startDateDrugConcepts = $scope.config.startDateDrugConcepts;
                 var patientProgramUuid = $scope.enrollment;
-                if(startDateObsConcept!=null && startDateDrugConcepts!=null) {
+                if(startDateObsConcept && startDateDrugConcepts) {
                     return $q.when("Both start date obs and drug concepts are configured");
-                } else if(startDateObsConcept!=null) {
+                } else if(startDateObsConcept) {
                     return getDateValueForAObsConcept(patientProgramUuid, startDateObsConcept);
-                } else {
+                } else if(startDateDrugConcepts) {
                     return getStartDateForDrugConcepts(patientProgramUuid, startDateDrugConcepts).then(function (response) {
-                        return moment(response.data).format("YYYY-MM-DD");
+                        //return moment(response.data).format("YYYY-MM-DD");
+                        return response.data ? moment(response.data).format("YYYY-MM-DD") : null;
                     });
+                } else {
+                    return $q.when("No concept given for start Date");
                 }
             };
 
