@@ -1472,4 +1472,28 @@
             update concept_name set name = 'SAE Form, Related tests' where concept_name_type='FULLY_SPECIFIED' and concept_id = @concept_id1;
         </sql>
     </changeSet>
+    <changeSet id="ENDTB-201609191920" author="Sudhamsh">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">
+                select count(*) from concept_set cs
+                inner join concept_view cv1 on cs.concept_id = cv1.concept_id
+                inner join concept_view cv2 on cs.concept_set = cv2.concept_id
+                where cv1.concept_full_name = 'Xray, Chest Xray Date' and cv2.concept_full_name = 'Xray, Xray Details';
+            </sqlCheck>
+        </preConditions>
+        <comment>Moving Chest Xray Date out of  Xray Details set and renaming it to Date of Assessment</comment>
+        <sql>
+            select concept_id into @xdate from concept_view where concept_full_name = 'Xray, Chest Xray Date'; 
+            select concept_id into @xdetails from concept_view where concept_full_name = 'Xray, Xray Details'; 
+            select concept_id into @xtemp from concept_view where concept_full_name = 'Xray Template'; 
+
+            update concept_set set sort_weight = sort_weight + 1 where concept_set = @xtemp;
+            update concept_set set concept_set = @xtemp, sort_weight = 0 where concept_id = @xdate and concept_set = @xdetails;
+
+            update concept_name set name = 'Date of Assessment' where concept_id = @xdate and locale = 'en' and concept_name_type = 'SHORT';
+            update obs o inner join obs o2 on o.obs_group_id = o2.obs_id
+                            set o.obs_group_id = o2.obs_group_id
+                            where o.concept_id = @xdate and o2.concept_id = @xdetails;
+        </sql>
+    </changeSet>
 </databaseChangeLog>
