@@ -1496,11 +1496,14 @@
                             where o.concept_id = @xdate and o2.concept_id = @xdetails;
         </sql>
     </changeSet>
-    <changeSet id="ENDTB-201609201151" author="Sudhamsh">
+    <changeSet id="ENDTB-201609201154" author="Sudhamsh">
         <comment>Changing short name from Viral load to HIV Viral load</comment>
         <sql>
+
             select concept_id into @concept_id1 from concept_view where concept_full_name = 'HIV VIRAL LOAD';
+            select concept_id into @concept_id2 from concept_view where concept_full_name = 'Baseline, HIV Viral Load Details';
             update concept_name set name = 'HIV Viral load' where concept_name_type='SHORT' and locale = 'en' and concept_id = @concept_id1;
+            update concept_name set name = 'HIV Viral load' where concept_name_type='SHORT' and locale = 'en' and concept_id = @concept_id2;
         </sql>
     </changeSet>
     <changeSet id="ENDTB-201609201221" author="Sudhamsh">
