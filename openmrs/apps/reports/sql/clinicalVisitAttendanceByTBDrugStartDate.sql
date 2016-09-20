@@ -4,7 +4,7 @@ SELECT
   IFNULL(cf.facility, MAX(IF(pat.name='Registration Facility', (SELECT concept_full_name from concept_view WHERE concept_id = ppa.value_reference), NULL ))) AS 'Current Treatment Facility',
   DATE_FORMAT(tStartDate.value_datetime, '%d/%b/%Y') AS 'Treatment Start Date',
   DATE_FORMAT(episodes_with_drugs.drug_start_date, '%d/%b/%Y') AS 'New Drug Start Date',
-  DATE_FORMAT(end_of_treatment_obs.end_of_treatment_date, '%d/%b/%Y') AS 'End of treatment date',
+  DATE_FORMAT(end_of_treatment_obs.end_of_treatment_date, '%d/%b/%Y') AS 'End Of Treatment Date',
 
   IF(MAX(IF(obs.concept_full_name = 'Baseline, Date of baseline', obs.value, NULL)),
     IF(TRUNCATE((TIMESTAMPDIFF(DAY, obs.value, COALESCE(episodes_with_drugs.drug_start_date, NOW()))), 1) <= 15, 'X', 'O'),
