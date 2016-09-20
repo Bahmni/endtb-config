@@ -223,9 +223,21 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         };
         var conditionConcept = formFieldValues['Baseline, Has the patient ever been treated for TB in the past?'];
         if (conditionConcept == "True") {
-            conditions.enable.push("Baseline, If Yes, What was the year of the patients start of first TB treatment Details")
+            conditions.enable.push("Baseline, Drug-Susceptible Treatments","Baseline, Drug-Resistant Treatments","Baseline, If Yes, What was the year of the patients start of first TB treatment Details")
+                var conditionConcept = formFieldValues['Baseline, Treatment for drug-susceptible TB'];
+                if (conditionConcept == "True") {
+                    conditions.enable.push("Baseline, How many drug-susceptible TB treatments", "Baseline, What is the outcome of the last DSTB treatment", "Baseline, Last DSTB Registration ID Details", "Baseline, Last DSTB treatment registration facility")
+                } else {
+                    conditions.disable.push("Baseline, How many drug-susceptible TB treatments", "Baseline, What is the outcome of the last DSTB treatment", "Baseline, Last DSTB Registration ID Details", "Baseline, Last DSTB treatment registration facility")
+                }
+                var conditionConcept = formFieldValues['Baseline, Treatment for drug-resistant TB'];
+                if (conditionConcept == "True") {
+                    conditions.enable.push("Baseline, How many drug-resistant TB treatments", "Baseline, What is the outcome of the last DRTB treatment", "Baseline, Last DRTB Registration ID Details", "Baseline, Last DRTB treatment registration facility")
+                } else {
+                    conditions.disable.push("Baseline, How many drug-resistant TB treatments", "Baseline, What is the outcome of the last DRTB treatment", "Baseline, Last DRTB Registration ID Details", "Baseline, Last DRTB treatment registration facility")
+                }
         } else {
-            conditions.disable.push("Baseline, If Yes, What was the year of the patients start of first TB treatment Details")
+            conditions.disable.push("Baseline, Drug-Susceptible Treatments","Baseline, Drug-Resistant Treatments","Baseline, If Yes, What was the year of the patients start of first TB treatment Details")
         }
         return conditions;
     },
