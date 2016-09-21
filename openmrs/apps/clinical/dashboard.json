@@ -622,7 +622,7 @@
         "dashboardConfig": {
           "groupByConcept": "Xray, Chest Xray Date",
           "type": "ChestXRayExtension",
-          "templateName": "Xray, Xray Details",
+          "templateName": "Xray Template",
           "conceptNames": [
             "Xray, Extent of disease",
             "Xray, Maximum cavity size",
