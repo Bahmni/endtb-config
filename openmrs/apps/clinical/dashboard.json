@@ -426,7 +426,9 @@
           "templateName": "Monthly Treatment Completeness Template",
           "groupByConcept": "MTC, Month and year of treatment period",
           "conceptNames": [
-            "MTC, Completeness rate"
+            "MTC, Completeness rate",
+            "MTC, Adherence rate",
+            "MTC, DOT rate"
           ]
         }
       },
