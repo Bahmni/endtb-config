@@ -123,19 +123,5 @@
       "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/DRregister_aggregated.sql",
       "macroTemplatePath": "/var/www/bahmni_config/openmrs/apps/reports/macroTemplates/DRregister_aggregatedTemplate.xls"
     }
-  },
-  "ClinicalVisitAttendanceReportByDrugStartDate": {
-    "name": "Clinical Visit Attendance By Drug Start Date Report (Excel)",
-    "type": "MRSGeneric",
-    "config": {
-      "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/clinicalVisitAttendanceByTBDrugStartDate.sql"
-    }
-  },
-  "ClinicalVisitAttendanceReportByTreatmentStartDate": {
-    "name": "Clinical Visit Attendance By Treatment Start Date Report (Excel)",
-    "type": "MRSGeneric",
-    "config": {
-      "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/clinicalVisitAttendanceByTreatmentStartDate.sql"
-    }
   }
 }
