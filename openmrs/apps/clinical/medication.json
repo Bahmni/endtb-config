@@ -8,10 +8,10 @@
       "inputOptionsConfig": {
         "duration": {
           "required": false 
-          },
+        },
         "drugConceptSet": "All TB Drugs",
         "isDropDown": true,
-	"hideOrderSet" : true,
+	    "hideOrderSet" : true,
         "labels": {
           "drugNamePlaceHolder": "MEDICATION_LABEL_DRUG_NAME_PLACEHOLDER_TB_TAB",
           "dose": "MEDICATION_LABEL_DOSE_TB_TAB",
@@ -24,9 +24,9 @@
         ],
         "frequencies": [
           "6 days per week",
-	  "7 days per week",
-	  "Every other day",
-	  "3 days per week"
+          "7 days per week",
+          "Every other day",
+          "3 days per week"
         ],
         "dosingInstructions": [
           "As directed",
@@ -34,9 +34,9 @@
         ],
         "routes": [
           "Oral (PO)",
-	  "Intramuscular (IM)",
-	  "Intravenous (IV)",
-	  "Inhalation"
+          "Intramuscular (IM)",
+          "Intravenous (IV)",
+          "Inhalation"
         ],
         "durationUnits": [
           "Day(s)",
@@ -87,11 +87,11 @@
             "active": true,
             "includeConceptSet": "All TB Drugs",
             "captureStopReason": true,
-	    "columnHeaders": {
+	        "columnHeaders": {
                 "drugName" : "DRUG_HISTORY_TB_DRUGNAME",
                 "dosage": "DRUG_HISTORY_TB_DOSAGE",
                 "route" : "DRUG_HISTORY_TB_ROUTE",
-		"duration" : "DRUG_HISTORY_TB_DURATION",
+		        "duration" : "DRUG_HISTORY_TB_DURATION",
                 "frequency" : "DRUG_HISTORY_TB_FREQUENCY",
                 "startDate" : "DRUG_HISTORY_TB_STARTDATE",
                 "stopDate" : "DRUG_HISTORY_TB_STOPDATE",
@@ -99,24 +99,24 @@
             },
             "actions": [
               "stop",
-	      "void"
+	          "void"
             ]
           },
           "inactiveTbDrugs": {
             "title": "Inactive TB Drugs",
             "active": false,
             "includeConceptSet": "All TB Drugs",
-	    "columnHeaders": {
+	        "columnHeaders": {
                 "drugName" : "DRUG_HISTORY_TB_DRUGNAME",
                 "dosage": "DRUG_HISTORY_TB_DOSAGE",
                 "route" : "DRUG_HISTORY_TB_ROUTE",
-		"duration" : "DRUG_HISTORY_TB_DURATION",
+		        "duration" : "DRUG_HISTORY_TB_DURATION",
                 "frequency" : "DRUG_HISTORY_TB_FREQUENCY",
                 "startDate" : "DRUG_HISTORY_TB_STARTDATE",
                 "stopDate" : "DRUG_HISTORY_TB_STOPDATE",
                 "stopReason" : "DRUG_HISTORY_TB_STOPREASON"
             },
-	    "actions": [
+	        "actions": [
               "void"
             ],
             "columns": [
@@ -132,11 +132,11 @@
     "nonTbTabConfig": {
       "inputOptionsConfig": {
         "defaultStartDate": true,
-	"drugConceptSet": "All Other Drugs",
-	"hideOrderSet" : true,
-	"duration": {
-          "required": false
-          },
+        "drugConceptSet": "All Other Drugs",
+        "hideOrderSet" : true,
+        "duration": {
+            "required": false
+        },
         "labels": {
           "dose": "MEDICATION_LABEL_DOSE_NON_TB_TAB",
           "doseUnitsPlaceHolder": "MEDICATION_LABEL_DOSE_UNITS_PLACEHOLDER_NON_TB_TAB",
@@ -180,22 +180,22 @@
             "title": "Active Non TB Drugs",
             "active": true,
             "captureStopReason": false,
-	    "columnHeaders": {
-		"drugName" : "DRUG_HISTORY_NONTB_DRUGNAME",
-		"dosage": "DRUG_HISTORY_NONTB_DOSAGE",
-		"route" : "DRUG_HISTORY_NONTB_ROUTE",
-		"duration" : "DRUG_HISTORY_NONTB_DURATION",
-		"frequency" : "DRUG_HISTORY_NONTB_FREQUENCY",
-		"startDate" : "DRUG_HISTORY_NONTB_STARTDATE",
-		"stopDate" : "DRUG_HISTORY_NONTB_STOPDATE",
-		"stopReason" : "DRUG_HISTORY_NONTB_STOPREASON",
-		"quantity" : "DRUG_HISTORY_NONTB_QUANTITY",
-		"instructions" : "DRUG_HISTORY_NONTB_INSTRUCTIONS"
+            "columnHeaders": {
+              "drugName" : "DRUG_HISTORY_NONTB_DRUGNAME",
+              "dosage": "DRUG_HISTORY_NONTB_DOSAGE",
+              "route" : "DRUG_HISTORY_NONTB_ROUTE",
+              "duration" : "DRUG_HISTORY_NONTB_DURATION",
+              "frequency" : "DRUG_HISTORY_NONTB_FREQUENCY",
+              "startDate" : "DRUG_HISTORY_NONTB_STARTDATE",
+              "stopDate" : "DRUG_HISTORY_NONTB_STOPDATE",
+              "stopReason" : "DRUG_HISTORY_NONTB_STOPREASON",
+              "quantity" : "DRUG_HISTORY_NONTB_QUANTITY",
+              "instructions" : "DRUG_HISTORY_NONTB_INSTRUCTIONS"
             },
             "actions": [
               "stop",
               "refill",
-	      "void"
+	          "void"
             ],
             "excludeConceptSet": "All TB Drugs",
             "columns": [

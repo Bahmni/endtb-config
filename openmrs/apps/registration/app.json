@@ -19,52 +19,52 @@
     ],
     "config": {
 	"patientInformation": {
-                "additionalPatientInformation": {
-                    "title": "Additional Patient Information",
-                    "attributes": [
-                    ]
-                },
-                "patientContactDetails" : {
-                        "title" : "Patient Contact Details",
-                        "attributes" : [
-                                "patientAddress",
-				"patientAddressLine2",
-                                "patientDistrict",
-                                "patientCountry",
-                                "telephoneNumber"
-                        ]
-                },
-                "hidden": {
-                    "attributes": [
-                    ]
-                },
-                "defaults":  {
-                }
-        },
-        "addressHierarchy": {
-            "showAddressFieldsTopDown": true,
-            "freeTextAddressFields": [
-                "address2",
-                "address1"
+        "additionalPatientInformation": {
+            "title": "Additional Patient Information",
+            "attributes": [
             ]
         },
-	"mandatoryPersonAttributes": [
-            "endtbOutputID","DRTBNationalID"
-        ],
-        "relationshipTypeMap": {
-            "Doctor": "provider",
-            "Parent": "patient"
+        "patientContactDetails" : {
+            "title" : "Patient Contact Details",
+            "attributes" : [
+              "patientAddress",
+              "patientAddressLine2",
+              "patientDistrict",
+              "patientCountry",
+              "telephoneNumber"
+            ]
         },
+        "hidden": {
+            "attributes": [
+            ]
+        },
+        "defaults":  {
+        }
+    },
+    "addressHierarchy": {
+        "showAddressFieldsTopDown": true,
+        "freeTextAddressFields": [
+            "address2",
+            "address1"
+        ]
+    },
+	"mandatoryPersonAttributes": [
+        "endtbOutputID","DRTBNationalID"
+    ],
+    "relationshipTypeMap": {
+        "Doctor": "provider",
+        "Parent": "patient"
+    },
 	"dobMandatory": true,
         "defaultIdentifierPrefix": "ARA",
         "defaultVisitType": "General",
         "searchByIdForwardUrl": "/patient/{{patientUuid}}",
         "showMiddleName": false,
         "fieldValidation": {
-	    "telephoneNumber": {
-		"pattern": "[0-9]{0,20}",
-		"errorMessage": "Should be numberic value"
-	    },
+            "telephoneNumber": {
+            "pattern": "[0-9]{0,20}",
+            "errorMessage": "Should be numberic value"
+            },
             "facilityPatientID": {
                 "pattern": "[0-9]{0,20}",
                 "errorMessage": "Should be numberic value"
@@ -74,13 +74,13 @@
                 "errorMessage": "Should be 9 characters"
             }
         },
-      "patientSearch": {
-        "programAttributes": {
-          "label": "Registration Number",
-          "placeholder": "Enter Reg Number",
-          "field": "Registration Number"
-        },
-        "searchByPatientIdentifier": true
-      }
+        "patientSearch": {
+            "programAttributes": {
+              "label": "Registration Number",
+              "placeholder": "Enter Reg Number",
+              "field": "Registration Number"
+            },
+            "searchByPatientIdentifier": true
+        }
     }
 }

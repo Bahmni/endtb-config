@@ -6,7 +6,10 @@
         "type": "link",
         "extensionParams": {},
         "urlMap": {
-            "saeUpload": {"name": "SAE Form Upload", "url" :"/openmrs/ws/rest/v1/endtb/admin/upload/encounter"}
+            "saeUpload": {
+                "name": "SAE Form Upload",
+                "url" :"/openmrs/ws/rest/v1/endtb/admin/upload/encounter"
+            }
         },
         "label": "CSV Upload",
         "url": "#/csv",

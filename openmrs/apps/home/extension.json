@@ -38,7 +38,7 @@
         "url": "../reports/#/dashboard",
         "icon": "icon-bahmni-reports",
         "order": 5,
-	"requiredPrivilege": "app:reports"
+	    "requiredPrivilege": "app:reports"
     },
     "bahmni_exports": {
         "id": "bahmni.reports",
