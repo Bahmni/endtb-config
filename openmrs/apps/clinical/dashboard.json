@@ -631,6 +631,42 @@
             "Xray, Fibrosis"
           ]
         }
+      },
+      "Xpertresults": {
+        "translationKey": "SUMMARY_TITLE_XPERT_RESULTS",
+        "type": "obsToObsFlowSheet",
+        "headingConceptSource": "Abbreviation",
+        "displayType": "Full-Page",
+        "displayOrder": 24,
+        "dashboardConfig": {
+          "groupByConcept": "Bacteriology, Date of Xpert test",
+          "type": "XpertExtension",
+          "templateName": "Bacteriology, Xpert test results",
+          "conceptNames": [
+            "Bacteriology, Xpert MTB result",
+            "Bacteriology, RIF resistance result type"
+          ]
+        }
+      },
+      "HAINresults": {
+        "translationKey": "SUMMARY_TITLE_HAIN_RESULTS",
+        "type": "obsToObsFlowSheet",
+        "headingConceptSource": "Abbreviation",
+        "displayType": "Full-Page",
+        "displayOrder": 24,
+        "dashboardConfig": {
+          "groupByConcept": "Specimen Collection Date",
+          "type": "HAINExtension",
+          "templateName": "BACTERIOLOGY CONCEPT SET",
+          "conceptNames": [
+            "Bacteriology, HAIN MTBDRplus test result",
+            "Bacteriology, HAIN MTBDRsl test result",
+            "Bacteriology, Isoniazid",
+            "Bacteriology, Rifampicin",
+            " Bacteriology, Fluoroquinolone",
+            " Bacteriology, MTBDRsl injectable"            
+          ]
+        }
       }
     },
     "translationKey": "DASHBOARD_TAB_PATIENT_SUMMARY_KEY"

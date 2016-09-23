@@ -187,6 +187,8 @@
   "SUMMARY_TITLE_LAB_SEROLOGY": "Lab Results - Serology",
   "SUMMARY_TITLE_LAB_PREGNANCY": "Lab Results - Pregnancy Test",
   "SUMMARY_TITLE_LAB_OTHER_TESTS": "Lab Results - Other Tests",
+  "SUMMARY_TITLE_XPERT_RESULTS": "Xpert",
+  "SUMMARY_TITLE_HAIN_RESULTS": "HAIN",
 
   "DQ_PRINT_TITLE_DATA_QUALITY_REPORT": "Data Quality Report",
   "DQ_DASHBOARD": "Data Quality Dashboard",
