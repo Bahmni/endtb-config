@@ -46,7 +46,7 @@
         "showDetailsButton": true,
         "displayOrder": 3,
         "dashboardConfig": {
-          "showOnlyActive": false,
+          "showOnlyActive": true,
           "drugConceptSet": "All Other Drugs"
         }
       },
