@@ -29,26 +29,6 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         }
         return conditions;
     },
-    'Baseline, Treatment for drug-susceptible TB': function (formName, formFieldValues) {
-        var conditions = {enable: [], disable: []};
-        var conditionConcept = formFieldValues['Baseline, Treatment for drug-susceptible TB'];
-        if (conditionConcept == "True") {
-            conditions.enable.push("Baseline, How many drug-susceptible TB treatments", "Baseline, What is the outcome of the last DSTB treatment", "Baseline, Last DSTB Registration ID Details", "Baseline, Last DSTB treatment registration facility")
-        } else {
-            conditions.disable.push("Baseline, How many drug-susceptible TB treatments", "Baseline, What is the outcome of the last DSTB treatment", "Baseline, Last DSTB Registration ID Details", "Baseline, Last DSTB treatment registration facility")
-        }
-        return conditions;
-    },
-    'Baseline, Treatment for drug-resistant TB': function (formName, formFieldValues) {
-        var conditions = {enable: [], disable: []};
-        var conditionConcept = formFieldValues['Baseline, Treatment for drug-resistant TB'];
-        if (conditionConcept == "True") {
-            conditions.enable.push("Baseline, How many drug-resistant TB treatments", "Baseline, What is the outcome of the last DRTB treatment", "Baseline, Last DRTB Registration ID Details", "Baseline, Last DRTB treatment registration facility")
-        } else {
-            conditions.disable.push("Baseline, How many drug-resistant TB treatments", "Baseline, What is the outcome of the last DRTB treatment", "Baseline, Last DRTB Registration ID Details", "Baseline, Last DRTB treatment registration facility")
-        }
-        return conditions;
-    },
     'Baseline, HIV serostatus result': function (formName, formFieldValues) {
         var conditions = {
             enable: [],
@@ -159,16 +139,6 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         var conditionConcept = formFieldValues['Baseline, MDR-TB diagnosis method'];
         if (conditionConcept == "Bacteriologically Confirmed") {
             conditions.enable.push("Baseline, Method of MDR-TB confirmation");
-            var enMethod = formFieldValues['Baseline, Method of MDR-TB confirmation'];
-            if (enMethod != null) {
-                if (enMethod.indexOf("Other") > -1) {
-                    conditions.enable.push("Baseline, Other method of MDR-TB confirmation");
-                } else {
-                    conditions.disable.push("Baseline, Other method of MDR-TB confirmation");
-                }
-            } else {
-                conditions.disable.push("Baseline, Other method of MDR-TB confirmation");
-            }
         } else {
             conditions.disable.push("Baseline, Method of MDR-TB confirmation", "Baseline, Other method of MDR-TB confirmation")
         }
@@ -223,9 +193,29 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         };
         var conditionConcept = formFieldValues['Baseline, Has the patient ever been treated for TB in the past?'];
         if (conditionConcept == "True") {
-            conditions.enable.push("Baseline, If Yes, What was the year of the patients start of first TB treatment Details")
+            conditions.enable.push("Baseline, If Yes, What was the year of the patients start of first TB treatment Details", "Baseline, Treatment for drug-susceptible TB", "Baseline, Treatment for drug-resistant TB");
         } else {
-            conditions.disable.push("Baseline, If Yes, What was the year of the patients start of first TB treatment Details")
+            conditions.disable.push("Baseline, If Yes, What was the year of the patients start of first TB treatment Details", "Baseline, Treatment for drug-susceptible TB", "Baseline, Treatment for drug-resistant TB");
+        }
+        return conditions;
+    },
+    'Baseline, Treatment for drug-susceptible TB': function (formName, formFieldValues) {
+        var conditions = {enable: [], disable: []};
+        var conditionConcept = formFieldValues['Baseline, Treatment for drug-susceptible TB'];
+        if (conditionConcept == "True") {
+            conditions.enable.push("Baseline, How many drug-susceptible TB treatments", "Baseline, What is the outcome of the last DSTB treatment", "Baseline, Last DSTB Registration ID Details", "Baseline, Last DSTB treatment registration facility")
+        } else {
+            conditions.disable.push("Baseline, How many drug-susceptible TB treatments", "Baseline, What is the outcome of the last DSTB treatment", "Baseline, Last DSTB Registration ID Details", "Baseline, Last DSTB treatment registration facility")
+        }
+        return conditions;
+    },
+    'Baseline, Treatment for drug-resistant TB': function (formName, formFieldValues) {
+        var conditions = {enable: [], disable: []};
+        var conditionConcept = formFieldValues['Baseline, Treatment for drug-resistant TB'];
+        if (conditionConcept == "True") {
+            conditions.enable.push("Baseline, How many drug-resistant TB treatments", "Baseline, What is the outcome of the last DRTB treatment", "Baseline, Last DRTB Registration ID Details", "Baseline, Last DRTB treatment registration facility")
+        } else {
+            conditions.disable.push("Baseline, How many drug-resistant TB treatments", "Baseline, What is the outcome of the last DRTB treatment", "Baseline, Last DRTB Registration ID Details", "Baseline, Last DRTB treatment registration facility")
         }
         return conditions;
     },
@@ -327,17 +317,6 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         }
         return conditions;
     },
-    'Followup, New serious AE reported': function (formName, formFieldValues) {
-        var conditions = {enable: [], disable: []};
-        var conditionConcept = formFieldValues['Followup, New serious AE reported'];
-        var conceptToEnable = "Followup, New serious AE reference number";
-        if (conditionConcept) {
-            conditions.enable.push(conceptToEnable)
-        } else {
-            conditions.disable.push(conceptToEnable)
-        }
-        return conditions;
-    },
     'Followup, New AE reported': function (formName, formFieldValues) {
         var conditions = {enable: [], disable: []};
         var conditionConcept = formFieldValues['Followup, New AE reported'];
@@ -347,17 +326,22 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         if (conditionConcept != null) {
             if (conditionConcept == true) {
                 conditions.enable.push(conceptToEnable, conceptEnSAE, conceptSAERefNum)
-                var conditionConceptSAE = formFieldValues['Followup, New serious AE reported'];
-                if (conditionConceptSAE) {
-                    conditions.enable.push(conceptSAERefNum)
-                } else {
-                    conditions.disable.push(conceptSAERefNum)
-                }
             } else {
                 conditions.disable.push(conceptToEnable, conceptEnSAE, conceptSAERefNum)
             }
         } else {
             conditions.disable.push(conceptToEnable, conceptEnSAE, conceptSAERefNum)
+        }
+        return conditions;
+    },
+    'Followup, New serious AE reported': function (formName, formFieldValues) {
+        var conditions = {enable: [], disable: []};
+        var conditionConcept = formFieldValues['Followup, New serious AE reported'];
+        var conceptToEnable = "Followup, New serious AE reference number";
+        if (conditionConcept) {
+            conditions.enable.push(conceptToEnable)
+        } else {
+            conditions.disable.push(conceptToEnable)
         }
         return conditions;
     },
@@ -391,39 +375,12 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         var enReason = "EOT, Reasons for failure definition";
         var enOther = "EOT, Other reasons for failure definition";
         if (outcome == "Died") {
-            var suspectCause = formFieldValues['EOT, Suspected primary cause of death'];
-            if (suspectCause != null) {
-                if (suspectCause == "Surgery related death") {
-                    conditions.enable.push(enDOD, enCOD, enSurgery)
-                } else {
-                    conditions.enable.push(enDOD, enCOD);
-                    conditions.disable.push(enSurgery);
-                }
-                if (suspectCause == "Cause other than TB") {
-                    conditions.enable.push(enNonTB);
-                } else {
-                    conditions.disable.push(enNonTB);
-                }
-            } else {
-                conditions.enable.push(enDOD, enCOD)
-            }
-            conditions.disable.push(enReason, enOther);
+            conditions.enable.push(enDOD, enCOD);
         } else {
             conditions.disable.push(enDOD, enCOD, enSurgery, enNonTB);
         }
         if (outcome == "Failed") {
             conditions.enable.push(enReason);
-            var reasonResponse = formFieldValues[enReason];
-            var enOther = "EOT, Other reasons for failure definition";
-            if (reasonResponse != null) {
-                if (reasonResponse.indexOf("Other") > -1) {
-                    conditions.enable.push(enOther)
-                } else {
-                    conditions.disable.push(enOther);
-                }
-            } else {
-                conditions.enable.push(enDOD, enCOD)
-            }
         } else {
             conditions.disable.push(enReason, enOther);
         }
@@ -432,16 +389,6 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         var enOtherReasons = "EOT, Other reasons for treatment interruption";
         if (outcome == "LTFU") {
             conditions.enable.push(enInterruption, enAdditional);
-            var reasonResponse = formFieldValues[enInterruption];
-            if (reasonResponse != null) {
-                if (reasonResponse.indexOf("Other") > -1) {
-                    conditions.enable.push(enOtherReasons)
-                } else {
-                    conditions.disable.push(enOtherReasons);
-                }
-            } else {
-                conditions.disable.push(enOtherReasons)
-            }
         } else {
             conditions.disable.push(enInterruption, enAdditional, enOtherReasons);
         }
@@ -450,20 +397,6 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         var enOtherReason = "EOT, Other reasons for no evaluation of outcome";
         if (outcome == "Not Evaluated") {
             conditions.enable.push(enTransferOut);
-            var transferResponse = formFieldValues[enTransferOut];
-            if (transferResponse != null) {
-                if (transferResponse == true) {
-                    conditions.enable.push(enTransferred);
-                    conditions.disable.push(enOtherReason);
-                } else if (transferResponse == false) {
-                    conditions.disable.push(enTransferred);
-                    conditions.enable.push(enOtherReason);
-                } else {
-                    conditions.disable.push(enTransferred, enOtherReason);
-                }
-            } else {
-                conditions.disable.push(enTransferred, enOtherReason);
-            }
         } else {
             conditions.disable.push(enTransferOut, enTransferred, enOtherReason);
         }
@@ -475,7 +408,7 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         var conditions = {enable: [], disable: []};
         var suspectCause = formFieldValues['EOT, Suspected primary cause of death'];
         if (suspectCause == "Surgery related death") {
-            conditions.enable.push(enSurgery, enNonTB)
+            conditions.enable.push(enSurgery)
         } else {
             conditions.disable.push(enSurgery);
         }
@@ -544,31 +477,12 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         var conceptToEnable_nonTBCauseOfDeath = "6m PTO, Non TB cause of post treatment death";
         if (conditionConcept == "Died post treatment") {
             conditions.enable.push(conceptToEnable_dateOfDeath, conceptToEnable_causeOfDeath);
-            var causeOfDeathValue = formFieldValues['6m PTO, Suspected primary cause of death'];
-            if (causeOfDeathValue == "Surgery related death") {
-                conditions.enable.push(conceptToEnable_surgeryType)
-            } else {
-                conditions.disable.push(conceptToEnable_surgeryType)
-            }
-            if (causeOfDeathValue == "Cause other than TB") {
-                conditions.enable.push(conceptToEnable_nonTBCauseOfDeath)
-            } else {
-                conditions.disable.push(conceptToEnable_nonTBCauseOfDeath)
-            }
         } else {
             conditions.disable.push(conceptToEnable_dateOfDeath, conceptToEnable_causeOfDeath, conceptToEnable_surgeryType, conceptToEnable_nonTBCauseOfDeath);
         }
         var conceptToEnable_otherReason = "6m PTO, Other reasons for no post treatment followup";
         if (conditionConcept == "LTFU post treatment") {
-            conditions.enable.push(conceptToEnable_reason, conceptToEnable_commentsOnNoFup)
-            var reasonForNoPostTreatment = formFieldValues['6m PTO, Reasons for no post treatment followup'];
-            if (reasonForNoPostTreatment != null) {
-                if (reasonForNoPostTreatment.indexOf("Other") != -1) {
-                    conditions.enable.push(conceptToEnable_otherReason)
-                } else {
-                    conditions.disable.push(conceptToEnable_otherReason)
-                }
-            }
+            conditions.enable.push(conceptToEnable_reason, conceptToEnable_commentsOnNoFup);
         } else {
             conditions.disable.push(conceptToEnable_reason, conceptToEnable_commentsOnNoFup, conceptToEnable_otherReason)
         }
@@ -576,17 +490,6 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         var conceptToEnable_onNo = "6m PTO, Other reasons for no post treatment outcome";
         if (conditionConcept == "Not Evaluated") {
             conditions.enable.push(conceptToEnable_transfer);
-            var notEvaluatedValue = formFieldValues['6m PTO, Transfer out post treatment'];
-            if (notEvaluatedValue == true) {
-                conditions.enable.push(conceptToEnable_onYes)
-            } else {
-                conditions.disable.push(conceptToEnable_onYes)
-            }
-            if (notEvaluatedValue == false) {
-                conditions.enable.push(conceptToEnable_onNo)
-            } else {
-                conditions.disable.push(conceptToEnable_onNo)
-            }
         } else {
             conditions.disable.push(conceptToEnable_transfer, conceptToEnable_onYes, conceptToEnable_onNo)
         }
@@ -672,6 +575,28 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         }
         return conditions;
     },
+
+    'AE Form, Is AE an SAE': function (formName, formFieldValues) {
+        var enSAENumber = "AE Form, SAE Case Number";
+        var enDateOutcome = "AE Form, Date of AE Outcome";
+        var enAEOutcome = "AE Form, AE outcome";
+        var enMaxSeverity = "AE Form, Maximum severity of AE";
+        var enRelatedTBDrugs = "AE Form, AE related to TB drugs";
+        var enTBDrugTx = "AE Form, TB drug treatment";
+        var enOtherCausalFact = "AE Form, Other causal factors";
+        var enOtherCausalFactorsRelatedToAE = "AE Form, Other causal factors related to AE";
+
+        var conditions = {enable: [], disable: []};
+        var conditionConcept = formFieldValues['AE Form, Is AE an SAE'];
+        if (conditionConcept == true) {
+            conditions.enable.push(enSAENumber);
+            conditions.disable.push(enDateOutcome, enAEOutcome, enMaxSeverity, enRelatedTBDrugs, enTBDrugTx, enOtherCausalFact, enOtherCausalFactorsRelatedToAE)
+        } else {
+            conditions.disable.push(enSAENumber);
+            conditions.enable.push(enDateOutcome, enAEOutcome, enMaxSeverity, enRelatedTBDrugs, enOtherCausalFact, enOtherCausalFactorsRelatedToAE)
+        }
+        return conditions;
+    },
     'AE Form, Other causal factors related to AE': function (formName, formFieldValues) {
         var enNonTBDrug = "AE Form, Non TB drug of other causal factor";
         var enComorbidity = "AE Form, Comorbidity of other causal factor";
@@ -696,50 +621,6 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
             }
         } else {
             conditions.disable.push(enNonTBDrug, enComorbidity, enOtherCausalFactors)
-        }
-        return conditions;
-    },
-    'AE Form, Is AE an SAE': function (formName, formFieldValues) {
-        var enSAENumber = "AE Form, SAE Case Number";
-        var enDateOutcome = "AE Form, Date of AE Outcome";
-        var enAEOutcome = "AE Form, AE outcome";
-        var enMaxSeverity = "AE Form, Maximum severity of AE";
-        var enRelatedTBDrugs = "AE Form, AE related to TB drugs";
-        var enTBDrugTx = "AE Form, TB drug treatment";
-        var enOtherCausalFact = "AE Form, Other causal factors";
-        var conditions = {enable: [], disable: []};
-        var conditionConcept = formFieldValues['AE Form, Is AE an SAE'];
-        if (conditionConcept == true) {
-            conditions.enable.push(enSAENumber)
-            conditions.disable.push(enDateOutcome, enAEOutcome, enMaxSeverity, enRelatedTBDrugs, enTBDrugTx, enOtherCausalFact)
-        } else {
-            var enNonTBDrug = "AE Form, Non TB drug of other causal factor";
-            var enComorbidity = "AE Form, Comorbidity of other causal factor";
-            var enOtherCausalFactors = "AE Form, Other causal factor";
-            var conditions = {enable: [], disable: []};
-            var anyFactor = formFieldValues['AE Form, Other causal factors related to AE'];
-            if (anyFactor != null) {
-                if (anyFactor.indexOf("Non TB drugs") > -1) {
-                    conditions.enable.push(enNonTBDrug)
-                } else {
-                    conditions.disable.push(enNonTBDrug)
-                }
-                if (anyFactor.indexOf("Co-morbidity") > -1) {
-                    conditions.enable.push(enComorbidity)
-                } else {
-                    conditions.disable.push(enComorbidity)
-                }
-                if (anyFactor.indexOf("Other") > -1) {
-                    conditions.enable.push(enOtherCausalFactors)
-                } else {
-                    conditions.disable.push(enOtherCausalFactors)
-                }
-            } else {
-                conditions.disable.push(enNonTBDrug, enComorbidity, enOtherCausalFactors)
-            }
-
-            conditions.disable.push(enSAENumber)
-            conditions.enable.push(enDateOutcome, enAEOutcome, enMaxSeverity, enRelatedTBDrugs, enOtherCausalFact)
         }
         return conditions;
     },
@@ -888,17 +769,6 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         }
         return conditions;
     },
-    'HDS, New SAE reported': function (formName, formFieldValues) {
-        var conditions = {enable: [], disable: []};
-        var conditionConcept = formFieldValues['HDS, New SAE reported'];
-        var conceptToEnable = "HDS, New SAE Case number";
-        if (conditionConcept == true) {
-            conditions.enable.push(conceptToEnable)
-        } else {
-            conditions.disable.push(conceptToEnable)
-        }
-        return conditions;
-    },
     'HDS, New AE Reported': function (formName, formFieldValues) {
         var conditions = {enable: [], disable: []};
         var conditionConcept = formFieldValues['HDS, New AE Reported'];
@@ -908,17 +778,22 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         if (conditionConcept != null) {
             if (conditionConcept == true) {
                 conditions.enable.push(conceptToEnable, conceptEnSAE, conceptSAERefNum)
-                var conditionConceptSAE = formFieldValues['HDS, New SAE reported'];
-                if (conditionConceptSAE) {
-                    conditions.enable.push(conceptSAERefNum)
-                } else {
-                    conditions.disable.push(conceptSAERefNum)
-                }
             } else {
                 conditions.disable.push(conceptToEnable, conceptEnSAE, conceptSAERefNum)
             }
         } else {
             conditions.disable.push(conceptToEnable, conceptEnSAE, conceptSAERefNum)
+        }
+        return conditions;
+    },
+    'HDS, New SAE reported': function (formName, formFieldValues) {
+        var conditions = {enable: [], disable: []};
+        var conditionConcept = formFieldValues['HDS, New SAE reported'];
+        var conceptToEnable = "HDS, New SAE Case number";
+        if (conditionConcept == true) {
+            conditions.enable.push(conceptToEnable)
+        } else {
+            conditions.disable.push(conceptToEnable)
         }
         return conditions;
     },
@@ -938,26 +813,12 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         var conditionConcept = formFieldValues['HDS, TB related surgery while hospitalization'];
         if (conditionConcept == true) {
             conditions.enable.push("HDS, TB related surgery date", "HDS, Type of TB related surgery", "HDS, Side of TB related surgery", "HDS, Indication of TB related surgery");
-            var values1 = formFieldValues['HDS, Type of TB related surgery'];
-            if (values1 && values1 == "Other") {
-                conditions.enable.push("HDS, Other type of TB related surgery")
-            } else {
-                conditions.disable.push("HDS, Other type of TB related surgery")
-            }
-
-            var values2 = formFieldValues['HDS, Indication of TB related surgery'];
-            if (values2 == "Other") {
-                conditions.enable.push("HDS, Other indication of TB related surgery")
-            } else {
-                conditions.disable.push("HDS, Other indication of TB related surgery")
-            }
         } else {
             conditions.disable.push("HDS, TB related surgery date", "HDS, Type of TB related surgery", "HDS, Side of TB related surgery", "HDS, Indication of TB related surgery")
         }
         return conditions;
     },
     'HDS, Type of TB related surgery': function causeOfDeathLogics(formName, formFieldValues) {
-        var conceptToEnable = "HDS, Other type of TB related surgery";
         var conditions = {enable: [], disable: []};
         var conditionConcept = formFieldValues['HDS, Type of TB related surgery'];
         if (conditionConcept != null) {
