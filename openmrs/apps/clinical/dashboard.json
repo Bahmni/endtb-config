@@ -286,7 +286,7 @@
           "templateName": "Baseline, Past TB treatment table",
           "conceptNames": [
             "Baseline, End date of past TB treatment",
-	          "Baseline, Past TB treatment drug regimen",
+            "Baseline, Past TB treatment drug regimen",
             "Baseline, Type of past TB treatment",
             "Baseline, Past TB treatment regimen type",
             "Baseline, Past TB treatment outcome"
@@ -332,7 +332,7 @@
         "translationKey": "SUMMARY_TITLE_DST_WITH_MIC",
         "type": "obsToObsFlowSheet",
         "displayType": "LAYOUT_75_25",
-        "displayOrder": 9,
+        "displayOrder": 11,
         "headingConceptSource": "Abbreviation",
         "dataConceptSource": "Abbreviation",
         "dashboardConfig": {
@@ -351,7 +351,7 @@
         "translationKey": "SUMMARY_TITLE_DST_OTHER_RESULTS",
         "type": "obsToObsFlowSheet",
         "displayType": "LAYOUT_25_75",
-        "displayOrder": 10,
+        "displayOrder": 12,
         "headingConceptSource": "Abbreviation",
         "dataConceptSource": "Abbreviation",
         "dashboardConfig": {
@@ -396,7 +396,7 @@
             "Meropenem"
           ]
         },
-        "displayOrder": 11
+        "displayOrder": 13
       },
       "BacteriologyResults": {
         "displayType": "LAYOUT_25_75",
@@ -404,7 +404,7 @@
         "type": "obsToObsFlowSheet",
         "headingConceptSource": "Abbreviation",
         "dataConceptSource": "Abbreviation",
-        "displayOrder": 12,
+        "displayOrder": 14,
         "dashboardConfig": {
           "templateName": "BACTERIOLOGY CONCEPT SET",
           "groupByConcept": "Specimen Collection Date",
@@ -420,7 +420,7 @@
         "translationKey": "SUMMARY_TITLE_TREATMENT_COMPLETENESS_RATE",
         "type": "obsToObsFlowSheet",
         "displayType": "Full-Page",
-        "displayOrder": 13,
+        "displayOrder": 15,
         "dashboardConfig": {
           "pivotOn": "row",
           "templateName": "Monthly Treatment Completeness Template",
@@ -437,7 +437,7 @@
         "translationKey": "SUMMARY_TITLE_WEIGHT_VS_BMI",
         "type": "obsToObsFlowSheet",
         "headingConceptSource": "Abbreviation",
-        "displayOrder": 14,
+        "displayOrder": 16,
         "dashboardConfig": {
           "pivotOn": "row",
           "templateName": "Followup Template",
@@ -453,7 +453,7 @@
         "translationKey": "SUMMARY_TITLE_LAB_HEMATOLOGY",
         "type": "obsToObsFlowSheet",
         "headingConceptSource": "Abbreviation",
-        "displayOrder": 15,
+        "displayOrder": 17,
         "dashboardConfig": {
           "pivotOn": "row",
           "templateName": "Lab Results Hemotology Template",
@@ -475,7 +475,7 @@
         "translationKey": "SUMMARY_TITLE_LAB_BIOCHEMISTRY",
         "type": "obsToObsFlowSheet",
         "headingConceptSource": "Abbreviation",
-        "displayOrder": 16,
+        "displayOrder": 18,
         "dashboardConfig": {
           "pivotOn": "row",
           "templateName": "Lab Results Biochemistry Template",
@@ -504,7 +504,7 @@
         "translationKey": "SUMMARY_TITLE_LAB_SEROLOGY",
         "type": "obsToObsFlowSheet",
         "headingConceptSource": "Abbreviation",
-        "displayOrder": 17,
+        "displayOrder": 19,
         "dashboardConfig": {
           "pivotOn": "row",
           "templateName": "Lab Results Serology Template",
@@ -523,7 +523,7 @@
         "translationKey": "SUMMARY_TITLE_LAB_PREGNANCY",
         "type": "obsToObsFlowSheet",
         "headingConceptSource": "Abbreviation",
-        "displayOrder": 18,
+        "displayOrder": 20,
         "dashboardConfig": {
           "pivotOn": "row",
           "templateName": "Lab Results Pregnancy Template",
@@ -539,7 +539,7 @@
         "translationKey": "SUMMARY_TITLE_LAB_OTHER_TESTS",
         "type": "obsToObsFlowSheet",
         "headingConceptSource": "Abbreviation",
-        "displayOrder": 19,
+        "displayOrder": 21,
         "dashboardConfig": {
           "pivotOn": "row",
           "templateName": "Lab Results Other Tests Template",
@@ -556,7 +556,7 @@
         "type": "obsToObsFlowSheet",
         "displayType": "Full-Page",
         "headingConceptSource": "Abbreviation",
-        "displayOrder": 20,
+        "displayOrder": 22,
         "dashboardConfig": {
           "groupByConcept": "AE Form, AE term comprehensive list",
           "templateName": "Adverse Events Template",
@@ -578,7 +578,7 @@
         "type": "obsToObsFlowSheet",
         "displayType": "Full-Page",
         "headingConceptSource": "Abbreviation",
-        "displayOrder": 21,
+        "displayOrder": 23,
         "dashboardConfig": {
           "groupByConcept": "SAE Form, SAE term comprehensive AE list",
           "templateName": "Serious Adverse Events Template",
@@ -601,7 +601,7 @@
         "type": "obsToObsFlowSheet",
         "headingConceptSource": "Abbreviation",
         "displayType": "Full-Page",
-        "displayOrder": 22,
+        "displayOrder": 24,
         "dashboardConfig": {
           "groupByConcept": "EKG, Date of EKG",
           "type": "EcgReadingsExtension",
@@ -620,7 +620,7 @@
         "type": "obsToObsFlowSheet",
         "headingConceptSource": "Abbreviation",
         "displayType": "Full-Page",
-        "displayOrder": 23,
+        "displayOrder": 25,
         "dashboardConfig": {
           "groupByConcept": "Xray, Chest Xray Date",
           "type": "ChestXRayExtension",
@@ -636,8 +636,9 @@
         "translationKey": "SUMMARY_TITLE_XPERT_RESULTS",
         "type": "obsToObsFlowSheet",
         "headingConceptSource": "Abbreviation",
-        "displayType": "Full-Page",
-        "displayOrder": 24,
+        "dataConceptSource": "Abbreviation",
+        "displayType": "LAYOUT_50_50",
+        "displayOrder": 9,
         "dashboardConfig": {
           "groupByConcept": "Bacteriology, Date of Xpert test",
           "type": "XpertExtension",
@@ -652,8 +653,9 @@
         "translationKey": "SUMMARY_TITLE_HAIN_RESULTS",
         "type": "obsToObsFlowSheet",
         "headingConceptSource": "Abbreviation",
-        "displayType": "Full-Page",
-        "displayOrder": 24,
+        "dataConceptSource": "Abbreviation",
+        "displayType": "LAYOUT_50_50",
+        "displayOrder": 10,
         "dashboardConfig": {
           "groupByConcept": "Specimen Collection Date",
           "type": "HAINExtension",
@@ -663,8 +665,8 @@
             "Bacteriology, HAIN MTBDRsl test result",
             "Bacteriology, Isoniazid",
             "Bacteriology, Rifampicin",
-            " Bacteriology, Fluoroquinolone",
-            " Bacteriology, MTBDRsl injectable"            
+            "Bacteriology, Fluoroquinolone",
+            "Bacteriology, MTBDRsl injectable"            
           ]
         }
       }
