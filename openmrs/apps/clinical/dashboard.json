@@ -640,9 +640,9 @@
         "displayType": "LAYOUT_50_50",
         "displayOrder": 9,
         "dashboardConfig": {
-          "groupByConcept": "Bacteriology, Date of Xpert test",
+          "groupByConcept": "Specimen Collection Date",
           "type": "XpertExtension",
-          "templateName": "Bacteriology, Xpert test results",
+          "templateName": "BACTERIOLOGY CONCEPT SET",
           "conceptNames": [
             "Bacteriology, Xpert MTB result",
             "Bacteriology, RIF resistance result type"
