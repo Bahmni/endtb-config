@@ -1517,7 +1517,7 @@
         <comment>Changing short name from 9 = Drug intolerance/contraindication/low BMI/HIV/ diabetes to 9=comorbidity/low BMI/HIV/diabetes</comment>
         <sql>            
             select concept_id into @concept_id1 from concept_view where concept_full_name = '9 = Drug intolerance or contraindication, patients with low body mass index (BMI), HIV, diabetes';
-            update concept_name set name = '=comorbidity/low BMI/HIV/diabetes' where concept_name_type='SHORT' and locale = 'en' and concept_id = @concept_id1;
+            update concept_name set name = '9=comorbidity/low BMI/HIV/diabetes' where concept_name_type='SHORT' and locale = 'en' and concept_id = @concept_id1;
         </sql>
     </changeSet>
 </databaseChangeLog>
