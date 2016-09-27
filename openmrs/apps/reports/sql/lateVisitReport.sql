@@ -35,7 +35,8 @@ FROM
      DATE_FORMAT(MAX(DISTINCT (o1.obs_datetime)), '%d-%b-%Y')                                               AS 'Date of last visit',
      DATEDIFF(STR_TO_DATE('#startDate#', '%Y-%m-%d'), MAX(DISTINCT(o1.obs_datetime)))                       AS 'Days since last visit',
       DATE_FORMAT(COALESCE(follow_up_next_visit_obs.value_datetime, baseline_next_visit_obs.value_datetime),
-                  '%d-%b-%Y')                                                                AS 'Next scheduled visit'
+                  '%d-%b-%Y')                                                                AS 'Next scheduled visit',
+     epp.patient_program_id
    FROM obs o1
      INNER JOIN episode_encounter ee1 ON ee1.encounter_id = o1.encounter_id AND o1.voided = 0
      INNER JOIN concept_name cn ON cn.concept_id = o1.concept_id AND cn.concept_name_type = 'FULLY_SPECIFIED' AND
@@ -96,4 +97,6 @@ FROM
        ON treatment_name.person_id = o1.person_id AND treatment_name.episode_id = ee1.episode_id
    WHERE obsEpisode.obs_id IS NULL
    GROUP BY epp.patient_program_id) data
+  INNER JOIN patient_program pp on pp.patient_program_id = data.patient_program_id and pp.outcome_concept_id is null
+  and pp.voided = 0
 WHERE data.`Days since last visit` >= 37;
