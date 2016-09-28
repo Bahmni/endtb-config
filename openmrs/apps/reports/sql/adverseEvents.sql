@@ -34,6 +34,6 @@ FROM obs top_level_obs
   INNER JOIN episode_patient_program epp ON ee.episode_id=epp.episode_id
   INNER JOIN patient_program_attribute ppa ON ppa.patient_program_id=epp.patient_program_id
   INNER JOIN program_attribute_type pat ON pat.program_attribute_type_id=ppa.attribute_type_id AND pat.name='Registration Number'
-  INNER JOIN patient_identifier pi ON pi.patient_id = top_level_obs.person_id
+  INNER JOIN patient_identifier pi ON pi.patient_id = top_level_obs.person_id AND top_level_obs.voided = 0
 WHERE top_level_cn.name='Adverse Events Template' AND cast(top_level_obs.obs_datetime AS DATE) BETWEEN '#startDate#' AND '#endDate#'
 GROUP BY top_level_obs.obs_id;
