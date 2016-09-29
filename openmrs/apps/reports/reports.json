@@ -125,14 +125,14 @@
     }
   },
   "ClinicalVisitAttendanceReportByDrugStartDate": {
-    "name": "Clinical Visit Attendance By Drug Start Date Report (Excel)",
+    "name": "Clinical Visit Attendance (D) Report (Excel)",
     "type": "MRSGeneric",
     "config": {
       "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/clinicalVisitAttendanceByTBDrugStartDate.sql"
     }
   },
   "ClinicalVisitAttendanceReportByTreatmentStartDate": {
-    "name": "Clinical Visit Attendance By Treatment Start Date Report (Excel)",
+    "name": "Clinical Visit Attendance (T) Report (Excel)",
     "type": "MRSGeneric",
     "config": {
       "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/clinicalVisitAttendanceByTreatmentStartDate.sql"
