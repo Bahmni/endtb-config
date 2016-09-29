@@ -6,7 +6,7 @@ SELECT pp.patient_id,
 FROM patient_program pp
   JOIN program prog ON (pp.program_id = prog.program_id
                         AND prog.name IN ('Basic management unit TB register','Second-line TB treatment register'))
-  JOIN episode_patient_program epp ON epp.patient_program_id = pp.patient_program_id
+  JOIN episode_patient_program epp ON epp.patient_program_id = pp.patient_program_id and pp.voided = 0
   JOIN episode_encounter ee ON ee.episode_id = epp.episode_id
   JOIN encounter e1 ON e1.encounter_id = ee.encounter_id
   JOIN (select cast(MIN(COALESCE(orders.scheduled_date, orders.date_activated)) AS date) AS start_date,ee.episode_id,orders.order_id from orders

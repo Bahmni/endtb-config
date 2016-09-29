@@ -15,7 +15,7 @@ from
   JOIN encounter e1 ON e1.encounter_id = episodes_with_drugs.encounter_id
   JOIN episode_encounter ee ON  ee.encounter_id = episodes_with_drugs.encounter_id
   JOIN episode_patient_program epp ON ee.episode_id = epp.episode_id  AND episodes_with_drugs.drug_start_date BETWEEN '#startDate#' AND '#endDate#' AND episodes_with_drugs.drug_start_date >= '2015-04-01'
-  INNER JOIN patient_program pp on epp.patient_program_id = pp.patient_program_id
+  INNER JOIN patient_program pp on epp.patient_program_id = pp.patient_program_id and pp.voided = 0
   LEFT OUTER JOIN
   (SELECT  ee.episode_id AS episode_id,
            MAX(CASE WHEN cn.name = 'TUBERCULOSIS DRUG TREATMENT START DATE' THEN o.value_datetime END) AS treatment_start_date,

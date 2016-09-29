@@ -26,7 +26,7 @@ FROM
   person_name pn
   JOIN person p ON pn.person_id = p.person_id
   JOIN patient_identifier pi ON  pn.person_id = pi.patient_id
-  JOIN patient_program pp ON  pp.patient_id = pi.patient_id
+  JOIN patient_program pp ON  pp.patient_id = pi.patient_id and pp.voided = 0
   JOIN episode_patient_program epp ON epp.patient_program_id = pp.patient_program_id
   JOIN episode_encounter ee ON  ee.episode_id = epp.episode_id
   JOIN (

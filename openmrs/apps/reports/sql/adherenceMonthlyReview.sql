@@ -80,6 +80,7 @@ FROM
   LEFT JOIN concept_view ttr_cv ON ttr_cv.concept_id=ttr_obs.value_coded
   INNER JOIN episode_encounter ee2 ON ee2.episode_id = ee.episode_id AND ee2.encounter_id=ttr_obs.encounter_id
   INNER JOIN episode_patient_program epp ON ee.episode_id=epp.episode_id
+  INNER JOIN patient_program pp ON pp.patient_program_id = epp.patient_program_id and pp.voided = 0
   INNER JOIN patient_program_attribute ppa ON ppa.patient_program_id=epp.patient_program_id
   INNER JOIN program_attribute_type pat ON pat.program_attribute_type_id=ppa.attribute_type_id AND pat.name='Registration Number'
   INNER JOIN patient_identifier pi ON pi.patient_id = o.person_id

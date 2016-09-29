@@ -60,7 +60,7 @@ FROM (SELECT
               JOIN episode_patient_program epp ON ee.episode_id = epp.episode_id AND
                                                   episodes_with_drugs.drug_start_date BETWEEN '#startDate#' AND '#endDate#'
                                                   AND episodes_with_drugs.drug_start_date >= '2015-04-01'
-              INNER JOIN patient_program pp ON epp.patient_program_id = pp.patient_program_id
+              INNER JOIN patient_program pp ON epp.patient_program_id = pp.patient_program_id and pp.voided = 0
               LEFT OUTER JOIN
               (SELECT
                  ee.episode_id                AS episode_id,
@@ -96,7 +96,7 @@ FROM (SELECT
                                    cn.concept_name_type = 'FULLY_SPECIFIED'
            JOIN episode_encounter ee ON obs.encounter_id = ee.encounter_id
            JOIN episode_patient_program epp ON ee.episode_id = epp.episode_id
-           JOIN patient_program pp ON epp.patient_program_id = pp.patient_program_id
+           JOIN patient_program pp ON epp.patient_program_id = pp.patient_program_id and pp.voided = 0
         ) AS bacteriology_results
           ON interim_outcome_results.patient_program_id = bacteriology_results.patient_program_id
       WHERE treatment_end_date is NULL or (treatment_end_date > date_add(drug_start_date,INTERVAL 198 DAY))

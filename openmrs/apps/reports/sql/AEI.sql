@@ -7,7 +7,7 @@ SELECT
   obs_en.`AE Form, Date of AE onset`,
   obs_en.`AE Form, AE term comprehensive list`
   FROM patient_program pp
-  JOIN episode_patient_program epp ON epp.patient_program_id = pp.patient_program_id
+  JOIN episode_patient_program epp ON epp.patient_program_id = pp.patient_program_id and pp.voided = 0
   JOIN episode_encounter ee ON ee.episode_id = epp.episode_id
   JOIN (SELECT cast(MIN(COALESCE(orders.scheduled_date, orders.date_activated)) AS DATE ) AS start_date,ee.episode_id,orders.order_id FROM orders
         JOIN episode_encounter ee

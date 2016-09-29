@@ -203,7 +203,7 @@ FROM
              GROUP BY ee.episode_id) end_of_treatment_obs ON ee.episode_id=end_of_treatment_obs.episode_id
 WHERE person_name.person_id = patient_program.patient_id
       AND pi.patient_id = person_name.person_id
-      AND epp.patient_program_id = patient_program.patient_program_id
+      AND epp.patient_program_id = patient_program.patient_program_id and patient_program.voided = 0
       AND ppa.patient_program_id = patient_program.patient_program_id
       AND ppa.attribute_type_id = pat.program_attribute_type_id
       AND (pat.name = 'Registration Number' OR pat.name = 'Registration Facility')

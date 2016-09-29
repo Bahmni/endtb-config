@@ -1,5 +1,5 @@
 SELECT
-  ppa.value_reference                                                                                                                                                                                                                            AS 'Treatment ID',
+  ppa.value_reference                                                                                                                                                                                                                            AS  'Registration Number' ,
   pi.identifier                                                                                                                                                                                                                                  AS 'EMR ID',
   GROUP_CONCAT(DISTINCT (IF(first_child_cn.name = 'AE Form, Date of AE onset', DATE_FORMAT(first_child_obs.value_datetime, '%d-%M-%Y'), NULL)) SEPARATOR ',')                                                                                    AS 'Date of AE onset',
   GROUP_CONCAT(DISTINCT (IF(first_child_cn.name = 'AE Form, Date of AE report', DATE_FORMAT(first_child_obs.value_datetime, '%d-%M-%Y'), NULL)) SEPARATOR ',')                                                                                   AS 'Date of AE reporting',
@@ -32,6 +32,7 @@ FROM obs top_level_obs
   LEFT JOIN concept_name third_child_cn ON third_child_cn.concept_id = third_child_obs.concept_id AND third_child_cn.concept_name_type = 'FULLY_SPECIFIED'
   INNER JOIN episode_encounter ee ON ee.encounter_id = top_level_obs.encounter_id
   INNER JOIN episode_patient_program epp ON ee.episode_id=epp.episode_id
+  INNER JOIN patient_program pp ON pp.patient_program_id = epp.patient_program_id and pp.voided = 0
   INNER JOIN patient_program_attribute ppa ON ppa.patient_program_id=epp.patient_program_id
   INNER JOIN program_attribute_type pat ON pat.program_attribute_type_id=ppa.attribute_type_id AND pat.name='Registration Number'
   INNER JOIN patient_identifier pi ON pi.patient_id = top_level_obs.person_id AND top_level_obs.voided = 0

@@ -212,7 +212,7 @@ FROM
 WHERE person_name.person_id = patient_program.patient_id
       AND pi.patient_id = person_name.person_id
       AND p.person_id = person_name.person_id
-      AND epp.patient_program_id = patient_program.patient_program_id
+      AND epp.patient_program_id = patient_program.patient_program_id and patient_program.voided = 0
       AND ppa.patient_program_id = patient_program.patient_program_id
       AND ppa.attribute_type_id = pat.program_attribute_type_id
       AND pat.name = 'Registration Number'

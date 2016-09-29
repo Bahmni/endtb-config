@@ -28,7 +28,7 @@ FROM
    FROM
      patient_identifier pi
      JOIN patient_program pp ON  pp.patient_id = pi.patient_id
-     JOIN episode_patient_program epp ON epp.patient_program_id = pp.patient_program_id
+     JOIN episode_patient_program epp ON epp.patient_program_id = pp.patient_program_id and pp.voided=0
      JOIN patient_program_attribute ppa ON  ppa.patient_program_id = pp.patient_program_id AND ppa.voided=0
      JOIN program_attribute_type pat ON ppa.attribute_type_id = pat.program_attribute_type_id
      JOIN episode_encounter adm_ee ON adm_ee.episode_id = epp.episode_id
