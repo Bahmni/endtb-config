@@ -184,6 +184,7 @@
         "displayType": "Full-Page",
         "dashboardConfig": {
           "showGroupDateTime": false,
+          "persistOrderOfConcepts": false,
           "conceptNames": [
             "TUBERCULOSIS DRUG TREATMENT START DATE",
             "Current month of treatment",
