@@ -28,7 +28,7 @@
         "url": "../admin/#/dashboard/home",
         "icon": "icon-bahmni-admin",
         "order": 4,
-        "requiredPrivilege": "app:admin"
+        "requiredPrivilege": "app:registration"
     },
     "bahmni_reports": {
         "id": "bahmni.reports",
