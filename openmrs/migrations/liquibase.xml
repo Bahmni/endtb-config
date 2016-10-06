@@ -1520,4 +1520,8 @@
             update concept_name set name = '9=comorbidity/low BMI/HIV/diabetes' where concept_name_type='SHORT' and locale = 'en' and concept_id = @concept_id1;
         </sql>
     </changeSet>
+    <changeSet id="ENTB-201610061333" author="Swathi">
+        <comment> Modifying Sql for searching patients to not consider multiple identifiers</comment>
+        <sqlFile path="E1_8_Search_Patients.sql"/>
+    </changeSet>
 </databaseChangeLog>
