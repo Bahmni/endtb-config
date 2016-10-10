@@ -105,6 +105,7 @@
         "translationKey": "DASHBOARD_TITLE_ADVERSE_EVENTS_SUMMARY",
         "type": "obsToObsFlowSheet",
         "headingConceptSource": "Abbreviation",
+        "dataConceptSource": "Abbreviation",
         "displayOrder": 8,
         "dashboardConfig": {
           "isEditable": true,
@@ -124,6 +125,7 @@
         "translationKey": "DASHBOARD_TITLE_SERIOUS_ADVERSE_EVENTS_SUMMARY",
         "type": "obsToObsFlowSheet",
         "headingConceptSource": "Abbreviation",
+        "dataConceptSource": "Abbreviation",
         "displayOrder": 10,
         "dashboardConfig": {
           "isEditable": true,
@@ -264,6 +266,7 @@
         "translationKey": "SUMMARY_TITLE_PREVIOUS_TB_TREATMENT_TABLE",
         "type": "obsToObsFlowSheet",
         "headingConceptSource": "Abbreviation",
+        "dataConceptSource": "Abbreviation",
         "displayType": "Full-Page",
         "displayOrder": 7,
         "dashboardConfig": {
@@ -354,6 +357,7 @@
         "translationKey": "SUMMARY_TITLE_DRUG_REGIMEN",
         "type": "chronicTreatmentChart",
         "headingConceptSource": "Abbreviation",
+        "dataConceptSource": "Abbreviation",
         "dashboardConfig": {
           "drugs": [
             "ISONIAZID",
@@ -406,6 +410,7 @@
         "type": "obsToObsFlowSheet",
         "displayType": "Full-Page",
         "headingConceptSource": "Abbreviation",
+        "dataConceptSource": "Abbreviation",
         "displayOrder": 15,
         "dashboardConfig": {
           "pivotOn": "row",
@@ -423,6 +428,7 @@
         "translationKey": "SUMMARY_TITLE_WEIGHT_VS_BMI",
         "type": "obsToObsFlowSheet",
         "headingConceptSource": "Abbreviation",
+        "dataConceptSource": "Abbreviation",
         "displayOrder": 16,
         "dashboardConfig": {
           "pivotOn": "row",
@@ -439,6 +445,7 @@
         "translationKey": "SUMMARY_TITLE_LAB_HEMATOLOGY",
         "type": "obsToObsFlowSheet",
         "headingConceptSource": "Abbreviation",
+        "dataConceptSource": "Abbreviation",
         "displayOrder": 17,
         "dashboardConfig": {
           "pivotOn": "row",
@@ -461,6 +468,7 @@
         "translationKey": "SUMMARY_TITLE_LAB_BIOCHEMISTRY",
         "type": "obsToObsFlowSheet",
         "headingConceptSource": "Abbreviation",
+        "dataConceptSource": "Abbreviation",
         "displayOrder": 18,
         "dashboardConfig": {
           "pivotOn": "row",
@@ -490,6 +498,7 @@
         "translationKey": "SUMMARY_TITLE_LAB_SEROLOGY",
         "type": "obsToObsFlowSheet",
         "headingConceptSource": "Abbreviation",
+        "dataConceptSource": "Abbreviation",
         "displayOrder": 19,
         "dashboardConfig": {
           "pivotOn": "row",
@@ -509,6 +518,7 @@
         "translationKey": "SUMMARY_TITLE_LAB_PREGNANCY",
         "type": "obsToObsFlowSheet",
         "headingConceptSource": "Abbreviation",
+        "dataConceptSource": "Abbreviation",
         "displayOrder": 20,
         "dashboardConfig": {
           "pivotOn": "row",
@@ -525,6 +535,7 @@
         "translationKey": "SUMMARY_TITLE_LAB_OTHER_TESTS",
         "type": "obsToObsFlowSheet",
         "headingConceptSource": "Abbreviation",
+        "dataConceptSource": "Abbreviation",
         "displayOrder": 21,
         "dashboardConfig": {
           "pivotOn": "row",
@@ -542,6 +553,7 @@
         "type": "obsToObsFlowSheet",
         "displayType": "Full-Page",
         "headingConceptSource": "Abbreviation",
+        "dataConceptSource": "Abbreviation",
         "displayOrder": 22,
         "dashboardConfig": {
           "groupByConcept": "AE Form, AE term comprehensive list",
@@ -564,6 +576,7 @@
         "type": "obsToObsFlowSheet",
         "displayType": "Full-Page",
         "headingConceptSource": "Abbreviation",
+        "dataConceptSource": "Abbreviation",
         "displayOrder": 23,
         "dashboardConfig": {
           "groupByConcept": "SAE Form, SAE term comprehensive AE list",
@@ -586,6 +599,7 @@
         "translationKey": "SUMMARY_TITLE_ECG_READINGS",
         "type": "obsToObsFlowSheet",
         "headingConceptSource": "Abbreviation",
+        "dataConceptSource": "Abbreviation",
         "displayType": "Full-Page",
         "displayOrder": 24,
         "dashboardConfig": {
@@ -605,6 +619,7 @@
         "translationKey": "SUMMARY_TITLE_CHEST_XRAY",
         "type": "obsToObsFlowSheet",
         "headingConceptSource": "Abbreviation",
+        "dataConceptSource": "Abbreviation",
         "displayType": "Full-Page",
         "displayOrder": 25,
         "dashboardConfig": {
