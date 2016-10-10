@@ -258,6 +258,6 @@ WHERE pi.patient_id = pp.patient_id
       AND epp.patient_program_id = pp.patient_program_id and pp.voided = 0
       AND ee.episode_id = epp.episode_id
       AND ee.encounter_id = e.encounter_id
-      AND episodes_with_drugs.drug_start_date BETWEEN '2016-09-01' AND '2016-09-30'
+      AND episodes_with_drugs.drug_start_date BETWEEN '#startDate#' AND '#endDate#'
 GROUP BY epp.episode_id, pp.patient_program_id;
 

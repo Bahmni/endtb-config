@@ -262,7 +262,7 @@ WHERE pi.patient_id = pp.patient_id
       AND tStartDate.encounter_id = e.encounter_id
       AND tStartDate.concept_id = tStartDateConcept.concept_id
       AND tStartDate.voided=0
-      AND tStartDate.value_datetime BETWEEN '2016-09-01' AND '2016-10-30'
+      AND tStartDate.value_datetime BETWEEN '#startDate#' AND '#endDate#'
       AND tStartDateConcept.concept_full_name = 'TUBERCULOSIS DRUG TREATMENT START DATE'
 GROUP BY epp.episode_id, pp.patient_program_id;
 
