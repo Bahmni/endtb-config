@@ -20,8 +20,15 @@
     "visitUuid"
   ],
   "config": {
-    "showNetworkStatusMessage": true,
-    "networkStatusCheckInterval": 5000,
+    "networkConnectivity" : {
+      "showNetworkStatusMessage": false,
+      "networkStatusCheckInterval": 5000,
+        "locales" : [
+          { "locale" : "fr", "css" : "offline-language-french"},
+          { "locale" : "es", "css": "offline-language-spanish"},
+          { "locale" : "pt", "css": "offline-language-portuguese-brazil"}
+        ]
+    },
     "defaultVisitType": "General",
     "showSaveConfirmDialog" : true,
     "showFormsDate" : true,
