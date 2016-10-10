@@ -1520,4 +1520,87 @@
             update concept_name set name = '9=comorbidity/low BMI/HIV/diabetes' where concept_name_type='SHORT' and locale = 'en' and concept_id = @concept_id1;
         </sql>
     </changeSet>
+    <changeSet id="ENDTB-201610100400" author="Sudhamsh">        
+        <comment> Adding abbreviations for the visit types</comment>
+        <sql>
+            select concept_source_id into @source_id from concept_reference_source where name = 'Abbreviation';
+
+            insert into concept_reference_term (creator,code,concept_source_id,uuid,date_created) values
+            (4,'Baseline',@source_id,uuid(),now()),
+            (4,'2 week',@source_id,uuid(),now()),
+            (4,'monthly',@source_id,uuid(),now()),
+            (4,'other',@source_id,uuid(),now()),
+            (4,'End of treatment',@source_id,uuid(),now()),
+            (4,'6- Month post-treatment',@source_id,uuid(),now());
+
+            INSERT INTO concept_reference_map (concept_reference_term_id, concept_map_type_id,creator,date_created,concept_id,uuid)
+                            (SELECT  ct.concept_reference_term_id,1,1,now(),cn.concept_id,uuid()
+                             FROM  concept_name cn,
+                               concept_reference_term ct,
+                               concept_reference_source cs
+                             WHERE ct.code = '2 week'
+                                   AND ct.concept_source_id = cs.concept_source_id
+                                   AND cs.name='Abbreviation'
+                                   AND cn.name= '2 week assessment'
+                                   AND cn.concept_name_type='FULLY_SPECIFIED');
+
+            INSERT INTO concept_reference_map (concept_reference_term_id, concept_map_type_id,creator,date_created,concept_id,uuid)
+                            (SELECT  ct.concept_reference_term_id,1,1,now(),cn.concept_id,uuid()
+                             FROM  concept_name cn,
+                               concept_reference_term ct,
+                               concept_reference_source cs
+                             WHERE ct.code = 'other'
+                                   AND ct.concept_source_id = cs.concept_source_id
+                                   AND cs.name='Abbreviation'
+                                   AND cn.name= 'Other assessment'
+                                   AND cn.concept_name_type='FULLY_SPECIFIED');
+                                   
+            INSERT INTO concept_reference_map (concept_reference_term_id, concept_map_type_id,creator,date_created,concept_id,uuid)
+                            (SELECT  ct.concept_reference_term_id,1,1,now(),cn.concept_id,uuid()
+                             FROM  concept_name cn,
+                               concept_reference_term ct,
+                               concept_reference_source cs
+                             WHERE ct.code = 'monthly'
+                                   AND ct.concept_source_id = cs.concept_source_id
+                                   AND cs.name='Abbreviation'
+                                   AND cn.name= 'planned monthly assessment'
+                                   AND cn.concept_name_type='FULLY_SPECIFIED');
+                                   
+                                   
+            INSERT INTO concept_reference_map (concept_reference_term_id, concept_map_type_id,creator,date_created,concept_id,uuid)
+                            (SELECT  ct.concept_reference_term_id,1,1,now(),cn.concept_id,uuid()
+                             FROM  concept_name cn,
+                               concept_reference_term ct,
+                               concept_reference_source cs
+                             WHERE ct.code = 'End of treatment'
+                                   AND ct.concept_source_id = cs.concept_source_id
+                                   AND cs.name='Abbreviation'
+                                   AND cn.name= 'End of treatment assessment'
+                                   AND cn.concept_name_type='FULLY_SPECIFIED');
+                                   
+            INSERT INTO concept_reference_map (concept_reference_term_id, concept_map_type_id,creator,date_created,concept_id,uuid)
+                            (SELECT  ct.concept_reference_term_id,1,1,now(),cn.concept_id,uuid()
+                             FROM  concept_name cn,
+                               concept_reference_term ct,
+                               concept_reference_source cs
+                             WHERE ct.code = '6- Month post-treatment'
+                                   AND ct.concept_source_id = cs.concept_source_id
+                                   AND cs.name='Abbreviation'
+                                   AND cn.name= '6-month post-treatment assessment'
+                                   AND cn.concept_name_type='FULLY_SPECIFIED');
+                                   
+            INSERT INTO concept_reference_map (concept_reference_term_id, concept_map_type_id,creator,date_created,concept_id,uuid)
+                            (SELECT  ct.concept_reference_term_id,1,1,now(),cn.concept_id,uuid()
+                             FROM  concept_name cn,
+                               concept_reference_term ct,
+                               concept_reference_source cs
+                             WHERE ct.code = 'Baseline'
+                                   AND ct.concept_source_id = cs.concept_source_id
+                                   AND cs.name='Abbreviation'
+                                   AND cn.name= 'Baseline'
+                                   AND cn.concept_name_type='FULLY_SPECIFIED');
+        </sql>
+    </changeSet>
 </databaseChangeLog>
+
+
