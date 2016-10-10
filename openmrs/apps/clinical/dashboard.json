@@ -242,21 +242,6 @@
           "template": "<co-morbidities></co-morbidities>"
         }
       },
-      "importantdates": {
-        "type": "importantdates",
-        "isObservation": true,
-        "displayType": "Full-Page",
-        "dashboardConfig": {
-          "showGroupDateTime": false,
-          "conceptNames": [
-            "TUBERCULOSIS DRUG TREATMENT START DATE",
-            "Tuberculosis treatment end date"
-          ],
-          "scope": "latest"
-        },
-        "displayOrder": 5,
-        "translationKey": "SUMMARY_TITLE_IMPORTANT_DATES"
-      },
       "pasttbhistory": {
         "type": "pasttbhistory",
         "isObservation": true,
@@ -366,7 +351,7 @@
         }
       },
       "Drug-O-Gram": {
-        "displayType": "LAYOUT_75_25",
+        "displayType": "Full-Page",
         "translationKey": "SUMMARY_TITLE_DRUG_REGIMEN",
         "type": "chronicTreatmentChart",
         "headingConceptSource": "Abbreviation",
@@ -400,7 +385,7 @@
         "displayOrder": 13
       },
       "BacteriologyResults": {
-        "displayType": "LAYOUT_25_75",
+        "displayType": "Full-Page",
         "translationKey": "SUMMARY_TITLE_CULTURE_SMEAR_RESULT",
         "type": "obsToObsFlowSheet",
         "headingConceptSource": "Abbreviation",
@@ -421,6 +406,7 @@
         "translationKey": "SUMMARY_TITLE_TREATMENT_COMPLETENESS_RATE",
         "type": "obsToObsFlowSheet",
         "displayType": "Full-Page",
+        "headingConceptSource": "Abbreviation",
         "displayOrder": 15,
         "dashboardConfig": {
           "pivotOn": "row",
@@ -429,7 +415,7 @@
           "conceptNames": [
             "MTC, Completeness rate",
             "MTC, Adherence rate",
-            "MTC, DOT rate"
+            "MTC, Overall DOT Rate"
           ]
         }
       },
