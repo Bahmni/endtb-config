@@ -31,7 +31,7 @@ angular.module('bahmni.common.displaycontrol.custom')
         template: '<ng-include src="contentUrl"/>'
     }
 }]).directive('coMorbidities', ['observationsService', 'appService', 'spinner', function (observationsService, appService, spinner) {
-    var link = function ($scope) {
+    var link = function ($scope, element) {
         var conceptNames = ["Diabetes Mellitus", "Baseline, Chronic renal insufficiency", "History of liver cirrhosis",
             "Baseline, Chronic obstructive pulmonary disease", "Baseline, Has cancer", "Baseline, Cancer type",
             "Baseline, Heart or atherosclerotic disease", "Baseline, Type of heart disease", "Baseline, Hepatitis B", "Baseline, Hepatitis C", "Baseline, Depression",
@@ -81,7 +81,7 @@ angular.module('bahmni.common.displaycontrol.custom')
 
             $scope.allComorbidities = allComorbidityConceptNames.join(", ");
             $scope.hasNoValue = _.isEmpty(allComorbidityConceptNames);
-        }));
+        }), element);
     };
 
     return {
@@ -91,7 +91,7 @@ angular.module('bahmni.common.displaycontrol.custom')
     }
 }]).directive('patientMonitoringTool', ['$http', '$translate', 'spinner', '$q', 'appService', 'messagingService', 'observationsService',
     function ($http, $translate, spinner, $q, appService, messagingService, observationsService) {
-        var link = function ($scope) {
+        var link = function ($scope, element) {
             var fetchFlowsheetAttributes = function (patientProgramUuid) {
                 return $http.get('/openmrs/ws/rest/v1/endtb/patientFlowsheetAttributes', {
                     params: {patientProgramUuid: patientProgramUuid},
@@ -214,7 +214,7 @@ angular.module('bahmni.common.displaycontrol.custom')
             };
             $scope.contentUrl = appService.configBaseUrl() + "/customDisplayControl/views/patientMonitoringTool.html";
 
-            spinner.forPromise(init());
+            spinner.forPromise(init(), element);
         };
         return {
             restrict: 'E',
