@@ -2,14 +2,14 @@ SELECT
   pi.identifier AS 'EMR ID',
   MAX(IF(pat.name='Registration Number', ppa.value_reference, NULL )) AS 'Registration Number',
   IFNULL(cf.facility, MAX(IF(pat.name='Registration Facility', (SELECT concept_full_name from concept_view WHERE concept_id = ppa.value_reference), NULL ))) AS 'Current Treatment Facility',
-  DATE_FORMAT(tStartDate.value_datetime, '%d/%b/%Y') AS 'Treatment Start Date',
+  MAX(IF(obs.concept_full_name = 'TUBERCULOSIS DRUG TREATMENT START DATE', DATE_FORMAT(obs.value, '%d/%b/%Y'), NULL))  AS 'Treatment Start Date',
   DATE_FORMAT(episodes_with_drugs.drug_start_date, '%d/%b/%Y') AS 'New Drug Start Date',
   DATE_FORMAT(end_of_treatment_obs.end_of_treatment_date, '%d/%b/%Y') AS 'End Of Treatment Date',
 
-  IF(MAX(IF(obs.concept_full_name = 'Baseline, Date of baseline', obs.value, NULL)),
-    IF(TRUNCATE((TIMESTAMPDIFF(DAY, obs.value, COALESCE(episodes_with_drugs.drug_start_date, NOW()))), 1) <= 15, 'X', 'O'),
+  MAX(IF(obs.concept_full_name = 'Baseline, Date of baseline',
+    IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL -30 DAY) <= obs.value AND obs.value < DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 15 DAY), 'X', 'O'),
     'O'
-  ) AS 'BL',
+  )) AS 'BL',
 
   IF(DATE_ADD(episodes_with_drugs.drug_start_date,INTERVAL 15 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
     MAX(IF(obs.concept_full_name = 'Followup, Visit Date',
@@ -196,8 +196,6 @@ FROM
   patient_program_attribute ppa,
   program_attribute_type pat,
   encounter e,
-  obs tStartDate,
-  concept_view tStartDateConcept,
   episode_encounter ee
   LEFT JOIN(
     SELECT ee.episode_id, COALESCE(answer_concept.concept_full_name, o.value_datetime, o.value_numeric, o.value_text) AS facility
@@ -238,7 +236,7 @@ FROM
               AND cv.concept_id = o.concept_id
               AND o.voided=0
      GROUP BY ee.episode_id
-  ) end_of_treatment_obs ON ee.episode_id=end_of_treatment_obs.episode_id
+  ) end_of_treatment_obs ON ee.episode_id = end_of_treatment_obs.episode_id
   LEFT JOIN (
     SELECT cv.concept_full_name,
        ee.episode_id,
@@ -247,7 +245,8 @@ FROM
       JOIN concept_view cv ON cv.concept_id = o.concept_id and o.voided=0
       LEFT JOIN concept_view answer_concept ON answer_concept.concept_id = o.value_coded
       JOIN episode_encounter ee ON o.encounter_id = ee.encounter_id
-    WHERE cv.concept_full_name IN ('Baseline, Date of baseline',
+    WHERE cv.concept_full_name IN ('TUBERCULOSIS DRUG TREATMENT START DATE',
+                                'Baseline, Date of baseline',
                                 'Followup, Visit Date',
                                 'EOT, Outcome',
                                 '6m PTO, 6 month post treatment outcome')
@@ -259,10 +258,6 @@ WHERE pi.patient_id = pp.patient_id
       AND epp.patient_program_id = pp.patient_program_id and pp.voided = 0
       AND ee.episode_id = epp.episode_id
       AND ee.encounter_id = e.encounter_id
-      AND tStartDate.encounter_id = e.encounter_id
-      AND tStartDate.concept_id = tStartDateConcept.concept_id
-      AND tStartDate.voided=0
-      AND tStartDateConcept.concept_full_name = 'TUBERCULOSIS DRUG TREATMENT START DATE'
-      AND episodes_with_drugs.drug_start_date BETWEEN '#startDate#' AND '#endDate#'
+      AND episodes_with_drugs.drug_start_date BETWEEN '2016-09-01' AND '2016-09-30'
 GROUP BY epp.episode_id, pp.patient_program_id;
 

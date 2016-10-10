@@ -6,10 +6,10 @@ SELECT
   DATE_FORMAT(episodes_with_drugs.drug_start_date, '%d/%b/%Y') AS 'New Drug Start Date',
   DATE_FORMAT(end_of_treatment_obs.end_of_treatment_date, '%d/%b/%Y') AS 'End Of Treatment Date',
 
-  IF(MAX(IF(obs.concept_full_name = 'Baseline, Date of baseline', obs.value, NULL)),
-    IF(TRUNCATE((TIMESTAMPDIFF(DAY, obs.value, COALESCE(tStartDate.value_datetime, NOW()))), 1) <= 15, 'X', 'O'),
+  MAX(IF(obs.concept_full_name = 'Baseline, Date of baseline',
+    IF(DATE_ADD(tStartDate.value_datetime,INTERVAL -30 DAY) <= obs.value AND obs.value < DATE_ADD(tStartDate.value_datetime,INTERVAL 15 DAY), 'X', 'O'),
     'O'
-  ) AS 'BL',
+  )) AS 'BL',
 
   IF(DATE_ADD(tStartDate.value_datetime,INTERVAL 15 DAY) <= COALESCE(end_of_treatment_obs.end_of_treatment_date, NOW()),
     MAX(IF(obs.concept_full_name = 'Followup, Visit Date',
@@ -262,7 +262,7 @@ WHERE pi.patient_id = pp.patient_id
       AND tStartDate.encounter_id = e.encounter_id
       AND tStartDate.concept_id = tStartDateConcept.concept_id
       AND tStartDate.voided=0
-      AND tStartDate.value_datetime BETWEEN '#startDate#' AND '#endDate#'
+      AND tStartDate.value_datetime BETWEEN '2016-09-01' AND '2016-10-30'
       AND tStartDateConcept.concept_full_name = 'TUBERCULOSIS DRUG TREATMENT START DATE'
 GROUP BY epp.episode_id, pp.patient_program_id;
 
