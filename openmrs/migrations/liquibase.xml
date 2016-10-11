@@ -1523,17 +1523,17 @@
     <changeSet id="ENTB-201610061333" author="Swathi">
         <comment> Modifying Sql for searching patients to not consider multiple identifiers</comment>
         <sqlFile path="E1_8_Search_Patients.sql"/>
-    </changeSet>
-    <changeSet id="ENDTB-201610100400" author="Sudhamsh">        
+    </changeSet>    
+    <changeSet id="ENDTB-201610100401" author="Sudhamsh">        
         <comment> Adding abbreviations for the visit types</comment>
         <sql>
             select concept_source_id into @source_id from concept_reference_source where name = 'Abbreviation';
 
             insert into concept_reference_term (creator,code,concept_source_id,uuid,date_created) values
             (4,'Baseline',@source_id,uuid(),now()),
-            (4,'2 week',@source_id,uuid(),now()),
-            (4,'monthly',@source_id,uuid(),now()),
-            (4,'other',@source_id,uuid(),now()),
+            (4,'2 Week',@source_id,uuid(),now()),
+            (4,'Monthly',@source_id,uuid(),now()),
+            (4,'Other',@source_id,uuid(),now()),
             (4,'End of treatment',@source_id,uuid(),now()),
             (4,'6- Month post-treatment',@source_id,uuid(),now());
 
@@ -1542,7 +1542,7 @@
                              FROM  concept_name cn,
                                concept_reference_term ct,
                                concept_reference_source cs
-                             WHERE ct.code = '2 week'
+                             WHERE ct.code = '2 Week'
                                    AND ct.concept_source_id = cs.concept_source_id
                                    AND cs.name='Abbreviation'
                                    AND cn.name= '2 week assessment'
@@ -1553,7 +1553,7 @@
                              FROM  concept_name cn,
                                concept_reference_term ct,
                                concept_reference_source cs
-                             WHERE ct.code = 'other'
+                             WHERE ct.code = 'Other'
                                    AND ct.concept_source_id = cs.concept_source_id
                                    AND cs.name='Abbreviation'
                                    AND cn.name= 'Other assessment'
@@ -1564,7 +1564,7 @@
                              FROM  concept_name cn,
                                concept_reference_term ct,
                                concept_reference_source cs
-                             WHERE ct.code = 'monthly'
+                             WHERE ct.code = 'Monthly'
                                    AND ct.concept_source_id = cs.concept_source_id
                                    AND cs.name='Abbreviation'
                                    AND cn.name= 'planned monthly assessment'
