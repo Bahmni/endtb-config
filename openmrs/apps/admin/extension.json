@@ -13,16 +13,5 @@
         "icon": "fa-upload",
         "order": 1,
         "requiredPrivilege": "app:registration"
-    },
-    "csv_export": {
-        "id": "bahmni.admin.csvExport",
-        "extensionPointId": "org.bahmni.admin.dashboard",
-        "type": "link",
-        "extensionParams": {},
-        "label": "CSV Export",
-        "url": "#/csvExport",
-        "icon": "fa-download",
-        "order": 1,
-        "requiredPrivilege": "app:registration"
     }
 }
