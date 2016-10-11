@@ -316,6 +316,44 @@
           ]
         }
       },
+      "Xpertresults": {
+        "translationKey": "SUMMARY_TITLE_XPERT_RESULTS",
+        "type": "obsToObsFlowSheet",
+        "headingConceptSource": "Abbreviation",
+        "dataConceptSource": "Abbreviation",
+        "displayType": "LAYOUT_50_50",
+        "displayOrder": 9,
+        "dashboardConfig": {
+          "groupByConcept": "Specimen Collection Date",
+          "type": "XpertExtension",
+          "templateName": "BACTERIOLOGY CONCEPT SET",
+          "conceptNames": [
+            "Bacteriology, Xpert MTB result",
+            "Bacteriology, RIF resistance result type"
+          ]
+        }
+      },
+      "HAINresults": {
+        "translationKey": "SUMMARY_TITLE_HAIN_RESULTS",
+        "type": "obsToObsFlowSheet",
+        "headingConceptSource": "Abbreviation",
+        "dataConceptSource": "Abbreviation",
+        "displayType": "LAYOUT_50_50",
+        "displayOrder": 10,
+        "dashboardConfig": {
+          "groupByConcept": "Specimen Collection Date",
+          "type": "HAINExtension",
+          "templateName": "BACTERIOLOGY CONCEPT SET",
+          "conceptNames": [
+            "Bacteriology, HAIN MTBDRplus test result",
+            "Bacteriology, HAIN MTBDRsl test result",
+            "Bacteriology, Isoniazid",
+            "Bacteriology, Rifampicin",
+            "Bacteriology, Fluoroquinolone",
+            "Bacteriology, MTBDRsl injectable"            
+          ]
+        }
+      },   
       "dstWithMIC": {
         "translationKey": "SUMMARY_TITLE_DST_WITH_MIC",
         "type": "obsToObsFlowSheet",
@@ -595,13 +633,24 @@
           ]
         }
       },
+      "nontbTreatmentsDetails": {
+        "translationKey": "DASHBOARD_TITLE_NONTB_TREATMENTS_DETAILS",
+        "type": "drugOrderDetails",
+        "displayType": "Full-Page",
+        "showDetailsButton": true,
+        "displayOrder": 24,
+        "dashboardConfig": {
+          "showOnlyActive": true,
+          "drugConceptSet": "All Other Drugs"
+        }
+      },
       "ecgReadings": {
         "translationKey": "SUMMARY_TITLE_ECG_READINGS",
         "type": "obsToObsFlowSheet",
         "headingConceptSource": "Abbreviation",
         "dataConceptSource": "Abbreviation",
         "displayType": "Full-Page",
-        "displayOrder": 24,
+        "displayOrder": 25,
         "dashboardConfig": {
           "groupByConcept": "EKG, Date of EKG",
           "type": "EcgReadingsExtension",
@@ -621,7 +670,7 @@
         "headingConceptSource": "Abbreviation",
         "dataConceptSource": "Abbreviation",
         "displayType": "Full-Page",
-        "displayOrder": 25,
+        "displayOrder": 26,
         "dashboardConfig": {
           "groupByConcept": "Xray, Chest Xray Date",
           "type": "ChestXRayExtension",
@@ -633,41 +682,181 @@
           ]
         }
       },
-      "Xpertresults": {
-        "translationKey": "SUMMARY_TITLE_XPERT_RESULTS",
+      "AudioMetryDisplayLeft": {
+        "translationKey": "SUMMARY_TITLE_AUDIOMETRY_LEFT",
         "type": "obsToObsFlowSheet",
         "headingConceptSource": "Abbreviation",
         "dataConceptSource": "Abbreviation",
         "displayType": "LAYOUT_50_50",
-        "displayOrder": 9,
+        "displayOrder": 27,
         "dashboardConfig": {
-          "groupByConcept": "Specimen Collection Date",
-          "type": "XpertExtension",
-          "templateName": "BACTERIOLOGY CONCEPT SET",
+          "groupByConcept": "Audiometry, Audiometry date",
+          "templateName": "Audiometry Template",
           "conceptNames": [
-            "Bacteriology, Xpert MTB result",
-            "Bacteriology, RIF resistance result type"
+            "Audiometry, Type of assessment",
+            "Audiometry, Left ear at 1000Hz",
+            "Audiometry, Left ear at 2000Hz",
+            "Audiometry, Left ear at 4000Hz",
+            "Audiometry, Left ear at 8000Hz"
           ]
         }
       },
-      "HAINresults": {
-        "translationKey": "SUMMARY_TITLE_HAIN_RESULTS",
+      "AudioMetryDisplayRight": {
+        "translationKey": "SUMMARY_TITLE_AUDIOMETRY_RIGHT",
         "type": "obsToObsFlowSheet",
         "headingConceptSource": "Abbreviation",
         "dataConceptSource": "Abbreviation",
         "displayType": "LAYOUT_50_50",
-        "displayOrder": 10,
+        "displayOrder": 28,
         "dashboardConfig": {
-          "groupByConcept": "Specimen Collection Date",
-          "type": "HAINExtension",
-          "templateName": "BACTERIOLOGY CONCEPT SET",
+          "groupByConcept": "Audiometry, Audiometry date",
+          "templateName": "Audiometry Template",
           "conceptNames": [
-            "Bacteriology, HAIN MTBDRplus test result",
-            "Bacteriology, HAIN MTBDRsl test result",
-            "Bacteriology, Isoniazid",
-            "Bacteriology, Rifampicin",
-            "Bacteriology, Fluoroquinolone",
-            "Bacteriology, MTBDRsl injectable"            
+            "Audiometry, Type of assessment",
+            "Audiometry, Right ear at 1000Hz",
+            "Audiometry, Right ear at 2000Hz",
+            "Audiometry, Right ear at 4000Hz",
+            "Audiometry, Right ear at 8000Hz"            
+          ]
+        }
+      },
+      "BaselineBPNSDisplayleft": {
+        "translationKey": "SUMMARY_TITLE_BASELINE_BPNS_LEFT",
+        "type": "obsToObsFlowSheet",
+        "headingConceptSource": "Abbreviation",
+        "dataConceptSource": "Abbreviation",
+        "displayType": "LAYOUT_50_50",
+        "displayOrder": 29,
+        "dashboardConfig": {
+          "groupByConcept": "Baseline, Date of baseline physical examination",
+          "templateName": "Baseline, Clinical Examination",
+          "conceptNames": [
+            "Baseline, Pain Aching or Buring in Left Feet and Leg",
+            "Baseline, Pins and Needles in Left Feet and Leg",
+            "Baseline, Numbness in Left Feet and Leg",
+            "Baseline, Vibration Perception in Left",
+            "Baseline, Ankle reflexes in left"
+          ]
+        }
+      },   
+      "BaselineBPNSDisplayright": {
+        "translationKey": "SUMMARY_TITLE_BASELINE_BPNS_RIGHT",
+        "type": "obsToObsFlowSheet",
+        "headingConceptSource": "Abbreviation",
+        "dataConceptSource": "Abbreviation",
+        "displayType": "LAYOUT_50_50",
+        "displayOrder": 30,
+        "dashboardConfig": {
+          "groupByConcept": "Baseline, Date of baseline physical examination",
+          "templateName": "Baseline, Clinical Examination",
+          "conceptNames": [
+            "Baseline, Pain Aching or Buring in Right Feet and Leg",
+            "Baseline, Pins and Needles in Right Feet and Leg",
+            "Baseline, Numbness in Right Feet and Leg",
+            "Baseline, Vibration Perception in Right",
+            "Baseline, Ankle reflexes in right"
+          ]
+        }
+      },
+      "FollowupBPNSDisplayLeft": {
+        "translationKey": "SUMMARY_TITLE_Followup_BPNS_LEFT",
+        "type": "obsToObsFlowSheet",
+        "headingConceptSource": "Abbreviation",
+        "dataConceptSource": "Abbreviation",
+        "displayType": "LAYOUT_50_50",
+        "displayOrder": 31,
+        "dashboardConfig": {
+          "groupByConcept": "Followup, Visit Date",
+          "templateName": "Followup Template",
+          "conceptNames": [
+            "Followup, Pain Aching or Buring in Left Feet and Leg",
+            "Followup, Pins and Needles in Left Feet and Leg",
+            "Followup, Numbness in Left Feet and Leg",
+            "Followup, Vibration Perception in Left",
+            "Followup, Ankle reflexes in left"
+          ]
+        }
+      },
+      "FollowupBPNSDisplayright": {
+        "translationKey": "SUMMARY_TITLE_Followup_BPNS_RIGHT",
+        "type": "obsToObsFlowSheet",
+        "headingConceptSource": "Abbreviation",
+        "dataConceptSource": "Abbreviation",
+        "displayType": "LAYOUT_50_50",
+        "displayOrder": 32,
+        "dashboardConfig": {
+          "groupByConcept": "Followup, Visit Date",
+          "templateName": "Followup Template",
+          "conceptNames": [
+            "Followup, Pain Aching or Buring in Right Feet and Leg",
+            "Followup, Pins and Needles in Right Feet and Leg",
+            "Followup, Numbness in Right Feet and Leg",
+            "Followup, Vibration Perception in Right",
+            "Followup, Ankle reflexes in right"
+          ]
+        }
+      },      
+      "FollowupAcuityDisplay": {
+        "translationKey": "SUMMARY_TITLE_FOLLOWUP_ACUITY",
+        "type": "obsToObsFlowSheet",
+        "headingConceptSource": "Abbreviation",
+        "dataConceptSource": "Abbreviation",
+        "displayType": "LAYOUT_50_50",
+        "displayOrder": 33,
+        "dashboardConfig": {
+          "groupByConcept": "Followup, Visit Date",
+          "templateName": "Followup Template",
+          "conceptNames": [
+            "Visual acuity, left eye",
+            "Visual acuity, right eye"            
+          ]
+        }
+      },
+      "BaselineAcuityDisplay": {
+        "translationKey": "SUMMARY_TITLE_BASELINE_ACUITY",
+        "type": "obsToObsFlowSheet",
+        "headingConceptSource": "Abbreviation",
+        "dataConceptSource": "Abbreviation",
+        "displayType": "LAYOUT_50_50",
+        "displayOrder": 34,
+        "dashboardConfig": {
+          "groupByConcept": "Baseline, Date of baseline physical examination",
+          "templateName": "Baseline, Clinical Examination",
+          "conceptNames": [
+            "Visual acuity, left eye",
+            "Visual acuity, right eye"            
+          ]
+        }
+      },
+      "BaselineIshiharaDisplay": {
+        "translationKey": "SUMMARY_TITLE_BASELINE_ISHIHARA",
+        "type": "obsToObsFlowSheet",
+        "headingConceptSource": "Abbreviation",
+        "dataConceptSource": "Abbreviation",
+        "displayType": "LAYOUT_50_50",
+        "displayOrder": 35,
+        "dashboardConfig": {
+          "groupByConcept": "Baseline, Date of baseline physical examination",
+          "templateName": "Baseline, Clinical Examination",
+          "conceptNames": [
+            "Baseline, Left Eye Correct Plates",
+            "Baseline, Right Eye Correct Plates"            
+          ]
+        }
+      },
+      "FollowupIshiharaDisplay": {
+        "translationKey": "SUMMARY_TITLE_FOLLOWUP_ISHIHARA",
+        "type": "obsToObsFlowSheet",
+        "headingConceptSource": "Abbreviation",
+        "dataConceptSource": "Abbreviation",
+        "displayType": "LAYOUT_50_50",
+        "displayOrder": 36,
+        "dashboardConfig": {
+          "groupByConcept": "Followup, Visit Date",
+          "templateName": "Followup Template",
+          "conceptNames": [
+            "Followup, Left Eye Correct Plates",
+            "Followup, Right Eye Correct Plates"            
           ]
         }
       }

@@ -189,6 +189,17 @@
   "SUMMARY_TITLE_LAB_OTHER_TESTS": "Lab Results - Other Tests",
   "SUMMARY_TITLE_XPERT_RESULTS": "Xpert",
   "SUMMARY_TITLE_HAIN_RESULTS": "HAIN",
+  "SUMMARY_TITLE_AUDIOMETRY_LEFT":"Audiometry Left Ear",
+  "SUMMARY_TITLE_AUDIOMETRY_RIGHT":"Audiometry Right Ear",
+  "SUMMARY_TITLE_BASELINE_BPNS_LEFT":"Baseline BPNS - Left",
+  "SUMMARY_TITLE_BASELINE_BPNS_RIGHT":"Baseline BPNS - Right",
+  "SUMMARY_TITLE_FOLLOWUP_ACUITY":"Followup Visual Acuity",
+  "SUMMARY_TITLE_BASELINE_ACUITY":"Baseline Visual Acuity",
+  "SUMMARY_TITLE_BASELINE_ISHIHARA":"Baseline Ishihara (Number of Correct Plates)",
+  "SUMMARY_TITLE_FOLLOWUP_ISHIHARA":"Followup Ishihara (Number of Correct Plates)",
+  "SUMMARY_TITLE_Followup_BPNS_LEFT":"Followup BPNS - Left",
+  "SUMMARY_TITLE_Followup_BPNS_RIGHT":"Followup BPNS - Right",
+
 
   "DQ_PRINT_TITLE_DATA_QUALITY_REPORT": "Data Quality Report",
   "DQ_DASHBOARD": "Data Quality Dashboard",
