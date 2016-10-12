@@ -279,7 +279,8 @@
             "Baseline, Type of past TB treatment",
             "Baseline, Past TB treatment regimen type",
             "Baseline, Past TB treatment outcome"
-          ]
+          ],
+          "type": "PreviousTBTreatmentRegimen"
         }
       },
       "dstResults": {
