@@ -880,7 +880,7 @@
         "displayType": "Full-Page",
         "config": {
           "startDateObsConcept" : "TUBERCULOSIS DRUG TREATMENT START DATE",
-          "endDateConcept": "EOT, End of Treatment Outcome date",
+          "endDateConcept": "Tuberculosis treatment end date",
           "title": "SUMMARY_TITLE_PATIENT_OBSERVATION_CHART",
           "template": "<patient-monitoring-tool section='section' patient='patient' enrollment='{{enrollment}}'></patient-monitoring-tool>"
         }
@@ -904,7 +904,7 @@
         "displayType": "Full-Page",
         "config": {
           "startDateDrugConcepts": ["Bedaquiline"],
-          "endDateConcept": "EOT, End of Treatment Outcome date",
+          "endDateConcept": "Tuberculosis treatment end date",
           "title": "SUMMARY_TITLE_PATIENT_OBSERVATION_CHART",
           "template": "<patient-monitoring-tool section='section' patient='patient' enrollment='{{enrollment}}'></patient-monitoring-tool>"
         }

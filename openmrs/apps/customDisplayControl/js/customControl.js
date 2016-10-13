@@ -126,7 +126,7 @@ angular.module('bahmni.common.displaycontrol.custom')
 
 
             var getPatientObservationChartData = function (startDate, stopDate) {
-                return fetchPatientMonitoringChartData('/openmrs/ws/rest/v1/endtb/patientFlowsheet', $scope.patient.uuid, $scope.enrollment, startDate, stopDate).success(function (data) {
+                return fetchPatientMonitoringChartData('/openmrs/ws/rest/v1/endtb/patientFlowsheet', $scope.enrollment, startDate, stopDate).success(function (data) {
                     $scope.flowsheetHeader = data.flowsheetHeader;
                     $scope.flowsheetData = data.flowsheetData;
                     if (startDate == null) {
@@ -137,9 +137,9 @@ angular.module('bahmni.common.displaycontrol.custom')
                 })
             };
 
-            var fetchPatientMonitoringChartData = function(url, patientUuid, programUuid, startDate, stopDate) {
+            var fetchPatientMonitoringChartData = function(url, patientProgramUuid, startDate, stopDate) {
                 return $http.get(url, {
-                    params: {patientUuid: patientUuid, programUuid: programUuid, startDate: startDate, stopDate: stopDate},
+                    params: {patientProgramUuid: patientProgramUuid, startDate: startDate, stopDate: stopDate},
                     withCredentials: true
                 });
             };
