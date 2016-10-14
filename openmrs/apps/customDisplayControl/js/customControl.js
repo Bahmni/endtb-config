@@ -127,12 +127,16 @@ angular.module('bahmni.common.displaycontrol.custom')
 
             var getPatientObservationChartData = function (startDate, stopDate) {
                 return fetchPatientMonitoringChartData('/openmrs/ws/rest/v1/endtb/patientFlowsheet', $scope.enrollment, startDate, stopDate).success(function (data) {
-                    $scope.flowsheetHeader = data.flowsheetHeader;
+                    $scope.flowsheetHeader = data.milestones;
+
                     $scope.flowsheetData = data.flowsheetData;
                     if (startDate == null) {
                         messagingService.showMessage("error", "Start date missing. Cannot display monitoring schedule");
                     }
-                    $scope.highlightedColumnIndex = data.flowsheetHeader.indexOf(data.highlightedMilestone);
+                    var highlightedMilestone = _.find($scope.flowsheetHeader, function(header) {
+                        return header.name.indexOf(data.highlightedMilestone) !== -1;
+                    });
+                    $scope.highlightedColumnIndex = $scope.flowsheetHeader.indexOf(highlightedMilestone);
                     $scope.treatmentStopped = stopDate ? true : false;
                 })
             };

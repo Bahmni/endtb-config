@@ -29,7 +29,7 @@
                         <th class="monitoring-fixed-column"></th>
                         <th ng-repeat="header in flowsheetHeader"
                             ng-class="{'monitoring-resultsCurrent': $index == highlightedColumnIndex, 'monitoring-resultsStop': $index == highlightedColumnIndex && treatmentStopped}">
-                            {{header}}
+                           <span title="{{header.startDate | bahmniDate}} - {{header.endDate | bahmniDate}}"> {{header.name}}</span>
                             <hint concept-details="header"/>
                         </th>
                     </tr>
