@@ -136,7 +136,10 @@ angular.module('bahmni.common.displaycontrol.custom')
                     var highlightedMilestone = _.find($scope.flowsheetHeader, function(header) {
                         return header.name.indexOf(data.highlightedMilestone) !== -1;
                     });
-                    $scope.highlightedColumnIndex = $scope.flowsheetHeader.indexOf(highlightedMilestone);
+
+                    if (highlightedMilestone != null) {
+                        $scope.highlightedColumnIndex = $scope.flowsheetHeader.indexOf(highlightedMilestone);
+                    }
                     $scope.treatmentStopped = stopDate ? true : false;
                 })
             };
