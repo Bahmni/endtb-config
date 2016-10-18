@@ -21,7 +21,7 @@
   ],
   "config": {
     "networkConnectivity" : {
-      "showNetworkStatusMessage": false,
+      "showNetworkStatusMessage": true,
       "networkStatusCheckInterval": 5000,
         "locales" : [
           { "locale" : "fr", "css" : "offline-language-french"},
