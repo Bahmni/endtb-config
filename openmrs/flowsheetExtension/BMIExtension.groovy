@@ -69,9 +69,13 @@ public class BMIExtension extends BaseTableExtension<PivotTable> {
             return;
         }
 
-        BahmniObservation latestObsForDate = bahmniBridge.getChildObsFromParentObs(latestObsForParentOfHeight.getObsGroupUuid(), "Baseline, Date of baseline");
+        BahmniObservation latestObsForDate = bahmniBridge.getChildObsFromParentObs(latestObsForParentOfHeight.getUuid(), "Baseline, Date of baseline physical examination");
         BahmniObservation latestObsForHeight = bahmniBridge.getChildObsFromParentObs(latestObsForParentOfHeight.getUuid(), "Height (cm)");
         BahmniObservation latestObsForWeight = bahmniBridge.getChildObsFromParentObs(latestObsForParentOfHeight.getUuid(), "Weight (kg)");
+
+        if(latestObsForDate == null || (latestObsForHeight == null && latestObsForWeight == null)) {
+            return;
+        }
 
         addRow(newPivotRow,"Followup, Visit Date", latestObsForDate)
         addRow(newPivotRow,"Height (cm)", latestObsForHeight)
