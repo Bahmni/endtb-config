@@ -804,7 +804,7 @@
         "headingConceptSource": "Abbreviation",
         "dataConceptSource": "Abbreviation",
         "displayType": "LAYOUT_50_50",
-        "displayOrder": 33,
+        "displayOrder": 34,
         "dashboardConfig": {
           "groupByConcept": "Followup, Visit Date",
           "templateName": "Followup Template",
@@ -820,7 +820,7 @@
         "headingConceptSource": "Abbreviation",
         "dataConceptSource": "Abbreviation",
         "displayType": "LAYOUT_50_50",
-        "displayOrder": 34,
+        "displayOrder": 33,
         "dashboardConfig": {
           "groupByConcept": "Baseline, Date of baseline physical examination",
           "templateName": "Baseline, Clinical Examination",
