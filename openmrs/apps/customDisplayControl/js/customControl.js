@@ -133,11 +133,11 @@ angular.module('bahmni.common.displaycontrol.custom')
                     if (startDate == null) {
                         messagingService.showMessage("error", "Start date missing. Cannot display monitoring schedule");
                     }
-                    var highlightedMilestone = _.find($scope.flowsheetHeader, function(header) {
-                        return header.name.indexOf(data.highlightedMilestone) !== -1;
-                    });
 
-                    if (highlightedMilestone != null) {
+                    if (data.highlightedMilestone != null && data.highlightedMilestone != "") {
+                        var highlightedMilestone = _.find($scope.flowsheetHeader, function(header) {
+                            return header.name.indexOf(data.highlightedMilestone) !== -1;
+                        });
                         $scope.highlightedColumnIndex = $scope.flowsheetHeader.indexOf(highlightedMilestone);
                     }
                     $scope.treatmentStopped = stopDate ? true : false;
