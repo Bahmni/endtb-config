@@ -93,7 +93,7 @@ angular.module('bahmni.common.displaycontrol.custom')
     function ($http, $translate, spinner, $q, appService, messagingService, observationsService) {
         var link = function ($scope, element) {
             var fetchFlowsheetAttributes = function (patientProgramUuid) {
-                return $http.get('/openmrs/ws/rest/v1/endtb/patientFlowsheetAttributes', {
+                return $http.get('/openmrs/ws/rest/v1/flowsheet/patientFlowsheetAttributes', {
                     params: {patientProgramUuid: patientProgramUuid},
                     withCredentials: true
                 });
@@ -126,7 +126,7 @@ angular.module('bahmni.common.displaycontrol.custom')
 
 
             var getPatientObservationChartData = function (startDate, stopDate) {
-                return fetchPatientMonitoringChartData('/openmrs/ws/rest/v1/endtb/patientFlowsheet', $scope.enrollment, startDate, stopDate).success(function (data) {
+                return fetchPatientMonitoringChartData('/openmrs/ws/rest/v1/flowsheet/patientFlowsheet', $scope.enrollment, startDate, stopDate).success(function (data) {
                     $scope.flowsheetHeader = data.milestones;
 
                     $scope.flowsheetData = data.flowsheetData;
@@ -180,7 +180,7 @@ angular.module('bahmni.common.displaycontrol.custom')
             };
 
             var getStartDateForDrugConcepts = function (patientProgramUuid, drugConcepts) {
-                return $http.get('/openmrs/ws/rest/v1/endtb/startDateForDrugs', {
+                return $http.get('/openmrs/ws/rest/v1/flowsheet/startDateForDrugs', {
                     params: {patientProgramUuid: patientProgramUuid, drugConcepts: drugConcepts},
                     withCredentials: true
                 })
