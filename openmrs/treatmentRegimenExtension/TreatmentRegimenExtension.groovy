@@ -15,7 +15,6 @@ import java.util.Date;
 
 public class TreatmentRegimenExtension extends BaseTableExtension<TreatmentRegimen> {
 	private static final Logger log = Logger.getLogger(TreatmentRegimenExtension.class);
-	public static final int STOPING_INTERVAL_HOURS = 48;
 	public BahmniBridge bahmniBridge;
 
 	@Override
@@ -24,7 +23,6 @@ public class TreatmentRegimenExtension extends BaseTableExtension<TreatmentRegim
 				.create()
 				.forPatient(patientUuid)
 				.forPatientProgram(patientProgramUuid);
-		skipStopFlaging(STOPING_INTERVAL_HOURS, treatmentRegimen);
 		calculateMonth(treatmentRegimen, patientUuid);
 	}
 
@@ -46,26 +44,6 @@ public class TreatmentRegimenExtension extends BaseTableExtension<TreatmentRegim
 			e.printStackTrace();;
 		}
 
-	}
-
-	void skipStopFlaging(int restartTimeInterval, TreatmentRegimen treatmentRegimen) {
-		for (EncounterTransaction.Concept drug : treatmentRegimen.getHeaders()) {
-			RegimenRow lastStopRow = null;
-			for (RegimenRow row : treatmentRegimen.getRows()) {
-				if ("Stop".equals(row.getDrugs().get(drug.getName()))) {
-					lastStopRow = row;
-				} else if (isStopFlagInInterval(row, drug, lastStopRow, restartTimeInterval)) {
-					lastStopRow.getDrugs().put(drug.getName(), "");
-				}
-			}
-		}
-	}
-
-	private boolean isStopFlagInInterval(RegimenRow row, EncounterTransaction.Concept drug, RegimenRow lastStopRow,
-										 int restartTimeInterval) {
-		return (row.getDrugs().get(drug.getName()) != null
-				&& lastStopRow != null
-				&& Hours.hoursBetween(new DateTime(lastStopRow.getDate()), new DateTime(row.getDate())).getHours() <= restartTimeInterval);
 	}
 
 }
