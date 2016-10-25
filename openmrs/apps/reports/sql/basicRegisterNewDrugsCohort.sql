@@ -1,5 +1,6 @@
 SELECT
   results.`Registration Number`,
+  results.`TB register to the register reports`,
   results.`EMR ID`,
   results.`Patient Last name`,
   results.`Patient First name`,
@@ -33,6 +34,7 @@ SELECT
   results.`Next visit`
 FROM
 (SELECT  MAX(IF(pat.name='Registration Number', ppa.value_reference, NULL )) AS `Registration Number`,
+        cn.name AS `TB register to the register reports`,
         pi.identifier AS `EMR ID`,
         person_name.family_name AS `Patient Last name`,
         person_name.given_name AS `Patient First name`,
@@ -86,6 +88,8 @@ FROM
                encounter e,
                orders bdq_dlm_orders,
                concept_view cv,
+               program,
+               concept_name cn,
                episode_encounter ee
                LEFT JOIN
                (
@@ -246,6 +250,12 @@ FROM
       AND bdq_dlm_orders.scheduled_date BETWEEN '#startDate#' AND '#endDate#'
       AND bdq_dlm_orders.concept_id = cv.concept_id
       AND cv.concept_full_name IN ('Bedaquiline', 'Delamanid')
-               GROUP BY epp.episode_id) AS results;
+      AND patient_program.program_id = program.program_id
+      AND patient_program.voided=0
+      AND program.retired=0
+      AND program.concept_id = cn.concept_id
+      AND cn.concept_name_type = 'FULLY_SPECIFIED'
+      AND cn.voided=0
+GROUP BY epp.episode_id) AS results;
 
 
