@@ -259,7 +259,7 @@
         "min": -15,
         "max": 15
       },
-      "handler": "org.openmrs.module.flowsheet.definition.impl.TreatmentEndDateHandler",
+      "handler": "org.bahmni.flowsheet.definition.impl.TreatmentEndDateHandler",
       "questions": [
         "BMI", "Culture result", "Delamanid", "Isoniazid"
       ]
@@ -270,7 +270,7 @@
         "min": -30,
         "max": 30
       },
-      "handler": "org.openmrs.module.flowsheet.definition.impl.SixMonthPostTreatmentOutcomeHandler",
+      "handler": "org.bahmni.flowsheet.definition.impl.SixMonthPostTreatmentOutcomeHandler",
       "questions": [
         "BMI", "Culture result", "Delamanid", "Isoniazid"
       ]
