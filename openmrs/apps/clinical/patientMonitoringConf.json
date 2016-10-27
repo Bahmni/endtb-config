@@ -295,7 +295,7 @@
 				"max": 14
 			},
 			"questions": [
-				"Consent new drugs", "Consent endTB study", "Vital Signs", "Weight","Visual Acuity", "Functional status","BPNS-Baseline", "BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup","Audiometry", "Visual Acuity", "Adverse events evaluation", "Smear", "Culture", "Chest X-ray", "ECG", "Full blood count (Hb)", "Creatinine", "Serum electrolytes (K)", "Liver Function Test-AST","Liver Function Test-ALT","TSH", "Serum Albumin", "Hepatitis Bs Antigen", "Hepatitis C Antibody", "HbA1c", "Pregnancy test", "HIV serostatus", "CD4", "HIV VL"
+				"Consent new drugs", "Consent endTB study", "Vital Signs", "Weight","Visual Acuity", "Functional status","BPNS-Baseline", "Colour Blindness-Baseline","Audiometry", "Visual Acuity", "Adverse events evaluation", "Smear", "Culture", "Chest X-ray", "ECG", "Full blood count (Hb)", "Creatinine", "Serum electrolytes (K)", "Liver Function Test-AST","Liver Function Test-ALT","TSH", "Serum Albumin", "Hepatitis Bs Antigen", "Hepatitis C Antibody", "HbA1c", "Pregnancy test", "HIV serostatus", "CD4", "HIV VL"
 			]
 		},
 
@@ -306,7 +306,7 @@
 				"max": 44
 			},
 			"questions": [
-				"Vital Signs", "Weight", "Audiometry", "Visual Acuity", "BPNS-Baseline","BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "ECG", "Full blood count (Hb)", "Creatinine", "Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT"
+				"Vital Signs", "Weight", "Audiometry", "Visual Acuity","BPNS-Followup","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "ECG", "Full blood count (Hb)", "Creatinine", "Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT"
 			]
 		}, {
 			"name": "M2",
@@ -315,7 +315,7 @@
 				"max": 74
 			},
 			"questions": [
-				"Vital Signs", "Weight", "Functional status", "Audiometry", "Visual Acuity", "BPNS-Baseline","BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "ECG", "Full blood count (Hb)", "Creatinine", "Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT"
+				"Vital Signs", "Weight", "Functional status", "Audiometry", "Visual Acuity","BPNS-Followup","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "ECG", "Full blood count (Hb)", "Creatinine", "Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT"
 			]
 		}, {
 			"name": "M3",
@@ -324,7 +324,7 @@
 				"max": 104
 			},
 			"questions": [
-				"Vital Signs", "Weight", "Audiometry", "Visual Acuity","BPNS-Baseline","BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup", "Adverse events evaluation", "Smear", "Culture", "ECG", "Full blood count (Hb)", "Creatinine", "Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT", "TSH"
+				"Vital Signs", "Weight", "Audiometry", "Visual Acuity","BPNS-Followup","Colour Blindness-Followup", "Adverse events evaluation", "Smear", "Culture", "ECG", "Full blood count (Hb)", "Creatinine", "Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT", "TSH"
 			]
 		}, {
 			"name": "M4",
@@ -333,7 +333,7 @@
 				"max": 134
 			},
 			"questions": [
-				"Vital Signs", "Weight", "Audiometry", "Visual Acuity","BPNS-Baseline", "BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "ECG", "Full blood count (Hb)", "Creatinine", "Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT"
+				"Vital Signs", "Weight", "Audiometry", "Visual Acuity", "BPNS-Followup","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "ECG", "Full blood count (Hb)", "Creatinine", "Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT"
 
 			]
 		}, {
@@ -343,7 +343,7 @@
 				"max": 164
 			},
 			"questions": [
-				"Vital Signs", "Weight", "Audiometry", "Visual Acuity", "BPNS-Baseline","BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "ECG", "Full blood count (Hb)", "Creatinine", "Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT"
+				"Vital Signs", "Weight", "Audiometry", "Visual Acuity","BPNS-Followup","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "ECG", "Full blood count (Hb)", "Creatinine", "Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT"
 			]
 		}, {
 			"name": "M6",
@@ -352,7 +352,7 @@
 				"max": 194
 			},
 			"questions": [
-				"Vital Signs", "Weight", "Audiometry", "Visual Acuity","BPNS-Baseline", "BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Chest X-ray", "ECG", "Full blood count (Hb)", "Creatinine", "Serum electrolytes (K)", "Liver Function Test-AST","Liver Function Test-ALT","TSH"
+				"Vital Signs", "Weight", "Audiometry", "Visual Acuity", "BPNS-Followup","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Chest X-ray", "ECG", "Full blood count (Hb)", "Creatinine", "Serum electrolytes (K)", "Liver Function Test-AST","Liver Function Test-ALT","TSH"
 			]
 		}, {
 			"name": "M7",
@@ -361,7 +361,7 @@
 				"max": 224
 			},
 			"questions": [
-				"Vital Signs", "Weight", "Audiometry", "Visual Acuity","BPNS-Baseline","BPNS-Followup", "Colour Blindness-Baseline","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)", "Creatinine", "Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT"
+				"Vital Signs", "Weight", "Audiometry", "Visual Acuity","BPNS-Followup", "Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)", "Creatinine", "Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT"
 			]
 		}, {
 			"name": "M8",
@@ -370,7 +370,7 @@
 				"max": 254
 			},
 			"questions": [
-				"Vital Signs", "Weight", "Audiometry", "Visual Acuity","BPNS-Baseline", "BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)", "Creatinine", "Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT"
+				"Vital Signs", "Weight", "Audiometry", "Visual Acuity", "BPNS-Followup","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)", "Creatinine", "Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT"
 			]
 		}, {
 			"name": "M9",
@@ -379,7 +379,7 @@
 				"max": 284
 			},
 			"questions": [
-				"Vital Signs", "Weight", "Visual Acuity", "BPNS-Baseline","BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)", "Liver Function Test-AST","Liver Function Test-ALT","TSH"
+				"Vital Signs", "Weight", "Visual Acuity", "BPNS-Followup","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)", "Liver Function Test-AST","Liver Function Test-ALT","TSH"
 			]
 		}, {
 			"name": "M10",
@@ -388,7 +388,7 @@
 				"max": 314
 			},
 			"questions": [
-				"Vital Signs", "Weight", "Visual Acuity","BPNS-Baseline","BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup", "Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)","Liver Function Test-AST","Liver Function Test-ALT"
+				"Vital Signs", "Weight", "Visual Acuity","BPNS-Followup","Colour Blindness-Followup", "Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)","Liver Function Test-AST","Liver Function Test-ALT"
 			]
 		}, {
 			"name": "M11",
@@ -397,7 +397,7 @@
 				"max": 344
 			},
 			"questions": [
-				"Vital Signs", "Weight", "Visual Acuity", "BPNS-Baseline","BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)","Liver Function Test-AST","Liver Function Test-ALT"
+				"Vital Signs", "Weight", "Visual Acuity","BPNS-Followup","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)","Liver Function Test-AST","Liver Function Test-ALT"
 			]
 		}, {
 			"name": "M12",
@@ -406,7 +406,7 @@
 				"max": 374
 			},
 			"questions": [
-				"Vital Signs", "Weight", "Visual Acuity", "BPNS-Baseline","BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)", "Liver Function Test-AST","Liver Function Test-ALT","TSH"
+				"Vital Signs", "Weight", "Visual Acuity","BPNS-Followup","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)", "Liver Function Test-AST","Liver Function Test-ALT","TSH"
 			]
 		}, {
 			"name": "M13",
@@ -415,7 +415,7 @@
 				"max": 404
 			},
 			"questions": [
-				"Vital Signs", "Weight", "Visual Acuity", "BPNS-Baseline","BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)","Liver Function Test-AST","Liver Function Test-ALT"
+				"Vital Signs", "Weight", "Visual Acuity","BPNS-Followup","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)","Liver Function Test-AST","Liver Function Test-ALT"
 			]
 		}, {
 			"name": "M14",
@@ -424,7 +424,7 @@
 				"max": 434
 			},
 			"questions": [
-				"Vital Signs", "Weight", "Visual Acuity","BPNS-Baseline","BPNS-Followup", "Colour Blindness-Baseline","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)","Liver Function Test-AST","Liver Function Test-ALT"
+				"Vital Signs", "Weight", "Visual Acuity","BPNS-Followup","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)","Liver Function Test-AST","Liver Function Test-ALT"
 			]
 		}, {
 			"name": "M15",
@@ -433,7 +433,7 @@
 				"max": 464
 			},
 			"questions": [
-				"Vital Signs", "Weight", "Visual Acuity", "BPNS-Baseline","BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)","Liver Function Test-AST","Liver Function Test-ALT", "TSH"
+				"Vital Signs", "Weight", "Visual Acuity","BPNS-Followup","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)","Liver Function Test-AST","Liver Function Test-ALT", "TSH"
 			]
 		}, {
 			"name": "M16",
@@ -442,7 +442,7 @@
 				"max": 494
 			},
 			"questions": [
-				"Vital Signs", "Weight", "Visual Acuity", "BPNS-Baseline","BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)","Liver Function Test-AST","Liver Function Test-ALT"
+				"Vital Signs", "Weight", "Visual Acuity","BPNS-Followup","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)","Liver Function Test-AST","Liver Function Test-ALT"
 			]
 		}, {
 			"name": "M17",
@@ -451,7 +451,7 @@
 				"max": 524
 			},
 			"questions": [
-				"Vital Signs", "Weight", "Visual Acuity","BPNS-Baseline","BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup", "Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)","Liver Function Test-AST","Liver Function Test-ALT"
+				"Vital Signs", "Weight", "Visual Acuity","BPNS-Followup","Colour Blindness-Followup", "Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)","Liver Function Test-AST","Liver Function Test-ALT"
 			]
 		}, {
 			"name": "M18",
@@ -460,7 +460,7 @@
 				"max": 554
 			},
 			"questions": [
-				"Vital Signs", "Weight", "Visual Acuity", "BPNS-Baseline","BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)","Liver Function Test-AST","Liver Function Test-ALT", "TSH"
+				"Vital Signs", "Weight", "Visual Acuity","BPNS-Followup","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)","Liver Function Test-AST","Liver Function Test-ALT", "TSH"
 			]
 		}, {
 			"name": "M19",
@@ -469,7 +469,7 @@
 				"max": 584
 			},
 			"questions": [
-				"Vital Signs", "Weight", "Visual Acuity","BPNS-Baseline","BPNS-Followup", "Colour Blindness-Baseline","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)","Liver Function Test-AST","Liver Function Test-ALT"
+				"Vital Signs", "Weight", "Visual Acuity","BPNS-Followup","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)","Liver Function Test-AST","Liver Function Test-ALT"
 			]
 		}, {
 			"name": "M20",
@@ -478,7 +478,7 @@
 				"max": 614
 			},
 			"questions": [
-				"Vital Signs", "Weight", "Visual Acuity","BPNS-Baseline","BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup", "Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)","Liver Function Test-AST","Liver Function Test-ALT"
+				"Vital Signs", "Weight", "Visual Acuity","BPNS-Followup","Colour Blindness-Followup", "Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)","Liver Function Test-AST","Liver Function Test-ALT"
 			]
 		}, {
 			"name": "M21",
@@ -487,7 +487,7 @@
 				"max": 644
 			},
 			"questions": [
-				"Vital Signs", "Weight", "Visual Acuity","BPNS-Baseline","BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup", "Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)", "TSH"
+				"Vital Signs", "Weight", "Visual Acuity","BPNS-Followup","Colour Blindness-Followup", "Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)", "TSH"
 			]
 		}, {
 			"name": "M22",
@@ -496,7 +496,7 @@
 				"max": 674
 			},
 			"questions": [
-				"Vital Signs", "Weight", "Visual Acuity","BPNS-Baseline","BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup", "Visual Acuity", "Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)"
+				"Vital Signs", "Weight", "Visual Acuity","BPNS-Followup","Colour Blindness-Followup", "Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)"
 			]
 		},
 
@@ -507,7 +507,7 @@
 				"max": 704
 			},
 			"questions": [
-				"Vital Signs", "Weight", "Visual Acuity", "Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)"
+				"Vital Signs", "Weight", "Visual Acuity","BPNS-Followup","Colour Blindness-Followup", "Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)"
 			]
 		},
 
@@ -518,7 +518,7 @@
 				"max": 734
 			},
 			"questions": [
-				"Vital Signs", "Weight", "Visual Acuity", "BPNS-Baseline","BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)", "TSH"
+				"Vital Signs", "Weight", "Visual Acuity", "BPNS-Followup","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)", "TSH"
 			]
 		},
 
@@ -531,7 +531,7 @@
 			},
 			"handler": "org.bahmni.flowsheet.definition.impl.TreatmentEndDateHandler",
 			"questions": [
-				"Functional status", "Audiometry", "Visual Acuity", "Colour Blindness-Baseline","Colour Blindness-Followup","BPNS-Baseline","BPNS-Followup","Outcome Consultation", "Adverse events evaluation", "Smear", "Culture", "Chest X-ray", "Full blood count (Hb)", "ECG", "Creatinine", "Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT"
+				"Functional status", "Audiometry", "Visual Acuity", "Colour Blindness-Followup","BPNS-Followup","Outcome Consultation", "Adverse events evaluation", "Smear", "Culture", "Chest X-ray", "Full blood count (Hb)", "ECG", "Creatinine", "Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT"
 			]
 		}, {
 			"name": "M6M",
@@ -541,7 +541,7 @@
 			},
 			"handler": "org.bahmni.flowsheet.definition.impl.SixMonthPostTreatmentOutcomeHandler",
 			"questions": [
-				"BPNS-Baseline", "BPNS-Followup", "Post Treatment Outcome Consultation","Colour Blindness-Baseline","Colour Blindness-Followup","Visual Acuity", "Adverse events evaluation", "Smear", "Culture", "ECG"
+				"BPNS-Followup", "Post Treatment Outcome Consultation","Colour Blindness-Followup","Visual Acuity", "Adverse events evaluation", "Smear", "Culture", "ECG"
 			]
 		}
 	]
