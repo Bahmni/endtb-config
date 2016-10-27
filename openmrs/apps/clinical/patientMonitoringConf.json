@@ -1,279 +1,548 @@
 {
-  "questions": [
-    {
-      "name": "BMI",
-      "concepts": [
-        "Height (cm)",
-        "Weight (kg)"
-      ],
-      "type": "Obs"
-    },
+	"questions": [
 
-    {
-      "name": "Delamanid",
-      "concepts": [
-        "Delamanid"
-      ],
-      "type": "Drug"
-    },
-    {
-      "name": "Prison",
-      "concepts": [
-        "Baseline, Prison"
-      ],
-      "type": "Obs"
-    },
-    {
-      "name": "MTBDRsl Fluoroquinolone",
-      "concepts": [
-        "Bacteriology, Fluoroquinolone"
-      ],
-      "type": "Obs"
-    },
-    {
-      "name": "Isoniazid",
-      "concepts": [
-        "Isoniazid"
-      ],
-      "type": "Drug"
-    },
-    {
-      "name": "Hemoglobin g/l",
-      "concepts": [
-        "Lab, Hemoglobin g/dl"
-      ],
-      "type": "Obs"
-    },
-    {
-      "name": "Culture result",
-      "concepts": [
-        "Bacteriology, Culture results"
-      ],
-      "type": "Obs"
-    }
-  ],
-  "milestones": [
-    {
-      "name": "M1",
-      "config": {
-        "min": 0,
-        "max": 30
-      },
-      "questions" : [
-        "BMI", "Culture result", "Delamanid", "Prison","MTBDRsl Fluoroquinolone","Isoniazid", "Hemoglobin g/l"
-      ]
-    },
-    {
-      "name": "M2",
-      "config": {
-        "min": 31,
-        "max": 60
-      },
-      "questions": [
-        "BMI", "Culture result", "Delamanid"
-      ]
-    },
-    {
-      "name": "M3",
-      "config": {
-        "min": 61,
-        "max": 90
-      },
-      "questions": [
-        "BMI", "Culture result", "Delamanid", "Prison","MTBDRsl Fluoroquinolone","Isoniazid"
-      ]
-    },
-    {
-      "name": "M4",
-      "config": {
-        "min": 91,
-        "max": 120
-      },
-      "questions": [
-        "BMI", "Culture result", "Delamanid","Isoniazid"
-      ]
-    },
-    {
-      "name": "M5",
-      "config": {
-        "min": 121,
-        "max": 150
-      },
-      "questions": [
-        "BMI", "Culture result", "Delamanid"
-      ]
-    },
-    {
-      "name": "M6",
-      "config": {
-        "min": 151,
-        "max": 180
-      },
-      "questions": [
-        "BMI", "Culture result", "Delamanid"
-      ]
-    },
-    {
-      "name": "M7",
-      "config": {
-        "min": 181,
-        "max": 210
-      },
-      "questions": [
-        "BMI", "Culture result", "Delamanid", "Isoniazid"
-      ]
-    },
-    {
-      "name": "M8",
-      "config": {
-        "min": 211,
-        "max": 240
-      },
-      "questions": [
-        "BMI", "Culture result", "Delamanid", "Isoniazid"
-      ]
-    },
-    {
-      "name": "M9",
-      "config": {
-        "min": 241,
-        "max": 270
-      },
-      "questions": [
-        "BMI", "Culture result", "Delamanid", "Isoniazid"
-      ]
-    },
-    {
-      "name": "M10",
-      "config": {
-        "min": 271,
-        "max": 300
-      },
-      "questions": [
-        "BMI", "Culture result", "Delamanid", "Isoniazid"
-      ]
-    },
-    {
-      "name": "M11",
-      "config": {
-        "min": 301,
-        "max": 330
-      },
-      "questions": [
-        "BMI", "Culture result", "Delamanid"
-      ]
-    },
-    {
-      "name": "M12",
-      "config": {
-        "min": 331,
-        "max": 360
-      },
-      "questions": [
-        "BMI", "Culture result", "Delamanid"
-      ]
-    },
-    {
-      "name": "M13",
-      "config": {
-        "min": 361,
-        "max": 390
-      },
-      "questions": [
-        "BMI", "Culture result", "Delamanid"
-      ]
-    },
-    {
-      "name": "M14",
-      "config": {
-        "min": 391,
-        "max": 420
-      },
-      "questions": [
-        "BMI", "Culture result", "Delamanid"
-      ]
-    },
-    {
-      "name": "M15",
-      "config": {
-        "min": 421,
-        "max": 450
-      },
-      "questions": [
-        "BMI", "Culture result", "Delamanid"
-      ]
-    },
-    {
-      "name": "M16",
-      "config": {
-        "min": 451,
-        "max": 480
-      },
-      "questions": [
-        "BMI", "Culture result", "Delamanid"
-      ]
-    },
-    {
-      "name": "M17",
-      "config": {
-        "min": 481,
-        "max": 510
-      },
-      "questions": [
-        "BMI", "Culture result", "Delamanid"
-      ]
-    },
-    {
-      "name": "M18",
-      "config": {
-        "min": 511,
-        "max": 540
-      },
-      "questions": [
-        "BMI", "Culture result", "Delamanid"
-      ]
-    },
-    {
-      "name": "M19",
-      "config": {
-        "min": 541,
-        "max": 570
-      },
-      "questions": [
-        "BMI", "Culture result", "Delamanid"
-      ]
-    },
-    {
-      "name": "M20",
-      "config": {
-        "min": 571,
-        "max": 600
-      },
-      "questions": [
-        "BMI", "Culture result", "Delamanid","Isoniazid"
-      ]
-    },
-    {
-      "name": "MTx",
-      "config": {
-        "min": -15,
-        "max": 15
-      },
-      "handler": "org.bahmni.flowsheet.definition.impl.TreatmentEndDateHandler",
-      "questions": [
-        "BMI", "Culture result", "Delamanid", "Isoniazid"
-      ]
-    },
-    {
-      "name": "M6M",
-      "config": {
-        "min": -30,
-        "max": 30
-      },
-      "handler": "org.bahmni.flowsheet.definition.impl.SixMonthPostTreatmentOutcomeHandler",
-      "questions": [
-        "BMI", "Culture result", "Delamanid", "Isoniazid"
-      ]
-    }
-  ]
+		{
+			"name": "Consent new drugs",
+			"concepts": [
+				"TI, Has the Treatment with New Drugs Consent Form been explained and signed"
+			],
+			"type": "Obs"
+		},
+
+		{
+			"name": "Consent endTB study",
+			"concepts": [
+				"TI, Has the endTB Observational Study Consent Form been explained and signed"
+			],
+			"type": "Obs"
+		},
+
+		{
+			"name": "Vital Signs",
+			"concepts": [
+				"Respiratory rate"
+			],
+			"type": "Obs"
+		},
+
+		{
+			"name": "Weight",
+			"concepts": [
+				"Weight (kg)"
+			],
+			"type": "Obs"
+		},
+
+		{
+			"name": "Functional status",
+			"concepts": [
+				"ECOG Performance Status"
+				
+
+			],
+			"type": "Obs"
+		},
+
+		{
+			"name": "BPNS-Baseline",
+			"concepts": [
+				"Baseline, Pain Aching or Buring in Left Feet and Leg",
+				"Baseline, Pain Aching or Buring in Right Feet and Leg"
+			],
+			"type": "Obs"
+		},
+
+		{
+			"name": "BPNS-Followup",
+			"concepts": [
+				"Followup, Pain Aching or Buring in Right Feet and Leg",
+				"Followup, Pain Aching or Buring in Right Feet and Leg"
+			],
+			"type": "Obs"
+		},
+
+
+		{
+			"name": "Audiometry",
+			"concepts": [
+				"Audiometry, Audiometry date"
+			],
+			"type": "Obs"
+		},
+
+
+		{
+			"name": "Visual Acuity",
+			"concepts": [
+				"Visual acuity, left eye",
+				"Visual acuity, right eye"
+			],
+			"type": "Obs"
+		},
+
+		{
+			"name": "Colour Blindness-Baseline",
+			"concepts": [
+				"Baseline, Colorblindness Screen Result"
+			],
+			"type": "Obs"
+		},
+
+		{
+			"name": "Colour Blindness-Followup",
+			"concepts": [
+				"Followup, Colorblindness Screen Result"
+			],
+			"type": "Obs"
+		},
+
+		{
+			"name": "Outcome Consultation",
+			"concepts": [
+				"EOT, Outcome"
+
+			],
+			"type": "Obs"
+		},
+
+		{
+			"name": "Post Treatment Outcome Consultation",
+			"concepts": [
+				"6m PTO, 6 month post treatment outcome"
+			],
+			"type": "Obs"
+		},
+
+
+		{
+			"name": "Adverse events evaluation",
+			"concepts": [
+				"AE Form, Date of AE report"
+
+			],
+			"type": "Obs"
+		},
+
+		{
+			"name": "Smear",
+			"concepts": [
+				"Bacteriology, Smear result"
+
+			],
+			"type": "Obs"
+		},
+
+		{
+			"name": "Culture",
+			"concepts": [
+				"Bacteriology, Culture results"
+
+			],
+			"type": "Obs"
+		},
+
+		{
+			"name": "Chest X-ray",
+			"concepts": [
+				"Xray, Extent of disease"
+
+			],
+			"type": "Obs"
+		},
+
+		{
+			"name": "ECG",
+			"concepts": [
+				"EKG, QTcF Interval"
+
+			],
+			"type": "Obs"
+		},
+
+
+		{
+			"name": "Full blood count (Hb)",
+			"concepts": [
+				"Hemoglobin"
+
+			],
+			"type": "Obs"
+		},
+
+		{
+			"name": "Creatinine",
+			"concepts": [
+				"Lab, Creatinine other"
+
+			],
+			"type": "Obs"
+		},
+
+		{
+			"name": "Serum electrolytes (K)",
+			"concepts": [
+				"SERUM POTASSIUM"
+
+			],
+			"type": "Obs"
+		},
+		
+		{
+			"name": "Liver Function Test-AST",
+			"concepts": [
+				"SERUM GLUTAMIC-OXALOACETIC TRANSAMINASE"
+
+			],
+			"type": "Obs"
+		},
+		
+		{
+			"name": "Liver Function Test-ALT",
+			"concepts": [
+				"SERUM GLUTAMIC-PYRUVIC TRANSAMINASE"
+
+			],
+			"type": "Obs"
+		},
+		
+
+		{
+			"name": "TSH",
+			"concepts": [
+				"Thyroid stimulating hormone test"
+
+			],
+			"type": "Obs"
+		},
+
+		{
+			"name": "Serum Albumin",
+			"concepts": [
+				"SERUM ALBUMIN"
+
+			],
+			"type": "Obs"
+		},
+
+		{
+			"name": "Hepatitis Bs Antigen",
+			"concepts": [
+				"Lab, Hepatitis B antigen test result"
+
+			],
+			"type": "Obs"
+		},
+
+		{
+			"name": "Hepatitis C Antibody",
+			"concepts": [
+				"Lab, Hepatitis C antibody test result"
+
+			],
+			"type": "Obs"
+		},
+
+		{
+			"name": "HbA1c",
+			"concepts": [
+				"glycosylated hemoglobin A measurement"
+
+			],
+			"type": "Obs"
+		},
+
+		{
+			"name": "Pregnancy test",
+			"concepts": [
+				"Lab, Pregnancy test result"
+
+			],
+			"type": "Obs"
+		},
+
+		{
+			"name": "HIV serostatus",
+			"concepts": [
+				"Lab, HIV test result"
+
+			],
+			"type": "Obs"
+		},
+
+		{
+			"name": "CD4",
+			"concepts": [
+				"CD4 COUNT"
+
+			],
+			"type": "Obs"
+		},
+
+		{
+			"name": "HIV VL",
+			"concepts": [
+				"HIV VIRAL LOAD"
+
+			],
+			"type": "Obs"
+		}
+
+	],
+	"milestones": [{
+			"name": "BL",
+			"config": {
+				"min": -30,
+				"max": 14
+			},
+			"questions": [
+				"Consent new drugs", "Consent endTB study", "Vital Signs", "Weight","Visual Acuity", "Functional status","BPNS-Baseline", "BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup","Audiometry", "Visual Acuity", "Adverse events evaluation", "Smear", "Culture", "Chest X-ray", "ECG", "Full blood count (Hb)", "Creatinine", "Serum electrolytes (K)", "Liver Function Test-AST","Liver Function Test-ALT","TSH", "Serum Albumin", "Hepatitis Bs Antigen", "Hepatitis C Antibody", "HbA1c", "Pregnancy test", "HIV serostatus", "CD4", "HIV VL"
+			]
+		},
+
+		{
+			"name": "M1",
+			"config": {
+				"min": 15,
+				"max": 44
+			},
+			"questions": [
+				"Vital Signs", "Weight", "Audiometry", "Visual Acuity", "BPNS-Baseline","BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "ECG", "Full blood count (Hb)", "Creatinine", "Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT"
+			]
+		}, {
+			"name": "M2",
+			"config": {
+				"min": 45,
+				"max": 74
+			},
+			"questions": [
+				"Vital Signs", "Weight", "Functional status", "Audiometry", "Visual Acuity", "BPNS-Baseline","BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "ECG", "Full blood count (Hb)", "Creatinine", "Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT"
+			]
+		}, {
+			"name": "M3",
+			"config": {
+				"min": 75,
+				"max": 104
+			},
+			"questions": [
+				"Vital Signs", "Weight", "Audiometry", "Visual Acuity","BPNS-Baseline","BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup", "Adverse events evaluation", "Smear", "Culture", "ECG", "Full blood count (Hb)", "Creatinine", "Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT", "TSH"
+			]
+		}, {
+			"name": "M4",
+			"config": {
+				"min": 105,
+				"max": 134
+			},
+			"questions": [
+				"Vital Signs", "Weight", "Audiometry", "Visual Acuity","BPNS-Baseline", "BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "ECG", "Full blood count (Hb)", "Creatinine", "Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT"
+
+			]
+		}, {
+			"name": "M5",
+			"config": {
+				"min": 135,
+				"max": 164
+			},
+			"questions": [
+				"Vital Signs", "Weight", "Audiometry", "Visual Acuity", "BPNS-Baseline","BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "ECG", "Full blood count (Hb)", "Creatinine", "Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT"
+			]
+		}, {
+			"name": "M6",
+			"config": {
+				"min": 165,
+				"max": 194
+			},
+			"questions": [
+				"Vital Signs", "Weight", "Audiometry", "Visual Acuity","BPNS-Baseline", "BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Chest X-ray", "ECG", "Full blood count (Hb)", "Creatinine", "Serum electrolytes (K)", "Liver Function Test-AST","Liver Function Test-ALT","TSH"
+			]
+		}, {
+			"name": "M7",
+			"config": {
+				"min": 195,
+				"max": 224
+			},
+			"questions": [
+				"Vital Signs", "Weight", "Audiometry", "Visual Acuity","BPNS-Baseline","BPNS-Followup", "Colour Blindness-Baseline","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)", "Creatinine", "Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT"
+			]
+		}, {
+			"name": "M8",
+			"config": {
+				"min": 225,
+				"max": 254
+			},
+			"questions": [
+				"Vital Signs", "Weight", "Audiometry", "Visual Acuity","BPNS-Baseline", "BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)", "Creatinine", "Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT"
+			]
+		}, {
+			"name": "M9",
+			"config": {
+				"min": 255,
+				"max": 284
+			},
+			"questions": [
+				"Vital Signs", "Weight", "Visual Acuity", "BPNS-Baseline","BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)", "Liver Function Test-AST","Liver Function Test-ALT","TSH"
+			]
+		}, {
+			"name": "M10",
+			"config": {
+				"min": 285,
+				"max": 314
+			},
+			"questions": [
+				"Vital Signs", "Weight", "Visual Acuity","BPNS-Baseline","BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup", "Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)","Liver Function Test-AST","Liver Function Test-ALT"
+			]
+		}, {
+			"name": "M11",
+			"config": {
+				"min": 315,
+				"max": 344
+			},
+			"questions": [
+				"Vital Signs", "Weight", "Visual Acuity", "BPNS-Baseline","BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)","Liver Function Test-AST","Liver Function Test-ALT"
+			]
+		}, {
+			"name": "M12",
+			"config": {
+				"min": 345,
+				"max": 374
+			},
+			"questions": [
+				"Vital Signs", "Weight", "Visual Acuity", "BPNS-Baseline","BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)", "Liver Function Test-AST","Liver Function Test-ALT","TSH"
+			]
+		}, {
+			"name": "M13",
+			"config": {
+				"min": 375,
+				"max": 404
+			},
+			"questions": [
+				"Vital Signs", "Weight", "Visual Acuity", "BPNS-Baseline","BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)","Liver Function Test-AST","Liver Function Test-ALT"
+			]
+		}, {
+			"name": "M14",
+			"config": {
+				"min": 405,
+				"max": 434
+			},
+			"questions": [
+				"Vital Signs", "Weight", "Visual Acuity","BPNS-Baseline","BPNS-Followup", "Colour Blindness-Baseline","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)","Liver Function Test-AST","Liver Function Test-ALT"
+			]
+		}, {
+			"name": "M15",
+			"config": {
+				"min": 435,
+				"max": 464
+			},
+			"questions": [
+				"Vital Signs", "Weight", "Visual Acuity", "BPNS-Baseline","BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)","Liver Function Test-AST","Liver Function Test-ALT", "TSH"
+			]
+		}, {
+			"name": "M16",
+			"config": {
+				"min": 465,
+				"max": 494
+			},
+			"questions": [
+				"Vital Signs", "Weight", "Visual Acuity", "BPNS-Baseline","BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)","Liver Function Test-AST","Liver Function Test-ALT"
+			]
+		}, {
+			"name": "M17",
+			"config": {
+				"min": 495,
+				"max": 524
+			},
+			"questions": [
+				"Vital Signs", "Weight", "Visual Acuity","BPNS-Baseline","BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup", "Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)","Liver Function Test-AST","Liver Function Test-ALT"
+			]
+		}, {
+			"name": "M18",
+			"config": {
+				"min": 525,
+				"max": 554
+			},
+			"questions": [
+				"Vital Signs", "Weight", "Visual Acuity", "BPNS-Baseline","BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)","Liver Function Test-AST","Liver Function Test-ALT", "TSH"
+			]
+		}, {
+			"name": "M19",
+			"config": {
+				"min": 555,
+				"max": 584
+			},
+			"questions": [
+				"Vital Signs", "Weight", "Visual Acuity","BPNS-Baseline","BPNS-Followup", "Colour Blindness-Baseline","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)","Liver Function Test-AST","Liver Function Test-ALT"
+			]
+		}, {
+			"name": "M20",
+			"config": {
+				"min": 585,
+				"max": 614
+			},
+			"questions": [
+				"Vital Signs", "Weight", "Visual Acuity","BPNS-Baseline","BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup", "Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)","Liver Function Test-AST","Liver Function Test-ALT"
+			]
+		}, {
+			"name": "M21",
+			"config": {
+				"min": 615,
+				"max": 644
+			},
+			"questions": [
+				"Vital Signs", "Weight", "Visual Acuity","BPNS-Baseline","BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup", "Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)", "TSH"
+			]
+		}, {
+			"name": "M22",
+			"config": {
+				"min": 645,
+				"max": 674
+			},
+			"questions": [
+				"Vital Signs", "Weight", "Visual Acuity","BPNS-Baseline","BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup", "Visual Acuity", "Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)"
+			]
+		},
+
+		{
+			"name": "M23",
+			"config": {
+				"min": 675,
+				"max": 704
+			},
+			"questions": [
+				"Vital Signs", "Weight", "Visual Acuity", "Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)"
+			]
+		},
+
+		{
+			"name": "M24",
+			"config": {
+				"min": 705,
+				"max": 734
+			},
+			"questions": [
+				"Vital Signs", "Weight", "Visual Acuity", "BPNS-Baseline","BPNS-Followup","Colour Blindness-Baseline","Colour Blindness-Followup","Adverse events evaluation", "Smear", "Culture", "Full blood count (Hb)", "TSH"
+			]
+		},
+
+
+		{
+			"name": "MTx",
+			"config": {
+				"min": -15,
+				"max": 15
+			},
+			"handler": "org.bahmni.flowsheet.definition.impl.TreatmentEndDateHandler",
+			"questions": [
+				"Functional status", "Audiometry", "Visual Acuity", "Colour Blindness-Baseline","Colour Blindness-Followup","BPNS-Baseline","BPNS-Followup","Outcome Consultation", "Adverse events evaluation", "Smear", "Culture", "Chest X-ray", "Full blood count (Hb)", "ECG", "Creatinine", "Serum electrolytes (K)","Liver Function Test-AST","Liver Function Test-ALT"
+			]
+		}, {
+			"name": "M6M",
+			"config": {
+				"min": -30,
+				"max": 30
+			},
+			"handler": "org.bahmni.flowsheet.definition.impl.SixMonthPostTreatmentOutcomeHandler",
+			"questions": [
+				"BPNS-Baseline", "BPNS-Followup", "Post Treatment Outcome Consultation","Colour Blindness-Baseline","Colour Blindness-Followup","Visual Acuity", "Adverse events evaluation", "Smear", "Culture", "ECG"
+			]
+		}
+	]
 }
