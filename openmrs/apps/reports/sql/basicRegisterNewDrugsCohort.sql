@@ -1,6 +1,6 @@
 SELECT
   results.`Registration Number`,
-  results.`TB register to the register reports`,
+  results.`TB register`,
   results.`EMR ID`,
   results.`Patient Last name`,
   results.`Patient First name`,
@@ -34,7 +34,7 @@ SELECT
   results.`Next visit`
 FROM
 (SELECT  MAX(IF(pat.name='Registration Number', ppa.value_reference, NULL )) AS `Registration Number`,
-        cn.name AS `TB register to the register reports`,
+        cn.name AS `TB register`,
         pi.identifier AS `EMR ID`,
         person_name.family_name AS `Patient Last name`,
         person_name.given_name AS `Patient First name`,
