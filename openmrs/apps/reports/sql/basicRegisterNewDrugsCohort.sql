@@ -247,7 +247,7 @@ FROM
       AND ee.episode_id = epp.episode_id
       AND ee.encounter_id = e.encounter_id
       AND bdq_dlm_orders.encounter_id = ee.encounter_id
-      AND bdq_dlm_orders.scheduled_date BETWEEN '#startDate#' AND '#endDate#'
+      AND DATE(bdq_dlm_orders.scheduled_date) BETWEEN '#startDate#' AND '#endDate#'
       AND bdq_dlm_orders.concept_id = cv.concept_id
       AND cv.concept_full_name IN ('Bedaquiline', 'Delamanid')
       AND patient_program.program_id = program.program_id
