@@ -1,5 +1,5 @@
-SELECT  ppa.value_reference AS `Registration Number`,
-        pi.identifier AS `EMR ID`,
+SELECT MAX(IF(pat.name='Registration Number', ppa.value_reference, NULL )) AS `Registration Number`,
+       pi.identifier AS `EMR ID`,
        person_name.family_name AS `Patient Last name`,
        person_name.given_name AS `Patient First name`,
        CONCAT(DATE_FORMAT(tStartDate.value_datetime, '%Y'), QUARTER(tStartDate.value_datetime)) AS `Ttr Cohort` ,
@@ -58,6 +58,8 @@ FROM
   encounter e,
   obs tStartDate,
   concept_view tStartDateConcept,
+  program,
+  concept_name cn,
   episode_encounter ee
   LEFT JOIN
   (
@@ -223,6 +225,13 @@ WHERE person_name.person_id = patient_program.patient_id
       AND tStartDate.voided=0
       AND tStartDate.value_datetime BETWEEN '#startDate#' AND '#endDate#'
       AND tStartDateConcept.concept_full_name = 'TUBERCULOSIS DRUG TREATMENT START DATE'
+      AND patient_program.program_id = program.program_id
+      AND patient_program.voided=0
+      AND program.retired=0
+      AND program.concept_id = cn.concept_id
+      AND cn.concept_name_type = 'FULLY_SPECIFIED'
+      AND cn.voided=0
+      AND cn.name = 'Second-line TB treatment register'
 GROUP BY epp.episode_id;
 
 
