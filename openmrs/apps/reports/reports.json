@@ -117,18 +117,34 @@
     }
   },
   "DRregister_aggregated": {
-    "name": "Cohort report: Enrollment (T) report (DRTB)(Custom Excel)",
+    "name": "Cohort report: Enrollment (T) report (DRTB) (Custom Excel)",
     "type": "MRSGeneric",
     "config": {
       "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/DRregister_aggregated.sql",
       "macroTemplatePath": "/var/www/bahmni_config/openmrs/apps/reports/macroTemplates/DRregister_aggregatedTemplate.xls"
     }
   },
+  "DRregister_newdrug_aggregated": {
+    "name": "Cohort report: Enrolment (D) report (DRTB) (Custom Excel)",
+    "type": "MRSGeneric",
+    "config": {
+      "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/DRregister_NewDrug_aggregated.sql",
+      "macroTemplatePath": "/var/www/bahmni_config/openmrs/apps/reports/macroTemplates/DRregister_aggregatedTemplate.xls"
+    }
+  },
   "Outcome_aggregated": {
-    "name": "Cohort report: Outcome (T) report (DRTB)(Custom Excel)",
+    "name": "Cohort report: Outcome (T) report (DRTB) (Custom Excel)",
     "type": "MRSGeneric",
     "config": {
       "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/DRregister_aggregated.sql",
+      "macroTemplatePath": "/var/www/bahmni_config/openmrs/apps/reports/macroTemplates/Outcome_aggregatedTemplate.xls"
+    }
+  },
+  "Outcome_newdrug_aggregated": {
+    "name": "Cohort report: Outcome (D) report (DRTB) (Custom Excel)",
+    "type": "MRSGeneric",
+    "config": {
+      "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/DRregister_NewDrug_aggregated.sql",
       "macroTemplatePath": "/var/www/bahmni_config/openmrs/apps/reports/macroTemplates/Outcome_aggregatedTemplate.xls"
     }
   },
