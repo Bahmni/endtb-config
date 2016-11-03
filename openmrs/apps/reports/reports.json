@@ -110,14 +110,14 @@
     }
   },
   "LateVisitReport": {
-    "name": "Late Visit Report (Excel)",
+    "name": "Late Visit Report For The Start Date (Excel)",
     "type": "MRSGeneric",
     "config": {
       "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/lateVisitReport.sql"
     }
   },
   "DRregister_aggregated": {
-    "name": "Cohort report: Enrollment (T) report (DRTB) (Custom Excel)",
+    "name": "Cohort report: Enrollment (T) Report (DRTB) (Custom Excel)",
     "type": "MRSGeneric",
     "config": {
       "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/DRregister_aggregated.sql",
@@ -125,7 +125,7 @@
     }
   },
   "DRregister_newdrug_aggregated": {
-    "name": "Cohort report: Enrolment (D) report (DRTB) (Custom Excel)",
+    "name": "Cohort report: Enrolment (D) Report (DRTB) (Custom Excel)",
     "type": "MRSGeneric",
     "config": {
       "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/DRregister_NewDrug_aggregated.sql",
@@ -133,7 +133,7 @@
     }
   },
   "Outcome_aggregated": {
-    "name": "Cohort report: Outcome (T) report (DRTB) (Custom Excel)",
+    "name": "Cohort report: Outcome (T) Report (DRTB) (Custom Excel)",
     "type": "MRSGeneric",
     "config": {
       "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/DRregister_aggregated.sql",
@@ -141,7 +141,7 @@
     }
   },
   "Outcome_newdrug_aggregated": {
-    "name": "Cohort report: Outcome (D) report (DRTB) (Custom Excel)",
+    "name": "Cohort report: Outcome (D) Report (DRTB) (Custom Excel)",
     "type": "MRSGeneric",
     "config": {
       "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/DRregister_NewDrug_aggregated.sql",
