@@ -1608,13 +1608,13 @@
     <changeSet id="ENDTB-201611031207" author="Sudhamsh">        
         <comment> Consent options: treatment initiation form, end TB consent question options are changed</comment>
         <sql>            
-            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'No, patient has been asked but refused','No, patient has been asked but refused', 'N/A', 'misc', false);
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'No, patient has been asked but refused', 'No', 'N/A', 'misc', false);
             set @concept1_id = @concept_id;
-            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Yes, patient has been asked and accepted', 'Yes, patient has been asked and accepted', 'N/A', 'misc', false);
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Yes, patient has been asked and accepted', 'Yes', 'N/A', 'misc', false);
             set @concept2_id = @concept_id;
-            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'pending- patient not asked yet, answer not known', 'pending- patient not asked yet, answer not known', 'N/A', 'misc', false);
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'pending- patient not asked yet, answer not known','pending', 'N/A', 'misc', false);
             set @concept3_id = @concept_id;
-            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'not possible- patient cannot be asked as dead or lost','not possible- patient cannot be asked as dead or lost' ,'N/A', 'misc', false);
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'not possible- patient cannot be asked as dead or lost', 'not possible' ,'N/A', 'misc', false);
             set @concept4_id = @concept_id;
 
             select concept_id into @set_concept_id from concept_view where concept_full_name = 'TI, Has the endTB Observational Study Consent Form been explained and signed';
@@ -1633,6 +1633,11 @@
             update obs set value_coded = @concept3_id where concept_id = 261 and voided = 0 and value_coded = @value3_concept_id;
 
             delete from concept_answer where answer_concept in ( @value2_concept_id, @value1_concept_id, @value3_concept_id ) and concept_id=@set_concept_id;
+
+            call create_reference_mapping('No, patient has been asked but refused','0');
+            call create_reference_mapping('Yes, patient has been asked and accepted','1');
+            call create_reference_mapping('pending- patient not asked yet, answer not known','2');
+            call create_reference_mapping('not possible- patient cannot be asked as dead or lost','3');
         </sql>
     </changeSet>
 </databaseChangeLog>
