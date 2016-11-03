@@ -1513,7 +1513,7 @@
             update concept_name set name = 'Reporting Date' where concept_name_type='SHORT' and locale = 'en' and concept_id = @concept_id2;
         </sql>
     </changeSet>
-        <changeSet id="ENDTB-201609211250" author="Sudhamsh">
+    <changeSet id="ENDTB-201609211250" author="Sudhamsh">
         <comment>Changing short name from 9 = Drug intolerance/contraindication/low BMI/HIV/ diabetes to 9=comorbidity/low BMI/HIV/diabetes</comment>
         <sql>            
             select concept_id into @concept_id1 from concept_view where concept_full_name = '9 = Drug intolerance or contraindication, patients with low body mass index (BMI), HIV, diabetes';
@@ -1603,6 +1603,36 @@
                                    AND cs.name='Abbreviation'
                                    AND cn.name= 'Baseline'
                                    AND cn.concept_name_type='FULLY_SPECIFIED');
+        </sql>
+    </changeSet>
+    <changeSet id="ENDTB-201611031207" author="Sudhamsh">        
+        <comment> Consent options: treatment initiation form, end TB consent question options are changed</comment>
+        <sql>            
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'No, patient has been asked but refused','No, patient has been asked but refused', 'N/A', 'misc', false);
+            set @concept1_id = @concept_id;
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Yes, patient has been asked and accepted', 'Yes, patient has been asked and accepted', 'N/A', 'misc', false);
+            set @concept2_id = @concept_id;
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'pending- patient not asked yet, answer not known', 'pending- patient not asked yet, answer not known', 'N/A', 'misc', false);
+            set @concept3_id = @concept_id;
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'not possible- patient cannot be asked as dead or lost','not possible- patient cannot be asked as dead or lost' ,'N/A', 'misc', false);
+            set @concept4_id = @concept_id;
+
+            select concept_id into @set_concept_id from concept_view where concept_full_name = 'TI, Has the endTB Observational Study Consent Form been explained and signed';
+
+            call add_concept_answer (@set_concept_id,@concept1_id,1);
+            call add_concept_answer (@set_concept_id,@concept2_id,2);
+            call add_concept_answer (@set_concept_id,@concept3_id,3);
+            call add_concept_answer (@set_concept_id,@concept4_id,4);
+
+            select concept_id into @value1_concept_id from concept_view where concept_full_name = 'False';
+            select concept_id into @value2_concept_id from concept_view where concept_full_name = 'True';
+            select concept_id into @value3_concept_id from concept_view where concept_full_name = 'Unknown';
+
+            update obs set value_coded = @concept1_id where concept_id = 261 and voided = 0 and value_coded = @value1_concept_id;
+            update obs set value_coded = @concept2_id where concept_id = 261 and voided = 0 and value_coded = @value2_concept_id;
+            update obs set value_coded = @concept3_id where concept_id = 261 and voided = 0 and value_coded = @value3_concept_id;
+
+            delete from concept_answer where answer_concept in ( @value2_concept_id, @value1_concept_id, @value3_concept_id ) and concept_id=@set_concept_id;
         </sql>
     </changeSet>
 </databaseChangeLog>
