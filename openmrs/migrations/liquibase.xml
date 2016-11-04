@@ -1640,6 +1640,35 @@
             call create_reference_mapping('not possible- patient cannot be asked as dead or lost','3');
         </sql>
     </changeSet>
+    <changeSet id="ENDTB-201611041034" author="Sourav, Shireesha">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(*) from concept_view where concept_full_name = 'Documents Template';
+            </sqlCheck>
+        </preConditions>
+        <comment>Adding Documents Template Concepts</comment>
+        <sql>
+            set @concept_id = 0;
+            set @concept_name_short_id = 0;
+            set @concept_name_full_id = 0;
+            select concept_id into @set_concept_id from concept_view where concept_full_name = 'All Observation Templates';
+            select max(sort_weight) into @sort_weight from concept_set where concept_set = @set_concept_id;
+
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Documents, Date', 'Date', 'Date', 'Misc', false);
+            set @child1_concept_id = @concept_id;
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Documents, Image', 'Image', 'Complex', 'Image', false);
+            set @child2_concept_id = @concept_id;
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Documents, Image Description', 'Description', 'Text', 'Misc', false);
+            set @child3_concept_id = @concept_id;
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Documents Template', 'Documents', 'N/A', 'Misc', true);
+            call add_concept_set_members (@concept_id,@child1_concept_id,1);
+            call add_concept_set_members (@concept_id,@child2_concept_id,2);
+            call add_concept_set_members (@concept_id,@child3_concept_id,3);
+            call add_concept_set_members(@set_concept_id, @concept_id, @sort_weight+1);
+            INSERT INTO concept_complex VALUES (@child2_concept_id, "BinaryDataHandler");
+
+        </sql>
+    </changeSet>
 </databaseChangeLog>
 
 
