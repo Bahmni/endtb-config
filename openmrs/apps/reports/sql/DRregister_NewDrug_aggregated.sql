@@ -54,7 +54,7 @@ FROM
         MAX(IF(dd.name = 'Bedaquiline (Bdq)',DATE_FORMAT(dd.start_date, '%d/%b/%Y'),NULL )) AS `Bdq Start Date`,
         TRUNCATE(MAX(IF(dd.name = 'Bedaquiline (Bdq)',dd.duration,NULL )),1) AS `Bdq Duration`,
         IFNULL(cf.facility, MAX(IF(pat.name='Registration Facility', (SELECT concept_full_name from concept_view WHERE concept_id = ppa.value_reference), NULL ))) AS `Current facility`,
-        DATE_FORMAT(regimen.regimen_date, '%d/%b/%Y') AS `Last ttr Change date`,
+        DATE_FORMAT(regimen.regimen_date, '%d/%b/%Y') AS `Last ttr Change date`,        
   regimen.E        ,
   regimen.H        ,
   regimen.R        ,
@@ -75,7 +75,7 @@ FROM
   regimen.`Amx-Clv`,
         MAX(IF(obs.concept_full_name = 'Baseline, HIV serostatus result', obs.value, NULL)) AS `HIV baseline`,
         MAX(IF(add_more_obs.concept_full_name = 'Lab, HIV test result', add_more_obs.value, NULL)) AS `HIV lab`,
-        COALESCE(MAX(IF(obs.concept_full_name = 'Baseline, HIV serostatus result', obs.value, NULL)),MAX(IF(add_more_obs.concept_full_name = 'Lab, HIV test result', add_more_obs.value, NULL)) AS `HIV result`,
+        COALESCE(MAX(IF(obs.concept_full_name = 'Baseline, HIV serostatus result', obs.value, NULL)),MAX(IF(add_more_obs.concept_full_name = 'Lab, HIV test result', add_more_obs.value, NULL))) AS `HIV result`,
         MAX(IF(obs.concept_full_name = 'Baseline, Hepatitis B', obs.value, NULL)) AS `Hep B baseline`,
         MAX(IF(add_more_obs.concept_full_name = 'Lab, Hepatitis B antigen test result', add_more_obs.value, NULL))  AS `Hep B lab`,
         MAX(IF(obs.concept_full_name = 'Baseline, Hepatitis C', obs.value, NULL))                                   AS `Hep C baseline`,
@@ -83,7 +83,9 @@ FROM
         MAX(IF(obs.concept_full_name = 'Diabetes Mellitus', obs.value, NULL))                                       AS `Diabetes baseline`,
         MAX(IF(obs.concept_full_name = 'EOT, Outcome', obs.value, NULL))                                            AS `outcome`,
         DATE_FORMAT(return_visit_obs.latest_return_visit, '%d/%b/%Y') AS `Next visit`,
-        floor(datediff(tStartDate.value_datetime, p.birthdate) / 365) AS `age`,
+        p.birthdate AS `DOB`,
+        curdate() as `date`,
+        floor(datediff(curdate(), p.birthdate) / 365) AS `age`,
         p.gender as `gender`,
         MAX(IF(obs.concept_full_name = 'Category IV tuberculosis classification', obs.value, NULL)) AS `TB classification`,
         MAX(IF(obs.concept_full_name = 'Baseline, Disease site', obs.value, NULL)) AS `site`
@@ -257,6 +259,7 @@ FROM
       AND ee.episode_id = epp.episode_id
       AND ee.encounter_id = e.encounter_id
       AND bdq_dlm_orders.encounter_id = ee.encounter_id
+      AND p.person_id = person_name.person_id
       AND DATE(bdq_dlm_orders.scheduled_date) BETWEEN '#startDate#' AND '#endDate#'
       AND bdq_dlm_orders.concept_id = cv.concept_id
       AND cv.concept_full_name IN ('Bedaquiline', 'Delamanid')
