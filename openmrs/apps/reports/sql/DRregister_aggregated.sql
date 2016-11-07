@@ -13,7 +13,7 @@ SELECT MAX(IF(pat.name='Registration Number', ppa.value_reference, NULL )) AS `R
        TRUNCATE(MAX(IF(dd.name = 'Delamanid (Dlm)',dd.duration,NULL )),1) AS `Dlm Duration`,
        MAX(IF(dd.name = 'Bedaquiline (Bdq)',DATE_FORMAT(dd.start_date, '%d/%b/%Y'),NULL )) AS `Bdq Start Date`,
        TRUNCATE(MAX(IF(dd.name = 'Bedaquiline (Bdq)',dd.duration,NULL )),1) AS `Bdq Duration`,
-       cf.facility AS `Current facility`,
+       IFNULL(cf.facility, MAX(IF(pat.name='Registration Facility', (SELECT concept_full_name from concept_view WHERE concept_id = ppa.value_reference), NULL ))) AS `Current facility`,
        DATE_FORMAT(regimen.regimen_date, '%d/%b/%Y') AS `Last ttr Change date`,
       regimen.E        ,
       regimen.H        ,
@@ -208,10 +208,11 @@ FROM
   WHERE person_name.person_id = patient_program.patient_id
       AND pi.patient_id = person_name.person_id
       AND p.person_id = person_name.person_id
-      AND epp.patient_program_id = patient_program.patient_program_id and patient_program.voided = 0
+      AND epp.patient_program_id = patient_program.patient_program_id
+      AND patient_program.voided = 0
       AND ppa.patient_program_id = patient_program.patient_program_id
       AND ppa.attribute_type_id = pat.program_attribute_type_id
-      AND pat.name = 'Registration Number'
+      AND (pat.name = 'Registration Number' OR pat.name = 'Registration Facility')
       AND ee.episode_id = epp.episode_id
       AND ee.encounter_id = e.encounter_id
       AND tStartDate.encounter_id = e.encounter_id
@@ -220,7 +221,6 @@ FROM
       AND tStartDate.value_datetime BETWEEN '#startDate#' AND '#endDate#'
       AND tStartDateConcept.concept_full_name = 'TUBERCULOSIS DRUG TREATMENT START DATE'
       AND patient_program.program_id = program.program_id
-      AND patient_program.voided = 0
       AND program.retired = 0
       AND program.concept_id = cn.concept_id
       AND cn.concept_name_type = 'FULLY_SPECIFIED'

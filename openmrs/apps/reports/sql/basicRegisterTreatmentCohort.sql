@@ -195,18 +195,21 @@ FROM
                                        ) obs2 ON obs1.obs_datetime < obs2.obs_datetime AND ee.episode_id=obs2.episode_id
                            WHERE obs2.obs_id IS NULL
              ) return_visit_obs ON ee.episode_id=return_visit_obs.episode_id
-  LEFT JOIN (SELECT  (COALESCE(o.value_datetime, o.obs_datetime)) AS end_of_treatment_date, ee.episode_id
-             FROM    obs o,
-               concept_view cv,
-               episode_encounter ee
-             WHERE    cv.concept_full_name IN ('Tuberculosis treatment end date')
-                      AND o.encounter_id = ee.encounter_id
-                      AND cv.concept_id = o.concept_id
-                      AND o.voided=0
-             GROUP BY ee.episode_id) end_of_treatment_obs ON ee.episode_id=end_of_treatment_obs.episode_id
+  LEFT JOIN (
+    SELECT  (COALESCE(o.value_datetime, o.obs_datetime)) AS end_of_treatment_date, ee.episode_id
+       FROM    obs o,
+         concept_view cv,
+         episode_encounter ee
+       WHERE    cv.concept_full_name IN ('Tuberculosis treatment end date')
+                AND o.encounter_id = ee.encounter_id
+                AND cv.concept_id = o.concept_id
+                AND o.voided=0
+       GROUP BY ee.episode_id
+   ) end_of_treatment_obs ON ee.episode_id=end_of_treatment_obs.episode_id
 WHERE person_name.person_id = patient_program.patient_id
       AND pi.patient_id = person_name.person_id
-      AND epp.patient_program_id = patient_program.patient_program_id and patient_program.voided = 0
+      AND epp.patient_program_id = patient_program.patient_program_id
+      AND patient_program.voided = 0
       AND ppa.patient_program_id = patient_program.patient_program_id
       AND ppa.attribute_type_id = pat.program_attribute_type_id
       AND (pat.name = 'Registration Number' OR pat.name = 'Registration Facility')
@@ -214,14 +217,13 @@ WHERE person_name.person_id = patient_program.patient_id
       AND ee.encounter_id = e.encounter_id
       AND tStartDate.encounter_id = e.encounter_id
       AND tStartDate.concept_id = tStartDateConcept.concept_id
-      AND tStartDate.voided=0
+      AND tStartDate.voided = 0
       AND tStartDate.value_datetime BETWEEN '#startDate#' AND '#endDate#'
       AND tStartDateConcept.concept_full_name = 'TUBERCULOSIS DRUG TREATMENT START DATE'
       AND patient_program.program_id = program.program_id
-      AND patient_program.voided=0
-      AND program.retired=0
+      AND program.retired = 0
       AND program.concept_id = cn.concept_id
       AND cn.concept_name_type = 'FULLY_SPECIFIED'
-      AND cn.voided=0
+      AND cn.voided = 0
 GROUP BY epp.episode_id;
 
