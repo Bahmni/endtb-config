@@ -141,7 +141,9 @@ FROM
                                   'Baseline, Hepatitis B',
                                   'Baseline, Hepatitis C',
                                   'Diabetes Mellitus',
-                                  'EOT, Outcome'
+                                  'EOT, Outcome',
+                                  'Baseline, Disease site',
+                                  'Category IV tuberculosis classification'
    )
   ) obs ON (obs.episode_id = ee.episode_id)
                LEFT JOIN
