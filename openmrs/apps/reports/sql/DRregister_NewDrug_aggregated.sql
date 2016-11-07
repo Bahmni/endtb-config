@@ -46,9 +46,9 @@ FROM
         MAX(IF(obs.concept_full_name = 'Baseline, MDR-TB diagnosis method', obs.value, NULL)) AS `MTB confirmed`,
         MAX(IF(obs.concept_full_name = 'Baseline, Drug resistance', obs.value, NULL)) AS `DR Resistance profile`,
         MAX(IF(obs.concept_full_name = 'Baseline, Subclassification for confimed drug resistant cases', obs.value, NULL)) AS `Subclassification for confirmed`,
-        MAX(IF(date_obs.concept_full_name='TUBERCULOSIS DRUG TREATMENT START DATE',date_obs.date_value, NULL)) AS `tb_treatment_start_date`,
-        MAX(IF(date_obs.concept_full_name='Tuberculosis treatment end date', date_obs.date_value, NULL)) AS `tb_treatment_end_date`,
-        MAX(IF(dd.name = 'Delamanid (Dlm)',DATE_FORMAT(dd.start_date, '%d/%b/%Y'),NULL )) AS `Dlm Start Date`,
+        MAX(IF(date_obs.concept_full_name ='TUBERCULOSIS DRUG TREATMENT START DATE',date_obs.date_value, NULL)) AS `tb_treatment_start_date`,
+        MAX(IF(date_obs.concept_full_name ='Tuberculosis treatment end date', date_obs.date_value, NULL)) AS `tb_treatment_end_date`,
+        MAX(IF(dd.name = 'Delamanid (Dlm)', DATE_FORMAT(dd.start_date, '%d/%b/%Y'),NULL )) AS `Dlm Start Date`,
         TRUNCATE(MAX(IF(dd.name = 'Delamanid (Dlm)',dd.duration,NULL )),1) AS `Dlm Duration`,
         MAX(IF(dd.name = 'Bedaquiline (Bdq)',DATE_FORMAT(dd.start_date, '%d/%b/%Y'),NULL )) AS `Bdq Start Date`,
         TRUNCATE(MAX(IF(dd.name = 'Bedaquiline (Bdq)',dd.duration,NULL )),1) AS `Bdq Duration`,
@@ -74,7 +74,9 @@ FROM
         regimen.`Amx-Clv`,
         MAX(IF(obs.concept_full_name = 'Baseline, HIV serostatus result', obs.value, NULL)) AS `HIV baseline`,
         MAX(IF(add_more_obs.concept_full_name = 'Lab, HIV test result', add_more_obs.value, NULL)) AS `HIV lab`,
-        COALESCE(MAX(IF(obs.concept_full_name = 'Baseline, HIV serostatus result', obs.value, NULL)),MAX(IF(add_more_obs.concept_full_name = 'Lab, HIV test result', add_more_obs.value, NULL))) AS `HIV result`,
+        COALESCE(MAX(IF(add_more_obs.concept_full_name = 'Lab, HIV test result', add_more_obs.value, NULL)),
+                 MAX(IF(obs.concept_full_name = 'Baseline, HIV serostatus result', obs.value, NULL))
+                 ) AS `HIV result`,
         MAX(IF(add_more_obs.concept_full_name = 'Lab, Hepatitis B antigen test result', add_more_obs.value, NULL))  AS `Hep B lab`,
         MAX(IF(obs.concept_full_name = 'Baseline, Hepatitis C', obs.value, NULL))                                   AS `Hep C baseline`,
         MAX(IF(add_more_obs.concept_full_name = 'Lab, Hepatitis C antibody test result', add_more_obs.value, NULL)) AS `Hep C lab`,
@@ -156,50 +158,53 @@ FROM
                                      AND episode_encounter.episode_id = ee.episode_id
                                      AND obs.encounter_id = episode_encounter.encounter_id)
     ) add_more_obs ON (add_more_obs.episode_id = ee.episode_id)
-    LEFT JOIN (SELECT episode_id, dr.regimen_date,
-    MAX( IF (cv.code ='E'      ,dr.dose,NULL)) AS E        ,
-    MAX( IF (cv.code ='H'      ,dr.dose,NULL)) AS H        ,
-    MAX( IF (cv.code ='R'      ,dr.dose,NULL)) AS R        ,
-    MAX( IF (cv.code ='Z'      ,dr.dose,NULL)) AS Z        ,
-    MAX( IF (cv.code ='Am'     ,dr.dose,NULL)) AS Am       ,
-    MAX( IF (cv.code ='Km'     ,dr.dose,NULL)) AS Km       ,
-    MAX( IF (cv.code ='Cm'     ,dr.dose,NULL)) AS Cm       ,
-    MAX( IF (cv.code ='Lfx'    ,dr.dose,NULL)) AS Lfx      ,
-    MAX( IF (cv.code ='Mfx'    ,dr.dose,NULL)) AS Mfx      ,
-    MAX( IF (cv.code ='Cs'     ,dr.dose,NULL)) AS Cs       ,
-    MAX( IF (cv.code ='PAS'    ,dr.dose,NULL)) AS PAS      ,
-    MAX( IF (cv.code ='Pto'    ,dr.dose,NULL)) AS Pto      ,
-    MAX( IF (cv.code ='Bdq'    ,dr.dose,NULL)) AS Bdq      ,
-    MAX( IF (cv.code ='Dlm'    ,dr.dose,NULL)) AS Dlm      ,
-    MAX( IF (cv.code ='Cfz'    ,dr.dose,NULL)) AS Cfz      ,
-    MAX( IF (cv.code ='Lzd'    ,dr.dose,NULL)) AS Lzd      ,
-    MAX( IF (cv.code ='Imp/Cln',dr.dose,NULL)) AS ImpCln   ,
-    MAX( IF (cv.code ='Amx/Clv',dr.dose,NULL)) AS `Amx-Clv`
-    FROM (
-      SELECT drug.concept_id,drug.name ,IF(regimen_ord.date_stopped,NULL,regimen.dose) as dose ,regimen_episode.episode_id,reg.regimen_date
-      FROM drug,
-        drug_order regimen,
-        orders regimen_ord,
-        episode_encounter regimen_episode,
-        (SELECT  episode_encounter.episode_id, MAX(COALESCE(date_stopped,scheduled_date,date_activated)) AS regimen_date
-         FROM drug_order, orders, episode_encounter, concept_reference_term_map_view
-         WHERE orders.order_id = drug_order.order_id AND orders.voided = 0 AND orders.order_action='NEW'
-           AND episode_encounter.encounter_id = orders.encounter_id
-           AND concept_reference_term_map_view.code IN
-               ('E', 'H', 'R', 'Z', 'Am', 'Km', 'Cm', 'Lfx', 'Mfx', 'Cs', 'PAS', 'Pto', 'Bdq', 'Dlm', 'Cfz', 'Lzd', 'Imp/Cln', 'Amx/Clv')
-           AND orders.concept_id = concept_reference_term_map_view.concept_id
-         GROUP BY episode_encounter.episode_id) reg
-      WHERE regimen.order_id = regimen_ord.order_id
-            AND regimen_ord.encounter_id = regimen_episode.encounter_id
-            AND drug.drug_id = regimen.drug_inventory_id
-            AND reg.episode_id = regimen_episode.episode_id
-            AND regimen_ord.voided = 0 and regimen_ord.order_action = 'NEW'
-            AND (regimen_ord.date_stopped IS NULL OR reg.regimen_date <= regimen_ord.date_stopped)) dr
-    LEFT JOIN concept_reference_term_map_view cv
-    ON (cv.concept_id = dr.concept_id
-       AND cv.concept_map_type_name = 'SAME-AS'
-       AND cv.concept_reference_source_name = 'Abbreviation')
-    GROUP BY episode_id) regimen ON (regimen.episode_id = ee.episode_id)
+    LEFT JOIN (
+      SELECT episode_id, dr.regimen_date,
+      MAX( IF (cv.code ='E'      ,dr.dose,NULL)) AS E        ,
+      MAX( IF (cv.code ='H'      ,dr.dose,NULL)) AS H        ,
+      MAX( IF (cv.code ='R'      ,dr.dose,NULL)) AS R        ,
+      MAX( IF (cv.code ='Z'      ,dr.dose,NULL)) AS Z        ,
+      MAX( IF (cv.code ='Am'     ,dr.dose,NULL)) AS Am       ,
+      MAX( IF (cv.code ='Km'     ,dr.dose,NULL)) AS Km       ,
+      MAX( IF (cv.code ='Cm'     ,dr.dose,NULL)) AS Cm       ,
+      MAX( IF (cv.code ='Lfx'    ,dr.dose,NULL)) AS Lfx      ,
+      MAX( IF (cv.code ='Mfx'    ,dr.dose,NULL)) AS Mfx      ,
+      MAX( IF (cv.code ='Cs'     ,dr.dose,NULL)) AS Cs       ,
+      MAX( IF (cv.code ='PAS'    ,dr.dose,NULL)) AS PAS      ,
+      MAX( IF (cv.code ='Pto'    ,dr.dose,NULL)) AS Pto      ,
+      MAX( IF (cv.code ='Bdq'    ,dr.dose,NULL)) AS Bdq      ,
+      MAX( IF (cv.code ='Dlm'    ,dr.dose,NULL)) AS Dlm      ,
+      MAX( IF (cv.code ='Cfz'    ,dr.dose,NULL)) AS Cfz      ,
+      MAX( IF (cv.code ='Lzd'    ,dr.dose,NULL)) AS Lzd      ,
+      MAX( IF (cv.code ='Imp/Cln',dr.dose,NULL)) AS ImpCln   ,
+      MAX( IF (cv.code ='Amx/Clv',dr.dose,NULL)) AS `Amx-Clv`
+      FROM (
+        SELECT drug.concept_id,drug.name ,IF(regimen_ord.date_stopped,NULL,regimen.dose) as dose ,regimen_episode.episode_id,reg.regimen_date
+        FROM drug,
+          drug_order regimen,
+          orders regimen_ord,
+          episode_encounter regimen_episode,
+          (SELECT  episode_encounter.episode_id, MAX(COALESCE(date_stopped,scheduled_date,date_activated)) AS regimen_date
+           FROM drug_order, orders, episode_encounter, concept_reference_term_map_view
+           WHERE orders.order_id = drug_order.order_id AND orders.voided = 0 AND orders.order_action='NEW'
+             AND episode_encounter.encounter_id = orders.encounter_id
+             AND concept_reference_term_map_view.code IN
+                 ('E', 'H', 'R', 'Z', 'Am', 'Km', 'Cm', 'Lfx', 'Mfx', 'Cs', 'PAS', 'Pto', 'Bdq', 'Dlm', 'Cfz', 'Lzd', 'Imp/Cln', 'Amx/Clv')
+             AND orders.concept_id = concept_reference_term_map_view.concept_id
+           GROUP BY episode_encounter.episode_id) reg
+        WHERE regimen.order_id = regimen_ord.order_id
+              AND regimen_ord.encounter_id = regimen_episode.encounter_id
+              AND drug.drug_id = regimen.drug_inventory_id
+              AND reg.episode_id = regimen_episode.episode_id
+              AND regimen_ord.voided = 0 and regimen_ord.order_action = 'NEW'
+              AND (regimen_ord.date_stopped IS NULL OR reg.regimen_date <= regimen_ord.date_stopped)
+      ) dr
+      LEFT JOIN concept_reference_term_map_view cv
+            ON (cv.concept_id = dr.concept_id
+            AND cv.concept_map_type_name = 'SAME-AS'
+            AND cv.concept_reference_source_name = 'Abbreviation')
+      GROUP BY episode_id
+    ) regimen ON (regimen.episode_id = ee.episode_id)
     LEFT JOIN (
       SELECT MIN(o.scheduled_date) AS start_date, ee.episode_id ,d.name  ,
              SUM(TIMESTAMPDIFF(DAY,COALESCE(o.scheduled_date,o.date_activated),COALESCE(o.date_stopped,NOW())))/30 AS duration
@@ -236,7 +241,7 @@ FROM
        GROUP BY cv.concept_id,ee.episode_id
     ) date_obs ON ee.episode_id = date_obs.episode_id
     WHERE person_name.person_id = patient_program.patient_id
-    AND pi.patient_id= person_name.person_id
+    AND pi.patient_id = person_name.person_id
     AND epp.patient_program_id = patient_program.patient_program_id and patient_program.voided = 0
     AND ppa.patient_program_id = patient_program.patient_program_id
     AND ppa.attribute_type_id = pat.program_attribute_type_id
@@ -249,11 +254,11 @@ FROM
     AND bdq_dlm_orders.concept_id = cv.concept_id
     AND cv.concept_full_name IN ('Bedaquiline', 'Delamanid')
     AND patient_program.program_id = program.program_id
-    AND patient_program.voided=0
-    AND program.retired=0
+    AND patient_program.voided = 0
+    AND program.retired  =0
     AND program.concept_id = cn.concept_id
     AND cn.concept_name_type = 'FULLY_SPECIFIED'
-    AND cn.voided=0
+    AND cn.voided = 0
     AND cn.name = 'Second-line TB treatment register'
 GROUP BY epp.episode_id) AS results;
 
