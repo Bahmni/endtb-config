@@ -205,8 +205,8 @@ FROM (
     GROUP BY episode_id
   ) regimen ON (regimen.episode_id = ee.episode_id)
   LEFT JOIN (
-    SELECT MIN(o.scheduled_date) AS start_date, ee.episode_id ,d.name  ,
-       SUM(TIMESTAMPDIFF(DAY,COALESCE(o.scheduled_date,o.date_activated),COALESCE(o.date_stopped,NOW())))/30 AS duration
+    SELECT MIN(o.scheduled_date) AS start_date, ee.episode_id ,d.name ,
+          SUM(TIMESTAMPDIFF(DAY,COALESCE(o.scheduled_date,o.date_activated),COALESCE(o.date_stopped,NOW())))/30 AS duration
     FROM episode_encounter ee,
     orders o,
     drug d,
@@ -214,7 +214,7 @@ FROM (
     WHERE o.order_id = do.order_id
       AND ee.encounter_id = o.encounter_id
       AND d.drug_id = do.drug_inventory_id
-      AND o.voided =0 AND o.order_action='NEW'
+      AND o.voided = 0 AND o.order_action='NEW'
       AND o.scheduled_date <= NOW()
       AND d.name IN ('Delamanid (Dlm)', 'Bedaquiline (Bdq)')
     GROUP BY ee.episode_id,d.drug_id

@@ -255,7 +255,8 @@ WHERE pi.patient_id = pp.patient_id
       AND ppa.patient_program_id = pp.patient_program_id
       AND ppa.attribute_type_id = pat.program_attribute_type_id
       AND (pat.name = 'Registration Number' OR pat.name = 'Registration Facility')
-      AND epp.patient_program_id = pp.patient_program_id and pp.voided = 0
+      AND epp.patient_program_id = pp.patient_program_id
+      AND pp.voided = 0
       AND ee.episode_id = epp.episode_id
       AND ee.encounter_id = e.encounter_id
       AND episodes_with_drugs.drug_start_date BETWEEN '#startDate#' AND '#endDate#'

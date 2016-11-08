@@ -255,8 +255,7 @@ FROM
     AND bdq_dlm_orders.concept_id = cv.concept_id
     AND cv.concept_full_name IN ('Bedaquiline', 'Delamanid')
     AND patient_program.program_id = program.program_id
-    AND patient_program.voided = 0
-    AND program.retired  =0
+    AND program.retired = 0
     AND program.concept_id = cn.concept_id
     AND cn.concept_name_type = 'FULLY_SPECIFIED'
     AND cn.voided = 0
