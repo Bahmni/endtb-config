@@ -261,6 +261,6 @@ FROM (
   AND program.concept_id = cn.concept_id
   AND cn.concept_name_type = 'FULLY_SPECIFIED'
   AND cn.voided = 0
-GROUP BY epp.episode_id) AS results;
+GROUP BY epp.episode_id) AS results where `Dlm Start Date` is NOT NULL OR `Bdq Start Date` is NOT NULL;
 
 
