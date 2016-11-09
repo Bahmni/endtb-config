@@ -181,7 +181,6 @@
     },
     "sections": {
       "treatmentInfo": {
-        "type": "monthlytreatment",
         "isObservation": true,
         "displayType": "Full-Page",
         "dashboardConfig": {
@@ -200,7 +199,6 @@
         "translationKey": "SUMMARY_TITLE_TREATMENT_INFORMATION"
       },
       "casedefinition": {
-        "type": "casedefinition",
         "isObservation": true,
         "displayType": "Full-Page",
         "dashboardConfig": {
@@ -216,7 +214,6 @@
         "translationKey": "SUMMARY_TITLE_CASE_DEFINITION"
       },
       "serologystatus": {
-        "type": "serologystatus",
         "isObservation": true,
         "displayType": "Full-Page",
         "dashboardConfig": {
@@ -245,7 +242,6 @@
         }
       },
       "pasttbhistory": {
-        "type": "pasttbhistory",
         "isObservation": true,
         "displayType": "Full-Page",
         "dashboardConfig": {
