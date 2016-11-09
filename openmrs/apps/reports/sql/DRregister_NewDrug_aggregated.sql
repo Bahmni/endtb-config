@@ -260,6 +260,6 @@ FROM
     AND cn.concept_name_type = 'FULLY_SPECIFIED'
     AND cn.voided = 0
     AND cn.name = 'Second-line TB treatment register'
-GROUP BY epp.episode_id) AS results;
+GROUP BY epp.episode_id) AS results WHERE `Dlm Start Date` IS NOT NULL OR `Bdq Start Date` IS NOT NULL;
 
 
