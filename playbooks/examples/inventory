@@ -25,6 +25,11 @@ localhost
 [bahmni-reports]
 localhost
 
+[bahmni-reports-db]
+localhost
+
+[bahmni-reports-db-slave]
+
 [pacs-integration]
 
 [pacs-integration-db]
