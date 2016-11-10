@@ -1605,7 +1605,7 @@
                                    AND cn.concept_name_type='FULLY_SPECIFIED');
         </sql>
     </changeSet>
-    <changeSet id="ENDTB-201611031208" author="Sudhamsh">        
+    <changeSet id="ENDTB-201611031209" author="Sudhamsh">        
         <comment> Consent options: treatment initiation form, end TB consent question options are changed</comment>
         <sql>            
             call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'No, patient has been asked but refused', 'No', 'N/A', 'misc', false);
@@ -1619,8 +1619,8 @@
 
             select concept_id into @set_concept_id from concept_view where concept_full_name = 'TI, Has the endTB Observational Study Consent Form been explained and signed';
 
-            call add_concept_answer (@set_concept_id,@concept1_id,1);
-            call add_concept_answer (@set_concept_id,@concept2_id,2);
+            call add_concept_answer (@set_concept_id,@concept1_id,2);
+            call add_concept_answer (@set_concept_id,@concept2_id,1);
             call add_concept_answer (@set_concept_id,@concept3_id,3);
             call add_concept_answer (@set_concept_id,@concept4_id,4);
 
@@ -1634,8 +1634,8 @@
 
             delete from concept_answer where answer_concept in ( @value2_concept_id, @value1_concept_id, @value3_concept_id ) and concept_id=@set_concept_id;
 
-            call create_reference_mapping('No, patient has been asked but refused','1');
-            call create_reference_mapping('Yes, patient has been asked and accepted','0');
+            call create_reference_mapping('No, patient has been asked but refused','0');
+            call create_reference_mapping('Yes, patient has been asked and accepted','1');
             call create_reference_mapping('Pending- patient not asked yet, answer not known','2');
             call create_reference_mapping('Not possible- patient cannot be asked as dead or lost','3');
         </sql>
