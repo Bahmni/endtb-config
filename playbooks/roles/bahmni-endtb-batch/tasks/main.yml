@@ -23,6 +23,6 @@
   command: unzip /opt/bahmni-web/etc/bahmniapps.zip -d /opt/bahmni-web/etc/endtb-bahmniapps
   when: bahmniapps_url is defined
 
-- name: linking /var/www/bahmniapps to entdb-release-84 bahmniapps
+- name: linking /var/www/bahmniapps to entdb-release-85 bahmniapps
   command: ln -s /opt/bahmni-web/etc/endtb-bahmniapps /var/www/bahmniapps
   when: bahmniapps_url is defined
