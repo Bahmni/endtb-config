@@ -1605,7 +1605,7 @@
                                    AND cn.concept_name_type='FULLY_SPECIFIED');
         </sql>
     </changeSet>
-    <changeSet id="ENDTB-201611031207" author="Sudhamsh">        
+    <changeSet id="ENDTB-201611031208" author="Sudhamsh">        
         <comment> Consent options: treatment initiation form, end TB consent question options are changed</comment>
         <sql>            
             call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'No, patient has been asked but refused', 'No', 'N/A', 'misc', false);
@@ -1634,10 +1634,10 @@
 
             delete from concept_answer where answer_concept in ( @value2_concept_id, @value1_concept_id, @value3_concept_id ) and concept_id=@set_concept_id;
 
-            call create_reference_mapping('No, patient has been asked but refused','0');
-            call create_reference_mapping('Yes, patient has been asked and accepted','1');
-            call create_reference_mapping('pending- patient not asked yet, answer not known','2');
-            call create_reference_mapping('not possible- patient cannot be asked as dead or lost','3');
+            call create_reference_mapping('No, patient has been asked but refused','1');
+            call create_reference_mapping('Yes, patient has been asked and accepted','0');
+            call create_reference_mapping('Pending- patient not asked yet, answer not known','2');
+            call create_reference_mapping('Not possible- patient cannot be asked as dead or lost','3');
         </sql>
     </changeSet>
     <changeSet id="ENDTB-201611041034" author="Sourav, Shireesha">
@@ -1667,6 +1667,23 @@
             call add_concept_set_members(@set_concept_id, @concept_id, @sort_weight+1);
             INSERT INTO concept_complex VALUES (@child2_concept_id, "BinaryDataHandler");
 
+        </sql>
+    </changeSet>    
+    <changeSet id="ENDTB-201611090413" author="Sudhamsh">        
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">           
+                select count(*) from concept_answer where answer_concept = 1751 and concept_id = 963;
+            </sqlCheck>
+        </preConditions>        
+        <comment> Remove the assessment type “6 month post treatment outcome” </comment>
+        <sql>
+            select concept_id into @main_concept_id from concept_view where concept_full_name = 'Xray, Type of assessment';
+            select concept_id into @other_concept_id from concept_view where concept_full_name = 'Other assessment';
+            select concept_id into @value_concept_id from concept_view where concept_full_name = '6-month post-treatment assessment';
+            
+            update obs set value_coded = @other_concept_id where concept_id = @main_concept_id  and voided = 0 and value_coded = @value_concept_id;
+
+            delete from concept_answer where answer_concept in ( @value_concept_id ) and concept_id=@main_concept_id ;
         </sql>
     </changeSet>
 </databaseChangeLog>
