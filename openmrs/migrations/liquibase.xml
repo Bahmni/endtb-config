@@ -1686,6 +1686,22 @@
             delete from concept_answer where answer_concept in ( @value_concept_id ) and concept_id=@main_concept_id ;
         </sql>
     </changeSet>
+    <changeSet id = "ENDTB-201611111854" author="Shireesha">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="2">
+                select count(*) from users where username= 'reports-user';
+            </sqlCheck>
+        </preConditions>
+        <comment>Retiring extra Reports User</comment>
+        <sql>
+            SELECT u.user_id
+            INTO @user_with_reports_role
+            FROM users u
+            JOIN user_role ur ON ur.user_id = u.user_id AND u.username = 'reports-user' AND ur.role = 'Emr-Reports' LIMIT 1;
+
+            UPDATE users SET retired = 1 WHERE username='reports-user' and user_id NOT IN (@user_with_reports_role);
+        </sql>
+    </changeSet>
 </databaseChangeLog>
 
 
