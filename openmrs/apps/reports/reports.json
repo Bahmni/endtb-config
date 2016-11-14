@@ -110,7 +110,7 @@
     }
   },
   "LateVisitReport": {
-    "name": "Late Visit Report For The Start Date (Excel)",
+    "name": "Late Visit Report Based on Cohort Start Date (Excel)",
     "type": "MRSGeneric",
     "config": {
       "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/lateVisitReport.sql"
