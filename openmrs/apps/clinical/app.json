@@ -931,6 +931,9 @@
       },
       "Documents, Date": {
         "required": true
+      },
+      "Documents, Image": {
+        "required": true
       }
     }
   }
