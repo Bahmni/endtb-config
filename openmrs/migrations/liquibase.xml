@@ -1702,6 +1702,79 @@
             UPDATE users SET retired = 1 WHERE username='reports-user' and user_id NOT IN (@user_with_reports_role);
         </sql>
     </changeSet>
+    <changeSet id = "ENDTB-201611191104" author="Sudhamsh">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">
+                select count(*) from concept_view where concept_full_name = 'Xray, Date of Other Test';
+            </sqlCheck>
+        </preConditions>
+        <comment> Removing Date of other radiological tests from Xray form</comment>
+        <sql>
+            select concept_id into @parent_concept_id from concept_view where concept_full_name = 'Xray, Other Radiological Tests';
+            select concept_id into @main_concept_id from concept_view where concept_full_name = 'Xray, Date of Other Test';
+            update obs set voided = 1 where concept_id = @main_concept_id;
+            delete from concept_set where concept_id in ( @main_concept_id ) and concept_set=@parent_concept_id ;                      
+        </sql>
+    </changeSet>
+    <changeSet id = "ENDTB-201611220204" author="Sudhamsh">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(*) from concept_view where concept_full_name IN ('Lab, Hep C PCR','Lab, Hep C viral load','Lab, Hep C genotype','Lab, APRI');
+            </sqlCheck>
+        </preConditions>
+        <comment> adding new concepts in Lab Results - Serology</comment>
+        <sql>
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Lab, Hep C PCR', 'Hep C PCR', 'Coded', 'Misc', false);
+            set @main1_concept_id = @concept_id;
+
+            select concept_id into @child1_concept_id from concept_view where concept_full_name = 'Positive';
+            select concept_id into @child2_concept_id from concept_view where concept_full_name = 'Negative';
+            select concept_id into @child3_concept_id from concept_view where concept_full_name = 'Indeterminate';
+
+            call add_concept_answer (@main1_concept_id, @child1_concept_id, 1);
+            call add_concept_answer (@main1_concept_id, @child2_concept_id, 2);
+            call add_concept_answer (@main1_concept_id, @child3_concept_id, 3);
+
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Lab, Hep C viral load', 'Hep C viral load', 'Text', 'Misc', false);
+            set @main2_concept_id = @concept_id;
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Lab, Hep C genotype', 'Hep C genotype', 'Text', 'Misc', false);
+            set @main3_concept_id = @concept_id;
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Lab, APRI', 'APRI', 'Text', 'Misc', false);
+            set @main4_concept_id = @concept_id;
+
+            call add_concept_set_members (@concept_id,@main1_concept_id,6);
+            call add_concept_set_members (@concept_id,@main2_concept_id,7);
+            call add_concept_set_members (@concept_id,@main3_concept_id,8);
+            call add_concept_set_members (@concept_id,@main4_concept_id,9);            
+                      
+        </sql>
+    </changeSet>
+    <changeSet id = "ENDTB-201611220244" author="Sudhamsh">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">
+                select count(*) from concept_answer where answer_concept = 473 and concept_id =1445;
+            </sqlCheck>
+        </preConditions>
+        <comment> adding new concepts in Lab Results - Serology</comment>
+        <sql>
+            select concept_id into @main_concept_id from concept_view where concept_full_name = 'AE Form, AE outcome';
+            select concept_id into @value_concept_id from concept_view where concept_full_name = 'Fatal';            
+            update obs set  voided = 1 where concept_id = @main_concept_id and value_coded = @value_concept_id;
+            delete from concept_answer where answer_concept in ( @value_concept_id ) and concept_id=@main_concept_id ;
+         </sql>
+    </changeSet>
+    <changeSet id = "ENDTB-201611220255" author="Sudhamsh">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">
+                select count(*) from concept_view where concept_full_name = 'glycosylated hemoglobin A measurement';
+            </sqlCheck>
+        </preConditions>
+        <comment> adding new concepts in Lab Results - Serology</comment>
+        <sql>
+            select concept_id into @main_concept_id from concept_view where concept_full_name = 'glycosylated hemoglobin A measurement';
+            update concept_view set description = '' where concept_id = @main_concept_id;
+
+            update concept_reference_term set code = 'd_radio' where code = 'd_xray' and concept_source_id = (select concept_source_id from concept_reference_source where name = 'EndTB-Export');
+        </sql>
+    </changeSet>
 </databaseChangeLog>
-
-
