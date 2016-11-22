@@ -3,6 +3,9 @@ SELECT MAX(IF(pat.name='Registration Number', ppa.value_reference, NULL )) AS `R
         pi.identifier AS `EMR ID`,
         person_name.family_name AS `Patient Last name`,
         person_name.given_name AS `Patient First name`,
+        p.gender as `Gender`,
+        p.birthdate AS `DOB`,
+        MAX(IF(obs.concept_full_name = 'TI, Has the endTB Observational Study Consent Form been explained and signed', obs.value, NULL)) AS `Consent EndTB Study`,
         CONCAT(DATE_FORMAT(tStartDate.value_datetime, '%Y'), QUARTER(tStartDate.value_datetime)) AS `Ttr Cohort` ,
         MAX(IF(obs.concept_full_name = 'Baseline, WHO registration group', obs.value, NULL)) AS `WHO registration group`,
         MAX(IF(obs.concept_full_name = 'Baseline, MDR-TB diagnosis method', obs.value, NULL)) AS `MTB confirmed`,
@@ -46,6 +49,7 @@ SELECT MAX(IF(pat.name='Registration Number', ppa.value_reference, NULL )) AS `R
         DATE_FORMAT(return_visit_obs.latest_return_visit, '%d/%b/%Y') AS `Next visit`
 FROM
   person_name,
+  person p,
   patient_program,
   patient_identifier pi,
   episode_patient_program epp,
@@ -102,7 +106,8 @@ FROM
                                   'Baseline, Hepatitis B',
                                   'Baseline, Hepatitis C',
                                   'Diabetes Mellitus',
-                                  'EOT, Outcome'
+                                  'EOT, Outcome',
+                                  'TI, Has the endTB Observational Study Consent Form been explained and signed'
     )
   ) obs ON (obs.episode_id = ee.episode_id)
   LEFT JOIN
@@ -219,6 +224,7 @@ FROM
   ) end_of_treatment_obs ON ee.episode_id = end_of_treatment_obs.episode_id
 WHERE person_name.person_id = patient_program.patient_id
       AND pi.patient_id = person_name.person_id
+      AND p.person_id = person_name.person_id
       AND epp.patient_program_id = patient_program.patient_program_id
       AND patient_program.voided = 0
       AND ppa.patient_program_id = patient_program.patient_program_id

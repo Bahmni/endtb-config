@@ -4,6 +4,9 @@ SELECT
   results.`EMR ID`,
   results.`Patient Last name`,
   results.`Patient First name`,
+  results.`Gender`,
+  results.`DOB`,
+  results.`Consent EndTB Study`,
   results.`Ttr Cohort`,
   results.`WHO registration group`,
   results.`MTB confirmed`,
@@ -38,6 +41,9 @@ FROM (
         pi.identifier AS `EMR ID`,
         person_name.family_name AS `Patient Last name`,
         person_name.given_name AS `Patient First name`,
+        p.gender as `Gender`,
+        p.birthdate AS `DOB`,
+        MAX(IF(obs.concept_full_name = 'TI, Has the endTB Observational Study Consent Form been explained and signed', obs.value, NULL)) AS `Consent EndTB Study`,
         MAX(IF(date_obs.concept_full_name = 'TUBERCULOSIS DRUG TREATMENT START DATE',CONCAT(DATE_FORMAT(date_obs.date_value, '%Y'), QUARTER(date_obs.date_value)),NULL))  AS `Ttr Cohort` ,
         MAX(IF(obs.concept_full_name = 'Baseline, WHO registration group', obs.value, NULL)) AS `WHO registration group`,
         MAX(IF(obs.concept_full_name = 'Baseline, MDR-TB diagnosis method', obs.value, NULL)) AS `MTB confirmed`,
@@ -80,14 +86,13 @@ FROM (
         DATE_FORMAT(return_visit_obs.latest_return_visit, '%d/%b/%Y') AS `Next visit`
   FROM
   person_name,
+  person p,
   patient_identifier pi,
   patient_program,
   episode_patient_program epp,
   patient_program_attribute ppa,
   program_attribute_type pat,
   encounter e,
-  orders bdq_dlm_orders,
-  concept_view cv,
   program,
   concept_name cn,
   episode_encounter ee
@@ -127,7 +132,8 @@ FROM (
                                   'Baseline, Hepatitis B',
                                   'Baseline, Hepatitis C',
                                   'Diabetes Mellitus',
-                                  'EOT, Outcome'
+                                  'EOT, Outcome',
+                                  'TI, Has the endTB Observational Study Consent Form been explained and signed'
     )
   ) obs ON (obs.episode_id = ee.episode_id)
   LEFT JOIN (
@@ -205,6 +211,20 @@ FROM (
     GROUP BY episode_id
   ) regimen ON (regimen.episode_id = ee.episode_id)
   LEFT JOIN (
+    SELECT ee.episode_id, cn.name AS drug_name, o.encounter_id, MIN(COALESCE (o.scheduled_date, o.date_activated)) AS drug_start_date
+    FROM drug d
+      INNER JOIN concept_name cn ON d.concept_id = cn.concept_id
+                                    AND cn.name IN ('Bedaquiline','Delamanid')
+                                    AND cn.concept_name_type='FULLY_SPECIFIED'
+                                    AND d.retired=0
+      INNER JOIN drug_order dro ON d.drug_id = dro.drug_inventory_id
+      INNER JOIN orders o ON dro.order_id = o.order_id
+                             AND o.voided=0
+                             AND o.order_action != 'DISCONTINUE'
+      INNER JOIN episode_encounter ee ON ee.encounter_id = o.encounter_id
+    GROUP BY ee.episode_id
+  ) AS episodes_with_drugs ON episodes_with_drugs.episode_id = ee.episode_id
+  LEFT JOIN (
     SELECT MIN(o.scheduled_date) AS start_date, ee.episode_id ,d.name ,
           SUM(TIMESTAMPDIFF(DAY,COALESCE(o.scheduled_date,o.date_activated),COALESCE(o.date_stopped,NOW())))/30 AS duration
     FROM episode_encounter ee,
@@ -245,6 +265,7 @@ FROM (
   ) date_obs ON ee.episode_id = date_obs.episode_id
   WHERE person_name.person_id = patient_program.patient_id
   AND pi.patient_id = person_name.person_id
+  AND p.person_id = person_name.person_id
   AND epp.patient_program_id = patient_program.patient_program_id
   AND patient_program.voided = 0
   AND ppa.patient_program_id = patient_program.patient_program_id
@@ -252,10 +273,7 @@ FROM (
   AND (pat.name = 'Registration Number' OR pat.name = 'Registration Facility')
   AND ee.episode_id = epp.episode_id
   AND ee.encounter_id = e.encounter_id
-  AND bdq_dlm_orders.encounter_id = ee.encounter_id
-  AND DATE(bdq_dlm_orders.scheduled_date) BETWEEN '#startDate#' AND '#endDate#'
-  AND bdq_dlm_orders.concept_id = cv.concept_id
-  AND cv.concept_full_name IN ('Bedaquiline', 'Delamanid')
+  AND episodes_with_drugs.drug_start_date BETWEEN '#startDate#' AND '#endDate#'
   AND patient_program.program_id = program.program_id
   AND program.retired = 0
   AND program.concept_id = cn.concept_id
