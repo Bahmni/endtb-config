@@ -47,6 +47,47 @@
       "macroTemplatePath" : "/var/www/bahmni_config/openmrs/apps/reports/macroTemplates/finalOutcomeTemplate.xls"
     }
   },
+  "DrugOrderReportForStudyCohort": {
+    "name": "UNITAID-New drug enrollment - Study Cohort (Custom Excel)",
+    "type": "MRSGeneric",
+    "config": {
+      "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/DrugOrder_study_cohort.sql",
+      "macroTemplatePath" : "/var/www/bahmni_config/openmrs/apps/reports/macroTemplates/DrugOrderTemplate.xls"
+    }
+  },
+
+  "SAEReportForStudyCohort": {
+    "name": "UNITAID-New drug SAE in first 6 months - Study Cohort (Custom Excel)",
+    "type": "MRSGeneric",
+    "config": {
+      "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/SAE_study_cohort.sql",
+      "macroTemplatePath" : "/var/www/bahmni_config/openmrs/apps/reports/macroTemplates/SAETemplate.xls"
+    }
+  },
+  "InterimOutcomeByOutcomeStatusForStudyCohort": {
+    "name": "UNITAID-New drug interim outcome at month 6 - Study Cohort(Custom Excel)",
+    "type": "MRSGeneric",
+    "config": {
+      "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/interim_outcome_1_study_cohort.sql",
+      "macroTemplatePath" : "/var/www/bahmni_config/openmrs/apps/reports/macroTemplates/InterimOutcomes1.xls"
+    }
+  },
+  "InterimOutcomeBacteriologyForStudyCohort": {
+    "name": "UNITAID-Interim Outcome Culture Results - Study Cohort (Custom Excel)",
+    "type": "MRSGeneric",
+    "config": {
+      "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/interim_bacteriology_results_study_cohort.sql",
+      "macroTemplatePath": "/var/www/bahmni_config/openmrs/apps/reports/macroTemplates/InterimTemplate_cultural.xls"
+    }
+  },
+  "FinalOutcomeReportForStudyCohort": {
+    "name": "UNITAID-New drug final outcome - Study Cohort (Custom Excel)",
+    "type": "MRSGeneric",
+    "config": {
+      "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/finalOutcome_study_cohort.sql",
+      "macroTemplatePath" : "/var/www/bahmni_config/openmrs/apps/reports/macroTemplates/finalOutcomeTemplate.xls"
+    }
+  },
   "patientInformationReport": {
     "name": "Patient Information Report (Excel)",
     "type": "MRSGeneric",
