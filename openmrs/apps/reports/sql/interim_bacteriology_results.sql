@@ -61,13 +61,6 @@ FROM (SELECT
                                                   episodes_with_drugs.drug_start_date BETWEEN '#startDate#' AND '#endDate#'
                                                   AND episodes_with_drugs.drug_start_date >= '2015-04-01'
               INNER JOIN patient_program pp ON epp.patient_program_id = pp.patient_program_id and pp.voided = 0
-              INNER JOIN episode_encounter ee2 ON epp.episode_id = ee2.episode_id
-              INNER JOIN concept_name cn ON cn.name = 'TI, Has the endTB Observational Study Consent Form been explained and signed' and cn.concept_name_type = 'FULLY_SPECIFIED' and cn.voided =0
-              INNER JOIN concept_name answers ON answers.name IN ('Yes, patient has been asked and accepted', 'not possible- patient cannot be asked as dead or lost')  and answers.concept_name_type = 'FULLY_SPECIFIED' and answers.voided =0
-              INNER JOIN obs o1 ON o1.concept_id =cn.concept_id
-                         and o1.value_coded IN (answers.concept_id)
-                         and o1.voided = 0
-                         and o1.encounter_id = ee2.encounter_id
               LEFT OUTER JOIN
               (SELECT
                  ee.episode_id                AS episode_id,
