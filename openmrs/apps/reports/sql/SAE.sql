@@ -9,6 +9,13 @@ SELECT
   FROM patient_program pp
   JOIN episode_patient_program epp ON epp.patient_program_id = pp.patient_program_id and pp.voided = 0
   JOIN episode_encounter ee ON ee.episode_id = epp.episode_id
+  JOIN episode_encounter ee3 ON ee3.episode_id = epp.episode_id
+  JOIN concept_name cn ON cn.name = 'TI, Has the endTB Observational Study Consent Form been explained and signed' and cn.concept_name_type = 'FULLY_SPECIFIED' and cn.voided =0
+  JOIN concept_name answers ON answers.name IN ('Yes, patient has been asked and accepted', 'not possible- patient cannot be asked as dead or lost')  and answers.concept_name_type = 'FULLY_SPECIFIED' and answers.voided =0
+  JOIN obs o ON o.concept_id =cn.concept_id
+                         and o.value_coded IN (answers.concept_id)
+                         and o.voided = 0
+                         and o.encounter_id = ee3.encounter_id
   JOIN (SELECT cast(MIN(COALESCE(orders.scheduled_date, orders.date_activated)) AS DATE ) AS start_date,ee.episode_id,orders.order_id FROM orders
         JOIN episode_encounter ee
         ON ee.encounter_id = orders.encounter_id AND orders.order_action != 'DISCONTINUE' AND orders.voided = 0

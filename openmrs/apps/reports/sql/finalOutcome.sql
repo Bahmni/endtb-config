@@ -6,6 +6,13 @@ SELECT pp.patient_id,
 FROM patient_program pp
   JOIN episode_patient_program epp ON epp.patient_program_id = pp.patient_program_id and pp.voided = 0
   JOIN episode_encounter ee ON ee.episode_id = epp.episode_id
+  JOIN episode_encounter ee2 ON epp.episode_id = ee2.episode_id
+  JOIN concept_name cn ON cn.name = 'TI, Has the endTB Observational Study Consent Form been explained and signed' and cn.concept_name_type = 'FULLY_SPECIFIED' and cn.voided =0
+  JOIN concept_name answers ON answers.name IN ('Yes, patient has been asked and accepted', 'not possible- patient cannot be asked as dead or lost')  and answers.concept_name_type = 'FULLY_SPECIFIED' and answers.voided =0
+  JOIN obs o1 ON o1.concept_id =cn.concept_id
+                         and o1.value_coded IN (answers.concept_id)
+                         and o1.voided = 0
+                         and o1.encounter_id = ee2.encounter_id
   JOIN (SELECT cast(MIN(COALESCE(orders.scheduled_date, orders.date_activated)) AS DATE) AS start_date, ee.episode_id, orders.order_id
         FROM orders
         JOIN concept_name cn ON orders.concept_id = cn.concept_id AND cn.name IN ('Bedaquiline', 'Delamanid') AND cn.concept_name_type = 'FULLY_SPECIFIED'
