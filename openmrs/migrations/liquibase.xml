@@ -1742,10 +1742,24 @@
             call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Lab, APRI', 'APRI', 'Text', 'Misc', false);
             set @main4_concept_id = @concept_id;
 
-            call add_concept_set_members (@concept_id,@main1_concept_id,6);
-            call add_concept_set_members (@concept_id,@main2_concept_id,7);
-            call add_concept_set_members (@concept_id,@main3_concept_id,8);
-            call add_concept_set_members (@concept_id,@main4_concept_id,9);            
+            select concept_id into @set_concept_id from concept_view where concept_full_name = 'Lab, Serological and other tests';
+            
+            call add_concept_set_members (@set_concept_id,@main1_concept_id,6);
+            call add_concept_set_members (@set_concept_id,@main2_concept_id,7);
+            call add_concept_set_members (@set_concept_id,@main3_concept_id,8);
+            call add_concept_set_members (@set_concept_id,@main4_concept_id,9); 
+
+            select concept_source_id into @source_id from concept_reference_source where name = 'EndTB-Export';
+            insert into concept_reference_term (creator,code,concept_source_id,uuid,date_created) values 
+            (4,'hepc_pcr_test',@source_id,uuid(),now()),
+            (4,'hepc_vl_test',@source_id,uuid(),now()),
+            (4,'hepc_geno_test',@source_id,uuid(),now()),
+            (4,'apri_test',@source_id,uuid(),now());
+
+            call create_reference_mapping('Lab, Hep C PCR','hepc_pcr_test');
+            call create_reference_mapping('Lab, Hep C viral load','hepc_vl_test');
+            call create_reference_mapping('Lab, Hep C genotype','hepc_geno_test');
+            call create_reference_mapping('Lab, APRI','apri_test');           
                       
         </sql>
     </changeSet>
@@ -1755,7 +1769,7 @@
                 select count(*) from concept_answer where answer_concept = 473 and concept_id =1445;
             </sqlCheck>
         </preConditions>
-        <comment> adding new concepts in Lab Results - Serology</comment>
+        <comment> Removing fatal from AE outcome</comment>
         <sql>
             select concept_id into @main_concept_id from concept_view where concept_full_name = 'AE Form, AE outcome';
             select concept_id into @value_concept_id from concept_view where concept_full_name = 'Fatal';            
@@ -1769,7 +1783,7 @@
                 select count(*) from concept_view where concept_full_name = 'glycosylated hemoglobin A measurement';
             </sqlCheck>
         </preConditions>
-        <comment> adding new concepts in Lab Results - Serology</comment>
+        <comment> removing description for glycosylated hemoglobin A measurement and changing the date of assessment </comment>
         <sql>
             select concept_id into @main_concept_id from concept_view where concept_full_name = 'glycosylated hemoglobin A measurement';
             update concept_view set description = '' where concept_id = @main_concept_id;
@@ -1777,4 +1791,45 @@
             update concept_reference_term set code = 'd_radio' where code = 'd_xray' and concept_source_id = (select concept_source_id from concept_reference_source where name = 'EndTB-Export');
         </sql>
     </changeSet>
+    <changeSet id = "ENDTB-201611230243" author="Sudhamsh">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">
+                select count(*) from concept_view where concept_full_name = 'glycosylated hemoglobin A measurement';
+            </sqlCheck>
+        </preConditions>
+        <comment> Modifying the names of options for ECOG Performance Status and Consent options: treatment initiation form </comment>
+        <sql>
+            select concept_id into @child1_concept_id from concept_view where concept_full_name = 'Restricted';
+            select concept_id into @child2_concept_id from concept_view where concept_full_name = 'Ambulatory';
+            select concept_id into @child3_concept_id from concept_view where concept_full_name = 'Capable';
+            select concept_id into @child4_concept_id from concept_view where concept_full_name = 'pending- patient not asked yet, answer not known';
+            select concept_id into @child5_concept_id from concept_view where concept_full_name = 'not possible- patient cannot be asked as dead or lost';
+
+            update concept_name set name = 'Ambulatory' where concept_id = @child1_concept_id and
+            concept_name_type = 'FULLY_SPECIFIED';
+            update concept_name set name = '1=Ambulatory' where concept_id = @child1_concept_id and
+            concept_name_type = 'SHORT';
+
+            update concept_name set name = 'Capable of self care' where concept_id = @child2_concept_id and
+            concept_name_type = 'FULLY_SPECIFIED';
+            update concept_name set name = '2=Capable of self care' where concept_id = @child2_concept_id and
+            concept_name_type = 'SHORT';
+
+            update concept_name set name = 'Limited self care' where concept_id = @child3_concept_id and
+            concept_name_type = 'FULLY_SPECIFIED';
+            update concept_name set name = '3=Limited self care' where concept_id = @child3_concept_id and
+            concept_name_type = 'SHORT';
+
+            update concept_name set name = 'Pending- patient not asked yet, answer not known' where concept_id = @child4_concept_id and
+            concept_name_type = 'FULLY_SPECIFIED';
+            update concept_name set name = 'Pending' where concept_id = @child4_concept_id and
+            concept_name_type = 'SHORT';           
+            
+            update concept_name set name = 'Not possible- patient cannot be asked as dead or lost' where concept_id = @child5_concept_id and
+            concept_name_type = 'FULLY_SPECIFIED';
+            update concept_name set name = 'Not possible' where concept_id = @child5_concept_id and
+            concept_name_type = 'SHORT';
+        </sql>
+    </changeSet>
+
 </databaseChangeLog>
