@@ -1793,8 +1793,8 @@
     </changeSet>
     <changeSet id = "ENDTB-201611230243" author="Sudhamsh">
         <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="1">
-                select count(*) from concept_view where concept_full_name = 'glycosylated hemoglobin A measurement';
+            <sqlCheck expectedResult="5">
+                select count(*) from concept_view where concept_full_name IN ('Restricted','Ambulatory','Capable','pending- patient not asked yet, answer not known','not possible- patient cannot be asked as dead or lost');
             </sqlCheck>
         </preConditions>
         <comment> Modifying the names of options for ECOG Performance Status and Consent options: treatment initiation form </comment>
@@ -1831,5 +1831,19 @@
             concept_name_type = 'SHORT';
         </sql>
     </changeSet>
+    <changeSet id = "ENDTB-201611251155" author="Sudhamsh">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="2">
+                select count(*) from concept_view where concept_full_name IN ('CD4 COUNT','HIV VIRAL LOAD');
+            </sqlCheck>
+        </preConditions>
+        <comment> Adding help text for CD4 Count and Hiv viral load</comment>
+        <sql>
+            select concept_id into @main1_concept_id from concept_view where concept_full_name = 'CD4 COUNT';
+            update concept_view set description = 'ONLY enter documented results (either results from the laboratory or from the patient medical record of copies of these)' where concept_id = @main1_concept_id;
 
+            select concept_id into @main2_concept_id from concept_view where concept_full_name = 'HIV VIRAL LOAD';
+            update concept_view set description = 'ONLY enter documented results (either results from the laboratory or from the patient medical record of copies of these)' where concept_id = @main2_concept_id;
+        </sql>
+    </changeSet>
 </databaseChangeLog>
