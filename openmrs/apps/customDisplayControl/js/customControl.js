@@ -158,6 +158,9 @@ angular.module('bahmni.common.displaycontrol.custom')
                     $scope.patientEMRID = data.patientEMRID;
                     $scope.drugStartDate = data.newDrugTreatmentStartDate;
                     $scope.mdrtbTreatementStartDate = data.mdrtbTreatmentStartDate;
+                    $scope.consentForEndtbStudy = data.consentForEndtbStudy;
+                    $scope.baselineXRayStatus = data.baselineXRayStatus;
+                    $scope.hivStatus = data.hivStatus;
 
                     if ($scope.drugStartDate != null) {
                         $scope.currentMonthOfNewDrugTreatment = Bahmni.Common.Util.DateUtil.diffInDays($scope.drugStartDate - $scope.reportDate) / 30.5;

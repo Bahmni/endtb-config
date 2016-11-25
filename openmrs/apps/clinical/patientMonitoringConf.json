@@ -2,22 +2,6 @@
 	"questions": [
 
 		{
-			"name": "Consent new drugs",
-			"concepts": [
-				"TI, Has the Treatment with New Drugs Consent Form been explained and signed"
-			],
-			"type": "Obs"
-		},
-
-		{
-			"name": "Consent endTB study",
-			"concepts": [
-				"TI, Has the endTB Observational Study Consent Form been explained and signed"
-			],
-			"type": "Obs"
-		},
-
-		{
 			"name": "Vital Signs",
 			"concepts": [
 				"Respiratory rate"
@@ -39,15 +23,6 @@
 				"ECOG Performance Status"
 				
 
-			],
-			"type": "Obs"
-		},
-
-		{
-			"name": "BPNS-Baseline",
-			"concepts": [
-				"Baseline, Pain Aching or Buring in Left Feet and Leg",
-				"Baseline, Pain Aching or Buring in Right Feet and Leg"
 			],
 			"type": "Obs"
 		},
@@ -76,14 +51,6 @@
 			"concepts": [
 				"Visual acuity, left eye",
 				"Visual acuity, right eye"
-			],
-			"type": "Obs"
-		},
-
-		{
-			"name": "Colour Blindness-Baseline",
-			"concepts": [
-				"Baseline, Colorblindness Screen Result"
 			],
 			"type": "Obs"
 		},
@@ -225,63 +192,9 @@
 		},
 
 		{
-			"name": "Hepatitis Bs Antigen",
-			"concepts": [
-				"Lab, Hepatitis B antigen test result"
-
-			],
-			"type": "Obs"
-		},
-
-		{
-			"name": "Hepatitis C Antibody",
-			"concepts": [
-				"Lab, Hepatitis C antibody test result"
-
-			],
-			"type": "Obs"
-		},
-
-		{
-			"name": "HbA1c",
-			"concepts": [
-				"glycosylated hemoglobin A measurement"
-
-			],
-			"type": "Obs"
-		},
-
-		{
 			"name": "Pregnancy test",
 			"concepts": [
 				"Lab, Pregnancy test result"
-
-			],
-			"type": "Obs"
-		},
-
-		{
-			"name": "HIV serostatus",
-			"concepts": [
-				"Lab, HIV test result"
-
-			],
-			"type": "Obs"
-		},
-
-		{
-			"name": "CD4",
-			"concepts": [
-				"CD4 COUNT"
-
-			],
-			"type": "Obs"
-		},
-
-		{
-			"name": "HIV VL",
-			"concepts": [
-				"HIV VIRAL LOAD"
 
 			],
 			"type": "Obs"
@@ -295,7 +208,7 @@
 				"max": 14
 			},
 			"questions": [
-				"Consent new drugs", "Consent endTB study", "Vital Signs", "Weight","Visual Acuity", "Functional status","BPNS-Baseline", "Colour Blindness-Baseline","Audiometry", "Visual Acuity", "Adverse events evaluation", "Smear", "Culture", "Chest X-ray", "ECG", "Full blood count (Hb)", "Creatinine", "Serum electrolytes (K)", "Liver Function Test-AST","Liver Function Test-ALT","TSH", "Serum Albumin", "Hepatitis Bs Antigen", "Hepatitis C Antibody", "HbA1c", "Pregnancy test", "HIV serostatus", "CD4", "HIV VL"
+				"Functional status", "Audiometry", "Visual Acuity", "Adverse events evaluation", "Smear", "Culture", "ECG", "Full blood count (Hb)", "Creatinine", "Serum electrolytes (K)", "Liver Function Test-AST","Liver Function Test-ALT","TSH", "Serum Albumin", "Pregnancy test"
 			]
 		},
 
