@@ -16,7 +16,7 @@
         </ul>
     </div>
 </section>
-<section class="patient-monitering-table">
+<section class="patient-monitering-table" >
    <div class="rotate">
         <div class="legends">
             {{"PATIENT_MONITORING_LEGENDS" | titleTranslate }} : <span class="monitoring-legends">{{"PATIENT_MONITORING_CURRENT_MONTH" | titleTranslate}} </span>
@@ -40,7 +40,11 @@
                         <td class="monitoring-fixed-column">{{ key }}</td>
                         <td ng-repeat="data in value track by $index"
                             class="monitoring-results monitoring-results--{{data}}"
-                            ng-class="{'monitoring-results--{{data}}Current': $index == highlightedColumnIndex, 'monitoring-results--{{data}}Stop': $index == highlightedColumnIndex && treatmentStopped}"></td>
+                            ng-class="{'monitoring-results--{{data}}Current': $index == highlightedColumnIndex, 'monitoring-results--{{data}}Stop': $index == highlightedColumnIndex && treatmentStopped}">
+                            <span class="monitoring-results-print--green">&#10003;</span>
+                            <span class="monitoring-results-print--yellow">&#8709;</span>
+                            <span class="monitoring-results-print--purple">&#10007;</span>
+                        </td>
                     </tr>
                 </table>
             </div>
