@@ -202,5 +202,12 @@
     "config": {
       "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/clinicalVisitAttendanceByTreatmentStartDate.sql"
     }
+  },
+  "BaselineDataVerificationList": {
+    "name": "Baseline Data Verification List",
+    "type": "MRSGeneric",
+    "config": {
+      "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/baselineDataVerificationList.sql"
+    }
   }
 }
