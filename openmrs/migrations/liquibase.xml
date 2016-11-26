@@ -1831,7 +1831,7 @@
             concept_name_type = 'SHORT';
         </sql>
     </changeSet>
-    <changeSet id = "ENDTB-201611251155" author="Sudhamsh">
+    <changeSet id = "ENDTB-201611251166" author="Sudhamsh">
         <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="2">
                 select count(*) from concept_view where concept_full_name IN ('CD4 COUNT','HIV VIRAL LOAD');
@@ -1840,7 +1840,7 @@
         <comment> Adding help text for CD4 Count and Hiv viral load</comment>
         <sql>
             select concept_id into @main1_concept_id from concept_view where concept_full_name = 'CD4 COUNT';
-            update concept_view set description = 'ONLY enter documented results (either results from the laboratory or from the patient medical record of copies of these)' where concept_id = @main1_concept_id;
+            insert into concept_description (concept_id,description,locale,creator,date_created,changed_by,date_changed,uuid)values(@main1_concept_id, 'ONLY enter documented results (either results from the laboratory or from the patient medical record of copies of these)', 'en','1', curdate(),null,null,uuid());
 
             select concept_id into @main2_concept_id from concept_view where concept_full_name = 'HIV VIRAL LOAD';
             update concept_view set description = 'ONLY enter documented results (either results from the laboratory or from the patient medical record of copies of these)' where concept_id = @main2_concept_id;
