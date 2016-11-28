@@ -25,13 +25,13 @@ select * from (select
                  GROUP_CONCAT(IF(conceptObs.name = 'glycosylated hemoglobin A measurement' and conceptObs.obs_group_id = bgObs.obs_id,conceptObs.value_numeric,NULL) SEPARATOR ',')  as 'Baseline HbA1c',
                  GROUP_CONCAT(IF(conceptObs.name = 'glycosylated hemoglobin A measurement'and conceptObs.obs_group_id = lgObs.obs_id,conceptObs.value_numeric,NULL) SEPARATOR ',')  as 'Lab HbA1c',
                  GROUP_CONCAT(IF(conceptObs.name = 'Baseline, Date of baseline physical examination',DATE_FORMAT(conceptObs.value_datetime, '%d/%b/%Y'),NULL) SEPARATOR ',')  as 'Date of Baseline Physical Assessment',
-                 GROUP_CONCAT(IF(conceptObs.name = 'Weight (kg)',conceptObs.value_numeric,NULL) SEPARATOR ',')  as 'Weight',
-                 GROUP_CONCAT(IF(conceptObs.name = 'Respiratory Rate',conceptObs.value_numeric,NULL)  SEPARATOR ',') as 'Respiration Rate',
+                 GROUP_CONCAT(IF(conceptObs.name = 'Weight (kg)' and conceptObs.obs_group_id = bcObs.obs_id,conceptObs.value_numeric,NULL) SEPARATOR ',')  as 'Weight',
+                 GROUP_CONCAT(IF(conceptObs.name = 'Respiratory Rate' and conceptObs.obs_group_id = bcObs.obs_id,conceptObs.value_numeric,NULL)  SEPARATOR ',') as 'Respiration Rate',
                  GROUP_CONCAT(IF(conceptObs.name = 'Baseline, Colorblindness Screen Result',conceptObs.concept_full_name,NULL) SEPARATOR ',')  as 'Colour Blindness',
-                 GROUP_CONCAT(IF(conceptObs.name = 'Visual acuity, left eye',conceptObs.value_numeric,NULL) SEPARATOR ',')  as 'Visual acuity, left eye',
-                 GROUP_CONCAT(IF(conceptObs.name = 'Visual acuity, right eye',conceptObs.value_numeric,NULL) SEPARATOR ',')  as 'Visual acuity, right eye',
-                 GROUP_CONCAT(IF(conceptObs.name = 'Baseline, Pain Aching or Buring in Left Feet and Leg',conceptObs.concept_full_name,NULL) SEPARATOR ',')  as 'BPNS LEFT pain, ache, burning',
-                 GROUP_CONCAT(IF(conceptObs.name = 'Baseline, Pain Aching or Buring in Right Feet and Leg',conceptObs.concept_full_name,NULL) SEPARATOR ',')  as 'BPNS RIGHT pain, ache, burning'
+                 GROUP_CONCAT(IF(conceptObs.name = 'Visual acuity, left eye' and conceptObs.obs_group_id = baObs.obs_id,conceptObs.value_numeric,NULL) SEPARATOR ',')  as 'Visual acuity, left eye',
+                 GROUP_CONCAT(IF(conceptObs.name = 'Visual acuity, right eye' and conceptObs.obs_group_id = baObs.obs_id,conceptObs.value_numeric,NULL) SEPARATOR ',')  as 'Visual acuity, right eye',
+                 GROUP_CONCAT(IF(conceptObs.name = 'Baseline, Pain Aching or Buring in Left Feet and Leg' and conceptObs.obs_group_id = bnlObs.obs_id,conceptObs.concept_full_name,NULL) SEPARATOR ',')  as 'BPNS LEFT pain, ache, burning',
+                 GROUP_CONCAT(IF(conceptObs.name = 'Baseline, Pain Aching or Buring in Right Feet and Leg' and conceptObs.obs_group_id = bnrObs.obs_id,conceptObs.concept_full_name,NULL) SEPARATOR ',')  as 'BPNS RIGHT pain, ache, burning'
                from
                  program
                  INNER join patient_program pp on pp.program_id = program.program_id and  program.name = 'Second-line TB treatment register'
@@ -50,52 +50,88 @@ select * from (select
                    on conceptObs.encounter_id = ee.encounter_id
                  LEFT JOIN
                  ( select
-                         obs.obs_id,encounter_id
+                     obs.obs_id,encounter_id
                    from obs
                      JOIN concept_name cn on obs.concept_id = cn.concept_id and cn.voided= 0
                                              and cn.concept_name_type = 'FULLY_SPECIFIED' and obs.voided=0
                                              and cn.name in ('Baseline, HIV Viral Load Details')
-                 ) bvObs on  ee.encounter_id = bvObs.encounter_id and conceptObs.obs_group_id=bvObs.obs_id
-                   LEFT JOIN
-                   ( select
-                       obs.obs_id,encounter_id
-                     from obs
-                       JOIN concept_name cn on obs.concept_id = cn.concept_id and cn.voided= 0
-                                               and cn.concept_name_type = 'FULLY_SPECIFIED' and obs.voided=0
-                                               and cn.name in ('Lab, Serological and other tests')
-                   ) lvObs on  ee.encounter_id = lvObs.encounter_id and conceptObs.obs_group_id=lvObs.obs_id
-                   LEFT JOIN
-                   ( select
-                       obs.obs_id,encounter_id
-                     from obs
-                       JOIN concept_name cn on obs.concept_id = cn.concept_id and cn.voided= 0
-                                               and cn.concept_name_type = 'FULLY_SPECIFIED' and obs.voided=0
-                                               and cn.name in ('Baseline, CD4 count details')
-                   ) bCD4Obs on  ee.encounter_id in (bCD4Obs.encounter_id) and conceptObs.obs_group_id=bCD4Obs.obs_id
-                   LEFT JOIN
-                   ( select
-                       obs.obs_id,encounter_id
-                     from obs
-                       JOIN concept_name cn on obs.concept_id = cn.concept_id and cn.voided= 0
-                                               and cn.concept_name_type = 'FULLY_SPECIFIED' and obs.voided=0
-                                               and cn.name in ('Lab, CD4 COUNT Data')
-                   ) lCD4Obs on  ee.encounter_id in (lCD4Obs.encounter_id) and conceptObs.obs_group_id=lCD4Obs.obs_id
-                   LEFT JOIN
-                   ( select
-                       obs.obs_id,encounter_id
-                     from obs
-                       JOIN concept_name cn on obs.concept_id = cn.concept_id and cn.voided= 0
-                                               and cn.concept_name_type = 'FULLY_SPECIFIED' and obs.voided=0
-                                               and cn.name in ('Baseline, Chronic Diseases')
-                   ) bgObs on  ee.encounter_id in (bgObs.encounter_id) and conceptObs.obs_group_id=bgObs.obs_id
-                   LEFT JOIN
-                   ( select
-                       obs.obs_id,encounter_id
-                     from obs
-                       JOIN concept_name cn on obs.concept_id = cn.concept_id and cn.voided= 0
-                                               and cn.concept_name_type = 'FULLY_SPECIFIED' and obs.voided=0
-                                               and cn.name in ('Lab, glycosylated hemoglobin A measurement Data')
-                   ) lgObs on  ee.encounter_id in (lgObs.encounter_id) and conceptObs.obs_group_id=lgObs.obs_id
+                 ) bvObs on  ee.encounter_id = bvObs.encounter_id and conceptObs.obs_group_id = bvObs.obs_id
+                 LEFT JOIN
+                 ( select
+                     obs.obs_id,encounter_id
+                   from obs
+                     JOIN concept_name cn on obs.concept_id = cn.concept_id and cn.voided= 0
+                                             and cn.concept_name_type = 'FULLY_SPECIFIED' and obs.voided=0
+                                             and cn.name in ('Lab, Serological and other tests')
+                 ) lvObs on  ee.encounter_id = lvObs.encounter_id and conceptObs.obs_group_id = lvObs.obs_id
+                 LEFT JOIN
+                 ( select
+                     obs.obs_id,encounter_id
+                   from obs
+                     JOIN concept_name cn on obs.concept_id = cn.concept_id and cn.voided= 0
+                                             and cn.concept_name_type = 'FULLY_SPECIFIED' and obs.voided=0
+                                             and cn.name in ('Baseline, CD4 count details')
+                 ) bCD4Obs on  ee.encounter_id = bCD4Obs.encounter_id and conceptObs.obs_group_id = bCD4Obs.obs_id
+                 LEFT JOIN
+                 ( select
+                     obs.obs_id,encounter_id
+                   from obs
+                     JOIN concept_name cn on obs.concept_id = cn.concept_id and cn.voided= 0
+                                             and cn.concept_name_type = 'FULLY_SPECIFIED' and obs.voided=0
+                                             and cn.name in ('Lab, CD4 COUNT Data')
+                 ) lCD4Obs on  ee.encounter_id = lCD4Obs.encounter_id and conceptObs.obs_group_id = lCD4Obs.obs_id
+                 LEFT JOIN
+                 ( select
+                     obs.obs_id,encounter_id
+                   from obs
+                     JOIN concept_name cn on obs.concept_id = cn.concept_id and cn.voided= 0
+                                             and cn.concept_name_type = 'FULLY_SPECIFIED' and obs.voided=0
+                                             and cn.name in ('Baseline, Chronic Diseases')
+                 ) bgObs on  ee.encounter_id = bgObs.encounter_id and conceptObs.obs_group_id = bgObs.obs_id
+                 LEFT JOIN
+                 ( select
+                     obs.obs_id,encounter_id
+                   from obs
+                     JOIN concept_name cn on obs.concept_id = cn.concept_id and cn.voided= 0
+                                             and cn.concept_name_type = 'FULLY_SPECIFIED' and obs.voided=0
+                                             and cn.name in ('Lab, glycosylated hemoglobin A measurement Data')
+                 ) lgObs on  ee.encounter_id = lgObs.encounter_id and conceptObs.obs_group_id = lgObs.obs_id
+
+                 LEFT JOIN
+                 ( select
+                     obs.obs_id,encounter_id
+                   from obs
+                     JOIN concept_name cn on obs.concept_id = cn.concept_id and cn.voided= 0
+                                             and cn.concept_name_type = 'FULLY_SPECIFIED' and obs.voided=0
+                                             and cn.name in ('Baseline, Clinical Examination')
+                 ) bcObs on  ee.encounter_id = bcObs.encounter_id and conceptObs.obs_group_id = bcObs.obs_id
+
+                 LEFT JOIN
+                 ( select
+                     obs.obs_id,encounter_id
+                   from obs
+                     JOIN concept_name cn on obs.concept_id = cn.concept_id and cn.voided= 0
+                                             and cn.concept_name_type = 'FULLY_SPECIFIED' and obs.voided=0
+                                             and cn.name in ('Baseline, Visual Acuity')
+                 ) baObs on  ee.encounter_id = baObs.encounter_id and conceptObs.obs_group_id = baObs.obs_id
+
+                 LEFT JOIN
+                 ( select
+                     obs.obs_id,encounter_id
+                   from obs
+                     JOIN concept_name cn on obs.concept_id = cn.concept_id and cn.voided= 0
+                                             and cn.concept_name_type = 'FULLY_SPECIFIED' and obs.voided=0
+                                             and cn.name in ('Baseline, Brief peripheral neuropathy screen in left')
+                 ) bnlObs on  ee.encounter_id = bnlObs.encounter_id and conceptObs.obs_group_id = bnlObs.obs_id
+                 LEFT JOIN
+                 ( select
+                     obs.obs_id,encounter_id
+                   from obs
+                     JOIN concept_name cn on obs.concept_id = cn.concept_id and cn.voided= 0
+                                             and cn.concept_name_type = 'FULLY_SPECIFIED' and obs.voided=0
+                                             and cn.name in ('Baseline, Brief peripheral neuropathy screen in right')
+                 ) bnrObs on  ee.encounter_id = bnrObs.encounter_id and conceptObs.obs_group_id = bnrObs.obs_id
+
                  LEFT JOIN (
                              SELECT MIN(o.scheduled_date) AS bdq_start_date, ee.episode_id,
                                     SUM(TIMESTAMPDIFF(DAY,COALESCE(o.scheduled_date,o.date_activated),COALESCE(o.date_stopped,NOW())))/30 AS bdq_duration
@@ -112,19 +148,19 @@ select * from (select
                              GROUP BY ee.episode_id
                            ) ddBdq ON (ddBdq.episode_id = ee.episode_id)
 
-                   LEFT JOIN (
-                               SELECT MIN(o.scheduled_date) AS dlm_start_date, ee.episode_id,
-                                      SUM(TIMESTAMPDIFF(DAY,COALESCE(o.scheduled_date,o.date_activated),COALESCE(o.date_stopped,NOW())))/30 AS dlm_duration
-                               FROM episode_encounter ee,
-                                 orders o,
-                                 drug d,
-                                 drug_order do
-                               WHERE o.order_id = do.order_id
-                                     AND ee.encounter_id = o.encounter_id
-                                     AND d.drug_id = do.drug_inventory_id
-                                     AND o.voided = 0 AND o.order_action='NEW'
-                                     AND o.scheduled_date <= NOW()
-                                     AND d.name IN ('Delamanid (Dlm)')
-                               GROUP BY ee.episode_id
-                             ) ddDlm ON (ddDlm.episode_id = ee.episode_id)
+                 LEFT JOIN (
+                             SELECT MIN(o.scheduled_date) AS dlm_start_date, ee.episode_id,
+                                    SUM(TIMESTAMPDIFF(DAY,COALESCE(o.scheduled_date,o.date_activated),COALESCE(o.date_stopped,NOW())))/30 AS dlm_duration
+                             FROM episode_encounter ee,
+                               orders o,
+                               drug d,
+                               drug_order do
+                             WHERE o.order_id = do.order_id
+                                   AND ee.encounter_id = o.encounter_id
+                                   AND d.drug_id = do.drug_inventory_id
+                                   AND o.voided = 0 AND o.order_action='NEW'
+                                   AND o.scheduled_date <= NOW()
+                                   AND d.name IN ('Delamanid (Dlm)')
+                             GROUP BY ee.episode_id
+                           ) ddDlm ON (ddDlm.episode_id = ee.episode_id)
                GROUP BY pp.patient_program_id) t1 where STR_TO_DATE(t1.`Start ttr Date`, '%d/%b/%Y') BETWEEN '#startDate#' and '#endDate#';
