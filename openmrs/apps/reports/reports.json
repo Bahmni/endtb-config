@@ -204,7 +204,7 @@
     }
   },
   "BaselineDataVerificationList": {
-    "name": "Baseline Data Verification List",
+    "name": "Baseline Data Verification List (Excel)",
     "type": "MRSGeneric",
     "config": {
       "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/baselineDataVerificationList.sql"
