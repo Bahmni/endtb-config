@@ -130,7 +130,7 @@
 		{
 			"name": "Full blood count (Hb)",
 			"concepts": [
-				"Hemoglobin"
+				"Lab, Hemoglobin g/dl"
 
 			],
 			"type": "Obs"
