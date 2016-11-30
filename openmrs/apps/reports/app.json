@@ -6,6 +6,6 @@
     "config": {
         "paperSize": "A3",
 	    "supportedFormats": ["custom excel","excel"],
-        "enableReportQueue": false
+        "enableReportQueue": true
     }
 }
