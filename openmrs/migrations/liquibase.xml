@@ -1846,4 +1846,21 @@
             update concept_view set description = 'ONLY enter documented results (either results from the laboratory or from the patient medical record of copies of these)' where concept_id = @main2_concept_id;
         </sql>
     </changeSet>
+    <changeSet id = "ENDTB-201611290348" author="Sudhamsh">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="2">
+                select count(*) from concept_reference_map cm
+                    left join concept_reference_term ct on cm.concept_reference_term_id = ct.concept_reference_term_id 
+                    where cm.concept_id = (select concept_id from concept_name where name = 'HIV VIRAL LOAD' and concept_name_type = 'FULLY_SPECIFIED')
+                    and ct.concept_source_id = (select concept_source_id from concept_reference_source where name = 'EndTB-Export');    
+            </sqlCheck>
+        </preConditions>
+        <comment> Updating lastcd4_base export code to lastcd4_test and removing lastvl_base code for HIV VIRAL LOAD</comment>
+        <sql>
+                update concept_reference_term set code = 'lastcd4_test' 
+                    where code = 'lastcd4_base' and concept_source_id = (select concept_source_id from concept_reference_source where name = 'EndTB-Export');
+                delete from concept_reference_map where concept_reference_term_id = (select concept_reference_term_id from concept_reference_term where code = 'lastvl_base' );
+                delete from concept_reference_term where code = 'lastvl_base' and concept_source_id = (select concept_source_id from concept_reference_source where name = 'EndTB-Export');
+        </sql>
+     </changeSet>
 </databaseChangeLog>
