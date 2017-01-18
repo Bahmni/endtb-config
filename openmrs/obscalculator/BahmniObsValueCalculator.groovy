@@ -134,8 +134,8 @@ public class BahmniObsValueCalculator implements ObsValueCalculator {
 
             if (dateObs && dateObs.getValueAsString()!= "") {
                 String target = dateObs.getValueAsString();
-                String timezoneInfo = new Date().format("'T'HH:mm:ss.SSSZ");
-                String dateWithTimeZoneInfo = target + timezoneInfo;
+                String timezoneInfo = new Date().format("Z");
+                String dateWithTimeZoneInfo = target + "T12:00:00.000" + timezoneInfo;
                 DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
                 Date result = df.parse(dateWithTimeZoneInfo);
 
