@@ -31,7 +31,7 @@
                     <tr>
                         <th class="monitoring-fixed-column"></th>
                         <th ng-repeat="header in flowsheetHeader"
-                            ng-class="{'monitoring-resultsCurrent': $index == highlightedColumnIndex, 'monitoring-resultsStop': $index == highlightedColumnIndex && treatmentStopped}">
+                            ng-class="{'monitoring-resultsCurrent': $index == highlightedCurrentColumnIndex, 'monitoring-resultsStop': $index == treatmentEndColumnIndex}">
                            <span title="{{header.startDate | bahmniDate}} - {{header.endDate | bahmniDate}}"> {{header.name}}</span>
                             <hint concept-details="header"/>
                         </th>
@@ -40,7 +40,7 @@
                         <td class="monitoring-fixed-column">{{ key }}</td>
                         <td ng-repeat="data in value track by $index"
                             class="monitoring-results monitoring-results--{{data}}"
-                            ng-class="{'monitoring-results--{{data}}Current': $index == highlightedColumnIndex, 'monitoring-results--{{data}}Stop': $index == highlightedColumnIndex && treatmentStopped}">
+                            ng-class="{'monitoring-results--{{data}}Current': $index == highlightedCurrentColumnIndex, 'monitoring-results--{{data}}Stop': $index == treatmentEndColumnIndex}">
                             <span class="monitoring-results-print--green">&#10003;</span>
                             <span class="monitoring-results-print--yellow">&#8709;</span>
                             <span class="monitoring-results-print--purple">&#10007;</span>
