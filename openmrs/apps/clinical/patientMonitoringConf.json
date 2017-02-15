@@ -487,9 +487,8 @@
 		}
 	],
 	
-	"trackPending": "true",
-	"trackPlanned": "true",
-	"monthsPostTreatmentEnd":"6"			
+	"trackPending": "false",
+	"trackPlanned": "false"
 
 }
 

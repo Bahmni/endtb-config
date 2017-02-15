@@ -21,9 +21,9 @@
         <div class="legends">
             {{"PATIENT_MONITORING_LEGENDS" | titleTranslate }} : <span class="monitoring-legends">{{"PATIENT_MONITORING_CURRENT_MONTH" | titleTranslate}} </span>
             <span class="monitoring-legends monitoring-legends--stop">{{"PATIENT_MONITORING_END_OF_TREATMENT" | titleTranslate}} </span>
-            <span class="monitoring-legends monitoring-legends--yellow"> {{"PATIENT_MONITORING_PLANNED_MONITORING_SCHEDULE" | titleTranslate }} </span>
+            <span ng-show="flowsheetConfig.trackPlanned" class="monitoring-legends monitoring-legends--yellow"> {{"PATIENT_MONITORING_PLANNED_MONITORING_SCHEDULE" | titleTranslate }} </span>
             <span class="monitoring-legends monitoring-legends--green"> {{"PATIENT_MONITORING_DATE_ADDED" | titleTranslate }} </span>
-            <span class="monitoring-legends monitoring-legends--purple">{{"PATIENT_MONITORING_PENDING_DATA_ENTRY" | titleTranslate }}</span>
+            <span ng-show="flowsheetConfig.trackPending" class="monitoring-legends monitoring-legends--purple">{{"PATIENT_MONITORING_PENDING_DATA_ENTRY" | titleTranslate }}</span>
         </div>
         <div class="monitoring-table-wrap">
             <div class="monitoring-table-scroll">
