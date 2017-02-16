@@ -1862,5 +1862,14 @@
                 delete from concept_reference_map where concept_reference_term_id = (select concept_reference_term_id from concept_reference_term where code = 'lastvl_base' );
                 delete from concept_reference_term where code = 'lastvl_base' and concept_source_id = (select concept_source_id from concept_reference_source where name = 'EndTB-Export');
         </sql>
-     </changeSet>
+    </changeSet>
+    <changeSet id = "ENDTB-201702061548" author="Sudhamsh">
+        
+        <comment> Adding not applicable as an answer for SAE outcome </comment>
+        <sql>
+                select concept_id into @main1_concept_id from concept_view where concept_full_name = 'SAE Form, SAE outcome';
+                select concept_id into @child1_concept_id from concept_view where concept_full_name = 'Not applicable';            
+                call add_concept_answer (@main1_concept_id, @child1_concept_id, 7);
+        </sql>
+    </changeSet>
 </databaseChangeLog>
