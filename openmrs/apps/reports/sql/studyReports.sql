@@ -5,8 +5,24 @@ SELECT
   results.`Dlm Start Date`,
   results.`Bdq Start Date`,
   COALESCE(DATE_FORMAT(LEAST(STR_TO_DATE(results.`Dlm Start Date`,'%d/%b/%Y'), STR_TO_DATE(results.`Bdq Start Date`,'%d/%b/%Y')), '%d/%b/%Y'), results.`Dlm Start Date`, results.`Bdq Start Date`) as `New Drug Start Date`,
+  DATE_FORMAT(
+    STR_TO_DATE(
+      COALESCE(DATE_FORMAT(LEAST(STR_TO_DATE(results.`Dlm Start Date`,'%d/%b/%Y'), STR_TO_DATE(results.`Bdq Start Date`,'%d/%b/%Y')), '%d/%b/%Y'), results.`Dlm Start Date`, results.`Bdq Start Date`),
+      '%d/%b/%Y'
+    ),
+    '%Y'
+  ) as `New Drug Start Year`,
+  DATE_FORMAT(
+    STR_TO_DATE(
+      COALESCE(DATE_FORMAT(LEAST(STR_TO_DATE(results.`Dlm Start Date`,'%d/%b/%Y'), STR_TO_DATE(results.`Bdq Start Date`,'%d/%b/%Y')), '%d/%b/%Y'), results.`Dlm Start Date`, results.`Bdq Start Date`),
+      '%d/%b/%Y'
+    ),
+    '%Y%b'
+  ) as `New Drug Start Year and Month`,
   results.`outcome`,
-  DATE_FORMAT(results.tb_treatment_end_date, '%d/%b/%Y') AS `End of treatment date`
+  DATE_FORMAT(results.tb_treatment_end_date, '%d/%b/%Y') AS `End of treatment date`,
+  DATE_FORMAT(results.tb_treatment_end_date, '%Y') AS `End of treatment Year`,
+  DATE_FORMAT(results.tb_treatment_end_date, '%Y%b') AS `End of treatment Year and Month`
 FROM (
   SELECT  MAX(IF(pat.name='Registration Number', ppa.value_reference, NULL )) AS `Registration Number`,
         cn.name AS `TB register`,
