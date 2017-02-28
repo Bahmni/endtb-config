@@ -1872,4 +1872,30 @@
                 call add_concept_answer (@main1_concept_id, @child1_concept_id, 7);
         </sql>
     </changeSet>
+
+    <changeSet id = "ENDTB-201702281828" author="Sudhamsh">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="3">
+                select count(*) from concept_view where concept_full_name IN ('Anaemia','Arthralgia (joint pain)','Lactate');
+            </sqlCheck>
+        </preConditions>
+        <comment> Clean up the SAE list - Remove duplicate terms </comment>
+        <sql>
+
+            select concept_id into @concept_id from concept_view where concept_full_name = 'SAE Form, SAE term comprehensive AE list';
+
+            select concept_id into @concept1_id_change from concept_view where concept_full_name = 'Anemia';
+            select concept_id into @concept1_id from concept_view where concept_full_name = 'Anaemia';
+            update obs set value_coded = @concept1_id_change where concept_id = @concept_id and voided = 0 and value_coded = @concept1_id;
+
+            select concept_id into @concept2_id_change from concept_view where concept_full_name = 'Arthralgia';
+            select concept_id into @concept2_id from concept_view where concept_full_name = 'Arthralgia (joint pain)';
+            update obs set value_coded = @concept2_id_change where concept_id = @concept_id and voided = 0 and value_coded = @concept2_id;
+
+            select concept_id into @concept3_id_change from concept_view where concept_full_name = 'Lactate Increased (Lactic Acidosis)';
+            select concept_id into @concept3_id from concept_view where concept_full_name = 'Lactate';
+            update obs set value_coded = @concept3_id_change where concept_id = @concept_id and voided = 0 and value_coded = @concept3_id;
+        </sql>
+    </changeSet>
+
 </databaseChangeLog>
