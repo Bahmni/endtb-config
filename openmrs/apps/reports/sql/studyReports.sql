@@ -261,7 +261,7 @@ FROM (
   AND (pat.name = 'Registration Number' OR pat.name = 'Registration Facility')
   AND ee.episode_id = epp.episode_id
   AND ee.encounter_id = e.encounter_id
-  AND episodes_with_drugs.drug_start_date BETWEEN '#startDate#' AND '#endDate#'
+  AND episodes_with_drugs.drug_start_date BETWEEN '2014-01-01' AND '2018-12-31'
   AND patient_program.program_id = program.program_id
   AND program.retired = 0
   AND program.concept_id = cn.concept_id
