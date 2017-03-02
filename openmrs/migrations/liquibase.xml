@@ -1863,11 +1863,11 @@
                 delete from concept_reference_term where code = 'lastvl_base' and concept_source_id = (select concept_source_id from concept_reference_source where name = 'EndTB-Export');
         </sql>
     </changeSet>
-    <changeSet id = "ENDTB-201702061548" author="Sudhamsh">
+    <changeSet id = "ENDTB-201703021000" author="Sudhamsh, Swathi">
         
-        <comment> Adding not applicable as an answer for SAE outcome </comment>
+        <comment> Adding not applicable as an answer for SAE Form, Final action taken related to TB drug </comment>
         <sql>
-                select concept_id into @main1_concept_id from concept_view where concept_full_name = 'SAE Form, SAE outcome';
+                select concept_id into @main1_concept_id from concept_view where concept_full_name = 'SAE Form, Final action taken related to TB drug';
                 select concept_id into @child1_concept_id from concept_view where concept_full_name = 'Not applicable';            
                 call add_concept_answer (@main1_concept_id, @child1_concept_id, 7);
         </sql>
