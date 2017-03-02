@@ -1873,29 +1873,30 @@
         </sql>
     </changeSet>
 
-    <changeSet id = "ENDTB-201702281829" author="Sudhamsh">
+    <changeSet id = "ENDTB-201703021555" author="Sudhamsh, Swathi">
         <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="3">
                 select count(*) from concept_view where concept_full_name IN ('Anaemia','Arthralgia (joint pain)','Lactate');
             </sqlCheck>
         </preConditions>
-        <comment> Clean up the SAE list - Remove duplicate terms </comment>
+        <comment> Clean up the SAE, AE Terms list - Remove duplicate terms </comment>
         <sql>
-            select concept_id into @concept_id from concept_view where concept_full_name = 'SAE Form, SAE term comprehensive AE list';
+            select concept_id into @concept_id_SAE from concept_view where concept_full_name = 'SAE Form, SAE term comprehensive AE list';
+            select concept_id into @concept_id_AE from concept_view where concept_full_name = 'AE Form, AE term comprehensive list';
 
             select concept_id into @concept1_id_change from concept_view where concept_full_name = 'Anemia';
             select concept_id into @concept1_id from concept_view where concept_full_name = 'Anaemia';
-            update obs set value_coded = @concept1_id_change where concept_id = @concept_id and voided = 0 and value_coded = @concept1_id;
+            update obs set value_coded = @concept1_id_change where concept_id in (@concept_id_SAE, @concept_id_AE) and voided = 0 and value_coded = @concept1_id;
 
             select concept_id into @concept2_id_change from concept_view where concept_full_name = 'Arthralgia';
             select concept_id into @concept2_id from concept_view where concept_full_name = 'Arthralgia (joint pain)';
-            update obs set value_coded = @concept2_id_change where concept_id = @concept_id and voided = 0 and value_coded = @concept2_id;
+            update obs set value_coded = @concept2_id_change where concept_id in (@concept_id_SAE, @concept_id_AE) and voided = 0 and value_coded = @concept2_id;
 
             select concept_id into @concept3_id_change from concept_view where concept_full_name = 'Lactate Increased (Lactic Acidosis)';
             select concept_id into @concept3_id from concept_view where concept_full_name = 'Lactate';
-            update obs set value_coded = @concept3_id_change where concept_id = @concept_id and voided = 0 and value_coded = @concept3_id;
+            update obs set value_coded = @concept3_id_change where concept_id in (@concept_id_SAE, @concept_id_AE) and voided = 0 and value_coded = @concept3_id;
 
-            delete from concept_answer where answer_concept in ( @concept1_id,@concept2_id,@concept3_id ) and concept_id=@concept_id;
+            delete from concept_answer where answer_concept in ( @concept1_id,@concept2_id,@concept3_id ) and concept_id in (@concept_id_SAE, @concept_id_AE) ;
         </sql>
     </changeSet>
 
