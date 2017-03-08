@@ -209,5 +209,13 @@
     "config": {
       "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/baselineDataVerificationList.sql"
     }
+  },
+  "StudyViewReport": {
+      "name": "Study View Report",
+      "type": "MRSGeneric",
+      "config": {
+        "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/studyReports.sql",
+        "macroTemplatePath": "/var/www/bahmni_config/openmrs/apps/reports/macroTemplates/StudyViewReport.xls"
+      }
   }
 }
