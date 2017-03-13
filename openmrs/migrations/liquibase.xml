@@ -1900,4 +1900,12 @@
         </sql>
     </changeSet>
 
+    <changeSet id="ENTB-201703130917" author="cosmin">
+        <comment> Create procedure for producing the Culture Conversion Report (ED-5) </comment>
+        <sql>
+            DROP PROCEDURE IF EXISTS culture_conversion_report;
+        </sql>
+        <sqlFile splitStatements="false" path="CultureConversionReportProc.sql"/>
+    </changeSet>
+
 </databaseChangeLog>
