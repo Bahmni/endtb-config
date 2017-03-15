@@ -1,6 +1,7 @@
 CREATE PROCEDURE culture_conversion_report()
 BEGIN
 	SET @startTbTreatment = 1210; -- TUBERCULOSIS DRUG TREATMENT Start Date
+	SET @endTbTreatmentDate = 1211; -- TUBERCULOSIS DRUG TREATMENT End Date
 	SET @specimenSampleSource = 1189; -- Specimen Sample Source
 	SET @sputumSampleType = 1083; -- Sputum
 	SET @specimenCollectionDate = 1188; -- Specimen Collection Date
@@ -17,7 +18,11 @@ BEGIN
 	(select MAX(startTr.value_datetime) from obs startTr
 		where startTr.person_id = s.person_id
 			and startTr.concept_id = @startTbTreatment
-			and startTr.voided = 0) as 'StartTreatmentDate',
+			and startTr.voided = 0) as StartTreatmentDate,
+	(select MAX(endTr.value_datetime) from obs endTr
+		where endTr.person_id = s.person_id
+			and endTr.concept_id = @endTbTreatmentDate
+			and endTr.voided = 0) as 'EndTreatmentDate',
 	case when (o.value_coded is not null) then
 			(
 			select cn.name
@@ -29,7 +34,9 @@ BEGIN
 			)
 		 else ifnull(o.value_coded, '')
 	end as 'SampleType',
-	odate.value_datetime as 'Sputum Collection Date',
+	odate.value_datetime as SputumCollectionDate,
+	( select DATEDIFF(SputumCollectionDate, StartTreatmentDate) as SIGNED) as TreatmentDays,
+	( select getTreatMentMonth(CAST(DATEDIFF(SputumCollectionDate, StartTreatmentDate) as SIGNED))) as TreatmentMonth,
 	(select GROUP_CONCAT(case when (smearResult.value_coded is not null) then
 			(
 			select cn.name
@@ -93,7 +100,10 @@ BEGIN
 					and cultureColonies.concept_id = @mtbColonies
 	where ocol.voided = 0
 		and ocol.obs_group_id = o.obs_group_id
-		and ocol.concept_id = @bacteriologyResults) as MTBcolonies -- Bacteriology Results
+		and ocol.concept_id = @bacteriologyResults) as MTBcolonies,  -- Bacteriology Results
+	e.encounter_id as encounterId,
+	t.name as EncounterType,
+	pn.name as ProgramName
 	FROM person as s INNER JOIN
 	(
 		SELECT person_id, max(person_name_id), given_name, family_name
@@ -104,9 +114,16 @@ BEGIN
 	left outer join obs o on o.person_id = s.person_id
 	inner join obs odate ON odate.obs_group_id = o.obs_group_id and odate.voided = 0 and odate.concept_id = @specimenCollectionDate
 	inner join obs results ON results.obs_group_id  = o.obs_group_id and results.voided = 0 and results.concept_id = @bacteriologyResults
+	inner join encounter e on e.encounter_id = o.encounter_id
+	inner join encounter_type t on t.encounter_type_id = e.encounter_type
+	inner join patient_program pp on pp.patient_id = s.person_id
+	inner join program pn on pn.program_id = pp.program_id
 	where  o.voided = 0
+		and e.voided = 0
+		and pp.voided = 0
+		and pn.retired = 0
 		 and o.concept_id = @specimenSampleSource
 		 and o.value_coded = @sputumSampleType
-	order by PatientId, odate.value_datetime;
+	order by TreatmentDays, PatientId, odate.value_datetime;
 
 END;
