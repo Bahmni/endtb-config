@@ -155,10 +155,9 @@ public class BahmniObsValueCalculator implements ObsValueCalculator {
     }
 
     static def calculateAndAdd(BahmniEncounterTransaction bahmniEncounterTransaction, Map<String,List<BahmniObservation>> bahmniObsConceptMap) {
-        Collection<BahmniObservation> observations = bahmniEncounterTransaction.getObservations()
 
-        calculateBMI("Baseline, Clinical Examination", observations, bahmniEncounterTransaction, bahmniObsConceptMap)
-        calculateBMI("Followup, Clinical Examination", observations, bahmniEncounterTransaction, bahmniObsConceptMap)
+        calculateBMI("Baseline, Clinical Examination", bahmniEncounterTransaction, bahmniObsConceptMap)
+        calculateBMI("Followup, Clinical Examination", bahmniEncounterTransaction, bahmniObsConceptMap)
 
         calculateMTC(bahmniObsConceptMap.get("Monthly Treatment Completeness Template"), bahmniEncounterTransaction)
     }
@@ -193,6 +192,7 @@ public class BahmniObsValueCalculator implements ObsValueCalculator {
                     voidObs(fullyObservedDaysObs);
                     voidObs(completenessRateObs);
                     voidObs(adherenceRateObs);
+                    voidParentObservationWithOnlyVoidedMembers(bahmniObs);
                     fullyObservedDaysObs = null;
                     completenessRateObs = null;
                     adherenceRateObs = null;
@@ -300,7 +300,7 @@ public class BahmniObsValueCalculator implements ObsValueCalculator {
     }
 
     private
-    static void calculateBMI(String templateName, Collection<BahmniObservation> observations, BahmniEncounterTransaction bahmniEncounterTransaction, Map<String, List<BahmniObservation>> bahmniObsConceptMap) {
+    static void calculateBMI(String templateName, BahmniEncounterTransaction bahmniEncounterTransaction, Map<String, List<BahmniObservation>> bahmniObsConceptMap) {
         Collection<BahmniObservation> templateObservations = bahmniObsConceptMap.get(templateName)
         BahmniObservation heightObservation, weightObservation, parent;
         for (int i=0; templateObservations && i< templateObservations.size(); i++) {
@@ -316,12 +316,23 @@ public class BahmniObsValueCalculator implements ObsValueCalculator {
                 voidObs(bmiDataObservation);
                 voidObs(bmiObservation);
                 voidObs(bmiAbnormalObservation);
+                voidParentObservationWithOnlyVoidedMembers(parent);
                 continue;
             }
             calculateBMIWithHeightAndWeight(bahmniEncounterTransaction, parent, heightObservation, weightObservation);
         }
     }
 
+    private static def voidParentObservationWithOnlyVoidedMembers(BahmniObservation parent) {
+        parent.voided = true;
+        for (BahmniObservation member : parent.getGroupMembers()) {
+            voidParentObservationWithOnlyVoidedMembers(member)
+            if (!member.getVoided()) {
+                parent.voided = false;
+                break;
+            }
+        }
+    }
 
     static
     def calculateBMIWithHeightAndWeight(BahmniEncounterTransaction bahmniEncounterTransaction, BahmniObservation parent, BahmniObservation heightObservation, BahmniObservation weightObservation) {
@@ -334,16 +345,6 @@ public class BahmniObsValueCalculator implements ObsValueCalculator {
 
             Patient patient = Context.getPatientService().getPatientByUuid(bahmniEncounterTransaction.getPatientUuid())
             def patientAgeInMonthsAsOfEncounter = Months.monthsBetween(new LocalDate(patient.getBirthdate()), new LocalDate(nowAsOfEncounter)).getMonths()
-
-
-
-            if ((heightObservation && heightObservation.voided) && (weightObservation && weightObservation.voided)) {
-                voidObs(bmiDataObservation);
-                voidObs(bmiObservation);
-                voidObs(bmiAbnormalObservation);
-                return
-            }
-
 
             def patientProgramUuid = bahmniEncounterTransaction.getPatientProgramUuid()
             bahmniBridge.forPatientProgram(patientProgramUuid);
