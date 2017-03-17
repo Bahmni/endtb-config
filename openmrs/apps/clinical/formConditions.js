@@ -646,18 +646,6 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         }
         return conditions;
     },
-    "SAE Form, Is SAE related to TB drugs": function (formName, formFieldValues) {
-        var conceptToEnable = "SAE Form, TB drug treatment";
-        var conditions = {enable: [], disable: []};
-        var SAEIsTbDrug = formFieldValues['SAE Form, Is SAE related to TB drugs'];
-        if (SAEIsTbDrug == true) {
-            conditions.enable.push(conceptToEnable)
-        } else {
-            conditions.disable.push(conceptToEnable)
-        }
-        return conditions;
-    },
-
     'SAE Form, Related test': function (formName, formFieldValues) {
         var conceptToEnable = "SAE form, other related test";
         var conditions = {enable: [], disable: []};
