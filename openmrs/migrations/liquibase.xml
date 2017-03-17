@@ -1899,5 +1899,35 @@
             delete from concept_answer where answer_concept in ( @concept1_id,@concept2_id,@concept3_id ) and concept_id in (@concept_id_SAE, @concept_id_AE) ;
         </sql>
     </changeSet>
+    <changeSet id = "ENDTB-201703171166" author="Sudhamsh">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">
+               SELECT COUNT(*)FROM concept_reference_map WHERE concept_id = (SELECT concept_id FROM concept_view WHERE concept_full_name = 'Skin hyperpigmentation or hypopigmentation')  AND concept_reference_term_id = (SELECT concept_reference_term_id FROM concept_reference_term WHERE code=84);
+            </sqlCheck>
+        </preConditions>
+        <comment> Changing export code for Skin hyperpigmentation or hypopigmentation</comment>
+        <sql>
+            DELETE FROM concept_reference_map WHERE concept_id = (SELECT concept_id FROM concept_view WHERE concept_full_name = 'Skin hyperpigmentation or hypopigmentation') AND  concept_reference_term_id = (SELECT concept_reference_term_id FROM concept_reference_term WHERE code=84);
+
+            call create_reference_mapping('Skin hyperpigmentation or hypopigmentation','247');
+        </sql>
+    </changeSet>
+    <changeSet id = "ENDTB-201703171246" author="Sudhamsh">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="1">
+               SELECT COUNT(*)FROM concept_reference_map WHERE concept_id = (SELECT concept_id FROM concept_view WHERE concept_full_name = 'Activated Partial Thromboplastin Time (APPT) Prolonged')  AND concept_reference_term_id = (SELECT concept_reference_term_id FROM concept_reference_term WHERE code=102);
+            </sqlCheck>
+        </preConditions>
+        <comment> Changing export code for Activated Partial Thromboplastin Time (APPT) Prolonged</comment>
+        <sql>
+            DELETE FROM concept_reference_map WHERE concept_id = (SELECT concept_id FROM concept_view WHERE concept_full_name = 'Activated Partial Thromboplastin Time (APPT) Prolonged') AND  concept_reference_term_id = (SELECT concept_reference_term_id FROM concept_reference_term WHERE code=102);
+
+            select concept_source_id into @source_id from concept_reference_source where name = 'EndTB-Export';
+
+            insert into concept_reference_term (creator,code,concept_source_id,uuid,date_created) values (4,'260',@source_id,uuid(),now());
+
+            call create_reference_mapping('Activated Partial Thromboplastin Time (APPT) Prolonged','260');
+        </sql>
+    </changeSet>
 
 </databaseChangeLog>
