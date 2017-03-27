@@ -564,18 +564,6 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
         }
         return conditions;
     },
-    'AE Form, AE related to TB drugs': function (formName, formFieldValues) {
-        var conceptToEnable = "AE Form, TB drug treatment";
-        var conditions = {enable: [], disable: []};
-        var condtionalConcept = formFieldValues['AE Form, AE related to TB drugs'];
-        if (condtionalConcept == "True") {
-            conditions.enable.push(conceptToEnable)
-        } else {
-            conditions.disable.push(conceptToEnable)
-        }
-        return conditions;
-    },
-
     'AE Form, Is AE an SAE': function (formName, formFieldValues) {
         var enSAENumber = "AE Form, SAE Case Number";
         var enDateOutcome = "AE Form, Date of AE Outcome";
