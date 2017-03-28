@@ -127,20 +127,31 @@ angular.module('bahmni.common.displaycontrol.custom')
 
             var getPatientObservationChartData = function (startDate, stopDate) {
                 return fetchPatientMonitoringChartData('/openmrs/ws/rest/v1/endtb/patientFlowsheet', $scope.enrollment, startDate, stopDate).success(function (data) {
-                    $scope.flowsheetHeader = data.milestones;
-
+                    $scope.flowsheetHeader = data.milestones || [];
                     $scope.flowsheetData = data.flowsheetData;
+                    $scope.flowsheetConfig = data.flowsheetConfig;
+                    
                     if (startDate == null) {
                         messagingService.showMessage("error", "Start date missing. Cannot display monitoring schedule");
                     }
-
-                    if (data.highlightedMilestone != null && data.highlightedMilestone != "") {
-                        var highlightedMilestone = _.find($scope.flowsheetHeader, function(header) {
-                            return header.name.indexOf(data.highlightedMilestone) !== -1;
+                    //Highlighted Current Month
+                    if (data.highlightedCurrentMilestone != null && data.highlightedCurrentMilestone != "") {
+                        var highlightedCurrentMilestone = _.find($scope.flowsheetHeader, function(header) {
+                            return header.name.indexOf(data.highlightedCurrentMilestone) !== -1;
                         });
-                        $scope.highlightedColumnIndex = $scope.flowsheetHeader.indexOf(highlightedMilestone);
+                        $scope.highlightedCurrentColumnIndex = $scope.flowsheetHeader.indexOf(highlightedCurrentMilestone);
                     }
+                    
                     $scope.treatmentStopped = stopDate ? true : false;
+                    
+                  //Treatment End Milestone
+                    if ($scope.treatmentStopped ) {
+                        var treatmentEndMilestone = _.find($scope.flowsheetHeader, function(header) {
+                            return header.name.indexOf(data.endDateMilestone) !== -1;
+                        });
+                        $scope.treatmentEndColumnIndex = $scope.flowsheetHeader.indexOf(treatmentEndMilestone );
+                    }
+                    
                 })
             };
 

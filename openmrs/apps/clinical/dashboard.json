@@ -131,6 +131,7 @@
           "isEditable": true,
           "groupByConcept": "SAE Form, SAE term comprehensive AE list",
           "templateName": "Serious Adverse Events Template",
+          "obsDelimiter": "\n",
           "conceptNames": [
             "SAE Form, SAE ID number",
             "SAE Form, AE ID if previously reported as AE",
@@ -594,6 +595,7 @@
         "dashboardConfig": {
           "groupByConcept": "AE Form, AE term comprehensive list",
           "templateName": "Adverse Events Template",
+          "obsDelimiter": "\n",
           "conceptNames": [
             "AE Form, AE ID number",
             "AE Form, SAE Case Number",
@@ -617,6 +619,7 @@
         "dashboardConfig": {
           "groupByConcept": "SAE Form, SAE term comprehensive AE list",
           "templateName": "Serious Adverse Events Template",
+          "obsDelimiter": "\n",
           "conceptNames": [
             "SAE Form, SAE ID number",
             "SAE Form, AE ID if previously reported as AE",
@@ -639,7 +642,8 @@
         "displayOrder": 24,
         "dashboardConfig": {
           "showOnlyActive": true,
-          "drugConceptSet": "All Other Drugs"
+          "drugConceptSet": "All Other Drugs",
+          "obsDelimiter": "\n"
         }
       },
       "ecgReadings": {
@@ -653,6 +657,7 @@
           "groupByConcept": "EKG, Date of EKG",
           "type": "EcgReadingsExtension",
           "templateName": "Electrocardiogram Template",
+          "obsDelimiter": "\n",
           "conceptNames": [
             "EKG, Type of assessment",
             "EKG, Rhythm",
@@ -673,6 +678,7 @@
           "groupByConcept": "Xray, Chest Xray Date",
           "type": "ChestXRayExtension",
           "templateName": "Xray Template",
+          "obsDelimiter": "\n",
           "conceptNames": [
             "Xray, Extent of disease",
             "Xray, Maximum cavity size",
@@ -690,6 +696,7 @@
         "dashboardConfig": {
           "groupByConcept": "Audiometry, Audiometry date",
           "templateName": "Audiometry Template",
+          "obsDelimiter": "\n",
           "conceptNames": [
             "Audiometry, Type of assessment",
             "Audiometry, Left ear at 1000Hz",
@@ -709,6 +716,7 @@
         "dashboardConfig": {
           "groupByConcept": "Audiometry, Audiometry date",
           "templateName": "Audiometry Template",
+          "obsDelimiter": "\n",
           "conceptNames": [
             "Audiometry, Type of assessment",
             "Audiometry, Right ear at 1000Hz",
@@ -728,6 +736,7 @@
         "dashboardConfig": {
           "groupByConcept": "Baseline, Date of baseline physical examination",
           "templateName": "Baseline, Clinical Examination",
+          "obsDelimiter": "\n",
           "conceptNames": [
             "Baseline, Pain Aching or Buring in Left Feet and Leg",
             "Baseline, Pins and Needles in Left Feet and Leg",
@@ -747,6 +756,7 @@
         "dashboardConfig": {
           "groupByConcept": "Baseline, Date of baseline physical examination",
           "templateName": "Baseline, Clinical Examination",
+          "obsDelimiter": "\n",
           "conceptNames": [
             "Baseline, Pain Aching or Buring in Right Feet and Leg",
             "Baseline, Pins and Needles in Right Feet and Leg",
@@ -766,6 +776,7 @@
         "dashboardConfig": {
           "groupByConcept": "Followup, Visit Date",
           "templateName": "Followup Template",
+          "obsDelimiter": "\n",
           "conceptNames": [
             "Followup, Pain Aching or Buring in Left Feet and Leg",
             "Followup, Pins and Needles in Left Feet and Leg",
@@ -785,6 +796,7 @@
         "dashboardConfig": {
           "groupByConcept": "Followup, Visit Date",
           "templateName": "Followup Template",
+          "obsDelimiter": "\n",
           "conceptNames": [
             "Followup, Pain Aching or Buring in Right Feet and Leg",
             "Followup, Pins and Needles in Right Feet and Leg",
@@ -804,6 +816,7 @@
         "dashboardConfig": {
           "groupByConcept": "Followup, Visit Date",
           "templateName": "Followup Template",
+          "obsDelimiter": "\n",
           "conceptNames": [
             "Visual acuity, left eye",
             "Visual acuity, right eye"            
@@ -820,6 +833,7 @@
         "dashboardConfig": {
           "groupByConcept": "Baseline, Date of baseline physical examination",
           "templateName": "Baseline, Clinical Examination",
+          "obsDelimiter": "\n",
           "conceptNames": [
             "Visual acuity, left eye",
             "Visual acuity, right eye"            
@@ -836,6 +850,7 @@
         "dashboardConfig": {
           "groupByConcept": "Baseline, Date of baseline physical examination",
           "templateName": "Baseline, Clinical Examination",
+          "obsDelimiter": "\n",
           "conceptNames": [
             "Baseline, Left Eye Correct Plates",
             "Baseline, Right Eye Correct Plates"            
@@ -852,6 +867,7 @@
         "dashboardConfig": {
           "groupByConcept": "Followup, Visit Date",
           "templateName": "Followup Template",
+          "obsDelimiter": "\n",
           "conceptNames": [
             "Followup, Left Eye Correct Plates",
             "Followup, Right Eye Correct Plates"            
@@ -883,6 +899,7 @@
           "groupByConcept": "Documents, Date",
           "orderByConcept": "Documents, Date",
           "templateName": "Documents Template",
+          "obsDelimiter": "\n",
           "conceptNames": [
             "Documents, Image",
             "Documents, Image Description"
