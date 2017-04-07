@@ -1929,5 +1929,351 @@
             call create_reference_mapping('Activated Partial Thromboplastin Time (APPT) Prolonged','260');
         </sql>
     </changeSet>
+    <changeSet id="ENDTB-201704071300" author="Swathi">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="14">
+                select count(*) from concept_view where concept_full_name in ('Audiometry, Left ear at 250Hz','Audiometry, Left ear at 500Hz','Audiometry, Left ear at 1000Hz','Audiometry, Left ear at 2000Hz','Audiometry, Left ear at 4000Hz','Audiometry, Left ear at 6000Hz','Audiometry, Left ear at 8000Hz','Audiometry, Right ear at 250Hz','Audiometry, Right ear at 500Hz','Audiometry, Right ear at 1000Hz','Audiometry, Right ear at 2000Hz','Audiometry, Right ear at 4000Hz','Audiometry, Right ear at 6000Hz','Audiometry, Right ear at 8000Hz') and concept_datatype_name = 'Coded';
+            </sqlCheck>
+        </preConditions>
+        <comment>Create New Audiometry Left/Right ear at xxHz dropdown(CodedConcept) of Ranges as answers</comment>
+        <sql>
+            set @concept_id = 0;
+            set @concept_name_short_id = 0;
+            set @concept_name_full_id = 0;
 
+            SELECT concept_id INTO @child1_concept_id FROM concept_name WHERE name = 'Audiometry, 0 to 20 db';
+            SELECT concept_id INTO @child2_concept_id FROM concept_name WHERE name = 'Audiometry, 21 to 40 dB';
+            SELECT concept_id INTO @child3_concept_id FROM concept_name WHERE name = 'Audiometry, 41 to 55 dB';
+            SELECT concept_id INTO @child4_concept_id FROM concept_name WHERE name = 'Audiometry, 56 to 70 dB';
+            SELECT concept_id INTO @child5_concept_id FROM concept_name WHERE name = 'Audiometry, 71 to 90 dB';
+            SELECT concept_id INTO @child6_concept_id FROM concept_name WHERE name = 'Audiometry, 91+ dB';
+
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Audiometry, Left ear at 250Hz-Coded_old', 'Left Ear : dB at 250Hz', 'Coded', 'misc', false);
+            call add_concept_answer (@concept_id, @child1_concept_id, 1);
+            call add_concept_answer (@concept_id, @child2_concept_id, 2);
+            call add_concept_answer (@concept_id, @child3_concept_id, 3);
+            call add_concept_answer (@concept_id, @child4_concept_id, 4);
+            call add_concept_answer (@concept_id, @child5_concept_id, 5);
+            call add_concept_answer (@concept_id, @child6_concept_id, 6);
+            set @coded1_concept_id = @concept_id;
+
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Audiometry, Left ear at 500Hz-Coded_old', 'Left Ear : dB at 500Hz', 'Coded', 'misc', false);
+            call add_concept_answer (@concept_id, @child1_concept_id, 1);
+            call add_concept_answer (@concept_id, @child2_concept_id, 2);
+            call add_concept_answer (@concept_id, @child3_concept_id, 3);
+            call add_concept_answer (@concept_id, @child4_concept_id, 4);
+            call add_concept_answer (@concept_id, @child5_concept_id, 5);
+            call add_concept_answer (@concept_id, @child6_concept_id, 6);
+            set @coded2_concept_id = @concept_id;
+
+
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Audiometry, Left ear at 1000Hz-Coded_old', 'Left Ear : dB at 1000Hz', 'Coded', 'misc', false);
+            call add_concept_answer (@concept_id, @child1_concept_id, 1);
+            call add_concept_answer (@concept_id, @child2_concept_id, 2);
+            call add_concept_answer (@concept_id, @child3_concept_id, 3);
+            call add_concept_answer (@concept_id, @child4_concept_id, 4);
+            call add_concept_answer (@concept_id, @child5_concept_id, 5);
+            call add_concept_answer (@concept_id, @child6_concept_id, 6);
+            set @coded3_concept_id = @concept_id;
+
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Audiometry, Left ear at 2000Hz-Coded_old', 'Left Ear : dB at 2000Hz', 'Coded', 'misc', false);
+            call add_concept_answer (@concept_id, @child1_concept_id, 1);
+            call add_concept_answer (@concept_id, @child2_concept_id, 2);
+            call add_concept_answer (@concept_id, @child3_concept_id, 3);
+            call add_concept_answer (@concept_id, @child4_concept_id, 4);
+            call add_concept_answer (@concept_id, @child5_concept_id, 5);
+            call add_concept_answer (@concept_id, @child6_concept_id, 6);
+            set @coded4_concept_id = @concept_id;
+
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Audiometry, Left ear at 4000Hz-Coded_old', 'Left Ear : dB at 4000Hz', 'Coded', 'misc', false);
+            call add_concept_answer (@concept_id, @child1_concept_id, 1);
+            call add_concept_answer (@concept_id, @child2_concept_id, 2);
+            call add_concept_answer (@concept_id, @child3_concept_id, 3);
+            call add_concept_answer (@concept_id, @child4_concept_id, 4);
+            call add_concept_answer (@concept_id, @child5_concept_id, 5);
+            call add_concept_answer (@concept_id, @child6_concept_id, 6);
+            set @coded5_concept_id = @concept_id;
+
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Audiometry, Left ear at 6000Hz-Coded_old', 'Left Ear : dB at 6000Hz', 'Coded', 'misc', false);
+            call add_concept_answer (@concept_id, @child1_concept_id, 1);
+            call add_concept_answer (@concept_id, @child2_concept_id, 2);
+            call add_concept_answer (@concept_id, @child3_concept_id, 3);
+            call add_concept_answer (@concept_id, @child4_concept_id, 4);
+            call add_concept_answer (@concept_id, @child5_concept_id, 5);
+            call add_concept_answer (@concept_id, @child6_concept_id, 6);
+            set @coded6_concept_id = @concept_id;
+
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Audiometry, Left ear at 8000Hz-Coded_old', 'Left Ear : dB at 8000Hz', 'Coded', 'misc', false);
+            call add_concept_answer (@concept_id, @child1_concept_id, 1);
+            call add_concept_answer (@concept_id, @child2_concept_id, 2);
+            call add_concept_answer (@concept_id, @child3_concept_id, 3);
+            call add_concept_answer (@concept_id, @child4_concept_id, 4);
+            call add_concept_answer (@concept_id, @child5_concept_id, 5);
+            call add_concept_answer (@concept_id, @child6_concept_id, 6);
+            set @coded7_concept_id = @concept_id;
+
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Audiometry, Right ear at 250Hz-Coded_old', 'Right Ear : dB at 250Hz', 'Coded', 'misc', false);
+            call add_concept_answer (@concept_id, @child1_concept_id, 1);
+            call add_concept_answer (@concept_id, @child2_concept_id, 2);
+            call add_concept_answer (@concept_id, @child3_concept_id, 3);
+            call add_concept_answer (@concept_id, @child4_concept_id, 4);
+            call add_concept_answer (@concept_id, @child5_concept_id, 5);
+            call add_concept_answer (@concept_id, @child6_concept_id, 6);
+            set @coded8_concept_id = @concept_id;
+
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Audiometry, Right ear at 500Hz-Coded_old', 'Right Ear : dB at 500Hz', 'Coded', 'misc', false);
+            call add_concept_answer (@concept_id, @child1_concept_id, 1);
+            call add_concept_answer (@concept_id, @child2_concept_id, 2);
+            call add_concept_answer (@concept_id, @child3_concept_id, 3);
+            call add_concept_answer (@concept_id, @child4_concept_id, 4);
+            call add_concept_answer (@concept_id, @child5_concept_id, 5);
+            call add_concept_answer (@concept_id, @child6_concept_id, 6);
+            set @coded9_concept_id = @concept_id;
+
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Audiometry, Right ear at 1000Hz-Coded_old', 'Right Ear : dB at 1000Hz', 'Coded', 'misc', false);
+            call add_concept_answer (@concept_id, @child1_concept_id, 1);
+            call add_concept_answer (@concept_id, @child2_concept_id, 2);
+            call add_concept_answer (@concept_id, @child3_concept_id, 3);
+            call add_concept_answer (@concept_id, @child4_concept_id, 4);
+            call add_concept_answer (@concept_id, @child5_concept_id, 5);
+            call add_concept_answer (@concept_id, @child6_concept_id, 6);
+            set @coded10_concept_id = @concept_id;
+
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Audiometry, Right ear at 2000Hz-Coded_old', 'Right Ear : dB at 2000Hz', 'Coded', 'misc', false);
+            call add_concept_answer (@concept_id, @child1_concept_id, 1);
+            call add_concept_answer (@concept_id, @child2_concept_id, 2);
+            call add_concept_answer (@concept_id, @child3_concept_id, 3);
+            call add_concept_answer (@concept_id, @child4_concept_id, 4);
+            call add_concept_answer (@concept_id, @child5_concept_id, 5);
+            call add_concept_answer (@concept_id, @child6_concept_id, 6);
+            set @coded11_concept_id = @concept_id;
+
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Audiometry, Right ear at 4000Hz-Coded_old', 'Right Ear : dB at 4000Hz', 'Coded', 'misc', false);
+            call add_concept_answer (@concept_id, @child1_concept_id, 1);
+            call add_concept_answer (@concept_id, @child2_concept_id, 2);
+            call add_concept_answer (@concept_id, @child3_concept_id, 3);
+            call add_concept_answer (@concept_id, @child4_concept_id, 4);
+            call add_concept_answer (@concept_id, @child5_concept_id, 5);
+            call add_concept_answer (@concept_id, @child6_concept_id, 6);
+            set @coded12_concept_id = @concept_id;
+
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Audiometry, Right ear at 6000Hz-Coded_old', 'Right Ear : dB at 6000Hz', 'Coded', 'misc', false);
+            call add_concept_answer (@concept_id, @child1_concept_id, 1);
+            call add_concept_answer (@concept_id, @child2_concept_id, 2);
+            call add_concept_answer (@concept_id, @child3_concept_id, 3);
+            call add_concept_answer (@concept_id, @child4_concept_id, 4);
+            call add_concept_answer (@concept_id, @child5_concept_id, 5);
+            call add_concept_answer (@concept_id, @child6_concept_id, 6);
+            set @coded13_concept_id = @concept_id;
+
+            call add_concept(@concept_id, @concept_name_short_id, @concept_name_full_id, 'Audiometry, Right ear at 8000Hz-Coded_old', 'Right Ear : dB at 8000Hz', 'Coded', 'misc', false);
+            call add_concept_answer (@concept_id, @child1_concept_id, 1);
+            call add_concept_answer (@concept_id, @child2_concept_id, 2);
+            call add_concept_answer (@concept_id, @child3_concept_id, 3);
+            call add_concept_answer (@concept_id, @child4_concept_id, 4);
+            call add_concept_answer (@concept_id, @child5_concept_id, 5);
+            call add_concept_answer (@concept_id, @child6_concept_id, 6);
+            set @coded14_concept_id = @concept_id;
+        </sql>
+    </changeSet>
+    <changeSet id="ENDTB-201704071845" author="Swathi">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="14">
+                select count(*) from concept_view where concept_full_name in ('Audiometry, Left ear at 250Hz','Audiometry, Left ear at 500Hz','Audiometry, Left ear at 1000Hz','Audiometry, Left ear at 2000Hz','Audiometry, Left ear at 4000Hz','Audiometry, Left ear at 6000Hz','Audiometry, Left ear at 8000Hz','Audiometry, Right ear at 250Hz','Audiometry, Right ear at 500Hz','Audiometry, Right ear at 1000Hz','Audiometry, Right ear at 2000Hz','Audiometry, Right ear at 4000Hz','Audiometry, Right ear at 6000Hz','Audiometry, Right ear at 8000Hz') and concept_datatype_name = 'Numeric';
+            </sqlCheck>
+            <sqlCheck expectedResult="14">
+                select count(*) from concept_view where concept_full_name in ('Audiometry, Left ear at 250Hz-Coded_old','Audiometry, Left ear at 500Hz-Coded_old','Audiometry, Left ear at 1000Hz-Coded_old','Audiometry, Left ear at 2000Hz-Coded_old','Audiometry, Left ear at 4000Hz-Coded_old','Audiometry, Left ear at 6000Hz-Coded_old','Audiometry, Left ear at 8000Hz-Coded_old','Audiometry, Right ear at 250Hz-Coded_old','Audiometry, Right ear at 500Hz-Coded_old','Audiometry, Right ear at 1000Hz-Coded_old','Audiometry, Right ear at 2000Hz-Coded_old','Audiometry, Right ear at 4000Hz-Coded_old','Audiometry, Right ear at 6000Hz-Coded_old','Audiometry, Right ear at 8000Hz-Coded_old') and concept_datatype_name = 'Coded';
+            </sqlCheck>
+        </preConditions>
+        <comment>Migrating Audiometry Left/Right ear at xxHz from dropdown(CodedConcept) to numeric and migrate obs</comment>
+        <sql>
+            SELECT concept_datatype_id INTO @concept_datatype_id from concept_datatype WHERE name = 'Numeric';
+
+            SELECT concept_id INTO @numeric1_concept_id FROM concept_name WHERE name = 'Audiometry, Left ear at 250Hz';
+            SELECT concept_id INTO @numeric2_concept_id FROM concept_name WHERE name = 'Audiometry, Left ear at 500Hz';
+            SELECT concept_id INTO @numeric3_concept_id FROM concept_name WHERE name = 'Audiometry, Left ear at 1000Hz';
+            SELECT concept_id INTO @numeric4_concept_id FROM concept_name WHERE name = 'Audiometry, Left ear at 2000Hz';
+            SELECT concept_id INTO @numeric5_concept_id FROM concept_name WHERE name = 'Audiometry, Left ear at 4000Hz';
+            SELECT concept_id INTO @numeric6_concept_id FROM concept_name WHERE name = 'Audiometry, Left ear at 6000Hz';
+            SELECT concept_id INTO @numeric7_concept_id FROM concept_name WHERE name = 'Audiometry, Left ear at 8000Hz';
+
+            SELECT concept_id INTO @numeric8_concept_id FROM concept_name WHERE name = 'Audiometry, Right ear at 250Hz';
+            SELECT concept_id INTO @numeric9_concept_id FROM concept_name WHERE name = 'Audiometry, Right ear at 500Hz';
+            SELECT concept_id INTO @numeric10_concept_id FROM concept_name WHERE name = 'Audiometry, Right ear at 1000Hz';
+            SELECT concept_id INTO @numeric11_concept_id FROM concept_name WHERE name = 'Audiometry, Right ear at 2000Hz';
+            SELECT concept_id INTO @numeric12_concept_id FROM concept_name WHERE name = 'Audiometry, Right ear at 4000Hz';
+            SELECT concept_id INTO @numeric13_concept_id FROM concept_name WHERE name = 'Audiometry, Right ear at 6000Hz';
+            SELECT concept_id INTO @numeric14_concept_id FROM concept_name WHERE name = 'Audiometry, Right ear at 8000Hz';
+
+            SELECT concept_id INTO @coded1_concept_id FROM concept_name WHERE name = 'Audiometry, Left ear at 250Hz-Coded_old';
+            SELECT concept_id INTO @coded2_concept_id FROM concept_name WHERE name = 'Audiometry, Left ear at 500Hz-Coded_old';
+            SELECT concept_id INTO @coded3_concept_id FROM concept_name WHERE name = 'Audiometry, Left ear at 1000Hz-Coded_old';
+            SELECT concept_id INTO @coded4_concept_id FROM concept_name WHERE name = 'Audiometry, Left ear at 2000Hz-Coded_old';
+            SELECT concept_id INTO @coded5_concept_id FROM concept_name WHERE name = 'Audiometry, Left ear at 4000Hz-Coded_old';
+            SELECT concept_id INTO @coded6_concept_id FROM concept_name WHERE name = 'Audiometry, Left ear at 6000Hz-Coded_old';
+            SELECT concept_id INTO @coded7_concept_id FROM concept_name WHERE name = 'Audiometry, Left ear at 8000Hz-Coded_old';
+
+            SELECT concept_id INTO @coded8_concept_id FROM concept_name WHERE name = 'Audiometry, Right ear at 250Hz-Coded_old';
+            SELECT concept_id INTO @coded9_concept_id FROM concept_name WHERE name = 'Audiometry, Right ear at 500Hz-Coded_old';
+            SELECT concept_id INTO @coded10_concept_id FROM concept_name WHERE name = 'Audiometry, Right ear at 1000Hz-Coded_old';
+            SELECT concept_id INTO @coded11_concept_id FROM concept_name WHERE name = 'Audiometry, Right ear at 2000Hz-Coded_old';
+            SELECT concept_id INTO @coded12_concept_id FROM concept_name WHERE name = 'Audiometry, Right ear at 4000Hz-Coded_old';
+            SELECT concept_id INTO @coded13_concept_id FROM concept_name WHERE name = 'Audiometry, Right ear at 6000Hz-Coded_old';
+            SELECT concept_id INTO @coded14_concept_id FROM concept_name WHERE name = 'Audiometry, Right ear at 8000Hz-Coded_old';
+
+            UPDATE obs SET concept_id =
+            IF((concept_id = @numeric1_concept_id), @coded1_concept_id,
+            IF((concept_id = @numeric2_concept_id), @coded2_concept_id,
+            IF((concept_id = @numeric3_concept_id), @coded3_concept_id,
+            IF((concept_id = @numeric4_concept_id), @coded4_concept_id,
+            IF((concept_id = @numeric5_concept_id), @coded5_concept_id,
+            IF((concept_id = @numeric6_concept_id), @coded6_concept_id,
+            IF((concept_id = @numeric7_concept_id), @coded7_concept_id,
+            IF((concept_id = @numeric8_concept_id), @coded8_concept_id,
+            IF((concept_id = @numeric9_concept_id), @coded9_concept_id,
+            IF((concept_id = @numeric10_concept_id), @coded10_concept_id,
+            IF((concept_id = @numeric11_concept_id), @coded11_concept_id,
+            IF((concept_id = @numeric12_concept_id), @coded12_concept_id,
+            IF((concept_id = @numeric13_concept_id), @coded13_concept_id,
+            IF((concept_id = @numeric14_concept_id), @coded14_concept_id,
+            concept_id))))))))))))));
+
+            SELECT concept_id INTO @child1_concept_id FROM concept_name WHERE name = 'Audiometry, 0 to 20 db';
+            SELECT concept_id INTO @child2_concept_id FROM concept_name WHERE name = 'Audiometry, 21 to 40 dB';
+            SELECT concept_id INTO @child3_concept_id FROM concept_name WHERE name = 'Audiometry, 41 to 55 dB';
+            SELECT concept_id INTO @child4_concept_id FROM concept_name WHERE name = 'Audiometry, 56 to 70 dB';
+            SELECT concept_id INTO @child5_concept_id FROM concept_name WHERE name = 'Audiometry, 71 to 90 dB';
+            SELECT concept_id INTO @child6_concept_id FROM concept_name WHERE name = 'Audiometry, 91+ dB';
+
+            DELETE FROM concept_answer WHERE concept_id = @numeric1_concept_id and answer_concept = @child1_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric1_concept_id and answer_concept = @child2_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric1_concept_id and answer_concept = @child3_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric1_concept_id and answer_concept = @child4_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric1_concept_id and answer_concept = @child5_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric1_concept_id and answer_concept = @child6_concept_id;
+
+            DELETE FROM concept_answer WHERE concept_id = @numeric2_concept_id and answer_concept = @child1_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric2_concept_id and answer_concept = @child2_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric2_concept_id and answer_concept = @child3_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric2_concept_id and answer_concept = @child4_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric2_concept_id and answer_concept = @child5_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric2_concept_id and answer_concept = @child6_concept_id;
+
+            DELETE FROM concept_answer WHERE concept_id = @numeric3_concept_id and answer_concept = @child1_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric3_concept_id and answer_concept = @child2_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric3_concept_id and answer_concept = @child3_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric3_concept_id and answer_concept = @child4_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric3_concept_id and answer_concept = @child5_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric3_concept_id and answer_concept = @child6_concept_id;
+
+            DELETE FROM concept_answer WHERE concept_id = @numeric4_concept_id and answer_concept = @child1_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric4_concept_id and answer_concept = @child2_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric4_concept_id and answer_concept = @child3_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric4_concept_id and answer_concept = @child4_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric4_concept_id and answer_concept = @child5_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric4_concept_id and answer_concept = @child6_concept_id;
+
+            DELETE FROM concept_answer WHERE concept_id = @numeric5_concept_id and answer_concept = @child1_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric5_concept_id and answer_concept = @child2_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric5_concept_id and answer_concept = @child3_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric5_concept_id and answer_concept = @child4_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric5_concept_id and answer_concept = @child5_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric5_concept_id and answer_concept = @child6_concept_id;
+
+            DELETE FROM concept_answer WHERE concept_id = @numeric6_concept_id and answer_concept = @child1_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric6_concept_id and answer_concept = @child2_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric6_concept_id and answer_concept = @child3_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric6_concept_id and answer_concept = @child4_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric6_concept_id and answer_concept = @child5_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric6_concept_id and answer_concept = @child6_concept_id;
+
+            DELETE FROM concept_answer WHERE concept_id = @numeric7_concept_id and answer_concept = @child1_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric7_concept_id and answer_concept = @child2_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric7_concept_id and answer_concept = @child3_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric7_concept_id and answer_concept = @child4_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric7_concept_id and answer_concept = @child5_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric7_concept_id and answer_concept = @child6_concept_id;
+
+            DELETE FROM concept_answer WHERE concept_id = @numeric8_concept_id and answer_concept = @child1_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric8_concept_id and answer_concept = @child2_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric8_concept_id and answer_concept = @child3_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric8_concept_id and answer_concept = @child4_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric8_concept_id and answer_concept = @child5_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric8_concept_id and answer_concept = @child6_concept_id;
+
+            DELETE FROM concept_answer WHERE concept_id = @numeric9_concept_id and answer_concept = @child1_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric9_concept_id and answer_concept = @child2_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric9_concept_id and answer_concept = @child3_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric9_concept_id and answer_concept = @child4_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric9_concept_id and answer_concept = @child5_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric9_concept_id and answer_concept = @child6_concept_id;
+
+            DELETE FROM concept_answer WHERE concept_id = @numeric10_concept_id and answer_concept = @child1_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric10_concept_id and answer_concept = @child2_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric10_concept_id and answer_concept = @child3_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric10_concept_id and answer_concept = @child4_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric10_concept_id and answer_concept = @child5_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric10_concept_id and answer_concept = @child6_concept_id;
+
+            DELETE FROM concept_answer WHERE concept_id = @numeric11_concept_id and answer_concept = @child1_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric11_concept_id and answer_concept = @child2_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric11_concept_id and answer_concept = @child3_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric11_concept_id and answer_concept = @child4_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric11_concept_id and answer_concept = @child5_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric11_concept_id and answer_concept = @child6_concept_id;
+
+            DELETE FROM concept_answer WHERE concept_id = @numeric12_concept_id and answer_concept = @child1_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric12_concept_id and answer_concept = @child2_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric12_concept_id and answer_concept = @child3_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric12_concept_id and answer_concept = @child4_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric12_concept_id and answer_concept = @child5_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric12_concept_id and answer_concept = @child6_concept_id;
+
+            DELETE FROM concept_answer WHERE concept_id = @numeric13_concept_id and answer_concept = @child1_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric13_concept_id and answer_concept = @child2_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric13_concept_id and answer_concept = @child3_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric13_concept_id and answer_concept = @child4_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric13_concept_id and answer_concept = @child5_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric13_concept_id and answer_concept = @child6_concept_id;
+
+            DELETE FROM concept_answer WHERE concept_id = @numeric14_concept_id and answer_concept = @child1_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric14_concept_id and answer_concept = @child2_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric14_concept_id and answer_concept = @child3_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric14_concept_id and answer_concept = @child4_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric14_concept_id and answer_concept = @child5_concept_id;
+            DELETE FROM concept_answer WHERE concept_id = @numeric14_concept_id and answer_concept = @child6_concept_id;
+
+            UPDATE concept SET datatype_id = @concept_datatype_id where concept_id = @numeric1_concept_id;
+            UPDATE concept SET datatype_id = @concept_datatype_id where concept_id = @numeric2_concept_id;
+            UPDATE concept SET datatype_id = @concept_datatype_id where concept_id = @numeric3_concept_id;
+            UPDATE concept SET datatype_id = @concept_datatype_id where concept_id = @numeric4_concept_id;
+            UPDATE concept SET datatype_id = @concept_datatype_id where concept_id = @numeric5_concept_id;
+            UPDATE concept SET datatype_id = @concept_datatype_id where concept_id = @numeric6_concept_id;
+            UPDATE concept SET datatype_id = @concept_datatype_id where concept_id = @numeric7_concept_id;
+
+            UPDATE concept SET datatype_id = @concept_datatype_id where concept_id = @numeric8_concept_id;
+            UPDATE concept SET datatype_id = @concept_datatype_id where concept_id = @numeric9_concept_id;
+            UPDATE concept SET datatype_id = @concept_datatype_id where concept_id = @numeric10_concept_id;
+            UPDATE concept SET datatype_id = @concept_datatype_id where concept_id = @numeric11_concept_id;
+            UPDATE concept SET datatype_id = @concept_datatype_id where concept_id = @numeric12_concept_id;
+            UPDATE concept SET datatype_id = @concept_datatype_id where concept_id = @numeric13_concept_id;
+            UPDATE concept SET datatype_id = @concept_datatype_id where concept_id = @numeric14_concept_id;
+
+            CALL add_concept_numeric(@numeric1_concept_id, null, null, null);
+            CALL add_concept_numeric(@numeric2_concept_id, null, null, null);
+            CALL add_concept_numeric(@numeric3_concept_id, null, null, null);
+            CALL add_concept_numeric(@numeric4_concept_id, null, null, null);
+            CALL add_concept_numeric(@numeric5_concept_id, null, null, null);
+            CALL add_concept_numeric(@numeric6_concept_id, null, null, null);
+            CALL add_concept_numeric(@numeric7_concept_id, null, null, null);
+
+            CALL add_concept_numeric(@numeric8_concept_id, null, null, null);
+            CALL add_concept_numeric(@numeric9_concept_id, null, null, null);
+            CALL add_concept_numeric(@numeric10_concept_id, null, null, null);
+            CALL add_concept_numeric(@numeric11_concept_id, null, null, null);
+            CALL add_concept_numeric(@numeric12_concept_id, null, null, null);
+            CALL add_concept_numeric(@numeric13_concept_id, null, null, null);
+            CALL add_concept_numeric(@numeric14_concept_id, null, null, null);
+        </sql>
+    </changeSet>
 </databaseChangeLog>
