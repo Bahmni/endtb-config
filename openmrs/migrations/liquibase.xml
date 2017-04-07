@@ -2076,7 +2076,7 @@
             set @coded14_concept_id = @concept_id;
         </sql>
     </changeSet>
-    <changeSet id="ENDTB-201704071845" author="Swathi">
+    <changeSet id="ENDTB-201704071945" author="Swathi">
         <preConditions onFail="MARK_RAN">
             <sqlCheck expectedResult="14">
                 select count(*) from concept_view where concept_full_name in ('Audiometry, Left ear at 250Hz','Audiometry, Left ear at 500Hz','Audiometry, Left ear at 1000Hz','Audiometry, Left ear at 2000Hz','Audiometry, Left ear at 4000Hz','Audiometry, Left ear at 6000Hz','Audiometry, Left ear at 8000Hz','Audiometry, Right ear at 250Hz','Audiometry, Right ear at 500Hz','Audiometry, Right ear at 1000Hz','Audiometry, Right ear at 2000Hz','Audiometry, Right ear at 4000Hz','Audiometry, Right ear at 6000Hz','Audiometry, Right ear at 8000Hz') and concept_datatype_name = 'Numeric';
@@ -2259,21 +2259,22 @@
             UPDATE concept SET datatype_id = @concept_datatype_id where concept_id = @numeric13_concept_id;
             UPDATE concept SET datatype_id = @concept_datatype_id where concept_id = @numeric14_concept_id;
 
-            CALL add_concept_numeric(@numeric1_concept_id, null, null, null);
-            CALL add_concept_numeric(@numeric2_concept_id, null, null, null);
-            CALL add_concept_numeric(@numeric3_concept_id, null, null, null);
-            CALL add_concept_numeric(@numeric4_concept_id, null, null, null);
-            CALL add_concept_numeric(@numeric5_concept_id, null, null, null);
-            CALL add_concept_numeric(@numeric6_concept_id, null, null, null);
-            CALL add_concept_numeric(@numeric7_concept_id, null, null, null);
+            INSERT INTO concept_numeric (concept_id, low_absolute, hi_absolute) values (@numeric1_concept_id, 0, 120);
+            INSERT INTO concept_numeric (concept_id, low_absolute, hi_absolute) values (@numeric2_concept_id, 0, 120);
+            INSERT INTO concept_numeric (concept_id, low_absolute, hi_absolute) values (@numeric3_concept_id, 0, 120);
+            INSERT INTO concept_numeric (concept_id, low_absolute, hi_absolute) values (@numeric4_concept_id, 0, 120);
+            INSERT INTO concept_numeric (concept_id, low_absolute, hi_absolute) values (@numeric5_concept_id, 0, 120);
+            INSERT INTO concept_numeric (concept_id, low_absolute, hi_absolute) values (@numeric6_concept_id, 0, 120);
+            INSERT INTO concept_numeric (concept_id, low_absolute, hi_absolute) values (@numeric7_concept_id, 0, 120);
 
-            CALL add_concept_numeric(@numeric8_concept_id, null, null, null);
-            CALL add_concept_numeric(@numeric9_concept_id, null, null, null);
-            CALL add_concept_numeric(@numeric10_concept_id, null, null, null);
-            CALL add_concept_numeric(@numeric11_concept_id, null, null, null);
-            CALL add_concept_numeric(@numeric12_concept_id, null, null, null);
-            CALL add_concept_numeric(@numeric13_concept_id, null, null, null);
-            CALL add_concept_numeric(@numeric14_concept_id, null, null, null);
+            INSERT INTO concept_numeric (concept_id, low_absolute, hi_absolute) values (@numeric8_concept_id, 0, 120);
+            INSERT INTO concept_numeric (concept_id, low_absolute, hi_absolute) values (@numeric9_concept_id, 0, 120);
+            INSERT INTO concept_numeric (concept_id, low_absolute, hi_absolute) values (@numeric10_concept_id, 0, 120);
+            INSERT INTO concept_numeric (concept_id, low_absolute, hi_absolute) values (@numeric11_concept_id, 0, 120);
+            INSERT INTO concept_numeric (concept_id, low_absolute, hi_absolute) values (@numeric12_concept_id, 0, 120);
+            INSERT INTO concept_numeric (concept_id, low_absolute, hi_absolute) values (@numeric13_concept_id, 0, 120);
+            INSERT INTO concept_numeric (concept_id, low_absolute, hi_absolute) values (@numeric14_concept_id, 0, 120);
+
         </sql>
     </changeSet>
 </databaseChangeLog>
