@@ -581,7 +581,7 @@ Bahmni.ConceptSet.FormConditions.rules = {      //This is a constant that Bahmni
             conditions.disable.push(enDateOutcome, enAEOutcome, enMaxSeverity, enRelatedTBDrugs, enTBDrugTx, enOtherCausalFact, enOtherCausalFactorsRelatedToAE)
         } else {
             conditions.disable.push(enSAENumber);
-            conditions.enable.push(enDateOutcome, enAEOutcome, enMaxSeverity, enRelatedTBDrugs, enOtherCausalFact, enOtherCausalFactorsRelatedToAE)
+            conditions.enable.push(enDateOutcome, enAEOutcome, enMaxSeverity, enRelatedTBDrugs,enTBDrugTx, enOtherCausalFact, enOtherCausalFactorsRelatedToAE)
         }
         return conditions;
     },
