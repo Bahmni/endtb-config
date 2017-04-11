@@ -192,7 +192,6 @@ public class BahmniObsValueCalculator implements ObsValueCalculator {
                     voidObs(fullyObservedDaysObs);
                     voidObs(completenessRateObs);
                     voidObs(adherenceRateObs);
-                    voidParentObservationWithOnlyVoidedMembers(bahmniObs);
                     fullyObservedDaysObs = null;
                     completenessRateObs = null;
                     adherenceRateObs = null;
