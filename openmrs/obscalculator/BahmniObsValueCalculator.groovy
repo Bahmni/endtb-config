@@ -325,7 +325,9 @@ public class BahmniObsValueCalculator implements ObsValueCalculator {
     private static def voidParentObservationWithOnlyVoidedMembers(BahmniObservation parent) {
         parent.voided = true;
         for (BahmniObservation member : parent.getGroupMembers()) {
-            voidParentObservationWithOnlyVoidedMembers(member)
+            if (member.getGroupMembers().size() != 0) {
+                voidParentObservationWithOnlyVoidedMembers(member)
+            }
             if (!member.getVoided()) {
                 parent.voided = false;
                 break;
