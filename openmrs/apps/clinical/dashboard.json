@@ -678,51 +678,13 @@
           ]
         }
       },
-      "AudioMetryDisplayLeft": {
-        "translationKey": "SUMMARY_TITLE_AUDIOMETRY_LEFT",
-        "type": "obsToObsFlowSheet",
-        "headingConceptSource": "Abbreviation",
-        "dataConceptSource": "Abbreviation",
-        "displayType": "LAYOUT_50_50",
-        "displayOrder": 27,
-        "dashboardConfig": {
-          "groupByConcept": "Audiometry, Audiometry date",
-          "templateName": "Audiometry Template",
-          "conceptNames": [
-            "Audiometry, Type of assessment",
-            "Audiometry, Left ear at 1000Hz",
-            "Audiometry, Left ear at 2000Hz",
-            "Audiometry, Left ear at 4000Hz",
-            "Audiometry, Left ear at 8000Hz"
-          ]
-        }
-      },
-      "AudioMetryDisplayRight": {
-        "translationKey": "SUMMARY_TITLE_AUDIOMETRY_RIGHT",
-        "type": "obsToObsFlowSheet",
-        "headingConceptSource": "Abbreviation",
-        "dataConceptSource": "Abbreviation",
-        "displayType": "LAYOUT_50_50",
-        "displayOrder": 28,
-        "dashboardConfig": {
-          "groupByConcept": "Audiometry, Audiometry date",
-          "templateName": "Audiometry Template",
-          "conceptNames": [
-            "Audiometry, Type of assessment",
-            "Audiometry, Right ear at 1000Hz",
-            "Audiometry, Right ear at 2000Hz",
-            "Audiometry, Right ear at 4000Hz",
-            "Audiometry, Right ear at 8000Hz"            
-          ]
-        }
-      },
       "BaselineBPNSDisplayleft": {
         "translationKey": "SUMMARY_TITLE_BASELINE_BPNS_LEFT",
         "type": "obsToObsFlowSheet",
         "headingConceptSource": "Abbreviation",
         "dataConceptSource": "Abbreviation",
-        "displayType": "LAYOUT_50_50",
-        "displayOrder": 29,
+        "displayType": "Full-Page",
+        "displayOrder": 27,
         "dashboardConfig": {
           "groupByConcept": "Baseline, Date of baseline physical examination",
           "templateName": "Baseline, Clinical Examination",
@@ -740,8 +702,8 @@
         "type": "obsToObsFlowSheet",
         "headingConceptSource": "Abbreviation",
         "dataConceptSource": "Abbreviation",
-        "displayType": "LAYOUT_50_50",
-        "displayOrder": 30,
+        "displayType": "Full-Page",
+        "displayOrder": 28,
         "dashboardConfig": {
           "groupByConcept": "Baseline, Date of baseline physical examination",
           "templateName": "Baseline, Clinical Examination",
@@ -754,12 +716,44 @@
           ]
         }
       },
+      "BaselineAcuityDisplay": {
+        "translationKey": "SUMMARY_TITLE_BASELINE_ACUITY",
+        "type": "obsToObsFlowSheet",
+        "headingConceptSource": "Abbreviation",
+        "dataConceptSource": "Abbreviation",
+        "displayType": "Full-Page",
+        "displayOrder": 29,
+        "dashboardConfig": {
+          "groupByConcept": "Baseline, Date of baseline physical examination",
+          "templateName": "Baseline, Clinical Examination",
+          "conceptNames": [
+            "Visual acuity, left eye",
+            "Visual acuity, right eye"            
+          ]
+        }
+      },
+      "BaselineIshiharaDisplay": {
+        "translationKey": "SUMMARY_TITLE_BASELINE_ISHIHARA",
+        "type": "obsToObsFlowSheet",
+        "headingConceptSource": "Abbreviation",
+        "dataConceptSource": "Abbreviation",
+        "displayType": "Full-Page",
+        "displayOrder": 30,
+        "dashboardConfig": {
+          "groupByConcept": "Baseline, Date of baseline physical examination",
+          "templateName": "Baseline, Clinical Examination",
+          "conceptNames": [
+            "Baseline, Left Eye Correct Plates",
+            "Baseline, Right Eye Correct Plates"            
+          ]
+        }
+      },
       "FollowupBPNSDisplayLeft": {
         "translationKey": "SUMMARY_TITLE_Followup_BPNS_LEFT",
         "type": "obsToObsFlowSheet",
         "headingConceptSource": "Abbreviation",
         "dataConceptSource": "Abbreviation",
-        "displayType": "LAYOUT_50_50",
+        "displayType": "Full-Page",
         "displayOrder": 31,
         "dashboardConfig": {
           "groupByConcept": "Followup, Visit Date",
@@ -778,7 +772,7 @@
         "type": "obsToObsFlowSheet",
         "headingConceptSource": "Abbreviation",
         "dataConceptSource": "Abbreviation",
-        "displayType": "LAYOUT_50_50",
+        "displayType": "Full-Page",
         "displayOrder": 32,
         "dashboardConfig": {
           "groupByConcept": "Followup, Visit Date",
@@ -797,46 +791,14 @@
         "type": "obsToObsFlowSheet",
         "headingConceptSource": "Abbreviation",
         "dataConceptSource": "Abbreviation",
-        "displayType": "LAYOUT_50_50",
-        "displayOrder": 34,
+        "displayType": "Full-Page",
+        "displayOrder": 33,
         "dashboardConfig": {
           "groupByConcept": "Followup, Visit Date",
           "templateName": "Followup Template",
           "conceptNames": [
             "Visual acuity, left eye",
             "Visual acuity, right eye"            
-          ]
-        }
-      },
-      "BaselineAcuityDisplay": {
-        "translationKey": "SUMMARY_TITLE_BASELINE_ACUITY",
-        "type": "obsToObsFlowSheet",
-        "headingConceptSource": "Abbreviation",
-        "dataConceptSource": "Abbreviation",
-        "displayType": "LAYOUT_50_50",
-        "displayOrder": 33,
-        "dashboardConfig": {
-          "groupByConcept": "Baseline, Date of baseline physical examination",
-          "templateName": "Baseline, Clinical Examination",
-          "conceptNames": [
-            "Visual acuity, left eye",
-            "Visual acuity, right eye"            
-          ]
-        }
-      },
-      "BaselineIshiharaDisplay": {
-        "translationKey": "SUMMARY_TITLE_BASELINE_ISHIHARA",
-        "type": "obsToObsFlowSheet",
-        "headingConceptSource": "Abbreviation",
-        "dataConceptSource": "Abbreviation",
-        "displayType": "LAYOUT_50_50",
-        "displayOrder": 35,
-        "dashboardConfig": {
-          "groupByConcept": "Baseline, Date of baseline physical examination",
-          "templateName": "Baseline, Clinical Examination",
-          "conceptNames": [
-            "Baseline, Left Eye Correct Plates",
-            "Baseline, Right Eye Correct Plates"            
           ]
         }
       },
@@ -845,8 +807,8 @@
         "type": "obsToObsFlowSheet",
         "headingConceptSource": "Abbreviation",
         "dataConceptSource": "Abbreviation",
-        "displayType": "LAYOUT_50_50",
-        "displayOrder": 36,
+        "displayType": "Full-Page",
+        "displayOrder": 34,
         "dashboardConfig": {
           "groupByConcept": "Followup, Visit Date",
           "templateName": "Followup Template",
@@ -855,7 +817,45 @@
             "Followup, Right Eye Correct Plates"            
           ]
         }
-      }
+      },
+      "AudioMetryDisplayLeft": {
+        "translationKey": "SUMMARY_TITLE_AUDIOMETRY_LEFT",
+        "type": "obsToObsFlowSheet",
+        "headingConceptSource": "Abbreviation",
+        "dataConceptSource": "Abbreviation",
+        "displayType": "Full-Page",
+        "displayOrder": 35,
+        "dashboardConfig": {
+          "groupByConcept": "Audiometry, Audiometry date",
+          "templateName": "Audiometry Template",
+          "conceptNames": [
+            "Audiometry, Type of assessment",
+            "Audiometry, Left ear at 1000Hz",
+            "Audiometry, Left ear at 2000Hz",
+            "Audiometry, Left ear at 4000Hz",
+            "Audiometry, Left ear at 8000Hz"
+          ]
+        }
+      },
+      "AudioMetryDisplayRight": {
+        "translationKey": "SUMMARY_TITLE_AUDIOMETRY_RIGHT",
+        "type": "obsToObsFlowSheet",
+        "headingConceptSource": "Abbreviation",
+        "dataConceptSource": "Abbreviation",
+        "displayType": "Full-Page",
+        "displayOrder": 36,
+        "dashboardConfig": {
+          "groupByConcept": "Audiometry, Audiometry date",
+          "templateName": "Audiometry Template",
+          "conceptNames": [
+            "Audiometry, Type of assessment",
+            "Audiometry, Right ear at 1000Hz",
+            "Audiometry, Right ear at 2000Hz",
+            "Audiometry, Right ear at 4000Hz",
+            "Audiometry, Right ear at 8000Hz"            
+          ]
+        }
+      }     
     },
     "translationKey": "DASHBOARD_TAB_PATIENT_SUMMARY_KEY"
   },
