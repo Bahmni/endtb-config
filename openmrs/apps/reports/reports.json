@@ -211,7 +211,7 @@
     }
   },
   "StudyViewReport": {
-      "name": "Study View Report",
+      "name": "Study View Report (Custom Excel)",
       "type": "MRSGeneric",
       "config": {
         "sqlPath": "/var/www/bahmni_config/openmrs/apps/reports/sql/studyReports.sql",
