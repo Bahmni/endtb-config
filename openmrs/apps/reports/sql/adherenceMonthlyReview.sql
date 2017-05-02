@@ -1,90 +1,188 @@
 SELECT
-  t1.value_reference AS 'Registration Number',
-  t1.identifier AS 'EMR ID',
-  t1.indicator AS 'Indicator',
-  t1.`ttr cohort`,
-  DATE_FORMAT(t1.start_ttr,'%d/%b/%Y')  as 'Start ttr date',
-  GROUP_CONCAT(DISTINCT(IF(t1.name='Baseline, Drug resistance', coalesce(t1.concept_short_name, t1.concept_full_name), NULL ))) AS 'Drug Resistance',
-  GROUP_CONCAT(DISTINCT(IF(t1.name='Baseline, Subclassification for confimed drug resistant cases', coalesce(t1.concept_short_name, t1.concept_full_name), NULL ))) AS 'Drug Resistance Pattern',
-  GROUP_CONCAT(DISTINCT(IF (t1.name='EOT, Outcome', coalesce(t1.concept_short_name, t1.concept_full_name), NULL ))) AS 'Ttr Outcome',
-  GROUP_CONCAT(DISTINCT(IF (t1.name='Tuberculosis treatment end date', DATE_FORMAT(t1.value_datetime,'%d/%b/%Y'), NULL ))) AS 'End of ttr Date',
-  GROUP_CONCAT(DISTINCT(IF (t1.name='EOT, End of Treatment Outcome date', DATE_FORMAT(t1.value_datetime,'%d/%b/%Y'), NULL ))) AS 'Ttr outcome date',
-  Min(IF (t1.name='Tuberculosis treatment end date',TRUNCATE(TIMESTAMPDIFF(DAY,t1.start_ttr, t1.value_datetime)/30.5, 1), TRUNCATE(TIMESTAMPDIFF(DAY,t1.start_ttr, NOW())/30.5, 1) )) AS 'Ttr duration',
-  MAX(M1) AS 'M1',  MAX(M2) AS 'M2', MAX(M3) AS 'M3', MAX(M4) AS 'M4', MAX(M5) AS 'M5', MAX(M6) AS 'M6',
-  MAX(M7) AS 'M7',  MAX(M8) AS 'M8', MAX(M9) AS 'M9', MAX(M10) AS 'M10', MAX(M11) AS 'M11', MAX(M12) AS 'M12',
-  MAX(M13) AS 'M13',  MAX(M14) AS 'M14', MAX(M15) AS 'M15', MAX(M16) AS 'M16', MAX(M17) AS 'M17', MAX(M18) AS 'M18',
-  MAX(M19) AS 'M19',  MAX(M20) AS 'M20', MAX(M21) AS 'M21', MAX(M22) AS 'M22', MAX(M23) AS 'M23', MAX(M24) AS 'M24',
-  MAX(M25) AS 'M25',  MAX(M26) AS 'M26', MAX(M27) AS 'M27', MAX(M28) AS 'M28', MAX(M29) AS 'M29', MAX(M30) AS 'M30',
-  MAX(M31) AS 'M31',  MAX(M32) AS 'M32', MAX(M33) AS 'M33', MAX(M34) AS 'M34', MAX(M35) AS 'M35', MAX(M36) AS 'M36'
-FROM
-   (SELECT
-      ppa.value_reference,
-      pi.identifier ,
-      COALESCE (cn1.concept_short_name,cn1.concept_full_name) as 'indicator',
-      indicatorObs.value_numeric,
-      CONCAT(DATE_FORMAT(o.value_datetime, '%Y'), QUARTER(o.value_datetime)) as 'ttr cohort',
-      o.value_datetime as 'start_ttr',
-      ttr_cn.name as name,
-      ttr_cv.concept_short_name as concept_short_name,
-      ttr_cv.concept_full_name as concept_full_name,
-      ttr_obs.value_datetime as value_datetime,
-      indicatorObs.obs_datetime as obs_datetime,
-      ee.episode_id,
-      cn1.concept_id as concept1,
-      o.concept_id as concept2,
-      if((EXTRACT(YEAR FROM indicatorObs.obs_datetime) - (EXTRACT(YEAR FROM o.value_datetime)))*12 + (EXTRACT(MONTH FROM indicatorObs.obs_datetime) - (EXTRACT(MONTH FROM o.value_datetime))) = 0, indicatorObs.value_numeric,NULL)   AS 'M1',
-      if((EXTRACT(YEAR FROM indicatorObs.obs_datetime) - (EXTRACT(YEAR FROM o.value_datetime)))*12 + EXTRACT(MONTH FROM indicatorObs.obs_datetime) - (EXTRACT(MONTH FROM o.value_datetime)) = 1, indicatorObs.value_numeric,NULL)   AS 'M2',
-      if((EXTRACT(YEAR FROM indicatorObs.obs_datetime) - (EXTRACT(YEAR FROM o.value_datetime)))*12 + EXTRACT(MONTH FROM indicatorObs.obs_datetime) - (EXTRACT(MONTH FROM o.value_datetime)) = 2, indicatorObs.value_numeric,NULL)   AS 'M3',
-      if((EXTRACT(YEAR FROM indicatorObs.obs_datetime) - (EXTRACT(YEAR FROM o.value_datetime)))*12 + EXTRACT(MONTH FROM indicatorObs.obs_datetime) - (EXTRACT(MONTH FROM o.value_datetime)) = 3, indicatorObs.value_numeric,NULL)   AS 'M4',
-      if((EXTRACT(YEAR FROM indicatorObs.obs_datetime) - (EXTRACT(YEAR FROM o.value_datetime)))*12 + EXTRACT(MONTH FROM indicatorObs.obs_datetime) - (EXTRACT(MONTH FROM o.value_datetime)) = 4, indicatorObs.value_numeric,NULL)   AS 'M5',
-      if((EXTRACT(YEAR FROM indicatorObs.obs_datetime) - (EXTRACT(YEAR FROM o.value_datetime)))*12 + EXTRACT(MONTH FROM indicatorObs.obs_datetime) - (EXTRACT(MONTH FROM o.value_datetime)) = 5, indicatorObs.value_numeric,NULL)   AS 'M6',
-      if((EXTRACT(YEAR FROM indicatorObs.obs_datetime) - (EXTRACT(YEAR FROM o.value_datetime)))*12 + EXTRACT(MONTH FROM indicatorObs.obs_datetime) - (EXTRACT(MONTH FROM o.value_datetime)) = 6, indicatorObs.value_numeric,NULL)   AS 'M7',
-      if((EXTRACT(YEAR FROM indicatorObs.obs_datetime) - (EXTRACT(YEAR FROM o.value_datetime)))*12 + EXTRACT(MONTH FROM indicatorObs.obs_datetime) - (EXTRACT(MONTH FROM o.value_datetime)) = 7, indicatorObs.value_numeric,NULL)   AS 'M8',
-      if((EXTRACT(YEAR FROM indicatorObs.obs_datetime) - (EXTRACT(YEAR FROM o.value_datetime)))*12 + EXTRACT(MONTH FROM indicatorObs.obs_datetime) - (EXTRACT(MONTH FROM o.value_datetime)) = 8, indicatorObs.value_numeric,NULL)   AS 'M9',
-      if((EXTRACT(YEAR FROM indicatorObs.obs_datetime) - (EXTRACT(YEAR FROM o.value_datetime)))*12 + EXTRACT(MONTH FROM indicatorObs.obs_datetime) - (EXTRACT(MONTH FROM o.value_datetime)) = 9, indicatorObs.value_numeric,NULL)   AS 'M10',
-      if((EXTRACT(YEAR FROM indicatorObs.obs_datetime) - (EXTRACT(YEAR FROM o.value_datetime)))*12 + EXTRACT(MONTH FROM indicatorObs.obs_datetime) - (EXTRACT(MONTH FROM o.value_datetime)) = 10, indicatorObs.value_numeric,NULL)   AS 'M11',
-      if((EXTRACT(YEAR FROM indicatorObs.obs_datetime) - (EXTRACT(YEAR FROM o.value_datetime)))*12 + EXTRACT(MONTH FROM indicatorObs.obs_datetime) - (EXTRACT(MONTH FROM o.value_datetime)) = 11, indicatorObs.value_numeric,NULL)   AS 'M12',
-      if((EXTRACT(YEAR FROM indicatorObs.obs_datetime) - (EXTRACT(YEAR FROM o.value_datetime)))*12 + EXTRACT(MONTH FROM indicatorObs.obs_datetime) - (EXTRACT(MONTH FROM o.value_datetime)) = 12, indicatorObs.value_numeric,NULL)   AS 'M13',
-      if((EXTRACT(YEAR FROM indicatorObs.obs_datetime) - (EXTRACT(YEAR FROM o.value_datetime)))*12 + EXTRACT(MONTH FROM indicatorObs.obs_datetime) - (EXTRACT(MONTH FROM o.value_datetime)) = 13, indicatorObs.value_numeric,NULL)   AS 'M14',
-      if((EXTRACT(YEAR FROM indicatorObs.obs_datetime) - (EXTRACT(YEAR FROM o.value_datetime)))*12 + EXTRACT(MONTH FROM indicatorObs.obs_datetime) - (EXTRACT(MONTH FROM o.value_datetime)) = 14, indicatorObs.value_numeric,NULL)   AS 'M15',
-      if((EXTRACT(YEAR FROM indicatorObs.obs_datetime) - (EXTRACT(YEAR FROM o.value_datetime)))*12 + EXTRACT(MONTH FROM indicatorObs.obs_datetime) - (EXTRACT(MONTH FROM o.value_datetime)) = 15, indicatorObs.value_numeric,NULL)   AS 'M16',
-      if((EXTRACT(YEAR FROM indicatorObs.obs_datetime) - (EXTRACT(YEAR FROM o.value_datetime)))*12 + EXTRACT(MONTH FROM indicatorObs.obs_datetime) - (EXTRACT(MONTH FROM o.value_datetime)) = 16, indicatorObs.value_numeric,NULL)   AS 'M17',
-      if((EXTRACT(YEAR FROM indicatorObs.obs_datetime) - (EXTRACT(YEAR FROM o.value_datetime)))*12 + EXTRACT(MONTH FROM indicatorObs.obs_datetime) - (EXTRACT(MONTH FROM o.value_datetime)) = 17, indicatorObs.value_numeric,NULL)   AS 'M18',
-      if((EXTRACT(YEAR FROM indicatorObs.obs_datetime) - (EXTRACT(YEAR FROM o.value_datetime)))*12 + EXTRACT(MONTH FROM indicatorObs.obs_datetime) - (EXTRACT(MONTH FROM o.value_datetime)) = 18, indicatorObs.value_numeric,NULL)   AS 'M19',
-      if((EXTRACT(YEAR FROM indicatorObs.obs_datetime) - (EXTRACT(YEAR FROM o.value_datetime)))*12 + EXTRACT(MONTH FROM indicatorObs.obs_datetime) - (EXTRACT(MONTH FROM o.value_datetime)) = 19, indicatorObs.value_numeric,NULL)   AS 'M20',
-      if((EXTRACT(YEAR FROM indicatorObs.obs_datetime) - (EXTRACT(YEAR FROM o.value_datetime)))*12 + EXTRACT(MONTH FROM indicatorObs.obs_datetime) - (EXTRACT(MONTH FROM o.value_datetime)) = 20, indicatorObs.value_numeric,NULL)   AS 'M21',
-      if((EXTRACT(YEAR FROM indicatorObs.obs_datetime) - (EXTRACT(YEAR FROM o.value_datetime)))*12 + EXTRACT(MONTH FROM indicatorObs.obs_datetime) - (EXTRACT(MONTH FROM o.value_datetime)) = 21, indicatorObs.value_numeric,NULL)   AS 'M22',
-      if((EXTRACT(YEAR FROM indicatorObs.obs_datetime) - (EXTRACT(YEAR FROM o.value_datetime)))*12 + EXTRACT(MONTH FROM indicatorObs.obs_datetime) - (EXTRACT(MONTH FROM o.value_datetime)) = 22, indicatorObs.value_numeric,NULL)   AS 'M23',
-      if((EXTRACT(YEAR FROM indicatorObs.obs_datetime) - (EXTRACT(YEAR FROM o.value_datetime)))*12 + EXTRACT(MONTH FROM indicatorObs.obs_datetime) - (EXTRACT(MONTH FROM o.value_datetime)) = 23, indicatorObs.value_numeric,NULL)   AS 'M24',
-      if((EXTRACT(YEAR FROM indicatorObs.obs_datetime) - (EXTRACT(YEAR FROM o.value_datetime)))*12 + EXTRACT(MONTH FROM indicatorObs.obs_datetime) - (EXTRACT(MONTH FROM o.value_datetime)) = 24, indicatorObs.value_numeric,NULL)   AS 'M25',
-      if((EXTRACT(YEAR FROM indicatorObs.obs_datetime) - (EXTRACT(YEAR FROM o.value_datetime)))*12 + EXTRACT(MONTH FROM indicatorObs.obs_datetime) - (EXTRACT(MONTH FROM o.value_datetime)) = 25, indicatorObs.value_numeric,NULL)   AS 'M26',
-      if((EXTRACT(YEAR FROM indicatorObs.obs_datetime) - (EXTRACT(YEAR FROM o.value_datetime)))*12 + EXTRACT(MONTH FROM indicatorObs.obs_datetime) - (EXTRACT(MONTH FROM o.value_datetime)) = 26, indicatorObs.value_numeric,NULL)   AS 'M27',
-      if((EXTRACT(YEAR FROM indicatorObs.obs_datetime) - (EXTRACT(YEAR FROM o.value_datetime)))*12 + EXTRACT(MONTH FROM indicatorObs.obs_datetime) - (EXTRACT(MONTH FROM o.value_datetime)) = 27, indicatorObs.value_numeric,NULL)   AS 'M28',
-      if((EXTRACT(YEAR FROM indicatorObs.obs_datetime) - (EXTRACT(YEAR FROM o.value_datetime)))*12 + EXTRACT(MONTH FROM indicatorObs.obs_datetime) - (EXTRACT(MONTH FROM o.value_datetime)) = 28, indicatorObs.value_numeric,NULL)   AS 'M29',
-      if((EXTRACT(YEAR FROM indicatorObs.obs_datetime) - (EXTRACT(YEAR FROM o.value_datetime)))*12 + EXTRACT(MONTH FROM indicatorObs.obs_datetime) - (EXTRACT(MONTH FROM o.value_datetime)) = 29, indicatorObs.value_numeric,NULL)   AS 'M30',
-      if((EXTRACT(YEAR FROM indicatorObs.obs_datetime) - (EXTRACT(YEAR FROM o.value_datetime)))*12 + EXTRACT(MONTH FROM indicatorObs.obs_datetime) - (EXTRACT(MONTH FROM o.value_datetime)) = 30, indicatorObs.value_numeric,NULL)   AS 'M31',
-      if((EXTRACT(YEAR FROM indicatorObs.obs_datetime) - (EXTRACT(YEAR FROM o.value_datetime)))*12 + EXTRACT(MONTH FROM indicatorObs.obs_datetime) - (EXTRACT(MONTH FROM o.value_datetime)) = 31, indicatorObs.value_numeric,NULL)   AS 'M32',
-      if((EXTRACT(YEAR FROM indicatorObs.obs_datetime) - (EXTRACT(YEAR FROM o.value_datetime)))*12 + EXTRACT(MONTH FROM indicatorObs.obs_datetime) - (EXTRACT(MONTH FROM o.value_datetime)) = 32, indicatorObs.value_numeric,NULL)   AS 'M33',
-      if((EXTRACT(YEAR FROM indicatorObs.obs_datetime) - (EXTRACT(YEAR FROM o.value_datetime)))*12 + EXTRACT(MONTH FROM indicatorObs.obs_datetime) - (EXTRACT(MONTH FROM o.value_datetime)) = 33, indicatorObs.value_numeric,NULL)   AS 'M34',
-      if((EXTRACT(YEAR FROM indicatorObs.obs_datetime) - (EXTRACT(YEAR FROM o.value_datetime)))*12 + EXTRACT(MONTH FROM indicatorObs.obs_datetime) - (EXTRACT(MONTH FROM o.value_datetime)) = 34, indicatorObs.value_numeric,NULL)   AS 'M35',
-      if((EXTRACT(YEAR FROM indicatorObs.obs_datetime) - (EXTRACT(YEAR FROM o.value_datetime)))*12 + EXTRACT(MONTH FROM indicatorObs.obs_datetime) - (EXTRACT(MONTH FROM o.value_datetime)) = 35, indicatorObs.value_numeric,NULL)   AS 'M36'
-FROM
-  obs o
-  INNER JOIN concept_name cn ON o.concept_id = cn.concept_id AND cn.concept_name_type='FULLY_SPECIFIED' AND cn.name='TUBERCULOSIS DRUG TREATMENT START DATE' AND o.voided=0
-  INNER JOIN episode_encounter ee ON ee.encounter_id=o.encounter_id
-  LEFT JOIN concept_view cn1 ON cn1.concept_full_name IN ('MTC, Overall DOT Rate','MTC, Adherence rate','MTC, Completeness rate')
-  LEFT JOIN obs indicatorObs ON indicatorObs.person_id=o.person_id AND indicatorObs.voided=0 AND indicatorObs.concept_id = cn1.concept_id
-  INNER JOIN episode_encounter ee1 ON ee1.episode_id = ee.episode_id AND ee1.encounter_id=indicatorObs.encounter_id
-  LEFT JOIN obs ttr_obs ON ttr_obs.person_id = o.person_id and ttr_obs.voided=0
-  LEFT JOIN concept_name ttr_cn ON ttr_obs.concept_id = ttr_cn.concept_id AND ttr_cn.concept_name_type='FULLY_SPECIFIED' AND ttr_cn.name in ('Baseline, Drug resistance','Baseline, Subclassification for confimed drug resistant cases', 'EOT, Outcome', 'Tuberculosis treatment end date','EOT, End of Treatment Outcome date')  AND ttr_obs.voided=0
-  LEFT JOIN concept_view ttr_cv ON ttr_cv.concept_id=ttr_obs.value_coded
-  INNER JOIN episode_encounter ee2 ON ee2.episode_id = ee.episode_id AND ee2.encounter_id=ttr_obs.encounter_id
-  INNER JOIN episode_patient_program epp ON ee.episode_id=epp.episode_id
-  INNER JOIN patient_program pp ON pp.patient_program_id = epp.patient_program_id and pp.voided = 0
-  INNER JOIN patient_program_attribute ppa ON ppa.patient_program_id=epp.patient_program_id
-  INNER JOIN program_attribute_type pat ON pat.program_attribute_type_id=ppa.attribute_type_id AND pat.name='Registration Number'
-  INNER JOIN patient_identifier pi ON pi.patient_id = o.person_id
-WHERE o.value_datetime BETWEEN '#startDate#' AND '#endDate#') t1
-
-GROUP BY t1.episode_id, t1.concept1, t1.concept2;
-
+	registrationNumber AS 'Registration Number',
+	emrId AS 'EMR ID',
+	indicator AS 'Indicator',
+	ttrCohort AS 'Ttr Cohort',
+	startTtrDate AS 'Start Ttr Date',
+	drugResistance AS 'Drug Resistance',
+	drugResistancePattern AS 'Drug Resistance Pattern',
+	ttrOutcome AS 'Ttr Outcome',
+	endOfTtrDate AS 'End Of Ttr Date',
+	ttrOutcomeDate AS 'Ttr Outcome Date',
+	ttrDuration AS 'Ttr Duration',
+    MAX(IF(monthSinceStart =  0, indicatorValue ,NULL)) AS 'M1',
+    MAX(IF(monthSinceStart =  1, indicatorValue ,NULL)) AS 'M2',
+    MAX(IF(monthSinceStart =  2, indicatorValue ,NULL)) AS 'M3',
+    MAX(IF(monthSinceStart =  3, indicatorValue ,NULL)) AS 'M4',
+    MAX(IF(monthSinceStart =  4, indicatorValue ,NULL)) AS 'M5',
+    MAX(IF(monthSinceStart =  5, indicatorValue ,NULL)) AS 'M6',
+    MAX(IF(monthSinceStart =  6, indicatorValue ,NULL)) AS 'M7',
+    MAX(IF(monthSinceStart =  7, indicatorValue ,NULL)) AS 'M8',
+    MAX(IF(monthSinceStart =  8, indicatorValue ,NULL)) AS 'M9',
+    MAX(IF(monthSinceStart =  9, indicatorValue ,NULL)) AS 'M10',
+    MAX(IF(monthSinceStart = 10, indicatorValue ,NULL)) AS 'M11',
+    MAX(IF(monthSinceStart = 11, indicatorValue ,NULL)) AS 'M12',
+    MAX(IF(monthSinceStart = 12, indicatorValue ,NULL)) AS 'M13',
+    MAX(IF(monthSinceStart = 13, indicatorValue ,NULL)) AS 'M14',
+    MAX(IF(monthSinceStart = 14, indicatorValue ,NULL)) AS 'M15',
+    MAX(IF(monthSinceStart = 15, indicatorValue ,NULL)) AS 'M16',
+    MAX(IF(monthSinceStart = 16, indicatorValue ,NULL)) AS 'M17',
+    MAX(IF(monthSinceStart = 17, indicatorValue ,NULL)) AS 'M18',
+    MAX(IF(monthSinceStart = 18, indicatorValue ,NULL)) AS 'M19',
+    MAX(IF(monthSinceStart = 19, indicatorValue ,NULL)) AS 'M20',
+    MAX(IF(monthSinceStart = 20, indicatorValue ,NULL)) AS 'M21',
+    MAX(IF(monthSinceStart = 21, indicatorValue ,NULL)) AS 'M22',
+    MAX(IF(monthSinceStart = 22, indicatorValue ,NULL)) AS 'M23',
+    MAX(IF(monthSinceStart = 23, indicatorValue ,NULL)) AS 'M24',
+    MAX(IF(monthSinceStart = 24, indicatorValue ,NULL)) AS 'M25',
+    MAX(IF(monthSinceStart = 25, indicatorValue ,NULL)) AS 'M26',
+    MAX(IF(monthSinceStart = 26, indicatorValue ,NULL)) AS 'M27',
+    MAX(IF(monthSinceStart = 27, indicatorValue ,NULL)) AS 'M28',
+    MAX(IF(monthSinceStart = 28, indicatorValue ,NULL)) AS 'M29',
+    MAX(IF(monthSinceStart = 29, indicatorValue ,NULL)) AS 'M30',
+    MAX(IF(monthSinceStart = 30, indicatorValue ,NULL)) AS 'M31',
+    MAX(IF(monthSinceStart = 31, indicatorValue ,NULL)) AS 'M32',
+    MAX(IF(monthSinceStart = 32, indicatorValue ,NULL)) AS 'M33',
+    MAX(IF(monthSinceStart = 33, indicatorValue ,NULL)) AS 'M34',
+    MAX(IF(monthSinceStart = 34, indicatorValue ,NULL)) AS 'M35',
+    MAX(IF(monthSinceStart = 35, indicatorValue ,NULL)) AS 'M36'
+FROM (
+	SELECT
+		registration_number.value_reference AS registrationNumber,
+		pi.identifier AS emrId,
+		monthlyTreatmentData.conceptName AS indicator,
+		CONCAT(DATE_FORMAT(treatment_start_date.value_datetime, '%Y'), QUARTER(treatment_start_date.value_datetime)) as ttrCohort,
+		DATE_FORMAT(treatment_start_date.value_datetime,'%d/%b/%Y') AS startTtrDate,
+		baseline_drug_resistance.name AS drugResistance,
+		baseline_subclassification.name AS drugResistancePattern,
+		treatment_outcome.name AS ttrOutcome,
+		DATE_FORMAT(treatment_end_date.value_datetime,'%d/%b/%Y') AS endOfTtrDate,
+		DATE_FORMAT(treatment_outcome_date.value_datetime,'%d/%b/%Y') AS ttrOutcomeDate,
+		IF(
+			treatment_end_date.value_datetime,
+			TRUNCATE(TIMESTAMPDIFF(DAY, treatment_start_date.value_datetime, treatment_end_date.value_datetime)/30.5, 1),
+			TRUNCATE(TIMESTAMPDIFF(DAY,treatment_start_date.value_datetime, NOW())/30.5, 1)
+		) AS ttrDuration,
+		(
+			12 * (EXTRACT(YEAR FROM monthlyTreatmentData.obs_datetime) - EXTRACT(YEAR FROM treatment_start_date.value_datetime)) +
+			EXTRACT(MONTH FROM monthlyTreatmentData.obs_datetime) - EXTRACT(MONTH FROM treatment_start_date.value_datetime)
+		) AS monthSinceStart,
+		monthlyTreatmentData.value_numeric AS indicatorValue
+	FROM
+		patient_identifier pi
+	INNER JOIN patient_program pp ON pp.patient_id = pi.patient_id
+	INNER JOIN episode_patient_program epp ON epp.patient_program_id = pp.patient_program_id
+	INNER JOIN (
+		SELECT
+			ppa.patient_program_id,
+			ppa.value_reference
+		FROM
+			patient_program_attribute ppa
+		INNER JOIN program_attribute_type pat ON pat.program_attribute_type_id = ppa.attribute_type_id
+		AND ppa.voided IS FALSE
+		AND pat. NAME = 'Registration Number'
+	) registration_number ON registration_number.patient_program_id = pp.patient_program_id
+	LEFT OUTER JOIN (
+		SELECT
+			ee.episode_id,
+			o.value_datetime
+		FROM
+			obs o
+		INNER JOIN concept_view cv ON cv.concept_id = o.concept_id
+		AND o.voided IS FALSE
+		AND cv.concept_full_name = 'TUBERCULOSIS DRUG TREATMENT START DATE'
+		INNER JOIN episode_encounter ee ON ee.encounter_id = o.encounter_id
+	) treatment_start_date ON treatment_start_date.episode_id = epp.episode_id
+	LEFT OUTER JOIN (
+		SELECT
+			ee.episode_id,
+			COALESCE(cv.concept_short_name, cv.concept_full_name) AS name
+		FROM
+			obs o
+		INNER JOIN concept_name cn ON cn.concept_id = o.concept_id
+		AND o.voided IS FALSE
+		AND cn.concept_name_type='FULLY_SPECIFIED' AND cn.name = 'Baseline, Drug resistance'
+		INNER JOIN concept_view cv ON cv.concept_id = o.value_coded
+		INNER JOIN episode_encounter ee ON ee.encounter_id = o.encounter_id
+	) baseline_drug_resistance ON baseline_drug_resistance.episode_id = epp.episode_id
+	LEFT OUTER JOIN (
+		SELECT
+			ee.episode_id,
+			COALESCE(cv.concept_short_name, cv.concept_full_name) AS name
+		FROM
+			obs o
+		INNER JOIN concept_name cn ON cn.concept_id = o.concept_id
+		AND o.voided IS FALSE
+		AND cn.concept_name_type='FULLY_SPECIFIED' AND cn.name = 'Baseline, Subclassification for confimed drug resistant cases'
+		INNER JOIN concept_view cv ON cv.concept_id = o.value_coded
+		INNER JOIN episode_encounter ee ON ee.encounter_id = o.encounter_id
+	) baseline_subclassification ON baseline_subclassification.episode_id = epp.episode_id
+	LEFT OUTER JOIN (
+		SELECT
+			ee.episode_id,
+			COALESCE(cv.concept_short_name, cv.concept_full_name) AS name
+		FROM
+			obs o
+		INNER JOIN concept_name cn ON cn.concept_id = o.concept_id
+		AND o.voided IS FALSE
+		AND cn.concept_name_type='FULLY_SPECIFIED' AND cn.name = 'EOT, Outcome'
+		INNER JOIN concept_view cv ON cv.concept_id = o.value_coded
+		INNER JOIN episode_encounter ee ON ee.encounter_id = o.encounter_id
+	) treatment_outcome ON treatment_outcome.episode_id = epp.episode_id
+	LEFT OUTER JOIN (
+		SELECT
+			ee.episode_id,
+			o.value_datetime
+		FROM
+			obs o
+		INNER JOIN concept_name cn ON cn.concept_id = o.concept_id
+		AND o.voided IS FALSE
+		AND cn.concept_name_type='FULLY_SPECIFIED' AND cn.name = 'Tuberculosis treatment end date'
+		INNER JOIN episode_encounter ee ON ee.encounter_id = o.encounter_id
+	) treatment_end_date ON treatment_end_date.episode_id = epp.episode_id
+	LEFT OUTER JOIN (
+		SELECT
+			ee.episode_id,
+			o.value_datetime
+		FROM
+			obs o
+		INNER JOIN concept_name cn ON cn.concept_id = o.concept_id
+		AND o.voided IS FALSE
+		AND cn.concept_name_type='FULLY_SPECIFIED' AND cn.name = 'EOT, End of Treatment Outcome date'
+		INNER JOIN episode_encounter ee ON ee.encounter_id = o.encounter_id
+	) treatment_outcome_date ON treatment_outcome_date.episode_id = epp.episode_id
+	LEFT OUTER JOIN (
+		SELECT
+			ee.episode_id,
+			COALESCE(cv.concept_short_name, cv.concept_full_name) AS conceptName,
+			o.obs_datetime,
+			o.value_numeric
+		FROM
+			obs o
+		INNER JOIN concept_view cv ON cv.concept_id = o.concept_id
+		AND o.voided IS FALSE
+		AND cv.concept_full_name IN (
+			'MTC, Overall DOT Rate',
+			'MTC, Adherence rate',
+			'MTC, Completeness rate'
+		)
+		INNER JOIN episode_encounter ee ON ee.encounter_id = o.encounter_id
+	) monthlyTreatmentData ON monthlyTreatmentData.episode_id = epp.episode_id
+	WHERE
+		treatment_start_date.value_datetime BETWEEN '#startDate#' AND '#endDate#'
+) subquery
+GROUP BY
+	registrationNumber,
+	emrId,
+	indicator,
+	ttrCohort,
+	startTtrDate,
+	drugResistance,
+	drugResistancePattern,
+	ttrOutcome,
+	endOfTtrDate,
+	ttrOutcomeDate,
+	ttrDuration
+ORDER BY
+	registrationNumber,
+	indicator
