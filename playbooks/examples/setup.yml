@@ -1,4 +1,4 @@
-bahmni_repo_url: http://repo.mybahmni.org.s3.amazonaws.com/rpm/bahmni/
+bahmni_repo_url: https://dl.bintray.com/bahmni/rpm/
 implementation_name: endtb
 timezone: Asia/Kolkata
 omods: ["https://s3.amazonaws.com/endtb-artifacts/2.0.0/bahmniendtb-2.0.0.omod", "https://modules.openmrs.org/modulus/api/releases/1545/download/dataintegrity-4.2.3.omod", "https://s3.amazonaws.com/endtb-artifacts/1.6/bahmnicore-omod-0.88-SNAPSHOT.omod", "https://s3.amazonaws.com/endtb-artifacts/1.1/bacteriology-1.1-SNAPSHOT.omod"]
