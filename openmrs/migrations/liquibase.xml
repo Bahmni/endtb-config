@@ -2277,4 +2277,97 @@
 
         </sql>
     </changeSet>
+    <changeSet id = "ENDTB-201705230247" author="Sudhamsh">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="3">
+                SELECT 
+                    COUNT(*)
+                FROM
+                    concept_reference_map
+                WHERE
+                    concept_id IN (SELECT 
+                            concept_id
+                        FROM
+                            concept_view
+                        WHERE
+                            concept_full_name IN ('Financial problem','Social problem','Related to work'))
+                        AND concept_reference_term_id IN (SELECT 
+                            concept_reference_term_id
+                        FROM
+                            concept_reference_term
+                        WHERE
+                            code IN (3,2,4));                
+            </sqlCheck>
+        </preConditions>
+        <comment> Changing export code for Related to work, Social problem, Financial problem</comment>
+        <sql>
+            UPDATE concept_reference_map crm
+                    INNER JOIN
+                concept_name cn ON cn.concept_id = crm.concept_id
+                    INNER JOIN
+                concept_reference_term crt ON crt.concept_reference_term_id = crm.concept_reference_term_id
+                    INNER JOIN
+                concept_reference_source crs ON crs.concept_source_id = crt.concept_source_id 
+            SET 
+                crm.concept_reference_term_id = (SELECT 
+                        crt.concept_reference_term_id
+                    FROM
+                        concept_reference_term crt
+                            INNER JOIN
+                        concept_reference_source crs ON crs.concept_source_id = crt.concept_source_id
+                    WHERE
+                        crs.name = 'EndTB-Export'
+                            AND crt.code = 2)
+            WHERE
+                crs.name = 'EndTB-Export'
+                    AND cn.concept_name_type = 'FULLY_SPECIFIED'
+                    AND cn.name = 'Related to work';
+
+
+            UPDATE concept_reference_map crm
+                    INNER JOIN
+                concept_name cn ON cn.concept_id = crm.concept_id
+                    INNER JOIN
+                concept_reference_term crt ON crt.concept_reference_term_id = crm.concept_reference_term_id
+                    INNER JOIN
+                concept_reference_source crs ON crs.concept_source_id = crt.concept_source_id 
+            SET 
+                crm.concept_reference_term_id = (SELECT 
+                        crt.concept_reference_term_id
+                    FROM
+                        concept_reference_term crt
+                            INNER JOIN
+                        concept_reference_source crs ON crs.concept_source_id = crt.concept_source_id
+                    WHERE
+                        crs.name = 'EndTB-Export'
+                            AND crt.code = 4)
+            WHERE
+                crs.name = 'EndTB-Export'
+                    AND cn.concept_name_type = 'FULLY_SPECIFIED'
+                    AND cn.name = 'Social problem';
+
+            UPDATE concept_reference_map crm
+                    INNER JOIN
+                concept_name cn ON cn.concept_id = crm.concept_id
+                    INNER JOIN
+                concept_reference_term crt ON crt.concept_reference_term_id = crm.concept_reference_term_id
+                    INNER JOIN
+                concept_reference_source crs ON crs.concept_source_id = crt.concept_source_id 
+            SET 
+                crm.concept_reference_term_id = (SELECT 
+                        crt.concept_reference_term_id
+                    FROM
+                        concept_reference_term crt
+                            INNER JOIN
+                        concept_reference_source crs ON crs.concept_source_id = crt.concept_source_id
+                    WHERE
+                        crs.name = 'EndTB-Export'
+                            AND crt.code = 5)
+            WHERE
+                crs.name = 'EndTB-Export'
+                    AND cn.concept_name_type = 'FULLY_SPECIFIED'
+                    AND cn.name = 'Financial problem';
+
+        </sql>
+    </changeSet>
 </databaseChangeLog>
