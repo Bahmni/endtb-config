@@ -2279,7 +2279,7 @@
     </changeSet>
     <changeSet id = "ENDTB-201705230247" author="Sudhamsh">
         <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="3">
+            <sqlCheck expectedResult >"0">
                 SELECT 
                     COUNT(*)
                 FROM
