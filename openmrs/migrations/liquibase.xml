@@ -2279,9 +2279,9 @@
     </changeSet>
     <changeSet id = "ENDTB-201705230247" author="Sudhamsh">
         <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult >"0">
+            <sqlCheck expectedResult = "1">
                 SELECT 
-                    COUNT(*)
+                    COUNT(*) != 0
                 FROM
                     concept_view cv
                         INNER JOIN
