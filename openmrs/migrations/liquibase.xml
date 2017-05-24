@@ -2290,11 +2290,11 @@
                     concept_reference_term crt ON crt.concept_reference_term_id = crm.concept_reference_term_id
                 WHERE
                     (cv.concept_full_name = 'Financial problem'
-                        AND crt.code != 5)
+                        AND crt.code != '5')
                         OR (cv.concept_full_name = 'Social problem'
-                        AND crt.code != 4)
+                        AND crt.code != '4')
                         OR (cv.concept_full_name = 'Related to work'
-                        AND crt.code != 2);
+                        AND crt.code != '2');
             </sqlCheck>
         </preConditions>
         <comment> Changing export code for Related to work, Social problem, Financial problem</comment>
@@ -2315,7 +2315,7 @@
                         concept_reference_source crs ON crs.concept_source_id = crt.concept_source_id
                     WHERE
                         crs.name = 'EndTB-Export'
-                            AND crt.code = 2)
+                            AND crt.code = '2')
             WHERE
                 crs.name = 'EndTB-Export'
                     AND cn.concept_name_type = 'FULLY_SPECIFIED'
@@ -2338,7 +2338,7 @@
                         concept_reference_source crs ON crs.concept_source_id = crt.concept_source_id
                     WHERE
                         crs.name = 'EndTB-Export'
-                            AND crt.code = 4)
+                            AND crt.code = '4')
             WHERE
                 crs.name = 'EndTB-Export'
                     AND cn.concept_name_type = 'FULLY_SPECIFIED'
@@ -2360,7 +2360,7 @@
                         concept_reference_source crs ON crs.concept_source_id = crt.concept_source_id
                     WHERE
                         crs.name = 'EndTB-Export'
-                            AND crt.code = 5)
+                            AND crt.code = '5')
             WHERE
                 crs.name = 'EndTB-Export'
                     AND cn.concept_name_type = 'FULLY_SPECIFIED'
