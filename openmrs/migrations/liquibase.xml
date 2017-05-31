@@ -2368,4 +2368,13 @@
 
         </sql>
     </changeSet>
+    <changeSet id="ENDTB-201705311203" author="Swathi">
+        <comment>Update old Xray, Type of assessment obs with value 6-month assessment to be Other assessment</comment>
+        <sql>
+            select concept_id into @6month_concept_id from concept_view where concept_full_name = '6-month assessment';
+            select concept_id into @other_concept_id from concept_view where concept_full_name = 'Other assessment';
+            select concept_id into @question_concept_id from concept_view where concept_full_name = 'Xray, Type of assessment';
+            update obs set value_coded = @other_concept_id where concept_id = @question_concept_id and voided = 0 and value_coded = @6month_concept_id;
+        </sql>
+    </changeSet>
 </databaseChangeLog>
