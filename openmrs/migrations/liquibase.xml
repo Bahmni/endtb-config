@@ -2376,5 +2376,34 @@
             select concept_id into @question_concept_id from concept_view where concept_full_name = 'Xray, Type of assessment';
             update obs set value_coded = @other_concept_id where concept_id = @question_concept_id and voided = 0 and value_coded = @6month_concept_id;
         </sql>
+    </changeSet>        
+    <changeSet id="ENDTB-201706201803" author="Sudhamsh, David">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult = "1">
+                SELECT 
+                    COUNT(*) != 0
+                FROM obs o
+                INNER JOIN
+                    concept_name cn ON cn.concept_id = o.concept_id            
+                WHERE
+                    cn.name = 'Specimen Id'
+                        AND cn.concept_name_type = 'FULLY_SPECIFIED'
+                        AND o.value_text IS NULL
+                        AND o.voided IS FALSE
+            </sqlCheck>
+        </preConditions>
+        <comment> </comment>
+        <sql>
+            UPDATE obs o
+            INNER JOIN
+                concept_name cn ON cn.concept_id = o.concept_id 
+            SET 
+                o.value_text = ''
+            WHERE
+                cn.name = 'Specimen Id'
+                    AND cn.concept_name_type = 'FULLY_SPECIFIED'
+                    AND o.value_text IS NULL
+                    AND o.voided IS FALSE
+        </sql>
     </changeSet>
 </databaseChangeLog>
